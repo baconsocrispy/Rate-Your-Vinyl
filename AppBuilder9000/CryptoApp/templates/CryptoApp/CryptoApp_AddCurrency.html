@@ -2,13 +2,15 @@
 
 {% block title %} Add Cryptocurrency {% endblock %}
 
+{% block header %}New Currency{% endblock %}
+
 {% block content %}
 
-    <div class="new-crypto-form">
+    <div class="cryptoapp-addcurrency--form">
         <form method="POST">
             {% csrf_token %}
-            {{ form }}
-            <button id="new-crypto-button" type="submit" name="Save_Crypto">Add Cryptocurrency</button>
+            {{ form.as_ul }}
+            <button class="cryptoapp-addcurrency--button" type="submit" name="Save_Crypto">Create Cryptocurrency</button>
         </form>
     </div>
 

@@ -1,7 +1,11 @@
 {% load static %}
 
-<div>
-    <a href="{% url 'CryptoApp_home' %}">Home</a> |
-    <a href="{% url 'CryptoApp_AddCurrency' %}">Add Currency</a> |
-    <a href="{% url 'CryptoApp_home' %}">Page 3</a>
+<div class="cryptoapp-nav--container">
+    <a class="cryptoapp-nav--link" href="{% url 'CryptoApp_home' %}">Home</a>
+    <a class="cryptoapp-nav--link" href="{% url 'CryptoApp_AddCurrency' %}">New Currency</a>
+    <a class="cryptoapp-nav--link" href="{% url 'CryptoApp_AddStatus' %}">New Coin Status</a>
+    <a class="cryptoapp-nav--link" href="{% url 'CryptoApp_display' %}">Summary Data</a>
+    <a class="cryptoapp-nav--link" href="{% url 'CryptoApp_trending' %}">Trending Coins</a>
+    <a class="cryptoapp-nav--link" href="{% url 'CryptoApp_lookup' %}">Coin Lookup</a>
 </div>
+<br>

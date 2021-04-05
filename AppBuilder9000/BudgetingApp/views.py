@@ -1,10 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-import datetime
 from .forms import BudgetForm, BudgetInfo
-# Create your views here.
-
+import requests
 
 def home(request):
     return render(request, 'BudgetingApp/BudgetingApp_home.html')
@@ -44,6 +40,7 @@ def details(request, pk):
     item = get_object_or_404(BudgetInfo, pk=pk)
     context = {'item': item}
     return render(request, 'BudgetingApp/BudgetingApp_details.html', context)
+
 
 
 

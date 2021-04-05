@@ -12,8 +12,7 @@ class Currency(models.Model):
     chain_name = models.CharField(max_length=60)
     coin_unit = models.CharField(max_length=60)
     chain_type = models.CharField(max_length=200, choices=chain_types)
-    # Will need some kind of guidance and controls on date entry fields
-    launch_year = models.IntegerField(default=0)
+    launch_date = models.DateField(auto_now=False, auto_now_add=False, default="2021-03-30")
 
     Currencies = models.Manager()
 
@@ -22,7 +21,8 @@ class Currency(models.Model):
 
 
 class CoinStatus(models.Model):
-    currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
+    # This field (one to one foreign key) is an object of the reference model class
+    currency = models.OneToOneField(Currency, on_delete=models.CASCADE)
     value = models.DecimalField(max_digits=20, decimal_places=6)
     as_of_date = models.DateField(auto_now=False, auto_now_add=False)
     supply = models.DecimalField(max_digits=20, decimal_places=2)
@@ -32,4 +32,4 @@ class CoinStatus(models.Model):
     CoinStatuses = models.Manager()
 
     def __str__(self):
-        return self.currency
+        return self.currency.chain_name

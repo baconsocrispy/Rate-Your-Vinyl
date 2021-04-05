@@ -2,34 +2,42 @@
 
 <!DOCTYPE html>
 
-<html>
+<html class="cryptoapp-base--html">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{% static 'css/CryptoApp.css' %}">
-        <!-- Placeholder for individual page titles -->
+        {# Placeholder for individual page titles #}
         <title>{% block title %}{% endblock %}</title>
     </head>
 
-    <header>
-        <!-- Inserting navbar from separate file -->
-        {% include "CryptoApp/CryptoApp_navbar.html" %}
-    </header>
 
-    <body>
-        <div class="cryptoapp-container">
-            <!-- Placeholder for individual page content -->
+    <body class="cryptoapp-base--body">
+
+        <header class="cryptoapp-base--header">
+            <nav>
+                {# Inserting navbar from separate file #}
+                {% include "CryptoApp/CryptoApp_navbar.html" %}
+            </nav>
+
+            {# Placeholder for uniform header #}
+            <h2 class="cryptoapp-base--h2">
+                {% block header %}{% endblock %}
+            </h2>
+        </header>
+
+
+        <div class="cryptoapp-base--container">
+            {# Placeholder for individual page content #}
             {% block content %}{% endblock %}
         </div>
 
-        <navbar>
 
-        </navbar>
-
-        <footer>
-            <!-- Link back to project main page -->
+        <footer class="cryptoapp-base--footer">
+            <br>
+            &#169; 2021 The Cryptocurrency App |
+            {# Link back to project main page #}
             <a href="{% url 'home' %}">Back to AppBuilder9000</a>
-            <p> &#169; 2021 The Cryptocurrency App</p>
         </footer>
 
     </body>
