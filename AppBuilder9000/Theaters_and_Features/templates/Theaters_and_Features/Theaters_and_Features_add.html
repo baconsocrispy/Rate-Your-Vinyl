@@ -1,0 +1,15 @@
+{% extends "Theaters_and_Features/Theaters_and_Features_base.html" %}
+
+{% block title %}Add a Theater{% endblock %}
+
+{% block content %}
+
+    <div id="Theater_Form">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button id="new_theater_btn" type="submit" name="Save_Theater">Save</button>
+        </form>
+    </div>
+
+{% endblock %}
