@@ -33,8 +33,17 @@ def details(request, pk):
     context = all_stocks
     return render(request, "StockApp/StockApp_Details.html", context)
 
-#   def detail(request):
-#      return render(request, "StockApp/StockApp_Details.html")
-# WatchStock.objects.filter(pk=pk)
-#
-#
+
+
+#def edit(request, pk):
+
+#    this_stock = get_object_or_404(WatchStock, pk=pk)
+
+def delete(request, pk):
+
+    obj = get_object_or_404(WatchStock, pk=pk)
+    if request.method == "POST":
+        obj.delete()
+        return render(request, "StockApp/StockApp_Delete.html")
+    return render(request, "StockApp/StockApp_home.html")
+

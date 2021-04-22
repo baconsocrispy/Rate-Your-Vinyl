@@ -6,3 +6,5 @@ class StockForm(ModelForm):
     class Meta:
         model = WatchStock
         fields = '__all__'
+
+
