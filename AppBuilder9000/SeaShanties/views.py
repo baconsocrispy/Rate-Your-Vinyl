@@ -26,3 +26,10 @@ def shantiesadd(request):
 def shantiesdisplay(request):
     songs = SeaShanties.objects.all()
     return render(request, 'SeaShanties/shanties_display.html', {'songs': songs})
+
+
+def shantiesdetails(request, pk):
+    pk = int(pk)
+    song = SeaShanties.objects.filter(pk=pk)
+    context = {'song': song}
+    return render(request, 'SeaShanties/shanties_details.html', context)

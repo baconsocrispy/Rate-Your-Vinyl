@@ -9,7 +9,7 @@ body {
     background-color: rgb(73, 64, 68);
 }
 
-* {
+p {
     color: beige;
     font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
     text-shadow: 2px 2px black;
@@ -22,8 +22,18 @@ h1, h2 {
     text-align: center;
     color: beige;
     text-shadow: 4px 4px black;
+    font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
+    font-weight: bold;
 }
 
+.lyricsDiv {
+    color: beige;
+    font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
+    text-shadow: 2px 2px black;
+    text-shadow: -2px -2px black;
+    font-weight: bold;
+    white-space: break-spaces;
+}
 
 /*******************************************************************************
 *                               NAVBAR STYLES                                  *
@@ -56,6 +66,12 @@ h1, h2 {
 /*******************************************************************************
 *                                FORM STYLES                                   *
 *******************************************************************************/
+
+input {
+    color: black;
+    font-family: Helvetica, sans-serif;
+    font-shadow: none;
+}
 
 .btn {
 	flex-grow: 2;
@@ -103,7 +119,6 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #355664;
-    color: white;
     border: 2px solid #b3b3b3;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
@@ -114,7 +129,7 @@ select {
 	width: 40%;
 	display: inline-block;
 	margin: 1% 0% 0 1%;
-	border: 2px solid silver;
+	border: 2px solid black;
     border-radius: 5px;
     box-shadow: 0 0 10px #E8E8E8 inset;
 }
@@ -134,9 +149,10 @@ label {
     width: 95%;
     text-align: left;
     margin: 1% 0 0 0;
-    color: black;
+    color: beige;
     line-height: 18px;
     font-size: 20px;
+    font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
 }
 
 .ShantiesForm {
@@ -145,11 +161,8 @@ label {
     align-items: center;
 }
 
-.ShantiesForm * {
-    color: beige;
+.ShantiesForm label {
     font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
-    text-shadow: 2px 2px black;
-    text-shadow: -2px -2px black;
     font-weight: bold;
 }
 
@@ -232,7 +245,26 @@ label {
 *                            DISPLAY TABLE STYLES                              *
 *******************************************************************************/
 
+table, th, td {
+    border: 2px solid silver;
+    background-color: darkslategray;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
+td {
+    color: beige;
+    font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
+}
+
+th {
+    color: beige;
+    font-family: "Source Code Pro", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
 
 /*******************************************************************************
 *                               EMBED FRAME                                    *

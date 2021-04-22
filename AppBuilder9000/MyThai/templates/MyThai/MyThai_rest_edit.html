@@ -5,7 +5,7 @@
 {% block content %}
 
     <div class="edit-container">
-        <form method="POST" action="../restaurant/edit">
+        <form method="POST" action="../edit/">
             <table>
                 {% csrf_token %}
                 {{ form.nonfield_errors }}
@@ -14,7 +14,7 @@
             <div class="edit-wrapper">
                 <input type="submit">
                 <div>
-                    <button class="delete-btn"><a href="../restaurant/delete">Delete</a></button>
+                    <button class="delete-btn"><a href="../delete/">Delete</a></button>
                     <button class="cancel-btn">Cancel</button>
                 </div>
             </div>
