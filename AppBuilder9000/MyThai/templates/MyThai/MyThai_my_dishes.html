@@ -56,7 +56,7 @@
                         Page {{ dishes.number }} of {{ dishes.paginator.num_pages }}.
                     </span>
 
-                    {% if contacts.has_next %}
+                    {% if dishes.has_next %}
                         <a href="?page={{ dishes.next_page_number }}">next</a>
                         <a href="?page={{ dishes.paginator.num_pages }}">last &raquo;</a>
                     {% endif %}

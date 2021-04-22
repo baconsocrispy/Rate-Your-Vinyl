@@ -141,7 +141,7 @@ header .highlight {
 }
 
 #intro h2, p {
-    padding: 0px 10px;
+    padding: 0 10px;
     align-self: center;
 }
 
@@ -150,6 +150,8 @@ header .highlight {
 .search-container{
     position: absolute;
     right: 0;
+    margin-right: 15px;
+    margin-left: 10px;
 }
 
 .search-wrapper {
@@ -168,9 +170,15 @@ header .highlight {
 }
 
 /*      ORDER BY        */
-.orderby-container{
+.orderby-container {
     position: relative;
     left: 0;
+    width: 50%;
+}
+
+.orderby-container form{
+    width: 25%;
+    text-align: center;
 }
 
 .orderby-wrapper {
@@ -179,8 +187,21 @@ header .highlight {
 }
 
 .orderby-wrapper input {
-    margin: 0 5px;
+    position: relative;
+    align-self: center;
+    margin: 5px 5px;
 }
+
+.orderby-wrapper input[type=submit] {
+    background-color: #253f3f;
+    color: #de3206;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: none;
+}
+
 
 /*      ADD DISH/RESTAURANT FORM STYLING        */
 #restaurant-form, #dish-form {
@@ -221,7 +242,7 @@ textarea, #id_restaurant {
 }
 
 form button {
-    background-color: #4CAF50;
+    background-color: #253f3f;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -232,9 +253,11 @@ form button {
     font-weight: bold;
 }
 
-#dish-form button {
+#dish-form button, #new-restaurant-btn {
     position: relative;
     float: left;
+    margin-top: 35px;
+    background-color: #4CAF50;
 }
 
 
@@ -304,18 +327,69 @@ td a:hover {
     background-color: #253f3f;
     color: #fff;
     width: 50%;
+    height: 300px;
     margin: 50px auto 50px auto;
     border-radius: 5px;
     border: rgba(249, 75, 30, .8)  1px solid;
     overflow-x: hidden;
 }
 
-.restaurant-details {
+.details-container button {
+    color: #fff;
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+
+.details-container a {
+    display: inline;
+    color: white;
+}
+
+.details-container p a {
+    padding: 5px;
+    margin: 15px;
+}
+
+.details-container button {
+    position: relative;
+    float: left;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.details-container p a:hover {
+    color: #4CAF50;
 
 }
 
-.dish-details {
+.details-container button a:hover {
+    color: red;
+}
 
+
+/*      EDIT PAGE       */
+.edit-container {
+    text-align: center;
+    width: 50%;
+    height: 300px;
+    margin: 50px auto 50px auto;
+}
+
+.edit-wrapper button {
+    float: left;
+}
+
+.edit-wrapper button:hover {
+    background-color: red;
+}
+
+.edit-wrapper button a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.edit-wrapper input {
+    margin: 10px 14px;
 }
 
 /*      MEDIA QUERIES       */
@@ -332,6 +406,41 @@ td a:hover {
         align-items: center;
         justify-content: center;
     }
+    .details-container {
+        height: 325px;
+    }
+}
+
+
+/*      CONFIRM DELETE          */
+.delete-container {
+    text-align: center;
+    background-color: #253f3f;
+    color: #fff;
+    width: 50%;
+    height: 300px;
+    margin: 50px auto 50px auto;
+    border-radius: 5px;
+    border: rgba(249, 75, 30, .8)  1px solid;
+    overflow-x: hidden;
+}
+
+.delete-wrapper {
+    display: inline-block;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.delete-wrapper button, .delete-wrapper input {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+}
+
+.delete-wrapper input {
+    margin-top: 9px;
 }
 /*      FOOTER    */
 footer {
