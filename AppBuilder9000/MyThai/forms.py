@@ -18,6 +18,6 @@ class DishForm(ModelForm):
 
 
 class SearchForm(forms.Form):
-    search_term = forms.CharField(label='Search for a restaurant', max_length=100)
+    search_term = forms.CharField(max_length=100)
 
 

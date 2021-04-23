@@ -89,6 +89,7 @@ def my_sorted(dish_list, my_sort):
 
 def details(request, pk):
     pk = int(pk)
+    # Get object with pk
     dish = get_object_or_404(Dish, pk=pk)
     context = {'dish': dish}
     return render(request, 'MyThai/MyThai_details.html', context)
@@ -124,6 +125,7 @@ def restaurant_edit(request, pk):
 
 
 def save_edit(form):
+    # Save valid forms, else print errors.
     if form.is_valid():
         form = form.save(commit=False)
         form.save()
@@ -172,52 +174,61 @@ def restaurant_confirmed(request):
 
 
 def restaurant_search(request):
-    context = {'form': SearchForm()}
-    print(context)
+    # Pass form to search view
+    context = {'form': SearchForm}
     return render(request, 'MyThai/MyThai_api_search.html', context)
 
 
-
 def restaurant_results(request):
+    # API documentation
+    # https://www.yelp.com/developers/documentation/v3/business_search
     API_KEY = 'QEFNe77PDTdEruX0EeI91uyTUrJg4NG0guiDraZ8pFkyeED1XUTvlv1zTcOgYmoTVxxHCGCMGUVQs5XRwxM4CxOrUTBjECcZTwsMwF3phWshUH_tdRL4hDseyaqBYHYx'
     location = 'Portland, OR'
 
     if request.method == 'POST':
+        # Get user's search input from SearchForm
         form = SearchForm(request.POST or None)
         if form.is_valid():
-            term = form.cleaned_data['search_term']
+            # Return search_term from form as dict, store as term
+            term = form.data['search_term']
             response = api_search(API_KEY, term, location)
 
+            # Write response to temp file
             f = open("MyThai/static/temp/temp.txt", "w")
-            f.write(json.dumps(response, indent=2))
+            f.write(json.dumps(response, indent=3))
             f.close()
         else:
             return redirect('MyThai_search')
-    return render(request, 'MyThai/MyThai_api_results.html')
+    return render(request, 'MyThai/MyThai_api_results.html', {'response': response})
 
 
 def api_search(api_key, term, location):
+    # API search params
     API_HOST = 'https://api.yelp.com'
     SEARCH_PATH = '/v3/businesses/search'
     SEARCH_LIMIT = 10
+    SEARCH_CATEGORY = 'Thai'
+    # URL search params as dict
     url_params = {
-        'term': term.replace(' ', '+'),
+        'term': term.replace(' ', '+'),             # Remove spaces from params
         'location': location.replace(' ', '+'),
-        'limit': SEARCH_LIMIT
+        'limit': SEARCH_LIMIT,
+        'categories': SEARCH_CATEGORY,
     }
 
     return api_request(API_HOST, SEARCH_PATH, api_key, url_params=url_params)
 
 
 def api_request(host, path, api_key, url_params=None):
+    # If url_params is None store empty dict
     url_params = url_params or {}
+    # Combine host and path to make url
     url = '{}{}'.format(host, quote(path.encode('utf8')))
-
+    # Authorization header for API
     headers = {
         'Authorization': 'Bearer %s' % api_key,
     }
-    print(headers)
+    # Construct API get request
     response = requests.request('GET', url, headers=headers, params=url_params)
-    print(response)
-
+    # Return dict response as json
     return response.json()
