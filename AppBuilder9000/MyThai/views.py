@@ -200,9 +200,19 @@ def restaurant_results(request):
             term = form.cleaned_data['search_term']
             response = api_search(API_KEY, term)
             search_data = response.json()
-            pprint.pprint(search_data, indent=3)
 
-            context = {'businesses': search_data['id']}
+            search_businesses = search_data['businesses'][0]
+            business_location = search_businesses['location']
+            pprint.pprint(search_businesses, indent=3)
+
+            context = {'name': search_businesses['name'],
+                       'display_phone': search_businesses['display_phone'],
+                       'rating': search_businesses['rating'],
+                       'is_closed': search_businesses['is_closed'],
+                       'address1': business_location['address1'],
+                       'city': business_location['city'],
+                       'zip_code': business_location['zip_code']
+                       }
 
             return render(request, 'MyThai/MyThai_api_results.html', context)
 
@@ -223,7 +233,7 @@ def api_search(api_key, term):
         'term': term.replace(' ', '+'),             # Remove spaces from params
         'location': SEARCH_LOCATION.replace(' ', '+'),
         'limit': SEARCH_LIMIT,
-        'categories': SEARCH_CATEGORY,
+        'categories': SEARCH_CATEGORY
     }
 
     return api_request(API_HOST, SEARCH_PATH, api_key, url_params=url_params)
