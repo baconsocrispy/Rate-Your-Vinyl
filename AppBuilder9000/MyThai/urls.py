@@ -14,5 +14,6 @@ urlpatterns = [
     path('<int:pk>/restaurant/edit/', views.restaurant_edit, name="MyThai_rest_edit"),
     path('<int:pk>/restaurant/delete/', views.restaurant_delete, name="MyThai_rest_delete"),
     path('dish_deleted', views.dish_confirmed, name="MyThai_dish_confirmed"),
-    path('search/', views.)
+    path('search/', views.restaurant_search, name="MyThai_restaurant_search"),
+    path('results/', views.restaurant_results, name="MyThai_results"),
 ]

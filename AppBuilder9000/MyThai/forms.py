@@ -12,7 +12,12 @@ class RestaurantForm(ModelForm):
 class DishForm(ModelForm):
     description = forms.CharField(widget=forms.Textarea)
 
-
     class Meta:
         model = Dish
         fields = '__all__'
+
+
+class SearchForm(forms.Form):
+    search_term = forms.CharField(label='Search for a restaurant', max_length=100)
+
+

@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RestaurantForm, DishForm
+from .forms import RestaurantForm, DishForm, SearchForm
 from .models import Restaurant, Dish
 from operator import attrgetter
 import argparse
@@ -13,6 +13,7 @@ import urllib
 from urllib.error import HTTPError
 from urllib.parse import quote
 from urllib.parse import urlencode
+
 
 
 def MyThai_home(request):
@@ -170,74 +171,53 @@ def restaurant_confirmed(request):
             return redirect('MyThai_my_restaurants')
 
 
-def api_page(request):
-    DEFAULT_TERM = 'thai'
-    DEFAULT_LOCATION = 'Portland, OR'
-    input_values = ''
-    try:
-        query_api(input_values.term, input_values.location)
-    except HTTPError as error:
-        sys.exit(
-            'Encountered HTTP error {0} on {1}:\n {2}\nAbort program.'.format(
-                error.code,
-                error.url,
-                error.read(),
-            )
-        )
-    return render(request, 'MyThai_api.html', {})
+def restaurant_search(request):
+    context = {'form': SearchForm()}
+    print(context)
+    return render(request, 'MyThai/MyThai_api_search.html', context)
 
 
-def api_request(host, path, api_key, url_params=None):
-    url_params = url_params or {}
-    url = '{}{}'.format(host, quote(path.encode('utf8')))
-    headers = {
-        'Authorization': 'Bearer%s' % api_key,
-    }
 
-    print('Querying {} ...'.format(url))
+def restaurant_results(request):
+    API_KEY = 'QEFNe77PDTdEruX0EeI91uyTUrJg4NG0guiDraZ8pFkyeED1XUTvlv1zTcOgYmoTVxxHCGCMGUVQs5XRwxM4CxOrUTBjECcZTwsMwF3phWshUH_tdRL4hDseyaqBYHYx'
+    location = 'Portland, OR'
 
-    response = requests.request('GET', url, headers=headers, params=url_params)
+    if request.method == 'POST':
+        form = SearchForm(request.POST or None)
+        if form.is_valid():
+            term = form.cleaned_data['search_term']
+            response = api_search(API_KEY, term, location)
 
-    return response.json()
-
-
-def get_business(api_key, business_id):
-    API_HOST = 'https://api.yelp.com'
-    BUSINESS_PATH = '/v3/businesses/'
-
-    business_path = BUSINESS_PATH + business_id
-
-    return api_request(API_HOST, business_path, api_key)
+            f = open("MyThai/static/temp/temp.txt", "w")
+            f.write(json.dumps(response, indent=2))
+            f.close()
+        else:
+            return redirect('MyThai_search')
+    return render(request, 'MyThai/MyThai_api_results.html')
 
 
 def api_search(api_key, term, location):
     API_HOST = 'https://api.yelp.com'
     SEARCH_PATH = '/v3/businesses/search'
     SEARCH_LIMIT = 10
-
     url_params = {
         'term': term.replace(' ', '+'),
         'location': location.replace(' ', '+'),
         'limit': SEARCH_LIMIT
     }
+
     return api_request(API_HOST, SEARCH_PATH, api_key, url_params=url_params)
 
 
-def query_api(term, location):
-    API_KEY = 'QEFNe77PDTdEruX0EeI91uyTUrJg4NG0guiDraZ8pFkyeED1XUTvlv1zTcOgYmoTVxxHCGCMGUVQs5XRwxM4CxOrUTBjECcZTwsMwF3phWshUH_tdRL4hDseyaqBYHYx '
+def api_request(host, path, api_key, url_params=None):
+    url_params = url_params or {}
+    url = '{}{}'.format(host, quote(path.encode('utf8')))
 
-    response = api_search(API_KEY, term, location)
-    businesses = response.get('businesses')
+    headers = {
+        'Authorization': 'Bearer %s' % api_key,
+    }
+    print(headers)
+    response = requests.request('GET', url, headers=headers, params=url_params)
+    print(response)
 
-    if not businesses:
-        print('No businesses for {} in {} found.'.format(term, location))
-        return
-
-    business_id = businesses[0]['id']
-
-    print('{} businesses found, querying business info for top result "{}" ...'.format(
-        len(businesses), business_id))
-    response = get_business(API_KEY, business_id)
-
-    print('Result for business "{}" found:'.format(business_id))
-    pprint.pprint(response, indent=2)
+    return response.json()
