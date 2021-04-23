@@ -31,7 +31,7 @@ FOOD_TYPES = [
 class Theaters(models.Model):
     Name = models.CharField(max_length=40)
     Address = models.CharField(max_length=80)
-    Phone = models.IntegerField(max_length=15)
+    Phone = models.IntegerField()
     MovieType = models.CharField(max_length=10, choices=MOVIE_TYPES)
     SeatType = models.CharField(max_length=10, choices=SEAT_TYPES)
     HasAlcohol = models.CharField(max_length=10, choices=HAS_ALCOHOL)

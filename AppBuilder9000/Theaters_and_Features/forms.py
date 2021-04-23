@@ -4,8 +4,6 @@ from .models import Theaters
 
 
 class TheaterForm(ModelForm):
-    description = forms.CharField(widget=forms.Textarea)
-
     class Meta:
         model = Theaters
         fields = '__all__'
