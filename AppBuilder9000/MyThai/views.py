@@ -180,38 +180,48 @@ def restaurant_search(request):
 
 
 def restaurant_results(request):
-    # API documentation
-    # https://www.yelp.com/developers/documentation/v3/business_search
+    """
+    API documentation
+    https://www.yelp.com/developers/documentation/v3/business_search
+
+    *   REMOVE API_KEY  *
+    -Store in settings.py
+    -Use decouple
+    Do NOT release API key
+    """
     API_KEY = 'QEFNe77PDTdEruX0EeI91uyTUrJg4NG0guiDraZ8pFkyeED1XUTvlv1zTcOgYmoTVxxHCGCMGUVQs5XRwxM4CxOrUTBjECcZTwsMwF3phWshUH_tdRL4hDseyaqBYHYx'
-    location = 'Portland, OR'
 
     if request.method == 'POST':
         # Get user's search input from SearchForm
         form = SearchForm(request.POST or None)
-        if form.is_valid():
-            # Return search_term from form as dict, store as term
-            term = form.data['search_term']
-            response = api_search(API_KEY, term, location)
 
-            # Write response to temp file
-            f = open("MyThai/static/temp/temp.txt", "w")
-            f.write(json.dumps(response, indent=3))
-            f.close()
+        if form.is_valid():
+            # Return term from form as dict, store as term
+            term = form.cleaned_data['search_term']
+            response = api_search(API_KEY, term)
+            search_data = response.json()
+            pprint.pprint(search_data, indent=3)
+
+            context = {'businesses': search_data['id']}
+
+            return render(request, 'MyThai/MyThai_api_results.html', context)
+
         else:
             return redirect('MyThai_search')
-    return render(request, 'MyThai/MyThai_api_results.html', {'response': response})
 
 
-def api_search(api_key, term, location):
-    # API search params
+def api_search(api_key, term):
+    # API search path params
     API_HOST = 'https://api.yelp.com'
     SEARCH_PATH = '/v3/businesses/search'
-    SEARCH_LIMIT = 10
+    SEARCH_LIMIT = 1
     SEARCH_CATEGORY = 'Thai'
+    SEARCH_LOCATION = 'Portland, OR'
+
     # URL search params as dict
     url_params = {
         'term': term.replace(' ', '+'),             # Remove spaces from params
-        'location': location.replace(' ', '+'),
+        'location': SEARCH_LOCATION.replace(' ', '+'),
         'limit': SEARCH_LIMIT,
         'categories': SEARCH_CATEGORY,
     }
@@ -231,4 +241,4 @@ def api_request(host, path, api_key, url_params=None):
     # Construct API get request
     response = requests.request('GET', url, headers=headers, params=url_params)
     # Return dict response as json
-    return response.json()
+    return response
