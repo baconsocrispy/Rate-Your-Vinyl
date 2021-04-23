@@ -6,7 +6,7 @@
 <div>
     <ul>
         <div id="content" class="grid-container" >
-
+        {% csrf_token %}
         {% for item in all_stocks %}
             <div id="content" >
             <br>

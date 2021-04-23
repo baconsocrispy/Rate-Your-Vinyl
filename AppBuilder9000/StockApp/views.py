@@ -34,16 +34,31 @@ def details(request, pk):
     return render(request, "StockApp/StockApp_Details.html", context)
 
 
+#def delete(request, pk):
+#    obj = get_object_or_404(WatchStock, pk=pk)
+#    if request.method == "POST":
+#        obj.delete()
+#        return redirect(request, "StockApp/StockApp_Delete.html")
+#    return render(request, "StockApp/StockApp_home.html")
 
-#def edit(request, pk):
 
-#    this_stock = get_object_or_404(WatchStock, pk=pk)
+def confirm(request, pk):
+    this_stock = get_object_or_404(WatchStock, pk=pk)
+    context = {"this_stock": this_stock}
+    if request.method == 'POST':
+        form = StockForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect("StockApp_Watchlist")
+    else:
+        return render(request, "StockApp/StockApp_confirm.html", context)
 
-def delete(request, pk):
 
-    obj = get_object_or_404(WatchStock, pk=pk)
-    if request.method == "POST":
-        obj.delete()
-        return render(request, "StockApp/StockApp_Delete.html")
-    return render(request, "StockApp/StockApp_home.html")
-
+def edit(request, pk):
+    if request.method == 'POST':
+        form = StockForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            return render(request, "StockApp/StockApp_edit.html", pk)
+    else:
+        return render(request, "StockApp/StockApp_home.html")

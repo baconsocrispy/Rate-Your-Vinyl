@@ -11,10 +11,11 @@
         <h2>Confirm Delete</h2>
         <p>Are you sure you would like to delete "{{this_stock.name}}" from the database?</p>
 
-        {{ item.as_p }}
+        {{ this_stock.as_p }}
 
-        <input type="submit" value="Yes, delete it!" class="btn">
-        <ul><a href="{% url 'StockApp/StockApp_home' pk=item.pk  %}">Cancel</a></ul>
+        <button type="submit" ><a href="{%url 'StockApp_confirm' pk=this_stock.pk %}"> Delete</a></button>
+        <button type="submit"><a href="{%url 'StockApp_home'  %}"> cancel</a></button>
+
     </form>
 
 
