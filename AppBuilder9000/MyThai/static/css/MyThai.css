@@ -124,7 +124,7 @@ header .highlight {
 
 /*      HOMEPAGE        */
 .container-homepage {
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 30px;
     display: flex;
     justify-content: center;
@@ -207,7 +207,7 @@ header .highlight {
 #restaurant-form, #dish-form {
     background-color: #253f3f;
     color: #fff;
-    width: 80%;
+    width: 400px;
     margin: 50px auto 50px auto;
     border-radius: 5px;
     border: rgba(249, 75, 30, .8)  1px solid;
@@ -234,6 +234,7 @@ form input[type=submit] {
 
 textarea {
     resize: none;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 form input[type=text], input[type=number], #id_dishType,
@@ -392,25 +393,6 @@ td a:hover {
     margin: 10px 14px;
 }
 
-/*      MEDIA QUERIES       */
-@media(max-width: 768px) {
-    header #brand, header nav,
-    header nav li, header .dropdown-content{
-        float: none;
-        text-align: center;
-        width:100%;
-    }
-    header nav a, header nav li {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-    }
-    .details-container {
-        height: 325px;
-    }
-}
-
 
 /*      CONFIRM DELETE          */
 .delete-container {
@@ -442,6 +424,43 @@ td a:hover {
 .delete-wrapper input {
     margin-top: 9px;
 }
+
+
+/*      SEARCH      */
+.search-form {
+    background-color: #253f3f;
+    color: #fff;
+    width: 400px;
+    margin: 50px auto 50px auto;
+    border-radius: 5px;
+    border: rgba(249, 75, 30, .8)  1px solid;
+    overflow-x: hidden;
+}
+
+.search-form button {
+    background-color: #4CAF50;
+}
+
+.search-form button {
+    background-color: #4CAF50;
+}
+
+
+/*      RESULTS     */
+.api-results {
+    background-color: #253f3f;
+    color: #fff;
+    width: 400px;
+    margin: 50px auto 50px auto;
+    border-radius: 5px;
+    text-align: center;
+    border: rgba(249, 75, 30, .8)  1px solid;
+}
+
+.api-results ul {
+    margin-bottom: 15px;
+}
+
 /*      FOOTER    */
 footer {
     position: fixed;
@@ -458,4 +477,30 @@ footer {
 footer a {
     color: #253f3f;
     text-decoration: none;
+}
+
+
+/*      MEDIA QUERIES       */
+@media(max-width: 768px) {
+    header #brand, header nav,
+    header nav li, header .dropdown-content {
+        float: none;
+        text-align: center;
+        width:100%;
+    }
+    header nav a, header nav li {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .details-container {
+        height: 325px;
+    }
+    .container-homepage {
+        margin-bottom: 50px;
+    }
+    #brand a {
+        margin-left: 38px;
+    }
 }
