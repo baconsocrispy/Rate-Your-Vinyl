@@ -10,7 +10,7 @@
         <div id="content" class="grid-container" >
 
             <div id="content" >
-            <br>
+            <br>{% csrf_token %}
                 <ul>Stock: {{ this_stock.name }}</ul>
                 <ul>Market Cap:{{ this_stock.market_cap }}</ul>
                 <ul>Time Checked: {{ this_stock.time_stamp }}</ul>
@@ -26,5 +26,5 @@
         </div>
     </ul>
 </div>
-{% csrf_token %}
+
 {% endblock %}

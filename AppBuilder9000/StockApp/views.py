@@ -34,31 +34,33 @@ def details(request, pk):
     return render(request, "StockApp/StockApp_Details.html", context)
 
 
-#def delete(request, pk):
-#    obj = get_object_or_404(WatchStock, pk=pk)
-#    if request.method == "POST":
-#        obj.delete()
-#        return redirect(request, "StockApp/StockApp_Delete.html")
-#    return render(request, "StockApp/StockApp_home.html")
-
-
 def confirm(request, pk):
+    pk = int(pk)
     this_stock = get_object_or_404(WatchStock, pk=pk)
     context = {"this_stock": this_stock}
     if request.method == 'POST':
-        form = StockForm(request.POST or None)
-        if form.is_valid():
-            form.delete()
-            return redirect("StockApp_Watchlist")
-    else:
-        return render(request, "StockApp/StockApp_confirm.html", context)
+        this_stock.delete()
+        return redirect("StockApp_Watchlist")
+    return render(request, "StockApp/StockApp_confirm.html", context)
 
 
 def edit(request, pk):
+    pk = int(pk)
+    this_stock = get_object_or_404(WatchStock, pk=pk)
+    form = StockForm(data=request.POST or None, instance=this_stock)
     if request.method == 'POST':
-        form = StockForm(request.POST or None)
         if form.is_valid():
-            form.save()
-            return render(request, "StockApp/StockApp_edit.html", pk)
+            save_form(form)
+            return redirect('StockApp_Watchlist')
+    return render(request, 'StockApp/StockApp_edit.html', {'form': form})
+
+
+def save_form(form):
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.save()
     else:
-        return render(request, "StockApp/StockApp_home.html")
+        print(form.errors)
+
+
+

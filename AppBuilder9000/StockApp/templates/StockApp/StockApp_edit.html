@@ -4,13 +4,12 @@
 
 {% block content %}
 
-	<h3>Edit A Stock</h3>
+	<h3>Edit {{ this_stock }} Stock</h3>
 	<div id="Add-Form">
 		<form id="form" method="POST" action="">
-			{{form.as_p}}
 			{% csrf_token %}
-
-			<button id="new-stock" type="submit" name="new">Add A Stock</button>
+			{{form.as_p}}
+			<button id="save-stock" type="submit" name="edit">Save </button>
 		</form>
 	</div>
 
