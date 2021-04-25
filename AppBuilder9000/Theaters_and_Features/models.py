@@ -32,10 +32,10 @@ class Theaters(models.Model):
     Name = models.CharField(max_length=40)
     Address = models.CharField(max_length=80)
     Phone = models.IntegerField()
-    MovieType = models.CharField(max_length=10, choices=MOVIE_TYPES)
-    SeatType = models.CharField(max_length=10, choices=SEAT_TYPES)
-    HasAlcohol = models.CharField(max_length=10, choices=HAS_ALCOHOL)
-    Food = models.CharField(max_length=10, choices=FOOD_TYPES)
+    MovieType = models.CharField(max_length=20, choices=MOVIE_TYPES)
+    SeatType = models.CharField(max_length=20, choices=SEAT_TYPES)
+    HasAlcohol = models.CharField(max_length=20, choices=HAS_ALCOHOL)
+    Food = models.CharField(max_length=20, choices=FOOD_TYPES)
 
     objects = models.Manager()
 

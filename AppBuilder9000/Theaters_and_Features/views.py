@@ -7,16 +7,16 @@ def Theater_home(request):
 
 
 def new_Theater(request):
-    form = TheaterForm(data=request.POST or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('Theaters_and_Features_home')
-        else:
-            content = {'form': form}
-            return render(request, 'Theaters_and_Features/Theaters_and_Features_add.html', content)
-    content = {'form': form}
-    return render(request, 'Theaters_and_Features/Theaters_and_Features_add.html', content)
+    form = TheaterForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('new_Theater')
+    else:
+        print(form.errors)
+        form = TheaterForm()
+    context = {'form': form,}
+    return render(request, 'Theaters_and_Features/Theaters_and_Features_add.html', context)
+
 
 
 
