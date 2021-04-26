@@ -22,9 +22,9 @@ def new_Theater(request):
 
 
 def find_Theater(request):
-    all_theaters = Theaters.objects.all()
-    content = {'all_theaters': all_theaters}
-    return render(request, 'Theaters_and_Features/Theaters_and_Features_find.html')
+    all_theaters = Theaters.objects.all
+    context = { 'all_theaters': all_theaters }
+    return render(request, 'Theaters_and_Features/Theaters_and_Features_find.html', context)
 
 
 
