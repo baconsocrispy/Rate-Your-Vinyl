@@ -11,11 +11,15 @@ def new_Theater(request):
     if form.is_valid():
         form.save()
         return redirect('new_Theater')
-    else:
-        print(form.errors)
-        form = TheaterForm()
+    #else:
+        #print(form.errors)
+        #form = TheaterForm()
     context = {'form': form,}
     return render(request, 'Theaters_and_Features/Theaters_and_Features_add.html', context)
+
+
+def find_Theater(request):
+    return render(request, 'Theaters_and_Features/Theaters_and_Features_find.html')
 
 
 

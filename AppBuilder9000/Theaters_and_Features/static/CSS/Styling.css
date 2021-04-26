@@ -53,13 +53,16 @@ html, body {
     border: 1px solid black;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
     border-radius: 10px;
+
 }
 
 .ContainerForm {
     display: block;
     text-align: center;
+    color: #FFFFFF;
     width: 80%;
     margin: 0 auto;
+
 }
 
 input[type="text"] {
@@ -78,7 +81,7 @@ input[type="submit"] {
     cursor: pointer;
     width: 26%;
     background-color: #191970;
-    color: white;
+    color: #FFFFFF;  
     margin: 8px 0;
     padding: 10px 10px;
     border-radius: 4px;
