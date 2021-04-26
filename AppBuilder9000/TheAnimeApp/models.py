@@ -18,6 +18,7 @@ Rating_Choices = (
 class Review(models.Model):
     AnimeName = models.CharField(max_length=100)
     Genre = models.CharField(max_length=100)
+    About = models.TextField(max_length=500, default="about")
     Rating = models.CharField(max_length=20)
     Review = models.TextField(max_length=500)
 
@@ -27,7 +28,7 @@ class Review(models.Model):
     objects = models.Manager()
 
 
-class Person(models.Model):
-    review = models.ForeignKey(Review, on_delete=models.CASCADE)
-    username = models.CharField(max_length=10)
-    passwd = models.CharField(max_length=20)
+
+
+
+
