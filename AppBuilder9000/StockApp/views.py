@@ -33,8 +33,34 @@ def details(request, pk):
     context = all_stocks
     return render(request, "StockApp/StockApp_Details.html", context)
 
-#   def detail(request):
-#      return render(request, "StockApp/StockApp_Details.html")
-# WatchStock.objects.filter(pk=pk)
-#
-#
+
+def confirm(request, pk):
+    pk = int(pk)
+    this_stock = get_object_or_404(WatchStock, pk=pk)
+    context = {"this_stock": this_stock}
+    if request.method == 'POST':
+        this_stock.delete()
+        return redirect("StockApp_Watchlist")
+    return render(request, "StockApp/StockApp_confirm.html", context)
+
+
+def edit(request, pk):
+    pk = int(pk)
+    this_stock = get_object_or_404(WatchStock, pk=pk)
+    form = StockForm(data=request.POST or None, instance=this_stock)
+    if request.method == 'POST':
+        if form.is_valid():
+            save_form(form)
+            return redirect('StockApp_Watchlist')
+    return render(request, 'StockApp/StockApp_edit.html', {'form': form})
+
+
+def save_form(form):
+    if form.is_valid():
+        form = form.save(commit=False)
+        form.save()
+    else:
+        print(form.errors)
+
+
+
