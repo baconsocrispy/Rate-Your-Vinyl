@@ -2,7 +2,24 @@
 {% block title %}Find a Theater{% endblock %}
 {% block header %} Search for a Theater {% endblock %}
 {% block content %}
-
+    <table>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Movies</th>
+                <th>Seats</th>
+                <th>Alcohol</th>
+                <th>Food</th>
+            </tr>
+            {% for theater in all_theaters %}
+            <tr>
+                <td>{{ theater.Name }}</td>
+                <td>{{ theater.Address }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
 
 {% endblock %}

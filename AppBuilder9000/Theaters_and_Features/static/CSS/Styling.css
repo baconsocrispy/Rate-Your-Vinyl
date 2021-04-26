@@ -81,7 +81,7 @@ input[type="submit"] {
     cursor: pointer;
     width: 26%;
     background-color: #191970;
-    color: #FFFFFF;  
+    color: #FFFFFF;
     margin: 8px 0;
     padding: 10px 10px;
     border-radius: 4px;
@@ -108,7 +108,7 @@ table {
 th {
     height: 50px;
     text-align: left;
-    background-color: #008080;
+    background-color: #8B0000;
     color: white;
 }
 
@@ -140,7 +140,7 @@ td:hover {
 }
 
 .footer, .page_wrap:after{
-    height: 100px;
+    height: 75px;
 }
 
 .footer {
