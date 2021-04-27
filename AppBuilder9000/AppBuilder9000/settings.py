@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'StockApp',
     'Theaters_and_Features',
     'TheAnimeApp',
+    'BaseballCards',
 ]
 
 MIDDLEWARE = [
