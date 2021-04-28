@@ -14,7 +14,7 @@
             </tr>
             {% for theater in all_theaters %}
             <tr>
-                <td><a href="{% url 'Theater_details' theater.id %}">{{ theater.Theaters_Name }}</a></td>
+                <td><a href="{% url 'Theater_details' theater.id %}">{{ theater.Name }}</a></td>
             </tr>
             {% endfor %}
     </table>
