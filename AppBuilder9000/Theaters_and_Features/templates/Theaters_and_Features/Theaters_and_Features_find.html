@@ -5,26 +5,20 @@
     <table>
             <tr>
                 <th>Name</th>
-                <th>Address</th>
+                <!-- <th>Address</th>
                 <th>Phone</th>
                 <th>Movies</th>
                 <th>Seats</th>
                 <th>Alcohol</th>
-                <th>Food</th>
+                <th>Food</th> -->
             </tr>
-            {% for Theaters in all_theaters %}
+            {% for theater in all_theaters %}
             <tr>
-                <td>{{ Theaters.Name }}</td>
-                <td>{{ Theaters.Address }}</td>
-                <td>{{ Theaters.Phone }}</td>
-                <td>{{ Theaters.MovieType }}</td>
-                <td>{{ Theaters.SeatType }}</td>
-                <td>{{ Theaters.HasAlcohol }}</td>
-                <td>{{ Theaters.Food }}</td>
+                <td><a href="{% url 'Theater_details' theater.id %}">{{ theater.Theaters_Name }}</a></td>
             </tr>
             {% endfor %}
-        </table>
-    </div>
+    </table>
+
 
 
 {% endblock %}

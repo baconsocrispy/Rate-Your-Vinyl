@@ -1,0 +1,29 @@
+{% extends "Theaters_and_Features/Theaters_and_Features_base.html" %}
+{% block title %}Theater Details{% endblock %}
+{% block header %}Theater features and details {% endblock %}
+{% block content %}
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Movie Type</th>
+            <th>Seat Type</th>
+            <th>Beverages</th>
+            <th>Concessions</th>
+
+
+        </tr>
+        <tr>
+            <td>{{ get_theaters.Name }}</a></td>
+            <td>{{ get_theaters.Address }}</td>
+            <td>{{ get_theaters.Phone }}</td>
+            <td>{{ get_theaters.MovieType }}</td>
+            <td>{{ get_theaters.SeatType }}</td>
+            <td>{{ get_theaters.HasAlcohol }}</td>
+            <td>{{ get_theaters.Food }}</td>
+        </tr>
+    </table>
+
+{% endblock %}
