@@ -15,15 +15,17 @@
 
 
         </tr>
+        {% for Theater in get_theaters %}
         <tr>
-            <td>{{ get_theaters.Name }}</a></td>
-            <td>{{ get_theaters.Address }}</td>
-            <td>{{ get_theaters.Phone }}</td>
-            <td>{{ get_theaters.MovieType }}</td>
-            <td>{{ get_theaters.SeatType }}</td>
-            <td>{{ get_theaters.HasAlcohol }}</td>
-            <td>{{ get_theaters.Food }}</td>
+            <td>{{ Theater.Name }}</a></td>
+            <td>{{ Theater.Address }}</td>
+            <td>{{ Theater.Phone }}</td>
+            <td>{{ Theater.MovieType }}</td>
+            <td>{{ Theater.SeatType }}</td>
+            <td>{{ Theater.HasAlcohol }}</td>
+            <td>{{ Theater.Food }}</td>
         </tr>
+        {% endfor %}
     </table>
 
 {% endblock %}
