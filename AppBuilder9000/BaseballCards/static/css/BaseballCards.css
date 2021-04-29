@@ -1,0 +1,21 @@
+/********************************************************
+*                    NavBar                             *
+********************************************************/
+
+/********************************************************
+*                    End NavBar                         *
+********************************************************/
+
+
+
+
+body {
+    background-image: url("/static/images/BaseballCards.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+p {
+    font-color: red;
+}

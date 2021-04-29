@@ -32,6 +32,8 @@ urlpatterns = [
     path('StockApp/', include('StockApp.urls')),
     path('Theaters_and_Features/', include('Theaters_and_Features.urls')),
     path('TheAnimeApp/', include('TheAnimeApp.urls')),
+    path('BaseballCards/', include('BaseballCards.urls')),
+    path('CharacterApp/', include('CharacterApp.urls')),
     path('TrackApp/', include('TrackApp.urls')),
 ]
 
