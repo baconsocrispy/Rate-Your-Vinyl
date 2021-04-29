@@ -9,7 +9,7 @@
 
 /* navbar styles */
 .navbar {
-    background-color: #00008B;
+    background-color: #2E8B57;
     overflow: hidden;
 }
 
@@ -23,20 +23,20 @@
 }
 
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: #008000;
     color: black;
 }
 
 /* general styles */
 html, body {
-    height: 100%
+    height: 80%
 }
 
 .header_style {
     display: block;
     padding: 60px;
     text-align: center;
-    background-color: #008080;
+    background-color: lightblue;
     color: white;
     border-radius: 4px;
 }
@@ -47,7 +47,7 @@ html, body {
     margin: 0 auto;
     margin-top: 50px;
     width: 50%;
-    height: 80%;
+    height: 50%;
     background-color: gray;
     border: 1px solid black;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
