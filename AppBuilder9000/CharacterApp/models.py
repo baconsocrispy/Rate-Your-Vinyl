@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-TYPE_RACES = {
+TYPE_RACES = [
     ('Orc', 'Orc'),
     ('Troll', 'Troll'),
     ('Undead', 'Undead'),
@@ -10,13 +10,13 @@ TYPE_RACES = {
     ('Night Elf', 'Night Elf'),
     ('Gnome', 'Gnome'),
     ('Dranei', 'Dranei'),
-}
+]
 
-TYPE_GENDER = {
+TYPE_GENDER = [
     ('Male', 'Male'),
     ('Female', 'Female'),
     ('Other', 'Other'),
-}
+]
 
 
 class Character_create(models.Model):
