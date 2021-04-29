@@ -5,6 +5,7 @@
 
     <table>
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Address</th>
             <th>Phone Number</th>
@@ -15,7 +16,8 @@
         </tr>
         {% for Theater in get_theaters %}
         <tr>
-            <td><a href="{% url 'edit_details' Theater.id %}">{{ Theater.Name }}</a></td>
+            <td><a href="{% url 'edit_details' Theater.id %}">EDIT</a></td>
+            <td>{{ Theater.Name }}</td>
             <td>{{ Theater.Address }}</td>
             <td>{{ Theater.Phone }}</td>
             <td>{{ Theater.MovieType }}</td>
