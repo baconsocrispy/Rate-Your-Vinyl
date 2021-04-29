@@ -1,12 +1,11 @@
 {% extends "Theaters_and_Features/Theaters_and_Features_base.html" %}
 
-{% block title %}Add a Theater{% endblock %}
-
+{% block title %} Add a Theater {% endblock %}
+{% block header %} Add a Theater and its Features {% endblock %}
 {% block content %}
 
     <div class="FormContainer">
         <div class="ContainerForm">
-            <h2>Add a Theater and its Features</h2>
             <form method="POST">
                 {% csrf_token %}
                 {{form.as_p}}
