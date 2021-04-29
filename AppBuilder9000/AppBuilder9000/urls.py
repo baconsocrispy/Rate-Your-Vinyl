@@ -34,6 +34,7 @@ urlpatterns = [
     path('TheAnimeApp/', include('TheAnimeApp.urls')),
     path('BaseballCards/', include('BaseballCards.urls')),
     path('CharacterApp/', include('CharacterApp.urls')),
+    path('TrackApp/', include('TrackApp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

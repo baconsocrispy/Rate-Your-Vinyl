@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'TheAnimeApp',
     'BaseballCards',
     'CharacterApp',
+    'TrackApp',
 ]
 
 MIDDLEWARE = [
