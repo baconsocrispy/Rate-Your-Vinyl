@@ -39,10 +39,10 @@ def edit_details(request, pk):
             form_update = form.save(commit=False)
             form_update.save()
             return redirect('Theater_details', pk=edit_theaters.pk)
-        else:
-            form = TheaterForm(instance=edit_theaters)
-        context = {'form': form}
-        return render(request, 'Theaters_and_Features/Theaters_and_Features_edit.html', context)
+    else:
+        form = TheaterForm(instance=edit_theaters)
+    context = {'form': form}
+    return render(request, 'Theaters_and_Features/Theaters_and_Features_edit.html', context)
 
 
 
