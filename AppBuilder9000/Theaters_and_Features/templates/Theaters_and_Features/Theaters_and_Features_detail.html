@@ -16,7 +16,7 @@
         </tr>
         {% for Theater in get_theaters %}
         <tr>
-            <td><a href="{% url 'edit_details' Theater.id %}">EDIT</a></td>
+            <td><a href="{% url 'edit_details' Theater.id %}">Edit this Theater</a></td>
             <td>{{ Theater.Name }}</td>
             <td>{{ Theater.Address }}</td>
             <td>{{ Theater.Phone }}</td>
@@ -24,6 +24,7 @@
             <td>{{ Theater.SeatType }}</td>
             <td>{{ Theater.HasAlcohol }}</td>
             <td>{{ Theater.Food }}</td>
+            <td><a href="{% url 'delete_Theater' Theater.id %}">Remove this Theater</a></td>
         </tr>
         {% endfor %}
     </table>

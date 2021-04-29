@@ -1,0 +1,20 @@
+{% extends "Theaters_and_Features/Theaters_and_Features_base.html" %}
+{% block title %}Delete Theater{% endblock %}
+{% block header %}Remove this Theater?{% endblock %}
+{% block content %}
+
+
+    <form method="POST" action="" >
+        {% csrf_token %}
+        <h2>Confirm Delete</h2>
+        <p>Are you sure you would like to delete "{{Theater.name}}" from the database?</p>
+
+        {{ Theater.as_p }}
+
+        <input type="submit" value="Delete">
+        <button type="submit"><a href="{%url 'Theater_home'  %}"> cancel</a></button>
+
+    </form>
+
+
+{% endblock %}

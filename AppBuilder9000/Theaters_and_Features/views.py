@@ -44,6 +44,16 @@ def edit_details(request, pk):
     context = {'form': form}
     return render(request, 'Theaters_and_Features/Theaters_and_Features_edit.html', context)
 
+def delete_Theater(request, pk):
+    pk = int(pk)
+    edit_theaters = get_object_or_404(Theaters, pk=pk)
+    context = {"edit_theaters": edit_theaters}
+    if request.method == 'POST':
+        edit_theaters.delete()
+        return redirect("find_Theater")
+    return render(request, 'Theaters_and_Features/Theaters_and_Features_delete.html', context)
+
+
 
 
 
