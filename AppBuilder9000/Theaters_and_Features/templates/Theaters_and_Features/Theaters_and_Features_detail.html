@@ -15,7 +15,7 @@
         </tr>
         {% for Theater in get_theaters %}
         <tr>
-            <td>a href="{% url 'edit_details' theater.id %}">{{ Theater.Name }}</td>
+            <td><a href="{% url 'edit_details' Theater.id %}">{{ Theater.Name }}</a></td>
             <td>{{ Theater.Address }}</td>
             <td>{{ Theater.Phone }}</td>
             <td>{{ Theater.MovieType }}</td>
