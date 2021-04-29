@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 
 def TrackApp_home(request):
-    return render(request, "TrackApp_home.html")
+    return render(request,"TrackApp\TrackApp_home.html")
 
 
 
