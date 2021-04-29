@@ -11,5 +11,5 @@
 
 body {
     background-image: url("/static/images/BaseballCards.jpg");
-    background-color: black;
+    background-repeat: no-repeat;
 }
