@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'BaseballCards',
     'CharacterApp',
     'TrackApp',
-    'CharacterApp',
 ]
 
 MIDDLEWARE = [
