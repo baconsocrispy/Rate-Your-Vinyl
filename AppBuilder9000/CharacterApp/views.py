@@ -22,10 +22,6 @@ def Character_add(request):
     return render(request, 'Character_add.html', content)
 
 
-def Character_view(request):
-    return render(request, "Character_view.html")
-
-
 def Character_list(request):
     Character_all = Character_create.objects.all()
     context = {'Character_all': Character_all}
