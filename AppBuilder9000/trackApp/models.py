@@ -16,7 +16,8 @@ class CHOICES(models.Model):
     YES = models.CharField(max_length=20)
     NO = models.CharField(max_length=20)
 
-Object  = models.Manager()
+class Name(models.Model):
+    submit = models.CharField(max_length=50)
 
 def __str__(self):
     return self.TrackMe

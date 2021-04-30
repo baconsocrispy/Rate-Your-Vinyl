@@ -1,7 +1,11 @@
 from django import forms
+from .models import TrackApp
 
-class TrackApp_form(forms.form):
-    firstname = forms.CharFiel(initial='Name')
+class TrackApp(forms.ModelForm):
+    class Meta:
+        model = TrackApp
+        fields = "__all__"
+
 
 
 
