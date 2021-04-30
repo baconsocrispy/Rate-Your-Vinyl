@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'BaseballCards',
     'CharacterApp',
     'TrackApp',
+    'Resellers_MarketWatch',
 ]
 
 MIDDLEWARE = [
