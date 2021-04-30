@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
 
-def VideoGameReviewsHome(request):
-    return render(request, 'VideoGameReviews/VideoGamesReviews_Home.html')
+def videogamereviews(request):
+    content = {}
+    return render(request, 'VideoGameReviews/VideoGamesReviews_Home.html', content)
