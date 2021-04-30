@@ -49,7 +49,7 @@ ul {
   position: relative;
 }
 
-h2{
+.home_page h2{
   border-width:8px;
   border-style:inset;
   position:absolute;
@@ -57,7 +57,7 @@ h2{
   left:35%;
 }
 
-p{
+.home_page p{
   border-width:8px;
   border-style:outset;
   position:absolute;
