@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import TrackForm
 from .models import TrackApp
+from .models import CHOICES
+from .forms import TrackAppForm
 
 
 
@@ -19,6 +20,17 @@ def TrackApp_Add(request):
         form = TrackAppForm(request.POST)
         return render(request, 'TrackApp/TrackApp_Add.html',
                       {'form': form})
+def TrackApp_form(request):
+        if request.method == 'POST':
+            form = NameForm(request.POST)
+            if form.is_valid():
+                return ('/thanks')
+        else:
+            form = NameForm()
+        return render(request, 'TrackApp_form.html', {'form': form})
+
+
+
 
 
 
