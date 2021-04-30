@@ -1,10 +1,10 @@
 {% extends "Theaters_and_Features/Theaters_and_Features_base.html" %}
 {% block title %}Find a Theater{% endblock %}
-{% block header %} Search for a Theater {% endblock %}
+{% block header %} Select a Theater to see<br>its features and details {% endblock %}
 {% block content %}
     <table class="find">
             <tr>
-                <th>Name</th>
+                <th>Select a Theater from list below</th>
             </tr>
             {% for theater in all_theaters %}
             <tr>
