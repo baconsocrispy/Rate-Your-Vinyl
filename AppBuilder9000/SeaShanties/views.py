@@ -14,7 +14,7 @@ def shantiesadd(request):
         if form.is_valid():
             form.save()
             return redirect('shanties_add')
-     else:
+        else:
             form = ShantiesForm(request.POST)
             return render(request, 'SeaShanties/shanties_add.html',
                           {'form': form})
