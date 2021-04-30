@@ -3,6 +3,21 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def MarketWatch_home(request):
-    context = {}
-    return render(request, 'Resellers_MarketWatch/MarketWatch_home.html', context)
+def home(request):
+    return render(request, 'Resellers_MarketWatch/MarketWatch_home.html')
+
+
+def account(request):
+    return render(request, 'Resellers_MarketWatch/AccountPage.html')
+
+
+def news(request):
+    return render(request, 'Resellers_MarketWatch/News.html')
+
+
+def about(request):
+    return render(request, 'Resellers_MarketWatch/About.html')
+
+
+def register(request):
+    return render(request, 'Resellers_MarketWatch/Register.html')
