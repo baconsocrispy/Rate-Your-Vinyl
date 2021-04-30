@@ -1,0 +1,9 @@
+body {
+    background-image: url('/static/Images/VideoGameReviews.jpg');
+}
+
+h1,
+ p {
+    font-family: Georgia, serif;
+    text-align: center;
+}
