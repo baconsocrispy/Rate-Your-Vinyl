@@ -72,6 +72,16 @@
                   </div>
               </a>
 
+
+              <!--TrackApp Link-->
+              <a href="{% url 'TrackApp_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/BG_images.jpg' %}">
+                  <div class="fadebox">
+                      <div class="'title text">TrackApp</div>
+                  </div>
+              </a>
+
+
               <!-- TheAnimeApp link -->
               <a href="{% url 'AnimeHome' %}" class="grid-item app-image">
                   <img src="{% static 'images/app-images/pinkimage.png' %}" alt="TheAnimeApp">
@@ -88,15 +98,32 @@
                       <div class="title text">Theaters and Features</div>
                   </div>
               </a>
-              <!-- End Theaters_and_Features Link -->>
+              <!-- End Theaters_and_Features Link -->
 
+              <!-- BaseballCards Link -->
+               <a href="{% url 'BaseballCards_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/BaseballCards.jpg' %}" alt="Baseball Cards">
+                  <div class="fadedbox">
+                      <div class="title text">Baseball Cards</div>
+                  </div>
+              </a>
+              <!-- End BaseballCards Link -->
               <a href="{% url 'TravelDestinations_home' %}" class="grid-item app-image">
                 <img src="{% static 'images/app-images/Destination.jpg' %}" alt="Travel">
                 <div class="fadedbox">
                     <div class="title text">Travel</div>
-                </div> 
+                </div>
             </a>
 
+
+              <!-- Character App Link -->
+              <a href="{% url 'Character_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/wowimage.jpg' %}" alt="Character Creation">
+                  <div class="fadedbox">
+                      <div class="title text">Character Creation</div>
+                  </div>
+              </a>
+              <!-- End of Character App Link -->
           </div>
     </section>
 
