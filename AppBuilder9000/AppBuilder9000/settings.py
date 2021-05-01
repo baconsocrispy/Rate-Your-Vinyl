@@ -49,11 +49,7 @@ INSTALLED_APPS = [
     'StockApp',
     'Theaters_and_Features',
     'TheAnimeApp',
-    'TravelDestinations',
-    'BaseballCards',
-    'CharacterApp',
-    'TrackApp',
-    'Resellers_MarketWatch',
+    'VideoGameReviews',
 ]
 
 MIDDLEWARE = [
