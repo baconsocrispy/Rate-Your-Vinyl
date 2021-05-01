@@ -8,16 +8,8 @@ def home(request):
 
 
 def account(request):
-    return render(request, 'Resellers_MarketWatch/AccountPage.html')
-
-
-def news(request):
-    return render(request, 'Resellers_MarketWatch/News.html')
-
-
-def about(request):
-    return render(request, 'Resellers_MarketWatch/About.html')
+    return HttpResponse(request, 'Resellers_MarketWatch/AccountPage.html')
 
 
 def register(request):
-    return render(request, 'Resellers_MarketWatch/Register.html')
+    return HttpResponse(request, 'Resellers_MarketWatch/Register.html')
