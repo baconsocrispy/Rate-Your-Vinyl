@@ -1,0 +1,25 @@
+{% extends 'TrackApp/TrackApp_base.html' %}
+
+{% block title %} TrackApp --  {% endblock %}
+
+{% block content %}
+
+    <div class="center">
+
+        <table>
+            <tr>
+                <th> state </th>
+                <th> city </th>
+                <th> location_name </th>
+            </tr>
+
+            {% for location %}
+            <tr>
+                <td><a href="{% url 'TrackApp_details'  %}">{{  }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+{% endblock %}
