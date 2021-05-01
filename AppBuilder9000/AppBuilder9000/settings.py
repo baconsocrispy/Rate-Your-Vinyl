@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'StockApp',
     'Theaters_and_Features',
     'TheAnimeApp',
+    'VideoGameReviews',
+    'TravelDestinations',
     'BaseballCards',
     'CharacterApp',
     'TrackApp',
