@@ -1,9 +1,9 @@
 from django import forms
-from .models import TrackApp
+from .models import Location
 
-class TrackApp(forms.ModelForm):
+class LocationForm(forms.ModelForm):
     class Meta:
-        model = TrackApp
+        model = Location
         fields = "__all__"
 
 

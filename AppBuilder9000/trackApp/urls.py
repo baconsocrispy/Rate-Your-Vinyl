@@ -3,9 +3,10 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 from . import views
-from .models import TrackApp
+from .models import Location
 
 urlpatterns = [
     path('', views.TrackApp_home, name='TrackApp_home'),
+    path('',views.TrackApp_Add, name='TrackApp_Add')
 
 ]
