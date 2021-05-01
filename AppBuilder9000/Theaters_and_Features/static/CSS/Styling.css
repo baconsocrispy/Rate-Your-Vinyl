@@ -96,7 +96,18 @@ input[type="submit"] {
     text-align: center;
     cursor: pointer;
     width: 26%;
-    background-color: #191970;
+    background-color: #8B0000;
+    color: #FFFFFF;
+    margin: 8px 0;
+    padding: 10px 10px;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    text-align: center;
+    cursor: pointer;
+    width: 26%;
+    background-color: #8B0000;
     color: #FFFFFF;
     margin: 8px 0;
     padding: 10px 10px;
@@ -104,7 +115,12 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #F5F5F5;
+    background-color: #8B0000;
+    color: black;
+}
+
+button[type="submit"]:hover {
+    background-color: #8B0000;
     color: black;
 }
 
@@ -113,6 +129,18 @@ table {
     border-collapse: collapse;
     border: 1px solid black;
     width: 80%;
+    box-shadow: 0 0 5px 5px black;
+    -moz-box-shadow: 0 0 5px 5px black;
+    -webkit-box-shadow: 0 0 5px 5px black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.find {
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 40%;
     box-shadow: 0 0 5px 5px black;
     -moz-box-shadow: 0 0 5px 5px black;
     -webkit-box-shadow: 0 0 5px 5px black;
@@ -242,18 +270,18 @@ th:hover {
     display: table;
 }
 
-.other_btn {
+.other_btn, .new_theater_btn {
     text-align: center;
     cursor: pointer;
     width: 25%;
-    background-color: #191970;
+    background-color: #8B0000;
     color: white;
     margin: 8px 0;
     padding: 10px 10px;
     border-radius: 4px;
 }
 
-.other_btn:hover {
-    background-color: #F5F5F5;
+.other_btn, .new_theater_btn:hover {
+    background-color: #8B0000;
     color: black;
 }

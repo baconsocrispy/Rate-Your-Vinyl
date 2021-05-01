@@ -1,30 +1,15 @@
 {% extends "Theaters_and_Features/Theaters_and_Features_base.html" %}
 {% block title %}Find a Theater{% endblock %}
-{% block header %} Search for a Theater {% endblock %}
+{% block header %} Select a Theater to see<br>its features and details {% endblock %}
 {% block content %}
-    <table>
+    <table class="find">
             <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Movies</th>
-                <th>Seats</th>
-                <th>Alcohol</th>
-                <th>Food</th>
+                <th>Select a Theater from list below</th>
             </tr>
-            {% for Theaters in all_theaters %}
+            {% for theater in all_theaters %}
             <tr>
-                <td>{{ Theaters.Name }}</td>
-                <td>{{ Theaters.Address }}</td>
-                <td>{{ Theaters.Phone }}</td>
-                <td>{{ Theaters.MovieType }}</td>
-                <td>{{ Theaters.SeatType }}</td>
-                <td>{{ Theaters.HasAlcohol }}</td>
-                <td>{{ Theaters.Food }}</td>
+                <td><a href="{% url 'Theater_details' theater.id %}">{{ theater.Name }}</a></td>
             </tr>
             {% endfor %}
-        </table>
-    </div>
-
-
+    </table>
 {% endblock %}
