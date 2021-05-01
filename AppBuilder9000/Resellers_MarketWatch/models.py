@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 # Create your models here.
 
 Categories = [
@@ -22,24 +23,17 @@ Categories = [
 
 
 class WebScrape(models.Model):
-    result_item = models.CharField(max_length=50, null=False)
-    url = models.URLField(primary_key=True, max_length=200, null=False)
-    date = models.DateField(auto_now_add=False, null=False)
-    list_price = models.DecimalField(decimal_places=2, max_digits=7, null=False)
-    image = models.URLField(max_length=200, blank=True)
-    profit = models.DecimalField(max_digits=5, decimal_places=2, null=False)
+    item = models.CharField(max_length=50, choices=Categories)
+    url = models.URLField(primary_key=True, max_length=200)
+    date = models.DateField(auto_now_add=False)
+    price = models.DecimalField(decimal_places=2, max_digits=7)
+    imageUrl = models.URLField(max_length=200)
+    profit = models.DecimalField(max_digits=5, decimal_places=2)
 
     WebScrape_db = models.Manager()
 
-
-class InputForm(models.Model):
-    result_item = models.ForeignKey(WebScrape, on_delete=models.CASCADE)
-    search_item = models.CharField(max_length=50, null=False)
-    min_price = models.DecimalField(max_digits=5, decimal_places=2, null=False)
-    max_price = models.DecimalField(max_digits=5, decimal_places=2, null=False)
-    profit_margin = models.DecimalField(max_digits=3, decimal_places=2, null=False)
-
-    InputForm_db = models.Manager()
+    def __str__(self):
+        return self.item
 
 
 
