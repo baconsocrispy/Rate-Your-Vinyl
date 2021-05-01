@@ -50,6 +50,11 @@ INSTALLED_APPS = [
     'Theaters_and_Features',
     'TheAnimeApp',
     'VideoGameReviews',
+    'TravelDestinations',
+    'BaseballCards',
+    'CharacterApp',
+    'TrackApp',
+    'Resellers_MarketWatch',
 ]
 
 MIDDLEWARE = [
