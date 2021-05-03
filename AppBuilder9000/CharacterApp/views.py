@@ -13,8 +13,8 @@ def Character_add(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            #google.com is a placeholder for the viewing file for the objects
-            return redirect('https://google.com')
+            # google.com is a placeholder for the viewing file for the objects
+            return redirect(Character_list)
         else:
             content = {'form': form}
             return render(request, 'Character_add.html', content)
@@ -22,5 +22,13 @@ def Character_add(request):
     return render(request, 'Character_add.html', content)
 
 
-def Character_success(request):
-    return render(request,Character_success.html)
+def Character_list(request):
+    Character_all = Character_create.objects.all()
+    context = {'Character_all': Character_all}
+    return render(request, 'Character_view.html', context)
+
+
+def Character_details(request):
+    Character_get = Character_create.objects.all()
+    context = {'Character_get': Character_get}
+    return render(request, 'Character_details.html', context)
