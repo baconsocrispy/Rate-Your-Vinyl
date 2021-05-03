@@ -15,13 +15,13 @@ class Location(models.Model):
     city = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
 
-#
-# class User(models.Model):
-#     YES = models.CharField(max_length=20)
-#     NO = models.CharField(max_length=20)
-#
-# class firstName(models.Model):
-#     submit = models.CharField(max_length=50)
+class User(models.Model):
+     firstName = models.CharField(max_length=50)
+     lastName = models.CharField(max_length=50)
+     description = models.CharField(max_length=100)
+
+
+
 
 def __str__(self):
     return self.TrackMe
