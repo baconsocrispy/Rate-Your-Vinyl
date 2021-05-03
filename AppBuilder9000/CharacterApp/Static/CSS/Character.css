@@ -32,10 +32,45 @@ ul {
 
 .background{
   background-image: url("../Images/heroes.jpg");
-  background-color: #cccccc;
+  background-color: #3d1f13;
   background-attachment: fixed;
-  background-position: top 70px;
+  background-position: top 80px;
   background-repeat: no-repeat;
   background-size: 100%;
   padding-top: 30px;
+}
+
+#list_items{
+  background-color: #d6e462;
+  width: 150px;
+  border: 15px solid black;
+  padding: 25px;
+  margin: 20px;
+  position: relative;
+}
+
+.home_page h2{
+  border-width:8px;
+  border-style:inset;
+  position:absolute;
+  top:25%;
+  left:35%;
+}
+
+.home_page p{
+  border-width:8px;
+  border-style:outset;
+  position:absolute;
+  top:30%;
+  left:44%;
+  font-size:20px;
+}
+
+#detail_list{
+  background-color: #d6e462;
+  width: 150px;
+  border: 15px solid black;
+  padding: 25px;
+  margin: 20px;
+  position: relative;
 }
