@@ -7,6 +7,6 @@ from .models import Location
 
 urlpatterns = [
     path('', views.TrackApp_home, name='TrackApp_home'),
-    path('',views.TrackApp_Add, name='TrackApp_Add')
+    path('TrackApp_Add',views.TrackApp_Add, name='TrackApp_Add')
 
 ]
