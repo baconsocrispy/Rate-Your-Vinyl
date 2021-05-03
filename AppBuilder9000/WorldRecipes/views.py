@@ -23,8 +23,8 @@ def view_recipes(request):
     return render(request, 'WorldRecipes/WR_view_recipes.html', context)
 
 
-def recipe_details(request, pk):
-    item = get_object_or_404(Recipe, pk=pk)
+def recipe_details(request, id):
+    item = get_object_or_404(Recipe, id=id)
     context = {'item': item}
     return render(request, 'WorldRecipes/WR_recipe_details.html', context)
 
