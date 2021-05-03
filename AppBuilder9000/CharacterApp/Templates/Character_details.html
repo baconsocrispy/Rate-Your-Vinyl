@@ -5,15 +5,14 @@
 {% block content %}
 
 <div>
-    {% for item in Character_get %}
     <ul id="detail_list">
-        <li>Name: {{ item.name }}</li>
-        <li>Race: {{ item.race }}</li>
-        <li>Gender: {{ item.sex }}</li>
-        <li>Backstory: {{ item.backstory }}</li>
-        <li>Date Created: {{ item.date_created }}</li>
+        <li>Name: {{ Character_get.name }}</li>
+        <li>Race: {{ Character_get.race }}</li>
+        <li>Gender: {{ Character_get.sex }}</li>
+        <li>Backstory: {{ Character_get.backstory }}</li>
+        <li>Date Created: {{ Character_get.date_created }}</li>
+        <li>Character ID: {{ Character_get.pk }}</li>
     </ul>
-    {% endfor %}
 </div>
 
 {% endblock %}

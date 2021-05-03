@@ -28,7 +28,13 @@ def Character_list(request):
     return render(request, 'Character_view.html', context)
 
 
-def Character_details(request):
-    Character_get = Character_create.objects.all()
-    context = {'Character_get': Character_get}
+def Character_details(request, pk):
+    Character_get = get_object_or_404(Character_create, pk=pk)
+    Character_all = {'Character_get': Character_get}
+    context = Character_all
     return render(request, 'Character_details.html', context)
+
+def Character_link(request):
+    Character_show = Character_create.objects.all()
+    context = {'Character_show': Character_show}
+    return render(request, 'Character_link.html', context)
