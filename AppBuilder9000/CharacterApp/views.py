@@ -28,8 +28,7 @@ def Character_list(request):
     return render(request, 'Character_view.html', context)
 
 
-def CharacterDetails(request, pk):
-    pk = int(pk)
-    Character_get = Character_create.objects.filter(pk=pk)
+def Character_details(request):
+    Character_get = Character_create.objects.all()
     context = {'Character_get': Character_get}
-    return render(request, "Character_details.html", context)
+    return render(request, 'Character_details.html', context)
