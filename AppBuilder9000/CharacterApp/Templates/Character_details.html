@@ -1,0 +1,19 @@
+{% extends 'Character_base.html' %}
+
+{% block title %}The Pantheon of Champions{% endblock %}
+
+{% block content %}
+
+<div>
+    {% for item in Character_all %}
+    <ul id="detail_list">
+        <li>{{ item.name }}</li>
+        <li>{{ item.race }}</li>
+        <li>{{ item.sex }}</li>
+        <li>{{ item.backstory }}</li>
+        <li>{{ item.date_created }}</li>
+    </ul>
+    {% endfor %}
+</div>
+
+{% endblock %}
