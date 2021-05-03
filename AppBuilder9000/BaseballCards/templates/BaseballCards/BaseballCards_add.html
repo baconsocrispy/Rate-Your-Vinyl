@@ -4,15 +4,15 @@
 
 {% block content %}
 
-    <h3>Add New Baseball Card to Catalog</h3>
-    <div>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Save Card</button>
-        </form>
+    <div id="form-con">
+        <h3>Add New Baseball Card to Catalog</h3>
+        <div id="form-group" >
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-danger" type="submit">Save Card</button>
+            </form>
+        </div>
     </div>
-
-
 
 {% endblock %}
