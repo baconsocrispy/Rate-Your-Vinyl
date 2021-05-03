@@ -22,7 +22,7 @@ bats_throws_choices = [
     ('S/L', 'S/L'),
 ]
 
-class baseball_card(models.Model):
+class BaseballCard(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     active = models.BooleanField(default=False)
@@ -31,7 +31,7 @@ class baseball_card(models.Model):
     career_ba_or_era = models.DecimalField(max_digits=5, decimal_places=3)  # "batting average or earned run average"
     career_hr_or_so = models.DecimalField(max_digits=5, decimal_places=3)   # "home runs or strikeouts"
 
-    baseball_cards = models.Manager()
+    BaseballCards = models.Manager()
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name

@@ -1,0 +1,18 @@
+{% extends "BaseballCards_base.html" %}
+
+{% block title %}Add Baseball Card{% endblock %}
+
+{% block content %}
+
+    <h3>Add New Baseball Card to Catalog</h3>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Card</button>
+        </form>
+    </div>
+
+
+
+{% endblock %}
