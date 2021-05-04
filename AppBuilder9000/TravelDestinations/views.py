@@ -20,3 +20,9 @@ def TravelDestinationsadd(request):
     else:
         form = TravelDestinationsForm(None)
         return render(request, 'TravelDestinations/TravelDestinations_add.html', {'form': form})
+
+
+def TravelDestinationsviews(request):
+    views = TravelDestinations.objects.all()
+    context = {'views': views}
+    return render(request, 'TravelDestinations/TravelDestinations_views.html', context)

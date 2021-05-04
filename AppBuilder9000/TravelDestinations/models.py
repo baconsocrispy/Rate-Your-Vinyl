@@ -8,7 +8,7 @@ class TravelDestinations(models.Model):
     Activity = models.CharField(max_length=300)
     Travel_Date = models.DateField(blank=True, null=True)
 
-    TravelDestinations = models.Manager()
+    objects = models.Manager()
 
     def __str__(self):
         return self.City_Name
