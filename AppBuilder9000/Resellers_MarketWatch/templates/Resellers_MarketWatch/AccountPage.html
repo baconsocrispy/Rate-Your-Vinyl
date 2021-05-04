@@ -1,23 +1,65 @@
 {% extends "Resellers_MarketWatch/MarketWatch_base.html" %}
 
 {% block title %}Account{% endblock %}
-{% block navbar %}
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{% url 'Account' %}">Account</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-{% endblock %}
 
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <div class="container-fluid">
+            <span class="navbar-brand" href="#">MarketWatch | Account</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0 nav justify-content-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">News</a></li>
+                            <li><a class="dropdown-item" href="#">Up Coming Features!</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">About</a></li>
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Account' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Register' %}">SignUp</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+<body></body>
+{% block bg-image %}{% endblock %}
+
+
+<form action="">
+                <label for="Category">Category</label>
+                <select name="Category" id="Category" class="form-control">
+                <option value="{{ Categories }}">{{ WebScrape.Categories }}</option>
+                <label for="Product_Search">Product_Search</label>
+                <br>
+                <input type="text" name="Product Search" id="Product_Search" class="form-control">
+                <br>
+                <label for="Profit">Profit</label>
+                <input type="number" name="Profit" id="Profit" class="form-control">
+                <br>
+                <label for="Product_Link">Product_Link</label>
+                <input type="url" name="Product_Link" id="Product_Link" class="form-control">
+                <br>
+                <label for="First_Name">First Name</label>
+                <input type="text" name="First_Name" id="First_Name" class="form-control">
+                <br>
+                <label for="Last_Name">Last Name</label>
+                <input type="text" name="Last_Name" id="Last_Name" class="form-control">
+            </form>
 
 
 
