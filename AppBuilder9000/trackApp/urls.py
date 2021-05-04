@@ -9,5 +9,5 @@ from . import views
 urlpatterns = [
     path('', views.TrackApp_home, name='TrackApp_home'),
     path('TrackApp_Add',views.TrackApp_Add, name='TrackApp_Add'),
-    path('TrackApp_Display',views.TrackApp_display, name='TrackApp_display')
+    path('TrackApp_display',views.TrackApp_display, name='TrackApp_display')
 ]

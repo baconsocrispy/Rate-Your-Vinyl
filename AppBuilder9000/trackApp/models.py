@@ -20,6 +20,11 @@ class User(models.Model):
      lastName = models.CharField(max_length=50)
      description = models.CharField(max_length=100)
 
+class Display(models.Model):
+     User = models.CharField(max_length=100)
+     location = models.CharField(max_length=100)
+
+
 
 
 
