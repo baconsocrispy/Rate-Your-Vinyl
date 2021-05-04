@@ -1,3 +1,29 @@
-<h3>Name:{{data.Choices}}</h3><br>
-<h3>Location:{{data}}</h3><br>
-<hr/>
+{% extends 'SeaShanties/shanties_base.html' %}
+
+{% block title %} TrackApp -- View Song {% endblock %}
+
+{% block content %}
+
+{% for location %}
+<div>
+    <ul>
+        <div id="location" class="grid-container">
+
+            <div id="location">
+            <br>
+                <ul>state: {{ state  }}</ul>
+                <ul>city: {{ city  }}</ul>
+                <ul>location_name: {{ location_name }}</ul>
+                <ul> Firstname: {{ firstname }}</ul>
+                <ul> id: {{ TrackApp_detail }}</ul>
+                <br>
+                <hr>
+            </div>
+        </div>
+    </ul>
+</div>
+{% endblock %}
+
+
+
+

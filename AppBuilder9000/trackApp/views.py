@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Location
 from .forms import LocationForm
-from .forms import User
-from .forms import DisplayForm
+from django.db import models
+from .forms import LocationForm
+
+
+
+
+
 
 
 
@@ -23,16 +27,24 @@ def TrackApp_Add(request):
         form = LocationForm(request.POST)
         return render(request, 'TrackApp/TrackApp_Add.html',
                       {'form': form})
+
 def TrackApp_display(request):
-    if request.method == 'POST':
-        form = DisplayForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('TrackApp_display')
-    else:
-        form = DisplayForm(request.POST)
-        return render(request, 'TrackApp/TrackApp_display',
-                      {'form': form})
+    detail = LocationForm.objects.all()
+    context = {'detail': detail}
+    return render(request, "TrackApp/TrackApp_display.html", context)
+
+def TrackApp_detail(request, pk):
+    location_name = get_object_or_404(Review, pk=pk)
+    all_detail = {'TrackApp_detail': TrackApp_detail}
+    context = all_detail
+    return render(request, "TrackApp/TrackApp_detail", context)
+
+
+
+
+
+
+
 
 
 

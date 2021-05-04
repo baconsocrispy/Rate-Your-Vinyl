@@ -21,8 +21,9 @@ class User(models.Model):
      description = models.CharField(max_length=100)
 
 class Display(models.Model):
-     User = models.CharField(max_length=100)
-     location = models.CharField(max_length=100)
+     state = models.CharField(max_length=100)
+     city = models.CharField(max_length=100)
+     Location = models.CharField(max_length=100)
 
 
 
