@@ -10,5 +10,5 @@ def videogamereviews(request):
 
 def videoreviews(request):
     context = {}
-    all_reviews = videoreviews().objects.all
+    all_reviews = videoreviews.objects.all
     return render(request, 'VideoGameReviews/VideoGamesReviews_Reviews.html', {'all': all_reviews}, context)
