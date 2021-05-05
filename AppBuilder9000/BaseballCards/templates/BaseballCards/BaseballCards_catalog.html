@@ -17,7 +17,7 @@
             </tr>
             {% for card in cards %}
             <tr>
-                <td>{{ card.first_name }}</td>
+                <td>{{ card.first_name | title }}</td>
                 <td>{{ card.last_name }}</td>
                 <td>{{ card.active }}</td>
                 <td>{{ card.position }}</td>
