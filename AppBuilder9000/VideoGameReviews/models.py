@@ -9,7 +9,7 @@ class VideoReviews(models.Model):
 
     objects = models.Manager()
 
-    Rating = (
+    RATING_CHOICES = (
         ("1", "1"),
         ("2", "2"),
         ("3", "3"),

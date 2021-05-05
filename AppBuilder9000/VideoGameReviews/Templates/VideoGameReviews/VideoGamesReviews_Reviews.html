@@ -1,10 +1,9 @@
-{% extends 'VideoGamesReviews/VideoGameReviews_Base.html' %}
+{% extends 'VideoGameReviews/VideoGameReviews_Base.html' %}
 {% load static %}
 {% block content %}
 <h1>Video game Reviews</h1>
 {% for item in all %}
 <p> {{ item }}</p>
-<p> {{ item VideoReviews }} </p>
 
 {% endfor %}
 {% endblock %}
