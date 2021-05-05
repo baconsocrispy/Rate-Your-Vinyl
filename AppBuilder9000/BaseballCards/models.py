@@ -29,7 +29,7 @@ class BaseballCard(models.Model):
     position = models.CharField(max_length=2, choices=position_choices)
     bats_throws = models.CharField(max_length=3, choices=bats_throws_choices)
     career_ba_or_era = models.DecimalField(max_digits=5, decimal_places=3)  # "batting average or earned run average"
-    career_hr_or_so = models.DecimalField(max_digits=5, decimal_places=3)   # "home runs or strikeouts"
+    career_hr_or_so = models.IntegerField()   # "home runs or strikeouts"
 
     BaseballCards = models.Manager()
 
