@@ -1,0 +1,31 @@
+{% extends 'TravelDestinations/TravelDestinations_base.html' %}
+{% load static %}
+
+{% block title %} Destinations - View Your Favorite Travel GetAways {% endblock %}
+
+
+{% block content %}
+
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+</style>
+    
+   
+
+    <div class="views">
+        {% for item in views %}
+        <table>
+            <tr>
+                <th>City Name: {{item.City_Name}}</th>
+                <th>Activity: {{item.Activity}}</th>
+                <th>Country Name: {{item.Country_Name}}</th>
+                <th>Dates: {{item.Travel_Date}}</th>
+            </tr>
+        </table>
+    </div>
+    {% endfor %}
+{% endblock %}
