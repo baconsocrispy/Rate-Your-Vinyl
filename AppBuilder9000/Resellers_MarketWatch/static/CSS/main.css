@@ -1,9 +1,13 @@
-/* background image */
-.background_image {
-    background-image: url('/static/images/publicmarket.png');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    position: relative;
-    z-index: -1;
+body{
+    background-image: url( "/static/images/publicmarket.png");
+}
+.overlay{
+    margin-left: -3%;
+    margin-top: 55px;
+    z-index:100;
+    width: 100%;
+    height: auto;
+    position:absolute;
+    display: fluid;
+    background-color: rgba(0,0,0, 0.6);
 }
