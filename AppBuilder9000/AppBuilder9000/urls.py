@@ -23,13 +23,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('WorldRecipes/', include('WorldRecipes.urls')),
-    path('SharksApp/', include('SharksApp.urls')),
-    path('WordNerd/', include('WordNerd.urls')),
-    path('GuitarReviewsApp/', include('GuitarReviewsApp.urls')),
-    path('SeaShanties/', include('SeaShanties.urls')),
-    path('MyThai/', include('MyThai.urls')),
-    path('StockApp/', include('StockApp.urls')),
     path('Theaters_and_Features/', include('Theaters_and_Features.urls')),
     path('TheAnimeApp/', include('TheAnimeApp.urls')),
     path('BaseballCards/', include('BaseballCards.urls')),

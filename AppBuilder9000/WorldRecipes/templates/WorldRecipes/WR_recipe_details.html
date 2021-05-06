@@ -1,0 +1,13 @@
+{% extends 'WorldRecipes/WR_base.html' %}
+
+{% block title %} Recipe Details {% endblock %}
+
+{% block content %}
+<h2>Recipe Info:</h2>
+
+  <th>{{ item.recipe_name }}</th>
+  <td>{{ item.cuisine_type }}</td>
+  <td>{{ item.ingredients }}</td>
+  <td>{{ item.date_created }}</td>
+
+{% endblock %}

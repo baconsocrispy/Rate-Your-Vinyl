@@ -26,7 +26,7 @@ class Character_create(models.Model):
     backstory = models.TextField(max_length=300, default="", blank=True)
     date_created = models.DateField()
 
-    objects = models.Manager()
-
     def __str__(self):
         return self.name
+
+    objects = models.Manager()
