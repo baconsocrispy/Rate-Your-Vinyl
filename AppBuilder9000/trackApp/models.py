@@ -20,10 +20,7 @@ class User(models.Model):
      lastName = models.CharField(max_length=50)
      description = models.CharField(max_length=100)
 
-class Display(models.Model):
-     state = models.CharField(max_length=100)
-     city = models.CharField(max_length=100)
-     Location = models.CharField(max_length=100)
+
 
 
 

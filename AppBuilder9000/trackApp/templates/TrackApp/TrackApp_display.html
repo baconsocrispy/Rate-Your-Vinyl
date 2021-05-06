@@ -13,8 +13,9 @@
                 <th> location_name </th>
             </tr>
 
-            {% for location in detail %}
+            {% for location in location_list  %}
             <tr>
+                <p>test</p>
                 <td><a href="{% url 'TrackApp_detail'  %}">{{ location.detail }}</a></td>
             </tr>
             {% endfor %}
