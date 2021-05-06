@@ -4,14 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import LocationForm
 from django.db import models
 from .forms import LocationForm
-
-
-
-
-
-
-
-
+from .models import Display
 
 
 def TrackApp_home(request):
@@ -29,12 +22,12 @@ def TrackApp_Add(request):
                       {'form': form})
 
 def TrackApp_display(request):
-    detail = LocationForm.objects.all()
+    detail = Display.objects.all()
     context = {'detail': detail}
     return render(request, "TrackApp/TrackApp_display.html", context)
 
 def TrackApp_detail(request, pk):
-    location_name = get_object_or_404(Review, pk=pk)
+    location_name = get_object_or_404(Display, pk=pk)
     all_detail = {'TrackApp_detail': TrackApp_detail}
     context = all_detail
     return render(request, "TrackApp/TrackApp_detail", context)
