@@ -1,26 +1,11 @@
-static/CSS/main.css
-/*
+
 
 body{
-    background-image: url( "/static/images/publicmarket.png");
-}
-.overlay{
-    margin-left: -3%;
-    margin-top: 55px;
-    z-index:100;
-    width: 100%;
-    height: auto;
-    position:absolute;
-    display: fluid;
-    background-color: rgba(0,0,0, 0.6);
-}
-
-*/
-/*  Home Page Styling   *//*
-
-body {
+    background-image: url( "../images/publicmarket.png");
     margin: 54px;
 }
+
+/*  Home Page Styling   */
 
 .my-container {
     border: 1px solid green;
@@ -37,4 +22,5 @@ body {
 
 #R1 {
     height: 50px;
-}*/
+}
+

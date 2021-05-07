@@ -10,27 +10,27 @@ def home(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('MarketWatch_home.html')
-    else:
-        form = UserLoginForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'Resellers_MarketWatch/MarketWatch_home.html', context)
+            return redirect('Account')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'Resellers_MarketWatch/MarketWatch_home.html', context)
 
 
 def account(request):
     form = WebscrapeForm(data=request.POST or None)
     if request.method == 'POST':
+        print('Method is POST')
         if form.is_valid():
+            print('Form is valid')
             form.save()
-            return redirect('Resellers_MarketWatch/AccountPage.html')
-    else:
-        form = WebscrapeForm()
-        context = {
-            'form': form
-        }
-        return render(request, 'Resellers_MarketWatch/AccountPage.html', context)
+            return redirect('Account')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'Resellers_MarketWatch/AccountPage.html', context)
 
 #  UserLogin
 def register(request):
