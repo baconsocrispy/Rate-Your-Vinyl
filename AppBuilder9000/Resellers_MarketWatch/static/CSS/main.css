@@ -1,15 +1,13 @@
-
-
- /* Navbar */
-#topnav {
-    content: hidden;
-    background-color: Black;
+body{
+    background-image: url( "/static/images/publicmarket.png");
 }
-
-.ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.overlay{
+    margin-left: -3%;
+    margin-top: 55px;
+    z-index:100;
+    width: 100%;
+    height: auto;
+    position:absolute;
+    display: fluid;
+    background-color: rgba(0,0,0, 0.6);
 }
-
-/* END Navbar */
