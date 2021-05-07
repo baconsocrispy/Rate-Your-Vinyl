@@ -40,18 +40,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'WorldRecipes',
-    'SharksApp',
-    'WordNerd',
-    'GuitarReviewsApp',
-    'SeaShanties',
-    'MyThai',
-    'StockApp',
     'Theaters_and_Features',
     'TheAnimeApp',
+    'VideoGameReviews',
+    'TravelDestinations',
     'BaseballCards',
     'CharacterApp',
     'TrackApp',
+    'Resellers_MarketWatch',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +129,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (css, JavaScript, Images)
+# static files (css, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
