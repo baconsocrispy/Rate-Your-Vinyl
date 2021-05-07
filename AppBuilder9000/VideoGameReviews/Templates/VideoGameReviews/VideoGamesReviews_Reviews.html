@@ -1,8 +1,9 @@
 {% extends 'VideoGameReviews/VideoGameReviews_Base.html' %}
 {% load static %}
 {% block content %}
+<h1>Video game Reviews</h1>
+{% for item in all %}
+<p> {{ item }}</p>
 
-    <h1> Welcome Gamers! </h1>
-    <p>Come write a review about your favorite games!</p>
-
+{% endfor %}
 {% endblock %}
