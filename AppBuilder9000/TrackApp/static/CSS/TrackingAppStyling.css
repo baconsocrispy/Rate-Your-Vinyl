@@ -1,6 +1,7 @@
 body {
-    background-image: url('/static/images/app_images/img_1.png');
-    background-color: #B28B84;
+    background-image: url('/static/images/app_images/Road.jpg');
+    background-color: #FFFFAFO;
+
 }
 
 container {
@@ -34,21 +35,21 @@ p {
 /*** Navbar Styling ***/
 .Navbar {
   overflow: hidden;
-  background-color: #00bff;
+  background-color: red;
 }
 
 .Navbar a {
   float: left;
-  color: #322514;
+  color: #00FFFF;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 25px;
 }
 
 .Navbar a:hover {
-  background-color: #50BCB9;
-  color: White;
+  background-color: #F8F8FF;
+  color: Red;
 }
 
 .Navbar a.active {

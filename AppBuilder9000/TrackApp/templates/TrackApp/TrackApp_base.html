@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" class="BG_images">
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <title>{% block title %} {% endblock %}</title>
@@ -11,7 +11,9 @@
         <header>
                 <div class="navbar">
                     <a href="{% url 'home' %}">App Directory</a>
-                    <a href="{% url 'TrackApp_home' %}">Tracking Homepage</a>
+                    <br> <a href="{% url 'TrackApp_home' %}">Tracking Homepage</a>
+                    <br> <a href="{% url 'TrackApp_Add' %}">Add new location</a>
+                    <br> <a href="{% url 'TrackApp_display' %}">Display</a>
                 </div>
                 <div class="header_style">
                 <h1>{% block header %} {% endblock %}</h1>
