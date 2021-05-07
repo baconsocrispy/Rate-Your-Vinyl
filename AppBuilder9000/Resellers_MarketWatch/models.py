@@ -27,6 +27,7 @@ class WebScrape(models.Model):
 
 
 class UserLogin(models.Model):
+    DoesNotExist = None
     first_name = models.CharField(max_length=200, default='', null=False)
     last_name = models.CharField(max_length=200, default='', null=False)
     email = models.CharField(max_length=200, default='')

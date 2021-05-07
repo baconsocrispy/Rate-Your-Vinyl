@@ -1,3 +1,6 @@
+static/CSS/main.css
+/*
+
 body{
     background-image: url( "/static/images/publicmarket.png");
 }
@@ -11,3 +14,27 @@ body{
     display: fluid;
     background-color: rgba(0,0,0, 0.6);
 }
+
+*/
+/*  Home Page Styling   *//*
+
+body {
+    margin: 54px;
+}
+
+.my-container {
+    border: 1px solid green;
+}
+
+.my-row {
+    border: 3px solid red;
+    height: 200px;
+}
+
+.my-col {
+    border: 3px dotted blue;
+}
+
+#R1 {
+    height: 50px;
+}*/

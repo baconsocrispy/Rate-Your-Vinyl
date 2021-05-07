@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import WebscrapeForm, UserLoginForm
 from .models import WebScrape, UserLogin
@@ -5,17 +6,27 @@ from .models import WebScrape, UserLogin
 
 
 def home(request):
-    return render(request, 'Resellers_MarketWatch/MarketWatch_home.html')
-
-
-def account(request):
     form = UserLoginForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('Account')
+            return redirect('MarketWatch_home.html')
     else:
         form = UserLoginForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'MarketWatch_home.html', context)
+
+
+def account(request):
+    form = WebscrapeForm(data=request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('AccountPage.html')
+    else:
+        form = WebscrapeForm()
         context = {
             'form': form
         }
@@ -31,7 +42,7 @@ def Retrieve_ListView(request):
 
 def Retrieve_DetailView(request,_id):
     try:
-        data = UserLogin.User.get(id = _id)
+        data = UserLogin.User.get(id=_id)
     except UserLogin.DoesNotExist:
         raise Http404('Data does not exist')
 
