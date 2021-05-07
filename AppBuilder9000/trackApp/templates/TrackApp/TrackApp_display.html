@@ -15,8 +15,12 @@
 
             {% for location in location_list  %}
             <tr>
-                <p>test</p>
                 <td><a href="{% url 'TrackApp_detail'  %}">{{ location.detail }}</a></td>
+                <p>label</p>
+                <ul>{{ location.state }}</ul>
+                <P>label</P>
+                <ul>{{ location.city }} </ul>
+
             </tr>
             {% endfor %}
         </table>
