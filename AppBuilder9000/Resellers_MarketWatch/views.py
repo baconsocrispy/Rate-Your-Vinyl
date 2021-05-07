@@ -16,7 +16,7 @@ def home(request):
         context = {
             'form': form
         }
-        return render(request, 'MarketWatch_home.html', context)
+        return render(request, 'Resellers_MarketWatch/MarketWatch_home.html', context)
 
 
 def account(request):
@@ -24,7 +24,7 @@ def account(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('AccountPage.html')
+            return redirect('Resellers_MarketWatch/AccountPage.html')
     else:
         form = WebscrapeForm()
         context = {
