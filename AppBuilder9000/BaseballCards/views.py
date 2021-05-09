@@ -23,4 +23,8 @@ def catalog(request):
     return render(request, 'BaseballCards/BaseballCards_catalog.html', content)
 
 
+def details(request, pk):
+    return render(request, 'BaseballCards/BaseballCards_details.html')
+
+
 
