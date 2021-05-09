@@ -6,6 +6,7 @@ from django import forms
 # Create your models here.
 
 Categories = [
+    (None, 'Select Category'),
     ('Electronics', 'Electronics'),
     ('Pet Supplies', 'Pet Supplies'),
     ('Vehicles', 'Vehicles'),
@@ -36,9 +37,6 @@ class UserLogin(models.Model):
 
     def __str__(self):
         return self.first_name
-
-
-
 
 
 

@@ -1,4 +1,41 @@
-{% for data in dataset %}
-{{data}}
-<hr>
-{% endfor %}
+{% extends "Resellers_MarketWatch/MarketWatch_base.html" %}
+{% block title %}List{% endblock %}
+
+
+
+
+{% block content %}
+ <div class="container my-container">
+    <div class="row my-row">
+        <div class="col-md-12 center-align-items-start my-col">
+            Row 1 Col 1
+                <table class="table table-striped">
+
+
+                  <thead>
+                        <tr>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">ImageUrl</th>
+                            <th scope="col">Profit</th>
+                        </tr>
+                     <tbody>
+                    <tr>
+                        {% for data in dataset %}
+                        <th scope="row">{{data.category}}</th>
+                        <td>{{data.date}}</td>
+                        <td><a href="{{data.url}}">Item-Link</a></td>
+                        <td>{{data.price}}</td>
+                        <td><a href="{{data.imageUrl}}">Image-Link</a></td>
+                        <td>{{data.profit}}</td>
+                    </tr>
+                  </tbody>
+            {% endfor %}
+                  </thead>
+                </table>
+        </div>
+    </div>
+ </div>
+{% endblock %}

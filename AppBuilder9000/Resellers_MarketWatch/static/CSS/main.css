@@ -2,25 +2,7 @@
 
 body{
     background-image: url( "../images/publicmarket.png");
+    background-repeat:no-repeat;
+    background-size: cover;
     margin: 54px;
 }
-
-/*  Home Page Styling   */
-
-.my-container {
-    border: 1px solid green;
-}
-
-.my-row {
-    border: 3px solid red;
-    height: 200px;
-}
-
-.my-col {
-    border: 3px dotted blue;
-}
-
-#R1 {
-    height: 50px;
-}
-
