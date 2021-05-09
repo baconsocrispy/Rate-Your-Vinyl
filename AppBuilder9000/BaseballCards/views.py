@@ -22,3 +22,10 @@ def catalog(request):
     content = {'cards': cards}
     return render(request, 'BaseballCards/BaseballCards_catalog.html', content)
 
+
+def details(request, pk):
+    card = get_object_or_404(BaseballCard, pk=pk)
+    return render(request, 'BaseballCards/BaseballCards_editcatalog.html', {'card': card})
+
+
+
