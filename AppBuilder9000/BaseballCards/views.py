@@ -24,7 +24,10 @@ def catalog(request):
 
 
 def details(request, pk):
-    return render(request, 'BaseballCards/BaseballCards_details.html')
+    pk = int(pk)
+    item = get_object_or_404(BaseballCard, pk=pk)
+    form = BaseballCardForm(instance=item)
+    return render(request, 'BaseballCards/BaseballCards_details.html', {'form': form})
 
 
 
