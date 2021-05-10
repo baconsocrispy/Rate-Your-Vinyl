@@ -18,15 +18,17 @@
             <th>Career BA or ERA</th>
             <th>Career HR or SO</th>
         </tr>
+        {% for cards in cards %}
         <tr>
-            <td>{{ form.first_name }}</td>
-            <td>{{ form.last_name }}</td>
-            <td>{{ form.active }}</td>
-            <td>{{ form.position }}</td>
-            <td>{{ form.bats_throws }}</td>
-            <td>{{ form.career_ba_or_era }}</td>
-            <td>{{ form.career_hr_or_so }}</td>
+            <td>{{ cards.first_name | title }}</td>
+            <td>{{ cards.last_name }}</td>
+            <td>{{ cards.active }}</td>
+            <td>{{ cards.position }}</td>
+            <td>{{ cards.bats_throws }}</td>
+            <td>{{ cards.career_ba_or_era }}</td>
+            <td>{{ cards.career_hr_or_so }}</td>
         </tr>
+        {% endfor %}
     </table>
 </div>
 
