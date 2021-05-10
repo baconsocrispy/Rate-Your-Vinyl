@@ -27,4 +27,15 @@ margin: 0 0 24px;
 text-align: center;
 }
 
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+li {
+color: #f8f8f8;
+font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+border-bottom: 1px solid #ccc;
+}
 
