@@ -1,13 +1,34 @@
 {% extends "BaseballCards_base.html" %}
 
-{% block title %}Edit Catalog Items{% endblock %}
+{% block title %}Catalog Item{% endblock %}
 
 {% block content %}
 
 
 
-<p>This is the edit catalog page.</p>
-
+<div id="table-con">
+    <h1>Card Details</h1>
+    <table class="table table-bordered border-danger table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Active?</th>
+            <th>Position</th>
+            <th>Bats/Throws</th>
+            <th>Career BA or ERA</th>
+            <th>Career HR or SO</th>
+        </tr>
+        <tr>
+            <td>{{ form.first_name }}</td>
+            <td>{{ form.last_name }}</td>
+            <td>{{ form.active }}</td>
+            <td>{{ form.position }}</td>
+            <td>{{ form.bats_throws }}</td>
+            <td>{{ form.career_ba_or_era }}</td>
+            <td>{{ form.career_hr_or_so }}</td>
+        </tr>
+    </table>
+</div>
 
 
 
