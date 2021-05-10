@@ -24,7 +24,7 @@
                 <td>{{ card.bats_throws }}</td>
                 <td>{{ card.career_ba_or_era }}</td>
                 <td>{{ card.career_hr_or_so }}</td>
-                <td><a></a></td>
+                <td><a href="{% url 'BaseballCards_details' card.id %}">Details</a></td>
             </tr>
             {% endfor %}
         </table>
