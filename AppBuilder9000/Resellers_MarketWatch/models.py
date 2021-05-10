@@ -6,6 +6,7 @@ from django import forms
 # Create your models here.
 
 Categories = [
+    (None, 'Select Category'),
     ('Electronics', 'Electronics'),
     ('Pet Supplies', 'Pet Supplies'),
     ('Vehicles', 'Vehicles'),
@@ -27,6 +28,7 @@ class WebScrape(models.Model):
 
 
 class UserLogin(models.Model):
+    DoesNotExist = None
     first_name = models.CharField(max_length=200, default='', null=False)
     last_name = models.CharField(max_length=200, default='', null=False)
     email = models.CharField(max_length=200, default='')
@@ -35,9 +37,6 @@ class UserLogin(models.Model):
 
     def __str__(self):
         return self.first_name
-
-
-
 
 
 
