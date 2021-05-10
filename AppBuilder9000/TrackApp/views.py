@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Location
-from .models import CHOICES
 from .forms import LocationForm
-
-
+from django.db import models
+from .forms import LocationForm
+from .models import Location
 
 
 def TrackApp_home(request):
@@ -21,6 +20,34 @@ def TrackApp_Add(request):
         form = LocationForm(request.POST)
         return render(request, 'TrackApp/TrackApp_Add.html',
                       {'form': form})
+
+def TrackApp_display(request):
+    location_list = Location.objects.all()
+    context = {'location_list': location_list}
+    print(location_list)
+    return render(request, "TrackApp/TrackApp_display.html", context)
+
+def TrackApp_detail(request, pk):
+    location_name = get_object_or_404(Display, pk=pk)
+    all_detail = {'TrackApp_detail': TrackApp_detail}
+    context = all_detail
+    return render(request, "TrackApp/TrackApp_detail", context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

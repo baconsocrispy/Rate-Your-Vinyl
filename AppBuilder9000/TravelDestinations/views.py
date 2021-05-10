@@ -26,3 +26,9 @@ def TravelDestinationsviews(request):
     views = TravelDestinations.objects.all()
     context = {'views': views}
     return render(request, 'TravelDestinations/TravelDestinations_views.html', context)
+
+def TravelDestinationsdetail(request, pk):
+    TravelDestinations_detail = get_object_or_404(TravelDestinations, pk=pk)
+    views = {'TravelDestinations_detail': TravelDestinations_detail}
+    context = views
+    return render(request, "TravelDestinations/TravelDestinations_detail.html", context)

@@ -3,9 +3,12 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
 from . import views
-from .models import Location
+
+
 
 urlpatterns = [
     path('', views.TrackApp_home, name='TrackApp_home'),
-    path('TrackApp_Add',views.TrackApp_Add, name='TrackApp_Add')
+    path('TrackApp_Add',views.TrackApp_Add, name='TrackApp_Add'),
+    path('TrackApp_display',views.TrackApp_display, name='TrackApp_display'),
+    path('TrackApp_detail', views.TrackApp_detail, name='TrackApp_detail')
 ]
