@@ -22,3 +22,12 @@ def catalog(request):
     content = {'cards': cards}
     return render(request, 'BaseballCards/BaseballCards_catalog.html', content)
 
+
+def details(request, pk):
+    pk = int(pk)
+    cards = BaseballCard.BaseballCards.filter(pk=pk)
+    context = {'cards': cards}
+    return render(request, 'BaseballCards/BaseballCards_details.html', context)
+
+
+
