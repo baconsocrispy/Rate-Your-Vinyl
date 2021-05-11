@@ -1,0 +1,33 @@
+.bg_img {
+    background-image: url('/static/images/grunge.jpg');
+}
+
+.header {
+    text-align: center;
+    color: white;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #303030
+}
+
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size 20px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #303030;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+}
