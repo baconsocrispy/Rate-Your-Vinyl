@@ -2,9 +2,8 @@
 {% block content %}
 {% load static %}
 <h1>Video game Reviews</h1>
-
-<div id="content" class="grid-container" >
     {% for item in all %}
+<a href="{% url 'VideoGamesReviews_Details' item.pk %}">More info here!</a><br>
     <ul>
         <strong><li>Title: {{ item.GameName }}</li></strong><br>
         <li>Genre: {{ item.GameGenre }}</li><br>
