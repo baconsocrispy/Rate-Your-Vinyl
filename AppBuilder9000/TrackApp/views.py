@@ -5,6 +5,7 @@ from .forms import LocationForm
 from django.db import models
 from .forms import LocationForm
 from .models import Location
+from django.http import Http404
 
 
 def TrackApp_home(request):
@@ -27,12 +28,13 @@ def TrackApp_display(request):
     print(location_list)
     return render(request, "TrackApp/TrackApp_display.html", context)
 
-def TrackApp_detail(request, pk):
-    location_name = get_object_or_404(Display, pk=pk)
-    all_detail = {'TrackApp_detail': TrackApp_detail}
-    context = all_detail
-    return render(request, "TrackApp/TrackApp_detail", context)
+def TrackApp_detail(request,_id):
+    try:
+        data = Location.objects.get(id =_id)
+    except Location.DoesNotExist:
+        raise Http404('Data does not exist')
 
+    return render(request,'TrackApp/TrackApp_detail.html',{'data':data})
 
 
 
