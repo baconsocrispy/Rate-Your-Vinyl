@@ -21,7 +21,9 @@ def lofi_add(request):
     return render(request, 'lofi_add.html', context)
 
 
-
+def lofi_display(request):
+    LofiPlaylist = Song.objects.all()
+    return render(request, 'lofi_display.html', {'LofiPlaylist': LofiPlaylist})
 
 
 

@@ -7,14 +7,17 @@
 
 {% block content %}
 
-<div class="panel">
+<div>
     <form method="POST" action="{% url 'lofi_add' %}">
         <div class="form_container">
             {% csrf_token %}
-            <table>{{ form.as_p }}</table>
-        <input type="submit" value="Submit">
+            <table class="frm_table">{{ form.as_table }}</table>
+        <input class="btn" type="submit" value="Submit">
         </div>
     </form>
 </div>
+
+
+
 
 {% endblock %}
