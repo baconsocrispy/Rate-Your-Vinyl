@@ -14,29 +14,24 @@
 
     <title>{% block title %}{% endblock %}</title>
 
-      <style>
-        body {
-            margin: 54px;
-          }
+<!--      <style>-->
+<!--        body {-->
+<!--            margin: 54px;-->
+<!--          }-->
 
-        .my-container {
+<!--        .my-container {-->
 
-            border: 1px solid green;
-          }
+<!--            border: 1px solid green;-->
+<!--          }-->
 
-        .my-row {
-            border: 3px solid red;
-            height: 400px;
-          }
+<!--        .my-row {-->
+<!--            border: 3px solid red;-->
+<!--            height: 400px;-->
+<!--          }-->
 
-        .my-col {
-            border: 3px dotted blue;
-          }
-
-        #R1 {
-            height: 50px;
-        }
-      </style>
+<!--        .my-col {-->
+<!--            border: 3px dotted blue;-->
+<!--          }-->
 
   </head>
 <body>
@@ -53,10 +48,13 @@
                             <a href="{% url 'MarketWatch_home' %}" class="nav-link">MarketWatch | Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'Account' %}" class="nav-link">UserAccount</a>
+                            <a href="{% url 'Account' %}" class="nav-link">Account</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'Listview' %}" class="nav-link">View List</a>
+                            <a href="{% url 'Listview' %}" class="nav-link">ListView</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'DetailView' %}" class="nav-link">DetailView</a>
                         </li>
                     </ul>
                 </div>
@@ -69,22 +67,20 @@
         <div class="container my-container">
             <div class="row my-row" id="R1">
                 <div class="col-md-12 center-align-items-start my-col" id="R1C1">
-                    Row 1 Col 1
                 </div>
             </div>
 
             <div class="row my-row" id="R2">
                 <div class="col-md-4 center-align-items-start my-col" id="R2C1">
-                    Row 2 Col 1
                 </div>
                 <div class="col-md-8 center-align-items-start my-col" id="R2C2">
-                    Row 2 Col 2
                 </div>
             </div>
         </div>
-    {% endblock %}
+
     </main>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {% endblock %}
 </body>
 </html>

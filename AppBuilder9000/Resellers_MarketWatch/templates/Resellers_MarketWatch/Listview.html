@@ -8,7 +8,6 @@
  <div class="container my-container">
     <div class="row my-row">
         <div class="col-md-12 center-align-items-start my-col" id="list-col1">
-            Row 1 Col 1
                 <table class="table table-striped" id="list-r1c1">
 
 
@@ -28,11 +27,11 @@
                         <td>{{data.date}}</td>
                         <td><a href="{{data.url}}">Item-Link</a></td>
                         <td>{{data.price}}</td>
-                        <td><a href="{{data.imageUrl}}">Image-Link</a></td>
+                        <td><img alt="img" src="{{data.imageUrl}}"></td>
                         <td>{{data.profit}}</td>
                     </tr>
                   </tbody>
-            {% endfor %}
+                    {% endfor %}
                   </thead>
                 </table>
         </div>

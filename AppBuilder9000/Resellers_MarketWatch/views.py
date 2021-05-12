@@ -41,20 +41,6 @@ def all_webscrape(request):
     return render(request, 'Resellers_MarketWatch/Listview.html', context)
 
 
-#  UserLogin
-def register(request):
-    return render(request, 'Resellers_MarketWatch/Register.html')
-#
 
-
-# def Retrieve_DetailView(request,_id):
-#     try:
-#         data = UserLogin.User.get(id=_id)
-#     except UserLogin.DoesNotExist:
-#         raise Http404('Data does not exist')
-#
-#     return render(request, 'detailview.html', {'data': data})
-
-
-
-
+def detailsview(request):
+    dataview = WebScrape.WebScrape_db.filter()
