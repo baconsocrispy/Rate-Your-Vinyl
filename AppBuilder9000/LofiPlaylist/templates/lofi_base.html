@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="Utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{% static 'css/lofi.css' %}">
     </head>
@@ -10,7 +11,7 @@
         <div>
             <div class="topnav">
                 <a href="{% url 'lofi_home' %}">Home</a>
-                <a href="#">Songs</a>
+                <a href="{% url 'lofi_display' %}">Songs</a>
                 <a href="{% url 'lofi_add' %}">Add Song</a>
             </div>
             <div>
@@ -20,6 +21,7 @@
             </div>
 
             {% block content %}{% endblock %}
+
 
             <div class="footer">
                 <p>EMBRACE IMPERFECTION</p>

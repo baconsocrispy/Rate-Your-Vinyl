@@ -1,30 +1,48 @@
+
+
+
 body {
     background-image: url('/static/images/grunge.jpg');
     background-size: cover;
     background-attachment: fixed;
-
 }
 
+/* panel for song list */
 .panel {
     margin: 0 auto;
-    width: 30%;
-    height: 150%;
-    background-image: url('/static/images/mtn.jpg');
+    width: 50%;
+    height: 100%;
+    background-image: url('/static/images/sky.jpg');
     background-size: cover;
     padding: 10px 10px;
-    border-radius: 10px;
 }
 
+/*----------------------------------------------------------------------------------------
+Form Styling
+------------------------------------------------------------------------------------------*/
 
-
-/* design for form container */
 .form_container {
     display: block;
-    width: 80%;
+    width: 45%;
     margin: 0 auto;
     padding: 0;
-    text-align: center
+    text-align: center;
 }
+
+.frm_table {
+    margin: 0 auto;
+    color: white;
+}
+
+#id_name, #id_artist, #id_album, #id_year {
+    margin: 10px;
+}
+
+/* form submit button */
+.btn {
+    margin: 0 auto;
+}
+
 
 .header {
     text-align: center;
@@ -47,6 +65,7 @@ body {
 }
 
 
+
 .footer {
     position: fixed;
     left: 0;
@@ -58,5 +77,8 @@ body {
     font-size: 10px;
 }
 
-
+/* table headings sizing */
+.sizem {
+    font-size: 30px;
+}
 
