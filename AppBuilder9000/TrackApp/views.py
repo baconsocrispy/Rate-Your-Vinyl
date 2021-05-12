@@ -30,11 +30,11 @@ def TrackApp_display(request):
 
 def TrackApp_detail(request,_id):
     try:
-        data =LocationForm.objects.get(id =_id)
+        data = Location.objects.get(id =_id)
     except Location.DoesNotExist:
         raise Http404('Data does not exist')
 
-    return render(request,'TrackApp_detail.html',{'data':data})
+    return render(request,'TrackApp/TrackApp_detail.html',{'data':data})
 
 
 

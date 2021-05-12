@@ -10,5 +10,5 @@ urlpatterns = [
     path('', views.TrackApp_home, name='TrackApp_home'),
     path('TrackApp_Add/',views.TrackApp_Add, name='TrackApp_Add'),
     path('TrackApp_display/',views.TrackApp_display, name='TrackApp_display'),
-    path('TrackApp_detail/<int:pk>/', views.TrackApp_detail, name='TrackApp_detail'),
+    path('TrackApp_detail/<int:_id>/', views.TrackApp_detail, name='TrackApp_detail'),
 ]

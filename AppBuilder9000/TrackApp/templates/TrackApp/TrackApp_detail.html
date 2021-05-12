@@ -1,21 +1,23 @@
-{% extends 'SeaShanties/shanties_base.html' %}
+{% extends 'TrackApp/TrackApp_base.html' %}
 
-{% block title %} TrackApp -- View Song {% endblock %}
+{% block title %} TrackApp -- View data {% endblock %}
 
 {% block content %}
 
-{% for location %}
+
 <div>
     <ul>
         <div id="location_name" class="grid-container">
 
             <div id="location_list">
             <br>
-                <ul>state: {{ state  }}</ul>
-                <ul>city: {{ city  }}</ul>
-                <ul>location_name: {{ location_name }}</ul>
-                <ul>description: {{ }}</ul>
-            <ul> id: {{ TrackApp_detail.pk }}</ul>
+                <ul> state: {{ data.state  }}</ul>
+                <ul>city: {{ data.city  }}</ul>
+            <ul> id: {{ data.id }}</ul>
+                <ul> description: {{ data.description }}</ul>
+
+
+
                 <br>
                 <hr>
             </div>
