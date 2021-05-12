@@ -1,5 +1,29 @@
-.bg_img {
+body {
     background-image: url('/static/images/grunge.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.panel {
+    margin: 0 auto;
+    width: 30%;
+    height: 150%;
+    background-image: url('/static/images/mtn.jpg');
+    background-size: cover;
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+
+
+/* design for form container */
+.form_container {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center
 }
 
 .header {
@@ -9,7 +33,8 @@
 
 .topnav {
     overflow: hidden;
-    background-color: #303030
+    background-color: #303030;
+    position: relative;
 }
 
 .topnav a {
@@ -18,8 +43,9 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size 20px;
+    font-size: 20px;
 }
+
 
 .footer {
     position: fixed;
@@ -31,3 +57,6 @@
     text-align: center;
     font-size: 10px;
 }
+
+
+
