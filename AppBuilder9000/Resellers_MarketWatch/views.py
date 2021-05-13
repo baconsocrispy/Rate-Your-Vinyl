@@ -1,4 +1,4 @@
-
+from django.http import Http404
 from django.shortcuts import render, redirect
 from .forms import WebscrapeForm, UserLoginForm
 from .models import WebScrape
@@ -41,6 +41,10 @@ def all_webscrape(request):
     return render(request, 'Resellers_MarketWatch/Listview.html', context)
 
 
+def detailsview(request, pk):
+    try:
+        data = WebScrape.WebScrape_db.get(id=pk)
+    except WebScrape.DoesNotExist:
+        raise Http404('Data does not exist')
 
-def detailsview(request):
-    dataview = WebScrape.WebScrape_db.filter()
+    return render(request, 'Resellers_MarketWatch/DetailView.html', {'data': data})

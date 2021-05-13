@@ -5,5 +5,5 @@ urlpatterns = [
     path('', views.home, name='MarketWatch_home'),
     path('AccountPage/', views.account, name='Account'),
     path('Listview/', views.all_webscrape, name='Listview'),
-    path('DetailView/', views.all_webscrape, name='DetailView'),
+    path('DetailView/<int:pk>', views.detailsview, name='DetailView'),
 ]
