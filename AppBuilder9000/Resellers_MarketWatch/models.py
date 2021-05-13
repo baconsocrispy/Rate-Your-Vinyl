@@ -14,8 +14,9 @@ Categories = [
 
 
 class WebScrape(models.Model):
+    DoesNotExist = None
     category = models.CharField(max_length=50, null=False, choices=Categories)
-    url = models.URLField(primary_key=True, max_length=200, default='', null=False)
+    url = models.URLField(max_length=200, default='', null=False)
     date = models.DateField(auto_now_add=False)
     price = models.DecimalField(decimal_places=2, max_digits=7, default=0.00, null=False)
     imageUrl = models.URLField(max_length=200)

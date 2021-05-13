@@ -3,11 +3,6 @@ from django.forms import ModelForm
 from .models import WebScrape, UserLogin
 
 
-# This class needs to be renamed
-
-    # created a form class
-
-
 class WebscrapeForm(ModelForm):
     class Meta:
         model = WebScrape
@@ -32,19 +27,4 @@ class UserLoginForm(ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
-        }
-
-
-class Listview(ModelForm):
-    class Meta:
-        model = WebScrape
-        fields = ('category', 'url', 'date', 'price', 'imageUrl', 'profit')
-
-        widgets = {
-            'category': forms.Select(attrs={'class': 'form-control'}),
-            'url': forms.TextInput(attrs={'class': 'form-control'}),
-            'date': forms.TextInput(attrs={'class': 'form-control'}),
-            'price': forms.TextInput(attrs={'class': 'form-control'}),
-            'imageUrl': forms.TextInput(attrs={'class': 'form-control'}),
-            'profit': forms.TextInput(attrs={'class': 'form-control'}),
         }
