@@ -11,10 +11,9 @@
                     <tr>
                         <th class="sizem">Song</th>
                         <th class="sizem">Artist</th>
-                        <th class="sizem">Album</th>
-                        <th class="sizem">Year</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     {% for songs in LofiPlaylist %}
                         <tr>
@@ -25,14 +24,12 @@
                                 {{ songs.artist }}
                             </td>
                             <td>
-                                {{ songs.album }}
-                            </td>
-                            <td class>
-                                {{ songs.year }}
+                                <a href="{% url 'lofi_details' songs.pk %}">Song Details</a>
                             </td>
                         </tr>
                     {% endfor %}
-                 </tbody>
+
+                </tbody>
             </table>
 
 {% endblock %}
