@@ -13,10 +13,7 @@ def lofi_add(request):
     if form.is_valid():
         form.save()
         return redirect('lofi_display')
-    context = {
-        'form': form,
-    }
-    return render(request, 'lofi_add.html', context)
+    return render(request, 'lofi_add.html', {'form': form})
 
 
 def lofi_display(request):
@@ -27,6 +24,25 @@ def lofi_display(request):
 def lofi_details(request, pk):
     song = get_object_or_404(Song, pk=pk)
     return render(request, 'lofi_details.html', {'song': song})
+
+
+def lofi_edit(request, pk):
+    song = get_object_or_404(Song, pk=pk)
+    form = SongForm(request.POST or None, instance=song)
+    if form.is_valid():
+        form.save()
+        return redirect('lofi_display')
+    return render(request, 'lofi_edit.html', {'form': form})
+
+
+def confirm_delete(request, pk):
+    song = get_object_or_404(Song, pk=pk)
+    if request.method == 'POST':
+        song.delete()
+        return redirect('lofi_display')
+    return render(request, 'confirm_delete.html', {'song': song})
+
+
 
 
 

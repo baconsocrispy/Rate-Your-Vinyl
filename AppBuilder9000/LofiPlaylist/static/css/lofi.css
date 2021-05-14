@@ -32,7 +32,13 @@ Form Styling
 .frm_table {
     margin: 0 auto;
     color: white;
+    text-align: center;
 }
+
+.delete_container {
+    margin
+}
+
 
 #id_name, #id_artist, #id_album, #id_year {
     margin: 10px;
@@ -42,6 +48,7 @@ Form Styling
 .btn {
     margin: 0 auto;
 }
+
 
 
 .header {
@@ -82,3 +89,4 @@ Form Styling
     font-size: 20px;
 }
 
+/* confirmation delete h2 and p */

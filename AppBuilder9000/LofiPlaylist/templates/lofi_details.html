@@ -32,6 +32,12 @@
             <td>
                 {{ song.year }}
             </td>
+            <td>
+                <a href="{% url 'lofi_edit' song.pk %}">Edit</a>
+            </td>
+            <td>
+                <a href="{% url 'confirm_delete' song.pk %}">Delete</a>
+            </td>
         </tr>
 
 
