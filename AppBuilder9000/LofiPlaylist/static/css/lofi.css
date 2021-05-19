@@ -89,4 +89,6 @@ Form Styling
     font-size: 20px;
 }
 
-/* confirmation delete h2 and p */
+.white_text {
+    color: white;
+}
