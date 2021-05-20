@@ -8,7 +8,7 @@ import requests
 
 #zomato api key
 auth = {'user-key': 'e3491d1b716b19e9800329944dce6985'}
-#here map api key is found in the javascript in search.html (bottom of page)
+#here map api key is found in the javascript in trade_search.html (bottom of page)
 
 
 #home page
@@ -64,7 +64,7 @@ def Restaurant_add(request):
     return render(request, 'RestaurantApp/RestaurantApp_add.html', content)
 
 
-#delete function for show, details, and edit pages
+#delete function for show, details, and edit StockTrade
 def Restaurant_delete(request, pk):
     restaurant = get_object_or_404(Restaurant, pk=pk)
     if request.method == "POST":
@@ -73,7 +73,7 @@ def Restaurant_delete(request, pk):
     return redirect('RestaurantShow')
 
 
-#save to MyList feature in search.html
+#save to MyList feature in trade_search.html
 def Restaurant_save(request):
     form = RestaurantForm(request.POST or None)
     if request.method == 'POST':

@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-# urls for different pages on application
+# urls for different StockTrade on application
 urlpatterns = [
     path('', views.home, name='MetalGearApp_Home'),
     path('create/', views.create, name='create'),

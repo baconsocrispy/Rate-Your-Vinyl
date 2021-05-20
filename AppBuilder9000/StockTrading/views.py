@@ -2,22 +2,25 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'pages/home.html')
+    return render(request, 'StockTrade/trade_home.html')
 
 
 def stories(request):
-    return render(request, 'pages/stories.html')
+    return render(request, 'StockTrade/trade_stories.html')
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    return render(request, 'StockTrade/trade_about.html')
+
 
 def search(request):
-    return render(request, 'pages/search.html')
+    return render(request, 'StockTrade/trade_search.html')
+
 
 def results(request):
-    return render(request, 'pages/results.html')
+    return render(request, 'StockTrade/trade_results.html')
+
 
 def tags(request):
-    return render(request, 'pages/tags.html')
+    return render(request, 'StockTrade/trade_tags.html')
 

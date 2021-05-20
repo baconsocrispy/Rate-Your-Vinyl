@@ -131,7 +131,7 @@ def delete_confirmed(request, pet_name):
 
 
 def app_builder_home(request):
-    return render(request, '/home.html')
+    return render(request, '/trade_home.html')
 
 
 def rescue_groups_filter(request):

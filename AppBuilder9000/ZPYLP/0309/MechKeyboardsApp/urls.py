@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-# urls for different pages on application
+# urls for different StockTrade on application
 urlpatterns = [
     path('', views.home, name='Mech_Keyboards_home'),
     path('create_record/', views.create_record, name='create_record'),
