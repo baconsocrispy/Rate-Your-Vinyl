@@ -10,6 +10,7 @@ from .lofi_serializer import SongSerializer
 
 
 
+
 def lofi_home(request):
     return render(request, 'lofi_home.html',)
 
@@ -48,8 +49,7 @@ def confirm_delete(request, pk):
         return redirect('lofi_display')
     return render(request, 'confirm_delete.html', {'song': song})
 
-
-#My Created API
+# My Created API in Django Rest framework http://127.0.0.1:8000/LofiPlaylist/songs/
 
 class SongViewSet(viewsets.ModelViewSet):
     queryset = Song.objects.all()
@@ -58,26 +58,43 @@ class SongViewSet(viewsets.ModelViewSet):
 
 
 # consume lyrics API
-def lofi_lyrics(request):
-    #form = SearchForm()
-    if request.method == 'GET':
-        # create a form instance and populate it with data from the request:
-        form = SearchForm(request.GET)
-        #gives a blank query when page is loaded
-        song_lyrics = ""
 
+# def lofi_lyrics(request):
+#     if request.method == 'GET':
+#         form = SearchForm(request.GET)
+#         song_lyrics = ""
+#         print(f"FORM IS VALID{form.is_valid()}")
+#         if form.is_valid():
+#             print(f"Form Data {form.cleaned_data}")
+#             artist = form.cleaned_data['artist']
+#             title = form.cleaned_data['title']
+#             response = requests.get(f'https://api.lyrics.ovh/v1/{artist}/{title}')
+#             song = response.json()
+#             song_lyrics = song['lyrics']
+#         return render(request, 'lofi_lyrics.html', {
+#             'lyrics': song_lyrics
+#         })
+
+
+def lofi_lyrics(request):
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
+        song_lyrics = ""
         print(f"FORM IS VALID{form.is_valid()}")
         if form.is_valid():
             print(f"Form Data {form.cleaned_data}")
             artist = form.cleaned_data['artist']
             title = form.cleaned_data['title']
-            response = requests.get(f'https://api.lyrics.ovh/v1/{artist}/{title}')
-            song = response.json()
-            song_lyrics = song['lyrics']
+            try:
+                response = requests.get(f'https://api.lyrics.ovh/v1/{artist}/{title}')
+                response.raise_for_status()
+                song = response.json()
+                song_lyrics = song['lyrics']
+            except requests.exceptions.RequestException as e:
+                print(e)
         return render(request, 'lofi_lyrics.html', {
             'lyrics': song_lyrics
         })
-
 
 
 
