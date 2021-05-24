@@ -623,7 +623,7 @@ def ClassicalMusic_search_musician(request):
                 except:
                     pass
             request.session['search_musician'] = musicians
-            return render(request, 'ClassicalMusic/ClassicalMusic_search_result_musician.html', {'musicians': musicians, 'search_name': name, 'StockTrade': pages, 'page': page})
+            return render(request, 'ClassicalMusic/ClassicalMusic_search_result_musician.html', {'musicians': musicians, 'name': name, 'pages': pages, 'page': page})
         else: # status code is not 200
             messages.add_message(request, messages.ERROR, "This service is not available at the time.")
     else:
@@ -726,7 +726,7 @@ def ClassicalMusic_search_details_musician(request, MBID):
         'MBID': musician['MBID']
     })
 
-    context = {'recordings': recordings, 'musician': musician, 'StockTrade': pages, 'page': page, 'catalogues': catalogues, 'image_urls': image_urls, 'form': form, }
+    context = {'recordings': recordings, 'musician': musician, 'pages': pages, 'page': page, 'catalogues': catalogues, 'image_urls': image_urls, 'form': form, }
     return render(request, 'ClassicalMusic/ClassicalMusic_search_details_musician.html', context)
 
 

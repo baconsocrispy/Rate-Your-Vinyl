@@ -11,7 +11,7 @@ from .helpers import json_to_game, chess_game_stats, render_final_position
 
 # Create your views here.
 def index(request):
-    return render(request, "ChessApp/trade_home.html")
+    return render(request, "ChessApp/home.html")
 
 
 def group_stats(request):

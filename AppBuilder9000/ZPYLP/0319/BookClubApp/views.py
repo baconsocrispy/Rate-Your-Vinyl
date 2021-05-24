@@ -110,7 +110,7 @@ def BookClubApp_explore(request):
     return render(request, 'BookClubApp/BookClubApp_explore.html', context)
 
 
-# display the search form on the trade_search.html page
+# display the search form on the search.html page
 def BookClubApp_searchForm(request):
     context = {}
     context['form'] = SearchForm()
