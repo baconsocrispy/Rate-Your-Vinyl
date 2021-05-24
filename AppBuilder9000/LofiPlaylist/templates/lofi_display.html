@@ -11,6 +11,7 @@
                     <tr>
                         <th class="sizem">Song</th>
                         <th class="sizem">Artist</th>
+
                     </tr>
                 </thead>
 
@@ -24,7 +25,7 @@
                                 {{ songs.artist }}
                             </td>
                             <td>
-                                <a href="{% url 'lofi_details' songs.pk %}">Song Details</a>
+                                <button><a href="{% url 'lofi_details' songs.pk %}" style="text-decoration: none;">Song Details</a></button>
                             </td>
                         </tr>
                     {% endfor %}

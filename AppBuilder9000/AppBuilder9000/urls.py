@@ -32,6 +32,7 @@ urlpatterns = [
     path('Resellers_MarketWatch/', include('Resellers_MarketWatch.urls')),
     path('VideoGameReviews/', include('VideoGameReviews.urls')),
     path('LofiPlaylist/', include('LofiPlaylist.urls')),
+    path('ArtGallery/', include('ArtGallery.urls')),
     path('StockTrading/', include('StockTrading.urls')),
 ]
 
