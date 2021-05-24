@@ -623,7 +623,7 @@ def ClassicalMusic_search_musician(request):
                 except:
                     pass
             request.session['search_musician'] = musicians
-            return render(request, 'ClassicalMusic/ClassicalMusic_search_result_musician.html', {'musicians': musicians, 'name': name, 'pages': pages, 'page': page})
+            return render(request, 'ClassicalMusic/ClassicalMusic_search_result_musician.html', {'musicians': musicians, 'search_name': name, 'pages': pages, 'page': page})
         else: # status code is not 200
             messages.add_message(request, messages.ERROR, "This service is not available at the time.")
     else:
