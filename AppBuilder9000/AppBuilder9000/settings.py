@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'Resellers_MarketWatch',
     'LofiPlaylist',
     'ArtGallery',
+    'StockTrading',
 ]
 
 MIDDLEWARE = [

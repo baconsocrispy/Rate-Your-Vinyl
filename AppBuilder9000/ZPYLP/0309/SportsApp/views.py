@@ -43,7 +43,7 @@ def add_fav_player(request):
     return render(request, 'SportsApp/SportsApp_addFavPlayer.html', context)
 
 
-# Creating a function to get all the items from dB and send it to index.html template
+# Creating a function to get all the items from dB and send it to home.html template
 
 def add_game_archive(request):
     game_list = SavedNbaGame.SavedNbaGame.order_by('date_game').all()
