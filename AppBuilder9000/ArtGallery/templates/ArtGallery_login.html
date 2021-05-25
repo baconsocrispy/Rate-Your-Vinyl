@@ -1,0 +1,14 @@
+{% extends "ArtGallery_base.html" %}
+
+
+{% block title %} Poseidon's Eye Submission Form {% endblock %}
+
+{% block content %}
+<div class="form">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
