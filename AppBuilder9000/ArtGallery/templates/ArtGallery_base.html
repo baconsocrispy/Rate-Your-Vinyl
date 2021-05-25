@@ -12,10 +12,10 @@
 <!-- NAV BAR -->
     <header>
         <div class="navbar">
-            <ul>
+            <ul >
                 <li><a href="{% url 'ArtGallery_home' %}"></a>HOME</li>
                 <li><a href="#">FEATURED ART</a></li>
-                <li><a href="#"></a>LOGIN</li>
+                <li><a href="{% url 'ArtGallery_login' %}"></a>APPLICATION</li>
             </ul>
         </div>
         {% block header %}<h2 class="header">POSEIDON'S EYE GALLERY</h2>{% endblock %}
