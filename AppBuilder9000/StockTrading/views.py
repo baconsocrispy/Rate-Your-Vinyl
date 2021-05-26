@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import StoryForm, ResourceForm
 
 
 def home(request):
@@ -10,7 +11,39 @@ def stories(request):
 
 
 def about(request):
-    return render(request, 'StockTrade/trade_about.html')
+    form1 = StoryForm()
+    form2 = ResourceForm()
+
+    # if request.method == 'POST':
+    #     form2 = ResourceForm(request.POST)
+    #     if form2.is_valid():
+    #         form2.save()
+    #
+    # if request.method == 'POST':
+    #     form1 = StoryForm(request.POST)
+    #     if form1.is_valid():
+    #         form1.save()
+
+    context = {'form1': form1, 'form2': form2}
+    return render(request, 'StockTrade/trade_about.html', context)
+
+
+def story(request):
+    if request.method == 'POST':
+        form1 = StoryForm(request.POST)
+        if form1.is_valid():
+            form1.save()
+    response = redirect('about')
+    return response
+
+
+def resource(request):
+    if request.method == 'POST':
+        form2 = ResourceForm(request.POST)
+        if form2.is_valid():
+            form2.save()
+    response = redirect('about')
+    return response
 
 
 def search(request):

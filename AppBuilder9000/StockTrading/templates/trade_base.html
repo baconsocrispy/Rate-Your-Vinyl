@@ -34,20 +34,20 @@
                     <a style= "text-decoration: none;" class="text-dark " href="{% url 'stories' %}"><strong>Stories</strong></a>
                 </div>
                 <div class="col-1 pt-1">
-                    <a style= "text-decoration: none;" class="text-dark " href="{% url 'about' %}"><strong>About</strong></a>
+                    <a style= "text-decoration: none;" class="text-dark " href="{% url 'about' %}"><strong>Admin</strong></a>
                 </div>
             </div>
         <!-- END NAVBAR -->
 
         <!-- CONTENT -->
-            <div class="row mt-5 pt-3" style="display: flex; width: 100%;">
+
                 {% block content %}{% endblock %}
             </div>
 
         <!-- END CONTENT -->
 
         <!-- FOOTER -->
-            <div class="row bg-light p-2 text-white text-center pt-3 shadow-lg  align-bottom">
+            <div class="row bg-white p-2 text-white text-center pt-3 shadow-lg  align-bottom">
                 <div class="col-2">
 
                     <!-- possible logo -->

@@ -1,3 +1,6 @@
+# VirtualEnv #
+VirtualEnvironment/
+
 # Django #
 *.log
 *.pot
