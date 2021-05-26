@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .models import Story, Resource
 from .forms import StoryForm, ResourceForm
 
 
@@ -7,7 +8,9 @@ def home(request):
 
 
 def stories(request):
-    return render(request, 'StockTrade/trade_stories.html')
+    cards = Story.Stories.all()
+    context = {'cards': cards}
+    return render(request, 'StockTrade/trade_stories.html', context)
 
 
 def about(request):

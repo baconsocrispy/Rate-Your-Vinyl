@@ -9,9 +9,10 @@ class StoryForm(ModelForm):
         fields = '__all__'
 
         widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'article': forms.Textarea(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'article': forms.Textarea(attrs={'class': 'form-control'}),
             'date': forms.SelectDateWidget(attrs={'class': 'form-control'}),
             'time': forms.TimeInput(attrs={'type': 'time'}),
             'tags': forms.Select(attrs={'class': 'form-control'}),
