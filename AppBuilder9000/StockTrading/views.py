@@ -11,17 +11,28 @@ def stories(request):
 
 
 def about(request):
+
+    return render(request, 'StockTrade/trade_about.html')
+
+
+def formStory(request):
     form1 = StoryForm()
-    form2 = ResourceForm()
     if request.method == 'POST':
         form1 = StoryForm(request.POST)
-        form2 = ResourceForm(request.POST)
         if form1.is_valid():
             form1.save()
+    context = {'form1': form1}
+    return context
+
+
+def formResource(request):
+    form2 = ResourceForm()
+    if request.method == 'POST':
+        form2 = ResourceForm(request.POST)
         if form2.is_valid():
             form2.save()
-    context = {'form1': form1, 'form2': form2}
-    return render(request, 'StockTrade/trade_about.html', context)
+    context = {'form2': form2}
+    return context
 
 
 def search(request):

@@ -10,7 +10,7 @@
 
         <div style="height: 80vh;" class="col bg-light p-4 rounded">
             <h3 class="h5 text-start text-secondary"><strong>Add a Story</strong></h3>
-            <form action="" method="POST" class="p-3">
+            <form action="addStory/" method="POST" class="p-3">
                 {% csrf_token %}
                 {{ form1.as_p }}
                 <button type="submit" class="btn btn-primary">Add Story</button>
@@ -19,7 +19,7 @@
 
         <div style="height: 80vh;" class="col bg-light p-4 rounded">
             <h3 class="h5 text-start text-secondary"><strong>Add a Resource</strong></h3>
-            <form action="" method="POST" class="p-3">
+            <form action="addResource/" method="POST" class="p-3">
                 {% csrf_token %}
                 {{ form2.as_p }}
                 <button type="submit" class="btn btn-primary">Add Resource</button>
