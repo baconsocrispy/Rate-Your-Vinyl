@@ -1,0 +1,33 @@
+{% load static %}
+
+<div class="row pb-2">
+  <div class="card-body bg-secondary rounded p-2">
+
+    <div class="row bg-dark">
+      <div class="col">
+        <p class="card-title text-white text-start pt-1"><strong>{{ card.date }}</strong></p>
+      </div>
+      <div class="col">
+        <p class="card-title text-white text-end pt-1"><strong>{{ card.time }}</strong></p>
+      </div>
+    </div>
+
+    <div class="row text-start text-white p-2">
+      <h4><strong>{{ card.title }}</strong></h4>
+    </div>
+    <div class="row text-start text-white px-3">
+      <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ card.article }}</strong></p>
+    </div>
+
+
+    <div class="row">
+      <div class="col text-start text-white">
+        <h6 class="pe-2"><em><strong>Type: </strong>{{ card.tags }}</em></h6>
+      </div>
+      <div class="col text-end text-white">
+        <h6 class="pe-2"><em><strong>Author: </strong>{{ card.first_name }} {{ card.last_name }}</em></h6>
+      </div>
+    </div>
+
+  </div>
+</div>

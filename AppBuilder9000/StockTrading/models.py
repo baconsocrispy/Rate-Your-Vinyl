@@ -7,6 +7,7 @@ tagOption = [
 ]
 
 class Story(models.Model):
+    title = models.CharField(max_length=10, blank=True)
     first_name = models.CharField(max_length=10, blank=True)
     last_name = models.CharField(max_length=10, blank=True)
     article = models.TextField(max_length=1000, blank=True)
