@@ -16,11 +16,13 @@ padding: 0;
     top: 0;
     width: 100%;
     max-width: 100%;
-    opacity: 50%;
+    opacity: 90%;
 }
 
 .navbar ul li {
-    list-style: none;
+    text-decoration: none;
+    display: inline;
+    font-weight: bold;
 
 }
 
@@ -32,8 +34,42 @@ padding: 0;
     font-size: 4;
     font-weight: none
     text-decoration: none;
+}
 
+ul li {
+list-style: none;
+background-color: white;
+text-align: auto;
+padding: 2px;
+display: inline;
+}
 
+.display {
+background: white;
+position: relative;
+}
+
+.display2 {
+position: absolute;
+background: white;
+width: 100%;
+top: 50%;
+top: 70px;
+opacity: 90%;
+}
+
+.form {
+background: white;
+position: relative;
+}
+
+.form2 {
+position: absolute;
+background: white;
+width: 100%;
+top: 50%;
+top: 70px;
+opacity: 90%;
 }
 /*--- FOOTER ---*/
 .footer {
@@ -42,7 +78,7 @@ width: 100%;
 max-width: 100%;
 position: absolute;
 bottom: 0;
-opacity: 50%;
+opacity: 90%;
 }
 
 .footer-text {
@@ -52,4 +88,7 @@ margin-top: 11px;
 padding: 0;
 margin-bottom: 1px;
 text-align: center;
-}
+
+
+
+

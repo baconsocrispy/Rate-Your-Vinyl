@@ -5,10 +5,15 @@
 
 {% block content %}
 <div class="form">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
+    <div class="form2">
+    <form method="POST" align="center">{% csrf_token %}
+        <table align="center">
+            <tr colspan="2">
+            {{ form }}
+            </tr>
+        </table>
         <button class="button" type="submit">Submit</button>
     </form>
+    </div>
 </div>
 {% endblock %}
