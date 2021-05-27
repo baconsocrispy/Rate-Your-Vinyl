@@ -1,0 +1,25 @@
+{% extends "ArtGallery_base.html" %}
+
+
+{% block title %} Poseidon's Eye Artists {% endblock %}
+
+{% block content %}
+
+<div class="display">
+    <div class="display2">
+        {% for item in user_display %}
+        <ul>
+            <h6>First Name:</h6>
+            <li>{{ item.First_Name }} </li>
+
+            <h6>Last Name:</h6>
+            <li>{{ item.Last_Name }} </li>
+
+            <h6>Email:</h6>
+            <li>{{ item.Email }} </li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
