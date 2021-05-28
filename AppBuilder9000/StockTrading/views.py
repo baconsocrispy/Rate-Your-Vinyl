@@ -52,7 +52,7 @@ def resource(request):
 def details(request, pk):
     story_get = get_object_or_404(Story, pk=pk)
     story_all = {'story_get': story_get}
-    context = {'story_all': story_all}
+    context = story_all
 
     return render(request, 'StockTrade/trade_details.html', context)
 
