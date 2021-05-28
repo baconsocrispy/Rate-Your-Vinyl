@@ -4,7 +4,6 @@ class Artist(models.Model):
     First_Name = models.CharField(max_length=40)
     Last_Name = models.CharField(max_length=40)
     Email = models.CharField(max_length=60, help_text='Please make sure your email is correct!')
-    Phone = models.IntegerField
     ART_TYPE = (
         ('T', 'Traditional'),
         ('O', 'Oil'),
