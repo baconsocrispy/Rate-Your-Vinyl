@@ -9,14 +9,10 @@
     <div class="display2">
         {% for item in user_display %}
         <ul>
-            <h6>First Name:</h6>
-            <li>{{ item.First_Name }} </li>
-
-            <h6>Last Name:</h6>
-            <li>{{ item.Last_Name }} </li>
-
-            <h6>Email:</h6>
-            <li>{{ item.Email }} </li>
+            <li>{{ item.First_Name }}</li>
+            <li>{{ item.Last_Name }} |</li>
+            <li>{{ item.Email }}  </li>
+            <button><a href="{% url 'ArtGallery_details' item.pk %}">User Details</a></button>
         </ul>
         {% endfor %}
     </div>
