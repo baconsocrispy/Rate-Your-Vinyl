@@ -15,7 +15,7 @@
     <body>
 
         <!-- NAVBAR -->
-            <div class="row bg-light p-2 text-white text-center pt-3 shadow-lg fixed-top">
+            <div style="background-color: #151515;" class="row p-2 text-white text-center pt-3 shadow-lg fixed-top">
                 <div class="col-2">
                     <image src="{%  static 'images/logo.png' %}"
                            width="150"
@@ -28,13 +28,13 @@
                     <p class="fs-24 text-white"></p> <!-- this adds space between logo and links -->
                 </div>
                 <div class="col-1 pt-1">
-                    <a style= "text-decoration: none;" class="active text-dark" href="{% url 'home' %}"><strong>Home</strong></a>
+                    <a style= "text-decoration: none; color: #62929E;" href="{% url 'home' %}"><strong>Home</strong></a>
                 </div>
                 <div class="col-1 pt-1">
-                    <a style= "text-decoration: none;" class="text-dark " href="{% url 'stories' %}"><strong>Stories</strong></a>
+                    <a style= "text-decoration: none; color: #62929E;" href="{% url 'stories' %}"><strong>Stories</strong></a>
                 </div>
                 <div class="col-1 pt-1">
-                    <a style= "text-decoration: none;" class="text-dark " href="{% url 'about' %}"><strong>Admin</strong></a>
+                    <a style= "text-decoration: none; color: #62929E;" href="{% url 'about' %}"><strong>Admin</strong></a>
                 </div>
             </div>
         <!-- END NAVBAR -->

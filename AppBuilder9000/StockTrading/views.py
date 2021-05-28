@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Story, Resource
 from .forms import StoryForm, ResourceForm
 
@@ -47,6 +47,14 @@ def resource(request):
             form2.save()
     response = redirect('about')
     return response
+
+
+def details(request, pk):
+    story_get = get_object_or_404(Story, pk=pk)
+    story_all = {'story_get': story_get}
+    context = story_all
+
+    return render(request, 'StockTrade/trade_details.html', context)
 
 
 def search(request):
