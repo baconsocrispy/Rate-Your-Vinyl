@@ -28,6 +28,9 @@
         <h6 class="pe-2"><em><strong>Author: </strong>{{ card.first_name }} {{ card.last_name }}</em></h6>
       </div>
     </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button href="{% url 'details' card.pk %}" class="btn btn-outline-dark me-md-2" type="button">Details</button>
+    </div>
 
   </div>
 </div>
