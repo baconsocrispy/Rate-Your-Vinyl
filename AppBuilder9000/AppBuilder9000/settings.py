@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'LofiPlaylist',
     'ArtGallery',
     'StockTrading',
+    'ArtistTrack',
 ]
 
 MIDDLEWARE = [
