@@ -1,0 +1,14 @@
+{% extends 'ArtistTrack_base.html' %}
+{% block title %}Add Song{% endblock %}
+{% block body %}
+<h3>Add Song to DB</h3>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="song-addSong-button" name="Save_Song" type="submit">Add Song</button>
+    </form>
+
+
+</div>
+{% endblock %}
