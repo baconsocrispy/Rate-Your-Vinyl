@@ -1,0 +1,28 @@
+{% extends 'ArtistTrack_base.html' %}
+{% block title %}Library{% endblock %}
+{% block header %}Library{% endblock %}
+{% block body %}
+<div class="container">
+    <table class="table">
+        <tr>
+            <th scope="col">Song Name</th>
+            <th scope="col">Artist</th>
+            <th scope="col">Album</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Year</th>
+            <th scope="col">Playlist</th>
+        </tr>
+        {% for song in songs %}
+        <tr>
+            <td class="text-white">{{ song.song_name }}</td>
+            <td class="text-white">{{ song.artist }}</td>
+            <td class="text-white">{{ song.album }}</td>
+            <td class="text-white">{{ song.genre }}</td>
+            <td class="text-white">{{ song.year }}</td>
+            <td class="text-white">{{ song.playlist }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
