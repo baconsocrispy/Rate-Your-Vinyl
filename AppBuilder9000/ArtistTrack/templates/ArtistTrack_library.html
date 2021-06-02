@@ -2,27 +2,43 @@
 {% block title %}Library{% endblock %}
 {% block header %}Library{% endblock %}
 {% block body %}
-<div class="container">
-    <table class="table">
-        <tr>
-            <th scope="col">Song Name</th>
-            <th scope="col">Artist</th>
-            <th scope="col">Album</th>
-            <th scope="col">Genre</th>
-            <th scope="col">Year</th>
-            <th scope="col">Playlist</th>
-        </tr>
-        {% for song in songs %}
-        <tr>
-            <td class="text-white">{{ song.song_name }}</td>
-            <td class="text-white">{{ song.artist }}</td>
-            <td class="text-white">{{ song.album }}</td>
-            <td class="text-white">{{ song.genre }}</td>
-            <td class="text-white">{{ song.year }}</td>
-            <td class="text-white">{{ song.playlist }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
 
+    <div id="at-library-table1" class="container-fluid">
+        <table class="table">
+            <tr class="make-sticky">
+                <th scope="col">Playlist Name</th>
+                <th scope="col">Description</th>
+            </tr>
+            {% for playlist in playlists %}
+            <tr class="text-white">
+                <td>{{ playlist.playlist_name }}</td>
+                <td>{{ playlist.playlist_description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div id="at-library-table2" class="container-fluid ">
+        <table class="table">
+            <tr class="">
+                <th scope="col">Song Name</th>
+                <th scope="col">Artist</th>
+                <th scope="col">Album</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Year</th>
+                <th scope="col">Playlist</th>
+            </tr>
+            {% for song in songs %}
+            <tr class="text-white">
+                <td>{{ song.song_name }}</td>
+                <td>{{ song.artist }}</td>
+                <td>{{ song.album }}</td>
+                <td>{{ song.genre }}</td>
+                <td>{{ song.year }}</td>
+                <td>{{ song.playlist }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
 {% endblock %}
