@@ -1,6 +1,6 @@
 {% extends 'ArtistTrack_base.html' %}
 {% block title %}Details{% endblock %}
-{% block header %}Details{% endblock %}
+{% block header %}Song Details{% endblock %}
 {% block body %}
 
 <div class="container-fluid">
@@ -11,10 +11,7 @@
         <li>Album: {{ song.album }}</li>
         <li>Year: {{ song.year }}</li>
         <li>Genre: {{ song.genre }}</li>
-        <li>Playlist: {{ song.playlist_name }}</li>
     </ul>
-
-
 </div>
 
 {% endblock %}
