@@ -1,0 +1,23 @@
+{% extends 'ArtistTrack_base.html' %}
+{% block title %}Details{% endblock %}
+{% block header %}Details{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+
+    <ul class="text-white">
+        <li>Song Name: {{ song.song_name }}</li>
+        <li>Artist: {{ song.artist }}</li>
+        <li>Album: {{ song.album }}</li>
+        <li>Year: {{ song.year }}</li>
+        <li>Genre: {{ song.genre }}</li>
+        <li>Playlist: {{ song.playlist_name }}</li>
+    </ul>
+
+
+</div>
+<!--<ul>-->
+<!--    {% for key, value, in song %}-->
+<!--    <li>{{ key, value }}</li>-->
+<!--</ul>-->
+{% endblock %}
