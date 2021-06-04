@@ -5,11 +5,11 @@
 
 <div class="at-library-container">
 {% for playlist in playlists %}
-    <div class="">
-        <h4 class="text-white">{{ playlist.playlist_name }}</h4>
-        <p>{{ playlist.playlist_description }}</p>
+    <div class="at-playlist-container">
+        <h4 class="red-text text-center">{{ playlist.playlist_name }}</h4>
+        <p class="text-white text-center">{{ playlist.playlist_description }}</p>
         <table class="table table-bordered">
-            <tr class="">
+            <tr class="red-text">
                 <th scope="col">Artist</th>
                 <th scope="col">Song</th>
             </tr>

@@ -3,6 +3,23 @@ from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
 
 
+def edit_song(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Song, pk=pk)
+    form = SongForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'ArtistTrack_editSong.html', {'form': form})
+
+
+    return render(request, 'ArtistTrack_editSong.html', context)
+
+
 def at_details(request, pk):
     pk = int(pk)
     item = get_object_or_404(Song, pk=pk)

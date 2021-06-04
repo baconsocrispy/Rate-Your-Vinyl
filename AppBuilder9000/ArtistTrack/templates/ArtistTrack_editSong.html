@@ -1,0 +1,20 @@
+{% extends 'ArtistTrack_base.html' %}
+{% block title %}ArtistTrack Edit{% endblock %}
+{% block header %}Edit Song{% endblock %}
+{% block body %}
+
+<div class="">
+    <form name="SongForm" method="POST" action="">
+        <table>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_table }}
+        </table>
+
+
+    </form>
+
+
+
+</div>
+{% endblock %}
