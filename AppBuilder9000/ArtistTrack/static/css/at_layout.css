@@ -4,10 +4,14 @@ body {
     background-size: 100%;
 
 }
-#at-library-table1 {
-    max-height: 34em;
-    overflow-y: scroll;
+.at-library-container {
+    display: flex;
+    /* this makes it so the tables will make a new row if space is needed because
+    of a smaller screen, or many playlists to display. */
+    flex-wrap: wrap;
+    /* gives the tables an even amount of space between and outside of them */
+    justify-content: space-around;
+    align-items: stretch;
 }
-
 
 
