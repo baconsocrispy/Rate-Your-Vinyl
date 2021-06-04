@@ -5,12 +5,9 @@ body {
 
 }
 #at-library-table1 {
-    max-height: 10em;
+    max-height: 34em;
     overflow-y: scroll;
 }
-#at-library-table2 {
-    max-height: 20em;
-    overflow-y: scroll;
-}
+
 
 

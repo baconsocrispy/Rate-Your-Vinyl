@@ -3,7 +3,13 @@ from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
 
 
-# Create your views here.
+def at_details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Song, pk=pk)
+    context = {'song': item}
+    return render(request, 'ArtistTrack_details.html', context)
+
+
 def at_library(request):
     songs = Song.Songs.all()
     playlists = Playlist.Playlists.all()

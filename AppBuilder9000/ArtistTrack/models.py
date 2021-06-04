@@ -2,18 +2,6 @@ from django.db import models
 
 
 # Create your models here.
-
-class Playlist(models.Model):
-    playlist_name = models.CharField(max_length=50)
-    playlist_description = models.TextField()
-
-    Playlists = models.Manager()
-
-
-    def __str__(self):
-        return self.playlist_name
-
-
 class Song(models.Model):
     GENRE_CHOICES = (
         ('nu-metal', 'nu-metal'),
@@ -30,12 +18,22 @@ class Song(models.Model):
     album = models.CharField(max_length=50, default=None, blank=True)
     genre = models.CharField(max_length=50, choices=GENRE_CHOICES)
     year = models.IntegerField(default=None, blank=True)
-    playlist = models.ForeignKey(Playlist, on_delete=models.CASCADE, null=True, blank=True)
 
     Songs = models.Manager()
 
     def __str__(self):
         return self.song_name
+
+
+class Playlist(models.Model):
+    playlist_name = models.CharField(max_length=50)
+    playlist_description = models.TextField()
+    playlist_songs = models.ManyToManyField(Song)
+
+    Playlists = models.Manager()
+
+    def __str__(self):
+        return self.playlist_name
 
 
 
