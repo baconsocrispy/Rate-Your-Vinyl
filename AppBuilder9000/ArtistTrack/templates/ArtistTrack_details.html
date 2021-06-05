@@ -11,9 +11,9 @@
             {{ form.as_table }}
         </table>
             <input class="btn btn-primary" type="submit" value="Edit Song Details">
-           <a href="{% url 'at_delete' form.id %}"><button class="btn btn-danger" >Delete From Library</button></a>
-    </form>
 
+    </form>
+    <a href="./delete"><button class="btn btn-danger" >Delete From Library</button></a>
     <button class="btn btn-secondary" onclick="{% url 'at_library' %}">Back to Library</button>
 </div>
 
