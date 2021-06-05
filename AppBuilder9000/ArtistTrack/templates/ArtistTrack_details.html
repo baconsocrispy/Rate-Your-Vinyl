@@ -3,16 +3,20 @@
 {% block header %}Song Details{% endblock %}
 {% block body %}
 
-<div class="container-fluid">
+<div class="">
+    <form name="SongForm" method="POST" action="">
+        <table class="text-white">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_table }}
+        </table>
+        <div class="frmBtn_container">
+            <input type="submit" value="Edit Song Details">
 
-    <ul class="text-white">
-        <li>Song Name: {{ song.song_name }}</li>
-        <li>Artist: {{ song.artist }}</li>
-        <li>Album: {{ song.album }}</li>
-        <li>Year: {{ song.year }}</li>
-        <li>Genre: {{ song.genre }}</li>
-    </ul>
-    <button ></button>
+                <button class="btn btn_secondary" onclick="{% url 'at_library' %}">Back to Library</button>
+
+        </div>
+    </form>
 </div>
 
 {% endblock %}
