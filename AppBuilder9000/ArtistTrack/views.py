@@ -3,21 +3,14 @@ from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
 
 
-def edit_song(request, pk):
+def at_delete(request, pk):
     pk = int(pk)
     item = get_object_or_404(Song, pk=pk)
-    form = SongForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'ArtistTrack_editSong.html', {'form': form})
-
-
-    return render(request, 'ArtistTrack_editSong.html', context)
+        item.delete()
+        return redirect('at_library')
+    context = {'item': item}
+    return render(request, "ArtistTrack_deleteSong.html", context)
 
 
 def at_details(request, pk):

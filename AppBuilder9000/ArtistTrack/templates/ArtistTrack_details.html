@@ -10,13 +10,11 @@
             {{ form.non_field_errors }}
             {{ form.as_table }}
         </table>
-        <div class="frmBtn_container">
-            <input type="submit" value="Edit Song Details">
+            <input class="btn btn-primary" type="submit" value="Edit Song Details">
 
-                <button class="btn btn_secondary" onclick="{% url 'at_library' %}">Back to Library</button>
-
-        </div>
     </form>
+
+    <button class="btn btn-secondary" onclick="{% url 'at_library' %}">Back to Library</button>
 </div>
 
 {% endblock %}
