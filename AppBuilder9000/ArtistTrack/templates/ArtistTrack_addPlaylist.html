@@ -4,11 +4,11 @@
 {% block body %}
 
 <div class="container-fluid">
-    <p class="text-white" id="at-addPlaylist-message">Playlist has been added successfully</p>
+<!--    <p class="text-white" id="at-addPlaylist-message">Playlist has been added successfully</p>-->
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-secondary" name="Save_Playlist" type="submit" onclick="document.getElementById('at-addPlaylist-message').style.display = 'block';">Add Playlist</button>
+        <button class="btn btn-secondary" name="Save_Playlist" type="submit" onclick="window.alert('Playlist has been added successfully')">Add Playlist</button>
     </form>
 
 
