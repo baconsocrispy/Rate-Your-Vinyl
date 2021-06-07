@@ -14,7 +14,7 @@
 
     </form>
     <a href="./delete"><button class="btn btn-danger" >Delete From Library</button></a>
-    <button class="btn btn-secondary" onclick="{% url 'at_library' %}">Back to Library</button>
+    <a href="{% url 'at_library' %}"><button class="btn btn-secondary">Back to Library</button></a>
 </div>
 
 {% endblock %}

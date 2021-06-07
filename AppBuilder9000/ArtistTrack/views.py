@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
+import requests
+
+
+def at_api(request):
+    response = requests.get("")
+    song_data = response.json()
 
 
 def at_delete(request, pk):
