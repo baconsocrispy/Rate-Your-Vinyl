@@ -40,22 +40,8 @@ class Playlist(models.Model):
 
 
 
-# class Musician(models.Model):
-#     INSTRUMENT_CHOICES = {
-#         ('bass guitar', 'bass guitar'),
-#         ('drummer', 'drummer'),
-#         ('guitar', 'guitar'),
-#         ('vocals', 'vocals'),
-#     }
-#     first_name = models.CharField(max_length=50, help_text='first name')
-#     last_name = models.CharField(max_length=50, help_text='last name')
-#     instrument = models.CharField(max_length=50, choices=INSTRUMENT_CHOICES)
-#
-#     objects = models.Manager()
-#
-#     def __str__(self):
-#         full_name = self.first_name + ' ' + self.last_name
-#         return full_name
+
+
 
 
 
