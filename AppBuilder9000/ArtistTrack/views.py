@@ -25,8 +25,7 @@ def at_playlist_details(request, pk):
     form = PlaylistForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
+            form.save()
             return redirect('at_library')
         else:
             print(form.errors)

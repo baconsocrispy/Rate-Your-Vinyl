@@ -14,21 +14,16 @@ class SongForm(ModelForm):
             'album': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Album'}),
             'genre': forms.Select(attrs={'class': 'form-control'}),
             'year': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Year'}),
-            # 'playlist': forms.Select(attrs={'class': 'form-control'}),
         }
 
 
 class PlaylistForm(ModelForm):
     class Meta:
         model = Playlist
-        fields = ['playlist_name', 'playlist_description', 'playlist_songs']
-
-        playlist_name = forms.CharField()
-        playlist_description = forms.CharField()
-        playlist_songs = forms.ModelMultipleChoiceField(queryset=Song.Songs.all())
+        fields = '__all__'
 
         widgets = {
             'playlist_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Playlist Name'}),
-            'playlist_description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'a description about your playlist'}),
+            'playlist_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'a description about your playlist'}),
             'playlist_songs': forms.SelectMultiple(attrs={'class': 'form-control'})
         }
