@@ -3,11 +3,29 @@ from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
 
 
+def at_delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Song, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('at_library')
+    context = {'item': item}
+    return render(request, "ArtistTrack_deleteSong.html", context)
+
+
 def at_details(request, pk):
     pk = int(pk)
     item = get_object_or_404(Song, pk=pk)
-    context = {'song': item}
-    return render(request, 'ArtistTrack_details.html', context)
+    form = SongForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('at_library')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'ArtistTrack_details.html', {'form': form})
 
 
 def at_library(request):
