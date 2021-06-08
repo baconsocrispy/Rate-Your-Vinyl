@@ -8,9 +8,10 @@ import json
 def at_lyrics_api(request, pk):
     pk = int(pk)
     song = get_object_or_404(Song, pk=pk)
+    #api takes artist and title as parameters
     artist = song.artist
     title = song.song_name
-    response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title))
+    response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=15)
     json_data = json.loads(response.content)
     lyrics = json_data['lyrics']
     context = {
