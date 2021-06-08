@@ -3,10 +3,10 @@
 {% block header %}Playlist Details{% endblock %}
 {% block body %}
 
-<div class="">
+<div class="container at-opaque-container">
 
-    <form name="PlaylistForm" method="POST" action="">
-        <table class="text-white">
+    <form class="red-text" name="PlaylistForm" method="POST" action="">
+        <table class="">
             {% csrf_token %}
             {{ form.non_field_errors }}
             {{ form.as_p }}
@@ -14,7 +14,7 @@
             <input class="btn btn-primary" type="submit" value="Edit Playlist Details">
 
     </form>
-    <a href="./playlist_delete"><button class="btn btn-danger" >Delete From Library</button></a>
+    <a href="./playlist_delete"><button class="btn btn-danger" >Delete Playlist From Library</button></a>
     <a href="{% url 'at_library' %}"><button class="btn btn-secondary">Back to Library</button></a>
 </div>
 

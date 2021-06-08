@@ -5,7 +5,8 @@
 
 }
 .at-library-container {
-
+    max-height: 30em;
+    overflow-y: scroll;
     display: flex;
     /* this makes it so the tables will make a new row if space is needed because
     of a smaller screen, or many playlists to display. */
@@ -15,7 +16,12 @@
     align-items: stretch;
 }
 
-.at-playlist-container {
+.at-playlist-table {
+    max-height: 16em;
+    overflow-y: scroll;
+}
+
+.at-opaque-container {
     background-color: black;
     opacity: .7;
     border-radius: 8px;
@@ -25,5 +31,10 @@
 }
 
 
-.at-lyrics-container
+@media only screen and (max-width: 900px) {
+    body {
+        background-image: none;
+        background-color: red;
+    }
+}
 

@@ -5,7 +5,7 @@
 
 <div class="at-library-container">
 {% for playlist in playlists %}
-    <div class="at-playlist-container">
+    <div class="at-opaque-container at-playlist-table">
         <a href="{{ playlist.pk }}/playlist_details"><h4 class="red-text text-center">{{ playlist.playlist_name }}</h4></a>
         <p class="text-white text-center">{{ playlist.playlist_description }}</p>
         <table class="table table-bordered">
