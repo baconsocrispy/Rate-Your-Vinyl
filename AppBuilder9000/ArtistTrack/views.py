@@ -2,11 +2,22 @@ from django.shortcuts import render, redirect, get_object_or_404
 from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
 import requests
+import json
 
-#
-# def at_api(request):
-#     response = requests.get("")
-#     song_data = response.json()
+
+def at_lyrics_api(request, pk):
+    pk = int(pk)
+    song = get_object_or_404(Song, pk=pk)
+    artist = song.artist
+    title = song.song_name
+    response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title))
+    json_data = json.loads(response.content)
+    lyrics = json_data['lyrics']
+    context = {
+        'song': song,
+        'lyrics': lyrics
+    }
+    return render(request, "ArtistTrack_lyrics.html", context)
 
 
 def at_playlist_delete(request, pk):

@@ -8,7 +8,7 @@
     <form action="" method="POST" >
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-secondary" name="Save_Song" type="submit" onclick="document.getElementById('at-addSong-message').style.display = 'block';">Add Song</button>
+        <button class="btn btn-secondary" name="Save_Song" type="submit" onclick="add_song_message()">Add Song</button>
     </form>
 
 
