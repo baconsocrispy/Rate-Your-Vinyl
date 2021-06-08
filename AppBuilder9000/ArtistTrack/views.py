@@ -11,14 +11,35 @@ def at_lyrics_api(request, pk):
     #api takes artist and title as parameters
     artist = song.artist
     title = song.song_name
-    response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=15)
-    json_data = json.loads(response.content)
-    lyrics = json_data['lyrics']
-    context = {
-        'song': song,
-        'lyrics': lyrics
-    }
-    return render(request, "ArtistTrack_lyrics.html", context)
+    while True:
+        try:
+            response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=13)
+            json_data = json.loads(response.content)
+            lyrics = json_data['lyrics']
+            context = {
+                'song': song,
+                'lyrics': lyrics,
+            }
+            return render(request, "ArtistTrack_lyrics.html", context)
+        #set to catch all exceptions.
+        except:
+            #send this message in as lyrics, then when the page renders, it will print the message in place of the lyrics.
+            lyrics = 'No Lyrics Found. Try checking spelling, however, lyrics may not be available for all songs.'
+            context = {
+                'song': song,
+                'lyrics': lyrics,
+            }
+            return render(request, "ArtistTrack_lyrics.html", context)
+
+
+    # response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=10)
+    # json_data = json.loads(response.content)
+    # lyrics = json_data['lyrics']
+    # context = {
+    #     'song': song,
+    #     'lyrics': lyrics
+    # }
+    # return render(request, "ArtistTrack_lyrics.html", context)
 
 
 def at_playlist_delete(request, pk):
