@@ -4,12 +4,13 @@
 {% block body %}
 
 <div class="container-fluid">
-
+    <p class="text-white" id="at-addSong-message">Song has been added successfully</p>
     <form action="" method="POST" >
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-secondary" name="Save_Song" type="submit">Add Song</button>
+        <button class="btn btn-secondary" name="Save_Song" type="submit" onclick="add_song_message()">Add Song</button>
     </form>
+
 
 
 

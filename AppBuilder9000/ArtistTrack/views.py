@@ -1,6 +1,47 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
+import requests
+import json
+
+
+def at_lyrics_api(request, pk):
+    pk = int(pk)
+    song = get_object_or_404(Song, pk=pk)
+    artist = song.artist
+    title = song.song_name
+    response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title))
+    json_data = json.loads(response.content)
+    lyrics = json_data['lyrics']
+    context = {
+        'song': song,
+        'lyrics': lyrics
+    }
+    return render(request, "ArtistTrack_lyrics.html", context)
+
+
+def at_playlist_delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Playlist, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('at_library')
+    context = {'item': item}
+    return render(request, "ArtistTrack_deletePlaylist.html", context)
+
+
+def at_playlist_details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Playlist, pk=pk)
+    form = PlaylistForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('at_library')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'ArtistTrack_playlistDetails.html', {'form': form})
 
 
 def at_delete(request, pk):
