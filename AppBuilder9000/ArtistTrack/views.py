@@ -7,6 +7,7 @@ import json
 from bs4 import BeautifulSoup
 
 
+# this view takes uses beautiful soup to get the descriptive paragraph from the artist wikipedia page.
 def at_artist_info(request, pk):
     pk = int(pk)
     song = get_object_or_404(Song, pk=pk)
@@ -15,17 +16,25 @@ def at_artist_info(request, pk):
         try:
             response = requests.get("https://en.wikipedia.org/wiki/{}".format(artist), timeout=20)
             soup = BeautifulSoup(response.content, features="html.parser")
-            # gets the second paragraph of the artist page from wikipedia, which contains the general description.
-            html_string = soup.find_all('p')[1]
+            # gets the first three paragraphs of the artist page from wikipedia, which contain the general description.
+            html_string = soup.find_all('p')[0]
+            html_string2 = soup.find_all('p')[1]
+            html_string3 = soup.find_all('p')[2]
             # returns the plain text of the html string
             band_info = html_string.text
+            band_info2 = html_string2.text
+            band_info3 = html_string3.text
             content = {
                 'song': song,
-                'band_info': band_info
+                'band_info': band_info,
+                'band_info2': band_info2,
+                'band_info3': band_info3
             }
             return render(request, 'ArtistTrack_artistInfo.html', content)
         except:
-            band_info = 'Something went wrong'
+            # send the message into the dictionary as band info
+            band_info = 'Something went wrong. Most likely either the artist name was spelled wrong, ' \
+                        'or wikipedia does not have a page for this artist.'
             content = {
                 'song': song,
                 'band_info': band_info
@@ -33,7 +42,7 @@ def at_artist_info(request, pk):
             return render(request, 'ArtistTrack_artistInfo.html', content)
 
 
-
+# this view uses lyrics.ovh, a lyrics API, to get the lyrics of a song by artist and title
 def at_lyrics_api(request, pk):
     pk = int(pk)
     song = get_object_or_404(Song, pk=pk)
@@ -56,6 +65,7 @@ def at_lyrics_api(request, pk):
             # send this message in as lyrics, when the page renders, it will print the message in place of the lyrics.
             lyrics = 'No Lyrics Found. Try checking spelling, lyrics may not be available for all songs.'
             context = {
+                # I still pass in song, because it is used in the header.
                 'song': song,
                 'lyrics': lyrics,
             }

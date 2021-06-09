@@ -17,7 +17,7 @@
             {% for song in playlist.playlist_songs.all %}
             <tr class="text-white">
                 <td><a href="{{ song.pk }}/artist_info">{{ song.artist }}</a></td>
-                <td><a href="{{ song.pk }}/details">{{ song }}</a></td>
+                <td><a href="{{ song.pk }}/details">{{ song.song_name }}</a></td>
                     {% endfor %}
             </tr>
         </table>

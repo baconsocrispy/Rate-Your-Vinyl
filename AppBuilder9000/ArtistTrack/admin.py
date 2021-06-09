@@ -3,5 +3,6 @@ from .models import Song, Playlist
 
 
 # Register your models here.
+# registering the models here allows me to use the admin page to test the database functionality.
 admin.site.register(Song)
 admin.site.register(Playlist)
