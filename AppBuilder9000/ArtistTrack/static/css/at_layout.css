@@ -5,7 +5,7 @@
 
 }
 .at-library-container {
-    max-height: 30em;
+    max-height: 36em;
     overflow-y: scroll;
     display: flex;
     /* this makes it so the tables will make a new row if space is needed because
