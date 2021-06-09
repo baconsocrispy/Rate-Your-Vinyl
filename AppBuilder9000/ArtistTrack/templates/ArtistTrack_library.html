@@ -16,7 +16,7 @@
             <!--.all is what allows me to iterate through that list of songs and access the relevant DB information-->
             {% for song in playlist.playlist_songs.all %}
             <tr class="text-white">
-                <td>{{ song.artist }}</td>
+                <td><a href="{{ song.pk }}/artist_info">{{ song.artist }}</a></td>
                 <td><a href="{{ song.pk }}/details">{{ song }}</a></td>
                     {% endfor %}
             </tr>

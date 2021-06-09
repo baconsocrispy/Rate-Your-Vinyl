@@ -15,9 +15,10 @@ def at_artist_info(request, pk):
         try:
             response = requests.get("https://en.wikipedia.org/wiki/{}".format(artist), timeout=20)
             soup = BeautifulSoup(response.content, features="html.parser")
-            variable = soup.find_all('p')[1]
+            # gets the second paragraph of the artist page from wikipedia, which contains the general description.
+            html_string = soup.find_all('p')[1]
             # returns the plain text of the html string
-            band_info = variable.text
+            band_info = html_string.text
             content = {
                 'song': song,
                 'band_info': band_info
