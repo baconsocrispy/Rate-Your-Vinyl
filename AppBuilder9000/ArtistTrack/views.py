@@ -4,6 +4,33 @@ from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
 import requests
 import json
+from bs4 import BeautifulSoup
+
+
+def at_artist_info(request, pk):
+    pk = int(pk)
+    song = get_object_or_404(Song, pk=pk)
+    artist = song.artist
+    while True:
+        try:
+            response = requests.get("https://en.wikipedia.org/wiki/{}".format(artist), timeout=20)
+            soup = BeautifulSoup(response.content, features="html.parser")
+            variable = soup.find_all('p')[1]
+            # returns the plain text of the html string
+            band_info = variable.text
+            content = {
+                'song': song,
+                'band_info': band_info
+            }
+            return render(request, 'ArtistTrack_artistInfo.html', content)
+        except:
+            band_info = 'Something went wrong'
+            content = {
+                'song': song,
+                'band_info': band_info
+            }
+            return render(request, 'ArtistTrack_artistInfo.html', content)
+
 
 
 def at_lyrics_api(request, pk):
@@ -14,7 +41,7 @@ def at_lyrics_api(request, pk):
     title = song.song_name
     while True:
         try:
-            # set timeout to 13, after this point, it's likely not going to find the song
+            # set timeout to 20, after this point, it's likely not going to find the song
             response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=20)
             json_data = json.loads(response.content)
             lyrics = json_data['lyrics']
