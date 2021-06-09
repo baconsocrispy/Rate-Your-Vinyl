@@ -1,13 +1,14 @@
 {% extends 'ArtistTrack_base.html' %}
-{% block title %}Lyrics{% endblock %}
-{% block header %}{{ song }} By {{ song.artist }}{% endblock %}
+{% block title %}Artist Info{% endblock %}
+{% block header %}{{ song.artist }}{% endblock %}
 {% block body %}
 <br>
 <br>
 
 <div class="container at-opaque-container">
 <p class="text-white">
-{{ lyrics }}
+{{ band_info }}
+
 </p>
 </div>
 {% endblock %}

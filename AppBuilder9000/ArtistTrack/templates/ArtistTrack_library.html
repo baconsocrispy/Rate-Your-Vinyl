@@ -5,7 +5,7 @@
 
 <div class="at-library-container">
 {% for playlist in playlists %}
-    <div class="at-playlist-container">
+    <div class="at-opaque-container at-playlist-table">
         <a href="{{ playlist.pk }}/playlist_details"><h4 class="red-text text-center">{{ playlist.playlist_name }}</h4></a>
         <p class="text-white text-center">{{ playlist.playlist_description }}</p>
         <table class="table table-bordered">
@@ -16,7 +16,7 @@
             <!--.all is what allows me to iterate through that list of songs and access the relevant DB information-->
             {% for song in playlist.playlist_songs.all %}
             <tr class="text-white">
-                <td>{{ song.artist }}</td>
+                <td><a href="{{ song.pk }}/artist_info">{{ song.artist }}</a></td>
                 <td><a href="{{ song.pk }}/details">{{ song }}</a></td>
                     {% endfor %}
             </tr>

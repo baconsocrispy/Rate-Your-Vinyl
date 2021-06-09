@@ -1,23 +1,65 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from . forms import SongForm, PlaylistForm
 from . models import Song, Playlist
 import requests
 import json
+from bs4 import BeautifulSoup
+
+
+def at_artist_info(request, pk):
+    pk = int(pk)
+    song = get_object_or_404(Song, pk=pk)
+    artist = song.artist
+    while True:
+        try:
+            response = requests.get("https://en.wikipedia.org/wiki/{}".format(artist), timeout=20)
+            soup = BeautifulSoup(response.content, features="html.parser")
+            # gets the second paragraph of the artist page from wikipedia, which contains the general description.
+            html_string = soup.find_all('p')[1]
+            # returns the plain text of the html string
+            band_info = html_string.text
+            content = {
+                'song': song,
+                'band_info': band_info
+            }
+            return render(request, 'ArtistTrack_artistInfo.html', content)
+        except:
+            band_info = 'Something went wrong'
+            content = {
+                'song': song,
+                'band_info': band_info
+            }
+            return render(request, 'ArtistTrack_artistInfo.html', content)
+
 
 
 def at_lyrics_api(request, pk):
     pk = int(pk)
     song = get_object_or_404(Song, pk=pk)
+    # api takes artist and title as parameters
     artist = song.artist
     title = song.song_name
-    response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title))
-    json_data = json.loads(response.content)
-    lyrics = json_data['lyrics']
-    context = {
-        'song': song,
-        'lyrics': lyrics
-    }
-    return render(request, "ArtistTrack_lyrics.html", context)
+    while True:
+        try:
+            # set timeout to 20, after this point, it's likely not going to find the song
+            response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=20)
+            json_data = json.loads(response.content)
+            lyrics = json_data['lyrics']
+            context = {
+                'song': song,
+                'lyrics': lyrics,
+            }
+            return render(request, "ArtistTrack_lyrics.html", context)
+        # set to catch all exceptions, initially tried TimeoutError, it was not catching it.
+        except:
+            # send this message in as lyrics, when the page renders, it will print the message in place of the lyrics.
+            lyrics = 'No Lyrics Found. Try checking spelling, lyrics may not be available for all songs.'
+            context = {
+                'song': song,
+                'lyrics': lyrics,
+            }
+            return render(request, "ArtistTrack_lyrics.html", context)
 
 
 def at_playlist_delete(request, pk):
@@ -85,9 +127,16 @@ def at_home(request):
 
 def add_song(request):
     form = SongForm(data=request.POST or None)
+    # When the page is rendered from the library page, it will be as a GET request,
+    # When the form is submitted, it will be as a POST request.
     if request.method == 'POST':
         if form.is_valid():
+            # gets the song name that was entered by the user and stores it to use in message.
+            song_name = form.cleaned_data.get('song_name')
+            # saves information provided by the user to the database
             form.save()
+            # adds a message to the page.
+            messages.add_message(request, messages.SUCCESS,  'Song "{}" Saved To Library'.format(song_name))
             return redirect('add_song')
     content = {'form': form}
     return render(request, 'ArtistTrack_addSong.html', content)
@@ -97,9 +146,11 @@ def add_playlist(request):
     form = PlaylistForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
+            # gets the playlist that was recently inputted and stores it for the message
+            playlist_name = form.cleaned_data.get('playlist_name')
             form.save()
+            # adds a message to the page.
+            messages.add_message(request, messages.SUCCESS, 'Playlist "{}" Saved to Library'.format(playlist_name))
             return redirect('add_playlist')
     content = {'form': form}
     return render(request, 'ArtistTrack_addPlaylist.html', content)
-
-

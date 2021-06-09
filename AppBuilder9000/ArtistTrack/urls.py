@@ -1,4 +1,4 @@
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 from django.urls import path
 from . import views
 
@@ -12,5 +12,5 @@ urlpatterns = [
     path('<int:pk>/playlist_details', views.at_playlist_details, name='at_playlist_details'),
     path('<int:pk>/playlist_delete', views.at_playlist_delete, name='at_playlist_delete'),
     path('<int:pk>/lyrics', views.at_lyrics_api, name='at_lyrics_api'),
-
+    path('<int:pk>/artist_info', views.at_artist_info, name='at_artist_info'),
 ]
