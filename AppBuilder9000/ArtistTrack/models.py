@@ -22,7 +22,7 @@ class Song(models.Model):
     Songs = models.Manager()
 
     def __str__(self):
-        return self.song_name
+        return "{} by {}".format(self.song_name, self.artist)
 
 
 class Playlist(models.Model):
