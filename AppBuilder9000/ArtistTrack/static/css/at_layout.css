@@ -20,11 +20,11 @@ a:hover {
     color: white
 }
 
-
 .nav-opaque-container {
     background-color: black;
     opacity; .7;
     border: 4px ridge gray;
+    border-radius: 8px;
 
 }
 

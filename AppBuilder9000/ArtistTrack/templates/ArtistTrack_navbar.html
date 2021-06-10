@@ -18,8 +18,8 @@
 <!--   this gets the url name and saves it as url_name-->
       {% with url_name=request.resolver_match.url_name %}
 <!--   if url_name = current url, style nav button as active (bootstrap class)-->
-      <a class="nav-item nav-link {% if url_name == 'at_home' %}active{% endif %}" href="{% url 'at_home' %}">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link {% if url_name == 'at_library' %}active{% endif %}" href="{% url 'at_library' %}">Library</a>
+        <a class="nav-item nav-link {% if url_name == 'at_library' %}active{% endif %}" href="{% url 'at_library' %}">Library</a>
+      <a class="nav-item nav-link {% if url_name == 'at_home' %}active{% endif %}" href="{% url 'at_all_songs' %}">Songs <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link {% if url_name == 'add_song' %}active{% endif %}" href="{% url 'add_song' %}">Add Song</a>
       <a class="nav-item nav-link {% if url_name == 'add_playlist' %}active{% endif %}" href="{% url 'add_playlist' %}">Add Playlist</a>
       {% endwith %}
