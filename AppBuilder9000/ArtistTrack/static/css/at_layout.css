@@ -1,9 +1,33 @@
- body {
-    background: url(../images/concertphoto.jpg);
+body {
+    background-image: url(../images/at-bg-photo.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+    font-family: Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+h1 {
+    font-family: "Brush Script MT";
+    font-weight: 600;
+    color: gray;
+}
+
+a {
+    color: yellow;
+}
+
+a:hover {
+    color: white
+}
+
+
+.nav-opaque-container {
+    background-color: black;
+    opacity; .7;
+    border: 4px ridge gray;
 
 }
+
 .at-library-container {
     max-height: 36em;
     overflow-y: scroll;
@@ -25,21 +49,20 @@
 }
 
 .at-opaque-container {
-    border: 4px ridge darkslategray;
     background-color: black;
     opacity: .7;
+    border: 4px ridge gray;
     border-radius: 8px;
+    font-weight: 300;
+    padding: 1em;
 }
+
+
 .red-text {
     color: red;
+    font-weight: 600;
 }
 
 
-@media only screen and (max-width: 900px) {
-    body {
-        background-image: none;
-        background-color: red;
-    }
-}
 
 
