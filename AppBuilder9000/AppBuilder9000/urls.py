@@ -29,6 +29,7 @@ urlpatterns = [
     path('ArtGallery/', include('ArtGallery.urls')),
     path('StockTrading/', include('StockTrading.urls')),
     path('ArtistTrack/', include('ArtistTrack.urls')),
+    path('SciFiWatchlist/', include('SciFiWatchlist.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
