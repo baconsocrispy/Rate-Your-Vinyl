@@ -1,0 +1,25 @@
+
+.backdrop {
+padding-top: 2em;
+text-align: center;
+background-color: black;
+color:white;
+background-image: url("../SciFiWatchlist/images/SciFiWatchlist_image4.jpg");
+background-attachment: fixed;
+background-size: 100%;
+background-position: top;
+background-repeat: no-repeat;
+font-family: 'Orbitron', sans-serif;
+}
+
+.navbar a{
+color:white;
+size: large;
+font-family: 'Orbitron', sans-serif;
+font-size: 2em;
+padding: 40px;
+}
+
+h1{
+font-size:3em
+}
