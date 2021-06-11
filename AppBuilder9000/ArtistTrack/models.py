@@ -13,14 +13,15 @@ class Song(models.Model):
         ('death metal', 'death metal'),
         ('other', 'other'),
     )
-    YEAR_CHOICES = [(r,r) for r in range(2022, 1950, -1)]
+
+    YEAR_CHOICES = [(r, r) for r in range(2022, 1950, -1)]
 
     song_name = models.CharField(max_length=50)
     artist = models.CharField(max_length=50)
     album = models.CharField(max_length=50, default=None, blank=True)
     genre = models.CharField(max_length=50, choices=GENRE_CHOICES)
     year = models.IntegerField(choices=YEAR_CHOICES)
-
+    lyrics = models.TextField(default=None, null=True)
 
     Songs = models.Manager()
 
