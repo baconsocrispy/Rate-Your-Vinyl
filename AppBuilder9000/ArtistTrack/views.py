@@ -7,7 +7,18 @@ import json
 from bs4 import BeautifulSoup
 
 
-# this view takes uses beautiful soup to get the descriptive paragraph from the artist wikipedia page.
+#this is the view for the all songs page.
+def at_all_songs(request):
+    songs = Song.Songs.all()
+    playlists = Playlist.Playlists.all()
+    content = {
+        'songs': songs,
+        'playlists': playlists,
+    }
+    return render(request, 'ArtistTrack_allSongs.html', content)
+
+
+# this view takes uses beautiful soup to get the descriptive paragraphs from the artist wikipedia page.
 def at_artist_info(request, pk):
     pk = int(pk)
     song = get_object_or_404(Song, pk=pk)
