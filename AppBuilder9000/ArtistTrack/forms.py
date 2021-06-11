@@ -13,7 +13,7 @@ class SongForm(ModelForm):
             'artist': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Artist'}),
             'album': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Album'}),
             'genre': forms.Select(attrs={'class': 'form-control'}),
-            'year': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Year'}),
+            'year': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Year'}),
         }
 
 
