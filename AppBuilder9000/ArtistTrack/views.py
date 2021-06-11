@@ -9,8 +9,10 @@ from bs4 import BeautifulSoup
 
 #this is the view for the all songs page.
 def at_all_songs(request):
+    # use the object manager to retrieve all items for display
     songs = Song.Songs.all()
     playlists = Playlist.Playlists.all()
+    # add items to dictionary to send to template
     content = {
         'songs': songs,
         'playlists': playlists,
@@ -18,7 +20,7 @@ def at_all_songs(request):
     return render(request, 'ArtistTrack_allSongs.html', content)
 
 
-# this view takes uses beautiful soup to get the descriptive paragraphs from the artist wikipedia page.
+# this view uses beautiful soup to get the descriptive paragraphs from the artist wikipedia page.
 def at_artist_info(request, pk):
     pk = int(pk)
     song = get_object_or_404(Song, pk=pk)
@@ -60,27 +62,38 @@ def at_lyrics_api(request, pk):
     # api takes artist and title as parameters
     artist = song.artist
     title = song.song_name
-    while True:
-        try:
-            # set timeout to 20, after this point, it's likely not going to find the song
-            response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=20)
-            json_data = json.loads(response.content)
-            lyrics = json_data['lyrics']
-            context = {
-                'song': song,
-                'lyrics': lyrics,
-            }
-            return render(request, "ArtistTrack_lyrics.html", context)
-        # set to catch all exceptions, initially tried TimeoutError, it was not catching it.
-        except:
-            # send this message in as lyrics, when the page renders, it will print the message in place of the lyrics.
-            lyrics = 'No Lyrics Found. Try checking spelling, lyrics may not be available for all songs.'
-            context = {
-                # I still pass in song, because it is used in the header.
-                'song': song,
-                'lyrics': lyrics,
-            }
-            return render(request, "ArtistTrack_lyrics.html", context)
+    if song.lyrics is None:
+        while True:
+            try:
+                # set timeout to 20, after this point, it's likely not going to find the song
+                response = requests.get("https://api.lyrics.ovh/v1/{}/{}".format(artist, title), timeout=20)
+                json_data = json.loads(response.content)
+                lyrics = json_data['lyrics']
+                song.lyrics = lyrics
+                song.save()
+                context = {
+                    'song': song,
+                    'lyrics': lyrics,
+                }
+                return render(request, "ArtistTrack_lyrics.html", context)
+            # set to catch all exceptions, initially tried TimeoutError, it was not catching it.
+            except:
+                # send this message in as lyrics, when the page renders, it will print the message in place of the lyrics.
+                lyrics = 'No Lyrics Found. Try checking spelling, lyrics may not be available for all songs.'
+                context = {
+                    # I still pass in song, because it is used in the header.
+                    'song': song,
+                    'lyrics': lyrics,
+                }
+                return render(request, "ArtistTrack_lyrics.html", context)
+    # if the database already has lyrics for the given song, print the lyrics from the database.
+    else:
+        lyrics = song.lyrics
+        context = {
+            'song': song,
+            'lyrics': lyrics,
+        }
+        return render(request, "ArtistTrack_lyrics.html", context)
 
 
 def at_playlist_delete(request, pk):
