@@ -6,14 +6,14 @@ from .models import Song, Playlist
 class SongForm(ModelForm):
     class Meta:
         model = Song
-        fields = '__all__'
+        fields = ('song_name', 'artist', 'album', 'genre', 'year')
         #allows me to use bootstrap to style the form
         widgets = {
             'song_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Song Name'}),
             'artist': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Artist'}),
             'album': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Album'}),
             'genre': forms.Select(attrs={'class': 'form-control'}),
-            'year': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Year'}),
+            'year': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Year'}),
         }
 
 
