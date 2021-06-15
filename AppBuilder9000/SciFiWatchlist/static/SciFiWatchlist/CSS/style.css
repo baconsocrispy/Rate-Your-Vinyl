@@ -4,6 +4,7 @@ padding-top: 2em;
 text-align: center;
 background-color: black;
 color:white;
+text-shadow:-2px 0 black, 0 2px black,2px 0 black, 0 -2px black;
 background-image: url('images/SciFiWatchlist_image2.jpg');
 background-attachment: fixed;
 background-size: 100%;
@@ -87,7 +88,15 @@ outline: 2px solid black;
 font-size: 20px;
 }
 
-a{
+a {
 color:#70FBFA;
 font-size:20px;
+}
+#addedMovies {
+font-size:20px;
+letter-spacing:2px;
+text-shadow:-4px 0 black, 0 4px black,4px 0 black, 0 -4px black;
+}
+#addedMovies:hover {
+color: #09c4e6;
 }

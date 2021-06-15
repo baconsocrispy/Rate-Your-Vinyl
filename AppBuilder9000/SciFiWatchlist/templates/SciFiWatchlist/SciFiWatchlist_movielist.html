@@ -6,7 +6,7 @@
 <input type="text" id="movieSearch" onkeyup="searchFunction()" placeholder="Search..." title="Enter a title..."><button id="search-button" type= "search" name="search">SEARCH!</button>
 <ul id="movieMenu">
     {% for Movie in Movies %}
-    <li><a href="">{{ Movie.FilmName|capfirst }} ({{ Movie.ReleaseYear}})</a><br>
+    <li id="addedMovies"><a href="{% url 'Movie-Details' Movie.id %}">{{ Movie.FilmName|capfirst }} ({{ Movie.ReleaseYear}})</a><br>
         <br>
     </li>
     {% endfor %}

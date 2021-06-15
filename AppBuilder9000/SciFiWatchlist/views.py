@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import MovieForm
 from .models import Movie
+
 
 def SciFihome(request):
     return render(request, 'SciFiWatchlist/SciFiWatchlist_home.html')
@@ -16,3 +17,13 @@ def AddMovies(request):
 def ListMovies(request):
     Movies = Movie.objects.all()
     return render(request,"SciFiWatchlist/SciFiWatchlist_movielist.html", {'Movies': Movies})
+
+def MovieDetails(request, id):
+    Movies = get_object_or_404(Movie, id=id)
+    return render(request, "SciFiWatchlist/SciFiWatchlist_details.html", {
+        'name': Movies.FilmName,
+        'year': Movies.ReleaseYear,
+        'Starring': Movies.StarNames,
+        'Directors': Movies.DirectorName,
+        'Summary': Movies.MovieSummary,
+    })
