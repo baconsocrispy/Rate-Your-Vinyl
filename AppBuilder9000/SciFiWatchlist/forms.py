@@ -1,7 +1,6 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Movie
-
-class MovieForm(ModelForm):
+class MovieForm(forms.ModelForm):
     class Meta:
-        model = Film
-        fields = '__all__'
+        model = Movie
+        fields = "__all__"

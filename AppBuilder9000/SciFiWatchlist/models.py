@@ -1,13 +1,16 @@
 from django.db import models
-class Film(models.Model):
-    Name_of_film = models.CharField(max_length=100)
-    Year_of_film = models.IntegerField()
-    Film_star_names = models.CharField(max_length=100)
-    Director_names = models.CharField(max_length=100)
 
+class Movie(models.Model):
+    FilmName = models.CharField(max_length=100)
+    ReleaseYear = models.IntegerField(blank=True)
+    StarNames = models.CharField(max_length=100, blank=True)
+    DirectorName = models.CharField(max_length=60, blank=True)
+    Viewed = models.BooleanField(blank=True, default=False)
+    Enjoyed = models.BooleanField(blank=True, default=False)
+    MovieSummary = models.TextField(blank=True)
+
+    # using the models manager to return the name of the course title
     objects = models.Manager()
 
     def __str__(self):
-        return self.Name_of_film
-
-
+        return self.FilmName
