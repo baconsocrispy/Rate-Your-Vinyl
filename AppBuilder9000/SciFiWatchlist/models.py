@@ -1,22 +1,16 @@
 from django.db import models
-from django.forms import ModelForm
 
-#defining the movies model
-
-class Movies(models.Model):
+class Movie(models.Model):
     FilmName = models.CharField(max_length=100)
-    ReleaseYear = models.IntegerField(max_length=4, blank=True)
+    ReleaseYear = models.IntegerField(blank=True)
     StarNames = models.CharField(max_length=100, blank=True)
     DirectorName = models.CharField(max_length=60, blank=True)
-    MovieSummary = models.TextField()
+    Viewed = models.BooleanField(blank=True, default=False)
+    Enjoyed = models.BooleanField(blank=True, default=False)
+    MovieSummary = models.TextField(blank=True)
 
-    #using the models manager to return the name of the course title
+    # using the models manager to return the name of the course title
     objects = models.Manager()
 
     def __str__(self):
-        return self.FilmName, self.ReleaseYear
-
-class MovieForm(ModelForm):
-    class Meta:
-        model = Movies
-        fields = ['FilmName', 'ReleaseYear', 'StarNames', 'DirectorName', 'MovieSummary']
+        return self.FilmName
