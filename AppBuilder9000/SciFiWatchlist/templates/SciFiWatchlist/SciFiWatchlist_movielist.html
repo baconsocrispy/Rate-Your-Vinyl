@@ -1,0 +1,14 @@
+{% extends "SciFiWatchlist/SciFiWatchlist_base.html" %}
+
+{% block title %} Movies {% endblock %}
+{% block content %}
+<h1>All Titles:</h1>
+<ul>
+    {% for Movie in Movies %}
+    <li>{{ Movie.FilmName}} ({{ Movie.ReleaseYear}})<br>
+        <br>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
