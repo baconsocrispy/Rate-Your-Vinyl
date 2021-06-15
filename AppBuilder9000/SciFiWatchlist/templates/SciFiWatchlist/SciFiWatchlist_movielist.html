@@ -3,12 +3,17 @@
 {% block title %} Movies {% endblock %}
 {% block content %}
 <h1>All Titles:</h1>
-<ul>
+<input type="text" id="movieSearch" onkeyup="searchFunction()" placeholder="Search..." title="Enter a title..."><button id="search-button" type= "search" name="search">SEARCH!</button>
+<ul id="movieMenu">
     {% for Movie in Movies %}
-    <li>{{ Movie.FilmName}} ({{ Movie.ReleaseYear}})<br>
+    <li><a href="">{{ Movie.FilmName|capfirst }} ({{ Movie.ReleaseYear}})</a><br>
         <br>
     </li>
     {% endfor %}
 </ul>
 
+
+
 {% endblock %}
+
+
