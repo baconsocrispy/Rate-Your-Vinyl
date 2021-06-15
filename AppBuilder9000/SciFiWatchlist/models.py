@@ -5,8 +5,6 @@ class Movie(models.Model):
     ReleaseYear = models.IntegerField(blank=True)
     StarNames = models.CharField(max_length=100, blank=True)
     DirectorName = models.CharField(max_length=60, blank=True)
-    Viewed = models.BooleanField(blank=True, default=False)
-    Enjoyed = models.BooleanField(blank=True, default=False)
     MovieSummary = models.TextField(blank=True)
 
     # using the models manager to return the name of the course title
