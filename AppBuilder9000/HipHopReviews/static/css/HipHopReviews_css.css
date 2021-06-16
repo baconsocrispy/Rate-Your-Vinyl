@@ -1,0 +1,47 @@
+body {
+    padding-top: 2em;
+    text-align: center;
+    background-color: black;
+    color: orange;
+    background-image: url("/static/images/HIP_HOP.jpg");
+    background-attachment: fixed;
+    background-size: auto;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    background-color: orange;
+    overflow: hidden;
+    position: fixed;
+    display: flex;
+    top: 0;
+    width: 100%;
+    /*max-width: 100%;*/
+    opacity: 70%;
+}
+
+.navbar ul li {
+    text-decoration: none;
+    display: inline;
+    font-weight: bold;
+
+}
+
+.navbar a{
+    color: black;
+    size: large;
+    padding: 40px;
+}
+
+.footer {
+    background-color: orange;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    opacity: 70%;
+}
