@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'StockTrading',
     'ArtistTrack',
     'SciFiWatchlist',
+    'HipHopReviews',
 ]
 
 MIDDLEWARE = [
