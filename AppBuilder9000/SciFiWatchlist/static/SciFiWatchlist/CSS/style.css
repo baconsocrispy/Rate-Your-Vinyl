@@ -88,15 +88,36 @@ outline: 2px solid black;
 font-size: 20px;
 }
 
-a {
-color:#70FBFA;
-font-size:20px;
-}
 #addedMovies {
 font-size:20px;
 letter-spacing:2px;
 text-shadow:-4px 0 black, 0 4px black,4px 0 black, 0 -4px black;
 }
-#addedMovies:hover {
-color: #09c4e6;
+
+#remove-button {
+padding: 3px;
+background-color: white;
+color: black;
+font-family: 'Orbitron', sans-serif;
+outline: 2px solid black;
+font-size: 20px;
+}
+
+#edit-button {
+padding: 3px;
+background-color: white;
+color: black;
+font-family: 'Orbitron', sans-serif;
+outline: 2px solid black;
+font-size: 20px;
+}
+
+.function-button{
+color:#a7eef2;
+font-size: 15px;
+margin:0;
+padding:0;
+}
+#list-link{
+color:#a7eef2;
 }
