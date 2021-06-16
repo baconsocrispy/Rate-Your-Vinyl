@@ -35,7 +35,7 @@ def EditMovies(request, id):
     form = MovieForm(request.POST or None, instance=Movies)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect('/'+ 'SciFiWatchlist//'+ id)
+        return HttpResponseRedirect( '/SciFiWatchlist/'+ id)
     return render(request, "SciFiWatchlist/SciFiWatchlist_Update.html", {"form": form })
 
 def DeleteMovies(request, id):
@@ -43,5 +43,5 @@ def DeleteMovies(request, id):
     form = MovieForm(request.POST or None, instance=Movies)
     if request.method == "POST":
         Movies.delete()
-        return HttpResponseRedirect('/'+ 'SciFiWatchlist/List-Movies/')
+        return HttpResponseRedirect('/SciFiWatchlist/List-Movies/')
     return render(request, "SciFiWatchlist/SciFiWatchlist_Delete.html", {"form": form })
