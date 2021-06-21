@@ -34,6 +34,13 @@ body {
     padding: 40px;
 }
 
+.form {
+    background: black;
+    position: relative;
+}
+
+}
+
 .footer {
     background-color: orange;
     position: fixed;
