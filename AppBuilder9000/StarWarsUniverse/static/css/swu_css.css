@@ -1,0 +1,39 @@
+.background{
+    padding-top: 2em;
+    text-align: center;
+    color: red;
+    background-color: black;
+    background-image: url("../images/star-warsbg.jpg");
+    background-attachment: fixed;
+    background-size: 100vw;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.footer {
+    background-color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    opacity: 70%;
+}
+
+.navbar {
+    color: white;
+}
+
+ul {
+  list-style-position: inside;
+  text-align: center;
+  display: inline;
+}
+
+a {
+  color: lightblue;
+}
+
+/* li {} */

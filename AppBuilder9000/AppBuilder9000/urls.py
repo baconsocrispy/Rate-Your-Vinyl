@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('SciFiWatchlist/', include('SciFiWatchlist.urls')),
     path('HipHopReviews/', include('HipHopReviews.urls')),
+    path('StarWarsUniverse/', include('StarWarsUniverse.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
