@@ -1,5 +1,6 @@
 from django.db import models
 
+# for affiliation to the force
 WHICH_AFFILIATION = {
     ('light', 'light'),
     ('dark', 'dark'),
@@ -18,3 +19,4 @@ class Character(models.Model):
 
     def __str__(self):
         return self.Name_of_Character
+# only return char name on site
