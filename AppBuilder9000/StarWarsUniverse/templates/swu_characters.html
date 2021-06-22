@@ -16,6 +16,15 @@
         <li><a href="https://www.starwars.com/databank/r2-d2">R2D2 (Droid)</a></li>
         <li><a href="https://www.starwars.com/databank">...More to come...</a></li>
     </ul>
+    <h1> Add a Character!</h1>
+    <div class="form-wrap">
+        <form method="POST" id="character-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="add-button" type= "submit" name="add-char">ADD CHARACTER!</button>
+        </form>
+        <br>
+    </div>
 </h3>
 <br>
 
