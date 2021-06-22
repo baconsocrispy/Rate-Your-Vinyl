@@ -31,6 +31,7 @@ urlpatterns = [
     path('ArtistTrack/', include('ArtistTrack.urls')),
     path('SciFiWatchlist/', include('SciFiWatchlist.urls')),
     path('HipHopReviews/', include('HipHopReviews.urls')),
+    path('StarWarsUniverse/', include('StarWarsUniverse.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
