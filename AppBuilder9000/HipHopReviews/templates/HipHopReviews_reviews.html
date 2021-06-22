@@ -6,11 +6,30 @@
 {% block header %} {% endblock %}
 
 {% block content %}
-<h1>Reviews</h1>
-<br><br>
+<h1>Reviews and Requests</h1>
 <h3>Here you can view and read our repository<br>
-    of every review we have done thus far!<br>
+    of every Review we have done thus far, as well as view<br>
+    all current and fulfilled Review Requests!
 </h3>
+<br>
+<div class="display">
+    <div class="display2">
+        <table class="center">
+                <tr>
+                    <th>Artist Name</th>
+                    <th>Album Name</th>
+                    <th>Release Year</th>
+                </tr>
+                {% for item in display_reviews %}
+                <tr>
+                    <th>{{ item.ArtistName }}</th>
+                    <th>{{ item.AlbumName }}</th>
+                    <th>{{ item.ReleaseYear }}</th>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+</div>
 <br>
 
 
