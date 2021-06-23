@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'StarWarsUniverse',
     'Quotes',
     'NoteTaking',
+    'ApexLegendsStats',
 ]
 
 MIDDLEWARE = [
