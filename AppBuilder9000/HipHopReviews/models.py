@@ -1,4 +1,13 @@
 from django.db import models
+from django.forms import ModelForm
+
+class Reviews(models.Model):
+    ArtistName = models.CharField(max_length=60)
+    AlbumName = models.CharField(max_length=60, blank=True)
+    ReleaseYear = models.IntegerField(max_length=4, blank=True)
 
 
-# Create your models here.
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.ArtistName, self.AlbumName, self.ReleaseYear
