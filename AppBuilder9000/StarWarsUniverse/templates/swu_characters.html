@@ -1,0 +1,33 @@
+{% extends "swu_base.html" %}
+{% load static %}
+
+{% block title %} Characters {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<h1>Characters</h1>
+<br><br>
+<h3>
+    <!-- List of characters need to learn how to add pictures -->
+    <ul class="listed">
+        <li><a href="https://www.starwars.com/databank/anakin-skywalker">Anakin Skywalker (Darth Vader)</a></li>
+        <li><a href="https://www.starwars.com/databank/luke-skywalker">Luke Skywalker </a></li>
+        <li><a href="https://www.starwars.com/databank/r2-d2">R2D2 (Droid)</a></li>
+        <li><a href="https://www.starwars.com/databank">...More to come...</a></li>
+    </ul>
+    <h1> Add a Character!</h1>
+    <div class="form-wrap">
+        <form method="POST" id="character-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="add-button" type= "submit" name="add-char">ADD CHARACTER!</button>
+        </form>
+        <!--IN FORMS.PY RETURNS INFO FROM MODELS-->
+        <br>
+    </div>
+</h3>
+<br>
+
+
+{% endblock %}
