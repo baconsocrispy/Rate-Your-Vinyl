@@ -13,7 +13,7 @@
     <!-- List of characters need to learn how to add pictures -->
 {% for Character in char_list %}
         <ul class="listed">
-            <li>{{ Character.Name_of_Character}} ({{Character.Race_Type}}) ({{Character.Affiliation }})</li>
+            <li><a href="{% url 'character_details' Character.id %}">{{ Character.Name_of_Character}} ({{Character.Race_Type}}) ({{Character.Affiliation }})</a></li>
         </ul>
 {% endfor %}
 

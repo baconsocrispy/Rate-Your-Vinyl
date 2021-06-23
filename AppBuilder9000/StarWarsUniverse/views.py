@@ -25,3 +25,12 @@ def characters_list(request):
     return render(request, 'swu_charlist.html', {'char_list': char_list})
 
 
+def character_details(request, id):
+    char_list = get_object_or_404(Character, id=id)
+    return render(request, "swu_details.html", {
+        'Name': char_list.Name_of_Character,
+        'First_Appearance': char_list.First_Appearance,
+        'Race': char_list.Race_Type,
+        'Affiliation': char_list.Affiliation,
+        'Details': char_list.Additional_Details,
+    })
