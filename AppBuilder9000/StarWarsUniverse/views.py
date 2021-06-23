@@ -1,6 +1,5 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
-from . forms import CharacterForm
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
+from .forms import CharacterForm
 from .models import Character
 
 
@@ -20,5 +19,9 @@ def characters(request):
             return redirect("swu_characters")
     return render(request, 'swu_characters.html', {'form': form})
 
+
+def characters_list(request):
+    char_list = Character.objects.all()
+    return render(request, 'swu_charlist.html', {'char_list': char_list})
 
 
