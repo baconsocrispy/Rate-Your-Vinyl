@@ -1,0 +1,23 @@
+{% extends 'Quotes/Quotes_base.html' %}
+
+{% block title %}Search for your Quote{% endblock %}
+
+{% block header %}Quote Search{% endblock %}
+
+
+{% block content %}
+
+<div>
+    <form method="POST" action="{% url 'Quotes_search' %}">
+        <div class="form_container">
+            {% csrf_token %}
+            <table class="frm_table">{{ form.as_table }}</table>
+        <button type="button" class="btn btn-light">Search</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
