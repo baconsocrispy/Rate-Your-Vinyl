@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'HipHopReviews',
     'StarWarsUniverse',
     'Quotes',
+    'NoteTaking',
 ]
 
 MIDDLEWARE = [
