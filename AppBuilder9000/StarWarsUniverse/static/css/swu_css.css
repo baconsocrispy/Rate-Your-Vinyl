@@ -57,6 +57,7 @@ h1 {
 
 .form-wrap {
     text-align: center;
+    color: white;
 }
 
 #character-form{
@@ -75,3 +76,6 @@ h1 {
     font-size: 20px;
 }
 
+.listed {
+    color: white;
+}

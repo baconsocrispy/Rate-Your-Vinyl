@@ -13,7 +13,7 @@ class Character(models.Model):
     First_Appearance = models.CharField(max_length=60, default='', blank=True)
     Race_Type = models.CharField(max_length=60, default='', blank=True)
     Affiliation = models.CharField(max_length=60, default='neutral', choices=WHICH_AFFILIATION)
-    Additional_Details = models.TextField(blank=True)
+    Additional_Details = models.TextField(max_length=300, blank=True)
 
     objects = models.Manager()
 
