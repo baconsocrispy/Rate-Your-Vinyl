@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'SciFiWatchlist',
     'HipHopReviews',
     'StarWarsUniverse',
+    'Quotes',
 ]
 
 MIDDLEWARE = [
