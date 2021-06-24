@@ -9,7 +9,7 @@
             <h1>My Notes</h1>
         </div>
         <hr>
-        <div class="list_notes"
+        <div class="list_notes">
             {% csrf_token %}
             <div class="list-group">
                 {% for note in notes %}
