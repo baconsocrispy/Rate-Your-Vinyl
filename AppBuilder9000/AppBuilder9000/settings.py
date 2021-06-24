@@ -40,15 +40,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'CharacterApp',
-    'Resellers_MarketWatch',
-    'LofiPlaylist',
-    'ArtGallery',
-    'StockTrading',
-    'ArtistTrack',
     'SciFiWatchlist',
     'HipHopReviews',
+    'StarWarsUniverse',
     'Quotes',
+    'NoteTaking',
+    'ApexLegendsStats',
 ]
 
 MIDDLEWARE = [
