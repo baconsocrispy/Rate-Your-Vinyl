@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from .forms import QuoteForm
+from .models import Quote
 # Create your views here.
 def home(request):
     return render(request, 'Quotes/Quotes_home.html',)
@@ -12,3 +13,7 @@ def Quotes_add(request):
             form.save()
             return redirect('Quotes_add')
     return render(request, 'Quotes/Quotes_add.html', {'form': form})
+
+def Quotes_display(request):
+    Quotes_data = Quote.objects.all()
+    return render(request, 'Quotes/Quotes_display.html', {'Quotes_data': Quotes_data})
