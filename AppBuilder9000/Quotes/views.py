@@ -17,3 +17,7 @@ def Quotes_add(request):
 def Quotes_display(request):
     Quotes_data = Quote.objects.all()
     return render(request, 'Quotes/Quotes_display.html', {'Quotes_data': Quotes_data})
+
+def Quotes_details(request, pk):
+    quote = get_object_or_404(Quote, pk=pk)
+    return render(request, 'Quotes/Quotes_details.html', {'quote': quote})

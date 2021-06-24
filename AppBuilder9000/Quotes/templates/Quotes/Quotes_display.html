@@ -11,6 +11,8 @@
                     <tr class="table-dark">
                         <th scope="col">Author</th>
                         <th scope="col">Quote</th>
+                        <th scope="col"></th>
+
                     </tr>
                 </thead>
 
@@ -22,6 +24,9 @@
                             </td>
                             <td class="table-dark">
                                 {{ quotes.Quote }}
+                            </td>
+                            <td class="table-dark mx-auto text-center">
+                                <a href="{% url 'Quotes_details' quotes.pk %}" style="text-decoration: none;"><button class="btn btn-light">Quote Details</button></a>
                             </td>
                         </tr>
                     {% endfor %}
