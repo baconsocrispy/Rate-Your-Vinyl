@@ -14,6 +14,7 @@
 {% for Character in char_list %}
         <ul class="listed">
             <li><a href="{% url 'character_details' Character.id %}">{{ Character.Name_of_Character}} ({{Character.Race_Type}}) ({{Character.Affiliation }})</a></li>
+            <a class="function-button" href="{% url 'edit_char_list' Character.id %}">Edit</a> <a  class="function-button" href="{% url 'delete_character' Character.id %}">Delete</a>
         </ul>
 {% endfor %}
 

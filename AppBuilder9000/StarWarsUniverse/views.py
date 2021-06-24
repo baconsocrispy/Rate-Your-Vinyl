@@ -17,6 +17,8 @@ def characters(request):
         if form.is_valid():
             form.save()
             return redirect("swu_characters")
+        else:
+            form = CharacterForm()
     return render(request, 'swu_characters.html', {'form': form})
 
 
@@ -34,3 +36,21 @@ def character_details(request, id):
         'Affiliation': char_list.Affiliation,
         'Details': char_list.Additional_Details,
     })
+
+
+def edit_char_list(request, id):
+    char_list = get_object_or_404(Character, id=id)
+    form = CharacterForm(request.POST or None, instance=char_list)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/StarWarsUniverse/' + id)
+    return render(request, "swu_edit.html", {"form": form})
+
+
+def delete_character(request, id):
+    char_list = get_object_or_404(Character, id=id)
+    form = CharacterForm(request.POST or None, instance=char_list)
+    if request.method == "POST":
+        char_list.delete()
+        return HttpResponseRedirect('/StarWarsUniverse/characters_list')
+    return render(request, "swu_delete.html", {"form": form})
