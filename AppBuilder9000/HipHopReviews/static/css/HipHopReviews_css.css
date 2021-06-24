@@ -34,6 +34,23 @@ body {
     padding: 40px;
 }
 
+.form3 {
+    background: black;
+    position: relative;
+    border: 1px solid orange;
+    padding: 4px;
+}
+
+table {
+    background: black;
+    position: relative;
+}
+
+th, tr {
+    border: 1px solid orange;
+    padding: 4px
+}
+
 .footer {
     background-color: orange;
     position: fixed;
@@ -44,4 +61,11 @@ body {
     text-align: center;
     font-size: 14px;
     opacity: 70%;
+    font-weight: bold;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+
 }
