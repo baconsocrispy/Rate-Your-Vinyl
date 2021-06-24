@@ -21,3 +21,19 @@ def Quotes_display(request):
 def Quotes_details(request, pk):
     quote = get_object_or_404(Quote, pk=pk)
     return render(request, 'Quotes/Quotes_details.html', {'quote': quote})
+
+def Quotes_edit(request, pk):
+    quote = get_object_or_404(Quote, pk=pk)
+    form = QuoteForm(request.POST or None, instance=quote)
+    if form.is_valid():
+        form.save()
+        return redirect('Quotes_display')
+    return render(request, 'Quotes/Quotes_edit.html', {'form': form})
+
+
+def Quotes_validate(request, pk):
+    quote = get_object_or_404(Quote, pk=pk)
+    if request.method == 'POST':
+        quote.delete()
+        return redirect('Quotes_display')
+    return render(request, 'Quotes/Quotes_validate.html', {'quote': quote})
