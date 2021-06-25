@@ -4,8 +4,8 @@
 
 
 {% block content %}
-    <div class="home_page_container">
-        <div class="home_page_title">
+    <div class="notetaking_page_container">
+        <div class="notetaking_page_title">
             <h1>My Notes</h1>
         </div>
         <hr>
@@ -13,7 +13,7 @@
             {% csrf_token %}
             <div class="list-group">
                 {% for note in notes %}
-                    <a href="#" class="list-group-item list-group-item-action">{{ note.Title }}</a>
+                    <a href="./{{ note.pk }}/Details" class="list-group-item list-group-item-action">{{ note.Title }}</a>
                 {% endfor %}
             </div>
         </div>
