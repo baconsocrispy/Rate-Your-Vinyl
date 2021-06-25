@@ -12,11 +12,18 @@
 <br>
 <div class="display">
     <div class="display2">
-        <ul>
-            <li>{{ details.ArtistName }}</li>
-            <li>{{ details.AlbumName }}</li>
-            <li>{{ details.ReleaseYear }}</li>
-        </ul>
+        <table class="center">
+            <tr>
+                <td>Artist Name</td>
+                <td>Album Name</td>
+                <td>Release Year</td>
+            </tr>
+            <tr>
+                <td>{{ details.ArtistName }}</td>
+                <td>{{ details.AlbumName }}</td>
+                <td>{{ details.ReleaseYear }}</td>
+            </tr>
+        </table>
     </div>
 </div>
 {% endblock %}

@@ -46,7 +46,7 @@ table {
     position: relative;
 }
 
-th, tr {
+td, tr {
     border: 1px solid orange;
     padding: 4px
 }

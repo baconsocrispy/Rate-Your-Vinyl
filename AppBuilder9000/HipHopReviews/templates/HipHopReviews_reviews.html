@@ -16,16 +16,20 @@
     <div class="display2">
         <table class="center">
                 <tr>
-                    <th>Artist Name</th>
-                    <th>Album Name</th>
-                    <th>Release Year</th>
+                    <td>Artist Name</td>
+                    <td>Album Name</td>
+                    <td>Release Year</td>
                 </tr>
                 {% for item in display_reviews %}
                 <tr>
-                    <th>{{ item.ArtistName }}</th>
-                    <th>{{ item.AlbumName }}</th>
-                    <th>{{ item.ReleaseYear }}</th>
+                    <td>{{ item.ArtistName }}</td>
+                    <td>{{ item.AlbumName }}</td>
+                    <td>{{ item.ReleaseYear }}</td>
+
                 </tr>
+                <td>
+                <button><a href="{% url 'HipHopReviews_details' item.pk %}">Details</a></button>
+                </td>
                 {% endfor %}
         </table>
     </div>
