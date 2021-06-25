@@ -44,11 +44,13 @@ body {
 table {
     background: black;
     position: relative;
+    border: 1px solid orange;
 }
 
-td, tr {
+tr, td {
     border: 1px solid orange;
     padding: 4px
+    text-decoration: underline;
 }
 
 .footer {

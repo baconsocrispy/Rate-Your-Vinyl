@@ -1,0 +1,16 @@
+{% extends "HipHopReviews_base.html" %}
+{% load static %}
+
+{% block title %} Edit {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>{{ form.as_table }}</table>
+        <input type="submit" value="UPDATE">
+    </form>
+</div>
+{% endblock %}
