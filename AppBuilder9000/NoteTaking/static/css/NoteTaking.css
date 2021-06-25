@@ -176,16 +176,16 @@ html { height: 100%;}
     justify-content: center;
 }
 
-/* --------- */
-/* Home Page */
-/* --------- */
+/* --------------------- */
+/* Home and Details Page */
+/* --------------------- */
 
-.home_page_container {
+.notetaking_page_container {
     width: 100%;
     height: 100%;
 }
 
-.home_page_title {
+.notetaking_page_title {
     color: white;
     margin: 20px;
     text-shadow: 1.5px 1.5px 1.5px #A0452B;
