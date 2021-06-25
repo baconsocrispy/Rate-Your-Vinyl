@@ -1,0 +1,20 @@
+{% extends 'NoteTaking/NoteTaking_base.html' %}
+
+{% block title %} NoteTaking - Details {% endblock title %}
+
+
+{% block content %}
+    <div class="notetaking_page_title">
+        <div class="notetaking_page_title">
+            <h1>Details</h1>
+        </div>
+        <hr>
+        <div class="list_notes">
+            <table>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_table }}
+            </table>
+        </div>
+    </div>
+{% endblock content %}
