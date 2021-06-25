@@ -4,7 +4,8 @@ from .forms import NoteForm, CategoryForm
 
 
 def Home(request):
-    return render(request, 'NoteTaking/NoteTaking_home.html')
+    notes = Note.object.all()
+    return render(request, 'NoteTaking/NoteTaking_home.html', { 'notes': notes })
 
 def AddNotes(request):
     form = NoteForm(request.POST or None)
