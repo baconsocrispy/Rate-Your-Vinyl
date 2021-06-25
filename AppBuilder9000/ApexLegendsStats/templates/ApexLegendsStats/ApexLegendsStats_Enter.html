@@ -1,0 +1,23 @@
+{% extends "ApexLegendsStats/ApexLegendsStats_base.html" %}
+{% load crispy_forms_tags %}
+
+<!--inserting the title and headers that I want into the base html file to create my home page-->
+
+{% block title %}Apex Legends Enter Stats{% endblock %}
+
+{% block header %}Enter stats for your characters to get a Legend specific breakdown!{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-2 col-sm-4">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-secondary" type="submit" value="Enter Stats" />
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -10,3 +10,11 @@
 	text-align: left;
 	color: white;
 }
+
+div {
+    color: white;
+}
+
+.asteriskField {
+    display: none;
+}
