@@ -1,0 +1,29 @@
+{% extends "HipHopReviews_base.html" %}
+{% load static %}
+
+{% block title %} Artist Details {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<h1>Artist Details</h1>
+<br>
+<br>
+<br>
+<div class="display">
+    <div class="display2">
+        <table class="center">
+            <tr>
+                <td>Artist Name</td>
+                <td>Album Name</td>
+                <td>Release Year</td>
+            </tr>
+            <tr>
+                <td>{{ details.ArtistName }}</td>
+                <td>{{ details.AlbumName }}</td>
+                <td>{{ details.ReleaseYear }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}
