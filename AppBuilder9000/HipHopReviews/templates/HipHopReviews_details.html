@@ -24,11 +24,11 @@
                 <td>{{ details.ReleaseYear }}</td>
             </tr>
                 <td>
-                    <button><a href="{% url 'HipHopReviews_edit' %}">Edit</a></button>
+                    <button><a href="{% url 'HipHopReviews_edit' details.pk %}">Edit</a></button>
                 </td>
                 <td>or</td>
                 <td>
-                    <button><a href="{% url 'HipHopReviews_delete' %}">Delete</a></button>
+                    <button><a href="{% url 'HipHopReviews_delete' details.pk %}">Delete</a></button>
                 </td>
         </table>
     </div>

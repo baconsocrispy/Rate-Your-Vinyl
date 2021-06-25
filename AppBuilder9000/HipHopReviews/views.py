@@ -36,5 +36,5 @@ def delete(request, pk):
     if request.method == 'POST':
         delete1.delete()
         return redirect('HipHopReviews_reviews')
-    return render(request, 'HipHopReviews_delete.html', {'delete1', delete1})
+    return render(request, 'HipHopReviews_delete.html', {'delete1': delete1})
 
