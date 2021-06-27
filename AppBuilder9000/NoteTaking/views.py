@@ -38,6 +38,17 @@ def AddNotes(request):
 
     return render(request, 'NoteTaking/NoteTaking_addnotes.html', context)
 
+def DeleteNotes(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Note, pk=pk)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('NoteTaking_home')
+
+    context = { "item": item }
+    return render(request, 'NoteTaking/NoteTaking_confirmdelete.html', context)
+
 def AddCategories(request):
     form = CategoryForm(request.POST or None)
 

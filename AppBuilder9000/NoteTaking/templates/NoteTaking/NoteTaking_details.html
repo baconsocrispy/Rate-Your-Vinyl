@@ -15,6 +15,24 @@
                 {{ form.non_field_errors }}
                 {{ form.as_table }}
             </table>
+            <hr/>
+            <div>
+                <button class="btn btn-primary">
+                    <a href="../{{ form.pk }}Edit" style="color: white;">
+                        Edit Note
+                    </a>
+                </button> -
+                <button class="btn btn-danger">
+                    <a href="../{{ form.pk }}Delete" style="color: white;">
+                        Delete Note
+                    </a>
+                </button> -
+                <a href="{% url 'NoteTaking_home' %}">
+                    <button type="button" class="btn btn-secondary" value="Cancel">
+                        Go back
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 {% endblock content %}
