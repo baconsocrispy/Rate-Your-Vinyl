@@ -1,11 +1,11 @@
 from django.db import models
 
 # for affiliation to the force
-WHICH_AFFILIATION = {
+WHICH_AFFILIATION = (
     ('light', 'light'),
     ('dark', 'dark'),
     ('neutral', 'neutral')
-}
+)
 
 
 class Character(models.Model):
