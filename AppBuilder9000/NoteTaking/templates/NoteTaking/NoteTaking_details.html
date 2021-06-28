@@ -4,7 +4,7 @@
 
 
 {% block content %}
-    <div class="notetaking_page_title">
+    <div class="notetaking_page_container">
         <div class="notetaking_page_title">
             <h1>Details</h1>
         </div>
@@ -18,7 +18,10 @@
                 </table>
                 <hr/>
                 <div>
-                    <input type="submit" value="Update Note" class="btn btn-primary"/> -
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                      Update Note
+                    </button> -
+                    {% include "NoteTaking/NoteTaking_confirmedit.html" %}
                     <button class="btn btn-danger">
                         <a href="../{{ form.pk }}Delete" style="color: white;">
                             Delete Note
