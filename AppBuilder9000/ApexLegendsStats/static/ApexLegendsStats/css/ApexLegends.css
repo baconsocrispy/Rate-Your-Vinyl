@@ -18,3 +18,7 @@ div {
 .asteriskField {
     display: none;
 }
+
+.jumbotron {
+    background-color: #192022;
+}
