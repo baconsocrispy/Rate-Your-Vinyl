@@ -10,29 +10,27 @@
         </div>
         <hr>
         <div class="list_notes">
-            <table>
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-                {{ form.as_table }}
-            </table>
-            <hr/>
-            <div>
-                <button class="btn btn-primary">
-                    <a href="../{{ form.pk }}Edit" style="color: white;">
-                        Edit Note
+            <form method="POST" action="../Details/">
+                <table>
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {{ form.as_table }}
+                </table>
+                <hr/>
+                <div>
+                    <input type="submit" value="Update Note" class="btn btn-primary"/> -
+                    <button class="btn btn-danger">
+                        <a href="../{{ form.pk }}Delete" style="color: white;">
+                            Delete Note
+                        </a>
+                    </button> -
+                    <a href="{% url 'NoteTaking_home' %}">
+                        <button type="button" class="btn btn-secondary">
+                            Go back
+                        </button>
                     </a>
-                </button> -
-                <button class="btn btn-danger">
-                    <a href="../{{ form.pk }}Delete" style="color: white;">
-                        Delete Note
-                    </a>
-                </button> -
-                <a href="{% url 'NoteTaking_home' %}">
-                    <button type="button" class="btn btn-secondary" value="Cancel">
-                        Go back
-                    </button>
-                </a>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 {% endblock content %}
