@@ -6,4 +6,5 @@ urlpatterns = [
     path('AddNotes/', views.AddNotes, name='NoteTaking_addnotes'),
     path('AddCategories/', views.AddCategories, name='NoteTaking_addcategories'),
     path('<int:pk>/Details/', views.Details, name="NoteTaking_details"),
+    path('<int:pk>/Delete/', views.DeleteNotes, name="NoteTaking_confirmdelete"),
 ]
