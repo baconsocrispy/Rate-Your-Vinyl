@@ -13,7 +13,6 @@ def Details(request, pk):
     form = NoteForm(data=request.POST or None, instance=note)
 
     if request.method == 'POST':
-        print("POST")
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
@@ -38,18 +37,6 @@ def AddNotes(request):
     }
 
     return render(request, 'NoteTaking/NoteTaking_addnotes.html', context)
-
-def EditNotes(request, pk):
-    pk = int(pk)
-    item = get_object_or_404(Note, pk=pk)
-    form = NoteForm(request.POST or None, instance=item)
-
-    if form.is_valid():
-        form.save()
-        return redirect('NoteTaking_home')
-
-    context = {"item": item}
-    return render(request, 'NoteTaking/NoteTaking_confirmedit.html', context)
 
 def DeleteNotes(request, pk):
     pk = int(pk)
