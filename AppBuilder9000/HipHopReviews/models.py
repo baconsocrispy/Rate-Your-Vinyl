@@ -4,7 +4,7 @@ from django.forms import ModelForm
 class Reviews(models.Model):
     ArtistName = models.CharField(max_length=60)
     AlbumName = models.CharField(max_length=60, blank=True)
-    ReleaseYear = models.IntegerField(max_length=4, blank=True)
+    ReleaseYear = models.IntegerField(blank=True)
 
 
     objects = models.Manager()

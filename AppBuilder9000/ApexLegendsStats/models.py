@@ -1,6 +1,6 @@
 from django.db import models
 
-LEGEND_CHOICES = {
+LEGEND_CHOICES = (
     ('Bangalore', 'Bangalore'),
     ('Bloodhound', 'Bloodhound'),
     ('Caustic', 'Caustic'),
@@ -18,7 +18,7 @@ LEGEND_CHOICES = {
     ('Valkyrie', 'Valkyrie'),
     ('Wattson', 'Wattson'),
     ('Wraith', 'Wraith'),
-}
+)
 
 class Entry(models.Model):
     name = models.CharField(max_length=60, default="", blank=True, null=False, verbose_name='Name')
