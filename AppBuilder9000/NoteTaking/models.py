@@ -2,11 +2,11 @@ from django.db import models
 
 # Create your models here.
 
-PRIORITY_CHOICE = {
+PRIORITY_CHOICE = (
     ('Low', 'Low'),
     ('Medium', 'Medium'),
     ('High', 'High')
-}
+)
 
 class Categorie(models.Model):
     Name = models.CharField(max_length=50, null=False)
