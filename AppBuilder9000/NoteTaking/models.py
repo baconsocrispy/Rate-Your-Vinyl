@@ -18,7 +18,7 @@ class Categorie(models.Model):
 
 class Note(models.Model):
     Title = models.CharField(max_length=50, null=False)
-    Category = models.ForeignKey(Categorie, default="", on_delete=models.CASCADE)
+    Category = models.ForeignKey(Categorie, on_delete=models.CASCADE)
     Details = models.TextField(max_length=300, default="", blank=True)
     Priority = models.CharField(max_length=50, default="", choices=PRIORITY_CHOICE)
 
