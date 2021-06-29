@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from django.http import HttpResponse
 from .forms import EntryForm
 from .models import Entry
@@ -15,5 +15,8 @@ def EnterStats(request):
             return redirect('enterStats')
     else:
         form = EntryForm()
-    return render(request, 'ApexLegendsStats/ApexLegendsStats_Enter.html', {'form': form})
+    return render(request, 'ApexLegendsStats/ApexLegendsStats_enterStats.html', {'form': form})
 
+def ViewStats(request):
+    statsList = Entry.objects.all()
+    return render(request, 'ApexLegendsStats/ApexLegendsStats_viewStats.html', {'statsList': statsList})
