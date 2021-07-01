@@ -1,0 +1,20 @@
+
+
+.navbar {
+    background-color: #50e7f2;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #ffff;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 20px;
+}
+
+.navbar a:hover{
+    background-color: #808080;
+    color: black;
+}
