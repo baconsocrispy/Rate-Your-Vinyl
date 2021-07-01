@@ -6,7 +6,7 @@ from .models import Item
 # Create your views here.
 def home(request):
     """Function to open the homepage."""
-    return render(request, 'ItemsApp/home.html')
+    return render(request, 'ItemsApp/zoo_home.html')
 
 
 def new_item(request):

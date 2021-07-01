@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 
 # this renders the home page
 def TVshow_home(request):
-    return render(request, "TVshowAPP/home.html")
+    return render(request, "TVshowAPP/zoo_home.html")
 
 # adds data to the data base
 def addShow(request):
