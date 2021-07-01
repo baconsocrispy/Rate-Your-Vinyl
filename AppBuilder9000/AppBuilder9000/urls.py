@@ -29,6 +29,7 @@ urlpatterns = [
     path('Quotes/', include('Quotes.urls')),
     path('NoteTaking/', include('NoteTaking.urls')),
     path('ApexLegendsStats/', include('ApexLegendsStats.urls')),
+    path('ZooAnimals/', include('ZooAnimals.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
