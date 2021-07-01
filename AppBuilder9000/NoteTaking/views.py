@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Note, Categorie
 from .forms import NoteForm, CategoryForm
 import requests
-import json
 
 
 def Home(request):
@@ -58,10 +57,11 @@ def SuggestionsAPI(request):
         return redirect('NoteTaking_home')
     else:
         api_call = requests.get("https://www.boredapi.com/api/activity/")
-        load_json = json.loads(api_call.content)
+        response = api_call.json()
+
 
         # Store type of suggestion in category variable.
-        category = load_json['type'].capitalize()
+        category = response['type'].capitalize()
         category_query = Categorie.object.filter(Name=category)
 
         ## Check if category already exist.
@@ -69,9 +69,9 @@ def SuggestionsAPI(request):
         if len(category_query) == 0:
             Categorie(Name=category).save()
 
-        form2 = NoteForm(initial={"Title": load_json['activity'], "Category": category_query[0].pk})
+        form2 = NoteForm(initial={"Title": response['activity'], "Category": category_query[0].pk})
         context = {
-            'title': load_json['activity'],
+            'title': response['activity'],
             'category': category,
             'form': form2
         }
