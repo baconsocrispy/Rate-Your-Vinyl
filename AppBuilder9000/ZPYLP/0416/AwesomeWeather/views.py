@@ -77,7 +77,7 @@ def home(request):
         'message_class': message_class
     }
 
-    return render(request, 'AwesomeWeather/AwesomeWeather_home.html', context)  # returns the villager_home.html template
+    return render(request, 'AwesomeWeather/AwesomeWeather_home.html', context)  # returns AwesomeWeather_home.html template
 
 
 def delete_city(request, city_name):
