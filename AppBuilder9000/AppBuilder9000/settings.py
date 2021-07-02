@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Quotes',
     'NoteTaking',
     'ApexLegendsStats',
+    'Villager_Registry',
 ]
 
 MIDDLEWARE = [

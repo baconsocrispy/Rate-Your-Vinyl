@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 
 def home(request):
-    return render(request, 'UpcomingConcertsApp/home.html')
+    return render(request, 'UpcomingConcertsApp/villager_home.html')
 
 
 def add_event(request):
