@@ -1,0 +1,30 @@
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <!-- Linking to my css -->
+        <link rel="stylesheet" type="text/css" href="{%static '/css/ZooAnimals_css.css' %}">
+        <title>{% block title %} Zoo Database {% endblock %}</title>
+    </head>
+
+    <header>
+        <div class="navbar">
+            <img id="navlogo" src="{% static 'images/logo.png' %}" alt="logo" style="width:50px;height:50px;">
+            <a href="{% url 'zoo_home' %}">Home</a>
+            <a >View Current</a>
+            <a>Add</a>
+        </div>
+    </header>
+
+    <body id="body">
+
+        <footer id="footer"></footer>
+
+    </body>
+
+</html>
