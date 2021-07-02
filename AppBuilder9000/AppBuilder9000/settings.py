@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'NoteTaking',
     'ApexLegendsStats',
     'ZooAnimals',
+    'Villager_Registry',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+}
+
+html {
+    background-color: #b2e0e0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+.bg_img {
+    /* The image used */
+    background-image: url('/static/Villager_Registry/images/ac_wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 90%;
+    z-index: 1;
+}
+
+.wrap {
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    /* This ensures that the images cannot
+        render outside of their container
+        without forcing any scrollbars*/
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+/* Position the navbar container inside the image */
+.navbar-container {
+   max-height: 340px;
+
+    content: " ";
+    right: 5%;
+    left: 5%;
+    max-width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: rgb(255, 236, 128);
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: rgb(0, 128, 128);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #b2e0e0;
+  color: black;
+}
+
+header {
+    text-align: center;
+}
+
+

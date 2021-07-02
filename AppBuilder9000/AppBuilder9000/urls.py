@@ -30,6 +30,7 @@ urlpatterns = [
     path('NoteTaking/', include('NoteTaking.urls')),
     path('ApexLegendsStats/', include('ApexLegendsStats.urls')),
     path('ZooAnimals/', include('ZooAnimals.urls')),
+    path('VillagerRegistry_Index/', include('Villager_Registry.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
