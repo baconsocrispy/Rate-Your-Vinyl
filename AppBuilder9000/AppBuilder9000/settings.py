@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ApexLegendsStats',
     'ZooAnimals',
     'Villager_Registry',
+    'RidleyVerse',
 ]
 
 MIDDLEWARE = [

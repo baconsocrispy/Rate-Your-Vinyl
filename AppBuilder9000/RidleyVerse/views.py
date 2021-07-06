@@ -1,9 +1,9 @@
-from .forms import MovieForm
-from .models import Movie
+# from .forms import MovieForm
+# from .models import Movie
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 
 
-def RidleyVersehome(request):
+def RidleyVerseHome(request):
     return render(request, 'RidleyVerse/RidleyVerse_home.html')
 
 
@@ -49,9 +49,4 @@ def DeleteMovies(request, id):
         Movies.delete()
         return HttpResponseRedirect('/RidleyVerse/List-Movies/')
     return render(request, "RidleyVerse/RidleyVerse_Delete.html", {"form": form})
-
-
-from django.shortcuts import render
-
-
 '''
