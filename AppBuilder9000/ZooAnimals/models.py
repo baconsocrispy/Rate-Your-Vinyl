@@ -2,8 +2,8 @@ from django.db import models
 
 ###Creating the choice for SSP
 SSP_Choices = (
-    (True, 'Yes'),
-    (False, 'No')
+    ('Yes', 'Yes'),
+    ('No', 'No')
 )
 
 ###Creating the location choices
@@ -25,7 +25,7 @@ class Species(models.Model):
     location = models.CharField(max_length=60, choices= Location)
     SSP = models.CharField(max_length=60, choices= SSP_Choices)
 
-    object= models.Manager
+    objects= models.Manager
 
     def __str__(self):
         return self.commonName
