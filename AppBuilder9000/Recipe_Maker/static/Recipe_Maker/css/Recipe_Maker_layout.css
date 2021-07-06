@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+}
+
+html {
+    background-color: orange;
+    background-image: url('/static/Recipe_Maker/images/backgorund_image.jpeg')
+
+}
