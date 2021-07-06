@@ -7,25 +7,7 @@ def RidleyVersehome(request):
     return render(request, 'RidleyVerse/RidleyVerse_home.html')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
 def AddMovies(request):
     form = MovieForm(data=request.POST or None)
     if request.method == 'POST':
@@ -71,4 +53,5 @@ def DeleteMovies(request, id):
 
 from django.shortcuts import render
 
-# Create your views here.
+
+'''
