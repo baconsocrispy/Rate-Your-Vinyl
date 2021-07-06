@@ -1,0 +1,11 @@
+{% extends "RidleyVerse/RidleyVerse_base.html" %}
+{% load static %}
+{% block title %} RidleyVerse Home {% endblock %}
+
+{% block content %}
+<h1>Welcome to the watchlist, enter at your own risk.</h1>
+<p>This is a place to stash a supreme collection of all entries in the Ridleyverse.
+    This is the home of every connection in film to the Ridleyverse</p>
+
+<a id="list-link" href="{% url 'List-Movies' %}"> Select to see the entire list of Cosmic Horror!</a>
+{% endblock %}
