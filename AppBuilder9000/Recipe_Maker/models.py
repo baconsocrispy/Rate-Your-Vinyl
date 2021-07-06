@@ -23,7 +23,7 @@ class RecipeName(models.Model):
 
 
 class Ingredients(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(RecipeName, on_delete=models.CASCADE)
     recipe_ingredients = models.CharField(max_length=100, default="", blank=True)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class Ingredients(models.Model):
 
 
 class Description(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(RecipeName, on_delete=models.CASCADE)
     recipe_description = models.TextField()
 
     def __str__(self):
