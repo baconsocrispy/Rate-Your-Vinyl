@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 
 
-def RidleyVerseHome(request):
+def RidleyVersehome(request):
     return render(request, 'RidleyVerse/RidleyVerse_home.html')
 
 

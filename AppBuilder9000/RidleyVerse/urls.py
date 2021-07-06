@@ -17,7 +17,7 @@ from django.urls import path, include
 from RidleyVerse import views
 
 urlpatterns = [
-    path('RidleyVerse-home/', views.RidleyVerseHome, name='RidleyVerse-home',)
+    path('', views.RidleyVersehome, name='RidleyVerse-home',)
     ]
 '''
 path('Add-Movies/', views.AddMovies, name='Add-Movies'),
