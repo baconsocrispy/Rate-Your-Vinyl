@@ -1,5 +1,5 @@
-'''
 from django.db import models
+
 
 class Movie(models.Model):
     FilmName = models.CharField(max_length=100)
@@ -13,4 +13,3 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.FilmName
-    '''
