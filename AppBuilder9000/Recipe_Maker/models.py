@@ -32,7 +32,7 @@ class Ingredients(models.Model):
 
 class Instructions(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    recipe_instructions = models.Textfield(default='Please write your instructions here', blank=False)
+    recipe_instructions = models.TextField(default='Please write your instructions here', blank=False)
 
     def __str__(self):
         return self.recipe_instructions
