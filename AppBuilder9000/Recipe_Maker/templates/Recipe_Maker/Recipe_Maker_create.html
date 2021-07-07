@@ -6,11 +6,7 @@
         <div class="">
             {% csrf_token %}
             {{ recipe_form.non_field_errors }}
-            {{ ingredients_form.non_field_errors }}
-            {{ instructions_form.non_field_errors }}
             {{ recipe_form.as_p }}
-            {{ ingredients_form.as_p }}
-            {{ instructions_form.as_p }}
         </div>
         <div class="">
             <input type="submit" class="" value="Create Recipe" name="Save_recipe">
