@@ -4,19 +4,18 @@ padding-top: 2em;
 text-align: center;
 background-color: black;
 color:white;
-text-shadow:-2px 0 black, 0 2px black,2px 0 black, 0 -2px black;
 background-image: url('images/RidleyVerseBG_image.jpg');
 background-attachment: fixed;
 background-size: 100%;
 background-position: top;
 background-repeat: no-repeat;
-font-family: 'Orbitron', sans-serif;
+font-family: 'Transmission', sans-serif;
 }
 /*Style the navbar */
 .navbar a{
 color:white;
 size: large;
-font-family: 'Orbitron', sans-serif;
+font-family: 'Transmission', sans-serif;
 font-size: 2em;
 padding: 40px;
 }
@@ -29,8 +28,7 @@ font-size:3em
 padding: 20px;
 background-color: white;
 color: black;
-font-family: 'Orbitron', sans-serif;
-outline: 2px solid black;
+font-family: 'Transmission', sans-serif;
 font-size: 20px;
 }
 
@@ -43,7 +41,6 @@ margin:0,0,0,0;
 p{
 padding:5px;
 font-size:25px;
-border: 1px solid black;
 text-align:top;
 }
 
@@ -59,7 +56,6 @@ box-sizing: border-box;
 width: 100%,
 font-size: 18px;
 padding: 11px;
-border: 1px solid #ddd;
 }
 /*Style the navigation menu */
 #movieMenu{
@@ -83,23 +79,20 @@ background-color: yellow;
 padding: 3px;
 background-color: white;
 color: black;
-font-family: 'Orbitron', sans-serif;
-outline: 2px solid black;
+font-family: 'Transmission', sans-serif;
 font-size: 20px;
 }
 
 #addedMovies {
 font-size:20px;
 letter-spacing:2px;
-text-shadow:-4px 0 black, 0 4px black,4px 0 black, 0 -4px black;
 }
 
 #remove-button {
 padding: 3px;
 background-color: white;
 color: black;
-font-family: 'Orbitron', sans-serif;
-outline: 2px solid black;
+font-family: 'Transmission', sans-serif;
 font-size: 20px;
 }
 
@@ -107,8 +100,7 @@ font-size: 20px;
 padding: 3px;
 background-color: white;
 color: black;
-font-family: 'Orbitron', sans-serif;
-outline: 2px solid black;
+font-family: 'Transmission', sans-serif;
 font-size: 20px;
 }
 
@@ -120,8 +112,5 @@ padding:0;
 }
 #list-link{
 color:#a7eef2;
-}
-
-#newfonttest {
-font-family: sans-serif;
+background-color: black;
 }
