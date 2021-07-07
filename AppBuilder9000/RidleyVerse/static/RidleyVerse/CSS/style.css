@@ -9,13 +9,12 @@ background-attachment: fixed;
 background-size: 100%;
 background-position: top;
 background-repeat: no-repeat;
-font-family: 'Transmission', sans-serif;
 }
 /*Style the navbar */
 .navbar a{
 color:white;
 size: large;
-font-family: 'Transmission', sans-serif;
+font-family: 'Oswald', sans-serif;
 font-size: 2em;
 padding: 40px;
 }
@@ -28,7 +27,7 @@ font-size:3em
 padding: 20px;
 background-color: white;
 color: black;
-font-family: 'Transmission', sans-serif;
+font-family: 'Zen Tokyo Zoo';
 font-size: 20px;
 }
 
@@ -42,6 +41,7 @@ p{
 padding:5px;
 font-size:25px;
 text-align:top;
+color:#19fd9c;
 }
 
 /*Style the inputs for the form */
@@ -79,20 +79,21 @@ background-color: yellow;
 padding: 3px;
 background-color: white;
 color: black;
-font-family: 'Transmission', sans-serif;
+font-family: 'Zen Tokyo Zoo';
 font-size: 20px;
 }
 
 #addedMovies {
 font-size:20px;
 letter-spacing:2px;
+font-family: 'Share Tech Mono', monospace;
 }
 
 #remove-button {
 padding: 3px;
 background-color: white;
 color: black;
-font-family: 'Transmission', sans-serif;
+font-family: 'Zen Tokyo Zoo';
 font-size: 20px;
 }
 
@@ -100,7 +101,7 @@ font-size: 20px;
 padding: 3px;
 background-color: white;
 color: black;
-font-family: 'Transmission', sans-serif;
+font-family: 'Zen Tokyo Zoo';
 font-size: 20px;
 }
 
@@ -110,7 +111,25 @@ font-size: 15px;
 margin:0;
 padding:0;
 }
+
 #list-link{
-color:#a7eef2;
-background-color: black;
+color:white;
+font-size: 40px;
+font-family: 'Oswald', sans-serif;
+}
+
+#ZenFont{
+font-family: 'Zen Tokyo Zoo';
+}
+
+#JosefinFont{
+font-family: 'Josefin Sans', sans-serif;
+}
+
+#OswaldFont{
+font-family: 'Oswald', sans-serif;
+}
+
+#TechFont{
+font-family: 'Share Tech Mono', monospace;
 }

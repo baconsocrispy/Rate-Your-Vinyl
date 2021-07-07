@@ -15,3 +15,7 @@ def AddMovies(request):
     else:
         form = MovieForm()
     return render(request, 'RidleyVerse/RidleyVerse_add.html', {'form': form})
+
+def ListMovies(request):
+    Movies = Movie.objects.all().order_by("FilmName")
+    return render(request,"RidleyVerse/RidleyVerse_movielist.html", {'Movies': Movies})
