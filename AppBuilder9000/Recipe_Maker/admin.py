@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import Recipe, Ingredients, Instructions
 
-
+"""
 # inlines allow models to be edited on the same page as the parent model
 class IngredientsInline(admin.TabularInline):
     model = Ingredients
@@ -19,6 +19,8 @@ class RecipeAdmin(admin.ModelAdmin):
         IngredientsInline,
         InstructionsInline,
     ]
+"""
 
+myModels = [Recipe, Ingredients, Instructions]
 
-admin.site.register(Recipe, RecipeAdmin, Ingredients, Instructions)
+admin.site.register(myModels)
