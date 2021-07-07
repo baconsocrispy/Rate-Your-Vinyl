@@ -19,3 +19,13 @@ def AddMovies(request):
 def ListMovies(request):
     Movies = Movie.objects.all().order_by("FilmName")
     return render(request,"RidleyVerse/RidleyVerse_movielist.html", {'Movies': Movies})
+
+def MovieDetails(request, id):
+    Movies = get_object_or_404(Movie, id=id)
+    return render(request, "RidleyVerse/RidleyVerse_details.html", {
+        'name': Movies.FilmName,
+        'year': Movies.ReleaseYear,
+        'Starring': Movies.StarNames,
+        'Directors': Movies.DirectorName,
+        'Summary': Movies.MovieSummary,
+    })

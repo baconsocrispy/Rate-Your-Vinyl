@@ -6,7 +6,7 @@
 <ul id="movieMenu">
     {% for Movie in Movies %}
     <li>
-      <a id="addedMovies" href="">{{ Movie.FilmName|capfirst }} ({{ Movie.ReleaseYear}})</a>
+      <a id="addedMovies" href="{% url 'Movie-Details' Movie.id %}">{{ Movie.FilmName|capfirst }} ({{ Movie.ReleaseYear}})</a>
     </li>
     {% endfor %}
 </ul>

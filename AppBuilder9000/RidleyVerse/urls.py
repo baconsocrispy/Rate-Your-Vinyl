@@ -19,5 +19,6 @@ from RidleyVerse import views
 urlpatterns = [
     path('', views.RidleyVersehome, name='RidleyVerse-home'),
     path('Add-Movies/', views.AddMovies, name='Add-Movies'),
-    path('List-Movies/', views.ListMovies, name='List-Movies')
+    path('List-Movies/', views.ListMovies, name='List-Movies'),
+    path('<id>', views.MovieDetails, name='Movie-Details'),
     ]
