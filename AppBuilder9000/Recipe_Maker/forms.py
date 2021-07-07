@@ -14,13 +14,13 @@ class RecipeForm(ModelForm):
 class IngredientsForm(ModelForm):
     class Meta:
         model = Ingredients
-        fields = '__all__'
+        fields = ['recipe_ingredients']
 
 
 class InstructionsForm(ModelForm):
     class Meta:
         model = Instructions
-        fields = '__all__'
+        fields = ['recipe_instructions']
 
 
 
