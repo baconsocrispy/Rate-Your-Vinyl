@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Recipe, Ingredients, Instructions
+from .models import Recipe
 
 
 class RecipeForm(ModelForm):
@@ -9,20 +9,6 @@ class RecipeForm(ModelForm):
         # grabs all the fields from within Recipe
         # passes it into the form
         fields = '__all__'
-
-
-class IngredientsForm(ModelForm):
-    class Meta:
-        model = Ingredients
-        fields = ['recipe_ingredients']
-
-
-class InstructionsForm(ModelForm):
-    class Meta:
-        model = Instructions
-        fields = ['recipe_instructions']
-
-
 
 
 
