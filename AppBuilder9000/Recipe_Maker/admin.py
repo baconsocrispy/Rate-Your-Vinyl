@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import RecipeName, Ingredients, Description
+from .models import Recipe, Ingredients, Instructions
 
 
 # inlines allow models to be edited on the same page as the parent model
@@ -9,16 +9,16 @@ class IngredientsInline(admin.TabularInline):
     extra = 5
 
 
-class DescriptionInline(admin.TabularInline):
-    model = Description
+class InstructionsInline(admin.TabularInline):
+    model = Instructions
 
 
 # add the inlines to the model
 class RecipeAdmin(admin.ModelAdmin):
     inlines = [
         IngredientsInline,
-        DescriptionInline,
+        InstructionsInline,
     ]
 
 
-admin.site.register(RecipeName, RecipeAdmin)
+admin.site.register(Recipe, RecipeAdmin)
