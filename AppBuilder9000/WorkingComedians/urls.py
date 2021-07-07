@@ -2,7 +2,7 @@ from django.urls import path, include
 from WorkingComedians import views
 
 urlpatterns = [
-    path('', views.workingcomedians_home, name='home'),
+    path('', views.workingcomedians_home, name='workingcomedians_home'),
 ]
 
 #maybe the path is wrong?

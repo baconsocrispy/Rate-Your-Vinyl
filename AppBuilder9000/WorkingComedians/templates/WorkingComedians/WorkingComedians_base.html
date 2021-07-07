@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -5,7 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="{% static '!!!!!!!!!' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'WorkingComedians/css/styling.css' %}">
 		<title>{% block title%}Working Comedians{% endblock %}</title>
 	</head>
     <body class="">
@@ -13,7 +14,7 @@
 		<!--Navbar-->
 		<div >
 			<div class="navbar">
-				<a href="{% url 'home' %}">Home</a>
+				<a href="{% url 'workingcomedians_home' %}">Home</a>
 			</div>
 		</div>
 		<!--End Navbar-->
