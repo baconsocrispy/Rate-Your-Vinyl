@@ -26,6 +26,8 @@ class Ingredients(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     recipe_ingredients = models.TextField(default="Please write you're ingredients and amounts", blank=False)
 
+    objects = models.Manager()
+
     def __str__(self):
         return self.recipe_ingredients
 
@@ -33,6 +35,8 @@ class Ingredients(models.Model):
 class Instructions(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     recipe_instructions = models.TextField(default='Please write your instructions here', blank=False)
+
+    objects = models.Manager()
 
     def __str__(self):
         return self.recipe_instructions
