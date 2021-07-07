@@ -17,7 +17,7 @@ class IngredientsForm(ModelForm):
         fields = '__all__'
 
 
-class Instructions(ModelForm):
+class InstructionsForm(ModelForm):
     class Meta:
         model = Instructions
         fields = '__all__'
