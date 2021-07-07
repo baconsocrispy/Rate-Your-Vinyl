@@ -1,0 +1,18 @@
+{% extends 'zoo_base.html' %}
+{% load static %}
+
+{% block title %}View Species{% endblock %}
+
+{% block content %}
+    <h1>Species List</h1>
+
+    {% for species in spec1 %}
+        <strong> {{ species }}</strong>
+        <ul>
+        <li>Species Name: {{ species.latinName }} </li>
+        <li>Location: {{ species.location }} </li>
+        <li>SSP: {{ species.SSP }} </li>
+        </ul>
+    {% endfor %}
+
+{% endblock %}
