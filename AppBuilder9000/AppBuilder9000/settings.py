@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'ZooAnimals',
     'Villager_Registry',
     'Recipe_Maker',
+    'RidleyVerse',
     'WorkingComedians',
 ]
 

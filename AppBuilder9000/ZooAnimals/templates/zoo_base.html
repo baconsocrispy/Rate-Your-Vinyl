@@ -13,18 +13,24 @@
     </head>
 
     <header>
+        {% block header %}
         <div class="navbar">
-            <img id="navlogo" src="{% static 'images/logo.png' %}" alt="logo" style="width:50px;height:50px;">
+            <a class="imgLogo">
+                <img src="{% static 'images/logo.png' %}" alt="logo">
+            </a>
             <a href="{% url 'zoo_home' %}">Home</a>
-            <a >View Current</a>
-            <a>Add</a>
+            <a href="{% url 'zoo_current' %}">View Current</a>
+            <a href="{% url 'zoo_add' %}">Add</a>
         </div>
+        {% endblock %}
     </header>
 
     <body id="body">
-
-        <footer id="footer"></footer>
-
+        <br>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </body>
 
 </html>

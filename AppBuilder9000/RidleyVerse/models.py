@@ -1,5 +1,5 @@
-
 from django.db import models
+
 
 class Movie(models.Model):
     FilmName = models.CharField(max_length=100)
