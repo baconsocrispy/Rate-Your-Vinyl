@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static '!!!!!!!!!' %}">
+		<title>{% block title%}Working Comedians{% endblock %}</title>
+	</head>
+    <body class="">
+
+		<!--Navbar-->
+		<div >
+			<div class="navbar">
+				<a href="{% url 'home' %}">Home</a>
+			</div>
+		</div>
+		<!--End Navbar-->
+
+		<!--Body content -->
+		<div class="content">
+		{% block content %} {% endblock %}
+		</div>
+		<!--End content-->
+	</body>
+		<!--Footer-->
+		<!--End Footer-->
+
+
