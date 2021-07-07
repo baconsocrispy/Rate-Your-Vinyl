@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'Villager_Registry',
     'Recipe_Maker',
     'RidleyVerse',
+    'WorkingComedians',
 ]
 
 MIDDLEWARE = [
