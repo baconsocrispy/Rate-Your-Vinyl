@@ -1,12 +1,12 @@
 from django.db import models
 
 # Dictionary
-TYPE_CHOICES = {
+TYPE_CHOICES = [
     ("Appetizers", "Appetizers"),
     ("Entrees", "Entrees"),
     ("Drinks", "Drinks"),
     ("Snacks", "Snacks"),
-}
+]
 
 
 # When a recipe is created these are the fields of info that are filled out
