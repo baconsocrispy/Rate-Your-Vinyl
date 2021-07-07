@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 # instead of grabbing a class from model.py, its grabbing from admin.py
-# class RecipeAdmin has models Ingredients and Descriptions inline
+# class RecipeAdmin has models Ingredients and Instructions inline
 from .admin import RecipeAdmin
 
 
