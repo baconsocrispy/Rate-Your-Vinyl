@@ -1,0 +1,18 @@
+{% extends "Villager_Registry/villager_base.html" %}
+
+{% block title %}Villager Registry: Create New Account{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="account-form">
+	<h3 class="text-center">CREATE NEW ACCOUNT</h3>
+		<form method="POST"> <!-- Replace this with the Django Form -->
+			{% csrf_token %}
+			{{form.as_p}}
+			<button id="account-button" type="submit" name="Save_Account">Create Account</button>
+		</form>
+		<br>
+</div>
+
+{% endblock %}
