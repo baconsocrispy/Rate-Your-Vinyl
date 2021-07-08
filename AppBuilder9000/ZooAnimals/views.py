@@ -17,7 +17,7 @@ def zoo_add(request):
     return render(request, 'zoo_add.html', content)
 
 def zoo_current(request):
-    spec1 = Species.objects.all()
+    spec1 = Species.objects.all().order_by('commonName')
     return render(request, 'zoo_current.html', {'spec1': spec1})
 
 def zoo_details(request, id):
