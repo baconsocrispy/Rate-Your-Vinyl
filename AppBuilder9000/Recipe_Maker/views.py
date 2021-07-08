@@ -34,5 +34,6 @@ def create_recipe(request):
 
 class RecipeListView(ListView):
     model = Recipe
+    paginate_by = 2
     context_object_name = 'recipes_display'
     template_name = 'Recipe_Maker/Recipe_Maker_display.html'
