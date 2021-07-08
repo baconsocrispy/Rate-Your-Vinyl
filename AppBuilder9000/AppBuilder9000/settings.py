@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'Recipe_Maker',
     'RidleyVerse',
     'WorkingComedians',
+    'Blogs',
 ]
 
 MIDDLEWARE = [
