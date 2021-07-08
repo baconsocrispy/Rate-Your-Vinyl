@@ -33,10 +33,6 @@ def create_recipe(request):
 
 
 class RecipeListView(ListView):
-
     model = Recipe
-    paginate_by = 10
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    context_object_name = 'recipes_display'
+    template_name = 'Recipe_Maker/Recipe_Maker_display'
