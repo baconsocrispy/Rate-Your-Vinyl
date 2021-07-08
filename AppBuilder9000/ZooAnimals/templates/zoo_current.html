@@ -6,13 +6,13 @@
 {% block content %}
     <h1>Species List</h1>
 
-    {% for species in spec1 %}
-        <strong> {{ species }}</strong>
-        <ul>
-        <li>Species Name: {{ species.latinName }} </li>
-        <li>Location: {{ species.location }} </li>
-        <li>SSP: {{ species.SSP }} </li>
-        </ul>
+    {% for Species in spec1 %}
+        <strong><a href="{% url 'zoo_details' Species.id %}">{{ Species.commonName }}</a></strong>
+            <ul>
+            <li>Species Name: {{ Species.latinName }} </li>
+            <li>Location: {{ Species.location }} </li>
+            <li>SSP: {{ Species.SSP }} </li>
+            </ul>
     {% endfor %}
 
 {% endblock %}
