@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-
 from .forms import RecipeForm
+from .models import Recipe
+from django.views.generic.list import ListView
 
 
 # first instruction on what to do if "home" get invoked
@@ -31,4 +32,11 @@ def create_recipe(request):
     return render(request, 'Recipe_Maker/Recipe_Maker_create.html', context)
 
 
-def
+class RecipeListView(ListView):
+
+    model = Recipe
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
