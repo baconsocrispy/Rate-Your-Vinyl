@@ -1,9 +1,10 @@
-* {
-    margin: 0;
-}
 
 html {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
     background-color: #b2e0e0;
+
 }
 
 body {
@@ -11,10 +12,25 @@ body {
 }
 
 
-* {
-    box-sizing: border-box;
+
+h1, h2, h3 {
+    font-family: sans-serif;
+    text-align:center;
+    line-height: 60px;
+    font-weight: 900;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(204, 58, 58);
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
 }
 
+h4 {
+    font-family: sans-serif;
+    text-align:center;
+    font-size: 20px;
+    color: darkslateblue;
+}
 
 .bg_img {
     /* The image used */
@@ -41,14 +57,14 @@ body {
 
 /* Position the navbar container inside the image */
 .navbar-container {
-   max-height: 340px;
-
+    top: 0;
+    padding-bottom: 100px;
     content: " ";
     right: 5%;
     left: 5%;
     max-width: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: 3;
 }
 
 /* The navbar */
@@ -74,6 +90,64 @@ body {
 
 header {
     text-align: center;
+    margin-top: 0;
 }
 
+.center {
+    text-align: center;
+}
 
+.page-container {
+    opacity: 1;
+	position: relative;
+	width: 550px;
+	height: 500px;
+	border-radius: 8px;
+	border: 2px solid gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px
+    display: flex;
+    flex-wrap: wrap;
+    padding:10px;
+    margin: 0px auto;
+	background-color: #37e0e0de;
+	box-shadow: 4px 3px darkslateblue;
+	z-index: 2;
+}
+
+.account-form {
+    opacity: 1;
+	position: relative;
+	width: 600px;
+	height: 100%;
+	border-radius: 8px;
+	border: 2px solid gray;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px
+    display: flex;
+    flex-wrap: wrap;
+    padding:10px;
+    padding-bottom: 100px;
+    margin: 0px auto;
+	background-color: #37e0e0de;
+	box-shadow: 4px 3px darkslateblue;
+	z-index: 2;
+}
+
+button {
+	background-color: rgb(255, 236, 128);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+}
+
+input {
+    text-align:center;
+    width: 300px;
+    height: 30px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
