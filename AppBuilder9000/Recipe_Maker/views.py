@@ -35,4 +35,4 @@ def create_recipe(request):
 class RecipeListView(ListView):
     model = Recipe
     context_object_name = 'recipes_display'
-    template_name = 'Recipe_Maker/Recipe_Maker_display'
+    template_name = 'Recipe_Maker/Recipe_Maker_display.html'
