@@ -1,5 +1,18 @@
 {% extends "Recipe_Maker/Recipe_Maker_base.html" %}
 
-{% block content %}
+{% block header %}List of Recipes{% endblock %}
 
+
+{% block content %}
+{% if recipes_display %}
+<ul>
+    {% for recipe in recipes_display %}
+        <li>
+            <a href="{{ recipe.get_absolute_url }}">{{ recipe.recipe_name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>There are no recipes</p>
+{% endif %}
 {% endblock %}
