@@ -37,3 +37,17 @@ h1 {
     bottom: 0;
     height: 40px;
 }
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+table th {
+    border:1px solid black;
+    background-color: white;
+}
+
+table td {
+    border:1px solid black;
+
+}
