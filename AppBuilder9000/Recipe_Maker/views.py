@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import RecipeForm
 from .models import Recipe
-from django.views.generic.list import ListView
+# import pagination
+from django.core.paginator import Paginator
 
 
 # first instruction on what to do if "home" get invoked
@@ -32,8 +33,12 @@ def create_recipe(request):
     return render(request, 'Recipe_Maker/Recipe_Maker_create.html', context)
 
 
-class RecipeListView(ListView):
-    model = Recipe
-    context_object_name = 'recipes_display'
-    template_name = 'Recipe_Maker/Recipe_Maker_display.html'
-
+def list_recipes(request):
+    recipe_list = Recipe.objects.all()
+    '''
+    # set up Pagination
+    p = Paginator(Recipe.objects.all(), 2)
+    page = request.GET.get('page')
+    recipes = p.get_page(page)
+    '''
+    return render(request, 'Recipe_Maker/Recipe_Maker_display.html', {'recipe_list': recipe_list})
