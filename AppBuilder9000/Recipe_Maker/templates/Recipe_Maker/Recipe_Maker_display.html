@@ -3,10 +3,17 @@
 {% block header %}List of Recipes{% endblock %}
 
 {% block content %}
-
-{% for recipe in list_recipes %}
-    {{ recipe }}
-{% endfor %}
-
+    <table>
+        <tr>
+            <th>Recipe Name</th>
+            <th>Recipe Type</th>
+        </tr>
+        {% for recipe in recipe_list %}
+        <tr>
+            <td><a href="#">{{ recipe.recipe_name|capfirst }}</a></td>
+            <td>{{ recipe.recipe_type }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}
