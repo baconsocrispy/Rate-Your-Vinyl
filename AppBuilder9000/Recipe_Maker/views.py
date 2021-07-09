@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-
 from .forms import RecipeForm
+from .models import Recipe
+# import pagination
+from django.core.paginator import Paginator
 
 
 # first instruction on what to do if "home" get invoked
@@ -29,3 +31,15 @@ def create_recipe(request):
     }
     # returns the user to the create webpage with the dictionary
     return render(request, 'Recipe_Maker/Recipe_Maker_create.html', context)
+
+
+def list_recipes(request):
+    # old code to display items in database
+    # recipe_list = Recipe.objects.all()
+
+    # set up Pagination
+    p = Paginator(Recipe.objects.all(), 2)
+    page = request.GET.get('page')
+    recipes = p.get_page(page)
+
+    return render(request, 'Recipe_Maker/Recipe_Maker_display.html', {'recipes': recipes})
