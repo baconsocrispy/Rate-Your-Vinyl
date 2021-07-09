@@ -1,6 +1,15 @@
-from django.shortcuts import render
+# from django.shortcuts import render
+#
+# def blogs_home(request):
+#     return render(request, "blogs_home.html")
 
-def blogs_home(request):
-    return render(request, "blogs_home.html")
+from django.views import generic
+from .models import Post
 
-# Create your views here.
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = "blogs_home.html"
+
+class PostDetail(generic.DetailView):
+    model = Post
+    template_name = 'post_detail.html'
