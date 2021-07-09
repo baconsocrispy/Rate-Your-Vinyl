@@ -2,25 +2,11 @@
 
 {% block header %}List of Recipes{% endblock %}
 
-
 {% block content %}
-{% if recipes_display %}
-<table>
-    <tbody>
-        <tr>
-            <th>Recipe Name</th>
-            <th>Recipe Type</th>
-        </tr>
-    {% for recipe in recipes_display %}
-        <tr>
-            <td><a href="{{ recipe.get_absolute_url }}">{{ recipe.recipe_name|capfirst }}</a></td>
-            <td>{{ recipe.recipe_type }}</td>
-        </tr>
 
-    {% endfor %}
-    </tbody>
-</table>
-{% else %}
-    <p>There are no recipes</p>
-{% endif %}
+{% for recipe in list_recipes %}
+    {{ recipe }}
+{% endfor %}
+
+
 {% endblock %}
