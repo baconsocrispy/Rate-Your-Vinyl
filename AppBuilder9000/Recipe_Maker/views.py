@@ -34,11 +34,12 @@ def create_recipe(request):
 
 
 def list_recipes(request):
-    recipe_list = Recipe.objects.all()
-    '''
+    # old code to display items in database
+    # recipe_list = Recipe.objects.all()
+
     # set up Pagination
     p = Paginator(Recipe.objects.all(), 2)
     page = request.GET.get('page')
     recipes = p.get_page(page)
-    '''
-    return render(request, 'Recipe_Maker/Recipe_Maker_display.html', {'recipe_list': recipe_list})
+
+    return render(request, 'Recipe_Maker/Recipe_Maker_display.html', {'recipes': recipes})
