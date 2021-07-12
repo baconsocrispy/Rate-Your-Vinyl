@@ -59,4 +59,4 @@ def details(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'form': form}))
+        return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'form': form})
