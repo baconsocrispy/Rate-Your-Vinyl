@@ -7,4 +7,6 @@ urlpatterns = [
     path('', views.recipe_home, name='Recipe_Maker'),
     path('create_recipe/', views.create_recipe, name='create_recipe'),
     path('list_recipes/', views.list_recipes, name='list_recipes'),
+    # an integer pk is passed through the details method
+    path('<int:pk>/details/', views.recipe_details, name='recipe_details'),
 ]
