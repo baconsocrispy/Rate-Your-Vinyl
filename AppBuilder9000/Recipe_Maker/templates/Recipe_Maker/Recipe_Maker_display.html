@@ -1,6 +1,5 @@
 {% extends "Recipe_Maker/Recipe_Maker_base.html" %}
 
-{% block header %}List of Recipes{% endblock %}
 
 {% block content %}
     <table>
@@ -10,7 +9,8 @@
         </tr>
         {% for recipe in recipes %}
         <tr>
-            <td><a href="{% url 'details' %}">{{ recipe.recipe_name|capfirst }}</a></td>
+            <!-- recipe.id passes in the id of each recipe-->
+            <td><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.recipe_name|capfirst }}</a></td>
             <td>{{ recipe.recipe_type }}</td>
         </tr>
         {% endfor %}
