@@ -46,17 +46,7 @@ def list_recipes(request):
 
 
 # function to display a detailed view of items
-def details(request, pk):
-    # info from a url is in a string so it needs to be converted to integer
-    pk = int(pk)
-    item = get_object_or_404(Recipe, pk=pk)
-    form = RecipeForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect(form.errors)
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'form': form})
+def recipe_details(request, pk):
+    # pk is the primary key
+    recipe = Recipe.objects.get(pk=pk)
+    return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'recipe': recipe})
