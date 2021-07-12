@@ -1,0 +1,27 @@
+{% extends 'blogs_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">test</h2>
+                    <p class="card-text text-muted h6">more tests </p>
+                    <p class="card-text">placeholder</p>
+                    <p class="btn btn-primary">Post New &rarr;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!--
+    list_display = ('title', 'slug', 'status', 'created_on')
+    list_filter = ("status",)
+    search_fields = ['title', 'content']
+    prepopulated_fields = {'slug': ('title',)}
+
+
