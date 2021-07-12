@@ -1,0 +1,23 @@
+{% extends 'Recipe_Maker_base.html' %}
+
+{% block title %}Recipe Details{% endblock %}
+
+{% block content %}
+
+<div>
+    <form method="POST" action="">
+        <table>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <!-- displays info as a table -->
+            {{ form.as_table }}
+        </table>
+        <div>
+            <input type="submit">
+            <div class="">
+                <button class=""><a href="#">Delete</a></button>
+                <button class=""><a href="{ url 'Recipe_Maker' }">Cancel</a></button>
+            </div>
+        </div>
+    </form>
+</div>
