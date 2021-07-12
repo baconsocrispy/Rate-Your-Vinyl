@@ -3,8 +3,13 @@
     <div class="topnav">
       <a href="{% url 'villager_home' %}">Home</a>
       <a href="{% url 'villager_list' %}">Villagers</a>
-      <a href="{% url 'villager_events' %}">Events</a>
       <a href="{% url 'villager_account' %}">Account</a>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

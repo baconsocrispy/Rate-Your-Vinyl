@@ -2,9 +2,46 @@
 
 {% block title %}Villager Registry: Home{% endblock %}
 
-{% block header %}{% endblock %}
+{% block header %}
+<div class="home-container">
+    <h1>Welcome, Player! This is the ACNH Villager Registry!</h1>
+</div>
+<img class="home-head-img" src="/static/Villager_Registry/images/ac_humans.jpg">
+{% endblock %}
 
 {% block content %}
+<div class="p-container" style="margin-top: 12%;">
+        <p>This is a place to connect with other players by showing off which villagers
+        reside on a player's island. You can also check out the
+        <a href="{% url 'villager_list' %}">Villager List</a> for more details about
+        each villager in the game! If you have an existing account, be sure to login!
+        And if you don't yet have one, <a href="{% url 'villager_create'%}">create</a>
+        one today!</p>
+</div>
 
+<section class="player-container">
+        <div>
+            {% for shay in entry1 %}
+                <label>
+                     <h1 style="position:left;">Player Spotlight: <a href="./1/villager_details">{{ shay.info.firstname }}</a></h1>
+                     <h3 style="position:left;padding-left:20px;">Island Name: {{ shay.info.island_name }}</h3>
+                </label>
+               <br><br>
+                <label>Current Residents:</label>
+                 <ol>
+                     <li>{{ shay.info.villager1 }}</li>
+                     <li>{{ shay.info.villager2 }}</li>
+                     <li>{{ shay.info.villager3 }}</li>
+                     <li>{{ shay.info.villager4 }}</li>
+                     <li>{{ shay.info.villager5 }}</li>
+                     <li>{{ shay.info.villager6 }}</li>
+                     <li>{{ shay.info.villager7 }}</li>
+                     <li>{{ shay.info.villager8 }}</li>
+                     <li>{{ shay.info.villager9 }}</li>
+                     <li>{{ shay.info.villager10 }}</li>
+                 </ol>
+            {% endfor %}
+        </div>
+</section>
 
 {% endblock %}

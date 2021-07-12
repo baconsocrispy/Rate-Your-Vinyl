@@ -2,13 +2,2792 @@
 
 {% block title %}Villager Registry: Resident List{% endblock %}
 
-{% block header %}{% endblock %}
-
+{% block header %}
+<div class="header-container">
+    <h1 class="center">Villager List!</h1>{% endblock %}
+</div>
 {% block content %}
-
-
-
-
-
-
+    <div class="list-container">
+        <table class="resident-table">
+            <tr>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Species</th>
+              <th>Birthday</th>
+              <th>Hobbies</th>
+            </tr>
+            <tr id="{{ Villager_Choices.r1 }}" value="{{ Admiral }}">
+              <td>Admiral</td>
+              <td><img src="/static/Villager_Registry/images/NH-Admiral_poster.jpg" alt="Admiral Icon"></td>
+              <td>Bird</td>
+              <td>January 27th</td>
+              <td>Nature</td>
+            </tr>
+            <tr id="{{ 'Villager_Choices.r2' }}">
+              <td>Agent S</td>
+              <td><img src="/static/Villager_Registry/images/NH-Agent_S_poster.jpg" alt="Agent S Icon"></td>
+              <td>Squirrel</td>
+              <td>July 2nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td id="{{ 'Villager_Choices.r3' }}">Agnes</td>
+              <td><img src="/static/Villager_Registry/images/NH-Agnes_poster.jpg" alt="Agnes Icon"></td>
+              <td>Pig</td>
+              <td>April 21st</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Al</td>
+              <td><img src="/static/Villager_Registry/images/NH-Al_poster.jpg" alt="Al Icon"></td>
+              <td>Gorilla</td>
+              <td>October 18th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Alfonso</td>
+              <td><img src="/static/Villager_Registry/images/NH-Alfonso_poster.jpg" alt="Alfonso Icon"></td>
+              <td>Alligator</td>
+              <td>June 9th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Alice</td>
+              <td><img src="/static/Villager_Registry/images/NH-Alice_poster.jpg" alt="Alice Icon"></td>
+              <td>Koala</td>
+              <td>August 19th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Alli</td>
+              <td><img src="/static/Villager_Registry/images/NH-Alli_poster.jpg" alt="Alli Icon"></td>
+              <td>Alligator</td>
+              <td>November 8th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Amelia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Amelia_poster.jpg" alt="Amelia Icon"></td>
+              <td>Eagle</td>
+              <td>November 19th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Anabelle</td>
+              <td><img src="/static/Villager_Registry/images/NH-Anabelle_poster.jpg" alt="Anabelle Icon"></td>
+              <td>Anteater</td>
+              <td>February 16th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Anchovy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Anchovy_poster.jpg" alt="Anchovy Icon"></td>
+              <td>Bird</td>
+              <td>March 4th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Angus</td>
+              <td><img src="/static/Villager_Registry/images/NH-Angus_poster.webp" alt="Angus Icon"></td>
+              <td>Bull</td>
+              <td>April 30th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Anicotti</td>
+              <td><img src="/static/Villager_Registry/images/NH-Anicotti_poster.jpg" alt="Anicotti Icon"></td>
+              <td>Mouse</td>
+              <td>February 24th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Ankha</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ankha_poster.jpg" alt="Ankha Icon"></td>
+              <td>Cat</td>
+              <td>September 22nd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Annalisa</td>
+              <td><img src="/static/Villager_Registry/images/NH-Annalisa_poster.jpg" alt="Annalisa Icon"></td>
+              <td>Anteater</td>
+              <td>February 6th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Annalise</td>
+              <td><img src="/static/Villager_Registry/images/NH-Annalise_poster.jpg" alt="Annalise Icon"></td>
+              <td>Horse</td>
+              <td>December 2nd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Antonio</td>
+              <td><img src="/static/Villager_Registry/images/NH-Antonio_poster.jpg" alt="Antonio Icon"></td>
+              <td>Anteater</td>
+              <td>October 20th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Apollo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Apollo_poster.jpg" alt="Apollo Icon"></td>
+              <td>Eagle</td>
+              <td>July 4th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Apple</td>
+              <td><img src="/static/Villager_Registry/images/NH-Apple_poster.jpg" alt="Apple Icon"></td>
+              <td>Hamster</td>
+              <td>September 24th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Astrid</td>
+              <td><img src="/static/Villager_Registry/images/NH-Astrid_poster.jpg" alt="Astrid Icon"></td>
+              <td>Kangaroo</td>
+              <td>September 28th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Audie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Audie_poster.jpg" alt="Audie Icon"></td>
+              <td>Wolf</td>
+              <td>August 31st</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Aurora</td>
+              <td><img src="/static/Villager_Registry/images/NH-Aurora_poster.jpg" alt="Aurora Icon"></td>
+              <td>Penguin</td>
+              <td>January 27th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Ava</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ava_poster.jpg" alt="Ava Icon"></td>
+              <td>Chicken</td>
+              <td>April 28th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Avery</td>
+              <td><img src="/static/Villager_Registry/images/NH-Avery_poster.jpg" alt="Avery Icon"></td>
+              <td>Eagle</td>
+              <td>February 22nd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Axel</td>
+              <td><img src="/static/Villager_Registry/images/NH-Axel_poster.jpg" alt="Axel Icon"></td>
+              <td>Elephant</td>
+              <td>March 23rd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Baabara</td>
+              <td><img src="/static/Villager_Registry/images/NH-Baabara_poster.jpg" alt="Baabara Icon"></td>
+              <td>Sheep</td>
+              <td>March 28th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Bam</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bam_poster.jpg" alt="Bam Icon"></td>
+              <td>Deer</td>
+              <td>November 7th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Bangle</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bangle_poster.jpg" alt="Bangle Icon"></td>
+              <td>Tiger</td>
+              <td>August 27th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Barold</td>
+              <td><img src="/static/Villager_Registry/images/NH-Barold_poster.jpg" alt="Barold Icon"></td>
+              <td>Cub</td>
+              <td>March 2nd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Bea</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bea_poster.jpg" alt="Bea Icon"></td>
+              <td>Dog</td>
+              <td>October 15th</td>
+              <td> Nature</td>
+            </tr>
+            <tr>
+              <td>Beardo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Beardo_poster.jpg" alt="Beardo Icon"></td>
+              <td>Bear</td>
+              <td>September 27th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Beau</td>
+              <td><img src="/static/Villager_Registry/images/NH-Beau_poster.jpg" alt="Beau Icon"></td>
+              <td>Deer</td>
+              <td>April 5th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Becky</td>
+              <td><img src="/static/Villager_Registry/images/NH-Becky_poster.jpg" alt="Becky Icon"></td>
+              <td>Chicken</td>
+              <td>December 9th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Bella</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bella_poster.jpg" alt="Bella Icon"></td>
+              <td>Mouse</td>
+              <td>December 28th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Benedict</td>
+              <td><img src="/static/Villager_Registry/images/NH-Benedict_poster.jpg" alt="Benedict Icon"></td>
+              <td>Chicken</td>
+              <td>October 10th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Benjamin</td>
+              <td><img src="/static/Villager_Registry/images/NH-Benjamin_poster.jpg" alt="Benjamin Icon"></td>
+              <td>Dog</td>
+              <td>August 3rd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Bertha</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bertha_poster.jpg" alt="Bertha Icon"></td>
+              <td>Hippo</td>
+              <td>April 25th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Bettina</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bettina_poster.jpg" alt="Bettina Icon"></td>
+              <td>Mouse</td>
+              <td>June 12th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Bianca</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bianca_poster.jpg" alt="Bianca Icon"></td>
+              <td>Tiger</td>
+              <td>December 13th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Biff</td>
+              <td><img src="/static/Villager_Registry/images/NH-Biff_poster.jpg" alt="Biff Icon"></td>
+              <td>Hippo</td>
+              <td>March 29th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Big Top</td>
+              <td><img src="/static/Villager_Registry/images/NH-Big_Top_poster.jpg" alt="Big Top Icon"></td>
+              <td>Elephant</td>
+              <td>October 3rd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Bill</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bill_poster.jpg" alt="Bill Icon"></td>
+              <td>Duck</td>
+              <td>February 1st</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Billy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Billy_poster.jpg" alt="Billy Icon"></td>
+              <td>Goat</td>
+              <td>March 25th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Biskit</td>
+              <td><img src="/static/Villager_Registry/images/NH-Biskit_poster.jpg" alt="Biskit Icon"></td>
+              <td>Dog</td>
+              <td>May 13th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Bitty</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bitty_poster.jpg" alt="Bitty Icon"></td>
+              <td>Hippo</td>
+              <td>October 6th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Blaire</td>
+              <td><img src="/static/Villager_Registry/images/NH-Blaire_poster.jpg" alt="Blaire Icon"></td>
+              <td>Squirrel</td>
+              <td>July 3rd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Blanche</td>
+              <td><img src="/static/Villager_Registry/images/NH-Blanche_poster.jpg" alt="Blanche Icon"></td>
+              <td>Ostrich</td>
+              <td>December 21st</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Bluebear</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bluebear_poster.jpg" alt="Bluebear Icon"></td>
+              <td>Cub</td>
+              <td>June 24th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Bob</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bob_poster.jpg" alt="Bob Icon"></td>
+              <td>Cat</td>
+              <td>January 1st</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Bonbon</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bonbon_poster.jpg" alt="Bonbon Icon"></td>
+              <td>Rabbit</td>
+              <td>March 3rd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Bones</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bones_poster.jpg" alt="Bones Icon"></td>
+              <td>Dog</td>
+              <td>August 4th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Boomer</td>
+              <td><img src="/static/Villager_Registry/images/NH-Boomer_poster.jpg" alt="Boomer Icon"></td>
+              <td>Penguin</td>
+              <td>February 7th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Boone</td>
+              <td><img src="/static/Villager_Registry/images/NH-Boone_poster.jpg" alt="Boone Icon"></td>
+              <td>Gorilla</td>
+              <td>September 12th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Boots</td>
+              <td><img src="/static/Villager_Registry/images/NH-Boots_poster.jpg" alt="Boots Icon"></td>
+              <td>Alligator</td>
+              <td>August 7th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Boris</td>
+              <td><img src="/static/Villager_Registry/images/NH-Boris_poster.jpg" alt="Boris Icon"></td>
+              <td>Pig</td>
+              <td>November 6th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Boyd</td>
+              <td><img src="/static/Villager_Registry/images/NH-Boyd_poster.jpg" alt="Boyd Icon"></td>
+              <td>Gorilla</td>
+              <td>October 1st</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Bree</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bree_poster.jpg" alt="Bree Icon"></td>
+              <td>Mouse</td>
+              <td>July 7th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Broccolo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Broccolo_poster.jpg" alt="Broccolo Icon"></td>
+              <td>Mouse</td>
+              <td>June 30th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Broffina</td>
+              <td><img src="/static/Villager_Registry/images/NH-Broffina_poster.jpg" alt="Broffina Icon"></td>
+              <td>Chicken</td>
+              <td>October 24th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Bruce</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bruce_poster.jpg" alt="Bruce Icon"></td>
+              <td>Deer</td>
+              <td>May 26th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Bubbles</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bubbles_poster.jpg" alt="Bubbles Icon"></td>
+              <td>Hippo</td>
+              <td>September 18th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Buck</td>
+              <td><img src="/static/Villager_Registry/images/NH-Buck_poster.jpg" alt="Buck Icon"></td>
+              <td>Horse</td>
+              <td>April 4th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Bud</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bud_poster.jpg" alt="Bud Icon"></td>
+              <td>Lion</td>
+              <td>August 8th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Bunnie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Bunnie_poster.jpg" alt="Bunnie Icon"></td>
+              <td>Rabbit</td>
+              <td>May 9th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Butch</td>
+              <td><img src="/static/Villager_Registry/images/NH-Butch_poster.jpg" alt="Butch Icon"></td>
+              <td>Dog</td>
+              <td>November 1st</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Buzz</td>
+              <td><img src="/static/Villager_Registry/images/NH-Buzz_poster.jpg" alt="Buzz Icon"></td>
+              <td>Eagle</td>
+              <td>December 7th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Cally</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cally_poster.jpg" alt="Cally Icon"></td>
+              <td>Squirrel</td>
+              <td>September 4th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Camofrog</td>
+              <td><img src="/static/Villager_Registry/images/NH-Camofrog_poster.jpg" alt="Camofrog Icon"></td>
+              <td>Frog</td>
+              <td>June 5th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Canberra</td>
+              <td><img src="/static/Villager_Registry/images/NH-Canberra_poster.jpg" alt="Canberra Icon"></td>
+              <td>Koala</td>
+              <td>May 14th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Candi</td>
+              <td><img src="/static/Villager_Registry/images/NH-Candi_poster.jpg" alt="Candi Icon"></td>
+              <td>Mouse</td>
+              <td>April 13th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Carmen</td>
+              <td><img src="/static/Villager_Registry/images/NH-Carmen_poster.jpg" alt="Carmen Icon"></td>
+              <td>Rabbit</td>
+              <td>January 6th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Caroline</td>
+              <td><img src="/static/Villager_Registry/images/NH-Caroline_poster.jpg" alt="Caroline Icon"></td>
+              <td>Squirrel</td>
+              <td>July 15th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Carrie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Carrie_poster.jpg" alt="Carrie Icon"></td>
+              <td>Kangaroo</td>
+              <td>December 5th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Cashmere</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cashmere_poster.jpg" alt="Cashmere Icon"></td>
+              <td>Sheep</td>
+              <td>April 2nd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Celia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Celia_poster.jpg" alt="Celia Icon"></td>
+              <td>Eagle</td>
+              <td>March 25th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Cesar</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cesar_poster.jpg" alt="Cesar Icon"></td>
+              <td>Gorilla</td>
+              <td>September 6th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Chadder</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chadder_poster.jpg" alt="Chadder Icon"></td>
+              <td>Mouse</td>
+              <td>December 15th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Chai</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chai_poster.webp" alt="Chai Icon"></td>
+              <td>Elephant</td>
+              <td>March 6th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Charlise</td>
+              <td><img src="/static/Villager_Registry/images/NH-Charlise_poster.webp" alt="Charlise Icon"></td>
+              <td>Bear</td>
+              <td>April 17th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Chelsea</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chelsea_poster.webp" alt="Chelsea Icon"></td>
+              <td>Deer</td>
+              <td>January 18th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Cheri</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cheri_poster.webp" alt="Cheri Icon"></td>
+              <td>Cub</td>
+              <td>March 17th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Cherry</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cherry_poster.webp" alt="Cherry Icon"></td>
+              <td>Dog</td>
+              <td>May 11th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Chester</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chester_poster.webp" alt="Chester Icon"></td>
+              <td>Cub</td>
+              <td>August 6th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Chevre</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chevre_poster.webp" alt="Chevre Icon"></td>
+              <td>Goat</td>
+              <td>March 6th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Chief</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chief_poster.webp" alt="Chief Icon"></td>
+              <td>Wolf</td>
+              <td>December 19th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Chops</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chops_poster.webp" alt="Chops Icon"></td>
+              <td>Pig</td>
+              <td>October 13th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Chow</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chow_poster.webp" alt="Chow Icon"></td>
+              <td>Bear</td>
+              <td>July 22nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Chrissy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Chrissy_poster.webp" alt="Chrissy Icon"></td>
+              <td>Rabbit</td>
+              <td>August 28th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Claude</td>
+              <td><img src="/static/Villager_Registry/images/NH-Claude_poster.webp" alt="Claude Icon"></td>
+              <td>Rabbit</td>
+              <td>December 3rd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Claudia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Claudia_poster.webp" alt="Claudia Icon"></td>
+              <td>Tiger</td>
+              <td>November 22nd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Clay</td>
+              <td><img src="/static/Villager_Registry/images/NH-Clay_poster.webp" alt="Clay Icon"></td>
+              <td>Hamster</td>
+              <td>October 19th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Cleo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cleo_poster.webp" alt="Cleo Icon"></td>
+              <td>Horse</td>
+              <td>February 9th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Clyde</td>
+              <td><img src="/static/Villager_Registry/images/NH-Clyde_poster.webp" alt="Clyde Icon"></td>
+              <td>Horse</td>
+              <td>May 1st</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Coach</td>
+              <td><img src="/static/Villager_Registry/images/NH-Coach_poster.webp" alt="Coach Icon"></td>
+              <td>Bull</td>
+              <td>April 29th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Cobb</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cobb_poster.webp" alt="Cobb Icon"></td>
+              <td>Pig</td>
+              <td>October 7th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Coco</td>
+              <td><img src="/static/Villager_Registry/images/NH-Coco_poster.webp" alt="Coco Icon"></td>
+              <td>Rabbit</td>
+              <td>March 1st</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Cole</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cole_poster.webp" alt="Cole Icon"></td>
+              <td>Rabbit</td>
+              <td>August 10th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Colton</td>
+              <td><img src="/static/Villager_Registry/images/NH-Colton_poster.webp" alt="Colton Icon"></td>
+              <td>Horse</td>
+              <td>May 22nd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Cookie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cookie_poster.webp" alt="Cookie Icon"></td>
+              <td>Dog</td>
+              <td>June 18th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Cousteau</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cousteau_poster.webp" alt="Cousteau Icon"></td>
+              <td>Frog</td>
+              <td>December 17th</td>
+              <td>Ftiness</td>
+            </tr>
+            <tr>
+              <td>Cranston</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cranston_poster.webp" alt="Cranston Icon"></td>
+              <td>Ostrich</td>
+              <td>September 23rd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Croque</td>
+              <td><img src="/static/Villager_Registry/images/NH-Croque_poster.webp" alt="Croque Icon"></td>
+              <td>Frog</td>
+              <td>July 18th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Cube</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cube_poster.webp" alt="Cube Icon"></td>
+              <td>Penguin</td>
+              <td>January 29th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Curlos</td>
+              <td><img src="/static/Villager_Registry/images/NH-Curlos_poster.webp" alt="Curlos Icon"></td>
+              <td>Sheep</td>
+              <td>May 8th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Curly</td>
+              <td><img src="/static/Villager_Registry/images/NH-Curly_poster.webp" alt="Curly Icon"></td>
+              <td>Pig</td>
+              <td>july 26th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Curt</td>
+              <td><img src="/static/Villager_Registry/images/NH-Curt_poster.webp" alt="Curt Icon"></td>
+              <td>Bear</td>
+              <td>July 1st</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Cyd</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cyd_poster.webp" alt="Cyd Icon"></td>
+              <td>Elephant</td>
+              <td>June 9th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Cyrano</td>
+              <td><img src="/static/Villager_Registry/images/NH-Cyrano_poster.webp" alt="Cyrano Icon"></td>
+              <td>Anteater</td>
+              <td>March 9th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Daisy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Daisy_poster.webp" alt="Daisy Icon"></td>
+              <td>Dog</td>
+              <td>November 16th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Deena</td>
+              <td><img src="/static/Villager_Registry/images/NH-Deena_poster.webp" alt="Deena Icon"></td>
+              <td>Duck</td>
+              <td>June 27th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Dierdre</td>
+              <td><img src="/static/Villager_Registry/images/NH-Deirdre_poster.webp" alt="Dierdre Icon"></td>
+              <td>Deer</td>
+              <td>May 4th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Del</td>
+              <td><img src="/static/Villager_Registry/images/NH-Del_poster.webp" alt="Del Icon"></td>
+              <td>Alligator</td>
+              <td>May 27th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Deli</td>
+              <td><img src="/static/Villager_Registry/images/NH-Deli_poster.webp" alt="Deli Icon"></td>
+              <td>Monkey</td>
+              <td>May 24th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Derwin</td>
+              <td><img src="/static/Villager_Registry/images/NH-Derwin_poster.webp" alt="Derwin Icon"></td>
+              <td>Duck</td>
+              <td>May 25th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Diana</td>
+              <td><img src="/static/Villager_Registry/images/NH-Diana_poster.webp" alt="Diana Icon"></td>
+              <td>Deer</td>
+              <td>January 4th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Diva</td>
+              <td><img src="/static/Villager_Registry/images/NH-Diva_poster.webp" alt="Diva Icon"></td>
+              <td>Frog</td>
+              <td>October 2nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Dizzy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Dizzy_poster.webp" alt="Dizzy Icon"></td>
+              <td>Elephant</td>
+              <td>July 14th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Dobie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Dobie_poster.webp" alt="Dobie Icon"></td>
+              <td>Wolf</td>
+              <td>February 17th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Doc</td>
+              <td><img src="/static/Villager_Registry/images/NH-Doc_poster.webp" alt="Doc Icon"></td>
+              <td>Rabbit</td>
+              <td>March 16th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Dom</td>
+              <td><img src="/static/Villager_Registry/images/NH-Dom_poster.webp" alt="Dom Icon"></td>
+              <td>Sheep</td>
+              <td>March 18th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Dora</td>
+              <td><img src="/static/Villager_Registry/images/NH-Dora_poster.webp" alt="Dora Icon"></td>
+              <td>Mouse</td>
+              <td>February 18th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Dotty</td>
+              <td><img src="/static/Villager_Registry/images/NH-Dotty_poster.webp" alt="Dotty Icon"></td>
+              <td>Rabbit</td>
+              <td>March 14th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Drago</td>
+              <td><img src="/static/Villager_Registry/images/NH-Drago_poster.webp" alt="Drago Icon"></td>
+              <td>Alligator</td>
+              <td>February 12th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Drake</td>
+              <td><img src="/static/Villager_Registry/images/NH-Drake_poster.webp" alt="Drake Icon"></td>
+              <td>Duck</td>
+              <td>June 25th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Drift</td>
+              <td><img src="/static/Villager_Registry/images/NH-Drift_poster.webp" alt="Drift Icon"></td>
+              <td>Frog</td>
+              <td>October 9th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Ed</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ed_poster.webp" alt="Ed Icon"></td>
+              <td>Horse</td>
+              <td>September 16th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Egbert</td>
+              <td><img src="/static/Villager_Registry/images/NH-Egbert_poster.webp" alt="Egbert Icon"></td>
+              <td>Chicken</td>
+              <td>October 14th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Elise</td>
+              <td><img src="/static/Villager_Registry/images/NH-Elise_poster.webp" alt="Elise Icon"></td>
+              <td>Monkey</td>
+              <td>March 21st</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Ellie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ellie_poster.webp" alt="Ellie Icon"></td>
+              <td>Elephant</td>
+              <td>December 8th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Elmer</td>
+              <td><img src="/static/Villager_Registry/images/NH-Elmer_poster.webp" alt="Elmer Icon"></td>
+              <td>Horse</td>
+              <td>October 5th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Eloise</td>
+              <td><img src="/static/Villager_Registry/images/NH-Eloise_poster.webp" alt="Eloise Icon"></td>
+              <td>Elephant</td>
+              <td>December 8th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Elvis</td>
+              <td><img src="/static/Villager_Registry/images/NH-Elvis_poster.webp" alt="Elvis Icon"></td>
+              <td>Lion</td>
+              <td>July 23rd</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Erik</td>
+              <td><img src="/static/Villager_Registry/images/NH-Erik_poster.webp" alt="Erik Icon"></td>
+              <td>Deer</td>
+              <td>July 27th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>E&#769;toile</td>
+              <td><img src="/static/Villager_Registry/images/NH-etoile_poster.webp" alt="Etoile Icon"></td>
+              <td>Sheep</td>
+              <td>December 25th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Eugene</td>
+              <td><img src="/static/Villager_Registry/images/NH-Eugene_poster.webp" alt="Eugene Icon"></td>
+              <td>Koala</td>
+              <td>October 26th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Eunice</td>
+              <td><img src="/static/Villager_Registry/images/NH-Eunice_poster.webp" alt="Eunice Icon"></td>
+              <td>Sheep</td>
+              <td>April 3rd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Fang</td>
+              <td><img src="/static/Villager_Registry/images/NH-Fang_poster.webp" alt="Fang Icon"></td>
+              <td>Wolf</td>
+              <td>December 18th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Fauna</td>
+              <td><img src="/static/Villager_Registry/images/NH-Fauna_poster.webp" alt="Fauna Icon"></td>
+              <td>Deer</td>
+              <td>March 26th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Felicity</td>
+              <td><img src="/static/Villager_Registry/images/NH-Felicity_poster.webp" alt="Felicity Icon"></td>
+              <td>Cat</td>
+              <td>March 30th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Filbert</td>
+              <td><img src="/static/Villager_Registry/images/NH-Filbert_poster.webp" alt="Filbert Icon"></td>
+              <td>Squirrel</td>
+              <td>June 3rd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Flip</td>
+              <td><img src="/static/Villager_Registry/images/NH-Flip_poster.webp" alt="Flip Icon"></td>
+              <td>Monkey</td>
+              <td>November 21st</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Flo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Flo_poster.webp" alt="Flo Icon"></td>
+              <td>Penguin</td>
+              <td>September 2nd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Flora</td>
+              <td><img src="/static/Villager_Registry/images/NH-Flora_poster.webp" alt="Flora Icon"></td>
+              <td>Ostrich</td>
+              <td>February 9th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Flurry</td>
+              <td><img src="/static/Villager_Registry/images/NH-Flurry_poster.webp" alt="Flurry Icon"></td>
+              <td>Hamster</td>
+              <td>January 30th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Francine</td>
+              <td><img src="/static/Villager_Registry/images/NH-Francine_poster.webp" alt="Francine Icon"></td>
+              <td>Rabbit</td>
+              <td>January 22nd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Frank</td>
+              <td><img src="/static/Villager_Registry/images/NH-Frank_poster.webp" alt="Frank Icon"></td>
+              <td>Eagle</td>
+              <td>July 30th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Freckles</td>
+              <td><img src="/static/Villager_Registry/images/NH-Freckles_poster.webp" alt="Freckles Icon"></td>
+              <td>Duck</td>
+              <td>February 19th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Freya</td>
+              <td><img src="/static/Villager_Registry/images/NH-Freya_poster.webp" alt="Freya Icon"></td>
+              <td>Wolf</td>
+              <td>December 14th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Friga</td>
+              <td><img src="/static/Villager_Registry/images/NH-Friga_poster.webp" alt="Friga Icon"></td>
+              <td>Penguin</td>
+              <td>October 16th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Frita</td>
+              <td><img src="/static/Villager_Registry/images/NH-Frita_poster.webp" alt="Frita Icon"></td>
+              <td>Sheep</td>
+              <td>July 19th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Frobert</td>
+              <td><img src="/static/Villager_Registry/images/NH-Frobert_poster.webp" alt="Frobert Icon"></td>
+              <td>Frog</td>
+              <td>February 8th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Fuchsia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Fuchsia_poster.webp" alt="Fuchsia Icon"></td>
+              <td>Deer</td>
+              <td>September 19th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Gabi</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gabi_poster.webp" alt="Gabi Icon"></td>
+              <td>Rabbit</td>
+              <td>December 16th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Gala</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gala_poster.webp" alt="Gala Icon"></td>
+              <td>Pig</td>
+              <td>March 5th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Gaston</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gaston_poster.webp" alt="Gaston Icon"></td>
+              <td>Rabbit</td>
+              <td>October 28th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Gayle</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gayle_poster.webp" alt="Gayle Icon"></td>
+              <td>Alligator</td>
+              <td>May 17th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Genji</td>
+              <td><img src="/static/Villager_Registry/images/NH-Genji_poster.webp" alt="Genji Icon"></td>
+              <td>Rabbit</td>
+              <td>January 21st</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Gigi</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gigi_poster.webp" alt="Gigi Icon"></td>
+              <td>Frog</td>
+              <td>August 11th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Gladys</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gladys_poster.webp" alt="Gladys Icon"></td>
+              <td>Ostrich</td>
+              <td>January 15th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Gloria</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gloria_poster.webp" alt="Gloria Icon"></td>
+              <td>Duck</td>
+              <td>August 12th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Goldie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Goldie_poster.webp" alt="Goldie Icon"></td>
+              <td>Dog</td>
+              <td>December 27th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Gonzo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gonzo_poster.webp" alt="Gonzo Icon"></td>
+              <td>Koala</td>
+              <td>October 13th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Goose</td>
+              <td><img src="/static/Villager_Registry/images/NH-Goose_poster.webp" alt="Goose Icon"></td>
+              <td>Chicken</td>
+              <td>October 4th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Graham</td>
+              <td><img src="/static/Villager_Registry/images/NH-Graham_poster.webp" alt="Graham Icon"></td>
+              <td>Hamster</td>
+              <td>June 20th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Greta</td>
+              <td><img src="/static/Villager_Registry/images/NH-Greta_poster.webp" alt="Greta Icon"></td>
+              <td>Mouse</td>
+              <td>September 5th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Grizzly</td>
+              <td><img src="/static/Villager_Registry/images/NH-Grizzly_poster.webp" alt="Grizzly Icon"></td>
+              <td>Bear</td>
+              <td>July 31st</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Groucho</td>
+              <td><img src="/static/Villager_Registry/images/NH-Groucho_poster.webp" alt="Groucho Icon"></td>
+              <td>Bear</td>
+              <td>October 23rd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Gruff</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gruff_poster.webp" alt="Gruff Icon"></td>
+              <td>Goat</td>
+              <td>August 29th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Gwen</td>
+              <td><img src="/static/Villager_Registry/images/NH-Gwen_poster.webp" alt="Gwen Icon"></td>
+              <td>Penguin</td>
+              <td>January 23rd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Hamlet</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hamlet_poster.webp" alt="Hamlet Icon"></td>
+              <td>Hamster</td>
+              <td>May 30th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Hamphrey</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hamphrey_poster.webp" alt="Hamphrey Icon"></td>
+              <td>Hamster</td>
+              <td>February 25th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Hans</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hans_poster.webp" alt="Hans Icon"></td>
+              <td>Gorilla</td>
+              <td>December 5th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Harry</td>
+              <td><img src="/static/Villager_Registry/images/NH-Harry_poster.webp" alt="Harry Icon"></td>
+              <td>Hippo</td>
+              <td>January 7th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Hazel</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hazel_poster.webp" alt="Hazel Icon"></td>
+              <td>Squirrel</td>
+              <td>August 30th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Hippeux</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hippeux_poster.webp" alt="Hippeux Icon"></td>
+              <td>Hippo</td>
+              <td>October 15th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Hopkins</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hopkins_poster.webp" alt="Hopkins Icon"></td>
+              <td>Rabbit</td>
+              <td>March 11th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Hopper</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hopper_poster.webp" alt="Hopper Icon"></td>
+              <td>Penguin</td>
+              <td>April 6th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Hornsby</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hornsby_poster.webp" alt="Hornsby Icon"></td>
+              <td>Rhino</td>
+              <td>March 20th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Huck</td>
+              <td><img src="/static/Villager_Registry/images/NH-Huck_poster.webp" alt="Huck Icon"></td>
+              <td>Frog</td>
+              <td>July 9th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Hugh</td>
+              <td><img src="/static/Villager_Registry/images/NH-Hugh_poster.webp" alt="Hugh Icon"></td>
+              <td>Pig</td>
+              <td>December 30th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Iggly</td>
+              <td><img src="/static/Villager_Registry/images/NH-Iggly_poster.webp" alt="Iggly Icon"></td>
+              <td>Penguin</td>
+              <td>November 2nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Ike</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ike_poster.webp" alt="Ike Icon"></td>
+              <td>Bear</td>
+              <td>May 16th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Jacob</td>
+              <td><img src="/static/Villager_Registry/images/NH-Jacob_poster.webp" alt="Jacob Icon"></td>
+              <td>Bird</td>
+              <td>August 24th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Jacques</td>
+              <td><img src="/static/Villager_Registry/images/NH-Jacques_poster.webp" alt="Jacques Icon"></td>
+              <td>Bird</td>
+              <td>June 22nd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Jambette</td>
+              <td><img src="/static/Villager_Registry/images/NH-Jambette_poster.webp" alt="Jambette Icon"></td>
+              <td>Frog</td>
+              <td>October 27th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Jay</td>
+              <td><img src="/static/Villager_Registry/images/NH-Jay_poster.webp" alt="Jay Icon"></td>
+              <td>Bird</td>
+              <td>July 17th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Jeremiah</td>
+              <td><img src="/static/Villager_Registry/images/NH-Jeremiah_poster.webp" alt="Jeremiah Icon"></td>
+              <td>Frog</td>
+              <td>July 8th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Jitter</td>
+              <td><img src="/static/Villager_Registry/images/NH-Jitters_poster.webp" alt="Jitter Icon"></td>
+              <td>Bird</td>
+              <td>February 2nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Joey</td>
+              <td><img src="/static/Villager_Registry/images/NH-Joey_poster.webp" alt="Joey Icon"></td>
+              <td>Duck</td>
+              <td>January 3rd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Judy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Judy_poster.webp" alt="Judy Icon"></td>
+              <td>Cub</td>
+              <td>March 10th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Julia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Julia_poster.webp" alt="Julia Icon"></td>
+              <td>Ostrich</td>
+              <td>July 31st</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Julian</td>
+              <td><img src="/static/Villager_Registry/images/NH-Julian_poster.webp" alt="Julian Icon"></td>
+              <td>Horse</td>
+              <td>March 15th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>June</td>
+              <td><img src="/static/Villager_Registry/images/NH-June_poster.webp" alt="June Icon"></td>
+              <td>Cub</td>
+              <td>May 21st</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Kabuki</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kabuki_poster.webp" alt="Kabuki Icon"></td>
+              <td>Cat</td>
+              <td>November 29th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Katt</td>
+              <td><img src="/static/Villager_Registry/images/NH-Katt_poster.webp" alt="Katt Icon"></td>
+              <td>Cat</td>
+              <td>April 27th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Keaton</td>
+              <td><img src="/static/Villager_Registry/images/NH-Keaton_poster.webp" alt="Keaton Icon"></td>
+              <td>Eagle</td>
+              <td>June 1st</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Ken</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ken_poster.webp" alt="Ken Icon"></td>
+              <td>Chicken</td>
+              <td>December 23rd</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Ketchup</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ketchup_poster.webp" alt="Ketchup Icon"></td>
+              <td>Duck</td>
+              <td>July 27th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Kevin</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kevin_poster.webp" alt="Kevin Icon"></td>
+              <td>Pig</td>
+              <td>April 26th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Kid Cat</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kid_Cat_poster.webp" alt="Kid Cat Icon"></td>
+              <td>Cat</td>
+              <td>August 1st</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Kidd</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kidd_poster.webp" alt="Kidd Icon"></td>
+              <td>Goat</td>
+              <td>June 28th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Kiki</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kiki_poster.webp" alt="Kiki Icon"></td>
+              <td>Cat</td>
+              <td>October 8th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Kitt</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kitt_poster.webp" alt="Kitt Icon"></td>
+              <td>Kangaroo</td>
+              <td>october 11th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Kitty</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kitty_poster.webp" alt="Kitty Icon"></td>
+              <td>Cat</td>
+              <td>February 15th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Klaus</td>
+              <td><img src="/static/Villager_Registry/images/NH-Klaus_poster.webp" alt="Klaus Icon"></td>
+              <td>Bear</td>
+              <td>March 31st</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Knox</td>
+              <td><img src="/static/Villager_Registry/images/NH-Knox_poster.webp" alt="Knox Icon"></td>
+              <td>Chicken</td>
+              <td>November 23rd</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Kody</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kody_poster.webp" alt="Kody Icon"></td>
+              <td>Cub</td>
+              <td>September 28th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Kyle</td>
+              <td><img src="/static/Villager_Registry/images/NH-Kyle_poster.webp" alt="Kyle Icon"></td>
+              <td>Wolf</td>
+              <td>December 6th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Leonardo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Leonardo_poster.webp" alt="Leonardo Icon"></td>
+              <td>Tiger</td>
+              <td>May 15th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Leopold</td>
+              <td><img src="/static/Villager_Registry/images/NH-Leopold_poster.webp" alt="Leopold Icon"></td>
+              <td>Lion</td>
+              <td>August 14th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Lily</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lily_poster.webp" alt="Lily Icon"></td>
+              <td>Frog</td>
+              <td>February 4th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Limberg</td>
+              <td><img src="/static/Villager_Registry/images/NH-Limberg_poster.webp" alt="Limberg Icon"></td>
+              <td>Mouse</td>
+              <td>October 17th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Lionel</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lionel_poster.webp" alt="Lionel Icon"></td>
+              <td>Lion</td>
+              <td>July 29th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Lobo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lobo_poster.webp" alt="Lobo Icon"></td>
+              <td>Wolf</td>
+              <td>November 5th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Lolly</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lolly_poster.webp" alt="Lolly Icon"></td>
+              <td>Cat</td>
+              <td>March 27th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Lopez</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lopez_poster.webp" alt="Lopez Icon"></td>
+              <td>Deer</td>
+              <td>August 20th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Louie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Louie_poster.webp" alt="Louie Icon"></td>
+              <td>Gorilla</td>
+              <td>March 26th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Lucha</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lucha_poster.webp" alt="Lucha Icon"></td>
+              <td>Bird</td>
+              <td>December 12th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Lucky</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lucky_poster.webp" alt="Lucky Icon"></td>
+              <td>Dog</td>
+              <td>November 4th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Lucy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lucy_poster.webp" alt="Lucy Icon"></td>
+              <td>Pig</td>
+              <td>June 2nd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Lyman</td>
+              <td><img src="/static/Villager_Registry/images/NH-Lyman_poster.webp" alt="Lyman Icon"></td>
+              <td>Koala</td>
+              <td>October 12th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Mac</td>
+              <td><img src="/static/Villager_Registry/images/NH-Mac_poster.webp" alt="Mac Icon"></td>
+              <td>Dog</td>
+              <td>November 11th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Maddie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Maddie_poster.webp" alt="Maddie Icon"></td>
+              <td>Dog</td>
+              <td>January 11th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Maelle</td>
+              <td><img src="/static/Villager_Registry/images/NH-Maelle_poster.webp" alt="Maelle Icon"></td>
+              <td>Duck</td>
+              <td>April 8th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Maggie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Maggie_poster.webp" alt="Maggie Icon"></td>
+              <td>Pig</td>
+              <td>September 3rd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Mallary</td>
+              <td><img src="/static/Villager_Registry/images/NH-Mallary_poster.webp" alt="Mallary Icon"></td>
+              <td>Duck</td>
+              <td>November 17th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Maple</td>
+              <td><img src="/static/Villager_Registry/images/NH-Maple_poster.webp" alt="Maple Icon"></td>
+              <td>Cub</td>
+              <td>June 15th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Marcel</td>
+              <td><img src="/static/Villager_Registry/images/NH-Marcel_poster.webp" alt="Marcel Icon"></td>
+              <td>Dog</td>
+              <td>December 31st</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Marcie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Marcie_poster.webp" alt="Marcie Icon"></td>
+              <td>Kangaroo</td>
+              <td>May 31st</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Margie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Margie_poster.webp" alt="Margie Icon"></td>
+              <td>Elephant</td>
+              <td>January 28th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Marina</td>
+              <td><img src="/static/Villager_Registry/images/NH-Marina_poster.webp" alt="Marina Icon"></td>
+              <td>Octopus</td>
+              <td>June 26th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Marshal</td>
+              <td><img src="/static/Villager_Registry/images/NH-Marshal_poster.webp" alt="Marshal Icon"></td>
+              <td>Squirrel</td>
+              <td>September 29th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Marty</td>
+              <td><img src="/static/Villager_Registry/images/NH-Marty_poster.webp" alt="Marty Icon"></td>
+              <td>Cub</td>
+              <td>April 16th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Mathilda</td>
+              <td><img src="/static/Villager_Registry/images/NH-Mathilda_poster.webp" alt="Mathilda Icon"></td>
+              <td>Kangaroo</td>
+              <td>November 12th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Megan</td>
+              <td><img src="/static/Villager_Registry/images/NH-Megan_poster.webp" alt="Megan Icon"></td>
+              <td>Bear</td>
+              <td>March 13th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Melba</td>
+              <td><img src="/static/Villager_Registry/images/NH-Melba_poster.webp" alt="Melba Icon"></td>
+              <td>Koala</td>
+              <td>April 12th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Merengue</td>
+              <td><img src="/static/Villager_Registry/images/NH-Merengue_poster.webp" alt="Merengue Icon"></td>
+              <td>Rhino</td>
+              <td>March 19th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Merry</td>
+              <td><img src="/static/Villager_Registry/images/NH-Merry_poster.webp" alt="Merry Icon"></td>
+              <td>Cat</td>
+              <td>June 29th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Midge</td>
+              <td><img src="/static/Villager_Registry/images/NH-Midge_poster.webp" alt="Midge Icon"></td>
+              <td>Bird</td>
+              <td>March 12th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Mint</td>
+              <td><img src="/static/Villager_Registry/images/NH-Mint_poster.webp" alt="Mint Icon"></td>
+              <td>Squirrel</td>
+              <td>May 2nd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Mira</td>
+              <td><img src="/static/Villager_Registry/images/NH-Mira_poster.webp" alt="Mira Icon"></td>
+              <td>Rabbit</td>
+              <td>July 6th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Miranda</td>
+              <td><img src="/static/Villager_Registry/images/NH-Miranda_poster.webp" alt="Miranda Icon"></td>
+              <td>Duck</td>
+              <td>April 23rd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Mitzi</td>
+              <td><img src="/static/Villager_Registry/images/NH-Mitzi_poster.webp" alt="Mitzi Icon"></td>
+              <td>Cat</td>
+              <td>September 25th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Moe</td>
+              <td><img src="/static/Villager_Registry/images/NH-Moe_poster.webp" alt="Moe Icon"></td>
+              <td>Cat</td>
+              <td>January 12th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Molly</td>
+              <td><img src="/static/Villager_Registry/images/NH-Molly_poster.webp" alt="Molly Icon"></td>
+              <td>Duck</td>
+              <td>March 17th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Monique</td>
+              <td><img src="/static/Villager_Registry/images/NH-Monique_poster.webp" alt="Monique Icon"></td>
+              <td>Cat</td>
+              <td>September 30th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Monty</td>
+              <td><img src="/static/Villager_Registry/images/NH-Monty_poster.webp" alt="Monty Icon"></td>
+              <td>Monkey</td>
+              <td>December 7th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Moose</td>
+              <td><img src="/static/Villager_Registry/images/NH-Moose_poster.webp" alt="Moose Icon"></td>
+              <td>Mouse</td>
+              <td>September 13th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Mott</td>
+              <td><img src="/static/Villager_Registry/images/NH-Mott_poster.webp" alt="Mott Icon"></td>
+              <td>Lion</td>
+              <td>July 10th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Muffy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Muffy_poster.webp" alt="Muffy Icon"></td>
+              <td>Sheep</td>
+              <td>February 14th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Murphy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Murphy_poster.webp" alt="Murphy Icon"></td>
+              <td>Cub</td>
+              <td>December 29th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Nan</td>
+              <td><img src="/static/Villager_Registry/images/NH-Nan_poster.webp" alt="Nan Icon"></td>
+              <td>Goat</td>
+              <td>August 24th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Nana</td>
+              <td><img src="/static/Villager_Registry/images/NH-Nana_poster.webp" alt="Nana Icon"></td>
+              <td>Monkey</td>
+              <td>August 23rd</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Naomi</td>
+              <td><img src="/static/Villager_Registry/images/NH-Naomi_poster.webp" alt="Naomi Icon"></td>
+              <td>Cow</td>
+              <td>February 28th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Nate</td>
+              <td><img src="/static/Villager_Registry/images/NH-Nate_poster.webp" alt="Nate Icon"></td>
+              <td>Bear</td>
+              <td>August 16th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Nibbles</td>
+              <td><img src="/static/Villager_Registry/images/NH-Nibbles_poster.webp" alt="Nibbles Icon"></td>
+              <td>Squirrel</td>
+              <td>July 19th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Norma</td>
+              <td><img src="/static/Villager_Registry/images/NH-Norma_poster.webp" alt="Norma Icon"></td>
+              <td>Cow</td>
+              <td>September 20th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>O'Hare</td>
+              <td><img src="/static/Villager_Registry/images/NH-O'Hare_poster.webp" alt="O'Hare Icon"></td>
+              <td>Rabbit</td>
+              <td>July 24th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Octavian</td>
+              <td><img src="/static/Villager_Registry/images/NH-Octavian_poster.webp" alt="Octavian Icon"></td>
+              <td>Octopus</td>
+              <td>September 20th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Olaf</td>
+              <td><img src="/static/Villager_Registry/images/NH-Olaf_poster.webp" alt="Olaf Icon"></td>
+              <td>Anteater</td>
+              <td>May 19th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Olive</td>
+              <td><img src="/static/Villager_Registry/images/NH-Olive_poster.webp" alt="Olive Icon"></td>
+              <td>Cub</td>
+              <td>July 12th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Olivia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Olivia_poster.webp" alt="Olivia Icon"></td>
+              <td>Cat</td>
+              <td>February 3rd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Opal</td>
+              <td><img src="/static/Villager_Registry/images/NH-Opal_poster.webp" alt="Opal Icon"></td>
+              <td>Elephant</td>
+              <td>January 20th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Ozzie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ozzie_poster.webp" alt="Ozzie Icon"></td>
+              <td>Koala</td>
+              <td>May 7th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Pancetti</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pancetti_poster.webp" alt="Pancetti Icon"></td>
+              <td>Pig</td>
+              <td>November 14th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Pango</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pango_poster.webp" alt="Pango Icon"></td>
+              <td>Anteater</td>
+              <td>November 9th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Paolo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Paolo_poster.webp" alt="Paolo Icon"></td>
+              <td>Elephant</td>
+              <td>May 5th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Papi</td>
+              <td><img src="/static/Villager_Registry/images/NH-Papi_poster.webp" alt="Papi Icon"></td>
+              <td>Horse</td>
+              <td>january 10th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Pashmina</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pashmina_poster.webp" alt="Pashmina Icon"></td>
+              <td>Goat</td>
+              <td>December 26th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Pate</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pate_poster.webp" alt="Pate Icon"></td>
+              <td>Duck</td>
+              <td>February 23rd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Patty</td>
+              <td><img src="/static/Villager_Registry/images/NH-Patty_poster.webp" alt="Patty Icon"></td>
+              <td>Cow</td>
+              <td>May 10th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Paula</td>
+              <td><img src="/static/Villager_Registry/images/NH-Paula_poster.webp" alt="Paula Icon"></td>
+              <td>Bear</td>
+              <td>March 22nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Peaches</td>
+              <td><img src="/static/Villager_Registry/images/NH-Peaches_poster.webp" alt="Peaches Icon"></td>
+              <td>Horse</td>
+              <td>November 28th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Peanut</td>
+              <td><img src="/static/Villager_Registry/images/NH-Peanut_poster.webp" alt="Peanut Icon"></td>
+              <td>Squirrel</td>
+              <td>June 8th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Pecan</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pecan_poster.webp" alt="Pecan Icon"></td>
+              <td>Squirrel</td>
+              <td>September 10th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Peck</td>
+              <td><img src="/static/Villager_Registry/images/NH-Peck_poster.webp" alt="Peck Icon"></td>
+              <td>Bird</td>
+              <td>July 25th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Peewee</td>
+              <td><img src="/static/Villager_Registry/images/NH-Peewee_poster.webp" alt="Peewee Icon"></td>
+              <td>Gorilla</td>
+              <td>September 11th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Peggy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Peggy_poster.webp" alt="Peggy Icon"></td>
+              <td>Pig</td>
+              <td>May 23rd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Pekoe</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pekoe_poster.webp" alt="Pekoe Icon"></td>
+              <td>Cub</td>
+              <td>May 18th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Penelope</td>
+              <td><img src="/static/Villager_Registry/images/NH-Penelope_poster.webp" alt="Penelope Icon"></td>
+              <td>Mouse</td>
+              <td>February 5th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Phil</td>
+              <td><img src="/static/Villager_Registry/images/NH-Phil_poster.webp" alt="Phil Icon"></td>
+              <td>Ostrich</td>
+              <td>November 27th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Phoebe</td>
+              <td><img src="/static/Villager_Registry/images/NH-Phoebe_poster.webp" alt="Phoebe Icon"></td>
+              <td>Ostrich</td>
+              <td>April 22nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Pierce</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pierce_poster.webp" alt="Pierce Icon"></td>
+              <td>Eagle</td>
+              <td>January 8th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Pietro</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pietro_poster.webp" alt="Pietro Icon"></td>
+              <td>Sheep</td>
+              <td>April 19th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Pinky</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pinky_poster.webp" alt="Pinky Icon"></td>
+              <td>Bear</td>
+              <td>September 9th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Piper</td>
+              <td><img src="/static/Villager_Registry/images/NH-Piper_poster.webp" alt="Piper Icon"></td>
+              <td>Bird</td>
+              <td>April 18th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Pippy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pippy_poster.webp" alt="Pippy Icon"></td>
+              <td>Rabbit</td>
+              <td>June 14th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Plucky</td>
+              <td><img src="/static/Villager_Registry/images/NH-Plucky_poster.webp" alt="Plucky Icon"></td>
+              <td>Chicken</td>
+              <td>October 12th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Pompom</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pompom_poster.webp" alt="Pompom Icon"></td>
+              <td>Duck</td>
+              <td>February 11th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Poncho</td>
+              <td><img src="/static/Villager_Registry/images/NH-Poncho_poster.webp" alt="Poncho Icon"></td>
+              <td>Cub</td>
+              <td>January 2nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Poppy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Poppy_poster.webp" alt="Poppy Icon"></td>
+              <td>Squirrel</td>
+              <td>August 5th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Portia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Portia_poster.webp" alt="Portia Icon"></td>
+              <td>Dog</td>
+              <td>October 25th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Prince</td>
+              <td><img src="/static/Villager_Registry/images/NH-Prince_poster.webp" alt="Prince Icon"></td>
+              <td>Frog</td>
+              <td>July 21st</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Puck</td>
+              <td><img src="/static/Villager_Registry/images/NH-Puck_poster.webp" alt="Puck Icon"></td>
+              <td>Penguin</td>
+              <td>February 21st</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Puddles</td>
+              <td><img src="/static/Villager_Registry/images/NH-Puddles_poster.webp" alt="Puddles Icon"></td>
+              <td>Frog</td>
+              <td>January 13th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Pudge</td>
+              <td><img src="/static/Villager_Registry/images/NH-Pudge_poster.webp" alt="Pudge Icon"></td>
+              <td>Cub</td>
+              <td>June 11th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Punchy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Punchy_poster.webp" alt="Punchy Icon"></td>
+              <td>Cat</td>
+              <td>April 11th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Purrl</td>
+              <td><img src="/static/Villager_Registry/images/NH-Purrl_poster.webp" alt="Purrl Icon"></td>
+              <td>Cat</td>
+              <td>May 29th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Queenie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Queenie_poster.webp" alt="Queenie Icon"></td>
+              <td>Ostrich</td>
+              <td>November 13th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Quillson</td>
+              <td><img src="/static/Villager_Registry/images/NH-Quillson_poster.webp" alt="Quillson Icon"></td>
+              <td>Duck</td>
+              <td>December 22nd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Raddle</td>
+              <td><img src="/static/Villager_Registry/images/NH-Raddle_poster.webp" alt="Raddle Icon"></td>
+              <td>Frog</td>
+              <td>June 6th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Rasher</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rasher_poster.webp" alt="Rasher Icon"></td>
+              <td>Pig</td>
+              <td>April 7th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Raymond</td>
+              <td><img src="/static/Villager_Registry/images/NH-Raymond_poster.webp" alt="Raymond Icon"></td>
+              <td>Cat</td>
+              <td>October 1st</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Rene&#769;e</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ren e_poster.webp" alt="Renee Icon"></td>
+              <td>Rhino</td>
+              <td>May 28th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Reneigh</td>
+              <td><img src="/static/Villager_Registry/images/NH-Reneigh_poster.webp" alt="Reneigh Icon"></td>
+              <td>Horse</td>
+              <td>JUne 24th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Rex</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rex_poster.webp" alt="Rex Icon"></td>
+              <td>Lion</td>
+              <td>July 24th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Rhonda</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rhonda_poster.webp" alt="Rhonda Icon"></td>
+              <td>Rhino</td>
+              <td>January 24th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Ribbot</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ribbot_poster.webp" alt="Ribbot Icon"></td>
+              <td>Frog</td>
+              <td>February 13th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Ricky</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ricky_poster.webp" alt="Ricky Icon"></td>
+              <td>Squirrel</td>
+              <td>September 14th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Rilla</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rilla_poster.webp" alt="Rilla Icon"></td>
+              <td>Gorilla</td>
+              <td>November 1st</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Rizzo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rizzo_poster.webp" alt="Rizzo Icon"></td>
+              <td>Mouse</td>
+              <td>January 17th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Roald</td>
+              <td><img src="/static/Villager_Registry/images/NH-Roald_poster.webp" alt="Roald Icon"></td>
+              <td>Penguin</td>
+              <td>January 5th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Robin</td>
+              <td><img src="/static/Villager_Registry/images/NH-Robin_poster.webp" alt="Robin Icon"></td>
+              <td>Bird</td>
+              <td>December 4th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Rocco</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rocco_poster.webp" alt="Rocco Icon"></td>
+              <td>Hippo</td>
+              <td>August 18th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Rocket</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rocket_poster.webp" alt="Rocket Icon"></td>
+              <td>Gorilla</td>
+              <td>April 14th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Rod</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rod_poster.webp" alt="Rod Icon"></td>
+              <td>Mouse</td>
+              <td>August 14th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Rodeo</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rodeo_poster.webp" alt="Rodeo Icon"></td>
+              <td>Bull</td>
+              <td>october 29th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Rodney</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rodney_poster.webp" alt="Rodney Icon"></td>
+              <td>Hamster</td>
+              <td>November 10th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Rolf</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rolf_poster.webp" alt="Rolf Icon"></td>
+              <td>Tiger</td>
+              <td>August 22nd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Rooney</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rooney_poster.webp" alt="Rooney Icon"></td>
+              <td>Kangaroo</td>
+              <td>December 1sr</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Rory</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rory_poster.webp" alt="Rory Icon"></td>
+              <td>Lion</td>
+              <td>August 7th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Roscoe</td>
+              <td><img src="/static/Villager_Registry/images/NH-Roscoe_poster.webp" alt="Roscoe Icon"></td>
+              <td>Horse</td>
+              <td>June 16th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Rosie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rosie_poster.webp" alt="Rosie Icon"></td>
+              <td>Cat</td>
+              <td>February 27th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Rowan</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rowan_poster.webp" alt="Rowan Icon"></td>
+              <td>Tiger</td>
+              <td>August 26th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Ruby</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ruby_poster.webp" alt="Ruby Icon"></td>
+              <td>Rabbit</td>
+              <td>December 25th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Rudy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Rudy_poster.webp" alt="Rudy Icon"></td>
+              <td>Cat</td>
+              <td>December 20th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Sally</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sally_poster.webp" alt="Sally Icon"></td>
+              <td>Squirrel</td>
+              <td>June 19th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Samson</td>
+              <td><img src="/static/Villager_Registry/images/NH-Samson_poster.webp" alt="Samson Icon"></td>
+              <td>Mouse</td>
+              <td>July 5th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Sandy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sandy_poster.webp" alt="Sandy Icon"></td>
+              <td>Ostrich</td>
+              <td>October 21st</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Savannah</td>
+              <td><img src="/static/Villager_Registry/images/NH-Savannah_poster.webp" alt="Savannah Icon"></td>
+              <td>Horse</td>
+              <td>January 25th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Scoot</td>
+              <td><img src="/static/Villager_Registry/images/NH-Scoot_poster.webp" alt="Scoot Icon"></td>
+              <td>Duck</td>
+              <td>June 13th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Shari</td>
+              <td><img src="/static/Villager_Registry/images/NH-Shari_poster.webp" alt="Shari Icon"></td>
+              <td>Monkey</td>
+              <td>April 10th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Sheldon</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sheldon_poster.webp" alt="Sheldon Icon"></td>
+              <td>Squirrel</td>
+              <td>February 26th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Shep</td>
+              <td><img src="/static/Villager_Registry/images/NH-Shep_poster.webp" alt="Shep Icon"></td>
+              <td>Dog</td>
+              <td>November 24th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Sherb</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sherb_poster.webp" alt="Sherb Icon"></td>
+              <td>Goat</td>
+              <td>January 18th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Simon</td>
+              <td><img src="/static/Villager_Registry/images/NH-Simon_poster.webp" alt="Simon Icon"></td>
+              <td>Monkey</td>
+              <td>January 19th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Skye</td>
+              <td><img src="/static/Villager_Registry/images/NH-Skye_poster.webp" alt="Skye Icon"></td>
+              <td>Wolf</td>
+              <td>March 24th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Sly</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sly_poster.webp" alt="Sly Icon"></td>
+              <td>Alligator</td>
+              <td>November 15th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Snake</td>
+              <td><img src="/static/Villager_Registry/images/NH-Snake_poster.webp" alt="Snake Icon"></td>
+              <td>Rabbit</td>
+              <td>November 3rd</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Snooty</td>
+              <td><img src="/static/Villager_Registry/images/NH-Snooty_poster.webp" alt="Snooty Icon"></td>
+              <td>Anteater</td>
+              <td>October 24th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Soleil</td>
+              <td><img src="/static/Villager_Registry/images/NH-Soleil_poster.webp" alt="Soleil Icon"></td>
+              <td>Hamster</td>
+              <td>August 9th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Sparro</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sparro_poster.webp" alt="Sparro Icon"></td>
+              <td>Bird</td>
+              <td>November 20th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Spike</td>
+              <td><img src="/static/Villager_Registry/images/NH-Spike_poster.webp" alt="Spike Icon"></td>
+              <td>Rhino</td>
+              <td>June 17th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Spork</td>
+              <td><img src="/static/Villager_Registry/images/NH-Spork_poster.webp" alt="Spork Icon"></td>
+              <td>Pig</td>
+              <td>September 3rd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Sprinkle</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sprinkle_poster.webp" alt="Sprinkle Icon"></td>
+              <td>Penguin</td>
+              <td>February 20th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Sprocket</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sprocket_poster.webp" alt="Sprocket Icon"></td>
+              <td>Ostrich</td>
+              <td>December 1st</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Static</td>
+              <td><img src="/static/Villager_Registry/images/NH-Static_poster.webp" alt="Static Icon"></td>
+              <td>Squirrel</td>
+              <td>July 9th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Stella</td>
+              <td><img src="/static/Villager_Registry/images/NH-Stella_poster.webp" alt="Stella Icon"></td>
+              <td>Sheep</td>
+              <td>April 9th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Sterlin</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sterling_poster.webp" alt="Sterlin Icon"></td>
+              <td>Eagle</td>
+              <td>December 11th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Stinky</td>
+              <td><img src="/static/Villager_Registry/images/NH-Stinky_poster.webp" alt="Stinky Icon"></td>
+              <td>Cat</td>
+              <td>August 17th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Stitches</td>
+              <td><img src="/static/Villager_Registry/images/NH-Stitches_poster.webp" alt="Stitches Icon"></td>
+              <td>Cub</td>
+              <td>February 10th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Stu</td>
+              <td><img src="/static/Villager_Registry/images/NH-Stu_poster.webp" alt="Stu Icon"></td>
+              <td>Bull</td>
+              <td>April 20th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Sydney</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sydney_poster.webp" alt="Sydney Icon"></td>
+              <td>Koala</td>
+              <td>June 21st</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Sylvana</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sylvana_poster.webp" alt="Sylvana Icon"></td>
+              <td>Squirrel</td>
+              <td>October 22nd</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Sylvia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Sylvia_poster.webp" alt="Sylvia Icon"></td>
+              <td>Kangaroo</td>
+              <td>May 3rd</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Tabby</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tabby_poster.webp" alt="Tabby Icon"></td>
+              <td>Cat</td>
+              <td>August 13th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Tad</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tad_poster.webp" alt="Tad Icon"></td>
+              <td>Frog</td>
+              <td>August 3rd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Tammi</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tammi_poster.webp" alt="Tammi Icon"></td>
+              <td>Monkey</td>
+              <td>April 2nd</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Tammy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tammy_poster.webp" alt="Tammy Icon"></td>
+              <td>Cub</td>
+              <td>June 23rd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Tangy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tangy_poster.webp" alt="Tangy Icon"></td>
+              <td>Cat</td>
+              <td>June 17th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Tank</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tank_poster.webp" alt="Tank Icon"></td>
+              <td>Rhino</td>
+              <td>May 6th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Tasha</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tasha_poster.webp" alt="Tasha Icon"></td>
+              <td>Squirrel</td>
+              <td>November 30th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>T-Bone</td>
+              <td><img src="/static/Villager_Registry/images/NH-T-Bone_poster.webp" alt="T-Bone Icon"></td>
+              <td>Bull</td>
+              <td>May 20th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Teddy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Teddy_poster.webp" alt="Teddy Icon"></td>
+              <td>Bear</td>
+              <td>September 26th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Tex</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tex_poster.webp" alt="Tex Icon"></td>
+              <td>Penguin</td>
+              <td>October 6th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Tia</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tia_poster.webp" alt="Tia Icon"></td>
+              <td>Elephant</td>
+              <td>November 18th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Tiffany</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tiffany_poster.webp" alt="Tiffany Icon"></td>
+              <td>Rabbit</td>
+              <td>January 9th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Timbra</td>
+              <td><img src="/static/Villager_Registry/images/NH-Timbra_poster.webp" alt="Timbra Icon"></td>
+              <td>Sheep</td>
+              <td>October 21st</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Tipper</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tipper_poster.webp" alt="Tipper Icon"></td>
+              <td>Cow</td>
+              <td>August 25th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Toby</td>
+              <td><img src="/static/Villager_Registry/images/NH-Toby_poster.webp" alt="Toby Icon"></td>
+              <td>Rabbit</td>
+              <td>July 10th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Tom</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tom_poster.webp" alt="Tom Icon"></td>
+              <td>Cat</td>
+              <td>December 10th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Truffles</td>
+              <td><img src="/static/Villager_Registry/images/NH-Truffles_poster.webp" alt="Truffles Icon"></td>
+              <td>Pig</td>
+              <td>July 28th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Tucker</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tucker_poster.webp" alt="Tucker Icon"></td>
+              <td>Elephant</td>
+              <td>September 7th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Tutu</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tutu_poster.webp" alt="Tutu Icon"></td>
+              <td>Bear</td>
+              <td>September 15th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Twiggy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Twiggy_poster.webp" alt="Twiggy Icon"></td>
+              <td>Bird</td>
+              <td>July 13th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Tybalt</td>
+              <td><img src="/static/Villager_Registry/images/NH-Tybalt_poster.webp" alt="Tybalt Icon"></td>
+              <td>Tiger</td>
+              <td>August 19th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Ursala</td>
+              <td><img src="/static/Villager_Registry/images/NH-Ursala_poster.webp" alt="Ursala Icon"></td>
+              <td>Bear</td>
+              <td>January 16th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Velma</td>
+              <td><img src="/static/Villager_Registry/images/NH-Velma_poster.webp" alt="Velma Icon"></td>
+              <td>Goat</td>
+              <td>January 14th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Vesta</td>
+              <td><img src="/static/Villager_Registry/images/NH-Vesta_poster.webp" alt="Vesta Icon"></td>
+              <td>Sheep</td>
+              <td>April 16th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Vic</td>
+              <td><img src="/static/Villager_Registry/images/NH-Vic_poster.webp" alt="Vic Icon"></td>
+              <td>Bull</td>
+              <td>December 29th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Victoria</td>
+              <td><img src="/static/Villager_Registry/images/NH-Victoria_poster.webp" alt="Victoria Icon"></td>
+              <td>Horse</td>
+              <td>July 11th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Violet</td>
+              <td><img src="/static/Villager_Registry/images/NH-Violet_poster.webp" alt="Violet Icon"></td>
+              <td>Gorilla</td>
+              <td>September 1st</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Vivian</td>
+              <td><img src="/static/Villager_Registry/images/NH-Vivian_poster.webp" alt="Vivian Icon"></td>
+              <td>Wolf</td>
+              <td>January 26th</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Vladimir</td>
+              <td><img src="/static/Villager_Registry/images/NH-Vladimir_poster.webp/" alt="Vladimir Icon"></td>
+              <td>Cub</td>
+              <td>August 2nd</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Wade</td>
+              <td><img src="/static/Villager_Registry/images/NH-Wade_poster.webp" alt="Wade Icon"></td>
+              <td>Penguin</td>
+              <td>October 30th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Walker</td>
+              <td><img src="/static/Villager_Registry/images/NH-Walker_poster.webp" alt="Walker Icon"></td>
+              <td>Dog</td>
+              <td>June 10th</td>
+              <td>Play</td>
+            </tr>
+            <tr>
+              <td>Walt</td>
+              <td><img src="/static/Villager_Registry/images/NH-Walt_poster.webp" alt="Walt Icon"></td>
+              <td>Kangaroo</td>
+              <td>April 24th</td>
+              <td>Fitness</td>
+            </tr>
+            <tr>
+              <td>Wart Jr.</td>
+              <td><img src="/static/Villager_Registry/images/NH-Wart_Jr._poster.webp" alt="Wart Jr. Icon"></td>
+              <td>Frog</td>
+              <td>August 21st</td>
+              <td>Education</td>
+            </tr>
+            <tr>
+              <td>Weber</td>
+              <td><img src="/static/Villager_Registry/images/NH-Weber_poster.webp" alt="Weber Icon"></td>
+              <td>Duck</td>
+              <td>June 30th</td>
+              <td>Nature</td>
+            </tr>
+            <tr>
+              <td>Wendy</td>
+              <td><img src="/static/Villager_Registry/images/NH-Wendy_poster.webp" alt="Wendy Icon"></td>
+              <td>Sheep</td>
+              <td>August 15th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Whitney</td>
+              <td><img src="/static/Villager_Registry/images/NH-Whitney_poster.webp" alt="Whitney Icon"></td>
+              <td>Wolf</td>
+              <td>September 17th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Willow</td>
+              <td><img src="/static/Villager_Registry/images/NH-Willow_poster.webp" alt="Willow Icon"></td>
+              <td>Sheep</td>
+              <td>November 26th</td>
+              <td>Fashion</td>
+            </tr>
+            <tr>
+              <td>Winnie</td>
+              <td><img src="/static/Villager_Registry/images/NH-Winnie_poster.webp" alt="Winnie Icon"></td>
+              <td>Horse</td>
+              <td>January 31</td>
+              <td>Fashion</td>
+            </tr>
+             <tr>
+              <td>Wolfgang</td>
+              <td><img src="/static/Villager_Registry/images/NH-Wolfgang_poster.webp" alt="Wolfgang Icon"></td>
+              <td>Wolf</td>
+              <td>November 25th</td>
+              <td>Education</td>
+            </tr>
+             <tr>
+              <td>Yuka</td>
+              <td><img src="/static/Villager_Registry/images/NH-Yuka_poster.webp" alt="Yuka Icon"></td>
+              <td>Koala</td>
+              <td>July 20th</td>
+              <td>Fashion</td>
+            </tr>
+             <tr>
+              <td>Zell</td>
+              <td><img src="/static/Villager_Registry/images/NH-Zell_poster.webp" alt="Zell Icon"></td>
+              <td>Deer</td>
+              <td>June 7th</td>
+              <td>Music</td>
+            </tr>
+            <tr>
+              <td>Zucker</td>
+              <td><img src="/static/Villager_Registry/images/NH-Zucker_poster.webp" alt="Zucker Icon"></td>
+              <td>Octopus</td>
+              <td>March 8th</td>
+              <td>Nature</td>
+            </tr>
+        </table>
+    </div>
 {% endblock %}
