@@ -10,7 +10,7 @@
         </tr>
         {% for recipe in recipes %}
         <tr>
-            <td><a href="#">{{ recipe.recipe_name|capfirst }}</a></td>
+            <td><a href="{% url 'details' %}">{{ recipe.recipe_name|capfirst }}</a></td>
             <td>{{ recipe.recipe_type }}</td>
         </tr>
         {% endfor %}
