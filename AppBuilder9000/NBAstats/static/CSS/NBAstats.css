@@ -1,0 +1,39 @@
+
+.navbar a{
+    display: inline-block;
+    font-family: "Helvetica";
+    text-align: center;
+    background-color: white;
+    color: black;
+    padding: 20px;
+}
+
+
+body {
+    background-color: blue;
+    background-image: url("../images/nbaLogoBG.jpeg");
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+header {
+    padding: 50px;
+    font-size: 50px;
+    font-family: "Helvetica";
+    color: white;
+}
+
+
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+    font-family: "Helvetica";
+}
