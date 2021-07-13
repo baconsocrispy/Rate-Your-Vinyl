@@ -1,0 +1,25 @@
+{% extends 'Recipe_Maker/Recipe_Maker_base.html' %}
+
+{% block title %}Recipe Details{% endblock %}
+
+{% block content %}
+
+<!-- card template from bootstrap -->
+<div class="card text-center">
+  <div class="card-header">
+      {{ recipe.recipe_type|capfirst }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe.recipe_name }}</h5>
+    <p class="card-text">{{ recipe.recipe_ingredients }}</p>
+    <p class="card-text">{{ recipe.recipe_instructions}}</p>
+    <a href="#" class="btn btn-primary">Placeholder</a>
+    <a href="#" class="btn btn-primary">Placeholder</a>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
+
+
+{% endblock %}
