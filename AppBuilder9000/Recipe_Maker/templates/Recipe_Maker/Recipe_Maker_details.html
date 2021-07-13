@@ -5,18 +5,16 @@
 {% block content %}
 
 <!-- card template from bootstrap -->
-<div class="card text-center">
-  <div class="card-header">
+<div class="card text-center text-dark bg-warning mb-3 border-dark">
+  <div class="card-header border-dark">
       {{ recipe.recipe_type|capfirst }}
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ recipe.recipe_name }}</h5>
     <p class="card-text">{{ recipe.recipe_ingredients }}</p>
     <p class="card-text">{{ recipe.recipe_instructions}}</p>
-    <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-primary">Update Recipe</a>
-    <a href="#" class="btn btn-primary">Placeholder</a>
-  </div>
-  <div class="card-footer text-muted">
+    <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-outline-dark">Update Recipe</a>
+    <a href="#" class="btn btn-outline-dark">Delete</a>
   </div>
 </div>
 
