@@ -1,12 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <title>{% block title %}Precious Metals{% endblock title %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static '/css/PreciousMetals_main.css' %}">
     </head>
-
+    <header>
+        <!-- navbar -->
+        <div class = nav>
+            <ul>
+                <a href="{% url 'PreciousMetals_home' %}">Home</a>
+            </ul>
+        </div>
+    </header>
     <body>
     {% block content %}{% endblock content %}
     </body>
+    <seaction>
+        <footer>Precious Metals 2021</footer>
+    </seaction>
 </html>
