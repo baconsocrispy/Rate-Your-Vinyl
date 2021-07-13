@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import PreciousMetalsItem
 from .forms import MetalForm
 
@@ -11,7 +11,13 @@ def home(request):
     return render(request, 'PreciousMetals_home.html', {})
 
 
-# inventory html
+# add inventory
 
 def inventory(request):
-    return render(request, 'PreciousMetals_inventory.html', {})
+    form = MetalForm(data=request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('PreciousMetals_inventory')
+    content = {'form': form}
+    return render(request, 'PreciousMetals_inventory.html', content)
+

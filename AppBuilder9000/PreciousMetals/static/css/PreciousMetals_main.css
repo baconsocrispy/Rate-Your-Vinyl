@@ -5,6 +5,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* navbar styling */
 .navMenu {
     background-color:  #FFD700;
     overflow: hidden;
@@ -22,7 +24,7 @@ body {
     overflow: hidden;
 }
 
-
+/* style list items */
 .navMenu li {
     float: left;
     display: block;
@@ -34,7 +36,7 @@ body {
     border-radius: 10px;
     background-color: #ededed;
 }
-
+/* style href */
 .navMenu a{
     text-decoration: none;
     color: black;
@@ -49,4 +51,15 @@ body {
     color: blue;
     background-color: white;
     padding: 15px;
+}
+/* style for the precious metals form */
+.formStyle {
+    background-color: rgba(235, 235, 235, .7);
+    margin: 10px auto;
+    padding: 5px;
+    width: 15%;
+    border-radius: 10px;
+    border: solid;
+    border-color: #FFD700;
+    position: relative;
 }

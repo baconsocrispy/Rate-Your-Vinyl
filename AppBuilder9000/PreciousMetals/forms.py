@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from .models import PreciousMetalsItem
 
 
-# Metal Form all feilds
+# Metal Form all fields
 
 class MetalForm(ModelForm):
     class Meta:
