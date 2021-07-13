@@ -1,18 +1,14 @@
 {% extends "Recipe_Maker/Recipe_Maker_base.html" %}
 
 {% block content %}
-<div class="">
+<div class="mb-3">
     <form method="POST" action="{% url 'create_recipe' %}">
-        <div class="">
             {% csrf_token %}
             {{ recipe_form.non_field_errors }}
             <!-- change at a later date -->
-            {{ recipe_form.as_table }}
-        </div>
-        <div class="">
-            <input type="submit" class="" value="Create Recipe" name="Save_recipe">
-            <a href="{% url 'Recipe_Maker' %}"><button type="button" class="", value="Cancel">Cancel</button></a>
-        </div>
+            {{ recipe_form.as_p }}
+        <input type="button" class="btn btn-outline-dark" value="Create Recipe" name="Save_recipe">
+        <a href="{% url 'Recipe_Maker' %}"><button type="button" class="btn btn-outline-dark", value="Cancel">Cancel</button></a>
     </form>
 </div>
 
