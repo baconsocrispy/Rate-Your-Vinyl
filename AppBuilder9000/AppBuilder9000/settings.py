@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'RidleyVerse',
     'WorkingComedians',
     'Blogs',
-    'NBAstats',
+    'PreciousMetals',
 ]
 
 MIDDLEWARE = [

@@ -10,7 +10,7 @@ def recipe_home(request):
     # renders in the browser
     return render(request, 'Recipe_Maker/Recipe_Maker_home.html')
 
-
+# creates a new entry in the database
 def create_recipe(request):
     recipe_form = RecipeForm(request.POST or None)  # gets information from the form
 
@@ -32,7 +32,7 @@ def create_recipe(request):
     # returns the user to the create webpage with the dictionary
     return render(request, 'Recipe_Maker/Recipe_Maker_create.html', context)
 
-
+# lists out items in the database
 def list_recipes(request):
     # old code to display items in database
     # recipe_list = Recipe.objects.all()
@@ -43,3 +43,10 @@ def list_recipes(request):
     recipes = p.get_page(page)
 
     return render(request, 'Recipe_Maker/Recipe_Maker_display.html', {'recipes': recipes})
+
+
+# function to display a detailed view of items
+def recipe_details(request, pk):
+    # pk is the primary key
+    recipe = Recipe.objects.get(pk=pk)
+    return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'recipe': recipe})
