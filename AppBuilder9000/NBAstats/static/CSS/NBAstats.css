@@ -1,11 +1,30 @@
+body {
+    font-family: "Helvetica";
+    text-shadow: 2px 2px 4px rgba(0,0,0,.5);
+    color: white;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
 .navbar a{
     display: inline-block;
-    font-family: "Helvetica";
     text-align: center;
-    background-color: white;
-    color: black;
-    padding: 20px;
+    padding: 14px 20px;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: -4px;
+    color: white;
+}
+
+.navbar a:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255,.4);
 }
 
 
@@ -20,9 +39,8 @@ body {
 
 header {
     padding: 50px;
+    margin-top: 50px;
     font-size: 50px;
-    font-family: "Helvetica";
-    color: white;
 }
 
 
@@ -30,10 +48,43 @@ footer {
     position: fixed;
     height: 50px;
     bottom: 0px;
-    left: 0px;
+    left: 50px;
     right: 0px;
     margin-bottom: 0px;
-    text-align: center;
+    font-weight: 200;
+}
+
+
+h1, h2, h3, h4, h5 {
+}
+
+.container-main {
+    padding: 20px 20px 40px 40px;
+    margin-left: 40px;
+    margin-right: 50%;
+    background-color: rgba(0,0,0,.1);
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+}
+
+
+form {
+}
+
+button {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 100px;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    border: none;
+}
+
+button:hover {
+    background-color: rgba(255,255,255,.1);
     color: white;
-    font-family: "Helvetica";
+    font-weight: 900;
 }
