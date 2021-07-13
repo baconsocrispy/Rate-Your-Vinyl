@@ -65,3 +65,10 @@ def recipe_update(request, pk):
         return redirect('list_recipes')
 
     return render(request, 'Recipe_Maker/Recipe_Maker_update.html', {'recipe': recipe, 'form': form})
+
+
+# function to delete a recipe in the database
+def delete_recipe(request, pk):
+    recipe = Recipe.objects.get(pk=pk)
+    recipe.delete()
+    return redirect('list_recipes')
