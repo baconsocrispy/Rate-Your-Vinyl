@@ -1,11 +1,11 @@
 from django.db import models
 
 Villager_Choices = [
-    ('r1', 'Admiral'), ('r2', 'Agent S'), ('r3', 'Agnes'),
-    ('r4', 'Al'), ('r5', 'Alfonso'), ('r6', 'Alice'), ('r7', 'Alli'),
-    ('r8', 'Amelia'), ('r9', 'Anabelle'), ('r10', 'Anchovy'), ('r11', 'Angus'),
-    ('r12', 'Anicotti'), ('r13', 'Ankha'), ('r14', 'Annalisa'),
-    ('r16', 'Annalise'), ('r17', 'Antonio'), ('Apollo', 'Apollo'), ('Apple', 'Apple'),
+    ('Admiral', 'Admiral'), ('Agent S', 'Agent S'), ('Agnes', 'Agnes'),
+    ('Al', 'Al'), ('Alfonso', 'Alfonso'), ('Alice', 'Alice'), ('Alli', 'Alli'),
+    ('Amelia', 'Amelia'), ('Anabelle', 'Anabelle'), ('Anchovy', 'Anchovy'), ('Angus', 'Angus'),
+    ('Anicotti', 'Anicotti'), ('Ankha', 'Ankha'), ('Annalisa', 'Annalisa'),
+    ('Annalise', 'Annalise'), ('Antonio', 'Antonio'), ('Apollo', 'Apollo'), ('Apple', 'Apple'),
     ('Astrid', 'Astrid'), ('Audie', 'Audie'), ('Aurora', 'Aurora'), ('Ava', 'Ava'),
     ('Avery', 'Avery'), ('Axel', 'Axel'), ('Baabara', 'Baabara'), ('Bam', 'Bam'),
     ('Bangle', 'Bangle'), ('Barold', 'Barold'), ('Bea', 'Bea'), ('Beardo', 'Beardo'),

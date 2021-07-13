@@ -274,7 +274,7 @@ label {
 
 
 /*---------------- TABLE STYLING ------------------------*/
-th {
+.resident-table:th {    /*  "vl" for "villager list"  */
     border: 2px solid darkslateblue;
     background-color: #0ccaca;
     font-size: 30px;
@@ -284,11 +284,11 @@ th {
     text-align: center;
 }
 
-td {
+.resident-table: td {
     padding: 30px;
 }
 
-.resident-table, td {
+.resident-table, .resident-table:td {
     border: 2px solid darkslateblue;
     background-color:  rgb(253, 242, 181);
     font-size: 25px;
@@ -303,7 +303,7 @@ td {
     padding:20px;
 }
 
-td img {
+.resident-table:td img {
     max-height:100px;
     max-width:100px;
     overflow: hidden;

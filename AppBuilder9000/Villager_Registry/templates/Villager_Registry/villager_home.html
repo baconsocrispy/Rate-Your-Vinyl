@@ -21,24 +21,24 @@
 
 <section class="player-container">
         <div>
-            {% for shay in entry1 %}
+            {% for player in playerone%}
                 <label>
-                     <h1 style="position:left;">Player Spotlight: <a href="./1/villager_details">{{ shay.info.firstname }}</a></h1>
-                     <h3 style="position:left;padding-left:20px;">Island Name: {{ shay.info.island_name }}</h3>
+                     <h1 style="position:left;">Player Spotlight: {{ player.username }}</h1>
+                     <h3 style="position:left;padding-left:20px;">Island Name: {{ player.island_name }}</h3>
                 </label>
                <br><br>
                 <label>Current Residents:</label>
                  <ol>
-                     <li>{{ shay.info.villager1 }}</li>
-                     <li>{{ shay.info.villager2 }}</li>
-                     <li>{{ shay.info.villager3 }}</li>
-                     <li>{{ shay.info.villager4 }}</li>
-                     <li>{{ shay.info.villager5 }}</li>
-                     <li>{{ shay.info.villager6 }}</li>
-                     <li>{{ shay.info.villager7 }}</li>
-                     <li>{{ shay.info.villager8 }}</li>
-                     <li>{{ shay.info.villager9 }}</li>
-                     <li>{{ shay.info.villager10 }}</li>
+                     <li>{{ player.villager1 }}</li>
+                     <li>{{ player.villager2 }}</li>
+                     <li>{{ player.villager3 }}</li>
+                     <li>{{ player.villager4 }}</li>
+                     <li>{{ player.villager5 }}</li>
+                     <li>{{ player.villager6 }}</li>
+                     <li>{{ player.villager7 }}</li>
+                     <li>{{ player.villager8 }}</li>
+                     <li>{{ player.villager9 }}</li>
+                     <li>{{ player.villager10 }}</li>
                  </ol>
             {% endfor %}
         </div>

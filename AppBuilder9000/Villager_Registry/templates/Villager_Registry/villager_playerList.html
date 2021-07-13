@@ -1,0 +1,17 @@
+{% extends "Villager_Registry/villager_base.html" %}
+
+{% block title %}Player List{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="account-container">
+    <div class="account-form">
+        {% for player in playerset %}
+        <a href="./villager_playerDetails">{{player}}</a>
+        <hr>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

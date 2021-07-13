@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
 from .models import Account
 from .forms import AccountForm
 
@@ -36,19 +35,44 @@ def create_account(request):
     return render(request, 'Villager_Registry/villager_CreateNewAccount.html', context)
 
 
-def details(request, pk):
+def Retrieve_PlayerList(request):
+    playerset = Account.info.all()
+    return render(request, 'Villager_Registry/villager_playerList.html', {'playerset': playerset})
+
+
+def Retrieve_PlayerDetails(request, pk):
+    try:
+        playerinfo = Account.info.get(pk=pk)
+    except Account.DoesNotExist:
+        raise get_object_or_404('Player does not exist')
+    return render(request, 'Villager_Registry/villager_playerDetails.html', {'playerinfo': playerinfo})
+
+
+def ShayDetails(request, pk):
     pk = int(pk)
-    item = get_object_or_404(Account, pk=pk)
-    form = AccountForm(data=request.POST or None, instance=item)
+    playerone = Account.info.get(pk=1)
+    return render(request, 'Villager_Registry/villager_home.html', {'playerone': playerone}, pk)
+
+
+def UpdateDetails(request, pk):
+    pk = int(pk)
+    try:
+        old_info = get_object_or_404(Account, pk=pk)
+    except Exception:
+        raise get_object_or_404('Does Not Exist')
+
     if request.method == 'POST':
+        form = AccountForm(data=request.POST, instance=old_info)
         if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('villager_home')
+            form.save()
+            return redirect(f'{pk}/villager_playerDetails')
         else:
-            print(form.errors)
-    else:
-        return render(request, 'Villager_Registry/villager_details.html', {'form': form})
+
+            form = AccountForm(instance=old_info)
+            context = {
+                'form': form
+            }
+            return render(request, 'Villager_Registry/villager_playerList.html', {'form': form})
 
 
 def delete(request, pk):
