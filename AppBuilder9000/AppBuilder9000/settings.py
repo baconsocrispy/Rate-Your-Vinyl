@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'RidleyVerse',
     'WorkingComedians',
     'Blogs',
+    'NBAstats',
 ]
 
 MIDDLEWARE = [
