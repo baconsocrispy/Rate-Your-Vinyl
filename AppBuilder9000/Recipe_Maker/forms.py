@@ -5,10 +5,8 @@ from .models import Recipe
 class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        # instead of writing out all the fields from the model, use '__all__'
-        # grabs all the fields from within Recipe
-        # passes it into the form
-        fields = '__all__'
+
+
 
 
 
