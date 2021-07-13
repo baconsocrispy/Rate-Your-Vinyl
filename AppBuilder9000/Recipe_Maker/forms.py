@@ -1,13 +1,18 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Recipe
 
 
-class RecipeForm(ModelForm):
+class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
+        fields = ('recipe_type', 'recipe_name', 'recipe_ingredients', 'recipe_instructions')
 
-
-
+        widgets = {
+            'recipe_type': forms.Select(attrs={'class': 'btn btn-light dropdown-toggle'}),
+            'recipe_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'recipe_ingredients': forms.Textarea(attrs={'class': 'form-control'}),
+            'recipe_instructions': forms.Textarea(attrs={'class': 'form-control'}),
+        }
 
 
 """
