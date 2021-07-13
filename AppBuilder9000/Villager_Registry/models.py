@@ -100,7 +100,6 @@ class Account(models.Model):
     first_name = models.CharField(max_length=60, default='', blank=False, null=False)
     last_name = models.CharField(max_length=60, default='', blank=False, null=False)
     username = models.CharField(max_length=60, default='', blank=False, null=False)
-    password = models.CharField(max_length=60, default='', blank=False, null=False)
     island_name = models.CharField(max_length=60, default='', blank=False, null=False)
     villager_1 = models.CharField(max_length=20, choices=Villager_Choices, blank=True, null=True)
     villager_2 = models.CharField(max_length=20, choices=Villager_Choices, blank=True, null=True)
@@ -113,8 +112,9 @@ class Account(models.Model):
     villager_9 = models.CharField(max_length=20, choices=Villager_Choices, blank=True, null=True)
     villager_10 = models.CharField(max_length=20, choices=Villager_Choices, blank=True, null=True)
 
-    Accounts = models.Manager()
-
+    info = models.Manager()
 
     def __str__(self):
         return self.username
+
+
