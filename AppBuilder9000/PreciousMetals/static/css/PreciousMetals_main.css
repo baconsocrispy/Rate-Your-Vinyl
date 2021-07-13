@@ -26,9 +26,11 @@ body {
   text-decoration: none;
   font-size: 17px;
   border-radius: 10px;
-  background-color:  white;
+  background-color:  #cdf7f7;
   margin-bottom: 10px;
 }
+
+
 /* Change the color of links on hover */
 .nav a:hover {
   background-color: #ddd;
