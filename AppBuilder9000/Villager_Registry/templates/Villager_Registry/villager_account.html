@@ -2,23 +2,25 @@
 
 {% block title %}Villager Registry: Account{% endblock %}
 
-{% block header %}{% endblock %}
+{% block header %}
+<div class="header-container">
+    <h1 class="center">Player Account</h1>
+</div>
+{% endblock %}
 
 {% block content %}
-            <div class="page-container">
-                <h1 class="text-center">Player Account</h1>
-                <br>
-                <h4>Manage your existing account:</h4>
-                <form method="POST">
-                    <label>Choose Account:</label><input type="text" name="Account"><br>
-                    {% csrf_token %}
-                    {{ form.account }}
-                    <button id="account-button" type="submit">Go to Account</button>
-                </form>
-
+    <div class="account-container">
+        <div class="account-form">
+            <h4>Manage your existing account:</h4>
+            <form method="POST">
+                <label>Choose Account:</label><input class="account-input" type="text" name="Account"><br>
+                {% csrf_token %}
+                {{ form.account }}
+                <button class="account-button" type="submit">Go to Account</button>
                 <h4>Don't have one? Create one now!</h4>
-                <!-- Add a template to the href so the button works-->
-                <button type="submit" class="new-account-button"><a href="{% url 'villager_create' %}">Create Account</a></button>
-            </div>
+                <button type="submit" class="account-button"><a href="{% url 'villager_create' %}">Create Account</a></button>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}
