@@ -8,7 +8,7 @@
 <div class="account-container">
     <div class="account-form">
         {% for player in playerset %}
-        <a href="./villager_playerDetails">{{player}}</a>
+        <a href="{% url 'villager_playerDetails' player.id %}">{{player}}</a>
         <hr>
         {% endfor %}
     </div>
