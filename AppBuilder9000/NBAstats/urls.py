@@ -7,4 +7,5 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('', views.nba_home, name="stats-home"),
     path('display_all/', views.display_all, name="display-all"),
+    path('<int:pk>/details/', views.show_details, name='details'),
     ]

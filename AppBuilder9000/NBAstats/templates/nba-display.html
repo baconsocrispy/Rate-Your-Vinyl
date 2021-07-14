@@ -12,6 +12,7 @@
             <option value="20219-2020">2019-2020</option>
             <option value="2018-2019">2018-2019</option>
         </select>
+        <button class="goBtn">Go</button>
         <br><br>
         <table>
             <tr id="headerRow">
@@ -19,17 +20,18 @@
                 <th>DRebs</th>
                 <th>Steals</th>
                 <th>Blocks</th>
-                <th>Total Defensive Points</th>
+                <th>Details</th>
             </tr>
             {% for key in players %}
-            <tr>
+            <tr onclick="">
                 <td class="left">{{ key.playerName }}</td>
                 <td class="center">{{ key.defRebs }}</td>
                 <td class="center">{{ key.steals }}</td>
                 <td class="center">{{ key.blocks }}</td>
-                <td class="right"></td>
+                <td class="center"><a class="details-link" href="../{{ key.pk }}/details/">Details</a></td>
             </tr>
             {% endfor %}
+
 
         </table>
     </div>
