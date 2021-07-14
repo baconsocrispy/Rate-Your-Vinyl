@@ -6,7 +6,6 @@
         <!-- main form -->
             {% csrf_token %}
             {{ recipe_form.non_field_errors }}
-            <!-- change at a later date -->
             {{ recipe_form.as_p }}
         <!-- buttons -->
             <input type="submit" class="btn btn-outline-dark" value="Create Recipe" name="Save_recipe">
