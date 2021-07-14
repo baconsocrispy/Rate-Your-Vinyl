@@ -88,3 +88,48 @@ button:hover {
     color: white;
     font-weight: 900;
 }
+
+
+/* General Table Styling */
+table {
+	border-collapse: collapse;
+}
+
+
+th{
+	border: 1px solid white;
+	padding: 6px 12px;
+	border-spacing: 0;
+	font-weight: 700;
+	font-size: 1em;
+	background-color: rgba(0,0,0,.2);
+}
+
+tr td{
+	height: 25px;
+	border-bottom: 1px solid rgba(0,0,0,.4);
+	border-spacing: 0;
+	word-wrap: normal;
+	padding: 4px;
+	font-size: .8em;
+	width: auto;
+}
+
+#headerRow {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	width: 10%;
+}
+
+.left {
+	text-align: left;
+	width: 30%;
+}
+
+.right {
+	text-align: right;
+	width: 50%;
+}
