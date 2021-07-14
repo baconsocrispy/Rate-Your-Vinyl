@@ -102,3 +102,4 @@ MainProject/log.json
 # PyCharm #
 *.idea
 
+/virtualenviroment/
