@@ -10,6 +10,7 @@ def recipe_home(request):
     # renders in the browser
     return render(request, 'Recipe_Maker/Recipe_Maker_home.html')
 
+
 # creates a new entry in the database
 def create_recipe(request):
     recipe_form = RecipeForm(request.POST or None)  # gets information from the form
@@ -32,6 +33,7 @@ def create_recipe(request):
     # returns the user to the create webpage with the dictionary
     return render(request, 'Recipe_Maker/Recipe_Maker_create.html', context)
 
+
 # lists out items in the database
 def list_recipes(request):
     # old code to display items in database
@@ -48,5 +50,29 @@ def list_recipes(request):
 # function to display a detailed view of items
 def recipe_details(request, pk):
     # pk is the primary key
-    recipe = Recipe.objects.get(pk=pk)
+    recipe = get_object_or_404(Recipe, pk=pk)
     return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'recipe': recipe})
+
+
+# function to update recipe in database
+def recipe_update(request, pk):
+    recipe = Recipe.objects.get(pk=pk)
+    # if a user POSTS use RecipeForm otherwise don't use anything
+    form = RecipeForm(request.POST or None, instance=recipe)
+
+    if form.is_valid():
+        form.save()
+        return redirect('list_recipes')
+
+    return render(request, 'Recipe_Maker/Recipe_Maker_update.html', {'recipe': recipe, 'form': form})
+
+
+# function to delete a recipe in the database
+def delete_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+
+    if request.method == "POST":
+        recipe.delete()
+        return redirect('list_recipes')
+
+    return render(request, 'Recipe_Maker/Recipe_Maker_confirmDelete.html', {'recipe': recipe})
