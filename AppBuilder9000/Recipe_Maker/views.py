@@ -50,7 +50,7 @@ def list_recipes(request):
 # function to display a detailed view of items
 def recipe_details(request, pk):
     # pk is the primary key
-    recipe = Recipe.objects.get(pk=pk)
+    recipe = get_object_or_404(Recipe, pk=pk)
     return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'recipe': recipe})
 
 
@@ -69,6 +69,10 @@ def recipe_update(request, pk):
 
 # function to delete a recipe in the database
 def delete_recipe(request, pk):
-    recipe = Recipe.objects.get(pk=pk)
-    recipe.delete()
-    return redirect('list_recipes')
+    recipe = get_object_or_404(Recipe, pk=pk)
+
+    if request.method == "POST":
+        recipe.delete()
+        return redirect('list_recipes')
+
+    return render(request, 'Recipe_Maker/Recipe_Maker_confirmDelete.html', {'recipe': recipe})
