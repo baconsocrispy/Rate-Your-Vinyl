@@ -20,10 +20,28 @@ def display_all(request):
     return render(request, 'nba-display.html', content)
 
 
+def show_details(request, pk):
+    player = get_object_or_404(Defensive_Stats, pk=pk)
+    year = player.year
+    name = player.playerName
+    rebs = player.defRebs
+    steals = player.steals
+    blocks = player.blocks
+
+    content = {'player': player,
+               'year': year,
+               'playerName': name,
+               'defRebs': rebs,
+               'steals': steals,
+               'blocks': blocks,
+               }
+    return render(request, 'nba-details.html', content)
+
+""" 
 def year_selected(request):
     year = request.GET['year']
     return render(request, 'nba-display.html', year)
-
+"""
 
 
 

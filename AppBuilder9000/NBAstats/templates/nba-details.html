@@ -1,0 +1,30 @@
+{% extends "nba-base.html" %}
+
+{% block title %}NBA Individual Stats{% endblock %}
+
+{% block header %}Individual Defensive Stats{% endblock %}
+
+{% block content %}
+    <div>
+        <label>Year: {{ year }}</label>
+        <br><br>
+        <table>
+            <tr id="headerRow">
+                <th>Player</th>
+                <th>DRebs</th>
+                <th>Steals</th>
+                <th>Blocks</th>
+                <th>Total Defensive Points</th>
+            </tr>
+
+            <tr>
+                <td class="left">{{ playerName }}</td>
+                <td class="center">{{ defRebs }}</td>
+                <td class="center">{{ steals }}</td>
+                <td class="center">{{ blocks }}</td>
+                <td class="right"></td>
+            </tr>
+
+        </table>
+    </div>
+{% endblock %}
