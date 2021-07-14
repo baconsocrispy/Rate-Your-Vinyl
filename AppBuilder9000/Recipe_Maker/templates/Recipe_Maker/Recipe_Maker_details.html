@@ -14,10 +14,8 @@
     <p class="card-text">{{ recipe.recipe_ingredients }}</p>
     <p class="card-text">{{ recipe.recipe_instructions}}</p>
     <a href="{% url 'recipe_update' recipe.id %}" class="btn btn-outline-dark">Update Recipe</a>
-    <a href="../{{recipe.pk}}/delete_recipe/" class="btn btn-outline-danger">Delete</a>
+    <a href="{% url 'delete_recipe' recipe.id %}" class="btn btn-outline-danger">Delete</a>
   </div>
 </div>
-
-
 
 {% endblock %}
