@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 # PreciousMetals model for database
-formTypes = [('coin', 'coin'), ('bar', 'bar'), ('raw', 'raw')]
+formTypes = [('Coin', 'Coin'), ('Bar', 'Bar'), ('Raw', 'Raw')]
 metalTypes = [('Silver', 'Silver'), ('Gold', 'Gold')]
 
 
@@ -16,3 +16,9 @@ class PreciousMetalsItem(models.Model):
     form = models.CharField(max_length=10, choices=formTypes)
     count = models.IntegerField()
     metals = models.Manager()
+
+    def __str__(self):
+        return self.make
+
+
+

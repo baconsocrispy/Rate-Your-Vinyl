@@ -1,0 +1,23 @@
+{% extends "PreciousMetals_base.html" %}
+{% block title %} Your Inventory {% endblock title %}
+
+
+{% block content %}
+<h1 class="invheadstyle">Inventory:</h1>
+        <div class="liststyle">
+                {% for PreciousMetalsItem in inven_list %}
+                <h3>{{ PreciousMetalsItem }}:</h3>
+                <ul>
+                        <li>Type: <strong>{{ PreciousMetalsItem.type }}</strong></li>
+                        <li>Make: <strong>{{ PreciousMetalsItem.make }}</strong></li>
+                        <li>Year: <strong>{{ PreciousMetalsItem.year }}</strong></li>
+                        <li>Price: <strong>{{ PreciousMetalsItem.price }}</strong></li>
+                        <li>Ounces: <strong>{{ PreciousMetalsItem.ounces }}</strong></li>
+                        <li>Form: <strong>{{ PreciousMetalsItem.form }}</strong></li>
+                        <li>Amount: <strong>{{ PreciousMetalsItem.count }}</strong></li>
+                </ul>
+
+        <br/>
+                {% endfor %}
+        </div>
+{% endblock content %}
