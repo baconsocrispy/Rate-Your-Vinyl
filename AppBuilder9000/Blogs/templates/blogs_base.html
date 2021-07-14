@@ -1,52 +1,63 @@
-{% load static%}
-<!DOCTYPE html>
+{% load static %}
 
+<!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="google" content="notranslate" />
-		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous" />
-        <link rel="stylesheet" type="text/css" href="{% static 'styling.css' %}">
-		<title>{% block title%}Blogs{% endblock %}</title>
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+
+</head>
 
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">Blog Central</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">About</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
-        <!-- End Of Navigation -->
+<body class="bg_color">
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Blogging
+      </h1>
+      <p class="subtitle">
+        Articulate a path through your <strong> thoughts! </strong>
+      </p>
+    </div>
+  </section>
+
+  <nav class="level">
+    <p class="level-item has-text-centered">
+      <a class="link is-info" href="{% url 'blogs' %}">Home</a>
+    </p>
+    <p class="level-item has-text-centered">
+      <a class="link is-info" href="{% url 'DisplayPage' %}">Entries</a>
+    </p>
+
+    <p class="level-item has-text-centered">
+      <a class="link is-info">Contact</a>
+    </p>
+  </nav>
+
+    <!-- other html page content will be displayed here -->
 
         {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
+
+        {% endblock %}
 
 
         <!-- Footer -->
-        <footer class="py-3 bg-grey">
-            <p class="m-0 text-dark text-center ">Copyright &copy; BeebleBlog</p>
-        </footer>
-    </body>
-</html>
 
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+          <strong>  &copy; 2021 Copyright | Robert Lawblog </strong>
+
+      </p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
