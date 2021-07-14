@@ -14,11 +14,18 @@ def nba_home(request):
     return render(request, 'nba-home.html', content)
 
 
-def add_player(request):
-    form = Def_Stats_Form(data=request.POST or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('stats-home')
-    content = {'form': form}
-    return render(request, 'nba-home.html', content)
+def display_all(request):
+    players = Defensive_Stats.objects.all()
+    content = {'players': players}
+    return render(request, 'nba-display.html', content)
+
+
+def year_selected(request):
+    year = request.GET['year']
+    return render(request, 'nba-display.html', year)
+
+
+
+
+
+
