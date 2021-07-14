@@ -34,6 +34,7 @@ urlpatterns = [
     path('Recipe_Maker/', include('Recipe_Maker.urls')),
     path('RidleyVerse/', include('RidleyVerse.urls')),
     path('WorkingComedians/', include('WorkingComedians.urls')),
+    path('YTfeed/', include('YTfeed.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

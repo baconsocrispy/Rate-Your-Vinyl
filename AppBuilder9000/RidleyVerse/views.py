@@ -1,6 +1,7 @@
 from .forms import MovieForm
 from .models import Movie
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
+import webbrowser
 
 # Nav Button functions.
 
@@ -56,3 +57,9 @@ def EditMovies(request, id):
         return HttpResponseRedirect( '/RidleyVerse/'+ id)
     return render(request, "RidleyVerse/RidleyVerse_Update.html", {"form": form })
 # End Modification controls
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------
+
