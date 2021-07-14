@@ -20,3 +20,6 @@ class Defensive_Stats(models.Model):
 
     def __str__(self):
         return self.playerName
+
+
+
