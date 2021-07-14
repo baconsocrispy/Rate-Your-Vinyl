@@ -9,16 +9,17 @@
     </head>
     <header>
         <!-- navbar -->
-        <div class = nav>
+        <div class = navMenu>
             <ul>
-                <a href="{% url 'PreciousMetals_home' %}">Home</a>
+                <li><a href="{% url 'PreciousMetals_home' %}">Home</a></li>
+                <li><a href="{% url 'PreciousMetals_inventory' %}">Add Inventory</a></li>
             </ul>
         </div>
     </header>
     <body>
     {% block content %}{% endblock content %}
     </body>
-    <seaction>
+    <section>
         <footer>Precious Metals 2021</footer>
-    </seaction>
+    </section>
 </html>
