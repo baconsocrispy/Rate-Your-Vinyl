@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 # PreciousMetals model for database
-formTypes = [('coin', 'coin'), ('bar', 'bar'), ('raw', 'raw')]
+formTypes = [('Coin', 'Coin'), ('Bar', 'Bar'), ('Raw', 'Raw')]
 metalTypes = [('Silver', 'Silver'), ('Gold', 'Gold')]
 
 
@@ -18,5 +18,7 @@ class PreciousMetalsItem(models.Model):
     metals = models.Manager()
 
     def __str__(self):
-        return self.make + ' ' + self.year
+        return self.make
+
+
 

@@ -13,7 +13,7 @@ body {
     height: 75px
     border-radius: 10px;
     border: solid;
-    border-color: #d9d9d9;
+    border-color: #ededed;
     border-radius: 10px 10px;
 }
 
@@ -35,6 +35,7 @@ body {
     text-decoration: none;
     border-radius: 10px;
     background-color: #ededed;
+    border: solid 1px;
 }
 /* style href */
 .navMenu a{
@@ -54,11 +55,35 @@ body {
 }
 /* style for the precious metals form */
 .formStyle {
-    background-color: rgba(235, 235, 235, .7);
+    background-color: rgba(235, 235, 235, .9);
     margin: 10px auto;
     padding: 5px;
     width: 15%;
     border-radius: 10px;
+    border: solid;
+    border-color: #FFD700;
+    position: relative;
+    font-family: Sans-serif;
+}
+
+.liststyle {
+    background-color: rgba(235, 235, 235, .9);
+    padding: 5px;
+    font-family: Sans-serif;
+    border-radius: 10px;
+    margin: 10px auto;
+    border: solid;
+    border-color: #FFD700;
+    position: relative;
+}
+
+.invheadstyle {
+    background-color: rgba(235, 235, 235, .9);
+    padding: 5px;
+    font-family: Sans-serif;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 10%;
     border: solid;
     border-color: #FFD700;
     position: relative;

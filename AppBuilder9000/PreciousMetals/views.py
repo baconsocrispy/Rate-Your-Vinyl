@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import PreciousMetalsItem
 from .forms import MetalForm
 
@@ -21,3 +21,9 @@ def inventory(request):
     content = {'form': form}
     return render(request, 'PreciousMetals_inventory.html', content)
 
+
+# query all items in inventory
+
+def listItems(request):
+    inven_list = PreciousMetalsItem.metals.order_by('-price')
+    return render(request, 'PreciousMetals_listing.html', {'inven_list': inven_list})
