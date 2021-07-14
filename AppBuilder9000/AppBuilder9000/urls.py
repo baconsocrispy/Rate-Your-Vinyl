@@ -34,6 +34,7 @@ urlpatterns = [
     path('Blogs/', include('Blogs.urls')),
     path('NBAstats/', include('NBAstats.urls')),
     path('PreciousMetals/', include('PreciousMetals.urls')),
+    path('ControlInventory/', include('ControlInventory.urls'))
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
