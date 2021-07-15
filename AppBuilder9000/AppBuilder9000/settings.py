@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'Blogs',
     'PreciousMetals',
     'NBAstats',
-    'ControlInventory'
+    'ControlInventory',
     'YTfeed',
 ]
 
