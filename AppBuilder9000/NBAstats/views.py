@@ -68,9 +68,8 @@ def delete_player(request, pk):
     year = player.year
     form = Def_Stats_Form(data=request.POST or None, instance=player)
     if request.method == 'POST':
-        if form.is_valid():
-            player.delete()
-            return redirect('display-all')
+        player.delete()
+        return redirect('display-all')
     content = {'player': player, 'year': year, 'form': form}
     return render(request, 'nba-delete.html', content)
 
