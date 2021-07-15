@@ -1,0 +1,12 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	background-image: url('/static/ControlInventory/images/inventorycontrol.jpg');
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	overflow: scroll;
+	background-repeat: no-repeat;
+}
+

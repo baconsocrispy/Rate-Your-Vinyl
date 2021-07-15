@@ -9,4 +9,6 @@ urlpatterns = [
     path('list_recipes/', views.list_recipes, name='list_recipes'),
     # an integer pk is passed through the details method
     path('<int:pk>/details/', views.recipe_details, name='recipe_details'),
+    path('<int:pk>/update/', views.recipe_update, name='recipe_update'),
+    path('<int:pk>/delete_recipe/', views.delete_recipe, name='delete_recipe'),
 ]

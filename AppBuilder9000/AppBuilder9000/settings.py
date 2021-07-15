@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'WorkingComedians',
     'Blogs',
     'PreciousMetals',
+    'NBAstats',
+    'ControlInventory'
 ]
 
 MIDDLEWARE = [
