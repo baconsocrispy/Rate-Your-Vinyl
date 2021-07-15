@@ -3,6 +3,8 @@ from .forms import RecipeForm
 from .models import Recipe
 # import pagination
 from django.core.paginator import Paginator
+# import requests to access websites
+import requests
 
 
 # first instruction on what to do if "home" get invoked
@@ -76,3 +78,9 @@ def delete_recipe(request, pk):
         return redirect('list_recipes')
 
     return render(request, 'Recipe_Maker/Recipe_Maker_confirmDelete.html', {'recipe': recipe})
+
+
+def bsoup(request):
+    page = requests.get('https://www.foodnetwork.com/recipes/food-network-kitchen/apple-pie-recipe-2011423')
+    page.status_code
+    return render(request, 'Recipe_Maker/Recipe_Maker_bsoup.html')
