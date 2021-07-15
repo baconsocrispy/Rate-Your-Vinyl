@@ -25,5 +25,11 @@ def inventory(request):
 # query all items in inventory
 
 def listItems(request):
-    inven_list = PreciousMetalsItem.metals.order_by('-price')
+    inven_list = PreciousMetalsItem.metals.all()
     return render(request, 'PreciousMetals_listing.html', {'inven_list': inven_list})
+
+def itemDetails(request, id):
+    itemdets = get_object_or_404(PreciousMetalsItem, id=id)
+    icontent = {'itemdets': itemdets}
+    return render(request, 'PreciousMetals_details.html', icontent)
+

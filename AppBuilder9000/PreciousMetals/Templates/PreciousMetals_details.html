@@ -1,0 +1,34 @@
+{% extends "PreciousMetals_base.html" %}
+
+{% block title %} Details {% endblock title %}
+
+
+{% block content %}
+<!-- single item details -->
+<h2>Item Details</h2>
+<div class="detstyle">
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Make</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Ounces</th>
+            <th>Form</th>
+            <th>Count</th>
+        </tr>
+        <!--  contents -->
+        <tr>
+            <td>{{ itemdets.type }}</td>
+            <td>{{ itemdets.make }}</td>
+            <td>{{ itemdets.year }}</td>
+            <td>{{ itemdets.price }}</td>
+            <td>{{ itemdets.ounces }}</td>
+            <td>{{ itemdets.form }}</td>
+            <td>{{ itemdets.count }}</td>
+        </tr>
+    </table>
+</div>
+<br><br>
+
+{% endblock content %}
