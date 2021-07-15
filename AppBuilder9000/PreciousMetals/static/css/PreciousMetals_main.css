@@ -1,0 +1,90 @@
+body {
+    background-image: url("/static/images/Metals_background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* navbar styling */
+.navMenu {
+    background-color:  #FFD700;
+    overflow: hidden;
+    height: 75px
+    border-radius: 10px;
+    border: solid;
+    border-color: #ededed;
+    border-radius: 10px 10px;
+}
+
+.navMenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* style list items */
+.navMenu li {
+    float: left;
+    display: block;
+    padding: 20px;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #ededed;
+    border: solid 1px;
+}
+/* style href */
+.navMenu a{
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    font-family: Sans-serif
+}
+
+/* Change the color of links on hover */
+.navMenu a:hover {
+    text-decoration: underline;
+    background-color: #ddd;
+    color: blue;
+    background-color: white;
+    padding: 15px;
+}
+/* style for the precious metals form */
+.formStyle {
+    background-color: rgba(235, 235, 235, .9);
+    margin: 10px auto;
+    padding: 5px;
+    width: 15%;
+    border-radius: 10px;
+    border: solid;
+    border-color: #FFD700;
+    position: relative;
+    font-family: Sans-serif;
+}
+
+.liststyle {
+    background-color: rgba(235, 235, 235, .9);
+    padding: 5px;
+    font-family: Sans-serif;
+    border-radius: 10px;
+    margin: 10px auto;
+    border: solid;
+    border-color: #FFD700;
+    position: relative;
+}
+
+.invheadstyle {
+    background-color: rgba(235, 235, 235, .9);
+    padding: 5px;
+    font-family: Sans-serif;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 10%;
+    border: solid;
+    border-color: #FFD700;
+    position: relative;
+}

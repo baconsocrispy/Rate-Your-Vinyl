@@ -1,0 +1,14 @@
+{% extends "PreciousMetals_base.html" %}
+
+{% block title %} Add your metal Inventory {% endblock title %}
+{% block content %}
+
+<!-- precious metals add form -->
+<div class="formStyle">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock content %}

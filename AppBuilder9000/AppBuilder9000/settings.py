@@ -42,15 +42,15 @@ INSTALLED_APPS = [
     'crispy_forms',
     'SciFiWatchlist',
     'HipHopReviews',
-    'StarWarsUniverse',
     'Quotes',
-    'NoteTaking',
-    'ApexLegendsStats',
     'ZooAnimals',
     'Villager_Registry',
     'Recipe_Maker',
     'RidleyVerse',
-    'WorkingComedians',
+    'Blogs',
+    'PreciousMetals',
+    'NBAstats',
+    'ControlInventory'
     'YTfeed',
 ]
 

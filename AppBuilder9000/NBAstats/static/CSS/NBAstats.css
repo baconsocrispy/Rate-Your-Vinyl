@@ -1,0 +1,216 @@
+/* ==========================================
+   GENERAL STYLING
+   ========================================== */
+
+body {
+    font-family: "Helvetica";
+    text-shadow: 2px 2px 4px rgba(0,0,0,.5);
+    color: white;
+    background-color: black;
+    background-image: url("../images/nbaLogoBG.jpeg");
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5 {
+}
+
+.container-main {
+    padding: 20px 20px 40px 40px;
+    margin-left: 40px;
+    margin-right: 50%;
+    background-color: rgba(0,0,0,.1);
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+}
+
+.smallFont {
+    font-size: .8em;
+    font-style: italic;
+}
+
+form {
+}
+
+/* ==========================================
+   NAVBAR STYLING
+   ========================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar a{
+    display: inline-block;
+    text-align: center;
+    padding: 14px 20px;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: -4px;
+    color: white;
+}
+
+.navbar a:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255,.4);
+}
+
+
+/* ==========================================
+   HEADER/FOOTER STYLING
+   ========================================== */
+header {
+    padding: 50px;
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding-left: 50px;
+    margin-bottom: 0px;
+    font-weight: 200;
+}
+
+
+/* ==========================================
+   BUTTON STYLING
+   ========================================== */
+button {
+    cursor: pointer;
+}
+
+.btnRight {
+    float: right;
+    width: 80px;
+}
+
+.bigBtn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 100px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    border: none;
+}
+
+.bigBtn:hover {
+    background-color: rgba(255,255,255,.1);
+    color: white;
+    font-weight: 900;
+}
+
+.goBtn {
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    border: none;
+    border-radius: 4px;
+}
+
+.goBtn:hover {
+    background-color: rgba(255,255,255,.1);
+    color: white;
+}
+
+.lilBtn {
+    padding: 10px;
+    margin-right: 20px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    border: none;
+    border-radius: 4px;
+}
+
+.lilBtn:hover {
+    background-color: rgba(255,255,255,.1);
+    color: white;
+}
+
+.lilBtn a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* ==========================================
+   TABLE STYLING
+   ========================================== */
+table {
+	border-collapse: collapse;
+}
+
+th{
+	border: 1px solid white;
+	padding: 6px 12px;
+	border-spacing: 0;
+	font-weight: 700;
+	font-size: 1em;
+	cursor: pointer;
+}
+
+th:hover {
+	background-color: rgba(0,0,0,.2);}
+
+#headerRow {
+	background-color: rgba(0,0,0,.2);
+}
+
+#headerRow:hover {
+	background-color: rgba(0,0,0,.2);
+}
+
+tr td{
+	height: 25px;
+	border-bottom: 1px solid rgba(0,0,0,.4);
+	border-spacing: 0;
+	word-wrap: normal;
+	padding: 4px;
+	font-size: .8em;
+	width: auto;
+	cursor: pointer;
+}
+
+tr:hover {
+    background-color: rgba(0,0,0,.3);
+}
+
+#headerRow {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	width: 10%;
+}
+
+.left {
+	text-align: left;
+	width: 30%;
+}
+
+.right {
+	text-align: right;
+	width: 50%;
+}
+
+
+/* ==========================================
+   DETAILS LINK STYLING
+   ========================================== */
+.details-link {
+    cursor: pointer;
+    color: white;
+}
+
+.details-link:hover {
+    color: red;
+}
