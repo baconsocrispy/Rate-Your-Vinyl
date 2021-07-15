@@ -6,15 +6,13 @@
 <h1 class="invheadstyle">Inventory:</h1>
         <div class="liststyle">
                 {% for PreciousMetalsItem in inven_list %}
-                <h3>{{ PreciousMetalsItem }}:</h3>
+                <h3><a href="{% url 'PreciousMetals_details' PreciousMetalsItem.id %}">{{ PreciousMetalsItem }}:</a></h3>
                 <ul>
                         <li>Type: <strong>{{ PreciousMetalsItem.type }}</strong></li>
                         <li>Make: <strong>{{ PreciousMetalsItem.make }}</strong></li>
-                        <li>Year: <strong>{{ PreciousMetalsItem.year }}</strong></li>
-                        <li>Price: <strong>{{ PreciousMetalsItem.price }}</strong></li>
                         <li>Ounces: <strong>{{ PreciousMetalsItem.ounces }}</strong></li>
                         <li>Form: <strong>{{ PreciousMetalsItem.form }}</strong></li>
-                        <li>Amount: <strong>{{ PreciousMetalsItem.count }}</strong></li>
+
                 </ul>
 
         <br/>
