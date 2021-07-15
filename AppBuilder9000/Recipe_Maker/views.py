@@ -5,6 +5,8 @@ from .models import Recipe
 from django.core.paginator import Paginator
 # import requests to access websites
 import requests
+# importing beautifulsoup
+from bs4 import BeautifulSoup
 
 
 # first instruction on what to do if "home" get invoked
@@ -82,5 +84,35 @@ def delete_recipe(request, pk):
 
 def bsoup(request):
     page = requests.get('https://www.foodnetwork.com/recipes/food-network-kitchen/apple-pie-recipe-2011423')
-    page.status_code
-    return render(request, 'Recipe_Maker/Recipe_Maker_bsoup.html')
+    # prints out HTML content of a page
+    page.content
+    # using BeautifulSoup to parse the document
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    # find_all returns a list or you either need to use an index or iterate through the list
+    header = soup.find_all('span', class_='o-AssetTitle__a-HeadlineText')[0].get_text()
+
+    # outputs a list of objects with with the span tag and specified class
+    ingredients = soup.find_all('span', class_='o-Ingredients__a-Ingredient--CheckboxLabel')
+    # empty list to hold strings from the for statement
+    list_ingredients = []
+    # [1:] skips the first (index of 0) in the ingredients' list
+    for i in ingredients[1:]:
+        # get_text() strips the tags off the object and returns a string
+        text = i.get_text()
+        # add the string to list_ingredients
+        list_ingredients.append(text)
+
+    # outputs a list of objects with the li tags and the specified class
+    description = soup.find_all('li', class_='o-Method__m-Step')
+    list_description = []
+    for d in description:
+        text = d.get_text()
+        list_description.append(text)
+
+    context = {
+        'header': header,
+        'ingredients': list_ingredients,
+        'description': list_description,
+    }
+    return render(request, 'Recipe_Maker/Recipe_Maker_bsoup.html', context)
