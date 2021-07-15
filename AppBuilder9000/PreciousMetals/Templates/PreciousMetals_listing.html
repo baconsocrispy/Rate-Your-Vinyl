@@ -5,7 +5,7 @@
 {% block content %}
 <h1 class="invheadstyle">Inventory:</h1>
         <div class="liststyle">
-                {% for PreciousMetalsItem in inven_list %}
+                {% for PreciousMetalsItem in inv_list %}
                 <h3><a href="{% url 'PreciousMetals_details' PreciousMetalsItem.id %}">{{ PreciousMetalsItem }}:</a></h3>
                 <ul>
                         <li>Type: <strong>{{ PreciousMetalsItem.type }}</strong></li>
