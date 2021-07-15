@@ -1,9 +1,41 @@
+/* ==========================================
+   GENERAL STYLING
+   ========================================== */
+
 body {
     font-family: "Helvetica";
     text-shadow: 2px 2px 4px rgba(0,0,0,.5);
     color: white;
+    background-color: black;
+    background-image: url("../images/nbaLogoBG.jpeg");
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
 }
 
+h1, h2, h3, h4, h5 {
+}
+
+.container-main {
+    padding: 20px 20px 40px 40px;
+    margin-left: 40px;
+    margin-right: 50%;
+    background-color: rgba(0,0,0,.1);
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+}
+
+.smallFont {
+    font-size: .8em;
+    font-style: italic;
+}
+
+form {
+}
+
+/* ==========================================
+   NAVBAR STYLING
+   ========================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -28,59 +60,55 @@ body {
 }
 
 
-body {
-    background-color: blue;
-    background-image: url("../images/nbaLogoBG.jpeg");
-    background-attachment: fixed;
-    background-size: 100%;
-    background-position: top;
-    background-repeat: no-repeat;
-}
-
+/* ==========================================
+   HEADER/FOOTER STYLING
+   ========================================== */
 header {
     padding: 50px;
     margin-top: 50px;
     font-size: 50px;
 }
 
-
 footer {
     position: fixed;
     height: 50px;
     bottom: 0px;
-    left: 50px;
+    left: 0px;
     right: 0px;
+    padding-left: 50px;
     margin-bottom: 0px;
     font-weight: 200;
 }
 
 
-h1, h2, h3, h4, h5 {
+/* ==========================================
+   BUTTON STYLING
+   ========================================== */
+button {
+    cursor: pointer;
 }
 
-.container-main {
-    padding: 20px 20px 40px 40px;
-    margin-left: 40px;
-    margin-right: 50%;
-    background-color: rgba(0,0,0,.1);
-    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+.btnRight {
+    float: right;
+    width: 80px;
 }
 
-
-form {
-}
-
-.submitBtn {
+.bigBtn {
     background-color: white;
     color: black;
-    padding: 20px;
+    padding: 10px;
     font-weight: 700;
     margin-top: 20px;
     border-radius: 4px;
     width: 100px;
-    cursor: pointer;
     box-shadow: 4px 4px 8px rgba(0,0,0,.3);
     border: none;
+}
+
+.bigBtn:hover {
+    background-color: rgba(255,255,255,.1);
+    color: white;
+    font-weight: 900;
 }
 
 .goBtn {
@@ -89,18 +117,36 @@ form {
     border-radius: 4px;
 }
 
-button:hover {
+.goBtn:hover {
     background-color: rgba(255,255,255,.1);
     color: white;
-    font-weight: 900;
+}
+
+.lilBtn {
+    padding: 10px;
+    margin-right: 20px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    border: none;
+    border-radius: 4px;
+}
+
+.lilBtn:hover {
+    background-color: rgba(255,255,255,.1);
+    color: white;
+}
+
+.lilBtn a {
+    text-decoration: none;
+    color: black;
 }
 
 
-/* General Table Styling */
+/* ==========================================
+   TABLE STYLING
+   ========================================== */
 table {
 	border-collapse: collapse;
 }
-
 
 th{
 	border: 1px solid white;
@@ -156,6 +202,10 @@ tr:hover {
 	width: 50%;
 }
 
+
+/* ==========================================
+   DETAILS LINK STYLING
+   ========================================== */
 .details-link {
     cursor: pointer;
     color: white;
