@@ -3,19 +3,24 @@
 
 
 {% block content %}
-<h1 class="invheadstyle">Inventory:</h1>
+<br>
+<br>
+<h1 class="headstyle">Inventory:</h1>
+<br>
         <div class="liststyle">
-                {% for PreciousMetalsItem in inven_list %}
-                <h3><a href="{% url 'PreciousMetals_details' PreciousMetalsItem.id %}">{{ PreciousMetalsItem }}:</a></h3>
-                <ul>
+                {% for PreciousMetalsItem in inv_list %}
+                <button class="head_button"><h3 class="larger_text"><a href="{% url 'PreciousMetals_details' PreciousMetalsItem.id %}">{{ PreciousMetalsItem }}:</a></h3></button>
+                <br>
+                <ul class="removeMarks">
                         <li>Type: <strong>{{ PreciousMetalsItem.type }}</strong></li>
                         <li>Make: <strong>{{ PreciousMetalsItem.make }}</strong></li>
                         <li>Ounces: <strong>{{ PreciousMetalsItem.ounces }}</strong></li>
                         <li>Form: <strong>{{ PreciousMetalsItem.form }}</strong></li>
 
                 </ul>
-
-        <br/>
+                <br>
+                <br/>
                 {% endfor %}
+
         </div>
 {% endblock content %}

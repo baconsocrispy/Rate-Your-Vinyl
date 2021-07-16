@@ -24,12 +24,37 @@ def inventory(request):
 
 # query all items in inventory
 
-def listItems(request):
-    inven_list = PreciousMetalsItem.metals.all()
-    return render(request, 'PreciousMetals_listing.html', {'inven_list': inven_list})
+def list_items(request):
+    inv_list = PreciousMetalsItem.metals.all()
+    return render(request, 'PreciousMetals_listing.html', {'inv_list': inv_list})
 
-def itemDetails(request, id):
-    itemdets = get_object_or_404(PreciousMetalsItem, id=id)
-    icontent = {'itemdets': itemdets}
-    return render(request, 'PreciousMetals_details.html', icontent)
 
+# single item details
+
+
+def item_details(request, id):
+    item_dets = get_object_or_404(PreciousMetalsItem, id=id)
+    inv_content = {'item_dets': item_dets}
+    return render(request, 'PreciousMetals_details.html', inv_content)
+
+
+# edit an item
+
+
+def edit_item(request, id):
+    item_dets = get_object_or_404(PreciousMetalsItem, id=id)
+    form = MetalForm(request.POST or None, instance=item_dets)
+    if form.is_valid():
+        form.save()
+        return redirect('PreciousMetals_listing')
+    content = {'form': form}
+    return render(request, 'PreciousMetals_edit.html', content)
+
+
+def delete_item(request, id):
+    item_dets = get_object_or_404(PreciousMetalsItem, id=id)
+    if request.method == 'POST':
+        item_dets.delete()
+        return redirect('PreciousMetals_listing')
+    delete = {'item_dets': item_dets}
+    return render(request, 'PreciousMetals_delete.html', delete)

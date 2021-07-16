@@ -5,30 +5,33 @@
 
 {% block content %}
 <!-- single item details -->
-<h2>Item Details</h2>
+<h2 class="dets_headstyle">Item Details:</h2>
+<br>
 <div class="detstyle">
     <table>
         <tr>
-            <th>Type</th>
-            <th>Make</th>
-            <th>Year</th>
-            <th>Price</th>
-            <th>Ounces</th>
-            <th>Form</th>
-            <th>Count</th>
+            <th>Type:</th>
+            <th>Make:</th>
+            <th>Year:</th>
+            <th>Price:</th>
+            <th>Ounces:</th>
+            <th>Form:</th>
+            <th>Count:</th>
         </tr>
         <!--  contents -->
         <tr>
-            <td>{{ itemdets.type }}</td>
-            <td>{{ itemdets.make }}</td>
-            <td>{{ itemdets.year }}</td>
-            <td>{{ itemdets.price }}</td>
-            <td>{{ itemdets.ounces }}</td>
-            <td>{{ itemdets.form }}</td>
-            <td>{{ itemdets.count }}</td>
+            <td>{{ item_dets.type }}</td>
+            <td>{{ item_dets.make }}</td>
+            <td>{{ item_dets.year }}</td>
+            <td>{{ item_dets.price }}</td>
+            <td>{{ item_dets.ounces }}</td>
+            <td>{{ item_dets.form }}</td>
+            <td>{{ item_dets.count }}</td>
         </tr>
     </table>
 </div>
 <br><br>
 
+<button><a class="submit" text="Edit" href="{% url 'edit_item' item_dets.id %}">Edit</a></button>
+<button><a class="submit" text="Delete" href="{% url 'delete_item' item_dets.id %}">Delete</a></button>
 {% endblock content %}

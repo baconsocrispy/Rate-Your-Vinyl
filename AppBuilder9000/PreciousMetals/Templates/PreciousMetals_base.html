@@ -14,12 +14,13 @@
         <div class = navMenu>
             <ul>
                 <li><a href="{% url 'PreciousMetals_home' %}">Home</a></li>
-                <li><a href="{% url 'PreciousMetals_listing' %}">Your Inventory</a></li>
-                <li><a href="{% url 'PreciousMetals_inventory' %}">Add Inventory</a></li>
+                <li><a href="{% url 'PreciousMetals_listing' %}">Inventory</a></li>
+                <li><a href="{% url 'PreciousMetals_inventory' %}">Add Item</a></li>
             </ul>
         </div>
     </header>
     <body>
+
     {% block content %}{% endblock content %}
     </body>
     <section>
