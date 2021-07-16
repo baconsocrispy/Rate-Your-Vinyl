@@ -4,6 +4,7 @@ from .models import Movie
 import requests
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 
+
 # Nav Button functions.
 
 
@@ -99,6 +100,7 @@ def GetRidleySoup(request):
     f.write(RVfeed1 + FullPot + RVfeed2)
     f.close()
     return render(request, "RidleyVerse/RidleyVerse_FullStory.html")
+
 
 
 """
