@@ -28,6 +28,7 @@ def list_items(request):
     inv_list = PreciousMetalsItem.metals.all()
     return render(request, 'PreciousMetals_listing.html', {'inv_list': inv_list})
 
+
 # single item details
 
 
@@ -35,6 +36,7 @@ def item_details(request, id):
     item_dets = get_object_or_404(PreciousMetalsItem, id=id)
     inv_content = {'item_dets': item_dets}
     return render(request, 'PreciousMetals_details.html', inv_content)
+
 
 # edit an item
 
@@ -48,3 +50,11 @@ def edit_item(request, id):
     content = {'form': form}
     return render(request, 'PreciousMetals_edit.html', content)
 
+
+def delete_item(request, id):
+    item_dets = get_object_or_404(PreciousMetalsItem, id=id)
+    if request.method == 'POST':
+        item_dets.delete()
+        return redirect('PreciousMetals_listing')
+    delete = {'item_dets': item_dets}
+    return render(request, 'PreciousMetals_delete.html', delete)

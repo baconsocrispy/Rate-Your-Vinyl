@@ -4,13 +4,13 @@
 {% block content %}
 
 
-<div>
+<div class="edit_style">
     <form method="POST">
         {% csrf_token %}
         <table>
         {{ form.as_table }}
         </table>
-        <input type="submit" value="Edit">
+        <input class="submit" type="submit" value="Submit Edit">
     </form>
 </div>
 <br><br>

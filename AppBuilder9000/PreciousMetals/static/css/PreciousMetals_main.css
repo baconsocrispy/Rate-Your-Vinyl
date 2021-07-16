@@ -64,6 +64,7 @@ body {
     border-color: #FFD700;
     position: relative;
     font-family: Sans-serif;
+    font-size: 30px;
 }
 /* style for list */
 .liststyle {
@@ -75,9 +76,14 @@ body {
     border: solid;
     border-color: #FFD700;
     position: relative;
+    font-size: 30px;
+    text-align: center;
+    width:60%;
+
+
 }
-/* style for inventory.html */
-.invheadstyle {
+/* style for header inventory */
+.headstyle {
     background-color: rgba(235, 235, 235, .9);
     padding: 5px;
     font-family: Sans-serif;
@@ -86,6 +92,7 @@ body {
     width: 10%;
     border: solid;
     border-color: #FFD700;
+    display: block;
     position: relative;
 }
 /* add border and background around table elements */
@@ -102,5 +109,69 @@ table, tr, th, td {
     border: solid;
     border-color: #FFD700;
     display: inline-block;
+    font-size: 35px;
 
+}
+/* details header */
+.dets_headstyle {
+    background-color: rgba(235, 235, 235, .9);
+    padding: 5px;
+    font-family: Sans-serif;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 10%;
+    border: solid;
+    border-color: #FFD700;
+    display: inline-block;
+    position: relative;
+}
+.edit_style {
+    background-color: rgba(235, 235, 235, .9);
+    padding: 5px;
+    font-family: Sans-serif;
+    border-radius: 10px;
+    margin: 10px auto;
+    border: solid;
+    border-color: #FFD700;
+    display: inline-block;
+
+}
+.delete_style {
+    background-color: rgba(235, 235, 235, .9);
+    margin: 10px auto;
+    padding: 5px;
+    width: 15%;
+    border-radius: 10px;
+    border: solid;
+    border-color: #FFD700;
+    position: relative;
+    font-family: Sans-serif;
+}
+
+.removeMarks {
+    list-style-type: none;
+    margin: 4px;
+    padding: 5px;
+}
+
+.larger_text {
+    font-size: 30px;
+}
+
+.head_button {
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.submit {
+    padding: 15px;
+    margin: 10px;
+    font-size:30px;
+    border-radius: 10px;
+
+}
+
+a:visited {
+    text-decoration:none;
+    color: black;
 }
