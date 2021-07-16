@@ -8,7 +8,7 @@ class Movie(models.Model):
     DirectorName = models.CharField(max_length=60, blank=True)
     MovieSummary = models.TextField(blank=True)
 
-    # using the models manager to return the name of the course title
+    # using the models manager to return the name of film.
     objects = models.Manager()
 
     def __str__(self):

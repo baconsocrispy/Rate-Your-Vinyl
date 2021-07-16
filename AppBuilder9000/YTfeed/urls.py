@@ -14,14 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-from RidleyVerse import views
+from YTfeed import views
 
 urlpatterns = [
-    path('', views.RidleyVersehome, name='RidleyVerse-home'),
-    path('Add-Movies/', views.AddMovies, name='Add-Movies'),
-    path('List-Movies/', views.ListMovies, name='List-Movies'),
-    path('<id>', views.MovieDetails, name='Movie-Details'),
-    path('<id>/update/', views.EditMovies, name='Update'),
-    path('<id>/delete/', views.DeleteMovies, name='Delete'),
-    path('Full-Story/', views.GetRidleySoup, name='Full-Story')
-    ]
+    path('', views.YTfeedhome, name='YTfeed-home'),
+    path('Add-Youtubers/', views.AddYoutubers, name='Add-Youtubers'),
+    path('List-Youtubers/', views.ListYoutubers, name='List-Youtubers'),
+    path('<id>/update/', views.EditYoutubers, name='Update'),
+    path('<id>/delete/', views.DeleteYoutubers, name='Delete'),
+    path('<id>/Feed-Me/', views.FeedMe, name='Feed-Me'),
+    path('<id>/View-Youtubers/', views.GetYTSoup, name='View-Youtubers')
+]
