@@ -65,7 +65,7 @@ body {
     position: relative;
     font-family: Sans-serif;
 }
-
+/* style for list */
 .liststyle {
     background-color: rgba(235, 235, 235, .9);
     padding: 5px;
@@ -76,7 +76,7 @@ body {
     border-color: #FFD700;
     position: relative;
 }
-
+/* style for inventory.html */
 .invheadstyle {
     background-color: rgba(235, 235, 235, .9);
     padding: 5px;
@@ -87,4 +87,20 @@ body {
     border: solid;
     border-color: #FFD700;
     position: relative;
+}
+/* add border and background around table elements */
+table, tr, th, td {
+    border: 1px solid black;
+    background-color: rgba(235, 235, 235, .9);
+    padding: 5px;
+}
+/* style for container on details */
+.detstyle {
+    font-family: Sans-serif;
+    border-radius: 10px;
+    margin: 10px auto;
+    border: solid;
+    border-color: #FFD700;
+    display: inline-block;
+
 }

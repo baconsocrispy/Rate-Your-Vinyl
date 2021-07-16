@@ -47,11 +47,11 @@ INSTALLED_APPS = [
     'Villager_Registry',
     'Recipe_Maker',
     'RidleyVerse',
-    'WorkingComedians',
     'Blogs',
     'PreciousMetals',
     'NBAstats',
-    'ControlInventory'
+    'ControlInventory',
+    'YTfeed',
 ]
 
 MIDDLEWARE = [
