@@ -4,6 +4,7 @@ from .models import Movie
 import requests
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 
+
 # Nav Button functions.
 
 
@@ -62,6 +63,34 @@ def EditMovies(request, id):
 
 # RidleySoup Function-------------------------------------------------------------------------------------------------
 
+def GetRidleySoup(request):
+    page = requests.get("https://www.imdb.com/list/ls050064593/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    Allp = soup.findAll('p')
+
+    FullPot = (
+            Allp[2].text + Allp[5].text + Allp[7].text +
+            Allp[10].text + Allp[17].text + Allp[20].text + Allp[22].text + Allp[25].text + Allp[27].text +
+            Allp[30].text + Allp[32].text + Allp[35].text + Allp[37].text + Allp[40].text + Allp[42].text +
+            Allp[45].text + Allp[47].text + Allp[50].text + Allp[52].text + Allp[55].text + Allp[57].text +
+            Allp[60].text + Allp[62].text + Allp[65].text + Allp[67].text + Allp[70].text + Allp[72].text +
+            Allp[75].text + Allp[77].text + Allp[80].text + Allp[82].text + Allp[85].text + Allp[87].text +
+            Allp[90].text + Allp[92].text + Allp[95].text + Allp[97].text +
+            Allp[100].text + Allp[102].text + Allp[105].text)
+
+    FullPotDictionary = {'FullPot': FullPot}
+    return render(request, "RidleyVerse/RidleyVerse_FullStory.html", FullPotDictionary)
+
+
+
+"""
+
+
+
+if __name__ == "__main__":
+    GetRidleySoup()
+
+
 
 def GetRidleySoup():
     page = requests.get("https://www.imdb.com/list/ls050064593/")
@@ -112,12 +141,7 @@ def GetRidleySoup():
     print(B)
     print(Allp[102].text, Allp[105].text)
     print(B)
+"""
 
+# End Ridley Soup Function. -----------------------------------------------------------------------------------------
 
-'''
-if __name__ == "__main__":
-    GetRidleySoup()
-'''
-
-# -End Ridley Soup Function. -----------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------
