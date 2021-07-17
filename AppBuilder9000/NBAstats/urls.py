@@ -13,4 +13,5 @@ urlpatterns = [
     path('<int:pk>/details/', views.show_details, name='details'),
     path('<int:pk>/edit/', views.edit_player, name='editPlayer'),
     path('<int:pk>/delete/', views.delete_player, name='deletePlayer'),
+    path('basketball-reference', views.b_ref, name='b-ref'),
     ]

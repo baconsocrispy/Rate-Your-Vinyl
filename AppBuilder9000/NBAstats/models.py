@@ -12,9 +12,9 @@ YEAR_CHOICES = [
 class Defensive_Stats(models.Model):
     year = models.CharField(max_length=10, choices=YEAR_CHOICES)
     playerName = models.CharField(max_length=60, blank=False, null=False)
-    defRebs = models.IntegerField(blank=False, null=False)
-    steals = models.IntegerField(blank=False, null=False)
-    blocks = models.IntegerField(blank=False, null=False)
+    defRebs = models.IntegerField(blank=False, null=False, default=0)
+    steals = models.IntegerField(blank=False, null=False, default=0)
+    blocks = models.IntegerField(blank=False, null=False, default=0)
 
     objects = models.Manager()
 
