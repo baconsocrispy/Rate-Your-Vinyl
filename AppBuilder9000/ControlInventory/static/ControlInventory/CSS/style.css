@@ -1,3 +1,35 @@
+/***** General Page Styling *****/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #CBC3E3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: mediumpurple;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	text-align: center;
@@ -9,4 +41,17 @@ body {
 	overflow: scroll;
 	background-repeat: no-repeat;
 }
+
+footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #CBC3E3;
+   color: black;
+   text-align: center;
+}
+
+/***** End General Page Styling *****/
+
 
