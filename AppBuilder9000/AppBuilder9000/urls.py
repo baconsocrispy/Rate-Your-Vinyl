@@ -26,8 +26,6 @@ urlpatterns = [
     path('SciFiWatchlist/', include('SciFiWatchlist.urls')),
     path('HipHopReviews/', include('HipHopReviews.urls')),
     path('Quotes/', include('Quotes.urls')),
-    path('ZooAnimals/', include('ZooAnimals.urls')),
-    path('VillagerRegistry_Index/', include('Villager_Registry.urls')),
     path('Recipe_Maker/', include('Recipe_Maker.urls')),
     path('RidleyVerse/', include('RidleyVerse.urls')),
     path('Blogs/', include('Blogs.urls')),

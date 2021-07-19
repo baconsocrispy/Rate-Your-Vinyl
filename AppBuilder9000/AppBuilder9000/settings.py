@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'SciFiWatchlist',
     'HipHopReviews',
     'Quotes',
-    'ZooAnimals',
-    'Villager_Registry',
     'Recipe_Maker',
     'RidleyVerse',
     'Blogs',
