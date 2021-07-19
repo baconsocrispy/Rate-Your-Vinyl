@@ -168,10 +168,13 @@ table, tr, th, td {
     margin: 10px;
     font-size:30px;
     border-radius: 10px;
-
 }
 
 a:visited {
     text-decoration:none;
     color: black;
+}
+
+a:link {
+    text-decoration:none;
 }
