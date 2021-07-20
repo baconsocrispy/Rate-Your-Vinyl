@@ -34,6 +34,7 @@ urlpatterns = [
     path('ControlInventory/', include('ControlInventory.urls')),
     path('YTfeed/', include('YTfeed.urls')),
     path('Novels/', include('Novels.urls')),
+    path('TravelDestinations/', include('TravelDestinations.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
