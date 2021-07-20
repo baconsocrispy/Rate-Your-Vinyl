@@ -69,7 +69,7 @@ def delete_item(request, id):
 
 # api for rates on metals
 
-def rates(request):
+def metal_rates(request):
     conn = http.client.HTTPSConnection("www.goldapi.io")
     payload = ''
     headers = {
@@ -80,6 +80,13 @@ def rates(request):
     res = conn.getresponse()
     data = json.loads(res.read())
     gold_data = data.get('price')
-    msg = {'gold_data': gold_data}
-    return render(request, 'PreciousMetals_rates.html', msg)
+
+    conn1 = http.client.HTTPSConnection("www.goldapi.io")
+    conn1.request("GET", "/api/XAG/USD", payload, headers)
+    res1 = conn1.getresponse()
+    data1 = json.loads(res1.read())
+    silver_data = data1.get('price')
+    msg1 = {'silver_data': silver_data, 'gold_data': gold_data}
+    return render(request, 'PreciousMetals_rates.html', msg1)
+
 

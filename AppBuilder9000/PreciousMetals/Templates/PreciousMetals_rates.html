@@ -3,7 +3,12 @@
 {% block title %} Precious Metals Rates {% endblock title %}
 
 {% block content %} Keep track of your precious metals
-
-{{ gold_data }}
-
+<div>
+    <h3>Current Gold Price:</h3>
+    <p>{{ gold_data }}</p>
+</div>
+<div>
+    <h3>Current Silver Price:</h3>
+    <p>{{ silver_data }}</p>
+</div>
 {% endblock content %}
