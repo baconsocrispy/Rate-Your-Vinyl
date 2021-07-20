@@ -12,10 +12,10 @@
                 <button class="head_button"><h3 class="larger_text"><a href="{% url 'PreciousMetals_details' PreciousMetalsItem.id %}">{{ PreciousMetalsItem }}:</a></h3></button>
                 <br>
                 <ul class="removeMarks">
-                        <li>Type: <strong>{{ PreciousMetalsItem.type }}</strong></li>
-                        <li>Make: <strong>{{ PreciousMetalsItem.make }}</strong></li>
-                        <li>Ounces: <strong>{{ PreciousMetalsItem.ounces }}</strong></li>
-                        <li>Form: <strong>{{ PreciousMetalsItem.form }}</strong></li>
+                        <li><strong>Type:</strong> {{ PreciousMetalsItem.type }}</li>
+                        <li><strong>Make:</strong> {{ PreciousMetalsItem.make }}</li>
+                        <li><strong>Ounces:</strong> {{ PreciousMetalsItem.ounces }}</li>
+                        <li><strong>Form:</strong> {{ PreciousMetalsItem.form }}</li>
 
                 </ul>
                 <br>

@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import PreciousMetalsItem
 from .forms import MetalForm
+import http.client
+import mimetypes
+import requests
+import json
 
 
 # Create your views here.
@@ -51,6 +55,9 @@ def edit_item(request, id):
     return render(request, 'PreciousMetals_edit.html', content)
 
 
+# delete item
+
+
 def delete_item(request, id):
     item_dets = get_object_or_404(PreciousMetalsItem, id=id)
     if request.method == 'POST':
@@ -58,3 +65,28 @@ def delete_item(request, id):
         return redirect('PreciousMetals_listing')
     delete = {'item_dets': item_dets}
     return render(request, 'PreciousMetals_delete.html', delete)
+
+
+# api for rates on metals
+
+def metal_rates(request):
+    conn = http.client.HTTPSConnection("www.goldapi.io")
+    payload = ''
+    headers = {
+        'x-access-token': 'goldapi-6buwskraz9tg4-io',
+        'Content-Type': 'application/json'
+    }
+    conn.request("GET", "/api/XAU/USD", payload, headers)
+    res = conn.getresponse()
+    data = json.loads(res.read())
+    gold_data = data.get('price')
+
+    conn1 = http.client.HTTPSConnection("www.goldapi.io")
+    conn1.request("GET", "/api/XAG/USD", payload, headers)
+    res1 = conn1.getresponse()
+    data1 = json.loads(res1.read())
+    silver_data = data1.get('price')
+    msg1 = {'silver_data': silver_data, 'gold_data': gold_data}
+    return render(request, 'PreciousMetals_rates.html', msg1)
+
+
