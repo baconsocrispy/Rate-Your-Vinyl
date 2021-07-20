@@ -6,6 +6,27 @@
 
 {% block content %}
     <div>
+        {% for key, value in player_dict.item %}
+        <p>{{ value }}</p>
+        {% endfor %}
 
+
+
+        <table>
+            <tr id="headerRow">
+                <th>Player</th>
+                <th>DRebs</th>
+                <th>Steals</th>
+                <th>Blocks</th>
+            </tr>
+            {% for key in player_dict %}
+            <tr>
+                <td class="left">{{ key.playerName }}</td>
+                <td class="center">{{ key.defRebs }}</td>
+                <td class="center">{{ key.steals }}</td>
+                <td class="center">{{ key.blocks }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
 {% endblock %}
