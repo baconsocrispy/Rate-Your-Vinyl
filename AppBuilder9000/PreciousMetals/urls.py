@@ -8,5 +8,5 @@ urlpatterns = [
     path('<id>', views.item_details, name='PreciousMetals_details'),
     path('edit/<int:id>/', views.edit_item, name='edit_item'),
     path('delete/<int:id>/', views.delete_item, name='delete_item'),
-    path('goldrate/', views.rates, name='gold_rate')
+    path('goldrate/', views.rates, name='gold_rate'),
 ]

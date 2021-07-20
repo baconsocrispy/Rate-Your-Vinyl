@@ -4,6 +4,7 @@ from .forms import MetalForm
 import http.client
 import mimetypes
 import requests
+import json
 
 
 # Create your views here.
@@ -73,22 +74,12 @@ def rates(request):
     payload = ''
     headers = {
         'x-access-token': 'goldapi-6buwskraz9tg4-io',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
     }
-    response = conn.request(
-        "GET", 'https://www.goldapi.io/api/:metal/:currency/', payload, headers)
-    metalrates = response.json()
-    return render(request, 'PreciousMetals_rates.html', {
-        "timestamp": metalrates[1626721039],
-        "metal": metalrates["XAU"],
-        "currency": metalrates["USD"],
-        "exchange": metalrates["FOREXCOM"],
-        "symbol": metalrates["FOREXCOM:XAUUSD"],
-        "prev_close_price": metalrates[1812.21],
-        "open_price": metalrates[1812.21],
-        "low_price": metalrates[1795.09],
-        "high_price": metalrates[1817.38],
-        "price": metalrates[1807.77],
-        "ask": metalrates[1808.17],
-        "bid": metalrates[1807.42],
-    })
+    conn.request("GET", "/api/XAU/USD", payload, headers)
+    res = conn.getresponse()
+    data = json.loads(res.read())
+    gold_data = data.get('price')
+    msg = {'gold_data': gold_data}
+    return render(request, 'PreciousMetals_rates.html', msg)
+
