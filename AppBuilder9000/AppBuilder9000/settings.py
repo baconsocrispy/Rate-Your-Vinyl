@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'NBAstats',
     'ControlInventory',
     'YTfeed',
+    'TravelDestinations',
 ]
 
 MIDDLEWARE = [
