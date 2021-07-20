@@ -1,7 +1,7 @@
 {% extends "Recipe_Maker/Recipe_Maker_base.html" %}
 
 {% block content %}
-<div class="mb-3">
+<div class="mb-3 w-50">
     <form method="POST" action="{% url 'create_recipe' %}">
         <!-- main form -->
             {% csrf_token %}
