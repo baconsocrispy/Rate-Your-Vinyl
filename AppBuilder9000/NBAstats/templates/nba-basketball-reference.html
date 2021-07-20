@@ -2,29 +2,26 @@
 
 {% block title %}Basketball Reference{% endblock %}
 
-{% block header %}Basketball Reference{% endblock %}
+{% block header %}2020-2021 Season{% endblock %}
 
 {% block content %}
     <div>
-        {% for key, value in player_dict.item %}
-        <p>{{ value }}</p>
-        {% endfor %}
 
-
-
-        <table>
+        <table id="myTable">
             <tr id="headerRow">
                 <th>Player</th>
-                <th>DRebs</th>
-                <th>Steals</th>
-                <th>Blocks</th>
+                <th onclick="sortTable(1)">DRebs</th>
+                <th onclick="sortTable(2)">Steals</th>
+                <th onclick="sortTable(3)">Blocks</th>
+                <th onclick="sortTable(4)">Total Def Points</th>
             </tr>
-            {% for key in player_dict %}
+            {% for key, value in player_dict.items %}
             <tr>
-                <td class="left">{{ key.playerName }}</td>
-                <td class="center">{{ key.defRebs }}</td>
-                <td class="center">{{ key.steals }}</td>
-                <td class="center">{{ key.blocks }}</td>
+                <td class="left">{{ value.playerName }}</td>
+                <td class="center">{{ value.defRebs }}</td>
+                <td class="center">{{ value.steals }}</td>
+                <td class="center">{{ value.blocks }}</td>
+                <td class="right">{{ value.total_def_points }}</td>
             </tr>
             {% endfor %}
         </table>
