@@ -6,6 +6,7 @@
 
 {% block content %}
     <div>
+        <br>
         <label>Select Year:</label>
         <select onChange="window.location.href=this.value">
             <option>-----------</option>
@@ -30,7 +31,7 @@
                 <td class="center">{{ key.defRebs }}</td>
                 <td class="center">{{ key.steals }}</td>
                 <td class="center">{{ key.blocks }}</td>
-                <td class="center"><a class="details-link" href="../{{ key.pk }}/details/">Details</a></td>
+                <td class="right"><a class="details-link" href="../{{ key.pk }}/details/">Details</a></td>
             </tr>
             {% endfor %}
 

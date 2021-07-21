@@ -8,13 +8,16 @@
     <div>
 
         <table id="myTable">
-            <tr id="headerRow">
-                <th>Player</th>
-                <th onclick="sortTable(1)">DRebs</th>
-                <th onclick="sortTable(2)">Steals</th>
-                <th onclick="sortTable(3)">Blocks</th>
-                <th onclick="sortTable(4)">Total Def Points</th>
-            </tr>
+            <thead class="sticky">
+                <tr id="headerRow">
+                    <th>Player</th>
+                    <th onclick="sortTable(1)">DRebs</th>
+                    <th onclick="sortTable(2)">Steals</th>
+                    <th onclick="sortTable(3)">Blocks</th>
+                    <th onclick="sortTable(4)">Total Def Points</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for key, value in player_dict.items %}
             <tr>
                 <td class="left">{{ value.playerName }}</td>
@@ -24,6 +27,7 @@
                 <td class="right">{{ value.total_def_points }}</td>
             </tr>
             {% endfor %}
+            </tbody>
         </table>
     </div>
 {% endblock %}

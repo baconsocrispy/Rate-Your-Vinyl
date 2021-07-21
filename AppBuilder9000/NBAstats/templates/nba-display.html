@@ -6,6 +6,7 @@
 
 {% block content %}
     <div>
+        <br>
         <label>Select Year:</label>
         <select onChange="window.location.href=this.value">
             <option>-----------</option>
@@ -17,6 +18,7 @@
         <br>
         <h3>All</h3>
         <table>
+            <thead class="sticky">
             <tr id="headerRow">
                 <th>Player</th>
                 <th>DRebs</th>
@@ -24,17 +26,18 @@
                 <th>Blocks</th>
                 <th>Details</th>
             </tr>
+            </thead>
+            <tbody>
             {% for key in players %}
             <tr>
                 <td class="left">{{ key.playerName }}</td>
                 <td class="center">{{ key.defRebs }}</td>
                 <td class="center">{{ key.steals }}</td>
                 <td class="center">{{ key.blocks }}</td>
-                <td class="center"><a class="details-link" href="../{{ key.pk }}/details/">Details</a></td>
+                <td class="right"><a class="details-link" href="../{{ key.pk }}/details/">Details</a></td>
             </tr>
             {% endfor %}
-
-
+            </tbody>
         </table>
     </div>
 {% endblock %}
