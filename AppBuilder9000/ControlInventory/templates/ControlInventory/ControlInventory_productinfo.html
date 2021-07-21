@@ -1,1 +1,35 @@
 {% extends "ControlInventory/ControlInventory_base.html" %}
+{% load static %}
+
+{% block title %}Product Information{% endblock %}
+{% block content %}
+			<div>
+				<form>
+					<br>
+					<label>Account:</label>
+					<input id="accountholder" type="text" name="accountHolder" value="{{ key.account }}">
+					<br><br>
+                    <button type="button"><a href="{% url 'ControlInventory_productinfo.html' %}">Check Data</a></button>
+				</form>
+			</div>
+			<h2>Product Information</h2>
+
+			<table id="products">
+				<tr>
+					<th>Product Name</th>
+					<th>Amount</th>
+					<th>Product Information</th>
+					<th>Account</th>
+				</tr>
+				{% for key, total in display_products.items %}
+				<tr>
+					<td>{{ key.name }}</td>
+					<td>{{ key.amount }}</td>
+					<td>{{ key.info }}</td>
+					<td>{{ key.account }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+            <br>
+			<br>
+{% endblock %}

@@ -5,7 +5,7 @@ class Account(models.Model):
     FirstName = models.CharField(max_length=30)
     LastName = models.CharField(max_length=30)
 
-    Account = models.Manager()
+    objects = models.Manager()
 
     def __str__(self):
         return self.FirstName + ' ' + self.LastName
@@ -18,4 +18,4 @@ class Product(models.Model):
     info = models.CharField(max_length=100)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
 
-    Product = models.Manager()
+    objects = models.Manager()
