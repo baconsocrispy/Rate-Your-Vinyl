@@ -133,6 +133,7 @@ def b_ref(request):
     player_dict = {}
     check_name = ''
     i = 0
+    keyPlaceholder = 1
     while i < len(allStats):
         # check to see if list is empty
         # sometimes an empty list is returned, which throws an error
@@ -151,15 +152,16 @@ def b_ref(request):
                 # during the season, so this if statement checks to see if I have already
                 # gotten the player's total stats
                 if playerName != check_name:
-                    keyNum = str(i)
+                    keyNum = keyPlaceholder
                     myStats = {'playerName': playerName,
                                'defRebs': defRebs,
                                'steals': steals,
                                'blocks': blocks,
                                'total_def_points': total_def_points}
-                    dict_item = {'key{}'.format(keyNum): myStats}
+                    dict_item = {'{}'.format(keyNum): myStats}
                     player_dict.update(dict_item)
                     i += 1
+                    keyPlaceholder += 1  # This is the number passed to the javascript function
                 else:
                     i += 1
                 check_name = playerName
@@ -172,7 +174,7 @@ def b_ref(request):
     return render(request, 'nba-basketball-reference.html', context)
 
 ''' Mike's refactoring:
-player_dict = [] # empty list instead of dict
+    player_dict = [] # empty list instead of dict
     check_name = ''
 
     for row in allStats:

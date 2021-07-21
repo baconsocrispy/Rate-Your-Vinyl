@@ -5,9 +5,8 @@
 {% block header %}2020-2021 Season{% endblock %}
 
 {% block content %}
-    <div>
-
-        <table id="myTable">
+    <div class="container-main">
+        <table id="myTable" name="brTable">
             <thead class="sticky">
                 <tr id="headerRow">
                     <th>Player</th>
@@ -19,8 +18,8 @@
             </thead>
             <tbody>
             {% for key, value in player_dict.items %}
-            <tr>
-                <td class="left">{{ value.playerName }}</td>
+            <tr name="{{ value.playerName }} {{ value.defRebs }} {{ value.steals }}">
+                <td class="left" onclick="showDiv(); savePlayerFunc({{ key }});">{{ value.playerName }}</td>
                 <td class="center">{{ value.defRebs }}</td>
                 <td class="center">{{ value.steals }}</td>
                 <td class="center">{{ value.blocks }}</td>
@@ -30,4 +29,11 @@
             </tbody>
         </table>
     </div>
+
+    <div class="container-two" id="show-div" style="display:none">
+        <p id="save-player"></p>
+    </div>
+
 {% endblock %}
+
+

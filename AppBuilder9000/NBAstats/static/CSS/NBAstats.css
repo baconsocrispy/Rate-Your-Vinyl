@@ -22,12 +22,23 @@ body.fade-out {
 
 .container-main {
     max-height: 450px;
-    max-width: 650px;
+    max-width: 600px;
     overflow: scroll;
     margin-left: 40px;
-    margin-right: 50%;
     padding: 0px 10px 20px 10px;
     background-color: rgba(0,0,0,.1);
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    float: left;
+}
+
+.container-two {
+    float: left;
+    max-height: 450px;
+    max-width: 200px;
+    overflow: scroll;
+    margin-left: 100px;
+    padding: 0px 10px 20px 10px;
+	background-color: rgb(0,88,143);
     box-shadow: 4px 4px 8px rgba(0,0,0,.3);
 }
 
@@ -201,6 +212,7 @@ tr td{
 	position: -webkit-sticky;
     position: sticky;
     top: 0;
+    cursor: pointer;
 }
 
 tr:hover {

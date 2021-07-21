@@ -33,3 +33,23 @@ function sortTable(column) {
     }
   }
 }
+
+
+function savePlayerFunc(rowNum) {
+    console.log(rowNum);
+
+    var element_table = document.getElementsByName('brTable');
+    var element_tableRows = element_table[0].rows;
+    var data = [];
+    for(var i = 1 ; i < element_tableRows.length; i++)
+    {
+        data[i] = element_tableRows[i].getAttribute("name");
+    }
+    document.getElementById("save-player").innerHTML = data[rowNum];
+    console.log(typeof data);
+}
+
+function showDiv() {
+    var T = document.getElementById("show-div");
+    T.style.display = "block";
+}
