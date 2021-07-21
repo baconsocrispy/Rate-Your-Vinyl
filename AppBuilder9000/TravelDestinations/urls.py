@@ -1,6 +1,7 @@
 from django.urls import path, include
-from TravelDestinations import views
+from . import views
 
 urlpatterns = [
-path('', views.home, name='TravelDestinations_home.html'),
+path('home/', views.home, name='TravelDestinations_home.html'),
+path('add/', views.TravelDestinations_add, name='TravelDestinations_add.html'),
 ]
