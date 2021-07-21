@@ -5,7 +5,7 @@
 {% block header %}Total Defensive Stats{% endblock %}
 
 {% block content %}
-    <div>
+    <div class="container-main">
         <br>
         <label>Select Year:</label>
         <select onChange="window.location.href=this.value">
@@ -30,7 +30,7 @@
             <tbody>
             {% for key in players %}
             <tr>
-                <td class="left">{{ key.playerName }}</td>
+                <td class="left" onclick="showDiv(); savePlayerFunc();">{{ key.playerName }}</td>
                 <td class="center">{{ key.defRebs }}</td>
                 <td class="center">{{ key.steals }}</td>
                 <td class="center">{{ key.blocks }}</td>
@@ -39,5 +39,9 @@
             {% endfor %}
             </tbody>
         </table>
+    </div>
+
+    <div class="container-two" id="show-div" style="display:none">
+        <p id="save-player"></p>
     </div>
 {% endblock %}
