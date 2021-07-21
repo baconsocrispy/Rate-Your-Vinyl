@@ -124,7 +124,8 @@ def b_ref(request):
     allStats = [[td.getText() for td in rows[i].findAll('td')]
                 for i in range(len(rows))]
     # This print shows how we can select a single element (allStats[row][element])
-    print(len(allStats))
+    # print(allStats[3][0])
+    # print(len(allStats))
     # I could print all the players and all their stats with print(allStats)
     # But that is a lot to print to console (over 500 rows)
 
@@ -137,18 +138,12 @@ def b_ref(request):
         # sometimes an empty list is returned, which throws an error
         # this solves that issue
         if allStats[i]:  # if the list has data in it
-            # Get data from allStats list
-            playerNameValue = allStats[i][0]
-            defRebsValue = allStats[i][21]
-            stealsValue = allStats[i][24]
-            blocksValue = allStats[i][25]
-
-            # Take data from lists above and convert to type int (except for name)
-            playerName = playerNameValue
-            defRebs = int(defRebsValue)
-            steals = int(stealsValue)
-            blocks = int(blocksValue)
-            total_def_points = defRebs + (steals*3) + (blocks*3)
+            # Get data from allStats list and convert to type int (except for name)
+            playerName = allStats[i][0]
+            defRebs = int(allStats[i][21])
+            steals = int(allStats[i][24])
+            blocks = int(allStats[i][25])
+            total_def_points = defRebs + (steals * 3) + (blocks * 3)
 
             if total_def_points > 500:
 
@@ -165,10 +160,8 @@ def b_ref(request):
                     dict_item = {'key{}'.format(keyNum): myStats}
                     player_dict.update(dict_item)
                     i += 1
-
                 else:
                     i += 1
-
                 check_name = playerName
             else:
                 i += 1
@@ -177,3 +170,25 @@ def b_ref(request):
 
     context = {'player_dict': player_dict}
     return render(request, 'nba-basketball-reference.html', context)
+
+''' Mike's refactoring:
+player_dict = [] # empty list instead of dict
+    check_name = ''
+
+    for row in allStats:
+        if len(row) > 0:
+            playerName = row[0]
+            defRebs = int(row[21])
+            steals = int(row[24])
+            blocks = int(row[25])
+            total_def_points = defRebs + (steals*3) + (blocks*3)
+
+            if playerName != check_name:
+                myStats = {'playerName': playerName,
+                           'defRebs': defRebs,
+                           'steals': steals,
+                           'blocks': blocks,
+                           'total_def_points': total_def_points}
+                player_dict.append(myStats)
+            check_name = playerName
+'''

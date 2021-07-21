@@ -3,15 +3,21 @@
    ========================================== */
 
 body {
+    opacity: 1;
+    transition: 3s opacity;
     font-family: "Helvetica";
     text-shadow: 2px 2px 4px rgba(0,0,0,.5);
     color: white;
-    background-color: black;
     background-image: url("../images/nbaLogoBG.jpeg");
     background-attachment: fixed;
     background-size: 100%;
     background-position: top;
     background-repeat: no-repeat;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 
 .container-main {
