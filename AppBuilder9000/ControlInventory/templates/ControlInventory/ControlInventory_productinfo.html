@@ -2,34 +2,26 @@
 {% load static %}
 
 {% block title %}Product Information{% endblock %}
-{% block content %}
-			<div>
-				<form>
-					<br>
-					<label>Account:</label>
-					<input id="accountholder" type="text" name="accountHolder" value="{{ key.account }}">
-					<br><br>
-                    <button type="button"><a href="{% url 'ControlInventory_productinfo.html' %}">Check Data</a></button>
-				</form>
-			</div>
-			<h2>Product Information</h2>
 
+{% block header %}Inventory Control Database {% endblock %}
+{% block content %}
+    <div>
 			<table id="products">
 				<tr>
-					<th>Product Name</th>
-					<th>Amount</th>
-					<th>Product Information</th>
-					<th>Account</th>
+					<th>Account:</th>
+					<th>Product Name:</th>
+					<th>Product Cost:</th>
+					<th>Product Description:</th>
 				</tr>
-				{% for key, total in display_products.items %}
+				{% for Product in inv_list %}
 				<tr>
-					<td>{{ key.name }}</td>
-					<td>{{ key.amount }}</td>
-					<td>{{ key.info }}</td>
-					<td>{{ key.account }}</td>
+					<td>{{ Product.account }}</td>
+					<td>{{ Product.name }}</td>
+					<td>{{ Product.amount }}</td>
+					<td>{{ Product.info }}</td>
 				</tr>
 				{% endfor %}
 			</table>
-            <br>
-			<br>
+    </div>
+
 {% endblock %}
