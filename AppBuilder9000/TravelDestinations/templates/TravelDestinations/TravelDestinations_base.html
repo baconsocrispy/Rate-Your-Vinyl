@@ -1,6 +1,6 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
     <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -14,9 +14,9 @@
             <div class="header">
                 <div class="nav">
                     <ul class="menu-bar">
-                        <li><a href="#Home">Home</a></li>
+                        <li><a href="{% url 'TravelDestinations_home.html' %}">Home</a></li>
                         <li><a href="#Destinations">Destinations</a></li>
-                        <li><a href="#AddDestination">Add Destination</a></li>
+                        <li><a href="{% url 'TravelDestinations_add.html' %}">Add Destination</a></li>
                     </ul>
                 </div>
             </div>
