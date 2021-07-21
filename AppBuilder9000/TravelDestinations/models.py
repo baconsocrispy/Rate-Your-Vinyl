@@ -71,4 +71,4 @@ class destination(models.Model):
 
     # returns city name
     def __str__(self):
-        return self.TripName
+        return self.TripName()
