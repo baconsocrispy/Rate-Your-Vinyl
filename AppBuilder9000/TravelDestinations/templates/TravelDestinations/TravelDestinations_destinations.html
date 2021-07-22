@@ -5,5 +5,17 @@
 {% block title %} Destinations {% endblock %}
 
 {% block content %}
+<br>
+<h1>Your Destinations:</h1>
+<br>
+    <div>
+        <ul>
+            {% for TripName in destination %}
+            <li>{{ trips }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
 
 {% endblock %}
+
