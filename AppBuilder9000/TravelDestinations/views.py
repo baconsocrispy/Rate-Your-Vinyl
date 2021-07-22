@@ -16,4 +16,5 @@ def TravelDestinations_add(request):
 
 def destinations(request):
     trips = destination.destination.all()
-    return render(request, 'TravelDestinations/TravelDestinations_destinations.html', {'trips': trips})
+    content = {'trips': trips}
+    return render(request, 'TravelDestinations/TravelDestinations_destinations.html', content)
