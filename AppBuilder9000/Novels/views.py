@@ -15,3 +15,8 @@ def novelEntry(request):
             return redirect('Novels_create')
     context = {'form': form, }
     return render(request, 'Novels/Novels_create.html', context)
+
+
+def novelDisplay(request):
+    all_novels = Book.objects.all()
+    return render(request, 'Novels/Novels_display.html', {'all_novels': all_novels})
