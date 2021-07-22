@@ -17,6 +17,10 @@ def nba_home(request):
     return render(request, 'nba-home.html', content)
 
 
+def save_favorites(request):
+    print("Hello")
+
+
 # ===============================================================================================
 #       Display functions to show All players, or players from specific seasons (i.e. 2020-2021)
 # ===============================================================================================
@@ -58,7 +62,6 @@ def show_details(request, pk):
     rebs = player.defRebs
     steals = player.steals
     blocks = player.blocks
-
     # Total Points are calculated below
     total_def_points = rebs + (steals * 3) + (blocks * 3)
 
@@ -130,10 +133,34 @@ def b_ref(request):
     # But that is a lot to print to console (over 500 rows)
 
     # Declare empty variables to add to in the while loop
+    player_dict = []  # empty list instead of dict
+    check_name = ''
+
+    for row in allStats:
+        if len(row) > 0:  # check to see if list is empty
+            playerName = row[0]
+            defRebs = int(row[21])
+            steals = int(row[24])
+            blocks = int(row[25])
+            total_def_points = defRebs + (steals * 3) + (blocks * 3)
+            if total_def_points > 500:
+                if playerName != check_name:
+                    myStats = {'playerName': playerName,
+                               'defRebs': defRebs,
+                               'steals': steals,
+                               'blocks': blocks,
+                               'total_def_points': total_def_points}
+                    player_dict.append(myStats)
+                check_name = playerName
+    context = {'player_dict': player_dict}
+    return render(request, 'nba-basketball-reference.html', context)
+
+
+''' My old dictionary before Mike's refactoring
     player_dict = {}
     check_name = ''
     i = 0
-    keyPlaceholder = 1
+    keyNum = 1
     while i < len(allStats):
         # check to see if list is empty
         # sometimes an empty list is returned, which throws an error
@@ -152,7 +179,6 @@ def b_ref(request):
                 # during the season, so this if statement checks to see if I have already
                 # gotten the player's total stats
                 if playerName != check_name:
-                    keyNum = keyPlaceholder
                     myStats = {'playerName': playerName,
                                'defRebs': defRebs,
                                'steals': steals,
@@ -161,7 +187,7 @@ def b_ref(request):
                     dict_item = {'{}'.format(keyNum): myStats}
                     player_dict.update(dict_item)
                     i += 1
-                    keyPlaceholder += 1  # This is the number passed to the javascript function
+                    keyNum += 1  # This is the number passed to the javascript function
                 else:
                     i += 1
                 check_name = playerName
@@ -169,28 +195,4 @@ def b_ref(request):
                 i += 1
         else:
             i += 1
-
-    context = {'player_dict': player_dict}
-    return render(request, 'nba-basketball-reference.html', context)
-
-''' Mike's refactoring:
-    player_dict = [] # empty list instead of dict
-    check_name = ''
-
-    for row in allStats:
-        if len(row) > 0:
-            playerName = row[0]
-            defRebs = int(row[21])
-            steals = int(row[24])
-            blocks = int(row[25])
-            total_def_points = defRebs + (steals*3) + (blocks*3)
-
-            if playerName != check_name:
-                myStats = {'playerName': playerName,
-                           'defRebs': defRebs,
-                           'steals': steals,
-                           'blocks': blocks,
-                           'total_def_points': total_def_points}
-                player_dict.append(myStats)
-            check_name = playerName
 '''
