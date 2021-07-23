@@ -6,11 +6,13 @@
 
 {% block content %}
 
-<form method="POST" action="../novelDetails/">
+<form method="POST" action="../Novels_details/">
     <table>
         {% csrf_token %}
         {{ form.as_table }}
     </table>
+    <input type="submit" value="Click here to confirm edits">
+    <button><a href="../{{ form.pk }}Novels_delete/">Delete Record</a></button>
 </form>
 
 
