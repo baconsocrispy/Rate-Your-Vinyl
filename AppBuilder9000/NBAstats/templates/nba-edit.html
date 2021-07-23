@@ -5,7 +5,7 @@
 {% block header %}Edit Player{% endblock %}
 
 {% block content %}
-    <div>
+    <div class="container-main">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
