@@ -52,6 +52,9 @@ body.fade-out {
     padding: 20px 60px;
 }
 
+h2 {
+    text-align: center;
+}
 /* ==========================================
    NAVBAR STYLING
    ========================================== */
@@ -110,17 +113,19 @@ button {
 .btnRight {
     float: right;
     margin-right: 10px;
-    width: 80px;
+    width: 100px;
+    color: black;
+
 }
 
 .bigBtn {
     background-color: white;
-    color: rgb(0,88,143);
+    color: black;
     padding: 10px;
     font-weight: 700;
     margin-top: 20px;
     border-radius: 4px;
-    width: 100px;
+    width: 120px;
     box-shadow: 4px 4px 8px rgba(0,0,0,.3);
     border: none;
 }
@@ -133,7 +138,7 @@ button {
 
 .bigBtn2 {
     background-color: white;
-    color: rgb(0,88,143);
+    color: black;
     padding: 10px;
     font-weight: 700;
     margin-top: 20px;
@@ -156,6 +161,7 @@ button {
     box-shadow: 4px 4px 8px rgba(0,0,0,.3);
     border: none;
     border-radius: 4px;
+    width: 120px;
 }
 
 .lilBtn:hover {

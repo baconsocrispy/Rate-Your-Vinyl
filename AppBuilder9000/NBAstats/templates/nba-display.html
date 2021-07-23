@@ -1,13 +1,14 @@
 {% extends "nba-base.html" %}
 
-{% block title %}NBA Stats Display{% endblock %}
+{% block title %}My Players{% endblock %}
 
-{% block header %}Total Defensive Stats{% endblock %}
+{% block header %}My Players{% endblock %}
 
 {% block content %}
     <div class="container-main">
         <br>
         <label>Select Year:</label>
+        <a href="{% url 'add-player' %}"><button class="lilBtn btnRight">Add Player</button></a>
         <select onChange="window.location.href=this.value">
             <option>-----------</option>
             <option value="{% url 'display-2021' %}">2020-2021</option>

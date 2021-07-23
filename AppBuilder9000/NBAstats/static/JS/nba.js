@@ -65,6 +65,6 @@ function showDiv() {
     T.style.display = "block";
 }
 
-function saveConf() {
-    setTimeout(function(){ alert("Player Saved To Favorites"); }, 500);
+function removeConfirm() {
+    alert("Delete Player From Favorites?");
 }
