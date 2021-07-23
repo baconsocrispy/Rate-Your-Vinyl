@@ -25,4 +25,5 @@ def novelDisplay(request):
 def novelDetails(request, pk):
     pk = int(pk)
     book = get_object_or_404(Book, pk=pk)
-    return render(request, 'Novels/Novels_details.html', {'book': book})
+    form = NovelForm(data=request.POST or None, instance=book)
+    return render(request, 'Novels/Novels_details.html', {'form': form})
