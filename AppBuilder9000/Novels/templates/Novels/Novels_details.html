@@ -1,0 +1,17 @@
+{% extends "Novels/Novels_base.html" %}
+
+{% block title %} Details {% endblock %}
+
+{% block header %} Details and Reviews {% endblock %}
+
+{% block content %}
+
+<form method="POST" action="../novelDetails/">
+    <table>
+        {% csrf_token %}
+        {{ form.as_table }}
+    </table>
+</form>
+
+
+{% endblock %}

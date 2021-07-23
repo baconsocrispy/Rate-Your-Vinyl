@@ -4,7 +4,7 @@
 
 {% block header %} All Current Entries {% endblock %}
 
-{%block content %}
+{% block content %}
 
     <table>
         <tr>
@@ -21,7 +21,12 @@
 
     </table>
 
-
+    <label>Select a title from the list to see more information</label>
+    <select onChange="top.location.href=this.options[this.selectedIndex].value;">
+    {% for novels in all_novels %}
+        <option value="../{{ novels.pk }}/Novels_details/">{{ novels.Title }}</option>
+    {% endfor %}
+    </select>
 
 
 {% endblock %}
