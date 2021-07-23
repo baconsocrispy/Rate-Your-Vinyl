@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Defensive_Stats
-from .forms import Def_Stats_Form
+from django.db import connections
+from .models import Defensive_Stats, PlayerDb, FavoritesDB
+from .forms import Def_Stats_Form, PlayerDatabaseForm
 from bs4 import BeautifulSoup
 import requests
-from collections import OrderedDict
+import sqlite3
 
 
 # RENDER HOME PAGE
@@ -31,7 +32,7 @@ def display_2021(request):
     # Here we use Raw SQL commands to only show records from chosen year
     players = Defensive_Stats.objects.raw('SELECT * FROM NBAstats_Defensive_Stats WHERE year = %s', [year])
     content = {'players': players}
-    return render(request, 'nba-display-2020-2021.html', content)
+    return render(request, 'nba-display-{}.html'.format(year), content)
 
 
 def display_2020(request):
@@ -48,6 +49,12 @@ def display_2019(request):
     return render(request, 'nba-display-2018-2019.html', content)
 
 
+def display_favorites(request):
+    players = FavoritesDB.objects.all()
+    content = {'players': players}
+    return render(request, 'nba-favorites.html', content)
+
+
 # ===============================================================================================
 #           Display the details for individual players
 # ===============================================================================================
@@ -58,7 +65,6 @@ def show_details(request, pk):
     rebs = player.defRebs
     steals = player.steals
     blocks = player.blocks
-
     # Total Points are calculated below
     total_def_points = rebs + (steals * 3) + (blocks * 3)
 
@@ -71,6 +77,34 @@ def show_details(request, pk):
                'total_def_points': total_def_points,
                }
     return render(request, 'nba-details.html', content)
+
+
+def save_favorites(request, pk):
+    player = get_object_or_404(PlayerDb, pk=pk)
+    name = player.playerName
+    defRebs = player.defRebs
+    steals = player.steals
+    blocks = player.blocks
+    total = player.total
+
+    # Connect to database, delete record if the pk already exists
+    conn = sqlite3.connect('db.sqlite3')
+    with conn:
+        cur = conn.cursor()
+        cur.execute('DELETE FROM NBAstats_FavoritesDB WHERE id = ?', [pk])
+
+    # Connect to database and insert player into it
+    conn = sqlite3.connect('db.sqlite3')
+    with conn:
+        cur = conn.cursor()
+        cur.execute('INSERT INTO NBAstats_FavoritesDB VALUES (?,?,?,?,?,?)',
+                    [pk, name, defRebs, steals, blocks, total])
+        conn.commit()
+
+    players = FavoritesDB.objects.all()
+
+    content = {'players': players}
+    return render(request, 'nba-favorites.html', content)
 
 
 # ===============================================================================================
@@ -129,66 +163,40 @@ def b_ref(request):
     # I could print all the players and all their stats with print(allStats)
     # But that is a lot to print to console (over 500 rows)
 
+    # connect to database, and clear it so that it's empty
+    conn = sqlite3.connect('db.sqlite3')
+    with conn:
+        cur = conn.cursor()
+        cur.execute("DELETE FROM NBAstats_PlayerDb")
     # Declare empty variables to add to in the while loop
-    player_dict = {}
+    player_dict = []  # empty list instead of dict
     check_name = ''
-    i = 0
-    while i < len(allStats):
-        # check to see if list is empty
-        # sometimes an empty list is returned, which throws an error
-        # this solves that issue
-        if allStats[i]:  # if the list has data in it
-            # Get data from allStats list and convert to type int (except for name)
-            playerName = allStats[i][0]
-            defRebs = int(allStats[i][21])
-            steals = int(allStats[i][24])
-            blocks = int(allStats[i][25])
-            total_def_points = defRebs + (steals * 3) + (blocks * 3)
-
-            if total_def_points > 500:
-
-                # The page I'm scraping has multiple rows for a player who changed teams
-                # during the season, so this if statement checks to see if I have already
-                # gotten the player's total stats
-                if playerName != check_name:
-                    keyNum = str(i)
-                    myStats = {'playerName': playerName,
-                               'defRebs': defRebs,
-                               'steals': steals,
-                               'blocks': blocks,
-                               'total_def_points': total_def_points}
-                    dict_item = {'key{}'.format(keyNum): myStats}
-                    player_dict.update(dict_item)
-                    i += 1
-                else:
-                    i += 1
-                check_name = playerName
-            else:
-                i += 1
-        else:
-            i += 1
-
-    context = {'player_dict': player_dict}
-    return render(request, 'nba-basketball-reference.html', context)
-
-''' Mike's refactoring:
-player_dict = [] # empty list instead of dict
-    check_name = ''
-
+    pk = 1
     for row in allStats:
-        if len(row) > 0:
+        if len(row) > 0:  # check to see if list is empty
             playerName = row[0]
             defRebs = int(row[21])
             steals = int(row[24])
             blocks = int(row[25])
-            total_def_points = defRebs + (steals*3) + (blocks*3)
+            total_def_points = defRebs + (steals * 3) + (blocks * 3)
+            if total_def_points >= 500:
+                if playerName != check_name:
+                    myStats = {'playerName': playerName,
+                               'defRebs': defRebs,
+                               'steals': steals,
+                               'blocks': blocks,
+                               'total_def_points': total_def_points,
+                               'pk': pk}
+                    player_dict.append(myStats)
 
-            if playerName != check_name:
-                myStats = {'playerName': playerName,
-                           'defRebs': defRebs,
-                           'steals': steals,
-                           'blocks': blocks,
-                           'total_def_points': total_def_points}
-                player_dict.append(myStats)
-            check_name = playerName
-'''
+                    # connect to database and insert player into it
+                    conn = sqlite3.connect('db.sqlite3')
+                    with conn:
+                        cur = conn.cursor()
+                        cur.execute('INSERT INTO NBAstats_PlayerDb VALUES (?,?,?,?,?,?)',
+                                    [pk, playerName, defRebs, steals, blocks, total_def_points])
+                        conn.commit()
+                    pk += 1  # this gets set as the primary key
+                check_name = playerName
+    context = {'player_dict': player_dict}
+    return render(request, 'nba-basketball-reference.html', context)

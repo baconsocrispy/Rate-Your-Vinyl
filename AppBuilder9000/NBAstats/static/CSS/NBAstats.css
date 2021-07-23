@@ -10,9 +10,10 @@ body {
     color: white;
     background-image: url("../images/nbaLogoBG.jpeg");
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
+    counter-reset: Serial;  /* Set the Serial counter to 0 */
 }
 
 body.fade-out {
@@ -22,12 +23,23 @@ body.fade-out {
 
 .container-main {
     max-height: 450px;
-    max-width: 650px;
+    max-width: 680px;
     overflow: scroll;
     margin-left: 40px;
-    margin-right: 50%;
     padding: 0px 10px 20px 10px;
-    background-color: rgba(0,0,0,.1);
+	background-color: rgba(0,80,143,.95);
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    float: left;
+}
+
+.container-two {
+    float: left;
+    max-height: 450px;
+    max-width: 550px;
+    overflow: scroll;
+    margin-left: 40px;
+    padding: 0px 10px 40px 10px;
+	background-color: rgba(0,80,143,.95);
     box-shadow: 4px 4px 8px rgba(0,0,0,.3);
 }
 
@@ -36,6 +48,9 @@ body.fade-out {
     font-style: italic;
 }
 
+.home-form {
+    padding: 20px 60px;
+}
 
 /* ==========================================
    NAVBAR STYLING
@@ -43,6 +58,7 @@ body.fade-out {
 .navbar {
     top: 0;
     left: 0;
+    position: fixed;
 }
 
 .navbar a{
@@ -93,12 +109,13 @@ button {
 
 .btnRight {
     float: right;
+    margin-right: 10px;
     width: 80px;
 }
 
 .bigBtn {
     background-color: white;
-    color: black;
+    color: rgb(0,88,143);
     padding: 10px;
     font-weight: 700;
     margin-top: 20px;
@@ -114,16 +131,24 @@ button {
     font-weight: 900;
 }
 
-.goBtn {
+.bigBtn2 {
+    background-color: white;
+    color: rgb(0,88,143);
+    padding: 10px;
+    font-weight: 700;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 200px;
     box-shadow: 4px 4px 8px rgba(0,0,0,.3);
     border: none;
-    border-radius: 4px;
 }
 
-.goBtn:hover {
+.bigBtn2:hover {
     background-color: rgba(255,255,255,.1);
     color: white;
+    font-weight: 900;
 }
+
 
 .lilBtn {
     padding: 10px;
@@ -183,10 +208,10 @@ th{
 }
 
 th:hover {
-	background-color: rgba(0,0,0,.4);
+	background-color: rgba(255,255,255,.4);
 }
 
-#headerRow {
+.headerRow {
     background-color: rgba(0,0,0,.4);
 }
 
@@ -198,13 +223,18 @@ tr td{
 	padding: 4px;
 	font-size: .8em;
 	width: auto;
-	position: -webkit-sticky;
-    position: sticky;
     top: 0;
+    cursor: pointer;
 }
 
 tr:hover {
     background-color: rgba(0,0,0,.3);
+}
+
+.numbered-table td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
 }
 
 .center {
@@ -214,7 +244,7 @@ tr:hover {
 
 .left {
 	text-align: left;
-	width: 40%;
+	width: 35%;
 	padding-left: 15px;
 }
 

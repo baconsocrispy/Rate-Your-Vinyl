@@ -13,5 +13,7 @@ urlpatterns = [
     path('<int:pk>/details/', views.show_details, name='details'),
     path('<int:pk>/edit/', views.edit_player, name='editPlayer'),
     path('<int:pk>/delete/', views.delete_player, name='deletePlayer'),
-    path('basketball-reference/', views.b_ref, name='b-ref'),
+    path('2021-defensive-stats/', views.b_ref, name='b-ref'),
+    path('<int:pk>/saveplayer/', views.save_favorites, name='savePlayer'),
+    path('favorites/', views.display_favorites, name='favorites'),
     ]

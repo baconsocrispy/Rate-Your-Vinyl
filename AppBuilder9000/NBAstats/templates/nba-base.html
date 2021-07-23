@@ -17,16 +17,18 @@
 		{% include 'nba-navbar.html' %}
 
 		<header>
+			<br>
 			<div>
 				{% block header %}{% endblock %}
 			</div>
 		</header>
 
+{% block content %}
 		<div class="container-main">
-			{% block content %}
-            {% endblock %}
 		</div>
-
+		<div class="container-two">
+		</div>
+{% endblock %}
 
 	</body>
 </html>

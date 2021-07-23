@@ -5,14 +5,14 @@
 {% block header %}NBA Stats{% endblock %}
 
 {% block content %}
-    <div class="home-form">
+    <div class="home-form container-main">
         <h2>Welcome to the Defensive Stat Tracker</h2>
             <form method="post">
                 <h4>Enter player's defensive stats:</h4>
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button class="bigBtn" type="submit">Submit</button>
-                <br><br><br>
+                <br><br>
             </form>
     </div>
 
