@@ -23,9 +23,18 @@
         <li><a href="{% url 'ControlInventory_home.html' %}">Home</a></li>
         <li><a href="{% url 'ControlInventory_account.html' %}">Create-Account</a></li>
         <li><a href="{% url 'ControlInventory_addproduct.html' %}">Add-Product</a></li>
+        <li><a href="{% url 'ControlInventory_details.html' %}">Item-List</a></li>
         <li><a href="{% url 'ControlInventory_productinfo.html' %}">Product-Information</a></li>
     </ul>
 <!--END NAV BAR-->
+
+<!--HEADER-->
+    <header>
+        <h1>
+            {% block header %}{% endblock %}
+        </h1>
+    </header>
+<!--END HEADER-->
 
 <!--BODY-->
     {% block content %} {% endblock %}
