@@ -8,6 +8,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="{% static '/CSS/NBAstats.css' %}">
+		<script src="{% static '/JS/nba.js' %}"></script>
 		<title>{% block title%}{% endblock %}</title>
 	</head>
 
@@ -15,10 +16,8 @@
 	<body id="body">
 		{% include 'nba-navbar.html' %}
 
-
 		<header>
 			<div>
-				<br>
 				{% block header %}{% endblock %}
 			</div>
 		</header>
@@ -27,6 +26,7 @@
 			{% block content %}
             {% endblock %}
 		</div>
+
 
 	</body>
 </html>

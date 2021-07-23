@@ -1,0 +1,25 @@
+body {
+    background-image: url("/static/images/Novel_background3.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+background-color: white;
+}
+
+th, td {
+padding: 15px;
+}
+
+td {
+text-align: center;
+}
+
+tr:hover {
+opacity: 70%;
+}

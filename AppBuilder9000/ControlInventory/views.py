@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AccountForm, ProductForm
+from .models import Account, Product
 
 
 
@@ -20,9 +21,11 @@ def addproduct(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('ControlInventory/ControlInventory_addproduct.html')
+            return redirect('ControlInventory_home.html')
     content = {'form': form}
     return render(request, 'ControlInventory/ControlInventory_addproduct.html', content)
 
 def productinfo(request):
-    return render(request, 'ControlInventory/ControlInventory_productinfo.html')
+    inv_list = Product.objects.all()
+    return render(request, 'ControlInventory/ControlInventory_productinfo.html', {'inv_list': inv_list})
+

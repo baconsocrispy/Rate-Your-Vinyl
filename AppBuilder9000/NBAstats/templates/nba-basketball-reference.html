@@ -2,10 +2,32 @@
 
 {% block title %}Basketball Reference{% endblock %}
 
-{% block header %}Basketball Reference{% endblock %}
+{% block header %}2020-2021 Season{% endblock %}
 
 {% block content %}
     <div>
 
+        <table id="myTable">
+            <thead class="sticky">
+                <tr id="headerRow">
+                    <th>Player</th>
+                    <th onclick="sortTable(1)">DRebs</th>
+                    <th onclick="sortTable(2)">Steals</th>
+                    <th onclick="sortTable(3)">Blocks</th>
+                    <th onclick="sortTable(4)">Total Def Points</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for key, value in player_dict.items %}
+            <tr>
+                <td class="left">{{ value.playerName }}</td>
+                <td class="center">{{ value.defRebs }}</td>
+                <td class="center">{{ value.steals }}</td>
+                <td class="center">{{ value.blocks }}</td>
+                <td class="right">{{ value.total_def_points }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}
