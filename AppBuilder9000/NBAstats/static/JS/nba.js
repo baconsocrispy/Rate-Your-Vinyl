@@ -34,26 +34,22 @@ function sortTable(column) {
 }
 
 
-function savePlayerFunc(pName) {
+function savePlayerFunc(key) {
     var element_table = document.getElementsByName('brTable');
     var element_tableRows = element_table[0].rows;
     var data = [];
-    console.log(pName);
     for(var i = 1 ; i < element_tableRows.length; i++)
     {
         data[i] = element_tableRows[i].getAttribute("name");
         dataString = String(data[i]); // convert row object to string
-        dataName = dataString.split(",")[0];
-        if (dataName == pName) {
-            //dataString = String(data[rowNum]); // convert row object to string
+        dataKey = dataString.split(",")[0];
+        if (dataKey == key) {
             dataArray = dataString.split(","); // convert string to array, separated by spaces
-            //playerKey = parseInt(dataArray[0]);
-            playerName = dataArray[0];
-            defRebs = dataArray[1];
-            steals = dataArray[2];
-            blocks = dataArray[3];
-            total = dataArray[4];
-            //document.getElementById("playerKey").innerHTML = playerKey;
+            playerName = dataArray[1];
+            defRebs = dataArray[2];
+            steals = dataArray[3];
+            blocks = dataArray[4];
+            total = dataArray[5];
             document.getElementById("playerName").innerHTML = playerName;
             document.getElementById("defRebs").innerHTML = defRebs;
             document.getElementById("steals").innerHTML = steals;
@@ -69,8 +65,6 @@ function showDiv() {
     T.style.display = "block";
 }
 
-
 function saveConf() {
-    alert("Player Saved To Favorites");
+    setTimeout(function(){ alert("Player Saved To Favorites"); }, 500);
 }
-

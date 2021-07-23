@@ -23,7 +23,7 @@ body.fade-out {
 
 .container-main {
     max-height: 450px;
-    max-width: 600px;
+    max-width: 680px;
     overflow: scroll;
     margin-left: 40px;
     padding: 0px 10px 20px 10px;
@@ -35,10 +35,10 @@ body.fade-out {
 .container-two {
     float: left;
     max-height: 450px;
-    max-width: 600px;
+    max-width: 550px;
     overflow: scroll;
-    margin-left: 100px;
-    padding: 0px 10px 20px 10px;
+    margin-left: 40px;
+    padding: 0px 10px 40px 10px;
 	background-color: rgba(0,80,143,.95);
     box-shadow: 4px 4px 8px rgba(0,0,0,.3);
 }
@@ -244,7 +244,7 @@ tr:hover {
 
 .left {
 	text-align: left;
-	width: 40%;
+	width: 35%;
 	padding-left: 15px;
 }
 
