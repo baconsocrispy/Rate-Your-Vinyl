@@ -20,3 +20,9 @@ def novelEntry(request):
 def novelDisplay(request):
     all_novels = Book.objects.all()
     return render(request, 'Novels/Novels_display.html', {'all_novels': all_novels})
+
+
+def novelDetails(request, pk):
+    pk = int(pk)
+    book = get_object_or_404(Book, pk=pk)
+    return render(request, 'Novels/Novels_details.html', {'book': book})
