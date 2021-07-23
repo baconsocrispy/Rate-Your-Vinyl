@@ -69,6 +69,4 @@ class destination(models.Model):
     # assigns a manager
     destination = models.Manager()
 
-    # returns city name
-    def __str__(self):
-        return self.TripName
+
