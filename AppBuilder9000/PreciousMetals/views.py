@@ -5,6 +5,7 @@ import http.client
 import mimetypes
 import requests
 import json
+from bs4 import BeautifulSoup
 
 
 # Create your views here.
@@ -67,9 +68,10 @@ def delete_item(request, id):
     return render(request, 'PreciousMetals_delete.html', delete)
 
 
-# api for rates on metals
+# api/soup scrapping for rates on metals
 
 def metal_rates(request):
+    # connection for gold
     conn = http.client.HTTPSConnection("www.goldapi.io")
     payload = ''
     headers = {
@@ -80,13 +82,22 @@ def metal_rates(request):
     res = conn.getresponse()
     data = json.loads(res.read())
     gold_data = data.get('price')
-
+    # connection for silver
     conn1 = http.client.HTTPSConnection("www.goldapi.io")
     conn1.request("GET", "/api/XAG/USD", payload, headers)
     res1 = conn1.getresponse()
     data1 = json.loads(res1.read())
     silver_data = data1.get('price')
-    msg1 = {'silver_data': silver_data, 'gold_data': gold_data}
+    # beatifulsoup Canadian gold 1oz maple leaf scrap
+    result = requests.get("https://www.mintstategold.com/canadian-gold-1oz-2021-maple-leaf-bu-18997.html")
+    src = result.content
+    soup = BeautifulSoup(src, 'html.parser')
+    item = soup.find('div', class_="price-box instock price-final_price")
+    get_item = str(item.span.findChild("meta"))
+    get_item = get_item.split('"')[1]
+    get_item = '$' + get_item
+    # return all data
+    msg1 = {'silver_data': silver_data, 'gold_data': gold_data, 'get_item': get_item}
     return render(request, 'PreciousMetals_rates.html', msg1)
 
 
