@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="container-main">
-        <p class="smallFont">Players who had +500 Defensive Fantasy Points</p>
+        <p class="smallFont">Players who had +200 Defensive Fantasy Points</p>
         <table id="myTable" name="brTable">
             <thead class="sticky">
                 <tr class="headerRow">
@@ -27,7 +27,7 @@
                 <td class="center" onclick='showDiv(); savePlayerFunc("{{ value.pk }}");'>{{ value.steals }}</td>
                 <td class="center" onclick='showDiv(); savePlayerFunc("{{ value.pk }}");'>{{ value.blocks }}</td>
                 <td class="right" onclick='showDiv(); savePlayerFunc("{{ value.pk }}");'>{{ value.total_def_points }}</td>
-                <td class="center"><a href="./{{ value.pk }}/favorites/"><button>&#x2713;</button></a></td>
+                <td class="center"><a href="./{{ value.pk }}/favorites/"><button class="favBtn">&#10003;</button></a></td>
             </tr>
             {% endfor %}
             </tbody>

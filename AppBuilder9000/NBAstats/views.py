@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Defensive_Stats, PlayerDb, FavoritesDB
-from .forms import Def_Stats_Form, PlayerDatabaseForm
+from .forms import Def_Stats_Form
 from bs4 import BeautifulSoup
 import requests
 import sqlite3
@@ -101,12 +101,13 @@ def edit_player(request, pk):
 
 
 def remove_favorite(request, pk):
+    player = get_object_or_404(FavoritesDB, pk=pk)
     conn = sqlite3.connect('db.sqlite3')
     with conn:
         cur = conn.cursor()
         cur.execute('DELETE FROM NBAstats_FavoritesDB WHERE id = ?', [pk])
-
-    return render(request, 'nba-delete-favorite.html')
+    content = {'player': player}
+    return render(request, 'nba-delete-favorite.html', content)
 
 
 # ===============================================================================================
@@ -147,7 +148,7 @@ def b_ref(request):
             steals = int(row[24])
             blocks = int(row[25])
             total_def_points = defRebs + (steals * 3) + (blocks * 3)
-            if total_def_points >= 500:
+            if total_def_points >= 200:
                 if playerName != check_name:
                     myStats = {'playerName': playerName,
                                'defRebs': defRebs,
@@ -187,14 +188,8 @@ def save_favorites(request, pk):
         cur = conn.cursor()
         cur.execute('DELETE FROM NBAstats_FavoritesDB WHERE id = ?', [pk])
 
-    # Connect to database and insert player into it
-    conn = sqlite3.connect('db.sqlite3')
-    with conn:
-        cur = conn.cursor()
         cur.execute('INSERT INTO NBAstats_FavoritesDB VALUES (?,?,?,?,?,?)',
                     [pk, name, defRebs, steals, blocks, total])
         conn.commit()
 
-    players = FavoritesDB.objects.all()
-    content = {'players': players}
     return redirect('favorites')
