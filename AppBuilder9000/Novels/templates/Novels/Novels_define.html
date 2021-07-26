@@ -1,0 +1,15 @@
+{% extends "Novels/Novels_base.html" %}
+
+{% block title %} Word Definition {% endblock %}
+
+{% block header %} Word Definition {% endblock %}
+
+{% block content %}
+
+{% for definition in definitions %}
+
+<p> {{ definition }} </p>
+
+{% endfor %}
+
+{% endblock %}

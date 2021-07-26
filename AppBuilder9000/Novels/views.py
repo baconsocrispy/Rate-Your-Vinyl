@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Book
 from .forms import NovelForm
 from django.contrib import messages
+import requests
+import http.client
+import json
 
 # the basic view when visiting the page
 def home(request):
@@ -51,3 +54,15 @@ def novelDelete(request, pk):
         return redirect('Novels_display')
     context = {'book': book}
     return render(request, 'Novels/Novels_delete.html', context)
+
+
+# testing API
+def defineWord(request):
+    response = requests.get('https://api.dictionaryapi.dev/api/v3/entries/en_US/amazing/')
+    print(response.json())
+    definition = response.json()
+    context = {'definitions': definition}
+    return render(request, 'Novels/Novels_define.html', context)
+
+
+
