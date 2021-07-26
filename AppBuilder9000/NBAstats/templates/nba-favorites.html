@@ -14,6 +14,7 @@
                 <th onclick="sortTable(2)">Steals</th>
                 <th onclick="sortTable(3)">Blocks</th>
                 <th onclick="sortTable(4)">Total Def Points</th>
+                <th>Remove</th>
             </tr>
 
             {% for key in players %}
@@ -23,10 +24,11 @@
                 <td class="center">{{ key.steals }}</td>
                 <td class="center">{{ key.blocks }}</td>
                 <td class="right">{{ key.total }}</td>
+                <td class="center"><a href="../{{ key.pk }}/removed/"><button class="favBtn">&times;</button></a></td>
             </tr>
             {% endfor %}
         </table>
-        <br>
+        <br><a href="{% url 'home' %}" class="btnLink"><button class="lilBtn btnRight">Back To All</button></a>
 
     </div>
 

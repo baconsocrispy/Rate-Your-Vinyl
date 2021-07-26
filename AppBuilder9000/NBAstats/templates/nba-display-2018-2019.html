@@ -1,8 +1,8 @@
 {% extends "nba-base.html" %}
 
-{% block title %}NBA Stats Display{% endblock %}
+{% block title %}My Players 2019{% endblock %}
 
-{% block header %}Total Defensive Stats{% endblock %}
+{% block header %}My Players{% endblock %}
 
 {% block content %}
     <div class="container-main">
@@ -15,6 +15,7 @@
             <option value="{% url 'display-2019' %}">2018-2019</option>
             <option value="{% url 'display-all' %}">All</option>
         </select>
+        <a href="{% url 'add-player' %}"><button class="lilBtn btnRight">Add Player</button></a>
         <br>
         <h3>2018-2019</h3>
         <table>
