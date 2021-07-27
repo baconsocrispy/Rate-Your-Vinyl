@@ -1,0 +1,18 @@
+{% extends "Novels/Novels_base.html" %}
+
+{% block title %} Word Definition {% endblock %}
+
+{% block header %} Word Definition API {% endblock %}
+
+{% block content %}
+
+ <label>Enter word to define</label>
+    <form method = 'get'>
+        <input type="text" name="word">
+        <button type="submit">Find Definition</button>
+    </form>
+    {% if define %}
+        {{ define }}
+    {% endif %}
+
+{% endblock %}
