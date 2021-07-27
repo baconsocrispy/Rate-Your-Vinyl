@@ -6,13 +6,12 @@
 
 {% block content %}
 <br>
-<h1>Your Destinations:</h1>
+<h1>Your Trips:</h1>
 <br>
     <div>
         <ul>
             {% for TripName in trips %}
             <strong>{{ TripName.TripName | linebreaks }}</strong>
-            City: {{ TripName.City }}
             {% endfor %}
         </ul>
     </div>
