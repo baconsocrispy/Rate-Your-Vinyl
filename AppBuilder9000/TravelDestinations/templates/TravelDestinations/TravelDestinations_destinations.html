@@ -9,16 +9,12 @@
 <h1>Your Trips:</h1>
 <br>
     <div>
-        <ul>
             {% for TripName in trips %}
-            <a href="{% url 'details' details.id %}">{{ TripName.TripName }}</a>
+            <a href="{% url 'TravelDestinations/details/' details.id %}">{{ TripName.TripName | linebreaks }}</a>
             {% endfor %}
-        </ul>
     </div>
 <br>
 <br>
-<div>
 
-</div>
 {% endblock %}
 

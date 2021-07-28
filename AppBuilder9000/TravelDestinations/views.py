@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import *
-from .models import *
+from .forms import DestinationForm
+from .models import destination
 
 
 def home(request):
@@ -23,7 +23,7 @@ def destinations(request):
     return render(request, 'TravelDestinations/TravelDestinations_destinations.html', content)
 
 
-def tripDetails(request):
-    details = get_object_or_404(destination, id=id)
+def trip_details(request, id):
+    details = destination.destination.get(id=id)
     content = {'details': details}
     return render(request, 'TravelDestinations/TravelDestinations_details.html', content)

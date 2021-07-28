@@ -68,5 +68,3 @@ class destination(models.Model):
 
     # assigns a manager
     destination = models.Manager()
-
-
