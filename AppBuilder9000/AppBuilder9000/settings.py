@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'ControlInventory',
     'Novels',
     'TravelDestinations',
+    'AlbumReviews',
     'NeighborhoodReview',
 ]
 
