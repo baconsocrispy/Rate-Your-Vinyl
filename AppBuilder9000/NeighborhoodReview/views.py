@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
 
 
-def home(request):
+def NeighborhoodReview_home(request):
     return render(request, "NeighborhoodReview/NeighborhoodReview_home.html")
