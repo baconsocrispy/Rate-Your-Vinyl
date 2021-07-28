@@ -11,10 +11,14 @@
     <div>
         <ul>
             {% for TripName in trips %}
-            <strong>{{ TripName.TripName | linebreaks }}</strong>
+            <a href="{% url 'details' details.id %}">{{ TripName.TripName }}</a>
             {% endfor %}
         </ul>
     </div>
+<br>
+<br>
+<div>
 
+</div>
 {% endblock %}
 

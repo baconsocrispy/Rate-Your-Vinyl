@@ -24,6 +24,6 @@ def destinations(request):
 
 
 def tripDetails(request):
-    details = get_object_or_404(destination.City)
+    details = get_object_or_404(destination, id=id)
     content = {'details': details}
     return render(request, 'TravelDestinations/TravelDestinations_details.html', content)
