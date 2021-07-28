@@ -10,5 +10,6 @@ def parseDefine(define):
     for word_type in definitions:
         for word_def in definitions[word_type]:
             print(word_def['definition'])
-            all_definitions.append(word_def['definition'])
+            # makes response as 'word type': 'definition' for each iteration
+            all_definitions.append(f"{word_type}: {word_def['definition']}")
     return all_definitions

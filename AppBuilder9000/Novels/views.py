@@ -72,17 +72,23 @@ def github(request):
     return render(request, 'Novels/github.html', {'user': user})
 
 
-# user can input a word and full dictionary response is returned
-# work in progress - need to isolate full JSON response to just the word's meaning
+# user can input a word and all definitions from API are returned
+# assisted by helper function parseDefine() to iterate through dictionaries in API
 def defineWord(request):
-    define = {}
+    context = {}
     if 'word' in request.GET:
         word = request.GET['word']
         url = 'https://api.dictionaryapi.dev/api/v3/entries/en_US/%s' % word
         response = requests.get(url)
         define = response.json()
-        parseDefine(define)
-    return render(request, 'Novels/Novels_define.html', {'define': define})
+        definition_list = parseDefine(define)
+        print(definition_list)
+        context = {'define': define, 'definition_list': definition_list}
+    return render(request, 'Novels/Novels_define.html', context)
+
+
+
+
 
 
 # =============================================================================================================
