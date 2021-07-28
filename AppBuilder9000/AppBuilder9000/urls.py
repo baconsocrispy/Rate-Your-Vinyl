@@ -29,6 +29,7 @@ urlpatterns = [
     path('ControlInventory/', include('ControlInventory.urls')),
     path('Novels/', include('Novels.urls')),
     path('TravelDestinations/', include('TravelDestinations.urls')),
+    path('NeighborhoodReview/', include('NeighborhoodReview.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
