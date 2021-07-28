@@ -1,0 +1,47 @@
+
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+
+
+
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+
+.fa-anchor,.fa-coffee {font-size:200px}
+
+p{
+    text-align: left
+}
+
+.textfill {
+    background-color:black;
+    color:white;
+    text-align:left;
+    font-size:17px;
+    opacity: 75%;
+    padding-left:50px;
+}
+
+.textfill h1{
+
+
+}
+
+html{
+    background-color:grey
+}
+
+.bgimg {
+    background-color:lightgrey;
+    background-image: url( "/static/images/portland_1.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+#navop {
+    opacity:50%
+}

@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Book
 from .forms import NovelForm
 from django.contrib import messages
+import requests
+import http.client
+import json
 
 # the basic view when visiting the page
 def home(request):
@@ -51,3 +54,41 @@ def novelDelete(request, pk):
         return redirect('Novels_display')
     context = {'book': book}
     return render(request, 'Novels/Novels_delete.html', context)
+
+
+# =====================================================================================================
+# another API test - lookup GitHub repository count by username
+# mostly used just for self-learning on API response
+# returns first name and number of public repositories listed on GitHub
+def github(request):
+    user = {}
+    if 'username' in request.GET:
+        username = request.GET['username']
+        url = 'https://api.github.com/users/%s' % username
+        response = requests.get(url)
+        user = response.json()
+    return render(request, 'Novels/github.html', {'user': user})
+
+
+# user can input a word and full dictionary response is returned
+# work in progress - need to isolate full JSON response to just the word's meaning
+def defineWord(request):
+    define = {}
+    if 'word' in request.GET:
+        word = request.GET['word']
+        url = 'https://api.dictionaryapi.dev/api/v3/entries/en_US/%s' % word
+        response = requests.get(url)
+        define = response.json()
+    return render(request, 'Novels/Novels_define.html', {'define': define})
+
+
+# =============================================================================================================
+''' This was original API test. Not currently in use but keeping block in comment for future reference if needed
+# testing API (work in progress) - this prints entire JSON response 
+def defineWord(request):
+    response = requests.get('https://api.dictionaryapi.dev/api/v3/entries/en_US/amazing/')
+    print(response.json())
+    definition = response.json()
+    context = {'definitions': definition}
+    return render(request, 'Novels/Novels_define.html', context)
+'''

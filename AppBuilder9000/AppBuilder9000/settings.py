@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'Novels',
     'TravelDestinations',
     'AlbumReviews',
+    'NeighborhoodReview',
 ]
 
 MIDDLEWARE = [
