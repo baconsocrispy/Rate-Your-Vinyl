@@ -5,6 +5,8 @@ from django.contrib import messages
 import requests
 import http.client
 import json
+from .helpers import *
+
 
 # the basic view when visiting the page
 def home(request):
@@ -79,6 +81,7 @@ def defineWord(request):
         url = 'https://api.dictionaryapi.dev/api/v3/entries/en_US/%s' % word
         response = requests.get(url)
         define = response.json()
+        parseDefine(define)
     return render(request, 'Novels/Novels_define.html', {'define': define})
 
 
