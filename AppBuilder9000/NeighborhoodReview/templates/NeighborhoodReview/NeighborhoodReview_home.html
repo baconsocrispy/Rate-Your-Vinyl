@@ -12,4 +12,22 @@
     on what you think of the neighborhoods you've checked out! Sharing your experience will help others find out
     what part of town they'd like to settle. It's also a great way to find out more about Portland's neighborhoods!
 
+    <h4>Choose a Neighborhood to Review</h4>
+    <form method ='POST'>
+        <label>View Reviews of Portland's Neighborhoods</label>
+            {% csrf_token %}
+            {{ form.neighborhood_id }}
+        <button class ="btn btn-primary" type = "submit">Review this Neighborhood</button>
+    </form>
+    <hr>
+    <h4>Add a Review</h4>
+
+        <button class = "btn btn-primary" type = "submit"  ><a class="nav nav-pills" style = "color:white" href = "{% url 'NeighborhoodReview/CreateReview.html' %}">Add a Review</a></button>
+
+    <br>
+
+    <h4>Add a New Neighborhood to Review</h4>
+    <div class = "btnop">
+        <button class = "btn btn-primary"  type = "submit"><a class ="nav nav-pills" style = "color:white" href = "{% url 'NeighborhoodReview/CreateNewNeighborhood.html' %}">Add Neighborhood</a></button>
+    </div>
 {% endblock %}
