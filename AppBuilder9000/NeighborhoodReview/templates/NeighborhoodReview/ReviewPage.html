@@ -1,3 +1,5 @@
+
+
 {% load static %}
 
 <!doctype html>
@@ -30,21 +32,44 @@
         </div>
     </div>
 
-    <!--Navbar End-->
-
-<!--body-->
-
-    <div class="bgimg w3-container w3-animate-opacity w3-text-white" style="padding:500px 16px">
-      <div class="w3-display-middle textfill">
-        <h1 class="w3-jumbo w3-animate-top">{% block header %}{% endblock %}</h1>
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <p class ="">{% block content %}{% endblock %}</p>
-      </div>
-
-    </div>
-
-</body>
 
 
-</body>
-</html>
+
+
+
+<div class = "bgimg1 form-container">
+    <form>
+        <br>
+        <label class = "labelfill">Neighborhood</label><br>
+        <input type ="text" size = "50" name = "neighborhoodName" value = "{{ neighborhood_id }}" readonly style="text-align: center" class="labelfill">
+        <br><br>
+    </form>
+    <br><br>
+</div>
+
+<div class = "table-container table-dark">
+    <h2 style = "text-align: center">RECENT REVIEWS</h2>
+                <table id ="review-table" >
+                    <tr>
+                        <th>Date</th>
+                        <th>Rating</th>
+                        <th>Commute</th>
+                        <th>Walk Score</th>
+                        <th>Life Stage</th>
+                        <th>Comment</th>
+                    </tr>
+
+                {% for key in reviews %}
+
+                    <tr>
+                        <td class="left">{{ key.date }} </td>
+                        <td class="left">{{ key.rating }}</td>
+                        <td class="left">{{ key.commute }}</td>
+                        <td class="left">{{ key.walkability }}</td>
+                        <td class="left">{{ key.reviewer_life_stage }}</td>
+                        <td id="comment-length" class="left-long">{{ key.comment }}</td>
+                    </tr>
+                    {% endfor %}
+               </table>
+
+</div>
