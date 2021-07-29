@@ -6,16 +6,15 @@
 
 {% block content %}
 <br>
-<h1>Your Destinations:</h1>
+<h1>Your Trips:</h1>
 <br>
     <div>
-        <ul>
             {% for TripName in trips %}
-            <strong>{{ TripName.TripName | linebreaks }}</strong>
-            City: {{ TripName.City }}
+            <a href="{% url 'TravelDestinations_details.html' TripName.id %}">{{ TripName.TripName | linebreaks }}</a>
             {% endfor %}
-        </ul>
     </div>
+<br>
+<br>
 
 {% endblock %}
 
