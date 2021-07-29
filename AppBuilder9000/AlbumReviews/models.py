@@ -6,8 +6,8 @@ class Album(models.Model):
     Artist = models.CharField(max_length=30, null=False, blank=False)
     Year = models.IntegerField
     Genre = models.CharField(max_length=50)
-    Rating = models.DecimalField(max_digits=2, decimal_places=1, default=0.0)
-    Review = models.TextField
+    Rating = models.DecimalField(max_digits=3, decimal_places=1, default=0.0)
+    Review = models.TextField(default="Type your review here (optional)")
 
     objects = models.Manager()
 
