@@ -4,7 +4,7 @@
 	{% block content %}
 		<div>
 
-			<form method="POST" action="{% url 'AlbumReviews_add' %}">
+			<form method="POST" action="{% url 'AlbumReviews_add.html' %}">
 				<div class="add_form">
 					<h1>Add New Album</h1>
 					<p>
@@ -13,7 +13,7 @@
 					</p>
 					<div class="btn-container">
 						<button type="submit" value="Submit">Submit</button>
-						<button value="Cancel"><a href="{% url 'AlbumReviews_home' %}">Cancel</a></button>
+						<button value="Cancel"><a href="{% url 'AlbumReviews_home.html' %}">Cancel</a></button>
 					</div>
 				</div>
 			</form>

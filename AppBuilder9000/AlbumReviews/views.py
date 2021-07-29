@@ -11,5 +11,5 @@ def add(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('AlbumReviews_add')
+            return redirect('AlbumReviews_add.html')
     return render(request, "AlbumReviews/AlbumReviews_add.html", {'form': form})
