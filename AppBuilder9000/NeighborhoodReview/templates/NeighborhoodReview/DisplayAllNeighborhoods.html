@@ -1,0 +1,25 @@
+{% extends "NeighborhoodReview/NeighborhoodReview_base.html" %}
+
+{% block title %}List all neighborhoods{%  endblock %} }
+
+{% block header %}Click on Link Below to Find Average Rating{% endblock %}
+
+{% block content %}
+
+<h2 style = "text-align: center">Neighborhood List</h2>
+                <table id ="table" >
+
+                    <tr>
+                        <th>List</th>
+                    </tr>
+
+                {% for neigh in neigh_list   %}
+
+                    <tr>
+                        <td><a href = "{% url 'DisplayNeighborhood_item.html' neigh.id %}">{{ neigh.name }} </a> </td>
+                    </tr>
+                {% endfor %}
+               </table>
+
+
+{% endblock %}
