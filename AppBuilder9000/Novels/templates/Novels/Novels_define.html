@@ -9,11 +9,11 @@
  <label>Enter word to define</label>
     <form method = 'get'>
         <input type="text" name="word" required>
-        <button type="submit">Find Definition</button>
+        <button type="submit" class="find_btn">Find Definition</button>
     </form>
 
-    {% if definition_list %}
-        {{ definition_list }}
-    {% endif %}
+    {% for definition in definition_list %}
+        {{ definition }} <br>
+    {% endfor %}
 
 {% endblock %}

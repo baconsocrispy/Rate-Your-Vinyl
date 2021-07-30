@@ -6,7 +6,7 @@ import requests
 import http.client
 import json
 from .helpers import *
-
+from bs4 import BeautifulSoup
 
 # the basic view when visiting the page
 def home(request):
@@ -59,7 +59,7 @@ def novelDelete(request, pk):
 
 
 # =====================================================================================================
-# another API test - lookup GitHub repository count by username
+# API test - lookup GitHub repository count by username
 # mostly used just for self-learning on API response
 # returns first name and number of public repositories listed on GitHub
 def github(request):
@@ -87,17 +87,16 @@ def defineWord(request):
     return render(request, 'Novels/Novels_define.html', context)
 
 
+# =======================================================================================
+
+# Use Beautiful Soup to retrieve information from external web page
+def soupRead(request):
+    page = requests.get('https://www.healthline.com/health/benefits-of-reading-books')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    body = soup.article
+    para_text = parseSoup(body)
+    context = {'para_text': para_text}
+    return render(request, 'Novels/Novels_why.html', context)
 
 
 
-
-# =============================================================================================================
-''' This was original API test. Not currently in use but keeping block in comment for future reference if needed
-# testing API (work in progress) - this prints entire JSON response 
-def defineWord(request):
-    response = requests.get('https://api.dictionaryapi.dev/api/v3/entries/en_US/amazing/')
-    print(response.json())
-    definition = response.json()
-    context = {'definitions': definition}
-    return render(request, 'Novels/Novels_define.html', context)
-'''

@@ -11,8 +11,8 @@
         {% csrf_token %}
         {{ form.as_table }}
     </table>
-    <input type="submit" value="Click here to confirm edits">
-    <button><a href="../{{ form.pk }}Novels_delete/">Delete Record</a></button>
+    <input type="submit" class="btn" value="Click here to confirm edits">
+    <button class="btn"><a href="../{{ form.pk }}Novels_delete/">Delete Record</a></button>
 </form>
 
 

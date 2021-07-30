@@ -6,28 +6,28 @@
 
 {% block content %}
 
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Author</th>
-        </tr>
-
-        {% for novels in all_novels %}
+        <table>
             <tr>
-                <td>{{ novels.Title }}</td>
-                <td>{{ novels.Author }}</td>
+                <th>Title</th>
+                <th>Author</th>
             </tr>
+
+            {% for novels in all_novels %}
+                <tr>
+                    <td>{{ novels.Title }}</td>
+                    <td>{{ novels.Author }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+<div class="dropdown">
+        <label>Select a title from the list to see more information</label>
+        <select onChange="top.location.href=this.options[this.selectedIndex].value;">
+            <option value=""></option>
+        {% for novels in all_novels %}
+            <option value="../{{ novels.pk }}/Novels_details/">{{ novels.Title }}</option>
         {% endfor %}
-
-    </table>
-
-    <label>Select a title from the list to see more information</label>
-    <select onChange="top.location.href=this.options[this.selectedIndex].value;">
-        <option value=""></option>
-    {% for novels in all_novels %}
-        <option value="../{{ novels.pk }}/Novels_details/">{{ novels.Title }}</option>
-    {% endfor %}
-    </select>
-
+        </select>
+</div>
 
 {% endblock %}
