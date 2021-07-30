@@ -7,6 +7,7 @@ def home(request):
     return render(request, 'TravelDestinations/TravelDestinations_home.html')
 
 
+# function allows the user to add trips
 def TravelDestinations_add(request):
     form = DestinationForm(data=request.POST or None)
     if request.method == 'POST':
@@ -17,18 +18,21 @@ def TravelDestinations_add(request):
     return render(request, 'TravelDestinations/TravelDestinations_add.html', content)
 
 
+# function renders all trips in database
 def destinations(request):
     trips = destination.destination.all()
     content = {'trips': trips}
     return render(request, 'TravelDestinations/TravelDestinations_destinations.html', content)
 
 
+# function displays the details of a specific trip
 def trip_details(request, id):
     details = destination.destination.get(id=id)
     content = {'details': details}
     return render(request, 'TravelDestinations/TravelDestinations_details.html', content)
 
 
+# function allows the user to edit trip details
 def trip_edit(request, id):
     item_details = get_object_or_404(destination, id=id)
     form = DestinationForm(request.POST or None, instance=item_details)
@@ -39,6 +43,7 @@ def trip_edit(request, id):
     return render(request, 'TravelDestinations/TravelDestinations_edit.html', content)
 
 
+# function enables user to delete trips from database
 def trip_delete(request, id):
     data = get_object_or_404(destination, id=id)
     if request.method == 'POST':
