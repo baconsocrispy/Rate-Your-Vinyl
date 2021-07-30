@@ -78,26 +78,26 @@ def item_details(request, pk):
 
 def edit_neighborhood(request, pk):
     item = get_object_or_404(Neighborhood, pk=pk)
-    form = NeighborhoodForm(data=request.POST or None, instance=item) # selects an instance of a neighborhood
+    form = NeighborhoodForm(data=request.POST or None, instance=item)  # selects an instance of a neighborhood
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('NeighborhoodReview/DisplayNeighborhood_item.html')
-    else:
-        return redirect(request, 'NeighborhoodReview/edit.html', {'form': form})
+            return redirect('DisplayNeighborhood_item.html')
+    content = {'form': form}
+    return render(request, 'NeighborhoodReview/edit.html', content)
 
 
 # deletes neighborhood, then sends you to confirmation page where neighborhood can be perminately deleted.
 
 
-def delete(request, pk):
+def delete_neighborhood(request, pk):
     pk = int(pk)
     item = get_object_or_404(Neighborhood, pk=pk)
     if request.method == 'POST':
         item.delete()
-        return redirect('NeighborhoodReview/DisplayNeighborhood_item.html')
-    context = {"item": item, }
-    return render(request, 'NeighborhoodReview/DeleteFromNeighborhood.html', context)
+        return redirect('DisplayNeighborhood_item.html')
+    content = {"item": item}
+    return render(request, 'NeighborhoodReview/DeleteFromNeighborhood.html', content)
 
 
 
