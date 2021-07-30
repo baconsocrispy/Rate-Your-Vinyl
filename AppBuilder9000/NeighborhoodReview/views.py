@@ -10,11 +10,11 @@ from django.db.models import Count, F, Value, Avg
 
 def neighborhoodReview_home(request):
     form = ReviewForm(data=request.POST or None)
-    if request.method =='POST':
+    if request.method == 'POST':
         pk = request.POST['neighborhood_id']
         return reviewpage(request, pk)
     content = {'form': form}
-    return render(request, "NeighborhoodReview/NeighborhoodReview_home.html",content)
+    return render(request, "NeighborhoodReview/NeighborhoodReview_home.html", content)
 
 
 # creates a neighborhood to be reviewed.
@@ -71,10 +71,33 @@ def item_details(request, pk):
     pk = int(pk)
     neigh_item = Neighborhood.objects.filter(pk=pk)
     reviews = Review.Reviews.filter(neighborhood_id=pk)
-    avg_rating = reviews.aggregate(Avg('rating')) # creates a dictionary with name rating__avg
+    avg_rating = reviews.aggregate(Avg('rating'))  # creates a dictionary with name rating__avg
     item_content = {'neigh_item': neigh_item, 'avg_rating': avg_rating}
-    return render(request, "NeighborhoodReview/DisplayNeighborhood_item.html", item_content)
+    return render(request, 'NeighborhoodReview/DisplayNeighborhood_item.html', item_content)
 
+
+def edit_neighborhood(request, pk):
+    item = get_object_or_404(Neighborhood, pk=pk)
+    form = NeighborhoodForm(data=request.POST or None, instance=item) # selects an instance of a neighborhood
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('NeighborhoodReview/DisplayNeighborhood_item.html')
+    else:
+        return redirect(request, 'NeighborhoodReview/edit.html', {'form': form})
+
+
+# deletes neighborhood, then sends you to confirmation page where neighborhood can be perminately deleted.
+
+
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Neighborhood, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('NeighborhoodReview/DisplayNeighborhood_item.html')
+    context = {"item": item, }
+    return render(request, 'NeighborhoodReview/DeleteFromNeighborhood.html', context)
 
 
 

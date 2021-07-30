@@ -1,0 +1,16 @@
+{% extends "NeighborhoodReview/NeighborhoodReview_base.html" %}
+
+{% block title %}Delete Neighborhood{%  endblock %} }
+
+{% block header %}Delete Summary{% endblock %}
+
+{% block content %}
+
+    <form method = 'POST'>
+        {% csrf_token %}
+        <h4> Deleting Neighborhood {{ neigh_item }}</h4>
+            <input type="submit" value ="delete">
+            <a href = "{% url 'NeighborhoodReview/NeighborhoodReview_home.html' %}"><button>Cancel</button></a>
+    </form>
+
+{% endblock %}
