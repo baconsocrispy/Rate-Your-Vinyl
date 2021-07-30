@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:pk>/Novels_details/', views.novelDetails, name="Novels_details"),
     path('<int:pk>/Novels_delete/', views.novelDelete, name="Novels_delete"),
     path('Novels_define/', views.defineWord, name="Novels_define"),
-    path('test/', views.github, name='test')
+    path('Novels_why/', views.soupRead, name="Novels_why"),
+    path('test/', views.github, name='test'),
 ]

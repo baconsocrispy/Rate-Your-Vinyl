@@ -8,6 +8,11 @@ body {
     background-repeat: no-repeat;
 }
 
+.why_read {
+text-align: left;
+font-size: 16pt;
+}
+
 /* ----- End Basic Page Styling ----- */
 
 /* ----- Display Table Styling ----- */
