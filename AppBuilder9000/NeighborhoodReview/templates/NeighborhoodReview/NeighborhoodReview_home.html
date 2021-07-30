@@ -31,7 +31,12 @@
     <br>
     <div class = "home-page-bottom">
     <h4>Add a New Neighborhood to Review</h4>
-
         <button class = "btn btn-primary"  type = "submit"><a class ="nav nav-pills" style = "color:white" href = "{% url 'NeighborhoodReview/CreateNewNeighborhood.html' %}">Add Neighborhood</a></button>
     </div>
+
+    <div class = "home-page-bottom">
+    <h4>See a List of All Reviewed Changes</h4>
+        <button class = "btn btn-primary"  type = "submit"><a class ="nav nav-pills" style = "color:white" href = "{% url 'NeighborhoodReview/DisplayAllNeighborhoods.html' %}">See List</a></button>
+    </div>
+
 {% endblock %}

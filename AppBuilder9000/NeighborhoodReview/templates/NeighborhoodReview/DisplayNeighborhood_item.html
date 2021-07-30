@@ -1,0 +1,29 @@
+{% extends "NeighborhoodReview/NeighborhoodReview_base.html" %}
+
+{% block title %}List all neighborhoods{%  endblock %} }
+
+{% block header %}Neighborhood Summary{% endblock %}
+
+{% block content %}
+
+<h2 style = "text-align: center">Neighborhood List</h2>
+                <table id ="review-table" >
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Average Rating</th>
+                    </tr>
+
+                {% for key in neigh_item %}
+
+                    <tr>
+                        <td>{{ key.name }}</td>
+                        <td>{{ key.location }}</td>
+                        <td>{{ avg_rating.rating__avg }}</td>
+                    </tr>
+                {% endfor %}
+
+               </table>
+
+
+{% endblock %}

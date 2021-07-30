@@ -1,16 +1,16 @@
 from django.db import models
 #for review class
 INTEGER_CHOICES = [tuple([x, x]) for x in range(1, 11)]
-POP_CHOICES = {('Family', 'Family'), ('Young Professional', 'Young Professional'), ('Retiree', 'Retiree')}
-COMMUTE_CHOICES = {('Long', 'Long'), ('Fair', 'Fair'), ('Short', 'Short')}
-WALK_CHOICES = {('Very Walkable', 'Very Walkable'), ('Somewhat Walkable', 'Somewhat Walkable'), ('Not Walkable', 'Not Walkable')}
+POP_CHOICES = [('Family', 'Family'), ('Young Professional', 'Young Professional'), ('Retiree', 'Retiree')]
+COMMUTE_CHOICES = [('Long', 'Long'), ('Fair', 'Fair'), ('Short', 'Short')]
+WALK_CHOICES = [('Very Walkable', 'Very Walkable'), ('Somewhat Walkable', 'Somewhat Walkable'), ('Not Walkable', 'Not Walkable')]
 
 
 
 #for neighborhood class
 
-LOCATION_CHOICES = {('Northwest', 'Northwest'), ('North', 'North'), ('Northeast', 'Northeast'), ('Southeast', 'Southeast'),
-                    ('Southwest', 'Southwest'), ('Beaverton', 'Beaverton'), ('Hillsboro', 'Hillsboro')}
+LOCATION_CHOICES = [('Northwest', 'Northwest'), ('North', 'North'), ('Northeast', 'Northeast'), ('Southeast', 'Southeast'),
+                    ('Southwest', 'Southwest'), ('Beaverton', 'Beaverton'), ('Hillsboro', 'Hillsboro')]
 
 
 class Neighborhood(models.Model):
