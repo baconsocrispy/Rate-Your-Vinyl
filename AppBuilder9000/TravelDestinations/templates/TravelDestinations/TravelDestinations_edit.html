@@ -2,16 +2,16 @@
 
 {% load static %}
 
-{% block title %} Add Destination {% endblock %}
+{% block title %} Edit Trip {% endblock %}
 
-{% block content  %}
+{% block content %}
 
-<h1>ADD DESTINATION TO YOUR WATCHLIST</h1>
+<h1>EDIT TRIP</h1>
     <div id="DestinationForm">
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <button id="new-button" type="submit" name="add-destination">ADD</button>
+            <button id="new-button" type="submit" name="update-destination">UPDATE</button>
         </form>
         <br>
     </div>

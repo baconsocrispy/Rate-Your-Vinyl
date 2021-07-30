@@ -10,7 +10,7 @@
 <br>
     <div>
             {% for TripName in trips %}
-            <a href="{% url 'TravelDestinations_details.html' TripName.id %}">{{ TripName.TripName | linebreaks }}</a>
+        <button><a href="{% url 'TravelDestinations_details.html' TripName.id %}">{{ TripName.TripName | linebreaks }}</a></button>
             {% endfor %}
     </div>
 <br>
