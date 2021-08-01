@@ -11,8 +11,12 @@ urlpatterns = [
     path('review/', views.review, name='NeighborhoodReview/CreateReview.html'),
     path('<int:pk>/viewreviews/', views.reviewpage, name='NeighborhoodReview/ReviewPage.html'),
     path('neighborhood_details/', views.details, name='NeighborhoodReview/DisplayAllNeighborhoods.html'),
-    path('<int:pk>/neighborhood_item_details/', views.item_details, name='DisplayNeighborhood_item.html'),
+    path('<id>/neighborhood_item_details/', views.item_details, name='DisplayNeighborhood_item.html'),
     path('<int:pk>/edit_neighborhood/', views.edit_neighborhood, name='NeighborhoodReview/edit.html'),
-    path('<int:pk>/DeleteNeighborhood/', views.delete_neighborhood, name='NeighborhoodReview/DeleteNeighborhood.html')
+    path('<int:pk>/DeleteNeighborhood/', views.delete_neighborhood, name='NeighborhoodReview/DeleteNeighborhood.html'),
+    path('<id>/edit_review/', views.edit_review, name='NeighborhoodReview/edit_Review.html'),
+    path('<id>/DeleteReview/',views.delete_review, name= 'NeighborhoodReview/DeleteReview.html'),
+    path('Review_Details/',views.review_details, name= 'NeighborhoodReview/Review_Details.html'),
+    path('<id>/review_item_detail/', views.review_item, name='Review_items.html'),
 ]
 
