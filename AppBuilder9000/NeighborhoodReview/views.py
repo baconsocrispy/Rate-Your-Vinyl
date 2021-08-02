@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NeighborhoodForm, ReviewForm
 from .models import Neighborhood, Review
 from django.db.models import Count, F, Value, Avg
+import requests
+from bs4 import BeautifulSoup
 
 
 
@@ -100,7 +102,7 @@ def delete_neighborhood(request, pk):
     form = NeighborhoodForm(data=request.POST or None, instance=item)  # selects an instance of a neighborhood
     if request.method == 'POST':
         item.delete()
-        return redirect('../neighborhood_item_details')
+        return redirect('NeighborhoodReview/DisplayAllNeighborhoods.html')
     content = {"item": item, "form": form}
     return render(request, 'NeighborhoodReview/DeleteNeighborhood.html', content)
 
@@ -122,7 +124,7 @@ def delete_review(request, id):
     form = ReviewForm(data=request.POST or None, instance=item)  # selects an instance of a neighborhood
     if request.method == 'POST':
         item.delete()
-        return redirect('../review_item_detail/')
+        return redirect('NeighborhoodReview/Review_Details.html')
     content = {"item": item, "form": form}
     return render(request, 'NeighborhoodReview/DeleteReview.html', content)
 
@@ -142,6 +144,22 @@ def review_item(request, id):
     get_item = get_object_or_404(item, id=id)
     item_content = {'get_item': get_item}
     return render(request, 'NeighborhoodReview/Review_items.html', item_content)
+
+
+def soup_page(request):
+    page = requests.get("https://smartasset.com/taxes/oregon-property-tax-calculator")
+    soup = BeautifulSoup(page.content, 'html.parser')  #contect to page using beautiful soup.
+    data = []
+    tax_table = soup.find("div", attrs={"id": "table-pk-16840"})  # find the table with the data, locate the class needed
+    rows = tax_table.findAll("tr")  # find all elements in tr or below
+    for row in rows:
+        cols = row.find_all('td')
+        cols = [ele.text.strip() for ele in cols]  # iterate through columns and strip extra space
+        data.append([ele for ele in cols if ele])  # if the there's an element in the column append to the data.
+
+    content = {'data': data}
+    return render(request, "NeighborhoodReview/BeautifulSoup.html", content)
+
 
 
 
