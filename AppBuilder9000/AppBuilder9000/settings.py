@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'TravelDestinations',
     'AlbumReviews',
     'NeighborhoodReview',
-    'OnlineWishList',
+    'PasswordManager',
 ]
 
 MIDDLEWARE = [
