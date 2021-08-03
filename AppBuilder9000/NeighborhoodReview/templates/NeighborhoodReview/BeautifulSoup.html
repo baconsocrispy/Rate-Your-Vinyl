@@ -1,0 +1,39 @@
+{% extends "NeighborhoodReview/NeighborhoodReview_base.html" %}
+
+{% load static %}
+
+{% block title %}Portland Neighborhood Review App {%  endblock %}
+
+{% block header %}Import Oregon Housing Stats {% endblock %}
+
+{% block content %}
+    <table id ="table">
+
+
+                <tr>
+                    <td>County</td>
+                    <td>Median Home Value</td>
+                    <td>Avg Prpty Tax Pymt</td>
+                    <td>Prty Tax Rate</td>
+
+                </tr>
+
+
+        {% for td in zipped_list   %}
+            <tr>
+                <td>
+                    {{ td.0 }}
+                </td>
+                 <td>
+                    {{ td.1 }}
+                </td>
+                 <td>
+                    {{ td.2 }}
+                </td>
+                 <td>
+                    {{ td.3 }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
