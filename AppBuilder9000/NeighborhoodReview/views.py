@@ -148,7 +148,7 @@ def review_item(request, id):
 
 def soup_page(request):
     page = requests.get("https://smartasset.com/taxes/oregon-property-tax-calculator")
-    soup = BeautifulSoup(page.content, 'html.parser')  #contect to page using beautiful soup.
+    soup = BeautifulSoup(page.content, 'html.parser')  #connect to page using beautiful soup.
     data = []
     tax_table = soup.find("div", attrs={"id": "table-pk-16840"})  # find the table with the data, locate the class needed
     rows = tax_table.findAll("tr")  # find all elements in tr or below
@@ -157,8 +157,19 @@ def soup_page(request):
         cols = [ele.text.strip() for ele in cols]  # iterate through columns and strip extra space
         data.append([ele for ele in cols if ele])  # if the there's an element in the column append to the data.
 
-    content = {'data': data}
+    data_list = []
+    for sublist in data:
+        for item in sublist:
+            data_list.append(item)  #takes list of list and combines it into a list so it can be formatted neatly.
+
+    county = data_list[::4]  #subsetting data
+    value = data_list[1::4]
+    tax_pymt = data_list[2::4]
+    tax_rate = data_list[3::4]
+    zipped_list = zip(county, value, tax_pymt, tax_rate) # adding list together, so they can be iterated through.
+    content = {'zipped_list': zipped_list}
     return render(request, "NeighborhoodReview/BeautifulSoup.html", content)
+
 
 
 
