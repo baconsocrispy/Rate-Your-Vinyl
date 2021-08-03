@@ -2,27 +2,31 @@
 
 {% load static %}
 
-{% block title %}Portland Neighborhood Review App {%  endblock %} }
+{% block title %}Portland Neighborhood Review App {%  endblock %}
 
 {% block header %}Portland Neighborhood Review {% endblock %}
 
 {% block content %}
 
-    Are you currently looking to buy or rent a home in the Portland area? Share your thoughts with the community
-    on what you think of the neighborhoods you've checked out! Sharing your experience will help others find out
-    what part of town they'd like to settle. It's also a great way to find out more about Portland's neighborhoods!
+    Are you currently looking to buy or rent a home in the Portland area? <br> Share your thoughts with the community
+    on what you think of the neighborhoods you've checked out! Sharing your experience <br> will help others find out
+    what part of town they'd like to settle in.<br> It's also a great way to find out more about Portland's neighborhoods!
 
-    <h4>Choose a Neighborhood to Review</h4>
+
    <br>
     <form method ='POST'>
-    <div class="mb-3">
-        <label class = "form-label">View Reviews of Portland's Neighborhoods</label>
-            {% csrf_token %}
-            {{ form.neighborhood_id }}
+    <div class ='text-center'>
+        <h4 style="padding-bottom: 15px; ">See the below options</h4>
+        <div class="mb-3" >
+            <label class = "form-label">View Reviews of Portland's Neighborhoods</label>
+                {% csrf_token %}
+                {{ form.neighborhood_id }}
+        </div>
+            <button class ="btn btn-primary" type = "submit">Review this Neighborhood</button>
     </div>
-        <button class ="btn btn-primary" type = "submit">Review this Neighborhood</button>
     </form>
-    <hr>
+        <hr>
+
     <div class = "home-page-bottom">
     <h4>Add a Review</h4>
 
@@ -35,8 +39,16 @@
     </div>
 
     <div class = "home-page-bottom">
-    <h4>See a List of All Reviewed Changes</h4>
-        <button class = "btn btn-primary"  type = "submit"><a class ="nav nav-pills" style = "color:white" href = "{% url 'NeighborhoodReview/DisplayAllNeighborhoods.html' %}">See List</a></button>
+    <h4>See a List of All Reviewed Neighborhoods</h4>
+        <button class = "btn btn-primary"  type = "submit"><a class ="nav nav-pills" style = "color:white" href = "{% url 'NeighborhoodReview/DisplayAllNeighborhoods.html' %}">See Neighborhood List</a></button>
     </div>
+
+    <div class = "home-page-bottom">
+    <h4>See a List of All Reviews</h4>
+
+        <button class = "btn btn-primary"  type = "submit"><a class ="nav nav-pills" style = "color:white" href = "{% url 'NeighborhoodReview/Review_Details.html' %}">See Review List</a></button>
+    </div>
+
+
 
 {% endblock %}

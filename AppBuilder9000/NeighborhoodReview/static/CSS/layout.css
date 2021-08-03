@@ -8,26 +8,35 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 
 p{
-    text-align: left
+    text-align: left;
+    font-size:16px;
 }
+
+.button-color {
+
+    background-color: rgba(10, 186, 241,1);
+}
+
 
 .textfill {
-    background-color:black;
+    background-color: rgba(10, 10, 10, 0.8);
     color:white;
     text-align:left;
-    font-size:17px;
-    opacity: 75%;
     padding-left:50px;
+    padding-right:50px;
 }
 
 
+.home-page-font {
+
+    font-size:32px;
+}
 
 .labelfill{
     background-color:black;
     color:white;
     text-aligh:left;
     font-size:20px;
-    opacity:85%;
     padding-left:15px;
     padding-right:15px;
 }
@@ -70,7 +79,7 @@ html{
 
 .btnop {
 
-    opacity:100%;
+    opacity:70%;
     text-decoration:none;
 }
 
@@ -85,6 +94,13 @@ account-form, review-form {
 .center {
 	text-align: center;
 	width: 15%;
+}
+
+.list-font {
+
+    color: rgba(130, 234, 211, 0.45);
+    font-size:20px;
+    border:none;
 }
 
 .left{
@@ -162,5 +178,12 @@ td {
 .home-page-bottom {
     text-align: center;
 	padding:20px 20px;
+
+}
+
+#review-summary-font {
+
+    font-size: 24px;
+    margin:auto;
 
 }

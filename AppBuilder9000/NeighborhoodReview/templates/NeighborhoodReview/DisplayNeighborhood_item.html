@@ -14,16 +14,26 @@
                         <th>Average Rating</th>
                     </tr>
 
-                {% for key in neigh_item %}
+
 
                     <tr>
-                        <td>{{ key.name }}</td>
-                        <td>{{ key.location }}</td>
+                        <td>{{ neigh_item.name }}</td>
+                        <td>{{ neigh_item.location }}</td>
                         <td>{{ avg_rating.rating__avg }}</td>
                     </tr>
-                {% endfor %}
+
 
                </table>
+
+    <div class = form-btn-container>
+
+
+    <div class = frmBtn_container>
+        <a href = "../edit_neighborhood/" > Edit </a>
+        <a href ="../DeleteNeighborhood/" >Delete </a>
+
+    </div>
+</div>
 
 
 {% endblock %}

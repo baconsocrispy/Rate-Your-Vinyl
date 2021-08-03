@@ -2,7 +2,7 @@
 
 <!doctype html>
 <html lang="en" >
-<body>
+
     <head>
         <meta charset="UTF-8">
         <title>{% block title%}{% endblock %}</title>
@@ -19,7 +19,7 @@
 
     <!--Navbar-->
 
-    <div class="w3-top" id= navop>
+    <div class="w3-top" style ="opacity:.7;">
         <div class="w3-bar w3-grey w3-card w3-left-align w3-large">
             <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-blue"  title="NavMenu"><i class="fa fa-bars"></i></a>
             <a href= "{% url 'NeighborhoodReview/NeighborhoodReview_home.html' %}" class="w3-bar-item w3-button w3-padding-large w3-white" >Home</a>
@@ -32,19 +32,18 @@
 
     <!--Navbar End-->
 
-<!--body-->
 
-    <div class="bgimg w3-container w3-animate-opacity w3-text-white" style="padding:500px 16px">
-      <div class="w3-display-middle textfill">
-        <h1 class="w3-jumbo w3-animate-top">{% block header %}{% endblock %}</h1>
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <p class ="">{% block content %}{% endblock %}</p>
-      </div>
 
-    </div>
 
-</body>
-
+        <div class="bgimg w3-container" style="padding:600px 16px">
+            <div class="w3-display-middle textfill">
+                 <h2 style ="font-size:35px; padding-bottom: 25px; padding-top: 50px" >{% block header %}{% endblock %}
+                    <hr class="w3-border-grey" style="margin:auto;width:80%;padding-bottom: 20px;">
+                 </h2>
+                    <p>{% block content %}{% endblock %}</p>
+          </div>
+        </div>
 
 </body>
+
 </html>
