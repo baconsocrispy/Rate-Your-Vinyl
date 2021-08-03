@@ -2,24 +2,22 @@
 
 {% block title %}List all neighborhoods{%  endblock %} }
 
-{% block header %}Click on Link Below to Find Average Rating{% endblock %}
+{% block header %}Select Neighborhood to Edit{% endblock %}
 
 {% block content %}
 
-<h2 style = "text-align: center">Neighborhood List</h2>
-                <table id ="table" >
 
-                    <tr>
-                        <th>List</th>
-                    </tr>
+<h4>Neighborhood List</h4>
 
-                {% for neigh in neigh_list   %}
+    <table id ="table">
 
-                    <tr>
-                        <td><a href = "{% url 'DisplayNeighborhood_item.html' neigh.id %}">{{ neigh.name }} </a> </td>
-                    </tr>
-                {% endfor %}
-               </table>
+        {% for neigh in neigh_list   %}
+            <tr >
+                <td ><a href = "{% url 'DisplayNeighborhood_item.html' neigh.id %}" class ="list-font" >{{ neigh.name }} </a> </td>
+            </tr>
+        {% endfor %}
 
+    </table>
+    </div>
 
 {% endblock %}

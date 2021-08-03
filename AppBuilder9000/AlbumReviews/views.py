@@ -18,3 +18,8 @@ def AlbumReviews_list(request):
     albums = Album.objects.order_by('-id')
     context = {'albums': albums}
     return render(request, "AlbumReviews/AlbumReviews_list.html", context)
+
+def Album_details(request, id):
+    details = Album.objects.get(id=id)
+    context = {'details': details}
+    return render(request, "AlbumReviews/Albumreviews_details.html", context)
