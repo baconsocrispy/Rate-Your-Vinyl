@@ -16,6 +16,7 @@
                         <span class="album_details"><h3>Genre:</h3> {{ a.Genre }}</span>
                         <span class="album_details"><h3>Rating:</h3> {{ a.Rating }}</span><br>
                         <p>{{ a.Review|truncatechars:400 }}</p>
+                        <a href="{% url 'AlbumReviews_details' a.id %}"><button>View Details</button></a>
                     </div>
                 {% endfor %}
             </div>

@@ -4,6 +4,7 @@ body {
     background-image: url("/static/images/records.jpg");
     background-position: center;
     background-attachment: fixed;
+    background-size: cover;
     margin: 0px;
     font-family: 'Noto Sans JP', sans-serif;
     min-height: 100vh;
@@ -43,19 +44,18 @@ nav a:hover {
 .container {
     border: 1px black solid;
     display: block;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.4);
     color: white;
-    min-height: 70vh;
+    min-height: 75vh;
     padding: 15px;
 }
 
 form {
-    background-color: rgba(255, 255, 255, 0.75);
-    color: black;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
     width: 70%;
     padding: 15px;
     margin: auto;
-    border-radius: 5px;
 }
 
 .add_form {
@@ -105,6 +105,7 @@ button:hover {
     background-color: lime;
     color: black;
     font-weight: bold;
+    cursor: pointer;
 }
 
 button:hover a {
@@ -128,7 +129,7 @@ button:hover a {
     margin-bottom: 10px;
 }
 
-.album h3 {
+.album h3, .info h3 {
     display: inline;
     font-size: 14pt;
     padding-right: 5px;
@@ -142,6 +143,11 @@ button:hover a {
 .album p {
     padding-top: 0px;
     padding-bottom: 25px;
+}
+
+.info {
+    display: block;
+    width: 100%;
 }
 
 footer {
