@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AlbumForm
 from .models import Album
 
@@ -22,4 +22,22 @@ def AlbumReviews_list(request):
 def Album_details(request, id):
     details = Album.objects.get(id=id)
     context = {'details': details}
-    return render(request, "AlbumReviews/Albumreviews_details.html", context)
+    return render(request, "AlbumReviews/AlbumReviews_details.html", context)
+
+def Album_delete(request, id):
+    item = get_object_or_404(Album, id=id)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('AlbumReviews_list')
+    context = {'item': item}
+    return render(request, 'AlbumReviews/AlbumReviews_delete.html', context)
+
+def Album_edit(request, id):
+    item = get_object_or_404(Album, id=id)
+    form = AlbumForm(data=request.POST or None, instance=item)
+    if form.is_valid():
+        form.save()
+        return redirect('AlbumReviews_list')
+    context = {'form': form}
+    return render(request, "AlbumReviews/AlbumReviews_edit.html", context)
+
