@@ -171,6 +171,14 @@ def soup_page(request):
     return render(request, "NeighborhoodReview/BeautifulSoup.html", content)
 
 
+def api_pull(request): # if time permits I will be updating this part to add more relevant data.
+    data = {}
+    if 'id' in request.GET:
+        id = request.GET['id']
+        url = 'https://api.openbrewerydb.org/breweries/' + str(id) #use str(id) to filter appropriate data.
+        response = requests.get(url)
+        data = response.json()
+    return render(request, 'NeighborhoodReview/API.html', {'data': data})
 
 
 
