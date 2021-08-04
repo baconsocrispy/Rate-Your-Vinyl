@@ -31,7 +31,7 @@ urlpatterns = [
     path('TravelDestinations/', include('TravelDestinations.urls')),
     path('AlbumReviews/', include('AlbumReviews.urls')),
     path('NeighborhoodReview/', include('NeighborhoodReview.urls')),
-    path('PasswordManager', include('PasswordManager.urls')),
+    path('PasswordManager/', include('PasswordManager.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
