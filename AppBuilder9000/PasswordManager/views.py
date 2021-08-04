@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
-return render(request, 'home.html') # renders the 'home page' @ templates/home.html
+
+def PM_home(request): # renders the 'home page' @ templates/PM_home.html
+    return render(request, 'PasswordManager/PM_home.html')
 
 # Create your views here.
