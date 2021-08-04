@@ -150,6 +150,36 @@ button:hover a {
     width: 100%;
 }
 
+.delete_btn_container {
+    display: flex;
+    width: 70%;
+    margin: auto;
+}
+
+.delete_confirm button {
+    flex: 50%;
+    width: 45%;
+    padding: 10px;
+}
+
+.delete_confirm a {
+    flex: 45%;
+    margin: 5px;
+    padding: 10px;
+    color: white;
+    background-color: black;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.delete_confirm a:hover {
+    background-color: lime;
+    color: black;
+    font-weight: bold;
+}
+
 footer {
     background-color: black;
     color: white;
