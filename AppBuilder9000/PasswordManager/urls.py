@@ -6,6 +6,6 @@ from django.urls import path
 from . import views
 
 
-urlpatterns = [ # stores the routes/paths within the project; the'WHEN' what's in'PasswordManager/templates/views.py' gets displayed
-    path('', views.PM_home, name='PasswordManager_home'),
+urlpatterns = [ # stores the routes/paths within the project; the 'WHEN' what's in'PasswordManager/templates/views.py' gets displayed
+    path('', views.home, name='PasswordManager_home'),
 ]
