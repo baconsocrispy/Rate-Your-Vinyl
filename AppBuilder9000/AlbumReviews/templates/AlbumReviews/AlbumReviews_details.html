@@ -14,8 +14,8 @@
                         <span class="album_details"><h3>Year:</h3> {{ details.Year }}</span>
                         <span class="album_details"><h3>Genre:</h3> {{ details.Genre }}</span>
                         <span class="album_details"><h3>Rating:</h3> {{ details.Rating }}</span>
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <a href="{% url 'AlbumReviews_edit' details.id %}"><button>Edit</button></a>
+                        <a href="{% url 'AlbumReviews_delete' details.id %}"><button>Delete</button></a>
                     </div>
                     <p>{{ details.Review }}</p>
                 </div>
