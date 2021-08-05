@@ -163,7 +163,7 @@ def soup_page(request):
             data_list.append(item)  #takes list of list and combines it into a list so it can be formatted neatly.
 
     county = data_list[::4]  #subsetting data
-    value = data_list[1::4]
+    value = data_list[1::4] # take every 4th element in the list.
     tax_pymt = data_list[2::4]
     tax_rate = data_list[3::4]
     zipped_list = zip(county, value, tax_pymt, tax_rate) # adding list together, so they can be iterated through.
