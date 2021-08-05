@@ -20,7 +20,7 @@ urlpatterns = [
     path('<id>/review_item_detail/', views.review_item, name='Review_items.html'),
     path('soup_page/', views.soup_page, name="NeighborhoodReview/BeautifulSoup.html"),
     path('api/', views.api_pull, name ="NeighborhoodReview/API.html"),
-
+    path('metro_inv_stats/', views.api_data, name ="NeighborhoodReview/Metro_Housing_Inventory_Data.html"),
 
 ]
 
