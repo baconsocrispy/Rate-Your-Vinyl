@@ -4,6 +4,7 @@ from .models import Neighborhood, Review
 from django.db.models import Count, F, Value, Avg
 import requests
 from bs4 import BeautifulSoup
+import json
 
 
 
@@ -181,4 +182,47 @@ def api_pull(request): # if time permits I will be updating this part to add mor
     return render(request, 'NeighborhoodReview/API.html', {'data': data})
 
 
+def api_data(request):
+    content ={}
+    if 'year' in request.GET:
+        year = request.GET['year']
+        param ={'year':year}  #user can input year to see how things vary from year to year.
+        url = 'https://ruby.datausa.io/api/data?measure=Property Value by Bucket,Property Value by Bucket%20Moe&geo=31000US38900,01000US&drilldowns=Value%20Bucket'
+        response = requests.get(url, param)
+        data_dict = response.json() # put data into a dict object
+        data = data_dict['data']  # remove unnecessary data
+        jsonStr = json.dumps(data) # convert data into string
+        # parsed_json = (json.loads(jsonStr))
+        usableString = str(jsonStr).replace("{", "").replace("}", "")  # remove { so data can be neatly put into list.
+        List = list(usableString.split(", "))  # makes it so for ever ", " a new element is add to the index.
+        # partition into list with needed data.
+        raw_value_bkt = List[235::10]
+        raw_bkt_qty = List[238::10]
+        raw_year_id = List[236::10]
+        # remove the string before the data, so only the data needed is left. (removing the field name from the list)
+        value_bkt = []
+        for string in raw_value_bkt:
+            value_bkt.append(str(string).replace("\"Value Bucket\":", ""))
 
+
+        bkt_qty = []
+        for string in raw_bkt_qty:
+            bkt_qty.append(str(string).replace("\"Property Value by Bucket\":", ""))
+
+
+        year_id = []
+        for string in raw_year_id:
+            year_id.append(str(string).replace("\"ID Year\":", ""))
+
+
+        year_id = [space.strip(' ') for space in year_id]  # remove spaces
+        bkt_qty = [space.strip(' ') for space in bkt_qty]  # remove spaces
+        bkt_qty = [int(string) for string in bkt_qty]  # convert string into integers
+        ratio = []
+        for num in bkt_qty:
+            ratio.append(round(100*num/sum(bkt_qty),3))   # make a field that has ratio of housing market for each bucket
+
+
+        zipped_data = zip(year_id,value_bkt,bkt_qty,ratio)
+        content = {'zipped_data': zipped_data}
+    return render(request, "NeighborhoodReview/Metro_Housing_Inventory_Data.html", content)

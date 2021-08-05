@@ -1,0 +1,52 @@
+{% extends "NeighborhoodReview/NeighborhoodReview_base.html" %}
+
+{% load static %}
+
+{% block title %}Portland Neighborhood Review App {%  endblock %}
+
+{% block header %}Import Oregon Housing Stats {% endblock %}
+
+{% block content %}
+
+    <label>Distribution of Housing by Property Value</label>
+    <form method = 'get'>
+        <select name ="year">
+            <option value='2019' label ="2019">2019</option>
+            <option value='2018' label = "2018">2018</option>
+            <option value='2017' label = "2017">2017</option>
+        </select>
+        <br>
+        <button type="submit" class = "btn btn-primary">Submit</button>
+    </form>
+
+
+
+    <table id ="table" class = " table table-responsive">
+
+
+                <tr>
+                    <td>Year</td>
+                    <td>Property Value</td>
+                    <td># of Units</td>
+                    <td>Percent of Total</td>
+                </tr>
+
+
+        {% for td in zipped_data   %}
+            <tr>
+                <td>
+                    {{ td.0 }}
+                </td>
+                 <td>
+                    {{ td.1 }}
+                </td>
+                 <td>
+                    {{ td.2 }}
+                </td>
+                 <td>
+                    {{ td.3 }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
