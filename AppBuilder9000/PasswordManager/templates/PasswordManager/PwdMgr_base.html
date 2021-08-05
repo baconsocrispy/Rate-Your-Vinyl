@@ -21,7 +21,7 @@
   <body class="bg-secondary"> <!-- colors the page a light grey -->
   <div id="home" class="container">
       <img
-        src="{% static '/images/PwdMgrHeader.jpg' %}"
+        src="{% static 'PasswordManager/images/PwdMgrHeader.jpg' %}"
         class="img-fluid"
         alt="An opened laptop atop a desk; its screen shows a lock.  App icons hover around the laptop"
       />
@@ -64,6 +64,6 @@
       {% block appcontent %}This is base.html's SAMPLE content{% endblock %}
   </div>
   <hr>
-      {% include "PwdMgr_footer.html" %}
+      {% include "PasswordManager/PwdMgr_footer.html" %}
   </body>
 </html>
