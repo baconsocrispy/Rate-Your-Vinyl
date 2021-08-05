@@ -19,6 +19,8 @@ urlpatterns = [
     path('Review_Details/',views.review_details, name= 'NeighborhoodReview/Review_Details.html'),
     path('<id>/review_item_detail/', views.review_item, name='Review_items.html'),
     path('soup_page/', views.soup_page, name="NeighborhoodReview/BeautifulSoup.html"),
+    path('api/', views.api_pull, name ="NeighborhoodReview/API.html"),
+
 
 ]
 
