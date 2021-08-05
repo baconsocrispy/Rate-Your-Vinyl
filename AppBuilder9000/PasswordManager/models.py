@@ -6,14 +6,17 @@ PasswordTypes = [('Personal', 'Personal'), ('Work', 'Work'), ('Combo', 'Combo'),
 
 
 class NewPasswords(models.Model):
-    type = models.CharField(maxlength=8, choices=PasswordTypes)
+    type = models.CharField(max_length=8, choices=PasswordTypes)
     creation_date = models.DateField(auto_now_add=True)
     last_modified_date = models.DateField(auto_now=True)
-    website = models.Charfield(maxlength=100)
+    website = models.CharField(max_length=100)
     email = models.EmailField(max_length=120)
-    username = models.CharField(maxlength=60)
+    username = models.CharField(max_length=60)
     password = models.CharField(max_length=60)
     favorite = models.BooleanField(default=False)
+
+    NewPasswords = models.Manager() # django's Object Manager'
+
 
 
 
