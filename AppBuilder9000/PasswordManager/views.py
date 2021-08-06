@@ -14,6 +14,6 @@ def generator(request):
         if form.is_valid(): # ... and all fields are valid...
             form.save() # ...save the form's contents to the database
             return redirect('PwdMgr_home') # return User to this app's Home page
-    content ={'form': form}
+    content = {'form': form}
     return render(request, 'PasswordManager/PwdMgr_generator.html', content) # return form's data within the 'Password Generator' page
 
