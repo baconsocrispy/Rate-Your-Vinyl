@@ -5,7 +5,7 @@ from django.db import models
 PasswordTypes = [('Personal', 'Personal'), ('Work', 'Work'), ('Combo', 'Combo'), ('Other', 'Other')]
 
 
-class NewPasswords(models.Model):
+class StoredPasswords(models.Model):
     type = models.CharField(max_length=8, choices=PasswordTypes)
     creation_date = models.DateField(auto_now_add=True)
     last_modified_date = models.DateField(auto_now=True)
