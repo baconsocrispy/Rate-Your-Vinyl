@@ -118,7 +118,7 @@ button:hover a {
     background-color:
 }
 
-.album_list h1 {
+h1 {
     border-bottom: 1px solid white;
 }
 
@@ -162,7 +162,7 @@ button:hover a {
     padding: 10px;
 }
 
-.delete_confirm a {
+.button {
     flex: 45%;
     margin: 5px;
     padding: 10px;
@@ -174,10 +174,38 @@ button:hover a {
     text-align: center;
 }
 
-.delete_confirm a:hover {
+.button:hover {
     background-color: lime;
     color: black;
     font-weight: bold;
+}
+
+.top_10_container {
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.top_10 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.top_10 tr {
+    border-bottom: 1px solid white;
+}
+
+.top_10 tr:last-child {
+    border-bottom: 0;
+}
+
+.top_10 td {
+    padding: 10px;
+}
+
+.top_10 .cover {
+    width: 60px;
 }
 
 footer {
