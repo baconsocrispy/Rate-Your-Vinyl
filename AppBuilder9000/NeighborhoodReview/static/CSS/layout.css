@@ -159,8 +159,17 @@ th{
 
 td {
     text-align:left;
-    font-size:12px;
+    font-size:14px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-wrap:break-word;
 }
+
+tr-margin {
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
 
 #review-table {
     width: 90%;
@@ -187,3 +196,11 @@ td {
     margin:auto;
 
 }
+
+.btn-margin{
+
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+
+
