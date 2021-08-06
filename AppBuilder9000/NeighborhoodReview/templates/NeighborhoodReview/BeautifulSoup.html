@@ -20,26 +20,26 @@
 
 
                 <tr>
-                    <td>County</td>
-                    <td>Median Home Value</td>
-                    <td>Avg Prpty Tax Pymt</td>
-                    <td>Prty Tax Rate</td>
+                    <td style = "width:25%; text-align: center;font-size:18px;">County</td>
+                    <td style ="width:25%; text-align: center;font-size:18px;">Median Home Value</td>
+                    <td style ="width:25%; text-align: center;font-size:18px;">Avg Prpty Tax Pymt</td>
+                    <td style ="width:25%; text-align: center;font-size:18px;">Prty Tax Rate</td>
 
                 </tr>
 
 
         {% for td in zipped_list   %}
             <tr>
-                <td>
+                <td style = "text-align: center">
                     {{ td.0 }}
                 </td>
-                 <td>
+                 <td style = "text-align: center">
                     {{ td.1 }}
                 </td>
-                 <td>
+                 <td style = "text-align: center">
                     {{ td.2 }}
                 </td>
-                 <td>
+                 <td style = "text-align: center">
                     {{ td.3 }}
                 </td>
             </tr>
