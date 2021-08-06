@@ -1,0 +1,13 @@
+{% extends 'PdwMgr_base.html' %}
+{% block title %}Generate a Password{% endblock %}
+{% block content %}
+    <h3>Create New Password</h3>
+    <div id="create-form">
+        <form method="POST">
+            {% csrf_token %} <!-- for validation/security purposes -->
+            {{form.as_p}}
+            <button id="new-password-button" type="submit" name="Save_Password">Create a New Password</button>
+        </form>
+        <br>
+    </div>
+{% endblock %}
