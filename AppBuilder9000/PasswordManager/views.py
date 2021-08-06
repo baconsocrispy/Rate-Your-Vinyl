@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import NewPasswords
-from forms import NewPasswordsForm
+from .forms import NewPasswordsForm
 
 
 # Create your views here:
