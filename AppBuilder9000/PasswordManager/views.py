@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import NewPasswords
 from .forms import NewPasswordsForm
 
@@ -16,4 +16,11 @@ def generator(request):
             return redirect('PwdMgr_home') # return User to this app's Home page
     content = {'form': form}
     return render(request, 'PasswordManager/PwdMgr_generator.html', content) # return form's data within the 'Password Generator' page
+
+
+def database(request):
+    passwords_table = get_object_or_404(NewPasswords)
+    content = {'passwords_table': passwords_table}
+    return render(request, 'PasswordManager/PwdMgr_database.html', content)
+
 
