@@ -2,10 +2,11 @@ body {
 	font-family: Lucida Sans Unicode;
 	text-align: center;
 	background-image: url('../images/PwdMgrHeader.jpg');
+	background-position: 50% 50%;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: contain;
 	overflow: scroll;
 	background-repeat: no-repeat;
 }
