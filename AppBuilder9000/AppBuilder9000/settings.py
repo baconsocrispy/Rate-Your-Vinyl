@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'AlbumReviews',
     'NeighborhoodReview',
     'PasswordManager',
+    'sportscards'
 ]
 
 MIDDLEWARE = [
