@@ -1,4 +1,4 @@
-body {
+body { /* Styles entire page, including background <img>*/
 	font-family: Lucida Sans Unicode;
 	text-align: center;
 	background-image: url('../images/PwdMgrHeader.jpg');
@@ -9,4 +9,35 @@ body {
     background-size: contain;
 	overflow: scroll;
 	background-repeat: no-repeat;
+}
+/* All forms to share the styling below */
+.form-container {
+    opacity: 0.9;
+	position: relative;
+	width: 600px;
+	height: auto;
+	border-radius: 10px;
+	border: 3px solid grey;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	padding: 15px 0px;
+	background-color: lightgrey;
+}
+
+/* New Passwords get entered in this container: */
+#create-form {
+    position: relative;
+	margin-top: 10px;
+	margin-left: 150px;
+	margin-right: auto;
+	width: 300px;
+    text-align: center;
+}
+
+/* Moved footer away from other elements while coding */
+.card-footer {
+    position: fixed;
+    margin-top: 350;
+    margin-left: 550;
 }
