@@ -1,3 +1,13 @@
 {% extends "PasswordManager/PwdMgr_base.html" %}
 
-{% block header %}This is home.html's SAMPLE header{% endblock %}
+{% block header %}Password Manager's Home Page{% endblock %}
+
+{% block appcontent %}
+<div class="content-home">
+    <h6 class="instructions text-uppercase">Create a new password:</h6>
+        Services -> Generate A Password
+    <hr>
+    <h6 class="instructions text-uppercase">View your stored passwords:</h6>
+        Services -> Stored Passwords
+</div>
+{% endblock%}
