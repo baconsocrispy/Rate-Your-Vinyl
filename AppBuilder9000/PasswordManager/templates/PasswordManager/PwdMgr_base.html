@@ -51,10 +51,13 @@
         </div>
       </nav>
     <!--===========================  END NAV Bar ============================-->
-  <div class="header"> <!-- EVERY page's 'BlockHeader' is within THIS div -->
+  <!-- EVERY page's 'BlockHeader' goes within THIS div -->
+  <div class="header">
     <h2 class="text-light text-center">{% block header %}This is base.html's SAMPLE header{% endblock %}</h2>
   </div>
-  <div class="text-light text-center">{% block appcontent %}{% endblock %}</div> <!-- EVERY page's 'BlockAppContent' is within THIS div -->
+  <!-- EVERY page's 'BlockAppContent' goes within THIS div -->
+  <div class="text-light text-center">{% block appcontent %}{% endblock %}</div>
+  <!-- The footer for every page -->
   <div class="card-footer">
   {% include "PasswordManager/PwdMgr_footer.html" %}
   </div>
