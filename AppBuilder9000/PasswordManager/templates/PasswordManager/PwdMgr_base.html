@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}PasswordManager.com{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" Comment back in once css is ready-->
+    <link rel="stylesheet" type="text/css" href="{% static '/PasswordManager/css/PwdMgr.css' %}">
 
     <!-- Bootstrap's CSS -->
     <link
@@ -19,12 +19,6 @@
     <!-- END Bootstrap's CSS -->
   </head>
   <body class="bg-secondary"> <!-- colors the page a light grey -->
-  <div id="home" class="container">
-      <img
-        src="{% static 'PasswordManager/images/PwdMgrHeader.jpg' %}"
-        class="img-fluid"
-        alt="An opened laptop atop a desk; its screen shows a lock.  App icons hover around the laptop"
-      />
   <!--===========================  Nav Bar  =============================-->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
