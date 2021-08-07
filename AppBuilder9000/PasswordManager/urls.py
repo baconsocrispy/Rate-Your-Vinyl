@@ -8,5 +8,5 @@ from . import views
 
 urlpatterns = [ # stores the routes/paths within the project; the 'WHEN' what's in'PasswordManager/templates/views.py' gets displayed
     path('', views.home, name='PwdMgr_home'),
-    path('generator/', views.generator, name='generator'),
+    path('generator/', views.generator, name='PwdMgr_generator'),
 ]
