@@ -1,13 +1,17 @@
 {% extends 'PasswordManager/PwdMgr_base.html' %}
 {% block title %}Generate a Password{% endblock %}
+{% block header %}{% endblock %}
 {% block appcontent %}
-    <h3>Create New Password</h3>
+<div class="form-container">
+    <h3>Create A New Password</h3>
     <div id="create-form">
         <form method="POST">
             {% csrf_token %} <!-- for validation/security purposes -->
             {{form.as_p}}
-            <button id="new-password-button" type="submit" name="Save_Password">Create a New Password</button>
+            <button id="new-password-button" type="submit" name="Save_Password">Create New Password</button>
         </form>
-        <br>
     </div>
+
+        <br>
+</div>
 {% endblock %}
