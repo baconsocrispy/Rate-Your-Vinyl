@@ -24,7 +24,7 @@
         <div class="container-fluid">
           <div class="collapse navbar-collapse">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#home">Home</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'PwdMgr_home' %}">Home</a>
               <a class="nav-link active" href="#about">About</a>
               <ul class="navbar-nav">
                 <!-------------------"Services" Dropdown------------------------>
@@ -37,7 +37,7 @@
                     >Services</a
                   >
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="generator" onClick="">Generate a Password</a></li>
+                    <li><a class="dropdown-item" href="{% url 'PwdMgr_generator' %}" onClick="">Generate a Password</a></li>
                       <hr>
                     <li>
                       <a class="dropdown-item" href="#Database" onClick="">Stored Passwords</a>
@@ -51,16 +51,12 @@
         </div>
       </nav>
     <!--===========================  END NAV Bar ============================-->
-  <br>
-  <br>
-  <br>
-  <div>
-      <hr>
-      {% block header %}This is base.html's SAMPLE header{% endblock %}
-      <hr>
-      {% block appcontent %}This is base.html's SAMPLE content{% endblock %}
+  <div class="header"> <!-- EVERY page's 'BlockHeader' is within THIS div -->
+    <h2 class="text-light text-center">{% block header %}This is base.html's SAMPLE header{% endblock %}</h2>
   </div>
-  <hr>
-      {% include "PasswordManager/PwdMgr_footer.html" %}
+  <div class="text-light text-center">{% block appcontent %}{% endblock %}</div> <!-- EVERY page's 'BlockAppContent' is within THIS div -->
+  <div class="card-footer">
+  {% include "PasswordManager/PwdMgr_footer.html" %}
+  </div>
   </body>
 </html>
