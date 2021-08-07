@@ -22,5 +22,3 @@ def database(request):
     passwords_table = get_object_or_404(NewPasswords)
     content = {'passwords_table': passwords_table}
     return render(request, 'PasswordManager/PwdMgr_database.html', content)
-
-
