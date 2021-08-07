@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import NewPasswords
+from .models import NewPassword
 
 # Register your models here.
-admin.site.register(NewPasswords)
+admin.site.register(NewPassword)

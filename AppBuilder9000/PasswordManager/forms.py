@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from.models import NewPasswords
+from.models import NewPassword
 
 
-class NewPasswordsForm(ModelForm):
+class NewPasswordForm(ModelForm):
     class Meta:
-        model = NewPasswords
+        model = NewPassword
         fields = '__all__'
