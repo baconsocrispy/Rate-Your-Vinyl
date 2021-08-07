@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}PasswordManager.com{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" Comment back in once css is ready-->
+    <link rel="stylesheet" type="text/css" href="{% static '/PasswordManager/css/PwdMgr.css' %}">
 
     <!-- Bootstrap's CSS -->
     <link
@@ -19,15 +19,8 @@
     <!-- END Bootstrap's CSS -->
   </head>
   <body class="bg-secondary"> <!-- colors the page a light grey -->
-  <div id="home" class="container">
-      <img
-        src="{% static '/images/PwdMgrHeader.jpg' %}"
-        class="img-fluid"
-        alt="An opened laptop atop a desk; its screen shows a lock.  App icons hover around the laptop"
-      />
   <!--===========================  Nav Bar  =============================-->
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <!-- or bg-dark?? -->
         <div class="container-fluid">
           <div class="collapse navbar-collapse">
             <div class="navbar-nav">
@@ -44,7 +37,7 @@
                     >Services</a
                   >
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#Generator" onClick="">Generate a Password</a></li>
+                    <li><a class="dropdown-item" href="generator" onClick="">Generate a Password</a></li>
                       <hr>
                     <li>
                       <a class="dropdown-item" href="#Database" onClick="">Stored Passwords</a>
@@ -58,12 +51,16 @@
         </div>
       </nav>
     <!--===========================  END NAV Bar ============================-->
+  <br>
+  <br>
+  <br>
+  <div>
       <hr>
       {% block header %}This is base.html's SAMPLE header{% endblock %}
       <hr>
       {% block appcontent %}This is base.html's SAMPLE content{% endblock %}
   </div>
   <hr>
-      {% include "PwdMgr_footer.html" %}
+      {% include "PasswordManager/PwdMgr_footer.html" %}
   </body>
 </html>
