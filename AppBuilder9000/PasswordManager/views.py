@@ -19,11 +19,6 @@ def generator(request):
 
 
 def database(request):
-    allPasswords = NewPassword.NewPasswords.values() # should return a dictionary with a key:value pair for all 9 fields of db ('id' through 'Favorite')
-    # print(allPasswords)
-    passwords_table = {}
-    for eachPassword in allPasswords:
-        passwords_table.update({'eachPassword': eachPassword})
-    print(passwords_table # table gets updated with only the last iteration ?!?!?!
-    content = {'passwords_table': passwords_table}
+    allPasswords = NewPassword.NewPasswords.all() # returns a dictionary with a key:value pair for all 9 fields of db ('id' through 'Favorite')
+    content = {'allPasswords': allPasswords} # the QuerySet (from above) becomes the k:v pair needed within 'content' (thanks Forest!)
     return render(request, 'PasswordManager/PwdMgr_database.html', content)
