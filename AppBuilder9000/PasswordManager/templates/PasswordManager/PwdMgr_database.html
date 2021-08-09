@@ -17,16 +17,16 @@ x{% block title %}Viewing Stored Passwords{% endblock %}
             <th>User Name</th>
             <th>Password</th>
             <th>Favorite</th>
-        </tr>{% for key in passwords_table.eachPassword %} <!-- for each row in passwords_table, dynamically update this doc with the key/value pairs -->
+        </tr>{% for eachPwd in allPasswords %} <!-- for each row in db's table, dynamically update this doc with the key/value pairs -->
         <tr>
-            <td class="center">{{ key.type }}</td>
-            <td class="center">{{ key.creation_date }}</td>
-            <td class="center">{{ key.last_modified_date }}</td>
-            <td class="left">{{ key.website }}</td>
-            <td class="left">{{ key.email }}</td>
-            <td class="left">{{ key.username }}</td>
-            <td class="left">{{ key.password }}</td>
-            <td class="center">{{ key.favorite }}</td>
+            <td class="center">{{ password.type }}</td>
+            <td class="center">{{ password.creation_date }}</td>
+            <td class="center">{{ password.last_modified_date }}</td>
+            <td class="left">{{ password.website }}</td>
+            <td class="left">{{ password.email }}</td>
+            <td class="left">{{ password.username }}</td>
+            <td class="left">{{ password.password }}</td>
+            <td class="center">{{ password.favorite }}</td>
         </tr>
         {% endfor %}
     </table>
