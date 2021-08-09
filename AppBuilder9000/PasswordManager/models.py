@@ -15,7 +15,7 @@ class NewPassword(models.Model):
     password = models.CharField(unique=True, max_length=60)
     favorite = models.BooleanField(default=False)
 
-    NewPasswords = models.Manager() # django's Object Manager'
+    NewPasswords = models.Manager() # django's 'Object Manager'
 
 
 
