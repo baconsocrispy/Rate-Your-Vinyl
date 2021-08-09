@@ -19,10 +19,9 @@ def generator(request):
 
 
 def database(request):
-    pwdDetails = get_object_or_404(NewPassword) # if any passwords exist, get them
-    # allPasswords = NewPassword.NewPasswords.filter(pwdDetails.password) # filter ALL passwords according to the pk
-    passwords_table = {pwdDetails}
-    # for pwd in allPasswords:
-    #    passwords_table.update({allPasswords})
+    allPasswords = NewPassword.NewPasswords.all() # if any passwords exist...
+    passwords_table = {} # ...place them into this empty dictionary
+    for eachPassword in allPasswords:
+        passwords_table.update({'eachPassword': eachPassword})
     content = {'passwords_table': passwords_table}
     return render(request, 'PasswordManager/PwdMgr_database.html', content)
