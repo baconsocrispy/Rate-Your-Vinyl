@@ -19,9 +19,11 @@ def generator(request):
 
 
 def database(request):
-    allPasswords = NewPassword.NewPasswords.all() # if any passwords exist...
-    passwords_table = {} # ...place them into this empty dictionary
+    allPasswords = NewPassword.NewPasswords.values() # should return a dictionary with a key:value pair for all 9 fields of db ('id' through 'Favorite')
+    # print(allPasswords)
+    passwords_table = {}
     for eachPassword in allPasswords:
         passwords_table.update({'eachPassword': eachPassword})
+    print(passwords_table # table gets updated with only the last iteration ?!?!?!
     content = {'passwords_table': passwords_table}
     return render(request, 'PasswordManager/PwdMgr_database.html', content)
