@@ -5,6 +5,9 @@ x{% block title %}Viewing Stored Passwords{% endblock %}
 
 {% block appcontent %}
 <div class="form-container">
+<form method="'POST">
+    {{ form.NewPassword }}
+</form>
     <table  class="table table-responsive" id="passwords-table">
         <tr id="HeaderRow">
             <th>Type</th>
