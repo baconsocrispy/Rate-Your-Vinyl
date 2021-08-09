@@ -12,7 +12,7 @@ class NewPassword(models.Model):
     website = models.CharField(max_length=100)
     email = models.EmailField(max_length=120)
     username = models.CharField(max_length=60)
-    password = models.CharField(primary_key=True, max_length=60)
+    password = models.CharField(unique=True, max_length=60)
     favorite = models.BooleanField(default=False)
 
     NewPasswords = models.Manager() # django's Object Manager'
