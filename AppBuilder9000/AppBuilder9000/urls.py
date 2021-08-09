@@ -23,9 +23,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('Quotes/', include('Quotes.urls')),
-    path('NBAstats/', include('NBAstats.urls')),
-    path('PreciousMetals/', include('PreciousMetals.urls')),
     path('ControlInventory/', include('ControlInventory.urls')),
     path('Novels/', include('Novels.urls')),
     path('TravelDestinations/', include('TravelDestinations.urls')),
