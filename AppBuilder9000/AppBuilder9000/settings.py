@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'NeighborhoodReview',
     'PasswordManager',
     'HappyHour',
+    'BoardGames',
 ]
 
 MIDDLEWARE = [

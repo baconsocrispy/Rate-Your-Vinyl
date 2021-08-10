@@ -1,0 +1,52 @@
+{% extends 'PasswordManager/PwdMgr_base.html' %}
+
+x{% block title %}View Saved Passwords{% endblock %}
+{% block header %}Your Saved Passwords{% endblock %}
+
+{% block appcontent %}
+<div class="form-container" id="passwords-table">
+    <table class="table table-responsive">
+        <tr id="headerRow">
+            <th>No.</th>
+            <th>Type</th>
+            <th>Date Stored</th>
+            <th>Date Last Modified</th>
+            <th>Website</th>
+            <th>Email</th>
+            <th>User Name</th>
+            <th>Password</th>
+            <th>Favorite?</th>
+        </tr>{% for eachPwd in content %} <!-- for each row in db's table, dynamically update this doc with the key/value pairs -->
+        <tr>
+            <td class="center">{{ eachPwd.id }}</td>
+            <td class="center">{{ eachPwd.type }}</td>
+            <td class="center">{{ eachPwd.creation_date }}</td>
+            <td class="center">{{ eachPwd.last_modified_date }}</td>
+            <td class="left">{{ eachPwd.website }}</td>
+            <td class="left">{{ eachPwd.email }}</td>
+            <td class="center">{{ eachPwd.username }}</td>
+            <td class="center">{{ eachPwd.password }}</td>
+            <td class="center">{{ eachPwd.favorite }}</td>
+        </tr>
+        {% endfor %}
+        <!-- Code below manages any paginated data / source: https://docs.djangoproject.com/en/3.2/topics/pagination/ -->
+        <div class="pagination">
+            <span class="step-links">
+                {% if content.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ content.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page: {{ content.number }} of {{ content.paginator.num_pages }}
+                </span>
+
+                {% if content.has_next %}
+                    <a href="?page={{ content.next_page_number }}">next</a>
+                    <a href="?page={{ content.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </table>
+</div>
+{% endblock %}
