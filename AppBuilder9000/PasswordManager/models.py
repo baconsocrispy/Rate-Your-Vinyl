@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here:
-PasswordTypes = [('Per', 'Personal'), ('Wrk', 'Work'), ('Cmb', 'Combo'), ('Otr', 'Other')] # 1st = db; 2nd = form
+PasswordTypes = [('Personal', 'Personal'), ('Work', 'Work'), ('Combo', 'Combo'), ('Other', 'Other')] # 1st = db; 2nd = form
 
 
 class NewPassword(models.Model):
