@@ -4,29 +4,13 @@ x{% block title %}View Saved Passwords{% endblock %}
 {% block header %}Your Saved Passwords{% endblock %}
 
 {% block appcontent %}
-<div class="form-container" id="passwords-table">
+<div class="form-container" class="passwords-table" id="database-table">
     <table class="table table-responsive">
         <tr id="headerRow">
-            <th>No.</th>
-            <th>Type</th>
-            <th>Date Stored</th>
-            <th>Date Last Modified</th>
-            <th>Website</th>
-            <th>Email</th>
-            <th>User Name</th>
-            <th>Password</th>
-            <th>Favorite?</th>
+            <th>Passwords</th>
         </tr>{% for eachPwd in content %} <!-- for each row in db's table, dynamically update this doc with the key/value pairs -->
         <tr>
-            <td class="center">{{ eachPwd.id }}</td>
-            <td class="center">{{ eachPwd.type }}</td>
-            <td class="center">{{ eachPwd.creation_date }}</td>
-            <td class="center">{{ eachPwd.last_modified_date }}</td>
-            <td class="left">{{ eachPwd.website }}</td>
-            <td class="left">{{ eachPwd.email }}</td>
-            <td class="center">{{ eachPwd.username }}</td>
             <td class="center">{{ eachPwd.password }}</td>
-            <td class="center">{{ eachPwd.favorite }}</td>
         </tr>
         {% endfor %}
         <!-- Code below manages any paginated data / source: https://docs.djangoproject.com/en/3.2/topics/pagination/ -->
