@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from .models import NewPassword
 from .forms import NewPasswordForm
 from django.core.paginator import Paginator
@@ -9,7 +9,7 @@ def home(request): # renders the 'home page' @ templates/PwdMgr_home.html
     return render(request, 'PasswordManager/PwdMgr_home.html')
 
 
-def details(request):
+def passwordDetails(request):
     allPasswords = NewPassword.NewPasswords.all()
     content = {'allPasswords': allPasswords}
     paginator = Paginator(allPasswords, 5)
