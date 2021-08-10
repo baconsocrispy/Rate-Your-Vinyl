@@ -4,10 +4,10 @@ x{% block title %}View Saved Passwords{% endblock %}
 {% block header %}Your Saved Passwords{% endblock %}
 
 {% block appcontent %}
-<div class="form-container" class="passwords-table" id="database-table">
+<div class="form-container" class="passwords-table" id="pwdsList-table">
     <table class="table table-responsive">
         <tr id="headerRow">
-            <th>Passwords</th>
+            <th>Saved Passwords</th>
         </tr>{% for eachPwd in content %} <!-- for each row in db's table, dynamically update this doc with the key/value pairs -->
         <tr>
             <td class="center">{{ eachPwd.password }}</td>
