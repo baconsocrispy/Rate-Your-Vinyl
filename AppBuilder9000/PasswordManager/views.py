@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import NewPassword
 from .forms import NewPasswordForm
+from django.core.paginator import Paginator
 
 
 # Create your views here:
@@ -19,6 +20,10 @@ def generator(request):
 
 
 def database(request):
-    allPasswords = NewPassword.NewPasswords.all() # returns a dictionary with a key:value pair for all 9 fields of db ('id' through 'Favorite')
-    content = {'allPasswords': allPasswords} # the QuerySet (from above) becomes the k:v pair needed within 'content' (thanks Forest!)
-    return render(request, 'PasswordManager/PwdMgr_database.html', content)
+    allPasswords = NewPassword.NewPasswords.filter(id__gt=0) # returns a filtered dictionary of key:value pairs from all 9 db fields ('id' through 'Favorite')
+    # content = {'allPasswords': allPasswords} # the QuerySet (from above) becomes the k:v pair needed within 'content' (thanks Forest!)
+    paginator = Paginator(allPasswords, 2) # displays 7 rows of password data per page
+
+    page_number = request.GET.get('page')
+    content = paginator.get_page(page_number)
+    return render(request, 'PasswordManager/PwdMgr_database.html', {'content': content})
