@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport"
+          content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!--NAV BAR-->
+    <ul>
+        <li><a href="{% url 'BoardGames_home' %}">Home</a></li>
+        <li><a href="{% url 'BoardGames_games' %}">All Games</a></li>
+        <li><a href="{% url 'BoardGames_addGame' %}">Add a Game</a></li>
+    </ul>
+<!--END NAV BAR-->
+
+<!--HEADER-->
+    <header>
+        <h1>
+            {% block header %}{% endblock %}
+        </h1>
+    </header>
+<!--END HEADER-->
+
+<!--BODY-->
+    {% block content %} {% endblock %}
+<!--END BODY-->
+
+<!--FOOTER-->
+    <footer>
+        <div class="footer">
+            <p>Board Games App &copy;2021 | By Jason Storer</p>
+        </div>
+    </footer>
+<!--END FOOTER-->
+</body>
+</html>
