@@ -1,43 +1,107 @@
-body { /* Styles entire page, including background <img>*/
-	font-family: Lucida Sans Unicode;
-	text-align: center;
-	background-image: url('../images/PwdMgrHeader.jpg');
-	background-position: 50% 50%;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: contain;
-	overflow: scroll;
-	background-repeat: no-repeat;
+/* Styles the entire page, including background <img> */
+  body {
+  background-image: url("../images/PwdMgrHeader.jpg");
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: contain;
+  overflow: scroll;
+  background-repeat: no-repeat;
 }
-/* All forms to share the styling below */
+
+/* All {% block header %} elements: */
+.header {
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* All {% block appcontent %} elements:*/
+.appcontent {
+  margin-top: 230px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(4, 8, 41, 0.582);
+}
+
+/* HOME page's content: */
+.content-home {
+  margin-top: 196px;
+  padding: 20px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(4, 8, 41, 0.6);
+}
+
+.instructions {
+  background-color: rgba(4, 8, 41, 0.9);
+}
+
+/* For all .htmls - most forms share the styling below */
 .form-container {
-    opacity: 0.9;
-	position: relative;
-	width: 600px;
-	height: auto;
-	border-radius: 10px;
-	border: 3px solid grey;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 10px;
-	padding: 15px 0px;
-	background-color: lightgrey;
+  opacity: 0.9;
+  position: relative;
+  border-radius: 10px;
+  border: 3px solid grey;
+  padding: 15px 0px;
+  background-color: lightgrey;
 }
 
-/* New Passwords get entered in this container: */
+/* PdwMgr_GENERATOR.html - specific to the "New Passwords" form */
+#generator-container {
+    margin: 40px auto;
+    width: 400px;
+}
+/* PwdMgr_GENERATOR.html - New Passwords are created/entered into this container: */
 #create-form {
-    position: relative;
-	margin-top: 10px;
-	margin-left: 150px;
-	margin-right: auto;
-	width: 300px;
-    text-align: center;
+  position: relative;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-/* Moved footer away from other elements while coding */
+/* PwdMgr_DATABASE.html - Table styling: */
+#passwords-table {
+  opacity: 1;
+  width: 1200px;
+  margin: auto;
+}
+
+tr th {
+  border: 1px solid darkslateblue;
+}
+
+tr td {
+  height: 25px;
+  border: 1px solid black;
+  word-wrap: normal;
+  vertical-align: middle;
+  width: min-content;
+}
+
+#headerRow {
+  color: darkblue;
+  background-color: rgb(201, 182, 147);
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+  width: min-content;
+}
+
+.left {
+  padding-left: 15px;
+  width: min-content;
+  word-wrap: normal;
+}
+
+/* PdwMgr_footer.html - Positioned footer at bottom of every page */
 .card-footer {
-    position: fixed;
-    margin-top: 350;
-    margin-left: 550;
+  position: fixed;
+  bottom: 0;
+  margin-left: 550;
 }
