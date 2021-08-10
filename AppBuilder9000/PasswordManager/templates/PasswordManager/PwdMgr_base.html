@@ -37,10 +37,10 @@
                     >Services</a
                   >
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="{% url 'PwdMgr_generator' %}" onClick="">Generate a Password</a></li>
+                    <li><a class="dropdown-item" href="{% url 'PwdMgr_generator' %}" onClick="">Store New Password</a></li>
                       <hr>
                     <li>
-                      <a class="dropdown-item" href="{% url 'PwdMgr_database' %}" onClick="">Stored Passwords</a>
+                      <a class="dropdown-item" href="{% url 'PwdMgr_database' %}" onClick="">Manage Passwords</a>
                     </li>
                   </ul>
                 </li>
@@ -56,7 +56,7 @@
     <h2 class="text-light text-center">{% block header %}This is base.html's SAMPLE header{% endblock %}</h2>
   </div>
   <!-- EVERY page's 'BlockAppContent' goes within THIS div -->
-  <div class="text-light text-center">{% block appcontent %}{% endblock %}</div>
+  <div>{% block appcontent %}{% endblock %}</div>
   <!-- The footer for every page -->
   <div class="card-footer">
   {% include "PasswordManager/PwdMgr_footer.html" %}
