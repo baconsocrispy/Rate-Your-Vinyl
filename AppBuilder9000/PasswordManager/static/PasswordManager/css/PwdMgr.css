@@ -25,7 +25,6 @@ body {
   background-color: rgba(4, 8, 41, 0.582);
 }
 
-
 /* HOME page's content: */
 .content-home {
   margin-top: 196px;
@@ -37,15 +36,14 @@ body {
 }
 
 .instructions {
-background-color: rgba(4, 8, 41, 0.9)
+  background-color: rgba(4, 8, 41, 0.9);
 }
 
-
-/* ALL forms share the styling below */
+/* For all .html - ALL forms share the styling below */
 .form-container {
   opacity: 0.9;
   position: relative;
-  width: 600px;
+  width: auto;
   height: auto;
   border-radius: 10px;
   border: 3px solid grey;
@@ -56,7 +54,7 @@ background-color: rgba(4, 8, 41, 0.9)
   background-color: lightgrey;
 }
 
-/* New Passwords are created/entered into this container: */
+/* PwdMgr_generator.html - New Passwords are created/entered into this container: */
 #create-form {
   position: relative;
   margin-top: 10px;
@@ -65,42 +63,41 @@ background-color: rgba(4, 8, 41, 0.9)
   width: 300px;
   text-align: center;
 }
-/* Table styling: */
-th{
-	border: 3px solid black;
+/* PwdMgr_database.html - Table styling: */
+.form-container {
+  opacity: 1;
 }
 
-tr td{
-	height: 25px;
-	border: 2px solid black;
-	word-wrap: normal;
-	vertical-align: top;
-	width: auto;
+tr th {
+  border: 1px solid darkslateblue;
+}
+
+tr td {
+  height: 25px;
+  border: 1px solid black;
+  word-wrap: normal;
+  vertical-align: middle;
+  width: min-content;
 }
 
 #headerRow {
-	color: darkslateblue;
-	text-align: center;
+  color: darkblue;
+  background-color: rgb(201, 182, 147);
+  text-align: center;
 }
 
 .center {
-	text-align: center;
-	width: 15%;
+  text-align: center;
+  width: min-content;
 }
 
-.left{
-	padding-left: 10px;
-	width: 30%;
-	word-wrap: normal;
+.left {
+  padding-left: 10px;
+  width: min-content;
+  word-wrap: normal;
 }
 
-.right {
-	padding-right: 5px;
-	width: 20%;
-	text-align: right;
-}
-
-/* Positioned footer at bottom of every page */
+/* PdwMgr_footer.html - Positioned footer at bottom of every page */
 .card-footer {
   position: fixed;
   bottom: 0;
