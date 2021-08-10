@@ -22,7 +22,7 @@ def generator(request):
 def database(request):
     allPasswords = NewPassword.NewPasswords.filter(id__gt=0) # returns a filtered dictionary of key:value pairs from all 9 db fields ('id' through 'Favorite')
     # content = {'allPasswords': allPasswords} # the QuerySet (from above) becomes the k:v pair needed within 'content' (thanks Forest!)
-    paginator = Paginator(allPasswords, 5) # displays 5 rows of password data per page
+    paginator = Paginator(allPasswords, 5) # displays 5 rows of password data per page; overflow == a new, 'next' page
 
     page_number = request.GET.get('page')
     content = paginator.get_page(page_number)
