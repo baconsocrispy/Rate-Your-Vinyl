@@ -8,7 +8,7 @@ from . import views
 
 urlpatterns = [ # stores the routes/paths within the project; the 'WHEN' what's in'PasswordManager/templates/views.py' gets displayed
     path('', views.home, name='PwdMgr_home'),
-    path('generator/', views.generator, name='PwdMgr_generator'),
-    path('database/', views.database, name='PwdMgr_database'),
+    path('passwordInput/', views.passwordInput, name='PwdMgr_pwdInput'),
+    path('passwordsList/', views.passwordsList, name='PwdMgr_pwdsList'),
     path('details/', views.details, name='PwdMgr_details'),
 ]
