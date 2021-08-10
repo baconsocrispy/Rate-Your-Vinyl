@@ -1,5 +1,5 @@
-body {
-  /* Styles the entire page, including background <img> */
+/* Styles the entire page, including background <img> */
+  body {
   background-image: url("../images/PwdMgrHeader.jpg");
   background-position: 50% 50%;
   -webkit-background-size: cover;
@@ -17,7 +17,7 @@ body {
 }
 
 /* All {% block appcontent %} elements:*/
-.appContent {
+.appcontent {
   margin-top: 230px;
   width: 280px;
   margin-left: auto;
@@ -39,33 +39,35 @@ body {
   background-color: rgba(4, 8, 41, 0.9);
 }
 
-/* For all .html - ALL forms share the styling below */
+/* For all .htmls - most forms share the styling below */
 .form-container {
   opacity: 0.9;
   position: relative;
-  width: auto;
-  height: auto;
   border-radius: 10px;
   border: 3px solid grey;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
   padding: 15px 0px;
   background-color: lightgrey;
 }
 
-/* PwdMgr_generator.html - New Passwords are created/entered into this container: */
+/* PdwMgr_GENERATOR.html - specific to the "New Passwords" form */
+#generator-container {
+    margin: 40px auto;
+    width: 400px;
+}
+/* PwdMgr_GENERATOR.html - New Passwords are created/entered into this container: */
 #create-form {
   position: relative;
   margin-top: 10px;
-  margin-left: 150px;
+  margin-left: auto;
   margin-right: auto;
-  width: 300px;
   text-align: center;
 }
-/* PwdMgr_database.html - Table styling: */
-.form-container {
+
+/* PwdMgr_DATABASE.html - Table styling: */
+#passwords-table {
   opacity: 1;
+  width: 1200px;
+  margin: auto;
 }
 
 tr th {
@@ -92,7 +94,7 @@ tr td {
 }
 
 .left {
-  padding-left: 10px;
+  padding-left: 15px;
   width: min-content;
   word-wrap: normal;
 }
