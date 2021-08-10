@@ -1,32 +1,32 @@
 {% extends 'PasswordManager/PwdMgr_base.html' %}
 
-x{% block title %}Viewing Stored Passwords{% endblock %}
-{% block header %}Stored Passwords{% endblock %}
+x{% block title %}View Saved Passwords{% endblock %}
+{% block header %}Your Saved Passwords{% endblock %}
 
 {% block appcontent %}
-<div class="form-container">
-    <p>Below is the table...</p>
-    <hr>
-    <table class="table table-responsive" id="passwords-table">
+<div class="form-container" id="passwords-table">
+    <table class="table table-responsive">
         <tr id="headerRow">
+            <th>No.</th>
             <th>Type</th>
-            <th>Date Created</th>
+            <th>Date Stored</th>
             <th>Date Last Modified</th>
             <th>Website</th>
             <th>Email</th>
             <th>User Name</th>
             <th>Password</th>
-            <th>Favorite</th>
+            <th>Favorite?</th>
         </tr>{% for eachPwd in allPasswords %} <!-- for each row in db's table, dynamically update this doc with the key/value pairs -->
         <tr>
-            <td class="center">{{ password.type }}</td>
-            <td class="center">{{ password.creation_date }}</td>
-            <td class="center">{{ password.last_modified_date }}</td>
-            <td class="left">{{ password.website }}</td>
-            <td class="left">{{ password.email }}</td>
-            <td class="left">{{ password.username }}</td>
-            <td class="left">{{ password.password }}</td>
-            <td class="center">{{ password.favorite }}</td>
+            <td class="center">{{ eachPwd.id }}</td>
+            <td class="center">{{ eachPwd.type }}</td>
+            <td class="center">{{ eachPwd.creation_date }}</td>
+            <td class="center">{{ eachPwd.last_modified_date }}</td>
+            <td class="left">{{ eachPwd.website }}</td>
+            <td class="left">{{ eachPwd.email }}</td>
+            <td class="center">{{ eachPwd.username }}</td>
+            <td class="center">{{ eachPwd.password }}</td>
+            <td class="center">{{ eachPwd.favorite }}</td>
         </tr>
         {% endfor %}
     </table>
