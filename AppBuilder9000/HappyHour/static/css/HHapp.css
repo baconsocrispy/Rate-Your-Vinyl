@@ -1,0 +1,24 @@
+/* General Styling */
+
+html, body {
+	height: cover;
+	width: cover;
+}
+
+body {
+	font-family: Lucida Sans Unicode;
+	text-align: center;
+	background-image: url('images/bottles.jpg');
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	overflow: scroll;
+	background-repeat: no-repeat;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+}
