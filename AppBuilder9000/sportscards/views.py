@@ -6,4 +6,4 @@ def home(request):
     context = {
         'types': types,
     }
-    return render(request, "sportscards/sportcards_home.html.html", context)
+    return render(request, "sportscards/sportcards_home.html", context)
