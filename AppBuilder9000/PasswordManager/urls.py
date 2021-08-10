@@ -10,4 +10,5 @@ urlpatterns = [ # stores the routes/paths within the project; the 'WHEN' what's 
     path('', views.home, name='PwdMgr_home'),
     path('generator/', views.generator, name='PwdMgr_generator'),
     path('database/', views.database, name='PwdMgr_database'),
+    path('details/', views.details, name='PwdMgr_details'),
 ]
