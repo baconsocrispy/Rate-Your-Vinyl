@@ -63,8 +63,15 @@
   text-align: center;
 }
 
-/* PwdMgr_DATABASE.html - Table styling: */
-#passwords-table {
+/* PdwMgr_DATABASE.html - Table styling: */
+#database-table {
+    width: fit-content;
+    margin: auto;
+    padding: 5px 0px 0px 0px;
+}
+
+/* PwdMgr_DETAILS.html - Table styling: */
+.passwords-table {
   opacity: 1;
   width: 1200px;
   margin: auto;
