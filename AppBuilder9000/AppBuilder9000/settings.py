@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'Quotes',
-    'PreciousMetals',
-    'NBAstats',
     'ControlInventory',
     'Novels',
     'TravelDestinations',
@@ -50,6 +47,8 @@ INSTALLED_APPS = [
     'NeighborhoodReview',
     'PasswordManager',
     'sportscards'
+    'HappyHour',
+    'BoardGames',
 ]
 
 MIDDLEWARE = [
