@@ -6,15 +6,16 @@ html, body {
 }
 
 body {
-	font-family: Lucida Sans Unicode;
-	text-align: center;
-	background-image: url('images/bottles.jpg');
-	-webkit-background-size: cover;
+    background-color:lightgrey;
+    background-image: url( "/static/images/bottles.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-	overflow: scroll;
-	background-repeat: no-repeat;
+
 }
 
 /* Style the footer */
