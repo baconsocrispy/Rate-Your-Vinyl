@@ -8,9 +8,10 @@ x{% block title %}View Saved Passwords{% endblock %}
     <table class="table table-responsive">
         <tr id="headerRow">
             <th>Saved Passwords</th>
-        </tr>{% for eachPwd in content %} <!-- for each password in db's table, dynamically update this doc with their key/value pairs -->
+        </tr>
+        {% for eachPwd in content %} <!-- for each password in db's table, dynamically update this doc with their key/value pairs -->
         <tr>
-            <td class="left"><a href="../details/{{ eachPwd.id }}">{{ eachPwd.password }}</a></td>
+            <td class="left"><a href="../details/?id={{ eachPwd.id }}/">{{ eachPwd.password }}</a></td>
         </tr>
         {% endfor %}
 
