@@ -19,5 +19,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='HH_Home'),
-    path('add/', views.create_review, name="HH-Create_Review"),
+    path('add/', views.create_review, name="HH_Create_Review"),
 ]

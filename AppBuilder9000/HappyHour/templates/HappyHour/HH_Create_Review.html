@@ -1,31 +1,18 @@
-{% extends HappyHour/HH_Base.html %}
+{% extends 'HappyHour/HH_Base.html' %}
+{% load crispy_forms_tags %}
 { % load static % }
 {% block title %} Rate and Review {% endblock %}
 
 	{% block content %}
 	<div>
-		<form method="POST" action="{% url 'HH_Create_Review' %}">
+		<form method="POST">
 			<div class="add_form">
 				<h1>Add A Review</h1>
 					<p>
 						{% csrf_token %}
-                		{{ form.as_p }}
+                		{{ form|crispy }}
 					</p>
 
-
-			  <div class="stars">
-				<label  class="form-label">Rating</label>
-				  <input class="star star-5" id="star-5" type="radio" name="star"/>
-				  <label class="star star-5" for="star-5"></label>
-				  <input class="star star-4" id="star-4" type="radio" name="star"/>
-				  <label class="star star-4" for="star-4"></label>
-				  <input class="star star-3" id="star-3" type="radio" name="star"/>
-				  <label class="star star-3" for="star-3"></label>
-				  <input class="star star-2" id="star-2" type="radio" name="star"/>
-				  <label class="star star-2" for="star-2"></label>
-				  <input class="star star-1" id="star-1" type="radio" name="star"/>
-				  <label class="star star-1" for="star-1"></label>
-			  </div>
 				<div class="btn-container">
 							<button type="submit" value="Submit">Submit</button>
 				</div>

@@ -15,16 +15,24 @@ HIGHLIGHT_CHOICES =  {
     ('location','location'),
 }
 
+STARS = {
+    ('one star','one star'),
+    ('two star','two star'),
+    ('three star','three star'),
+    ('four star','four star'),
+    ('five star','five star'),
+}
+
 class Restaurants(models.Model):
-    r_name = models.CharField(max_length=50)
-    r_address = models.CharField(max_length=250)
-    r_highlights = models.CharField(max_length=50, choices=HIGHLIGHT_CHOICES)
-    r_review = models.TextField(max_length= 500)
-    r_image = models.CharField(max_length=255, default='', blank=True)
+    name = models.CharField(max_length=50)
+    address = models.CharField(max_length=250)
+    highlights = models.CharField(max_length=50, choices=HIGHLIGHT_CHOICES)
+    review = models.TextField(max_length= 500, blank= True)
+    rating = models.CharField(max_length=50, choices= STARS)
+    image = models.CharField(max_length=300, default='', blank=True)
 
     objects = models.Manager()
 
-    # Allows references to a specific account to be returned
     # as the owner's name not the primary key
     def __str__(self):
         return self.r_name
