@@ -11,7 +11,7 @@ x{% block title %}View Saved Passwords{% endblock %}
         </tr>
         {% for eachPwd in content %} <!-- for each password in db's table, dynamically update this doc with their key/value pairs -->
         <tr>
-            <td class="left"><a href="../details/?id={{ eachPwd.id }}/">{{ eachPwd.password }}</a></td>
+            <td class="left"><a href="../details/{{ eachPwd.id }}/">{{ eachPwd.password }}</a></td>
         </tr>
         {% endfor %}
 
