@@ -7,3 +7,6 @@ def home(request):
         'types': types,
     }
     return render(request, "sportscards/sportscards_home.html", context)
+
+def join(request):
+    return render(request, 'sportscards/sportscards/join.html', {})
