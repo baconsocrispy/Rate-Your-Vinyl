@@ -7,7 +7,7 @@
 <div class="add-game-form">
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_table }}
+        {{ form.as_p }}
         <button id="add-game-button" type="submit" name="Add_Game">Add Game</button>
     </form>
     <br>
