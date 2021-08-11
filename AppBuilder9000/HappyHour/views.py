@@ -13,4 +13,3 @@ def create_review(request):
             form.save()
             return redirect('HH_Create_Review')
     return render(request, 'HappyHour/HH_Create_Review.html', {'form': form})
-

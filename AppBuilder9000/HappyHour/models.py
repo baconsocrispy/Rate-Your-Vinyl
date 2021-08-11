@@ -35,6 +35,6 @@ class Restaurants(models.Model):
 
     # as the owner's name not the primary key
     def __str__(self):
-        return self.r_name
+        return self.name
 
 
