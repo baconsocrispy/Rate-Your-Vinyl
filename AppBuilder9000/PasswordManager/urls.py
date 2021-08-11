@@ -10,5 +10,5 @@ urlpatterns = [ # stores the routes/paths within the project; the 'WHEN' what's 
     path('', views.home, name='PwdMgr_home'),
     path('passwordInput/', views.passwordInput, name='PwdMgr_pwdInput'),
     path('passwordsList/', views.passwordsList, name='PwdMgr_pwdsList'),
-    path('details/?id={{ eachPwd.id }}/', views.passwordDetails, name='PwdMgr_details'),
+    path('details/<eachPwd.id>/', views.passwordDetails, name='PwdMgr_details'),
 ]
