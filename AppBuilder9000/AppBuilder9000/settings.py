@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'AlbumReviews',
     'NeighborhoodReview',
     'PasswordManager',
-    'sportscards'
+    'sportscards',
     'HappyHour',
     'BoardGames',
 ]
