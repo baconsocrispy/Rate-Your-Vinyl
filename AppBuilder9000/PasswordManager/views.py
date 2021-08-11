@@ -4,11 +4,12 @@ from .forms import NewPasswordForm
 from django.core.paginator import Paginator
 
 
-# Create your views here:
-def home(request): # renders the 'home page' @ templates/PwdMgr_home.html
+# Displays the 'HOME PAGE':
+def home(request):
     return render(request, 'PasswordManager/PwdMgr_home.html')
 
 
+# Displays the SELECTED PASSWORD's DETAILS:
 def passwordDetails(request):
     allPasswords = NewPassword.NewPasswords.all()
     content = {'allPasswords': allPasswords}
@@ -18,6 +19,7 @@ def passwordDetails(request):
     return render(request, 'PasswordManager/PwdMgr_details.html', {'content': content})
 
 
+# Displays the "SAVE A NEW PASSWORD" form:
 def passwordInput(request):
     form = NewPasswordForm(data=request.POST or None) # backfills the form with data from the request.POST
     if request.method == 'POST': # if the method is POST...
@@ -28,6 +30,7 @@ def passwordInput(request):
     return render(request, 'PasswordManager/PwdMgr_pwdInput.html', content) # return form's data within the 'Password Generator' page
 
 
+# Displays ALL SAVED PASSWORDS (as a list; no details):
 def passwordsList(request):
     allPasswords = NewPassword.NewPasswords.filter(id__gt=0) # returns a filtered dictionary of key:value pairs from all 9 db fields ('id' through 'Favorite')
     paginator = Paginator(allPasswords, 10) # displays 10 passwords per page; overflow == a new, 'next' page
