@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import NewPassword
 from .forms import NewPasswordForm
 from django.core.paginator import Paginator
@@ -11,7 +11,8 @@ def home(request):
 
 # Displays the SELECTED PASSWORD's DETAILS:
 def passwordDetails(request, id):
-    chosenPwd = NewPassword.NewPasswords.filter(id) # filter all of db's passwords, according to their Ids
+    id = int(id)
+    chosenPwd = get_object_or_404(NewPassword, id=id) # 'NewPassword' from models.py; red 'id' == dictionary object, 2nd 'id == from line 14
     content = {'chosenPwd': chosenPwd}
     return render(request, 'PasswordManager/PwdMgr_details.html', {'content': content})
 
