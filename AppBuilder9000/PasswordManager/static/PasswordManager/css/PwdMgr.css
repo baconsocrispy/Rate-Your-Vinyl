@@ -72,10 +72,10 @@
 }
 
 /* PwdMgr_DETAILS.html - Table styling: */
-.passwords-table {
+#passwords-table {
   opacity: 1;
-  width: 1200px;
-  margin: auto;
+  width: fit-content;
+  margin: 50px auto;
 }
 
 tr th {
