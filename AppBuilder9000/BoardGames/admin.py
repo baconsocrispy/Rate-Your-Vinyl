@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import BoardGame #, Publisher
 
-# Register your models here.
+admin.site.register(BoardGame)
+#admin.site.register(Publisher)
