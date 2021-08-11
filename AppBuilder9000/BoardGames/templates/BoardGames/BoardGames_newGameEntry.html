@@ -1,0 +1,15 @@
+{% extends "BoardGames/BoardGames_base.html" %}
+{% load static %}
+{% block title %} Board Games - Add a Board Game {% endblock %}
+
+{% block content %}
+<h1>Enter a new board game in the form below.</h1>
+<div class="add-game-form">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="add-game-button" type="submit" name="Add_Game">Add Game</button>
+    </form>
+    <br>
+</div>
+{% endblock %}
