@@ -1,10 +1,10 @@
 {% extends 'PasswordManager/PwdMgr_base.html' %}
 
 x{% block title %}Store a Password{% endblock %}
-{% block header %}New Password's Details{% endblock %}
+{% block header %}Enter Your New Password{% endblock %}
 
 {% block appcontent %}
-<div class="form-container" id="generator-container">
+<div class="form-container" id="input-container">
     <div id="create-form">
         <form method="POST">
             {% csrf_token %} <!-- for validation/security purposes -->
