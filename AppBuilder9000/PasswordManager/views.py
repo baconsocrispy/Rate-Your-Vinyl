@@ -11,7 +11,7 @@ def home(request):
 
 # Displays the SELECTED PASSWORD's DETAILS:
 def passwordDetails(request, id):
-    chosenPwd = NewPassword.NewPasswords.filter(id) # filter all db's passwords, according to their Ids
+    chosenPwd = NewPassword.NewPasswords.filter(id) # filter all of db's passwords, according to their Ids
     content = {'chosenPwd': chosenPwd}
     return render(request, 'PasswordManager/PwdMgr_details.html', {'content': content})
 
