@@ -11,7 +11,6 @@ def home(request):
 
 # Displays the SELECTED PASSWORD's DETAILS:
 def passwordDetails(request, id):
-    id = id
     chosenPwd = get_object_or_404(NewPassword, id=id) # 'NewPassword' from models.py; red 'id' == dictionary object, 2nd 'id == from line 14
     content = {'chosenPwd': chosenPwd}
     return render(request, 'PasswordManager/PwdMgr_details.html', content)
