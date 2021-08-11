@@ -10,12 +10,9 @@ def home(request):
 
 
 # Displays the SELECTED PASSWORD's DETAILS:
-def passwordDetails(request):
-    allPasswords = NewPassword.NewPasswords.all()
-    content = {'allPasswords': allPasswords}
-    paginator = Paginator(allPasswords, 5)
-    page_number = request.GET.get('page')
-    content = paginator.get_page(page_number)
+def passwordDetails(request, id):
+    chosenPwd = NewPassword.NewPasswords.filter(id) # filter all db's passwords, according to their Ids
+    content = {'chosenPwd': chosenPwd}
     return render(request, 'PasswordManager/PwdMgr_details.html', {'content': content})
 
 
@@ -27,13 +24,13 @@ def passwordInput(request):
             form.save() # ...save the form's contents to the database
             return redirect('PwdMgr_home') # return User to this app's Home page
     content = {'form': form}
-    return render(request, 'PasswordManager/PwdMgr_pwdInput.html', content) # return form's data within the 'Password Generator' page
+    return render(request, 'PasswordManager/PwdMgr_pwdInput.html', content) # render form's data within the 'pwdInput.html' page
 
 
 # Displays ALL SAVED PASSWORDS (as a list; no details):
 def passwordsList(request):
-    allPasswords = NewPassword.NewPasswords.filter(id__gt=0) # returns a filtered dictionary of key:value pairs from all 9 db fields ('id' through 'Favorite')
-    paginator = Paginator(allPasswords, 10) # displays 10 passwords per page; overflow == a new, 'next' page
+    allPasswords = NewPassword.NewPasswords.filter(id__gt=0) # returns a filtered dictionary of passwords
+    paginator = Paginator(allPasswords, 10) # displays 10 passwords per page; overflow == a new 'Next' page
     page_number = request.GET.get('page')
     content = paginator.get_page(page_number)
     return render(request, 'PasswordManager/PwdMgr_pwdsList.html', {'content': content})
