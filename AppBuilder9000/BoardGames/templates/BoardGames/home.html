@@ -3,6 +3,9 @@
 {% block title %} Board Games Home {% endblock %}
 
 {% block content %}
-<h1>Welcome to Board Games Application</h1>
-<p>This application maintains a list of the author's favorite games.</p>
+    <h1>Welcome to Board Games Application</h1>
+    <p>This application maintains a list of the author's favorite games.</p>
+    {% for b in boardGames %}
+    <h1><a href="/{{ b.id }}/get/">{{ b.name }}</a></h1>
+    {% endfor %}
 {% endblock %}
