@@ -10,7 +10,7 @@ def BoardGames_home(request):
 
 def BoardGames_get(request, pk):
     boardgame = get_object_or_404(BoardGame, pk=pk)
-    return render(request, 'BoardGames/get.html', {'boardgame': boardgame})
+    return render(request, 'BoardGames/get.html', {'b': boardgame})
 
 
 def BoardGames_create(request):

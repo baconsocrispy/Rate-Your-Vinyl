@@ -50,6 +50,10 @@ h1 {
     color: white;
     background-color: rgba(127, 127, 192, 0.5);
 }
+
+.thumbnail {
+    max-width: 200px;
+}
 /**** End General Body Styling ****/
 
 /**** Footer Styling ****/
