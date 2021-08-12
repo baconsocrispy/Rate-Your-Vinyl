@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RestaurantsForm
+from .models import Restaurants
 
 
 def home(request):
@@ -13,3 +14,8 @@ def create_review(request):
             form.save()
             return redirect('HH_Create_Review')
     return render(request, 'HappyHour/HH_Create_Review.html', {'form': form})
+
+def list_review(request):
+    restaurants= Restaurants.objects.all()
+    return render(request, "HappyHour/HH_List.html", {'restaurants': restaurants})
+

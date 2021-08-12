@@ -33,7 +33,7 @@ class Restaurants(models.Model):
 
     objects = models.Manager()
 
-    # as the owner's name not the primary key
+    # as the name not the primary key
     def __str__(self):
         return self.name
 

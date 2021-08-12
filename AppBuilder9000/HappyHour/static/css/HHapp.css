@@ -51,3 +51,13 @@ button {
   background-color: #f1f1f1;
   padding: 10px;
 }
+.review_list {
+    margin: 20px;
+    background-color:
+}
+
+.restaurants {
+    border-bottom: 3px solid lime;
+    background-color: rgba(0,0,0,0.5);
+    padding: 10px;
+    margin-bottom: 10px;
