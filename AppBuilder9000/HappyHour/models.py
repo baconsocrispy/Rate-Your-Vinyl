@@ -4,7 +4,7 @@ from django.db import models
 
 
 
-HIGHLIGHT_CHOICES =  {
+HIGHLIGHT_CHOICES =  (
     ('good food','good food'),
     ('good drinks','good drinks'),
     ('stiff pour','stiff pour'),
@@ -13,15 +13,15 @@ HIGHLIGHT_CHOICES =  {
     ('dietary options','dietary options'),
     ('ambiance','ambiance'),
     ('location','location'),
-}
+)
 
-STARS = {
+STARS = (
     ('one star','one star'),
     ('two star','two star'),
     ('three star','three star'),
     ('four star','four star'),
     ('five star','five star'),
-}
+)
 
 class Restaurants(models.Model):
     name = models.CharField(max_length=50)
