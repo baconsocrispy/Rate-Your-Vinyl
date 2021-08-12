@@ -19,3 +19,8 @@ def list_review(request):
     restaurants= Restaurants.objects.all()
     return render(request, "HappyHour/HH_List.html", {'restaurants': restaurants})
 
+def review_details(request, pk):
+    details = Restaurants.objects.get(pk=pk)
+    context = {'details': details}
+    return render(request, "HappyHour/HH_Details.html", context)
+

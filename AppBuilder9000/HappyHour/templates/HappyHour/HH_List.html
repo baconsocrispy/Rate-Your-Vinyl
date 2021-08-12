@@ -9,7 +9,7 @@
                     <div class="restaurant">
                         <h2>
                             {% filter upper %}
-                                {{ a.name }} &#8212;
+                            <a href="{% url 'HH_Details' a.id %}">  {{ a.name }} &#8212;</a>
                             {% endfilter %}
                         </h2>
                     </div>
