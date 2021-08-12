@@ -1,0 +1,9 @@
+{% extends "BoardGames/base.html" %}
+{% load static %}
+{% block title %} Board Games - ({{ b.Name }}) {% endblock %}
+
+{% block content %}
+<h1>{{ b.Name }}</h1><h2>{{ b.Publisher }} ({{ b.Year }})</h2>
+<p><img src="{% static 'images/' %}{{ b.Image }}" alt="{{ b.Name }}"></p>
+<p>{{ b.Description }}</p>
+{% endblock %}

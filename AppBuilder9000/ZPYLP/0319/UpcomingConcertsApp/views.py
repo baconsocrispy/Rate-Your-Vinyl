@@ -62,7 +62,7 @@ def details(request, pk):
     event = get_object_or_404(Concert, pk=pk)
     all_event_pieces = Concert.pieces.through.objects.all()
     all_pieces = Piece.pieces.all()
-    return render(request, 'UpcomingConcertsApp/details.html',
+    return render(request, 'UpcomingConcertsApp/get.html',
                   {'event': event, 'all_event_pieces': all_event_pieces,
                    'all_pieces': all_pieces})
 

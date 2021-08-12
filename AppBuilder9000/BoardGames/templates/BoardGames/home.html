@@ -3,6 +3,20 @@
 {% block title %} Board Games Home {% endblock %}
 
 {% block content %}
-<h1>Welcome to Board Games Application</h1>
-<p>This application maintains a list of the author's favorite games.</p>
+    <h1>Welcome to Board Games Application</h1>
+    <p>This application maintains a list of the author's favorite games.</p>
+ <div class="row row-cols-1 row-cols-md-3">
+  {% for b in boardGames %}
+  <a href="{% url 'BoardGames_get' b.id %}">
+  <div class="col mb-4">
+    <div class="card">
+      <img src="{% static 'images/' %}{{ b.Image}}" class="card-img-top" alt="{{ b.Name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ b.Name }}</h5>
+      </div>
+    </div>
+  </div>
+  </a>
+  {% endfor %}
+</div>
 {% endblock %}
