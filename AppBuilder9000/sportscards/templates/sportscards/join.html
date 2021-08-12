@@ -3,29 +3,11 @@
 {% block content %}
     <h1>Join Today!</h1>
 
-    <form method="POST" action="{% url 'join.html' %">
+    <form method="POST">
     {% csrf_token %}
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Player</label>
-            <input type="text" class="form-control" aria-describedby="emailHelp" name="Player" >
-        </div>
-        <br>
-         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Year</label>
-            <input type="number" class="form-control" name="Year">
-        </div>
-        <br>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Team</label>
-            <input type="text" class="form-control" name="Team">
-        </div>
-        <br>
-         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Brand</label>
-            <input type="text" class="form-control" name="Brand">
-        </div>
-        <br>
+        {{form}}
+        <button type="submit">Create</button>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+    </form>
 {% endblock %}
