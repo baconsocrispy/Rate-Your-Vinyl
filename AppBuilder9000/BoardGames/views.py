@@ -1,28 +1,33 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
 from .models import BoardGame
 from .forms import BoardGameForm
 
 
 def BoardGames_home(request):
-    return render(request, 'BoardGames/home.html')
+    boardgames = BoardGame.objects.all()
+    return render(request, 'BoardGames/home.html', {'boardGames': boardgames})
 
 
 def BoardGames_get(request, pk):
-    content = get_object_or_404(BoardGame, pk=pk)
-    return render(request, 'BoardGames/details.html', content)
-
-
-def BoardGames_edit(request, pk):
-    return render(request, 'BoardGames/edit.html', {'boardgame': BoardGame.objects.get(id=pk)})
+    boardgame = get_object_or_404(BoardGame, pk=pk)
+    return render(request, 'BoardGames/get.html', {'b': boardgame})
 
 
 def BoardGames_create(request):
     form = BoardGameForm(data=request.POST or None)
     if request.method == "POST":
         if form.is_valid():
-            record = form.save()
-            return redirect('BoardGames_get', pk=record.id)
+            form.save()
+            return redirect('BoardGames_create')
     else:
-        content = {'form': form}
-        return render(request, 'BoardGames/.html', content)
+        return render(request, 'BoardGames/create.html', {'form': form})
+
+
+def BoardGames_insert(request):
+    form = BoardGameForm(data=request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    content = {'form': form}
+    return render(request, 'BoardGames/get.html', content)
