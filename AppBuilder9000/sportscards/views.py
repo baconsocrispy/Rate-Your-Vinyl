@@ -32,17 +32,8 @@ def display(request):
 def details(request, pk):
     pk = int(pk)
     card = get_object_or_404(Card, pk=pk)
-    form = CardForm(data=request.POST or None, instance=card)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            messages.info(request, 'Changes made successfully.')
-            return redirect('sportscards_display')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'sportscards/sportscards_details.html', {'form': form})
+    content = {'card': card}
+    return render(request, 'sportscards/sportscards_details.html', content)
 
 
 def delete(request, pk):
