@@ -15,19 +15,27 @@ def BoardGames_get(request, pk):
 
 def BoardGames_create(request):
     form = BoardGameForm(data=request.POST or None)
-    if request.method == "POST":
-        if form.is_valid():
-            form.save()
-            return redirect('BoardGames_create')
+    if request.method == "POST" and form.is_valid():
+        result = form.save()
+        return redirect('BoardGames_get', pk=result.id)
     else:
         return render(request, 'BoardGames/create.html', {'form': form})
 
 
-def BoardGames_insert(request):
-    form = BoardGameForm(data=request.POST or None)
-    if request.method == "POST":
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    content = {'form': form}
-    return render(request, 'BoardGames/get.html', content)
+def BoardGames_edit(request, pk):
+    boardgame = get_object_or_404(BoardGame, pk=pk)
+    form = BoardGameForm(request.POST or None, instance=boardgame)
+    if request.POST and form.is_valid():
+        obj = form.save(commit=False)
+        obj.save()
+        return render(request, 'Boardgames/get.html', {'b': boardgame})
+    else:
+        context = {'form': form,
+                   'id': boardgame.pk,
+                   'error': 'The form was not updated successfully. Please enter valid information.'}
+        return render(request, 'BoardGames/edit.html', context)
+
+def BoardGames_delete(request, pk):
+    BoardGame.objects.filter(id=pk).delete()
+    boardgames = BoardGame.objects.all()
+    return render(request, 'BoardGames/home.html', {'boardGames': boardgames})
