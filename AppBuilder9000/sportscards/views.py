@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Card
 from .forms import CardForm
 from django.views import generic
@@ -53,4 +53,5 @@ def delete(request, pk):
         return redirect('sportscards_display')
     context = {'card': card}
     return render(request, 'sportscards/sportscards_delete.html', context)
+
 
