@@ -6,7 +6,6 @@ html {
 body {
 	font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    color: white;
 	text-align: center;
     background-image: url('/static/images/BoardGamesApp.png');
     background-repeat: no-repeat;
@@ -51,8 +50,14 @@ h1 {
     background-color: rgba(127, 127, 192, 0.5);
 }
 
-.thumbnail {
-    max-width: 200px;
+svg {
+    opacity: 25%;
+    transition: opacity 1s;
+}
+svg:hover {
+    transition: opacity 1s;
+    opacity: 100%;
+
 }
 /**** End General Body Styling ****/
 
