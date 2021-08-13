@@ -31,7 +31,7 @@ def select_item(request):
     """Creates a list of items from the database with anchor tag to select."""
     item_list = Item.objects.all()  # Grabs all items from all items in the database.
     content = {'item_list': item_list}
-    return render(request, "ItemsApp/details.html", content)
+    return render(request, "ItemsApp/get.html", content)
 
 
 def item_details(request, pk):

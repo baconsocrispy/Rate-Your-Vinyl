@@ -75,7 +75,7 @@ def add_fav_archive(request):
     return render(request, 'SportsApp/SportsApp_favArchive.html', {'fav_list': fav_list})
 
 
-# Creating a function to get just one item from the dB and render it on details.html template
+# Creating a function to get just one item from the dB and render it on get.html template
 def game_details(request, pk):
     pk = int(pk)
     game = get_object_or_404(SavedNbaGame, pk=pk)

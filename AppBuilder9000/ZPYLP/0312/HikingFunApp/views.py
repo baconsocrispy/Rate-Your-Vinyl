@@ -56,7 +56,7 @@ def details(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, "HikingFunApp/details.html", {'form': form, 'item': item})
+        return render(request, "HikingFunApp/get.html", {'form': form, 'item': item})
 
 # This method gives the trails info  to webpage that displays the sidebar.
 def side_bar(request):

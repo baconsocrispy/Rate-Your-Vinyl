@@ -72,7 +72,7 @@ def show_details(request, pk):
                'blocks': blocks,
                'total_def_points': total_def_points,
                }
-    return render(request, 'nba-details.html', content)
+    return render(request, 'nba-get.html', content)
 
 
 # ===============================================================================================
