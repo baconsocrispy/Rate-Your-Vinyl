@@ -10,7 +10,7 @@
   <a href="{% url 'BoardGames_get' b.id %}">
   <div class="col mb-4">
     <div class="card">
-      <img src="{% static 'images/' %}{{ b.Image}}" class="card-img-top" alt="{{ b.Name }}">
+      <img src="{{ b.Thumbnail }}" class="card-img-top" alt="{{ b.Name }}">
       <div class="card-body">
         <h5 class="card-title">{{ b.Name }}</h5>
       </div>
