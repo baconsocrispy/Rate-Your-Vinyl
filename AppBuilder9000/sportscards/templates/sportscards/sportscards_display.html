@@ -14,7 +14,7 @@
 
             {% for cards in all_cards %}
                 <tr>
-                    <td>{{ cards.Player }}</td>
+                    <td><a href="{% url 'SportsCards_details' cards.id %}"> {{ cards.Player }}</a></td>
                     <td>{{ cards.Year }}</td>
                 </tr>
             {% endfor %}

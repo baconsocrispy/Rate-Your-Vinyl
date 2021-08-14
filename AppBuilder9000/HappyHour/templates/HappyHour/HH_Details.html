@@ -1,5 +1,5 @@
 {% extends 'HappyHour/HH_Base.html' %}
-	{% block title %}{{ details.name }} &#8212; {{ details.highlights }}{% endblock %}
+{% block title %}{{ details.name }} &#8212; {{ details.highlights }}{% endblock %}
 
 	{% block content %}
 		<div>
@@ -16,6 +16,8 @@
                         <span class="review_details"><h3>Rating:</h3> {{ details.rating }}</span>
                     </div>
                     <p>{{ details.review }}</p>
+                    <a href="{% url 'HH_Edit' details.pk %}"><button>Edit</button></a>
+                    <a href="{% url 'HH_Delete' details.pk %}"><button>Delete</button></a>
                 </div>
             </div>
 		</div>

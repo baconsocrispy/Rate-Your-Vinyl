@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Card
 from .forms import CardForm
 from django.views import generic
@@ -32,17 +32,8 @@ def display(request):
 def details(request, pk):
     pk = int(pk)
     card = get_object_or_404(Card, pk=pk)
-    form = CardForm(data=request.POST or None, instance=card)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            messages.info(request, 'Changes made successfully.')
-            return redirect('sportscards_display')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'sportscards/sportscards_details.html', {'form': form})
+    content = {'card': card}
+    return render(request, 'sportscards/sportscards_details.html', content)
 
 
 def delete(request, pk):
@@ -53,4 +44,5 @@ def delete(request, pk):
         return redirect('sportscards_display')
     context = {'card': card}
     return render(request, 'sportscards/sportscards_delete.html', context)
+
 
