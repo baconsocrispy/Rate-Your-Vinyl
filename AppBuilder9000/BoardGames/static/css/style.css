@@ -14,42 +14,62 @@ body {
     background-blend-mode: screen;
     background-color: rgba(127, 127, 192, 0.3);
     }
+body.fade-out {
+	opacity: 0;
+	transition: none;
+}
 /***** End General Page Styling *****/
 
 /**** Nav Bar Styling ****/
+nav {
+   z-index: 7;
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+}
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #545875;
+  background-color: rgb(84, 88, 117);
 }
 
 li {
   float: left;
+  padding: 14px 16px;
 }
 
 li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  transition: transform .3s ease-in-out, color .3s ease-in-out;
 }
 
 li a:hover {
-  background-color: #545875;
+  color: rgb(168, 176, 234);
+  transform: scale(1.4);
+  transition: transform .3s ease-in-out, color .3s ease-in-out;
+  z-index: 7;
 }
 /**** End Nav Bar Styling ****/
 
 /**** General Body Styling ****/
-h1 {
+header {
+    z-index: 6 !important;
+    margin-top: 52px;
     text-align: center;
-    font-weight: bolder;
-    color: white;
-    background-color: rgba(127, 127, 192, 0.5);
+    font-weight: bold;
+    color: black;
+    background-color: rgba(60, 100, 100, 0.7);
 }
 
+main {
+    margin-bottom: 24px;
+}
 svg {
     opacity: 25%;
     transition: opacity 1s;
@@ -58,6 +78,57 @@ svg:hover {
     transition: opacity 1s;
     opacity: 100%;
 
+}
+
+a:hover {
+  text-decoration: none;
+}
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+.col .card:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: transform .3s ease-in-out;
+  z-index: 5;
+}
+
+.card {
+	border-radius: 25px;
+	background: rgba(255, 255, 255, .7);
+	overflow: hidden;
+}
+
+table {
+    margin: auto auto;
+	background: rgba(255, 255, 255, .7);
+	border-radius: 25px;
+}
+tr:first-of-type th, tr:first-of-type td {
+    padding-top: 10px;
+    vertical-align: bottom !important;
+}
+tr:last-of-type td, tr:last-of-type th {
+    padding-bottom: 10px;
+}
+th:first-of-type {
+    padding-left: 10px;
+}
+td:last-of-type {
+    padding-right: 10px;
+    vertical-align: top !important;
+}
+
+th {
+    text-align: right;
+}
+
+input {
+    width: 100%;
+}
+
+td {
+    text-align: left;
 }
 /**** End General Body Styling ****/
 
@@ -70,5 +141,8 @@ footer {
    background-color: #545875;
    color: white;
    text-align: center;
+}
+footer p {
+    margin: auto auto;
 }
 /**** Footer Styling ****/
