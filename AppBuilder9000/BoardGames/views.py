@@ -2,6 +2,8 @@ from html import unescape
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import BoardGame
 from .forms import BoardGameForm
+#import requests
+#import xml.etree.ElementTree as ET
 
 
 def BoardGames_home(request):
