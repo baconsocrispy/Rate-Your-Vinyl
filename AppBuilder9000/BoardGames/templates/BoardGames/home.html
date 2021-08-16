@@ -2,21 +2,24 @@
 {% load static %}
 {% block title %} Board Games Home {% endblock %}
 
+{% block header %}
+    <h1>Welcome to the Board Games Application</h1>
+    <h3>This application contains a list of the author's favorite games.</h3>
+{% endblock %}
+
 {% block content %}
-    <h1>Welcome to Board Games Application</h1>
-    <p>This application maintains a list of the author's favorite games.</p>
- <div class="row row-cols-1 row-cols-md-3">
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
   {% for b in boardGames %}
-  <a href="{% url 'BoardGames_get' b.id %}">
   <div class="col mb-4">
     <div class="card">
-      <img src="{{ b.Thumbnail }}" class="card-img-top" alt="{{ b.Name }}">
-      <div class="card-body">
-        <h5 class="card-title">{{ b.Name }}</h5>
-      </div>
+      <a href="{% url 'BoardGames_get' b.id %}">
+        <img src="{{ b.Thumbnail }}" class="card-img-top" alt="{{ b.Name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ b.Name }}</h5>
+        </div>
+      </a>
     </div>
   </div>
-  </a>
   {% endfor %}
 </div>
 {% endblock %}

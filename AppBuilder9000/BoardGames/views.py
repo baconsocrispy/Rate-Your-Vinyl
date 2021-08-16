@@ -1,3 +1,4 @@
+from html import unescape
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import BoardGame
 from .forms import BoardGameForm
@@ -12,6 +13,7 @@ def BoardGames_home(request):
 
 def BoardGames_get(request, pk):
     boardgame = get_object_or_404(BoardGame, pk=pk)
+    boardgame.Description = unescape(boardgame.Description)
     return render(request, 'BoardGames/get.html', {'b': boardgame})
 
 
@@ -36,6 +38,7 @@ def BoardGames_edit(request, pk):
                    'id': boardgame.pk,
                    'error': 'The form was not updated successfully. Please enter valid information.'}
         return render(request, 'BoardGames/edit.html', context)
+
 
 def BoardGames_delete(request, pk):
     BoardGame.objects.filter(id=pk).delete()

@@ -14,31 +14,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="fade-out">
 <!--NAV BAR-->
-    <ul>
-        <li><a href="{% url 'BoardGames_home' %}">Home</a></li>
-        <li><a href="{% url 'BoardGames_create' %}">Add a Game</a></li>
-    </ul>
+    <nav>
+        <ul>
+            <li><a href="{% url 'BoardGames_home' %}">Home</a></li>
+            <li><a href="{% url 'BoardGames_create' %}">Add a Game</a></li>
+        </ul>
+    </nav>
 <!--END NAV BAR-->
 
 <!--HEADER-->
     <header>
-        <h1>
-            {% block header %}{% endblock %}
-        </h1>
+        {% block header %}{% endblock %}
     </header>
 <!--END HEADER-->
 
 <!--BODY-->
-    {% block content %} {% endblock %}
+    <main class="mx-4">
+        {% block content %} {% endblock %}
+    </main>
 <!--END BODY-->
 
 <!--FOOTER-->
-    <footer>
-        <div class="footer">
-            <p>Board Games App &copy;2021 | By Jason Storer</p>
-        </div>
+    <footer class="align-middle">
+        <p>Board Games App &copy;2021 | By Jason Storer</p>
     </footer>
 <!--END FOOTER-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
