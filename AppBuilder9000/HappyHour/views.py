@@ -1,10 +1,35 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RestaurantsForm
 from .models import Restaurants
+import requests
+import json
+
 
 
 def home(request):
     return render(request, 'HappyHour/HH_Home.html')
+
+
+#call API from cocktaildb to show recipe for margarita in terminal
+def cocktails():
+    f = r"https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+    data = requests.get(f)
+    tt = json.loads(data.text)
+
+    for i in (tt["drinks"]):
+        print(i["strDrink"], "\n")
+        print(i["strInstructions"], "\n")
+        print(i["strInstructionsDE"], "\n")
+
+        print(i["strIngredient1"])
+        print(i["strIngredient2"])
+        print(i["strIngredient3"])
+        print(i["strIngredient4"])
+        url = i["strDrinkThumb"]
+
+cocktails()
+
+
 
 def create_review(request):
     form = RestaurantsForm(data=request.POST or None)
