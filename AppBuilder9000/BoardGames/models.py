@@ -8,8 +8,12 @@ class BoardGame(models.Model):
     Description = models.TextField(default="Type your review here (optional)")
     Thumbnail = models.CharField(max_length=200, null=False, blank=True)
     Image = models.CharField(max_length=200, null=False, blank=True)
+    Favorite = models.BooleanField(default=False, null=False, blank=False)
 
     objects = models.Manager()
 
     def __str__(self):
         return self.Name
+
+    class Meta:
+        ordering = ('-Favorite',)
