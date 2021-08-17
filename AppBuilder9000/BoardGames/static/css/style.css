@@ -68,13 +68,13 @@ header {
 }
 
 main {
-    margin-bottom: 24px;
+    margin-bottom: 2rem !important;
 }
-svg {
+.card-title svg {
     opacity: 25%;
     transition: opacity 1s;
 }
-svg:hover {
+.card-title svg:hover {
     transition: opacity 1s;
     opacity: 100%;
 
@@ -84,13 +84,22 @@ a:hover {
   text-decoration: none;
 }
 .card {
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0px 0px 0px 0px #000;
+  transition: transform 0.3s ease-in-out, box-shadow .3s ease-in-out;
+}
+.col .card-title {
+    transition: transform 1.5s cubic-bezier(0.1, -0.5, 0.735, 0.045);
 }
 .col .card:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  transition: transform .3s ease-in-out;
+  transform: scale(1.12);
+  box-shadow: 8px 0px 8px 0px #000;
+  transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
   z-index: 5;
+}
+.col .card:hover .card-title {
+    transform: scale(1.2);
+    transition: transform 1.5s cubic-bezier(0.1, 0.885, 0.32, 2);
 }
 
 .card {
@@ -98,6 +107,25 @@ a:hover {
 	background: rgba(255, 255, 255, .7);
 	overflow: hidden;
 }
+
+.favorite {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    transform: scale(2);
+    padding-top: 10px;
+    padding-right: 15px;
+}
+
+.toggleFavorite {
+    color: rgba(255, 0, 0, .7);
+}
+
+.toggleFavorite:hover {
+    color: rgba(255, 0, 0, .7);
+}
+
 
 table {
     margin: auto auto;
@@ -141,6 +169,7 @@ footer {
    background-color: #545875;
    color: white;
    text-align: center;
+   z-index: 6;
 }
 footer p {
     margin: auto auto;
