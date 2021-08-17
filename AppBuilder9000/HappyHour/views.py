@@ -12,10 +12,12 @@ def home(request):
     data = requests.get(f)
     tt = json.loads(data.text)
     drinks = tt["drinks"]
+    margarita = drinks[0]
 
-    for i in drinks:
-        if drinks[i] == 'strDrink':
-            print(i)
+    print(margarita['strDrink'])
+    print(margarita['strInstructions'])
+    context = {'name': margarita['strDrink'], 'instructions': margarita['strInstructions']}
+
 
 
 # for i in (tt["drinks"]):
@@ -28,7 +30,7 @@ def home(request):
 
 
  #get API to show up on home page
-    return render(request, 'HappyHour/HH_Home.html', )
+    return render(request, 'HappyHour/HH_Home.html', context)
 
 
 
