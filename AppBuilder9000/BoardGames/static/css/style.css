@@ -114,18 +114,10 @@ a:hover {
     right: 0;
     z-index: 5;
     transform: scale(2);
+    color: rgba(255, 0, 0, .7);
     padding-top: 10px;
     padding-right: 15px;
 }
-
-.toggleFavorite {
-    color: rgba(255, 0, 0, .7);
-}
-
-.toggleFavorite:hover {
-    color: rgba(255, 0, 0, .7);
-}
-
 
 table {
     margin: auto auto;
