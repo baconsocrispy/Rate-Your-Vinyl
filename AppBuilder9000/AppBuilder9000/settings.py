@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'sportscards',
     'HappyHour',
     'BoardGames',
+    'RecipeConvert',
 ]
 
 MIDDLEWARE = [

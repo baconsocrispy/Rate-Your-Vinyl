@@ -1,9 +1,9 @@
 from html import unescape
+import json
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 from .models import BoardGame
 from .forms import BoardGameForm
-#import requests
-#import xml.etree.ElementTree as ET
 
 
 def BoardGames_home(request):
@@ -44,3 +44,21 @@ def BoardGames_delete(request, pk):
     BoardGame.objects.filter(id=pk).delete()
     boardgames = BoardGame.objects.all()
     return render(request, 'BoardGames/home.html', {'boardGames': boardgames})
+
+
+def BoardGames_favorite(request, pk):
+    #print("Test")
+    #content = json.dumps(boardgame)
+    #print(content)
+    ##return render(json.dumps(content))
+    if request.method == "POST":
+        pk = request.POST.get("id")
+        boardgame = BoardGame.objects.get(id=pk)
+        boardgame.Favorite = not boardgame.Favorite
+        boardgame.save()
+        print(request.POST)
+        data = { "msg": "Favorite toggled.", 'value': boardgame.Favorite, 'id': pk, }
+        return JsonResponse(data)
+    else:
+        data = { "msg": "Message received!", 'value': boardgame.Favorite, 'id': pk, }
+
