@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'sportscards',
     'HappyHour',
     'BoardGames',
-    'SteamCharts',
+    'VideoGameReviews',
 ]
 
 MIDDLEWARE = [
