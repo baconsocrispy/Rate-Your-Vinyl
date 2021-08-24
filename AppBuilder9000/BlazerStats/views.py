@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+# Displays Home Page
+def BlazerStats_Home(request):
+    return render(request, 'BlazerStats/home.html')
