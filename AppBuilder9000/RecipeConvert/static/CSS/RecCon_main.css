@@ -1,21 +1,20 @@
 
-/* ====================
-     HOME SECTION
-   ==================== */
+/* ===== HOME SECTION ===== */
+
 #home {
-    background: url('static/images/RecCon_bkground.jpg') no-repeat 50% 50%;
+    background-image: url('/static/images/RecCon_bkground.jpg');
     background-attachment: fixed;
+    background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    width: 100%;
-    display: block;
-    height: auto;
-    padding-top: 350px; /* This is spacer before the main title logo */
-    padding-bottom: 500px; /* This is spacer after the main title logo */
-    opacity: 0.5
-    color: #fff;
+    opacity: 0.5;
+}
+
+#home-title {
+    color: dark blue;
+    text-align: center;
 }
 
 /* ====================
