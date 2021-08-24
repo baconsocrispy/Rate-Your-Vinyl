@@ -17,3 +17,9 @@ def add_review(request):
             return redirect('gamereviews_addreview')
     context = {'form': form, }
     return render(request, 'VideoGameReviews/gamereviews_addreview.html', context)
+
+
+# Display db items
+def view_review(request):
+    reviews = Review.objects.all()
+    return render(request, 'VideoGameReviews/gamereviews_displayitems.html', {'reviews': reviews})
