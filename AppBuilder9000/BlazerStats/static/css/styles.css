@@ -1,6 +1,6 @@
 /**** General Page Styling ****/
 
-/* Style for Body of the Page */
+/* BODY */
 body {
     background-image: url('/static/images/dame-3.jpg');
     background-attachment: fixed;
@@ -43,13 +43,13 @@ li a:hover {
 }
 
 
-/* Style for Headers */
+/* HEADERS */
 header {
     text-align: center;
     color: white;
 }
 
-/* Style for Footer */
+/* FOOTER */
 footer {
     position: fixed;
     bottom: 0;
