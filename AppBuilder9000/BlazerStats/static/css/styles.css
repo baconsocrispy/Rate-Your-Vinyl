@@ -33,3 +33,13 @@ li a {
 li a:hover {
     background-color: #111;
 }
+
+
+/* Style for Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: #6cf;
+}
