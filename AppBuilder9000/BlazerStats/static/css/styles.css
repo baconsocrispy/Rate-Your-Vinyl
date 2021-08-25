@@ -35,6 +35,12 @@ li a:hover {
 }
 
 
+/* Style for Headers */
+.header {
+    text-align: center;
+    color: white;
+}
+
 /* Style for Footer */
 footer {
     position: fixed;
@@ -43,3 +49,4 @@ footer {
     height: 50px;
     background: #6cf;
 }
+
