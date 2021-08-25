@@ -7,7 +7,14 @@ body {
     background-position: center;
 }
 
-/* Style for Nav Bar */
+/**** NAV BAR ****/
+nav {
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
 ul {
     position: sticky;
     top: 0;
