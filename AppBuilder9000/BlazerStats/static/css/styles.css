@@ -42,7 +42,7 @@ li a:hover {
 }
 
 /* Style for Footer */
-footer {
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
