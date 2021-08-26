@@ -7,7 +7,8 @@ class Player(models.Model):
     Win_Shares = models.DecimalField(max_digits=5, decimal_places=1)
     Player_Efficiency_Rating = models.DecimalField(max_digits=5, decimal_places=1)
     Points_Per_Game = models.DecimalField(max_digits=5, decimal_places=1)
-    Seasons = models.IntegerField()
+    Seasons = models.IntegerField(default='')
+    Hall_of_Fame = models.BooleanField(default=False, null=False, blank=False)
 
     objects = models.Manager()
 
