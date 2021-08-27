@@ -1,6 +1,7 @@
 {% extends "BlazerStats/base.html" %}
 {% load static %}
 {% block title %} Add a New Player {% endblock %}
+{% load crispy_forms_tags %}
 
 {% block header %}
     <h1>Add a new player in the form below.</h1>
@@ -8,11 +9,11 @@
 {% endblock %}
 
 {% block content %}
-<div>
-    <form id="form-container" method="POST">
+<div id="form-container">
+    <form method="POST">
         {% csrf_token %}
             <table>
-                {{ form.as_table }}
+                {{ form|crispy }}
             </table>
             <button type="submit">Add</button>
     </form>
