@@ -60,3 +60,8 @@ footer {
     text-align: center;
 }
 
+/** FORM **/
+#form-container {
+    tex-align: center;
+    font-color: #BF333B;
+}
