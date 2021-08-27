@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.BlazerStats_Home, name='BlazerStats_Home'),
-    path('', views.BlazerStats_Create, name='BlazerStats_Create'),
+    path('Blazercreate/', views.BlazerStats_Create, name='BlazerStats_Create'),
 ]
