@@ -20,7 +20,7 @@ def create(request):
 
 
 def index(request):
-    # Retrieves all objects in database
+    # Retrieves all objects in templates
     dDog_list = DiamondDogList.objects.order_by(Lower('fName').asc())
 
     paginator = Paginator(dDog_list, 10)

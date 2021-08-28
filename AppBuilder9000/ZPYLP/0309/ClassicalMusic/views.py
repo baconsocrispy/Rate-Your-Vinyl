@@ -664,7 +664,7 @@ def ClassicalMusic_search_details_musician(request, MBID):
     # get compositions details and image urls from Beautifull Soup function
     catalogues, image_urls = BS.ClassicalMusic_soup_get_compositions(request, MBID)
 
-    # Include form for when user wants to add to database
+    # Include form for when user wants to add to templates
 
     try:
         name = musician['name']

@@ -21,7 +21,7 @@ def passwordInput(request):
     form = NewPasswordForm(data=request.POST or None) # backfills the form with data from the request.POST
     if request.method == 'POST': # if the method is POST...
         if form.is_valid(): # ... and all fields are valid...
-            form.save() # ...save the form's contents to the database
+            form.save() # ...save the form's contents to the templates
             return redirect('PwdMgr_home') # return User to this app's Home page
     content = {'form': form}
     return render(request, 'PasswordManager/PwdMgr_pwdInput.html', content) # render form's data within the 'pwdInput.html' page

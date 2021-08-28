@@ -15,7 +15,7 @@ def recipe_home(request):
     return render(request, 'Recipe_Maker/Recipe_Maker_home.html')
 
 
-# creates a new entry in the database
+# creates a new entry in the templates
 def create_recipe(request):
     recipe_form = RecipeForm(request.POST or None)  # gets information from the form
 
@@ -38,9 +38,9 @@ def create_recipe(request):
     return render(request, 'Recipe_Maker/Recipe_Maker_create.html', context)
 
 
-# lists out items in the database
+# lists out items in the templates
 def list_recipes(request):
-    # old code to display items in database
+    # old code to display items in templates
     # recipe_list = Recipe.objects.all()
 
     # set up Pagination
@@ -58,7 +58,7 @@ def recipe_details(request, pk):
     return render(request, 'Recipe_Maker/Recipe_Maker_details.html', {'recipe': recipe})
 
 
-# function to update recipe in database
+# function to update recipe in templates
 def recipe_update(request, pk):
     recipe = Recipe.objects.get(pk=pk)
     # if a user POSTS use RecipeForm otherwise don't use anything
@@ -71,7 +71,7 @@ def recipe_update(request, pk):
     return render(request, 'Recipe_Maker/Recipe_Maker_update.html', {'recipe': recipe, 'form': form})
 
 
-# function to delete a recipe in the database
+# function to delete a recipe in the templates
 def delete_recipe(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
 

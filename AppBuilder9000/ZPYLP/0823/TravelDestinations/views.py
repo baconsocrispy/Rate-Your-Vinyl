@@ -18,7 +18,7 @@ def TravelDestinations_add(request):
     return render(request, 'TravelDestinations/TravelDestinations_add.html', content)
 
 
-# function renders all trips in database
+# function renders all trips in templates
 def destinations(request):
     trips = destination.destination.all()
     content = {'trips': trips}
@@ -43,7 +43,7 @@ def trip_edit(request, id):
     return render(request, 'TravelDestinations/TravelDestinations_edit.html', content)
 
 
-# function enables user to delete trips from database
+# function enables user to delete trips from templates
 def trip_delete(request, id):
     data = get_object_or_404(destination, id=id)
     if request.method == 'POST':

@@ -57,9 +57,9 @@ def ClassicalMusic_api_get_details_musician(request, MBID):
             except:
                 pass
         else:  # No status code of 200
-            messages.add_message(request, messages.ERROR, "No recordings were found in MusicBrainz database.")
+            messages.add_message(request, messages.ERROR, "No recordings were found in MusicBrainz templates.")
     except:
-        messages.add_message(request, messages.ERROR, "The MusicBrainz database is not available for searching recordings.")
+        messages.add_message(request, messages.ERROR, "The MusicBrainz templates is not available for searching recordings.")
 
     return recordings, pages, page
 

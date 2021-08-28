@@ -81,7 +81,7 @@ def Restaurant_save(request):
             newform = form.save(commit=False)
             newform.establishment = str(newform.establishment)[1:-1].strip("'")     #establishment is always given in a list
             newform.save()  #   this removes the brackets and quotes so we can save just the
-            print(newform.establishment)                    #   string values to the database (otherwise brackets show up on show.html)
+            print(newform.establishment)                    #   string values to the templates (otherwise brackets show up on show.html)
             return redirect('RestaurantShow')
     else:                               #if the user tries to access through URL, we're sending them back to homepage
         return redirect('RestaurantHome')
@@ -94,7 +94,7 @@ def Restaurant_api(request):
         response = requests.get('https://developers.zomato.com/api/v2.1/cities?q={}'.format(city), headers=auth)
         city_data = response.json()["location_suggestions"]
         if city_data == []:                     #if the response came back empty
-            messages.error(request, "Your city didn't match any in our database - try one more time!")
+            messages.error(request, "Your city didn't match any in our templates - try one more time!")
             return redirect('RestaurantHome')   #sends ^this alert message and keeps user on home page
         else:                                   #otherwise if the response has data in it
             cities = {}                         #new dictionary to store incoming data

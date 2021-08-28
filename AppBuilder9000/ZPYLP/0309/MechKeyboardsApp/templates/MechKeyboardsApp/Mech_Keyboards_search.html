@@ -63,7 +63,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- For loop to iterate through the database objects(build_list) and create a table row for each -->
+            <!-- For loop to iterate through the templates objects(build_list) and create a table row for each -->
             {% for build in page_obj %}
                 <tr>
                     <th scope="row" id="table-header"><a href="../{{ build.pk }}/build_details/">{{ build.username|upper }}</a></th>

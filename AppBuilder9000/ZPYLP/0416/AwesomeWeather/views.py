@@ -43,7 +43,7 @@ def home(request):
                 else:
                     err_msg = 'City does not exist in the world!'
             else:
-                err_msg = 'City already exists in the database!'
+                err_msg = 'City already exists in the templates!'
 
         if err_msg:
             message = err_msg

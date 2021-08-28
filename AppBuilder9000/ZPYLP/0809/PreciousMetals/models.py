@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-# PreciousMetals model for database
+# PreciousMetals model for templates
 formTypes = [('Coin', 'Coin'), ('Bar', 'Bar'), ('Raw', 'Raw')]
 metalTypes = [('Silver', 'Silver'), ('Gold', 'Gold')]
 

@@ -132,7 +132,7 @@ def b_ref(request):
     allStats = [[td.getText() for td in rows[i].findAll('td')]
                 for i in range(len(rows))]
 
-    # connect to database, and clear it so that it's empty
+    # connect to templates, and clear it so that it's empty
     conn = sqlite3.connect('db.sqlite3')
     with conn:
         cur = conn.cursor()
@@ -182,7 +182,7 @@ def save_favorites(request, pk):
     blocks = player.blocks
     total = player.total
 
-    # Connect to database, delete record if the pk already exists
+    # Connect to templates, delete record if the pk already exists
     conn = sqlite3.connect('db.sqlite3')
     with conn:
         cur = conn.cursor()
