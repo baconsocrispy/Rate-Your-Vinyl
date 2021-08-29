@@ -9,12 +9,13 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    opacity: 0.5;
 }
 
 #home-title {
-    color: dark blue;
+    font: bold 36px Cursive;
+    color: blue;
     text-align: center;
+    margin-top: 100px;
 }
 
 /* ====================
@@ -37,16 +38,13 @@
 .menu-container {
     top: 0;
     left: 0;
-     To the top edge of the screen
-       REUSING CODE, DOES THIS HAPPEN HERE?--->[not at the top-left corner when I run my code
-       (appears to be duplicate of code in video, so haven't been able to figure out why.]
     position: absolute;
     width: 100%;
-    background: #184352;
+    background: GhostWhite;
 }
 
 .menu {
-    font: bold 12px/16px sans-serif;
+    font: 20px Cursive;
     text-align: center;
     display: inline;
     margin: 0;
