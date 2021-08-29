@@ -14,3 +14,7 @@ def BlazerStats_Create(request):
         return redirect("BlazerStats_Create")
 
     return render(request, 'BlazerStats/Blazercreate.html', {"form":form})
+
+
+def BlazerStats_Players(request):
+    return render(request, 'BlazerStats/Players.html')
