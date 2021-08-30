@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'BoardGames',
     'VideoGameReviews',
     'BlazerStats',
+    'RecipeConvert',
 ]
 
 MIDDLEWARE = [
