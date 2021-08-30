@@ -16,4 +16,4 @@ class BoardGame(models.Model):
         return self.Name
 
     class Meta:
-        ordering = ('-Favorite',)
+        ordering = ('-Favorite','Name', 'id')

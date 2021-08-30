@@ -49,6 +49,9 @@ $("#pull-from-bgg").on('click', function() {
     }
 })
 
+//I copied the general layout of this function from the one above.
+//To get access to the url I added it as a data attribute.
+//
 $(".toggleFavorite").on("click", function (e) {
     var id = $(this).data('id')
     $.ajax({
@@ -60,6 +63,30 @@ $(".toggleFavorite").on("click", function (e) {
         },
         success: function(data) {
             $(`#${id} .toggleFavorite`).html(data.value ? filledHeart : emptyHeart)
+            var container = $('#container')
+            if (container) { //Don't sort if there's no container (it's the details page)
+                var cards = container.children().detach()  //detach so this event doesn't get lost
+                cards.sort(function(a, b) {  //Sort the cards by favorite then by name then by id
+                    //Value of xFavorite is true if it has the bi-heart-fill class, false if not
+                    var aFavorite = $(a).find(".favorite svg").hasClass('bi-heart-fill')
+                    var bFavorite = $(b).find(".favorite svg").hasClass('bi-heart-fill')
+                    var aId = $(a).attr('id')
+                    var bId = $(b).attr('id')
+                    var aName = $(a).find(".card-title").text()
+                    var bName = $(b).find(".card-title").text()
+                    //The way sort works, -1 means a comes before, 0 means they're equal, and 1 means it goes after.
+                    //Because I use the id, it should never return 0, but the ternary operator requires an else.
+                    return ((aFavorite === true && bFavorite === false) ||                   //a comes first if it's favorited and b isn't,
+                            (aFavorite === bFavorite && aName.localeCompare(bName) == -1) || //favorite is equal but it's name comes first,
+                            (aFavorite === bFavorite && aName === bName && aId < bId)) ? -1  //or their names are equal and it's id comes first
+                         : ((aFavorite === false && bFavorite === true) ||                   //b comes first if it's favorited and a isn't,
+                            (aFavorite === bFavorite && aName.localeCompare(bName) == 1) ||  //favorite is equal but it's name comes first,
+                            (aFavorite === bFavorite && aName === bName && aId > bId)) ? 1   //or their names are equal and it's id comes first
+                         : 0
+                })
+                //Append all the detached and sorted items to the container.
+                $.each(cards, function(idx, itm) { container.append(itm) })
+            }
         },
         error: function (error) {
             console.log(error)
@@ -67,6 +94,7 @@ $(".toggleFavorite").on("click", function (e) {
     })
 })
 
+//This was copied from https://www.erickmccollum.com/2020/12/19/use-django-csrf-ajax.html.  It's on several pages.
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {

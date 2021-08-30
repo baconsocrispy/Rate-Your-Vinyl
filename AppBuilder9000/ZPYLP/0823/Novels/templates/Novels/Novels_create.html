@@ -5,7 +5,7 @@
 {% block header %} Create a New Entry {% endblock %}
 
 {%block content %}
-    <div class="create_form">
+    <div class="form_container">
         <form method ="POST" action = "{% url 'Novels_create' %}">
             {% csrf_token %}
             {{ form.as_p }}
