@@ -1,11 +1,12 @@
 /**** General Page Styling ****/
 
 /* BODY */
-body {
+ body, html {
     background-image: url('/static/images/dame-3.jpg');
-    background-attachment: fixed;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /**** NAV BAR ****/
