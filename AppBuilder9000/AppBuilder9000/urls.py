@@ -28,6 +28,7 @@ urlpatterns = [
     path('Anime/', include('Anime.urls')),
     path('BlazerStats/', include('BlazerStats.urls')),
     path('RecipeConvert/', include('RecipeConvert.urls')),
+    path('BestGamesEver/', include('BestGamesEver.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
