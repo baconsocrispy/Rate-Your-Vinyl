@@ -21,5 +21,5 @@ def BlazerStats_Create(request):
 
 def BlazerStats_Players(request):
     player_list = Player.objects.all()
-    list_content = {'player_list': player_list}
-    return render(request, 'BlazerStats/Players.html', list_content)
+    {'player_list': player_list}
+    return render(request, 'BlazerStats/Players.html', player_list)
