@@ -1,0 +1,21 @@
+{% extends "BlazerStats/base.html" %}
+{% load static %}
+{% block title %} Add a New Player {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block header %}
+    <h1>Add a new player in the form below.</h1>
+    <h3>Use basketball-reference.com to find stats.</h3>
+{% endblock %}
+
+{% block content %}
+<div id="form-container">
+    <form method="POST">
+        {% csrf_token %}
+            <table>
+                {{ form|crispy }}
+            </table>
+            <button type="submit">Add</button>
+    </form>
+</div>
+{% endblock %}

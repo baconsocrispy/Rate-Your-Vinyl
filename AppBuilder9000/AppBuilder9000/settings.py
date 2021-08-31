@@ -40,14 +40,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'AlbumReviews',
-    'NeighborhoodReview',
-    'PasswordManager',
-    'sportscards',
     'HappyHour',
-    'BoardGames',
     'VideoGameReviews',
     'Anime',
+    'BlazerStats',
+    'RecipeConvert',
 ]
 
 MIDDLEWARE = [
