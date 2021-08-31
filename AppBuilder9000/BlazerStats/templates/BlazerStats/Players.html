@@ -9,8 +9,13 @@
 {% block content %}
     <div class="container">
         {% for Player in player_list %}
+            <strong>{{ Player }}</strong>
             <ul>
-                <li>{{ Player }}</li>
+                <li>{{ Player.Seasons }}</li>
+                <li>{{ Player.Player_Efficiency_Rating }}</li>
+                <li>{{ Player.Points_Per_Game }}</li>
+                <li>{{ Player.Win_Shares }}</li>
+                <li>{{ Player.Hall_of_Fame }}</li>
             </ul>
         {% endfor %}
 
