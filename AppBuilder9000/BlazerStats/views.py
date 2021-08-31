@@ -23,3 +23,7 @@ def BlazerStats_Players(request):
     player_list = Player.objects.all()
     return render(request, 'BlazerStats/Players.html',
             {'player_list': player_list})
+
+
+def BlazerStats_Details(request):
+    return render(request, 'BlazerStats/details.html')
