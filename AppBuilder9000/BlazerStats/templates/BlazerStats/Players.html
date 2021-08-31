@@ -8,9 +8,11 @@
 
 {% block content %}
     <div class="container">
+        <ul>
         {% for Player in player_list %}
-            {{ Player }}
+            <li>{{ Player }}</li>
 
         {% endfor % }
+        </ul>
     </div>
 {% endblock %}
