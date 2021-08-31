@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import PlayerForm
-
+from .models import Player
 
 # Displays Home Page
-from .models import Player
+
 
 
 def BlazerStats_Home(request):
