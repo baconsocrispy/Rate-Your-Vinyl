@@ -9,14 +9,19 @@
 {% block content %}
     <div class="container">
         {% for Player in player_list %}
-            <strong>{{ Player }}</strong>
-            <ul>
-                <li>{{ Player.Seasons }}</li>
-                <li>{{ Player.Player_Efficiency_Rating }}</li>
-                <li>{{ Player.Points_Per_Game }}</li>
-                <li>{{ Player.Win_Shares }}</li>
-                <li>{{ Player.Hall_of_Fame }}</li>
-            </ul>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Player</th>
+                        <th scope="col">Seasons</th>
+                        <th scope="col">PER</th>
+                        <th scope="col">PPG</th>
+                        <th scope="col">Win Shares</th>
+                        <th scope="col">Hall of Fame</th>
+                    </tr>
+                </thead>
+            </table>
+
         {% endfor %}
 
     </div>
