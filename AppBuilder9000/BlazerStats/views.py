@@ -25,5 +25,6 @@ def BlazerStats_Players(request):
             {'player_list': player_list})
 
 
-def BlazerStats_Details(request):
-    return render(request, 'BlazerStats/details.html')
+def BlazerStats_Details(request, pk):
+    details = Player.objects.get(pk=pk)
+    return render(request, 'BlazerStats/details.html', {'details': details})
