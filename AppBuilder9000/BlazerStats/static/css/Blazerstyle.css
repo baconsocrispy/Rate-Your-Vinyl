@@ -69,3 +69,8 @@ footer {
     padding-top: 5px;
     margin-bottom: 5px;
 }
+
+/** PLAYERS TABLE **/
+.table td {
+    text-align: center;
+}
