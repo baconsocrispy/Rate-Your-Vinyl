@@ -21,15 +21,15 @@ def new_item(request):
 
 
 def display_items(request):
-    """Creates a form displaying the current items in the database."""
-    item = Item.objects.all().values()  # Grabs all values from all items in the database.
+    """Creates a form displaying the current items in the templates."""
+    item = Item.objects.all().values()  # Grabs all values from all items in the templates.
     content = {'item': item}  # Dictionary for the items.
     return render(request, 'ItemsApp/display_items.html', content)
 
 
 def select_item(request):
-    """Creates a list of items from the database with anchor tag to select."""
-    item_list = Item.objects.all()  # Grabs all items from all items in the database.
+    """Creates a list of items from the templates with anchor tag to select."""
+    item_list = Item.objects.all()  # Grabs all items from all items in the templates.
     content = {'item_list': item_list}
     return render(request, "ItemsApp/get.html", content)
 
@@ -43,7 +43,7 @@ def item_details(request, pk):
 
 
 def edit_page(request):
-    """Page that displays a drop-down menu for editing items in the database."""
+    """Page that displays a drop-down menu for editing items in the templates."""
     items = Item.objects.all()
     return render(request, 'ItemsApp/edit_page.html', {'items': items})
 
@@ -76,7 +76,7 @@ def delete_item(request, pk):
 
 
 def confirm_delete(request):
-    """Creates a page got the user to confirm the deletion of the item from the database."""
+    """Creates a page got the user to confirm the deletion of the item from the templates."""
     if request.method == 'POST':
         # Creates form instance and binds data to it
         form = ItemForm(request.POST or None)

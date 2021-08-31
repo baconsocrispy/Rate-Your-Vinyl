@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        <!-- For loop to iterate through the database and create a table row for each -->
+        <!-- For loop to iterate through the templates and create a table row for each -->
         {% for dDog in page_obj %}
         <tr>
             <th scope="row" id="table-header"><a href="../{{ dDog.pk }}/dogDetails/" class="link">{{ dDog.fName }}</a></th>

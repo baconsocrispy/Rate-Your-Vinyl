@@ -23,7 +23,7 @@ def create_record(request):
 
 
 def keyboard_index(request):
-    # Retrieves all objects in database
+    # Retrieves all objects in templates
     build_list = KeyboardList.objects.order_by(Lower('username').asc())
     paginator = Paginator(build_list, 10)
 

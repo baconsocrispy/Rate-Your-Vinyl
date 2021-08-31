@@ -30,12 +30,12 @@ def addproduct(request):
 
 def productinfo(request):
     """Creates a page to list all items in the dB"""
-    inv_list = Product.objects.all() # Grabs all items from all items in the database.
+    inv_list = Product.objects.all() # Grabs all items from all items in the templates.
     return render(request, 'ControlInventory/ControlInventory_productinfo.html', {'inv_list': inv_list})
 
 def select_item(request):
-    """Creates a list of items from the database with anchor tag to select."""
-    item_list = Product.objects.all()  # Grabs all items from all items in the database.
+    """Creates a list of items from the templates with anchor tag to select."""
+    item_list = Product.objects.all()  # Grabs all items from all items in the templates.
     content = {'item_list': item_list}
     return render(request, "ControlInventory/ControlInventory_details.html", content)
 

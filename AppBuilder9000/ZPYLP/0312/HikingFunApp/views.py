@@ -13,13 +13,13 @@ def home(request):
     context = {'trails': trails}
     return render(request, "HikingFunApp/HikingFunApp_home.html", context)
 
-# This method creates a form where the user can add a trail to the database.
+# This method creates a form where the user can add a trail to the templates.
 def new_trail(request):
     # create object of form
     form = NewTrailForm(request.POST or None)
     # check if form data is valid
     if form.is_valid():
-        #save is like inserting into database
+        #save is like inserting into templates
         form.save()
 
         return redirect('added_trails')
@@ -31,7 +31,7 @@ def new_trail(request):
     context = {'form': form, 'trails': trails, }
     return render(request, "HikingFunApp/new_trail.html", context)
 
-# This method helps the webpage to show all the trails in the database.
+# This method helps the webpage to show all the trails in the templates.
 def see_trails(request):
     trails = Trails.objects.all()
     context = {'trails': trails}

@@ -23,7 +23,7 @@ def BookClubApp_about(request):
 
 # display a list of books that the user has read (read=True)
 def BookClubApp_booklist(request):
-    # will return read book items from database
+    # will return read book items from templates
     data = Book.objects.filter(read=True)
     # get current page number
     page = request.GET.get('page', 1)
@@ -117,7 +117,7 @@ def BookClubApp_searchForm(request):
     return render(request, 'BookClubApp/BookClubApp_search.html', context)
 
 
-# add new book to the database
+# add new book to the templates
 def BookClubApp_AddBook(request):
     form = BookForm(data=request.POST or None)
     if request.method == 'POST':
@@ -129,7 +129,7 @@ def BookClubApp_AddBook(request):
     return render(request, 'BookClubApp/BookClubApp_AddBook.html', content)
 
 
-# edit book from the database
+# edit book from the templates
 def BookClubApp_edit(request, pk):
     book = get_object_or_404(Book, pk=pk)
 
@@ -143,7 +143,7 @@ def BookClubApp_edit(request, pk):
     return render(request, 'BookClubApp/BookClubApp_edit.html', {'form' : form})
 
 
-# delete book from the database
+# delete book from the templates
 def BookClubApp_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     # if method is post, then delete the book object
@@ -157,7 +157,7 @@ def BookClubApp_delete(request, pk):
     return render(request, 'BookClubApp/BookClubApp_delete.html', context)
 
 
-# edit book from the database
+# edit book from the templates
 def BookClubApp_MarkRead(request, pk, read):
     book = get_object_or_404(Book, pk=pk, read=read)
     print(book.read)
@@ -189,7 +189,7 @@ def BookClubApp_AddBookWishlist(request):
 
 # display a list of books the user has not read (read=False)
 def BookClubApp_wishlist(request):
-    # will return book items from database where read is false
+    # will return book items from templates where read is false
     data = Book.objects.filter(read=False)
     # get current page number
     page = request.GET.get('page', 1)
