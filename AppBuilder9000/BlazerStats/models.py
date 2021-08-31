@@ -16,7 +16,7 @@ class Player(models.Model):
     Win_Shares = models.DecimalField(max_digits=5, decimal_places=1)
     Hall_of_Fame = models.CharField(max_length=3, choices=HALL_OF_FAME)
 
-    player = models.Manager()
+    objects = models.Manager()
 
     def __str__(self):
         return self.Name
