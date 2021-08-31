@@ -4,18 +4,16 @@
 {% load crispy_forms_tags %}
 
 {% block header %}
-    <h1>Add a new player in the form below.</h1>
-    <h3>Use basketball-reference.com to find stats.</h3>
+    <h1>Add a new player in the form below</h1>
+    <h4>Use <a href="https://www.basketball-reference.com/teams/POR/">basketball-reference.com</a> to find stats</h4>
 {% endblock %}
 
 {% block content %}
 <div id="form-container">
     <form method="POST">
         {% csrf_token %}
-            <table>
-                {{ form|crispy }}
-            </table>
-            <button type="submit">Add</button>
+        {{ form|crispy }}
+        <button type="submit">Add</button>
     </form>
 </div>
 {% endblock %}
