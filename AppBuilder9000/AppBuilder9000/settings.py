@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Anime',
     'BlazerStats',
     'RecipeConvert',
+    'BestGamesEver',
 ]
 
 MIDDLEWARE = [
