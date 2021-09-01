@@ -26,5 +26,5 @@ def BlazerStats_Players(request):
 
 
 def BlazerStats_Details(request):
-    details = Player.objects.get()
+    details = Player.objects.get(pk=1)
     return render(request, 'BlazerStats/details.html', {'details': details})
