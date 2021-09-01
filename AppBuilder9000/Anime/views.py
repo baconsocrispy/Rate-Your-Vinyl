@@ -14,6 +14,6 @@ def Anime_create(request):
         result = form.save()
         return redirect('Add_Anime')
     else:
-        return render(request, 'Anime/Anime_create.html')
+        return render(request, 'Anime/Anime_create.html', {'form': form})
 
 
