@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/games.css' %}">
+</head>
+<body>
+    <!-- NAV BAR -->
+    <nav>
+        <ul>
+            <li><a href="">Home</a></li>
+        </ul>
+    </nav>
+    <!-- END NAV BAR -->
+
+    <!-- HEADER -->
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    <!-- END HEADER -->
+
+    <!-- BODY -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <!-- END BODY -->
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Top Games Of All Time &#169;2021 | By Phil Marino</p>
+    </footer>
+    <!-- END FOOTER -->
+
+</body>
+</html>

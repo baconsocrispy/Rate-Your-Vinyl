@@ -12,8 +12,8 @@ def Anime_create(request):
     form = DescriptionForm(data=request.POST or None)
     if request.method == "POST" and form.is_valid():
         result = form.save()
-        return redirect('Anime_get', pk=result.id)
+        return redirect('Add_Anime')
     else:
-        return render(request, 'Anime/Anime_create.html')
+        return render(request, 'Anime/Anime_create.html', {'form': form})
 
 
