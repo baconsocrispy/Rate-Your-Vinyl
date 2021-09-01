@@ -7,14 +7,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="add-game-form">
+<div class="add-anime-form">
     <button id="pull-from-bgg" class="btn btn-secondary" type="button" name="Pull_From_BGG">Pull from BGG</button>
     <form method="POST">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
-        <button id="add-game-button" class="btn btn-primary" type="submit" name="Add_Game">Add Game</button>
+        <button id="add-anime-button" class="btn btn-primary" type="submit" name="Add_Anime">Add Anime</button>
     </form>
 </div>
 {% endblock %}

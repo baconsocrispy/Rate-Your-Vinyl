@@ -15,3 +15,5 @@ def Anime_create(request):
         return redirect('Description_get', pk=result.id)
     else:
         return render(request, 'Description/create.html', {'form': form})
+
+
