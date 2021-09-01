@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'HappyHour',
     'BoardGames',
     'VideoGameReviews',
+    'MusicAlbums',
 ]
 
 MIDDLEWARE = [
