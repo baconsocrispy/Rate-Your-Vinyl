@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.BlazerStats_Home, name='BlazerStats_Home'),
-    path('Blazercreate/', views.BlazerStats_Create, name='BlazerStats_Create'),
-    path('Players/', views.BlazerStats_Players, name='BlazerStats_Players'),
+    path('', views.blazerstats_home, name='blazerstats_home'),
+    path('Blazercreate/', views.blazerstats_create, name='blazerstats_create'),
+    path('Players/', views.blazerstats_players, name='blazerstats_players'),
+    path('<int:pk>/details/',views.blazerstats_details, name='blazerstats_details'),
 ]
