@@ -49,6 +49,7 @@ header {
     color: white;
 }
 
+
 /* FOOTER */
 footer {
     position: fixed;
@@ -60,6 +61,7 @@ footer {
     text-align: center;
 }
 
+
 /** FORM **/
 #form-container {
     text-align: center;
@@ -70,8 +72,9 @@ footer {
     margin-bottom: 5px;
 }
 
+
 /** CAPTION **/
 caption {
     color: white;
-    text-align: center;
 }
+
