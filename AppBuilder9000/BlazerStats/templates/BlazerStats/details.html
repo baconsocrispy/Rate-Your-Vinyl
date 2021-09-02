@@ -31,8 +31,8 @@
                 </tr>
             </tbody>
             <p>{{ details.Name }}</p>
-            <a href="{% url 'edit' details.pk %}"><button>Edit</button></a>
-            <a href="{% url 'delete' details.pk %}"><button>Delete</button></a>
+            <a href="{% url 'player_edit' details.pk %}"><button>Edit</button></a>
+            <a href="{% url 'player_delete' details.pk %}"><button>Delete</button></a>
         </table>
     </div>
 {% endblock %}
