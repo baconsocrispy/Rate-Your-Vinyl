@@ -14,7 +14,7 @@ def blazerstats_create(request):
     form = PlayerForm(data=request.POST or None)
     if request.method == "POST" and form.is_valid():
         form.save()
-        return redirect("BlazerStats_Create")
+        return redirect("blazerstats_create")
 
     return render(request, 'BlazerStats/Blazercreate.html', {"form":form})
 
