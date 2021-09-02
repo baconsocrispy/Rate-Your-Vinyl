@@ -30,6 +30,9 @@
                     <td>{{ details.Hall_of_Fame }}</td>
                 </tr>
             </tbody>
+            <p>{{ details.review }}</p>
+            <a href="{% url 'edit' details.pk %}"><button>Edit</button></a>
+            <a href="{% url 'delete' details.pk %}"><button>Delete</button></a>
         </table>
     </div>
 {% endblock %}
