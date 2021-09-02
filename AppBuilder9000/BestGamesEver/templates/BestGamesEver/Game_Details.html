@@ -8,8 +8,16 @@
 
 {% block content %}
 
-
-
-
+<div class="details_form">
+  <ul class="list-group">
+      <h1 class="list-group-item">Title</h1>
+    <h1 class="list-group-item">{{ details.name }}</h1>
+    <h4 class="list-group-item">Genre</h4>
+    <li class="list-group-item">{{ details.genre }}</li>
+    <h4 class="list-group-item">Year</h4>
+    <li class="list-group-item">{{ details.year }}</li>
+    <h4 class="list-group-item">User Description</h4>
+    <li class="list-group-item">{{ details.description }}</li>
+  </ul>
 
 {% endblock %}
