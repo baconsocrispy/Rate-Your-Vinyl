@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'HappyHour',
     'VideoGameReviews',
+    'MusicAlbums',
     'Anime',
     'BlazerStats',
     'RecipeConvert',
+    'BestGamesEver',
 ]
 
 MIDDLEWARE = [

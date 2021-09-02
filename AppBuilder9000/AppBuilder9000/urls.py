@@ -25,9 +25,11 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('HappyHour/', include('HappyHour.urls')),
     path('VideoGameReviews/', include('VideoGameReviews.urls')),
+    path('MusicAlbums/', include('MusicAlbums.urls')),
     path('Anime/', include('Anime.urls')),
     path('BlazerStats/', include('BlazerStats.urls')),
     path('RecipeConvert/', include('RecipeConvert.urls')),
+    path('BestGamesEver/', include('BestGamesEver.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
