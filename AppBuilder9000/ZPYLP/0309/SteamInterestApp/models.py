@@ -21,6 +21,6 @@ class SteamInterestAppBase(models.Model):
 
     objects = models.Manager()
 
-    # An easy way to see what game we're talking about when analyzing the database
+    # An easy way to see what game we're talking about when analyzing the templates
     def __str__(self):
         return self.game_title

@@ -19,7 +19,7 @@ def SIAAddEntry(request):
     # If everything is good with the form, it'll save the form and redirect the user back to the home page.
     if formentry.is_valid():
         formentry.save()
-        # Success! I tried adding an entry and it has appeared in the database!
+        # Success! I tried adding an entry and it has appeared in the templates!
         # I should add in some form of confirmation so it's not ambiguous...
         return redirect('SIAAddSuccess')
     # If there's an issue with the form, it'll let the user know by printing the errors.
@@ -54,7 +54,7 @@ def SIAViewAll(request):
     return render(request, 'SteamInterestApp/SIA_allEntries.html', context)
 
 
-# We'll use this function to automatically populate a table with info from our database!
+# We'll use this function to automatically populate a table with info from our templates!
 def SIAViewEntry(request, pk):
     pk = int(pk)
     item = get_object_or_404(SteamInterestAppBase, pk=pk)

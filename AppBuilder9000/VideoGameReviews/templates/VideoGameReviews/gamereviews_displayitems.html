@@ -14,19 +14,24 @@
           <th scope="col">Game</th>
           <th scope="col">Score</th>
           <th scope="col">Reviewer</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
 
+        <!-- Gets the db items and displays them in a table -->
         {% for review in reviews %}
             <tr>
                 <td>{{ review.game|capfirst }}</td>
                 <td>{{ review.review_score }}</td>
                 <td>{{ review.reviewer }}</td>
+                <td><a href="{% url 'gamereviews_details' review.id %}">Details</a></td>
             </tr>
         {% endfor %}
 
       </tbody>
     </table>
+
 </div>
+
 {% endblock %}

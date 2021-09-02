@@ -1,0 +1,78 @@
+
+/* ===== HOME SECTION ===== */
+
+#home {
+    background-image: url('/static/images/RecCon_bkground.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#home-title {
+    font: bold 36px Cursive;
+    color: blue;
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* ====================
+     CONVERTER BACKGROUND
+   ==================== */
+
+
+
+/* ====================
+    NAVBAR SECTION
+   ==================== */
+/*
+.wrap {
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+}
+*/
+.menu-container {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    background: GhostWhite;
+}
+
+.menu {
+    font: 20px Cursive;
+    text-align: center;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/*
+.menu li {
+    color: #b3b3b3;
+    display: inline-block;
+    margin-right; -2px;
+    position: relative;
+    padding: 12px 40px;
+    border: 1px solid #9d9fa2;
+    border-radius: 1.5px;
+    background: #387593;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #5eafdf;
+    color: #fff;
+}
+
+.menu li:hover ul {
+    display: block;
+    opacity: 1;
+     While hovered, drop down-menu appears
+       This also avoids a block-level bug
+    visibility: visible;
+}*/

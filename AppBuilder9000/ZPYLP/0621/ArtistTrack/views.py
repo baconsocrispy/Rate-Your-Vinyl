@@ -86,7 +86,7 @@ def at_lyrics_api(request, pk):
                     'lyrics': lyrics,
                 }
                 return render(request, "ArtistTrack_lyrics.html", context)
-    # if the database already has lyrics for the given song, print the lyrics from the database.
+    # if the templates already has lyrics for the given song, print the lyrics from the templates.
     else:
         lyrics = song.lyrics
         context = {
@@ -167,7 +167,7 @@ def add_song(request):
         if form.is_valid():
             # gets the song name that was entered by the user and stores it to use in message.
             song_name = form.cleaned_data.get('song_name')
-            # saves information provided by the user to the database
+            # saves information provided by the user to the templates
             form.save()
             # adds a message to the page.
             messages.add_message(request, messages.SUCCESS,  'Song "{}" Saved To Library'.format(song_name))
