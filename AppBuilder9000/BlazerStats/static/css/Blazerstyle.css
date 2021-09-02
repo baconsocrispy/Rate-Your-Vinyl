@@ -69,3 +69,8 @@ footer {
     padding-top: 5px;
     margin-bottom: 5px;
 }
+
+/** CAPTION **/
+caption {
+    color: white;
+}
