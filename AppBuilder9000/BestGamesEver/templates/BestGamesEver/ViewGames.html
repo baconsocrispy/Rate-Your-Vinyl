@@ -23,6 +23,7 @@
                     <td>{{ Game.genre }}</td>
                     <td>{{ Game.year }}</td>
                     <td>{{ Game.description }}</td>
+                    <td><a href="{% 'Game_Details' game.id %}">Details</a></td>
                 </tr>
             {% endfor %}
             </tbody>

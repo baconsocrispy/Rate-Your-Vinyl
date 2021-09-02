@@ -21,3 +21,10 @@ def Game_View(request):
     game_list = Game.objects.all()
 
     return render(request, 'BestGamesEver/ViewGames.html', {'game_list': game_list})
+
+
+# Function to allow user to view a single item
+
+def Game_Details(request, game_id):
+    details = Game.objects.get(id=game_id)
+    return render(request, "BestGamesEver/Game_Details.html", {'details': details})
