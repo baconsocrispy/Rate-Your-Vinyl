@@ -17,3 +17,15 @@ def Anime_create(request):
         return render(request, 'Anime/Anime_create.html', {'form': form})
 
 
+def Anime_entries(request):
+    entries = Description.objects.all()
+    content = {'entries': entries}
+    return render(request, 'Anime/Anime_entries.html', content)
+
+
+def Anime_details(request, pk):
+    details = Description.get(pk=pk)
+    return render(request, "Anime/Anime_details.html", {'details': details})
+
+
+
