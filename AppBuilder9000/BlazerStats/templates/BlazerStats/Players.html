@@ -29,6 +29,7 @@
                     <td>{{ Player.Player_Efficiency_Rating }}</td>
                     <td>{{ Player.Win_Shares }}</td>
                     <td>{{ Player.Hall_of_Fame }}</td>
+                    <td><a href="{% url 'blazerstats_details' Player.id %}">Details</a></td>
                 </tr>
             {% endfor %}
             </tbody>
