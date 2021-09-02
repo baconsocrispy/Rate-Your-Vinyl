@@ -1,34 +1,21 @@
 {% extends "Anime_base.html" %}
-
+{% load static %}
 {% block title %} Anime - View Entries {% endblock %}
 
 {% block header %} All Reviews {% endblock %}
 
 {% block content %}
-
-<!-- Entry List -->
-<div class="create_form">
-    <table class="table table-dark table-borderless">
-      <thead>
-        <tr>
-          <th scope="col">Anime</th>
-          <th scope="col">User</th>
-        </tr>
-      </thead>
-      <tbody>
-
-        <!-- Gets the db items and displays them in a table -->
+<div>
+    <ul>
+        <div class="mx-4" >
         {% for entry in entries %}
-            <tr>
-<!--                <td>{{ entry.anime|capfirst }}</td>-->
-                <td>{{ entry.name }}</td>
-<!--                <td><a href="{% url 'Anime_entries' review.id %}">Details</a></td>-->
-            </tr>
-        {% endfor %}
 
-      </tbody>
-    </table>
+                <ul>{{ entry.anime }}</ul>
+                <ul>{{ entry.name }}</ul>
 
+            {% endfor %}
+        </div>
+    </ul>
 </div>
 
 {% endblock %}

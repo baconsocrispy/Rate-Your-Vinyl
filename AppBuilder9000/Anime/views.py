@@ -19,7 +19,8 @@ def Anime_create(request):
 
 def Anime_entries(request):
     entries = Description.objects.all()
-    return render(request, 'Anime/Anime_entries.html', {'entries': entries})
+    content = {'entries': entries}
+    return render(request, 'Anime/Anime_entries.html', content)
 
 
 def Anime_details(request, pk):
