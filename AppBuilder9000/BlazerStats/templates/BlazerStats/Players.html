@@ -23,13 +23,12 @@
             <tbody>
             {% for Player in player_list %}
                 <tr>
-                    <td>{{ Player }}</td>
+                    <td><a href="{% url 'blazerstats_details' Player.id %}">{{ Player }}</a></td>
                     <td>{{ Player.Seasons }}</td>
                     <td>{{ Player.Points_Per_Game }}</td>
                     <td>{{ Player.Player_Efficiency_Rating }}</td>
                     <td>{{ Player.Win_Shares }}</td>
                     <td>{{ Player.Hall_of_Fame }}</td>
-                    <td><a href="{% url 'blazerstats_details' Player.id %}">Details</a></td>
                 </tr>
             {% endfor %}
             </tbody>
