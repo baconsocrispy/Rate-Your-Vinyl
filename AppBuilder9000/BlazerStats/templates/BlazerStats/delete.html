@@ -11,7 +11,7 @@
     <form method = 'POST'>
         {% csrf_token %}
         {{ item.as_p }}
-        <h4> Deleting Player {{ item.id }}</h4>
+        <h4> Deleting Player {{ details.Name }}</h4>
                <input type="submit" value ="Delete" onclick ="return confirm('Are you sure you want to delete this?')"  >
     </form>
 
