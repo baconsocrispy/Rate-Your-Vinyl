@@ -43,6 +43,6 @@ def player_edit(request, pk):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('Players')
+            return redirect('blazserstats_players')
     content = {'form': form}
     return render(request, 'BlazerStats/edit.html', content)
