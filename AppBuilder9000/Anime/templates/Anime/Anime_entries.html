@@ -10,9 +10,8 @@
         <div class="mx-4" >
         {% for entry in entries %}
 
-                <ul>{{ entry.anime }}</ul>
-                <ul>{{ entry.name }}</ul>
-
+            <ul>Anime:{{ entry.anime }} Reviewer:{{ entry.name }}</ul>
+            <ul><a href="{% url 'Anime_details' entry.pk %}">Anime Details</a></ul>
             {% endfor %}
         </div>
     </ul>
