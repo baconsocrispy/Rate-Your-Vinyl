@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Description
 from .forms import DescriptionForm
 
@@ -24,8 +24,9 @@ def Anime_entries(request):
 
 
 def Anime_details(request, pk):
-    details = Description.get(pk=pk)
-    return render(request, "Anime/Anime_details.html", {'details': details})
+    details = get_object_or_404(Description, pk=pk)
+    context = {'details': details}
+    return render(request, "Anime/Anime_details.html", context)
 
 
 
