@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayerForm
 from .models import Player
 
@@ -27,3 +27,22 @@ def blazerstats_players(request):
 def blazerstats_details(request, pk):
     details = Player.objects.get(pk=pk)
     return render(request, 'BlazerStats/details.html', {'details': details})
+
+
+def player_delete(request, pk):
+    item = get_object_or_404(Player, pk=pk)
+    form = PlayerForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect("blazerstats_players")
+    return render(request, 'BlazerStats/delete.html', {'item': item, 'form': form})
+
+def player_edit(request, pk):
+    item = get_object_or_404(Player, pk=pk)
+    form = PlayerForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect("blazerstats_players")
+    content = {'form': form}
+    return render(request, 'BlazerStats/edit.html', content)

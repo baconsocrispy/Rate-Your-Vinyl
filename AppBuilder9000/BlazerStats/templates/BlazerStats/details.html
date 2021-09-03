@@ -31,5 +31,7 @@
                 </tr>
             </tbody>
         </table>
+        <a href="{% url 'player_edit' details.pk %}"><button type="button" class="btn btn-secondary btn-lg">Edit</button></a>
+        <a href="{% url 'player_delete' details.pk %}"><button type="button" class="btn btn-secondary btn-lg">Delete</button></a>
     </div>
 {% endblock %}
