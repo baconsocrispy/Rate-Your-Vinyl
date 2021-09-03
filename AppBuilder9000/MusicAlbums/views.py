@@ -6,10 +6,15 @@ def MusicAlbums_home(request):
     return render(request, "MusicAlbums/MusicAlbums_home.html")
 
 def MusicAlbums_add(request):
-    form = AlbumForm(data=request.POST or None)
-    if request.method =='POST':
+    if request.method == 'POST':
+        form = AlbumForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("MusicAlbums_add")
-        content={'form': form}
-        return render(request, "MusicAlbums/MusicAlbums_add.html", content)
+            return redirect('MusicAlbums_add')
+        else:
+            form = AlbumForm(request.POST)
+            return render(request, 'MusicAlbums/MusicAlbums_add.html',
+                          {'form': form})
+    else:
+        form = AlbumForm(None)
+        return render(request, 'MusicAlbums/MusicAlbums_add.html', {'form': form})
