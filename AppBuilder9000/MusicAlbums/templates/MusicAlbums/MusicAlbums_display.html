@@ -1,0 +1,12 @@
+{% extends 'MusicAlbums/MusicAlbums_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="displaylist">
+{% for item in all %}
+ <br>
+ Artist: {{ item.Artist }}<br>
+ Year: {{ item.Year }}<br><hr>
+{% endfor %}
+</div>
+{% endblock %}

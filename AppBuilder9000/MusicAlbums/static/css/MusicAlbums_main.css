@@ -2,3 +2,13 @@ body {
     background-image: url('/static/images/Background.jpg');
     background-size: cover;
 }
+
+.displaylist {
+    color: white;
+    text-align: center;
+}
+
+.addform {
+    color: white;
+    text-align: center;
+}

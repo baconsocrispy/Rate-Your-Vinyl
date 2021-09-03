@@ -3,7 +3,7 @@ from .models import Album
 from .forms import AlbumForm
 # Create your views here.
 def MusicAlbums_home(request):
-    return render(request, "MusicAlbums/MusicAlbums_home.html")
+    return render(request, 'MusicAlbums/MusicAlbums_home.html')
 
 def MusicAlbums_add(request):
     if request.method == 'POST':
@@ -18,3 +18,7 @@ def MusicAlbums_add(request):
     else:
         form = AlbumForm(None)
         return render(request, 'MusicAlbums/MusicAlbums_add.html', {'form': form})
+
+def MusicAlbums_display(request):
+    all_albums = Album.objects.all
+    return render(request, 'MusicAlbums/MusicAlbums_display.html', {'all': all_albums})
