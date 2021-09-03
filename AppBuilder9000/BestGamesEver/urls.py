@@ -8,4 +8,6 @@ urlpatterns = [
     path('GameCreate/', views.Game_Create, name='Game_Create'),
     path('ViewGames/', views.Game_View, name='Game_View'),
     path('<game_id>/details/', views.Game_Details, name='Game_Details'),
+    path('<game_id>/edit/', views.Edit_Games, name='Edit_Games'),
+    path('<game_id>/delete/', views.Delete_Games, name='Delete_Games'),
 ]
