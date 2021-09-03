@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import GameForm
 from .models import Game
 
@@ -28,3 +28,27 @@ def Game_View(request):
 def Game_Details(request, game_id):
     details = Game.objects.get(id=game_id)
     return render(request, "BestGamesEver/Game_Details.html", {'details': details})
+
+# Function to edit an entry
+
+def Edit_Games(request, game_id):
+    item = get_object_or_404(Game, id=game_id)
+    form = GameForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect("Game_View")
+    content = {'form': form}
+    return render(request, 'BestGamesEver/Game_Edit.html', content)
+
+
+# Function to delete an entry
+def Delete_Games(request, game_id):
+    item = get_object_or_404(Game, id=game_id)
+    form = GameForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+            item.delete()
+            return redirect("Game_View")
+    content = {'form': form}
+    return render(request, 'BestGamesEver/Game_Delete.html', {'item': item, 'form': form})
+
