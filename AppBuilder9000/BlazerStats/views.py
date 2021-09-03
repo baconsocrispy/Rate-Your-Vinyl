@@ -34,7 +34,7 @@ def player_delete(request, pk):
     form = PlayerForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         item.delete()
-        return redirect('Players')
+        return redirect('blazserstats_players')
     return render(request, 'BlazerStats/delete.html', {'item': item, 'form': form})
 
 def player_edit(request, pk):
