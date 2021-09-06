@@ -1,0 +1,17 @@
+{% extends "BestGamesEver/base.html" %}
+{% load static %}
+
+
+{% block header %}Current Price{% endblock %}
+
+
+{% block content %}
+
+{% for para_text in para_text %}
+    <p>{{ para_text }}</p>
+{% endfor %}
+
+
+
+
+{% endblock %}

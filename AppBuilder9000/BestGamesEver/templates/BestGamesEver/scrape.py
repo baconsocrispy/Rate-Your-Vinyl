@@ -45,7 +45,3 @@ def get_link_data(url):
 
     return name, price
 print(get_link_data(url))
-
-
-
-

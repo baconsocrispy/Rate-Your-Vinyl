@@ -3,7 +3,10 @@ from .forms import GameForm
 from .models import Game
 from bs4 import BeautifulSoup
 import requests
-import lxml
+
+
+
+
 
 # Displays the home page
 def BestGamesEver_Home(request):
@@ -54,5 +57,26 @@ def Delete_Games(request, game_id):
             return redirect("Game_View")
     content = {'form': form}
     return render(request, 'BestGamesEver/Game_Delete.html', {'item': item, 'form': form})
+
+
+
+
+
+
+def View_Price(request, game_id):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36"
+
+    }
+    r = requests.get("https://store.steampowered.com/app/291650/Pillars_of_Eternity/")
+    soup = BeautifulSoup(r.text, 'html.parser')
+    name = soup.select_one(selector=".apphub_AppName").getText()
+
+    price = soup.select_one(selector=".game_purchase_action_bg").getText()
+    price = price.strip()
+    price = price[1:]
+    para_text = parseSoup()
+    context = {'para_text': para_text}
+    return render (request, 'BestGamesEver/View_Price.html', context)
 
 
