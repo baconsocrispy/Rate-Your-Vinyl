@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from bs4 import BeautifulSoup
+import requests
+
 
 urlpatterns = [
     path('', views.BestGamesEver_Home, name='BestGamesEver_Home'),
@@ -9,4 +12,5 @@ urlpatterns = [
     path('<game_id>/details/', views.Game_Details, name='Game_Details'),
     path('<game_id>/edit/', views.Edit_Games, name='Edit_Games'),
     path('<game_id>/delete/', views.Delete_Games, name='Delete_Games'),
+
 ]

@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import GameForm
 from .models import Game
+from bs4 import BeautifulSoup
+import requests
+import lxml
 
 # Displays the home page
 def BestGamesEver_Home(request):
@@ -51,4 +54,5 @@ def Delete_Games(request, game_id):
             return redirect("Game_View")
     content = {'form': form}
     return render(request, 'BestGamesEver/Game_Delete.html', {'item': item, 'form': form})
+
 
