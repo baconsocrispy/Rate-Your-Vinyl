@@ -22,7 +22,8 @@
                     <td>{{ Tool }}</td>
                     <td>{{ Tool.price }}</td>
                     <td><a href="{% url 'Tool_Details' Tool.id %}">Details</a></td>
-                    <td><a href="{% url 'Delete_Tools'  %}">Delete</a></td>
+                    <td><a href="{% url 'Edit_Tools' Tool.id %}">Edit</a></td>
+                    <td><a href="{% url 'Delete_Tools' Tool.id %}">Delete</a></td>
                 </tr>
             {% endfor %}
             </tbody>

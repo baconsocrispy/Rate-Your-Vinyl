@@ -45,11 +45,11 @@ def Edit_Tools(request, pk):
 
 
 # Function to delete an entry
-def Delete_Tools(request, tool_id):
-    item = get_object_or_404(Tool, id=tool_id)
+def Delete_Tools(request, pk):
+    item = get_object_or_404(Tool, pk=pk)
     form = ToolForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         item.delete()
         return redirect("View_Tools")
     content = {'form': form}
-    return render(request, 'Blacksmithing/Tool_Delete.html', {'item': item, 'form': form})
+    return render(request, 'Blacksmithing/Tool_Delete.html', {'item': item}, content)
