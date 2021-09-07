@@ -30,6 +30,7 @@ urlpatterns = [
     path('BlazerStats/', include('BlazerStats.urls')),
     path('RecipeConvert/', include('RecipeConvert.urls')),
     path('BestGamesEver/', include('BestGamesEver.urls')),
+    path('Blacksmithing/', include('Blacksmithing.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
