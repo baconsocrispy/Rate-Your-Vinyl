@@ -50,6 +50,6 @@ def Delete_Tools(request, pk):
     form = ToolForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         item.delete()
-        return redirect("View_Tools")
+        return redirect("Tool_View")
     content = {'form': form}
     return render(request, 'Blacksmithing/Tool_Delete.html', {'item': item}, content)
