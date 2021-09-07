@@ -66,12 +66,12 @@ def get_html_content(game):
     session.headers['User-Agent'] = USER_AGENT
     session.headers['Accept-Language'] = LANGUAGE
     session.headers['Content-Language'] = LANGUAGE
-    game = game.replace('', '+')
+    game = game.replace(' ', '+')
     html_content = session.get(f'https://www.amazon.com/s?k={game}&ref=nb_sb_noss_2').text
     return html_content
 
 
-
+# Beautiful Soup Function
 def View_Price(request):
     game_data = None
     if 'game' in request.GET:
@@ -79,7 +79,9 @@ def View_Price(request):
         game = request.GET.get('game')
         html_content = get_html_content(game)
         soup = BeautifulSoup(html_content, 'html.parser')
-        game_data = dict()
+        # Setting our variable to dictionary form
+        game_data = {}
+        # Will display name of the game and current price
         game_data['title'] = soup.find('span', attrs={'class': 'a-size-medium a-color-base a-text-normal'}).text
         game_data['price'] = soup.find('span', attrs={'class': 'a-offscreen'}).text
 

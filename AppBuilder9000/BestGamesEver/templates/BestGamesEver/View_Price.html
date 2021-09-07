@@ -1,28 +1,26 @@
+{% extends "BestGamesEver/base.html" %}
+{% load static %}
+{% block title %} Search{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>View Price</title>
 
-</head>
-<body>
+{% block content %}
 
-    <div id="main">
+<div id="main">
         <h1>Find Game</h1>
         <form method="get">
-        <label for="game"></label>
-        <input type="text" name="game" id="game" value="{{ request.GET.game }}" placeholder="game..."><br>
+            <label for="game"></label>
+            <input type="text" name="game" id="game" value="{{ request.GET.game }}" placeholder="game..."><br>
             <input type="submit" value="Submit"/>
         </form>
         {% if game %}
-        <h3>{{ game.title }}</h3>
-        <h3>{{ game.price }}</h3>
+            <h3>{{ game.title }}</h3>
+            <h3>{{ game.price }}</h3>
         {% endif %}
     </div>
 
-</body>
-</html>
+
+
+
+{% endblock %}
 
 
