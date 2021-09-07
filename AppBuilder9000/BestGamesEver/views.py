@@ -67,7 +67,7 @@ def get_html_content(game):
     session.headers['Accept-Language'] = LANGUAGE
     session.headers['Content-Language'] = LANGUAGE
     game = game.replace('', '+')
-    html_content = session.get(f'https://www.amazon.com/s?k=p{game}').text
+    html_content = session.get(f'https://www.amazon.com/s?k={game}&ref=nb_sb_noss_2').text
     return html_content
 
 
@@ -81,7 +81,7 @@ def View_Price(request):
         soup = BeautifulSoup(html_content, 'html.parser')
         game_data = dict()
         game_data['title'] = soup.find('span', attrs={'class': 'a-size-medium a-color-base a-text-normal'}).text
-        game_data['price'] = soup.find('span', attrs={'class': 'a-price'}).text
+        game_data['price'] = soup.find('span', attrs={'class': 'a-offscreen'}).text
 
     return render(request, 'BestGamesEver/View_Price.html', {'game': game_data})
 
