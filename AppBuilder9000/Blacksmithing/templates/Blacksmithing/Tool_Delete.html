@@ -7,7 +7,7 @@
 <!-- Prompts the user to confirm deletion -->
 <div class="create_form p-3 mb-2 bg-dark text-white">
     <h3 style="text-align:center; color:white;"> Deleting Entry: {{ item.name }}</h3>
-    <form method ="POST">
+    <form method ="POST"
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-secondary btn-lg btn-block" onclick="return confirm('Are you sure you want to delete this?')">Confirm</button>
