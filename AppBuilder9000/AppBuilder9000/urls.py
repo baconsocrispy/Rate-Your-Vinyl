@@ -31,6 +31,7 @@ urlpatterns = [
     path('RecipeConvert/', include('RecipeConvert.urls')),
     path('BestGamesEver/', include('BestGamesEver.urls')),
     path('Blacksmithing/', include('Blacksmithing.urls')),
+    path('EdTech/', include('EdTech.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
