@@ -59,24 +59,29 @@ def Delete_Games(request, game_id):
     return render(request, 'BestGamesEver/Game_Delete.html', {'item': item, 'form': form})
 
 
+def get_html_content(game):
+    USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
+    LANGUAGE = "en-US,en;q=0.5"
+    session = requests.Session()
+    session.headers['User-Agent'] = USER_AGENT
+    session.headers['Accept-Language'] = LANGUAGE
+    session.headers['Content-Language'] = LANGUAGE
+    game = game.replace('', '+')
+    html_content = session.get(f'https://www.amazon.com/s?k=p{game}').text
+    return html_content
 
 
 
+def View_Price(request):
+    game_data = None
+    if 'game' in request.GET:
+        # Fetch game data
+        game = request.GET.get('game')
+        html_content = get_html_content(game)
+        soup = BeautifulSoup(html_content, 'html.parser')
+        game_data = dict()
+        game_data['title'] = soup.find('span', attrs={'class': 'a-size-medium a-color-base a-text-normal'}).text
+        game_data['price'] = soup.find('span', attrs={'class': 'a-price'}).text
 
-def View_Price(request, game_id):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36"
-
-    }
-    r = requests.get("https://store.steampowered.com/app/291650/Pillars_of_Eternity/")
-    soup = BeautifulSoup(r.text, 'html.parser')
-    name = soup.select_one(selector=".apphub_AppName").getText()
-
-    price = soup.select_one(selector=".game_purchase_action_bg").getText()
-    price = price.strip()
-    price = price[1:]
-    para_text = parseSoup()
-    context = {'para_text': para_text}
-    return render (request, 'BestGamesEver/View_Price.html', context)
-
+    return render(request, 'BestGamesEver/View_Price.html', {'game': game_data})
 

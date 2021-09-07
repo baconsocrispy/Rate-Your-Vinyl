@@ -102,4 +102,27 @@ header {
 }
 
 
+/*** Beautiful Soup Form ***/
 
+#main {
+    text-align: center;
+    padding-top: 100px;
+    z-index: 999;
+}
+
+input[type='text']{
+    width: 30px;
+    padding: 10px;
+    border: 2px solid black;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+input[type='submit']{
+    width: 30px;
+    padding: 10px;
+    border: 2px solid black;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
