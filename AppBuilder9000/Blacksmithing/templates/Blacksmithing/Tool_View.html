@@ -1,0 +1,37 @@
+{% extends "Blacksmithing/base.html" %}
+{% load static %}
+
+{% block title %} Best Tools {% endblock %}
+
+{% block header %}<h1>All Entries</h1>{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col" data-field="name" data-sortable="true">Tool</th>
+                    <th scope="col" data-field="use" data-sortable="true">Application</th>
+                    <th scope="col" data-field="price" data-sortable="true">Price</th>
+                    <th scope="col" data-field="link" data-sortable="true">Product Link</th>
+                    <th scope="col" data-field="description" data-sortable="true">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for Tool in tool_list %}
+                <tr>
+                    <td>{{ Tool }}</td>
+                    <td>{{ Tool.use }}</td>
+                    <td>{{ Tool.price }}</td>
+                    <td>{{ Tool.link }}</td>
+                    <td>{{ Tool.description }}</td>
+                    <td><a href="{% url 'Tool_Details' Tool.id %}">Details</a></td>
+                    <td><a href="{% url 'Edit_Tools' Tool.id %}">Edit</a></td>
+                    <td><a href="{% url 'Delete_Tools' Tool.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
