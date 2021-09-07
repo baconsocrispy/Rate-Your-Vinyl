@@ -11,7 +11,7 @@ def EdTech_Create(request):
     form = ResourceForm(data=request.POST or None)
     if request.method == "POST" and form.is_valid():
         result = form.save()
-        return redirect('Add_EdTech')
+        return redirect('EdTech_Create')
     else:
         return render(request, 'EdTech/EdTech_Create.html', {'form': form})
 
@@ -31,7 +31,7 @@ def EdTech_Delete(request, pk):
     form = ResourceForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         item.delete()
-        return redirect("Add_EdTech")
+        return redirect("EdTech_Entries")
     return render(request, 'EdTech/EdTech_Delete.html', {'item': item, 'form': form})
 
 def EdTech_Edit(request, pk):
@@ -40,7 +40,7 @@ def EdTech_Edit(request, pk):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect("Add_EdTech")
+            return redirect("EdTech_Entries")
     content = {'form': form}
     return render(request, 'EdTech/EdTech_Edit.html', content)
 
