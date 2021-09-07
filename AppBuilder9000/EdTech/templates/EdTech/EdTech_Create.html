@@ -1,0 +1,19 @@
+{% extends "EdTech_Base.html" %}
+{% load static %}
+{% block title %} Educational Technology - Add a Resource{% endblock %}
+
+{% block header %}
+<h1>Add a NEW resource to our current library by completing the form below.</h1>
+{% endblock %}
+
+{% block content %}
+<div class="add-EdTech-form">
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button id="add-EdTech-button" class="btn btn-primary" type="submit" name="Add_EdTech">Add Resource</button>
+    </form>
+</div>
+{% endblock %}
