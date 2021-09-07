@@ -27,14 +27,14 @@ def View_Tools(request):
 
 
 # Function to allow user to view a single item
-def Tool_Details(request, tool_id):
-    details = Tool.objects.get(id=tool_id)
+def Tool_Details(request, pk):
+    details = get_object_or_404(Tool, pk=pk)
     return render(request, "Blacksmithing/Tool_Details.html", {'details': details})
 
 
 # Function to edit an entry
-def Edit_Tools(request, tool_id):
-    item = get_object_or_404(Tool, id=tool_id)
+def Edit_Tools(request, pk):
+    item = get_object_or_404(Tool, pk=pk)
     form = ToolForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         if form.is_valid():

@@ -1,6 +1,6 @@
 {% extends "Blacksmithing/base.html" %}
 {% load static %}
-{% block title %} Add Your Favorite Blacksmithing Tool! {% endblock %}
+{% block title %} Item Details {% endblock %}
 
 {% block header %}
     <h1>View Tool</h1>
@@ -8,18 +8,29 @@
 
 {% block content %}
 
-<div class="details_form">
-  <ul class="list-group">
-      <h1 class="list-group-item">Tool</h1>
-    <h1 class="list-group-item">{{ details.name }}</h1>
-    <h4 class="list-group-item">Use</h4>
-    <li class="list-group-item">{{ details.use }}</li>
-    <h4 class="list-group-item">Price</h4>
-    <li class="list-group-item">{{ details.price }}</li>
-    <h4 class="list-group-item">Product Link</h4>
-    <li class="list-group-item">{{ details.link }}</li>
-    <h4 class="list-group-item">User Description</h4>
-    <li class="list-group-item">{{ details.description }}</li>
-  </ul>
+  <div style="
+    opacity: 0.8;
+    border-radius: 8px;
+    border: 2px solid gray;
+    margin: 0 500px;
+    background-color: #311a14bb;
+    text-align: center;
+    padding: 0 10px;
+">
+    <h1 style="text-decoration: underline">Tool</h1>
+    <h2>{{ details.name }}</h2>
+    <hr>
+    <h3 style="text-decoration: underline">Use</h3>
+    <h4>{{ details.use }}</h4>
+    <hr>
+    <h3 style="text-decoration: underline">Price</h3>
+    <h5>{{ details.price }}</h5>
+    <hr>
+    <h3 style="text-decoration: underline">Product Link</h3>
+    <h5 style="overflow-wrap: break-word">{{ details.link }}</h5>
+    <hr>
+    <h3 style="text-decoration: underline">Item Description</h3>
+    <h5>{{ details.description }}</h5>
+  </div>
 
 {% endblock %}
