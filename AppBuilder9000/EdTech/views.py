@@ -26,6 +26,22 @@ def EdTech_Details(request, pk):
     context = {'details': details}
     return render(request, "EdTech/EdTech_Details.html", context)
 
+def EdTech_Delete(request, pk):
+    item = get_object_or_404(Resource, pk=pk)
+    form = ResourceForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect("Add_EdTech")
+    return render(request, 'EdTech/EdTech_Delete.html', {'item': item, 'form': form})
 
+def EdTech_Edit(request, pk):
+    item = get_object_or_404(Player, pk=pk)
+    form = ResourceForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect("Add_EdTech")
+    content = {'form': form}
+    return render(request, 'EdTech/EdTech_Edit.html', content)
 
 
