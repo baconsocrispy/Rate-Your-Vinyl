@@ -84,7 +84,8 @@ footer {
     background:#74daf3;
     border:2px solid black;
 }
-h1 {
+
+h1, h3 {
     color: black;
 }
 
