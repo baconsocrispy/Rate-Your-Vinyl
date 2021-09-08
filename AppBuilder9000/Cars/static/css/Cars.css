@@ -5,6 +5,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     max-width: 100%;
+    background-color: rgba(127, 127, 192, 0.3);
+
 }
 #footer {
   background-color: lightgray;
