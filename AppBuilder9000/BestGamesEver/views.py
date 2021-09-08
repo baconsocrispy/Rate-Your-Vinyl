@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import GameForm
 from .models import Game
+from bs4 import BeautifulSoup
+import requests
+
+
+
+
 
 # Displays the home page
 def BestGamesEver_Home(request):
@@ -51,4 +57,33 @@ def Delete_Games(request, game_id):
             return redirect("Game_View")
     content = {'form': form}
     return render(request, 'BestGamesEver/Game_Delete.html', {'item': item, 'form': form})
+
+
+def get_html_content(game):
+    USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
+    LANGUAGE = "en-US,en;q=0.5"
+    session = requests.Session()
+    session.headers['User-Agent'] = USER_AGENT
+    session.headers['Accept-Language'] = LANGUAGE
+    session.headers['Content-Language'] = LANGUAGE
+    game = game.replace(' ', '+')
+    html_content = session.get(f'https://www.amazon.com/s?k={game}&ref=nb_sb_noss_2').text
+    return html_content
+
+
+# Beautiful Soup Function
+def View_Price(request):
+    game_data = None
+    if 'game' in request.GET:
+        # Fetch game data
+        game = request.GET.get('game')
+        html_content = get_html_content(game)
+        soup = BeautifulSoup(html_content, 'html.parser')
+        # Setting our variable to dictionary form
+        game_data = {}
+        # Will display name of the game and current price
+        game_data['title'] = soup.find('span', attrs={'class': 'a-size-medium a-color-base a-text-normal'}).text
+        game_data['price'] = soup.find('span', attrs={'class': 'a-offscreen'}).text
+
+    return render(request, 'BestGamesEver/View_Price.html', {'game': game_data})
 
