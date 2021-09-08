@@ -1,6 +1,6 @@
 {% extends "EdTech/EdTech_Base.html" %}
 {% load static %}
-{% block title %} Educational Technology - Add a Resource{% endblock %}
+{% block title %} Add a Resource{% endblock %}
 
 {% block header %}
 <h1>New Resource Form</h1>
@@ -13,7 +13,7 @@
         <table>
             {{ form.as_table }}
         </table>
-        <button id="add-EdTech-button" class="btn btn-primary" type="submit" name="EdTech_Create">Add Resource</button>
+        <button type="submit" name="EdTech_Create">Add Resource</button>
     </form>
 </div>
 {% endblock %}

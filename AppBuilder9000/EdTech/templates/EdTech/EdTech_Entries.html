@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="form-container">
         <table id="table" data-toggle="table">
             <thead>
                 <tr>
@@ -18,16 +18,16 @@
                 </tr>
             </thead>
             <tbody>
-            {% for resource in resources %}
+            {% for entry in entries %}
                 <tr>
-                    <td id="td"><a href="{% url 'EdTech_Details' resource.pk %}">{{ resource }}</a></td>
-                    <td id="td">{{ resource.name }}</td>
-                    <td id="td">{{ resource.URL }}</td>
-                    <td id="td">{{ resource.free_version }}</td>
-                    <td id="td">{{ resource.key_features }}</td>
+                    <td id="td"><a href="{% url 'EdTech_Details' entry.pk %}">{{ entry }}</a></td>
+                    <td id="td">{{ entry.URL }}</td>
+                    <td id="td">{{ entry.free_version }}</td>
+                    <td id="td">{{ entry.key_features }}</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        <h3>Note: Click on the Resource Name to update/edit its information.</h3>
     </div>
 {% endblock %}
