@@ -10,7 +10,7 @@ class Resource(models.Model):
     name = models.CharField(max_length=60)
     URL = models.CharField(max_length=60, default='', null=False)
     free_version = models.CharField(max_length=50, choices=TYPE_CHOICES)
-    key_features = models.CharField(max_length=200)
+    key_features = models.TextField(max_length=200)
 
     objects = models.Manager()
 

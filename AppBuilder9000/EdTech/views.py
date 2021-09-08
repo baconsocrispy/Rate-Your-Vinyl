@@ -11,7 +11,7 @@ def EdTech_Create(request):
     form = ResourceForm(data=request.POST or None)
     if request.method == "POST" and form.is_valid():
         result = form.save()
-        return redirect('EdTech_Create')
+        return redirect('EdTech_Entries')
     else:
         return render(request, 'EdTech/EdTech_Create.html', {'form': form})
 

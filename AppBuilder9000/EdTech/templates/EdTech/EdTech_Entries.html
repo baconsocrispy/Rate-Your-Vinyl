@@ -19,13 +19,13 @@
                 </tr>
             </thead>
             <tbody>
-            {% for Resource in Resources %}
+            {% for resource in resources %}
                 <tr>
-                    <td><a href="{% url 'Resource_Details' Resource.id %}">{{ Resource }}</a></td>
-                    <td>{{ Resource.name }}</td>
-                    <td>{{ Resource.URL }}</td>
-                    <td>{{ Resource.free_version }}</td>
-                    <td>{{ Resource.key_features }}</td>
+                    <td><a href="{% url 'EdTech_Details' resource.pk %}">{{ resource }}</a></td>
+                    <td>{{ resource.name }}</td>
+                    <td>{{ resource.URL }}</td>
+                    <td>{{ resource.free_version }}</td>
+                    <td>{{ resource.key_features }}</td>
                 </tr>
             {% endfor %}
             </tbody>
