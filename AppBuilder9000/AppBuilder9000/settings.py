@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'RecipeConvert',
     'BestGamesEver',
     'Cars',
+    'EdTech',
 ]
 
 MIDDLEWARE = [
