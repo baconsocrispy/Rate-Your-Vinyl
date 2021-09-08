@@ -1,20 +1,19 @@
-{% extends "EdTech/EdTech_base.html" %}
+{% extends "EdTech/EdTech_Base.html" %}
 {% load static %}
 {% block title %} Edit Resource {% endblock %}
 
 {% block header %}
-    <h1>Edit Resource</h1>
+<h1>Edit Resource</h1>
 {% endblock %}
 
 {% block content %}
-<h3 style="text-align:center; color:white;">Make an Edit</h3>
-
-        <form method ='POST'>
-            {% csrf_token %}
-            <table id="table" class="table table-dark table-bordered table-hover text-center">
-                {{ form.as_table }}
-            </table>
-            <button type="submit" class="btn btn-secondary btn-lg">Edit</button>
-        </form>
-
+<div id="form-container">
+    <form method ='POST'>
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Save</button>
+    </form>
+</div>
 {% endblock %}
