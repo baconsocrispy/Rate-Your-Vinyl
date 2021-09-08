@@ -1,0 +1,33 @@
+{% extends "EdTech/EdTech_Base.html" %}
+{% load static %}
+{% block title %} Educational Technology {% endblock %}
+
+{% block header %}
+    <h1>Library of Resources</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <table id="table" data-toggle="table">
+            <thead>
+                <tr>
+                    <th id="th" scope="col" data-field="name" data-sortable="true">Resource Name</th>
+                    <th id="th" scope="col" data-field="URL" data-sortable="true">Website URL</th>
+                    <th id="th" scope="col" data-field="free_version" data-sortable="true">Free Version</th>
+                    <th id="th" scope="col" data-field="key_features" data-sortable="true">Key Features</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for resource in resources %}
+                <tr>
+                    <td id="td"><a href="{% url 'EdTech_Details' resource.pk %}">{{ resource }}</a></td>
+                    <td id="td">{{ resource.name }}</td>
+                    <td id="td">{{ resource.URL }}</td>
+                    <td id="td">{{ resource.free_version }}</td>
+                    <td id="td">{{ resource.key_features }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

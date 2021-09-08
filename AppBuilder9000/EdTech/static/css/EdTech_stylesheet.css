@@ -1,10 +1,12 @@
 /* BODY */
  body, html {
-    background-image: url('/static/images/Chalkboard.png');
+    background-color: #ffd308;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    font-family: Arial;
+    text-align: center;
 }
 
 /**** NAV BAR ****/
@@ -27,10 +29,16 @@ ul {
 
 li {
     float: left;
+    display: inline-block;
+}
+
+input, select {
+  display: inline-block;
+  float: left;
 }
 
 li a {
-    display: block;
+    display: inline-block;
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -38,7 +46,8 @@ li a {
 }
 
 li a:hover {
-    background-color: #111;
+    background-color: #74daf3;
+    color: black;
 }
 
 
@@ -63,20 +72,39 @@ footer {
 
 /** FORM **/
 #form-container {
-    text-align: center;
-    color: white;
+    text-align: right;
     font-weight: bold;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
+    color: black;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding:20px;
+    background:#74daf3;
+    border:2px solid black;
+}
+h1 {
+    color: black;
+}
+
+#table, #th, #td {
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+    width: 800px;
+}
+
+#th {
+    background-color: #74daf3;
+    height: 50px;
+}
+
+#td {
+    background-color: white;
 }
 
 
-/** CAPTION **/
-caption {
-    color: white;
-}
 
