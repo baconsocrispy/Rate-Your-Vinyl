@@ -10,20 +10,20 @@
     <div class="form-container">
         <table id="table" data-toggle="table">
             <thead>
-                <tr>
-                    <th id="th" scope="col" data-field="name" data-sortable="true">Resource Name</th>
-                    <th id="th" scope="col" data-field="URL" data-sortable="true">Website URL</th>
-                    <th id="th" scope="col" data-field="free_version" data-sortable="true">Free Version</th>
-                    <th id="th" scope="col" data-field="key_features" data-sortable="true">Key Features</th>
+                <tr id="th">
+                    <th>Resource Name</th>
+                    <th>Website URL</th>
+                    <th>Free Version</th>
+                    <th>Key Features</th>
                 </tr>
             </thead>
             <tbody>
             {% for entry in entries %}
-                <tr>
-                    <td id="td"><a href="{% url 'EdTech_Details' entry.pk %}">{{ entry }}</a></td>
-                    <td id="td">{{ entry.URL }}</td>
-                    <td id="td">{{ entry.free_version }}</td>
-                    <td id="td">{{ entry.key_features }}</td>
+                <tr id="td">
+                    <td><a href="{% url 'EdTech_Details' entry.pk %}">{{ entry }}</a></td>
+                    <td>{{ entry.URL }}</td>
+                    <td>{{ entry.free_version }}</td>
+                    <td>{{ entry.key_features }}</td>
                 </tr>
             {% endfor %}
             </tbody>
