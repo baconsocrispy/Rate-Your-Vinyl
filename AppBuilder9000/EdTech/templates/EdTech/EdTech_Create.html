@@ -3,11 +3,11 @@
 {% block title %} Educational Technology - Add a Resource{% endblock %}
 
 {% block header %}
-<h1>Add a NEW resource to our current library by completing the form below.</h1>
+<h1>New Resource Form</h1>
 {% endblock %}
 
 {% block content %}
-<div class="add-EdTech-form">
+<div id="form-container">
     <form method="POST">
         {% csrf_token %}
         <table>
