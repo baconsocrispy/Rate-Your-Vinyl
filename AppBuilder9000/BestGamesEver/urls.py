@@ -1,9 +1,16 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 from . import views
+from .views import GameViewSet
+
+
+router = routers.DefaultRouter()
+router.register(r'game', GameViewSet)
 
 
 urlpatterns = [
+    path('api/', include(router.urls)),
     path('', views.BestGamesEver_Home, name='BestGamesEver_Home'),
     path('GameCreate/', views.Game_Create, name='Game_Create'),
     path('ViewGames/', views.Game_View, name='Game_View'),

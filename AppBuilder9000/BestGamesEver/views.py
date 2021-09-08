@@ -1,8 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from .forms import GameForm
 from .models import Game
 from bs4 import BeautifulSoup
 import requests
+from rest_framework import viewsets
+from .serializers import GameSerializer
+
+
+
+
+
 
 
 
@@ -87,3 +96,10 @@ def View_Price(request):
 
     return render(request, 'BestGamesEver/View_Price.html', {'game': game_data})
 
+
+
+
+# Api Logic
+class GameViewSet(viewsets.ModelViewSet):
+   queryset = Game.objects.all()
+   serializer_class = GameSerializer

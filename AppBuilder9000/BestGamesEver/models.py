@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Game(models.Model):
     name = models.CharField(max_length=60)
     genre = models.CharField(max_length=60)
@@ -11,3 +12,5 @@ class Game(models.Model):
 
     def __str__(self):
         return self.name
+
+
