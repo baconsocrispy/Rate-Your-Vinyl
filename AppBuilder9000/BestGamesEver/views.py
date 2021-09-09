@@ -5,8 +5,8 @@ from .forms import GameForm
 from .models import Game
 from bs4 import BeautifulSoup
 import requests
-from rest_framework import viewsets
-from .serializers import GameSerializer
+
+import http.client
 
 
 
@@ -96,10 +96,20 @@ def View_Price(request):
 
     return render(request, 'BestGamesEver/View_Price.html', {'game': game_data})
 
+# API classes
+def api(request):
 
 
+    conn = http.client.HTTPSConnection("rawg-video-games-database.p.rapidapi.com")
 
-# Api Logic
-class GameViewSet(viewsets.ModelViewSet):
-   queryset = Game.objects.all()
-   serializer_class = GameSerializer
+    headers = {
+        'x-rapidapi-host': "rawg-video-games-database.p.rapidapi.com",
+        'x-rapidapi-key': "175c9ae68bmsh71be1c3c47d33c3p185fbejsne41564902858"
+    }
+
+    conn.request("GET", "/games/%7Bgame_pk%7D", headers=headers)
+
+    res = conn.getresponse()
+    data = res.read()
+
+    print(data.decode("utf-8"))
