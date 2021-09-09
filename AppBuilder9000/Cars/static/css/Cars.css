@@ -26,3 +26,31 @@ h1,h2,h3{
 color: lightgray;
 text-align:center;
 }
+/* CreateCar Container and Buttons */
+
+form {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    width: 70%;
+    padding: 15px;
+    margin: auto;
+
+.add_form {
+    width: 90%;
+    margin: auto;
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+button {
+    flex: 45%;
+    margin: 5px;
+    padding: 10px;
+    color: white;
+    background-color: black;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-transform: uppercase;
+    border: 0;
+
