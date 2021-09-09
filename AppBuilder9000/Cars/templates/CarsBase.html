@@ -7,22 +7,22 @@
         <link rel="stylesheet" href="{% static 'css/Cars.css' %}">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">TXPhotography</a>
+    <a class="navbar-brand" href="#">TX|Photography</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'Carhome' %}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Collections</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="#">Book With Us</a>
+          <a class="nav-link" href="{% url 'CarCreate' %}">Book With Us</a>
         </li>
       </ul>
     </div>
@@ -32,7 +32,7 @@
     </body>
     <!-- End Navigation -->
 <footer id="footer">
-    <p>2021 @TXPhotography On All Social Media</p>
+    <p>2021 @TX|Photography | By Raleigh J</p>
 </footer>
 <!-- Bootstrap Links -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
