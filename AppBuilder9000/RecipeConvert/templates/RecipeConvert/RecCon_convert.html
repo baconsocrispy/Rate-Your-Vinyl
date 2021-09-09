@@ -1,0 +1,23 @@
+{% extends "RecipeConvert/RecCon_base.html" %}
+{% load static %}
+
+{% block title %}Recipe Converter{% endblock %}
+
+{% block content %}
+
+    <div>
+        <form method="POST" action="">
+            <div>
+                <h1>Convert Your Recipe</h1>
+                    <p>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </p>
+                <div>
+                    <button type="submit" value="Submit">Convert</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
