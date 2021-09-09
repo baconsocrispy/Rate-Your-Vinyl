@@ -1,18 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .models import description
+from .forms import descriptionForm
+
 
 def Cars(request):
     return render(request, 'CarsHome.html')
 
 
 def CarCreate(request):
-    form = DescriptionForm(data=request.POST or None)
+    form = descriptionForm(data=request.POST or None)
     if request.method == "POST" and form.is_valid():
-        result = form.save()
-        return redirect('Add_Car')
+        form.save()
+        return redirect('Carhome')
     else:
-        return render(request, 'templates/CarCreate.html', {'form': form})
+        return render(request, 'CarCreate.html', {'form': form})
 
 def CarMessages(request):
-    entries = Description.objects.all()
+    entries = description.objects.all()
     content = {'entries': entries}
     return render(request, 'templates/CarsEntries.html', content)
