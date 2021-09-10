@@ -98,18 +98,19 @@ def View_Price(request):
 
 # API classes
 def api(request):
-
-
-    conn = http.client.HTTPSConnection("rawg-video-games-database.p.rapidapi.com")
+    conn = http.client.HTTPSConnection("the-legend-of-zelda.p.rapidapi.com")
 
     headers = {
-        'x-rapidapi-host': "rawg-video-games-database.p.rapidapi.com",
-        'x-rapidapi-key': "175c9ae68bmsh71be1c3c47d33c3p185fbejsne41564902858"
+        'x-rapidapi-host': "the-legend-of-zelda.p.rapidapi.com",
+        'x-rapidapi-key': "0dc56d5340msh7696d153664dadfp121956jsn1fac11e318d3"
     }
 
-    conn.request("GET", "/games/%7Bgame_pk%7D", headers=headers)
+    conn.request("GET", "/items?name=Bow&page=0&limit=5", headers=headers)
 
     res = conn.getresponse()
     data = res.read()
+    print(data)
+    content={'info':data}
 
     print(data.decode("utf-8"))
+    return render(request, 'BestGamesEver/API.html', content)
