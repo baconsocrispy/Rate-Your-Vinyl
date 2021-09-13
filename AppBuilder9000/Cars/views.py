@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import description
 from .forms import descriptionForm
 
@@ -17,10 +17,10 @@ def CarCreate(request):
         return render(request, 'CarCreate.html', {'form': form})
 
 def CarsEntries(request):
-    CarsEntries() = Cars.all
-    return render(request, 'templates/CarsEntries.html', {'Cars': Cars})
+    CarsEntries() = Cars.CarsCreate.all
+    return render(request, 'CarsEntries.html', {'Cars': Cars})
 
 def CarsDetails(request, pk):
-    CarsDetails() = get_object_or_404(Album, pk=pk)
+    CarsDetails() = get_object_or_404(Car, pk=pk)
     content = {'CarsDetails': CarsDetails()}
-    return render(request, 'templates/CarsDetails.html', content)
+    return render(request, 'CarsDetails.html', content)
