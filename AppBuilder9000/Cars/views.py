@@ -3,6 +3,7 @@ from .models import description
 from .forms import descriptionForm
 
 
+
 def Cars(request):
     return render(request, 'CarsHome.html')
 
@@ -15,7 +16,11 @@ def CarCreate(request):
     else:
         return render(request, 'CarCreate.html', {'form': form})
 
-def CarMessages(request):
-    entries = description.objects.all()
-    content = {'entries': entries}
-    return render(request, 'templates/CarsEntries.html', content)
+def CarsEntries(request):
+    CarsEntries() = Cars.all
+    return render(request, 'templates/CarsEntries.html', {'Cars': Cars})
+
+def CarsDetails(request, pk):
+    CarsDetails() = get_object_or_404(Album, pk=pk)
+    content = {'CarsDetails': CarsDetails()}
+    return render(request, 'templates/CarsDetails.html', content)
