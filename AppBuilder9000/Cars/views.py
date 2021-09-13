@@ -17,10 +17,11 @@ def CarCreate(request):
         return render(request, 'CarCreate.html', {'form': form})
 
 def CarsEntries(request):
-    CarsEntries() = Cars.CarsCreate.all
-    return render(request, 'CarsEntries.html', {'Cars': Cars})
+    CarsEntries = description.objects.all()
+    content = {'entries': CarsEntries}
+    return render(request, 'CarsEntries.html', content)
 
 def CarsDetails(request, pk):
-    CarsDetails() = get_object_or_404(Car, pk=pk)
-    content = {'CarsDetails': CarsDetails()}
+    CarsDetails = get_object_or_404(description, pk=pk)
+    content = {'CarsDetail': CarsDetail}
     return render(request, 'CarsDetails.html', content)

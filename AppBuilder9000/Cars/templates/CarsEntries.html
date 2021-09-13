@@ -3,11 +3,11 @@
 {% block title %}Home{% endblock %}
 {% block content %}<h1>TX|Photography</h1> {% endblock %}
 <h1>Previous Submissions</h1>
-<div class="displaylist">
-{% for item in all %}
- <br>
- Make: <a href="{% url 'CarsDetails' item.pk %}">{{ item.Make }}</a><br>
- Model: {{ item.model }}<br><hr>
+
+{% for description in CarsEntries %}
+    {{ CarsEntries.firstname}}
+    {{ CarsEntries.lastname }}
+    {{ CarsEntries.make }}
+    {{ CarsEntries.model }}
+    {{ CarsEntries.description }}
 {% endfor %}
-</div>
-{% endblock %}

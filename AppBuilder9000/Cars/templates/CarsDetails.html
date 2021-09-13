@@ -1,11 +1,12 @@
-{% extends 'tamplates/Cars.html' %}
+{% extends 'Cars.html' %}
 {% load static %}
 {% block content %}
-<h1>Music Album Details</h1>
-<div class="albumdetails"><br>
-     Artist: {{ music_details.Artist }}<br>
-     Year: {{ music_details.Year }}<br>
-     Album: {{ music_details.Album }}<br>
-     Genre: {{ music_details.Genre }}<hr>
+<h1>Submissions</h1>
+<div class="CarsDetails"><br>
+     Make: {{ CarsDetails.Make }}<br>
+     Model: {{ CarsDetails.Model }}<br>
+     First Name: {{ CarsDetails.FirstName }}<br>
+     Last Name: {{ CarsDetails.LastName }}<br>
+     Description: {{CarsDetails.Description }}<hr>
 </div>
 {% endblock %}
