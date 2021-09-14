@@ -15,18 +15,38 @@
     font: bold 36px Cursive;
     color: blue;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 0px;
 }
 
-/* ====================
-     CONVERTER BACKGROUND
-   ==================== */
+/* ===== MY RECIPES LIST/INDEX ===== */
+.frmBtn_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.btn_list {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 150px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: black;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
 
 
 
-/* ====================
-    NAVBAR SECTION
-   ==================== */
+/* ===== NAVBAR SECTION ===== */
 /*
 .wrap {
     top: 0;
@@ -35,14 +55,33 @@
     width: 100%;
 }
 */
+
+.btn {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 100px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 1px solid blue;
+    border-radius: 8px;
+}
+
 .menu-container {
     top: 0;
     left: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
-    background: GhostWhite;
+/*    background: GhostWhite;
+    opacity: 0.5;*/
 }
-
 
 .menu {
     font: 20px Cursive;
@@ -51,6 +90,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+   /* align-items: center;*/
+    width: 100%;
 }
 /*
 .menu li {
