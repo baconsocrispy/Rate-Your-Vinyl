@@ -18,7 +18,7 @@ def CarCreate(request):
 
 def CarsEntries(request):
     CarsEntries = description.objects.all()
-    content = {'entries': CarsEntries}
+    content = {'CarsEntries': CarsEntries}
     return render(request, 'CarsEntries.html', content)
 
 def CarsDetails(request, pk):

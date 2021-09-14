@@ -1,13 +1,22 @@
 {% extends 'CarsBase.html' %}
 {% load static %}
 {% block title %}Home{% endblock %}
-{% block content %}<h1>TX|Photography</h1> {% endblock %}
-<h1>Previous Submissions</h1>
+{% block content %}
+<h1>TX|Photography</h1>
 
-{% for description in CarsEntries %}
-    {{ CarsEntries.firstname}}
-    {{ CarsEntries.lastname }}
-    {{ CarsEntries.make }}
-    {{ CarsEntries.model }}
-    {{ CarsEntries.description }}
+<h2>Previous Submissions</h2>
+<div class="entries">
+
+{% for Entry in CarsEntries %}
+    {{ Entry.first_name}}
+    {{ Entry.last_name }}
+    {{ Entry.make }}
+    {{ Entry.model }}
+    {{ Entry.description }}
+    <br>
+
 {% endfor %}
+    </div>
+
+{% endblock %}
+
