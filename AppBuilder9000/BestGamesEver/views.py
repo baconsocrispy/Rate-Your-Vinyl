@@ -1,8 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from .forms import GameForm
 from .models import Game
 from bs4 import BeautifulSoup
 import requests
+
+import http.client
+
+
+
+
+
 
 
 
@@ -87,3 +96,21 @@ def View_Price(request):
 
     return render(request, 'BestGamesEver/View_Price.html', {'game': game_data})
 
+# API classes
+def api(request):
+    conn = http.client.HTTPSConnection("the-legend-of-zelda.p.rapidapi.com")
+
+    headers = {
+        'x-rapidapi-host': "the-legend-of-zelda.p.rapidapi.com",
+        'x-rapidapi-key': "0dc56d5340msh7696d153664dadfp121956jsn1fac11e318d3"
+    }
+
+    conn.request("GET", "/items?name=Bow&page=0&limit=5", headers=headers)
+
+    res = conn.getresponse()
+    data = res.read()
+    print(data)
+    content={'info':data}
+
+    print(data.decode("utf-8"))
+    return render(request, 'BestGamesEver/API.html', content)

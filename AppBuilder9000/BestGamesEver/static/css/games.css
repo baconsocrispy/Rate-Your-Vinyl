@@ -46,6 +46,13 @@ li a {
 
 }
 
+/*** Home page header ***/
+
+#home {
+    text-align: center;
+    padding-top: 20px;
+}
+
 
 
 /*** FOOTER ***/
@@ -74,6 +81,7 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  padding-top: 20px
 }
 
 .btn-container {
