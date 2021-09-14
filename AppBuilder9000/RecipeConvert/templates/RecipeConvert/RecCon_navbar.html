@@ -1,8 +1,9 @@
 {% load static %}
 
 <div class="menu-container">
-    <ul class="menu">
-        <li><a href="{% url 'RecCon_home' %}">Home</a></li>
-        <li><a href="{% url 'RecCon_convert' %}">Convert</a></li>
-    </ul>
+    <div class="menu">
+        <a href="{% url 'RecCon_home' %}"><button class="btn">Home</button></a>
+        <a href="{% url 'RecCon_convert' %}"><button class="btn">Convert</button></a>
+        <a href="{% url 'RecCon_myrecipes' %}"><button class="btn">My Recipes</button></a>
+    </div>
 </div>
