@@ -10,24 +10,6 @@
     -o-background-size: cover;
     background-size: cover;
 }
-/*
-.home-container {
-    padding: 10px;
-    text-align: center;
-    width: 50%;
-    background: rgba(222,184,135,0.6);
-    color: blue;
-    margin-top: 10px;
-    cursor: pointer;
-
-    flex-grow: 2;
-    justify-content: center;
-    text-align: center;
-    display: inline-block;
-    margin: 2% 2% 2% 2%;
-    color: black;
-    padding: 10px 0px;
-}*/
 
 #home-title {
     font: bold 36px Cursive;
@@ -150,33 +132,6 @@
     padding: 12px;
     display: flex;
     flex-wrap: wrap;
-   /* align-items: center;*/
     width: 100%;
-/*    opacity: 0.5; */
     color: #fff;
 }
-/*
-.menu li {
-    color: #b3b3b3;
-    display: inline-block;
-    margin-right; -2px;
-    position: relative;
-    padding: 12px 40px;
-    border: 1px solid #9d9fa2;
-    border-radius: 1.5px;
-    background: #387593;
-    cursor: pointer;
-}
-
-.menu li:hover {
-    background: #5eafdf;
-    color: #fff;
-}
-
-.menu li:hover ul {
-    display: block;
-    opacity: 1;
-     While hovered, drop down-menu appears
-       This also avoids a block-level bug
-    visibility: visible;
-}*/

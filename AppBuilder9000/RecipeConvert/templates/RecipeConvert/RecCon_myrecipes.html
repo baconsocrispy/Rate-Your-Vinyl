@@ -12,6 +12,7 @@
                 {% csrf_token %}
                 <label for="menu_id" class="labelIndex">Select a recipe from the list below:</label>
                 <select class="selectIndex" id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                    <option value="">NONE</option>
                     {% for data in dataset %}
                         <option value="../details/{{ data.pk }}/"> {{ data.recipeName }} </option>
                     {% endfor %}
