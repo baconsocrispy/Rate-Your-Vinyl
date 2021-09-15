@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'Cars',
     'Blacksmithing',
     'EdTech',
+    'VP_TrackShows',
     'Exercises',
 ]
 

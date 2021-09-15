@@ -1,0 +1,43 @@
+
+/*** NAVBAR ***/
+
+nav {
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+ul {
+      background: blue;
+      height: 100%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+      display: block;
+      padding: 10px 10px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+}
+
+/*** BODY ***/
+
+body {
+    background-color: black;
+    background-image: url('/static/images/tvshows.jpeg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}

@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{% static 'css/trackshows.css' %}">
+    </head>
+
+    <body>
+
+        <!-- NAVBAR START -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'Home' %}">Home</a></li>
+                <li><a href="{% url 'AddShow' %}">Add Show</a></li>
+                <li><a href="{% url 'ViewShows' %}">View Shows</a></li>
+            </ul>
+        </nav>
+        <!-- NAVBAR END -->
+
+        <!-- HEADER START -->
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        <!-- HEADER END -->
+
+        <!-- FOOTER START -->
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+        <!-- FOOTER END -->
+
+    </body>
+</html>
