@@ -24,11 +24,17 @@ def myrecipesList(request):
     dataset = Convert.objects.all()
     return render(request, "RecipeConvert/RecCon_myrecipes.html", {'dataset': dataset})
 
-def myrecipesDetail(request,_id):
-    try:
-        data = ConvertForm.objects.get(id = _id)
-    except ConvertForm.DoesNotExist:
-        raise Http404('Data does not exist')
-
-    return  render(request, "RecipeConvert/RecCon_myrecipes.html",{'data':data})
+def details(request, _id):
+#    id = int(_id)
+    item = get_object_or_404(Convert, id=_id)
+    form = ConvertForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('RecCon_home')
+        else:
+            print(form.errors)
+    else:
+        return render(request, "RecipeConvert/RecCon_detail.html", {'form': form})
 
