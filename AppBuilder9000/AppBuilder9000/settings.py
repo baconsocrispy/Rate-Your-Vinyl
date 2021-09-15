@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'Blacksmithing',
     'EdTech',
     'VP_TrackShows',
+    'Exercises',
 ]
 
 MIDDLEWARE = [

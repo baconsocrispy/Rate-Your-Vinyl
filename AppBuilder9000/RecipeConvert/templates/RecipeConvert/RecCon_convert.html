@@ -2,19 +2,20 @@
 {% load static %}
 
 {% block title %}Recipe Converter{% endblock %}
+{% block header %}Convert Your Recipe{% endblock %}
 
 {% block content %}
 
-    <div>
+    <div class="admin_panel">
         <form method="POST">
             <div>
-                <h1>Convert Your Recipe</h1>
-                    <p>
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                    </p>
-                <div>
-                    <button type="submit" value="Submit">Convert</button>
+                <p>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </p>
+                <div class="frmBtn_container">
+                    <button class="btn" type="submit" value="Submit">CONVERT</button>
+                    <button class="btn"><a href="{% url 'home' %}">CANCEL</a></button
                 </div>
             </div>
         </form>
