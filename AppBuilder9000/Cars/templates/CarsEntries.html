@@ -1,18 +1,17 @@
 {% extends 'CarsBase.html' %}
 {% load static %}
-{% block title %}Entries{% endblock %}
+{% block title %}Submissions{% endblock %}
 {% block content %}
 <h1>TX|Photography</h1>
 
 <h2>Previous Submissions</h2>
-<div class="entries">
+<div class="  ">
 
 {% for Entry in CarsEntries %}
-    {{ Entry.model }}
-    <br>
-
-{% endfor %}
-    </div>
+<a href="{% url 'CarsDetails' Entry.pk %}">{{ Entry.model }}</a>
+<br>
+    {% endfor %}
+</div>
 
 {% endblock %}
 
