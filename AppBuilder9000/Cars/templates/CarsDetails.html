@@ -1,13 +1,12 @@
 {% extends 'CarsBase.html' %}
 {% load static %}
 {% block content %}
-<h1>Submission By: {{ Entry.first_name }} {{ Entry.LastName }}</h1>
+<h1>Submission By: {{ details.first_name }} {{ details.last_name }}</h1>
 <div class="entries">
+     A {{ details.make }} {{ details.model }}Owned by:
+     <u>{{ details.first_name }} {{ details.last_name }}</u><br>
+     A short description of their car:<br>{{details.description }}<br>
 
-     A {{ Entry.Make }} {{ Entry.Model }}
-     <p>Owned by:</p>
-      {{ Entry.first_name }} {{ Entry.LastName }}<br>
-     A short description of their car:{{Entry.Description }}<br>
+<a id="btnCar" class="center btn btn-primary"href="{% url 'CarsEntries' %}">Back</a>
 </div>
-
 {% endblock %}

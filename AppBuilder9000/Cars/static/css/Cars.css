@@ -25,6 +25,13 @@ footer {
   z-index: 0;
 
 }
+ a {
+color: lightblue;
+}
+a:hover{
+color:darkgrey;
+}
+
 h1,h2,h3{
 font-family: OCR A Std, monospace;
 color: lightgray;
@@ -36,6 +43,7 @@ text-align:center;
 .addCar {
 background-color: rgba(0, 0, 0 , 0.5);
 color: white;
+border-radius: 8px;
 font-weight: bold;
 padding-top: 5px;
 padding-bottom: 5px;
@@ -43,10 +51,12 @@ margin-bottom: 5px;
 margin-left: auto;
 margin-right: auto;
 width: 50%;
+
 }
 .add_form {
     width: 50%;
     margin: auto;
+    border-radius: 8px;
 }
 .btn-container {
     width: 100%;
@@ -54,7 +64,6 @@ width: 50%;
     flex: 45%;
     justify-content: center;
 }
-
 button {
     flex: 45%;
     margin: 5px;
@@ -77,8 +86,8 @@ color: #fff;
 background-color: rgba(0, 0, 0 , 0.5);
 margin-left: auto;
 margin-right: auto;
-width: 8em;
 text-align: center;
+width: 50%;
 height: 50%;
 border-radius: 8px;
 }
