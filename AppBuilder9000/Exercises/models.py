@@ -1,13 +1,13 @@
 from django.db import models
 
 
-TARGET_MUSCLE_CHOICES = {
+TARGET_MUSCLE_CHOICES = (
     ('Chest','Chest'),
     ('Back','Back'),
     ('Legs','Legs'),
     ('Shoulders','Shoulders'),
     ('Arms','Arms'),
-}
+)
 
 
 class Exercises(models.Model):
