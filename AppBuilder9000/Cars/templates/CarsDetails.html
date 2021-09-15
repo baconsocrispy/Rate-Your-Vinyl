@@ -2,9 +2,12 @@
 {% load static %}
 {% block content %}
 <h1>Submissions</h1>
-<div class="form-container"><br>
+<div class="entries"><br>
      Make: {{ CarsDetails.Make }}<br>
      Model: {{ CarsDetails.Model }}<br>
+     <p>
+        Owned by
+     </p>
      First Name: {{ CarsDetails.FirstName }}<br>
      Last Name: {{ CarsDetails.LastName }}<br>
      Description: {{CarsDetails.Description }}<hr>
