@@ -5,6 +5,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     max-width: 110%;
+    color: #fff;
     background-color: rgba(127, 127, 192, 0.3);
 
 }
@@ -31,21 +32,28 @@ text-align:center;
 }
 /* CreateCar Container and Buttons */
 
-form {
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    width: 70%;
-    padding: 15px;
-    margin: auto;
 
+.addCar {
+background-color: rgba(0, 0, 0 , 0.5);
+color: white;
+font-weight: bold;
+padding-top: 5px;
+padding-bottom: 5px;
+margin-bottom: 5px;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
 .add_form {
     width: 50%;
     margin: auto;
-
+}
 .btn-container {
     width: 100%;
     display: flex;
+    flex: 45%;
     justify-content: center;
+}
 
 button {
     flex: 45%;
@@ -56,7 +64,27 @@ button {
     font-family: 'Noto Sans JP', sans-serif;
     text-transform: uppercase;
     border: 0;
+
+ }
+
+ .btn-container:hover{
+  color:#000000;
+  background-color:#FFFFFF;
+}
+
+.entries {
+color: #fff;
+background-color: rgba(0, 0, 0 , 0.5);
+text-align: center;
+height: 5rem;
+}
+
    /* End Form styling */
+
+
+   /*Display Styling */
+
+
 
 
 

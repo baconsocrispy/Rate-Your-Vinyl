@@ -1,0 +1,22 @@
+{% extends 'CarsBase.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>TX|Photography</h1>
+
+<h2>Previous Submissions</h2>
+<div class="entries">
+
+{% for Entry in CarsEntries %}
+    {{ Entry.first_name}}
+    {{ Entry.last_name }}
+    {{ Entry.make }}
+    {{ Entry.model }}
+    {{ Entry.description }}
+    <br>
+
+{% endfor %}
+    </div>
+
+{% endblock %}
+

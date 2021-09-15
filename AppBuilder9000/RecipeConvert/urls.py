@@ -4,5 +4,8 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="RecCon_home"),
-    path("add/", views.convert, name="RecCon_convert"),
+    path("Convert/", views.convert, name="RecCon_convert"),
+    path("data/", views.myrecipesList, name="RecCon_myrecipes"),
 ]
+
+# views.myrecipesList, name='RecCon_myrecipes'
