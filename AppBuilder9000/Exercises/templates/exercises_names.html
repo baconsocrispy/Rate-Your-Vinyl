@@ -1,0 +1,19 @@
+{% extends "exercises_base.html" %}
+
+{% block title %}Exercises{% endblock %}
+
+{% block header %}Specific Body Part Exercises:{% endblock %}
+
+{% block content %}
+
+{% for name in names %}
+    <ul style="color:White; font-size:20px">
+        <label>Exercise</label>
+        <li>{{ name.exercise_name }}</li>
+        <li>{{ name.repetitions }}</li>
+        <li>{{ name.sets }}</li>
+        <li>{{ name.description }}</li>
+    </ul>
+{% endfor %}
+
+{% endblock %}
