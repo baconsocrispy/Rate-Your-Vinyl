@@ -1,6 +1,6 @@
 {% extends 'CarsBase.html' %}
 {% load static %}
-{% block title %}Home{% endblock %}
+{% block title %}Submissions{% endblock %}
 {% block content %}
 <h1>TX|Photography</h1>
 
@@ -8,15 +8,10 @@
 <div class="entries">
 
 {% for Entry in CarsEntries %}
-    {{ Entry.first_name}}
-    {{ Entry.last_name }}
-    {{ Entry.make }}
-    {{ Entry.model }}
-    {{ Entry.description }}
-    <br>
-
-{% endfor %}
-    </div>
+<a href="{% url 'CarsDetails' Entry.pk %}">{{ Entry.model }}</a>
+<br>
+    {% endfor %}
+</div>
 
 {% endblock %}
 
