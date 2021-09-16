@@ -7,8 +7,11 @@
 {% block content %}
 
 {% for name in names %}
-    <ul>
-        <li>{{ names.exercise_name }}</li>
+    <ul style="color:White; font-size:20px">
+        <li>{{ name.exercise_name }}</li>
+        <li>{{ name.repetitions }}</li>
+        <li>{{ name.sets }}</li>
+        <li>{{ name.description }}</li>
     </ul>
 {% endfor %}
 
