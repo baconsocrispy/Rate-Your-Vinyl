@@ -20,7 +20,7 @@ class Exercises(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.target_muscle
+        return self.exercise_name
 
 
 

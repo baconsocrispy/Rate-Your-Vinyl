@@ -140,7 +140,7 @@ ul.topnav li.icon {
 /* form item container */
 .frmObject_container {
 	display: block;
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
     padding: 0;
     text-align: center;
@@ -155,10 +155,11 @@ ul.topnav li.icon {
 }
 /* form button container */
 .frmBtn_container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
 }
 .btn {
 	flex-grow: 2;
@@ -194,15 +195,15 @@ input[type="submit"] {
     color: black;
     padding: 9px 0px 9px 0px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 20px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-    border: 2px solid silver;
+    border: 5px solid silver;
     border-radius: 5px;
 }
 input[type="submit"]:hover {
-    background-color: #355664;
+    background-color: black;
     color: white;
     border: 2px solid #b3b3b3;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -213,27 +214,28 @@ select {
 	width: 40%;
 	display: inline-block;
 	margin: 1% 0% 0 1%;
-	border: 2px solid silver;
+	border: 1px solid silver;
     border-radius: 5px;
     box-shadow: 0 0 10px #E8E8E8 inset;
 }
 input, textarea {
-    width: 100%;
+    width: 35%;
     margin: 1% 0 0 0;
     padding: 1% 0 2% 1%;
     line-height: 18px;
     font-size: 15px;
     border-radius: 5px;
-    border: 2px solid silver;
+    border: 1px solid silver;
 }
 label {
 	display: inline-block;
     width: 95%;
     text-align: left;
     margin: 1% 0 0 0;
-    color: black;
+    color: white;
     line-height: 18px;
     font-size: 20px;
+
 }
 #block-footer {
     clear: both;

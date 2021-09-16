@@ -1,0 +1,15 @@
+{% extends "exercises_base.html" %}
+
+{% block title %}Exercises{% endblock %}
+
+{% block header %}Specific Body Part Exercises:{% endblock %}
+
+{% block content %}
+
+{% for name in names %}
+    <ul>
+        <li>{{ names.exercise_name }}</li>
+    </ul>
+{% endfor %}
+
+{% endblock %}

@@ -7,14 +7,14 @@
 {% block content %}
 
 <div class="Exercises_Home">
-    <form name="exerciseForm" method="POST" action="{% url 'exercises_create' %}">
+    <form name="ExerciseForm" method="POST" action="{% url 'exercises_create' %}">
         <div class="frmObject_container">
             {% csrf_token %}
             {{ form.non_field_errors }}
             {{ form.as_p }}
         </div>
         <div class="frmBtn_container">
-            <input type="submit" class="btn" value="Create new exercise" name="Save_Item">
+            <input type="submit" class="btn" value="Submit" name="Save_Item">
             <a href="{% url 'Exercises_Home' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
         </div>
     </form>
