@@ -19,4 +19,4 @@ def create(request):
         context = {
             'form': form,
         }
-    return render(request, 'exercises_create.html', {'Exercises': Exercises})
+    return render(request, 'exercises_create.html', context)
