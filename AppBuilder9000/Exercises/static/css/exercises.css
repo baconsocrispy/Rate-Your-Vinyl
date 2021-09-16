@@ -165,7 +165,7 @@ ul.topnav li.icon {
     justify-content: center;
     text-align: center;
     display: inline-block;
-    width: 150px; /* button size */
+    width: 50px; /* button size */
     margin: 2% 2% 2% 2%;
     color: black;
     padding: 10px 0px;
@@ -178,7 +178,7 @@ ul.topnav li.icon {
     border-radius: 5px;
 }
 .btn:hover {
-    background-color: #355664;
+    background-color: black;
     color: white;
     border: 2px solid #b3b3b3;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
