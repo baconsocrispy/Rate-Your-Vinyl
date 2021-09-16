@@ -12,7 +12,7 @@ def exercises_create(request):
     form = ExercisesForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('exercises_create.html')
+        return redirect('exercises_create')
     else:
         print(form.errors)
         form = ExercisesForm()
