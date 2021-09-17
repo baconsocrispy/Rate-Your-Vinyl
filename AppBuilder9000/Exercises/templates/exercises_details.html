@@ -1,0 +1,27 @@
+{% extends "exercises_base.html" %}
+
+{% block title %}Exercises{% endblock %}
+
+{% block header %}Exercise Details{% endblock %}
+
+{% block content %}
+
+<div class="exercises_names">
+    <form name="ExercisesForm" method="POST" action="../exercises_details/">
+        <table>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_table }}
+        </table>
+        <div class="frmBtn_container">
+            <ul>
+                <li><a href="../{{ form.pk }}delete/">Delete</a></li>
+                <li><a href="{% url 'exercises_home' %}">Cancel</a></li>
+            </ul>
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock %}
