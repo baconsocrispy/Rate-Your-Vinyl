@@ -1,0 +1,15 @@
+{% extends "exercises_base.html" %}
+
+{% block title %}Exercises{% endblock %}
+
+{% block header %}Exercise Details{% endblock %}
+
+{% block content %}
+
+        <td>{{ details.target_muscle }}</td>
+        <td>{{ details.exercise_name }}</td>
+        <td>{{ details.repetitions }}</td>
+        <td>{{ details.sets }}</td>
+        <td>{{ details.description }}</td>
+
+{% endblock %}

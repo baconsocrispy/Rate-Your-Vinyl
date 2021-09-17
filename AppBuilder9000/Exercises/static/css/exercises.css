@@ -30,6 +30,17 @@ h1 {
     margin:0 auto;
 }
 
+h2 {
+    color: #0404B4;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+h2 span {
+    font-variant: small-caps;
+    padding: 2px 16px;
+}
+
 .container {
     padding: 2px 16px;
 }
@@ -140,7 +151,7 @@ ul.topnav li.icon {
 /* form item container */
 .frmObject_container {
 	display: block;
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     padding: 0;
     text-align: center;
@@ -155,18 +166,17 @@ ul.topnav li.icon {
 }
 /* form button container */
 .frmBtn_container {
-    display: block;
-    width: 75%;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
 }
 .btn {
 	flex-grow: 2;
     justify-content: center;
     text-align: center;
     display: inline-block;
-    width: 50px; /* button size */
+    width: 150px; /* button size */
     margin: 2% 2% 2% 2%;
     color: black;
     padding: 10px 0px;
@@ -219,7 +229,7 @@ select {
     box-shadow: 0 0 10px #E8E8E8 inset;
 }
 input, textarea {
-    width: 35%;
+    width: 100%;
     margin: 1% 0 0 0;
     padding: 1% 0 2% 1%;
     line-height: 18px;

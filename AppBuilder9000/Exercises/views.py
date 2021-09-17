@@ -3,9 +3,22 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ExercisesForm
 from .models import Exercises
 
+
+
 # Create your views here.
 def exercises_home(request):
     return render(request, 'exercises_home.html', {})
+
+
+def exercises_names(request):
+    names = Exercises.objects.all()
+    return render(request, 'exercises_names.html', {'names': names})
+
+
+def exercises_details(request, pk):
+    details = get_object_or_404(Exercises, pk=pk)
+    context = {'details': details}
+    return render(request, 'exercises_details.html', context)
 
 
 def exercises_create(request):
@@ -21,6 +34,9 @@ def exercises_create(request):
         }
     return render(request, 'exercises_create.html', context)
 
-def exercises_names(request):
-    names = Exercises.objects.all()
-    return render(request, 'exercises_names.html', {'names': names})
+
+
+
+
+
+

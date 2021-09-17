@@ -6,8 +6,24 @@
 
 {% block content %}
 
+
 {% for name in names %}
-    <ul style="color:White; font-size:20px">
+<ul style="color:White; font-size:20px">
+    <label>Exercise</label>
+    <li><a href="{% url 'exercises_details' name.pk %}">{{ name.exercise_name }}</a></li>
+</ul>
+
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+
+<!-- for names.html
+{% for name in names %}
+  <ul style="color:White; font-size:20px">
         <label>Exercise</label>
         <li>{{ name.exercise_name }}</li>
         <li>{{ name.repetitions }}</li>
@@ -15,5 +31,4 @@
         <li>{{ name.description }}</li>
     </ul>
 {% endfor %}
-
-{% endblock %}
+             endfor names.html -->
