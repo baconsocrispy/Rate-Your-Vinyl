@@ -7,23 +7,15 @@
 {% block content %}
 
 
-<div class="exercises_names">
-    <form name="ExerciseForm" method="POST" action="">
-        <div class="frmObject">
-            {% csrf_token %}
-            <label for="menu-id" style="color:Black">Select an exercise from the list to view/edit</label>
-            <select id="menu-id" name="menu" onChange="top.location.href=this.options[this.selectedIndex}.value;">
-            {% for name in names %}
-                <option value="../{{ name.pk }}/details/">{{ name.exercise_name }}</option>
-            {% endfor %}
-            </select>
-        </div>
-        <div class="frmBtn_container">
-            <a href="{% url 'exercises_create' %}"><button type="button" class="btn" value="Submit">Submit</button></a>
-            <a href="{% url 'Exercises_Home' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
-        </div>
-    </form>
-</div>
+{% for name in names %}
+<ul style="color:White; font-size:20px">
+    <label>Exercise</label>
+    <li><a href="{% url 'exercises_details' name.pk %}">{{ name.exercise_name }}</a></li>
+</ul>
+
+
+{% endfor %}
+
 
 {% endblock %}
 

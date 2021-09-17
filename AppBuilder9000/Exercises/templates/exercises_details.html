@@ -6,22 +6,10 @@
 
 {% block content %}
 
-<div class="exercises_names">
-    <form name="ExercisesForm" method="POST" action="../exercises_details/">
-        <table>
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            {{ form.as_table }}
-        </table>
-        <div class="frmBtn_container">
-            <ul>
-                <li><a href="../{{ form.pk }}delete/">Delete</a></li>
-                <li><a href="{% url 'exercises_home' %}">Cancel</a></li>
-            </ul>
-        </div>
-
-    </form>
-</div>
-
+        <td>{{ details.target_muscle }}</td>
+        <td>{{ details.exercise_name }}</td>
+        <td>{{ details.repetitions }}</td>
+        <td>{{ details.sets }}</td>
+        <td>{{ details.description }}</td>
 
 {% endblock %}
