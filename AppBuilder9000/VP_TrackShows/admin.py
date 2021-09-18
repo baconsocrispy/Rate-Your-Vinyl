@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import MyShows, ShowInfo
 
-# Register your models here.
+
+admin.site.register(MyShows)
+admin.site.register(ShowInfo)
