@@ -2,14 +2,39 @@
 
 {% block title %}Exercises{% endblock %}
 
-{% block header %}Exercise Details{% endblock %}
+{% block header %}Exercise Details:{% endblock %}
 
 {% block content %}
 
-        <td>{{ details.target_muscle }}</td>
+<div class="exercises_names">
+    <form method="Post" action="../exercises_details/">
+        <table>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_table }}
+        </table>
+        <div class="frmBtn_container">
+            <input type="submit">
+            <div class="frmBtn_container">
+                <button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button>
+                <button class="btn"><a href="{% url 'exercises_names' %}">Cancel</a></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+<!--
+   <td>{{ details.target_muscle }}</td>
         <td>{{ details.exercise_name }}</td>
         <td>{{ details.repetitions }}</td>
         <td>{{ details.sets }}</td>
-        <td>{{ details.description }}</td>
-
-{% endblock %}
+        <td>{{ details.description }}</td> -->

@@ -16,9 +16,38 @@ def exercises_names(request):
 
 
 def exercises_details(request, pk):
-    details = get_object_or_404(Exercises, pk=pk)
-    context = {'details': details}
-    return render(request, 'exercises_details.html', context)
+    pk = int(pk)
+    item = get_object_or_404(Exercises, pk=pk)
+    form = ExercisesForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('exercises_names')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'exercises_details.html', {'form': form})
+
+
+def exercises_delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Exercises, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('exercises_names')
+    context = {"item": item,}
+    return render(request, 'exercises_delete.html', context)
+
+
+def exercises_deleteConfirm(request):
+    if request.method == 'POST':
+        form = ExercisesForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('exercises_names')
+    else:
+        return redirect('exercises_names')
 
 
 def exercises_create(request):

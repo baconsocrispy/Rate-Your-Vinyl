@@ -240,9 +240,9 @@ input, textarea {
 label {
 	display: inline-block;
     width: 95%;
-    text-align: left;
+    text-align: center;
     margin: 1% 0 0 0;
-    color: white;
+    color: black;
     line-height: 18px;
     font-size: 20px;
 

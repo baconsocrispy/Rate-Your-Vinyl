@@ -1,0 +1,21 @@
+{% extends "exercises_base.html" %}
+
+{% block title %}Exercises{% endblock %}
+
+{% block header %}Exercise Delete:{% endblock %}
+
+{% block content %}
+
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <h1>Confirm Delete</h1>
+        <p>Are you sure you want to delete "{{item.exercise_name}}" from the database?</p>
+
+        {{ item.as_p }}
+
+        <input type="submit" value="Yes, delete it!" class="btn">
+        <a href="{% url 'exercises_names' %}"><button class="btn" type="button">Cancel</button></a>
+    </form>
+
+
+{% endblock %}
