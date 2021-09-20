@@ -7,9 +7,11 @@ from . import views
 
 urlpatterns = [
     path('home', views.home, name='home'),
-    path('admin_console', views.admin_console, name='admin_console'),
+    path('allshows', views.allshows, name='allshows'),  # allshows = entries
     path('<int:pk>/details/', views.details, name="details"),
     path('<int:pk>/delete/', views.delete, name="delete"),
-    path('confirm_delete/', views.confirmed, name="confirmed"),
-    path('create_record/', views.create_record, name="create_record"),
+    path('<int:pk>/edit/', views.edit, name="edit"),
+    path('create/', views.create, name="create"),
 ]
+
+
