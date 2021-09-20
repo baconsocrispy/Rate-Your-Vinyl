@@ -1,8 +1,8 @@
 {% load static %}
-
-
-<ul class="topnav">
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'create_record' %}">Add Show</a></li>
-    <li><a href="{% url 'admin_console' %}">Show Info</a></li>
-</ul>
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'allshows' %}">All Shows</a></li>
+        <li><a href="{% url 'create' %}">Add Show</a></li>
+    </ul>
+</nav>

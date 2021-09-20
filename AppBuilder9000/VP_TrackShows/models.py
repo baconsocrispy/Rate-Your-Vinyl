@@ -2,13 +2,13 @@ from django.db import models
 
 
 Day_Of_Week = [
-    ('01', 'Sunday'),
-    ('02', 'Monday'),
-    ('03', 'Tuesday'),
-    ('04', 'Wednesday'),
-    ('05', 'Thursday'),
-    ('06', 'Friday'),
-    ('07', 'Saturday'),
+    ('Sunday', 'Sunday'),
+    ('Monday', 'Monday'),
+    ('Tuesday', 'Tuesday'),
+    ('Wednesday', 'Wednesday'),
+    ('Thursday', 'Thursday'),
+    ('Friday', 'Friday'),
+    ('Saturday', 'Saturday'),
 ]
 
 
