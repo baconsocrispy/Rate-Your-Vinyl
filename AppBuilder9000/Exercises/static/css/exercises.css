@@ -19,7 +19,7 @@ p {
 	padding: 2px 16px;
 	font-size: 15px;
 	font-family: 'Lato', Georgia, sans-serif;
-	color: #666666;
+	color: white;
 }
 h1 {
     color: black;
@@ -31,10 +31,10 @@ h1 {
 }
 
 h2 {
-    color: #0404B4;
+    color: Black;
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
-    text-align: center;
+    text-align: left;
 }
 h2 span {
     font-variant: small-caps;

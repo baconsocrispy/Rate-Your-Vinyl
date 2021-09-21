@@ -7,16 +7,25 @@
 {% block content %}
 
 <div class="exercises_names">
+    <!--Post method keeps it invincible -->
+    <!--action brings you ... when the user clicks on the button-->
+    <!--form tag creates a form for user input-->
     <form name="ExerciseForm" method="POST" action="">
         <div class="formObject">
+            <!--django requirement to prevent cross site security risks, -->
             {% csrf_token %}
             <label for="menu_id" style="color:Black">Select an exercise from the list to edit:</label>
+            <!--onChange is js, always end statement with semicolon-->
+            <!--inside select tag there are a bunch of options and the value will link out to specific website-->
             <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
             {% for name in names %}
-                <option value="../{{ name.pk }}/details/">{{ name.exercise_name }}</option>
+                <!--value of the selected option will be the link provided below, where name is the specific exercise-->
+                <!--name and primary key is the wildcard to be chosen and it provides the details of that exercise-->
+                <option value="{{ name.pk }}/exercises_details/">{{ name.exercise_name }}</option>
             {% endfor %}
             </select>
             <div class="fromBtn_container">
+                <!--buttons provide options in the container, in this case create new exercise or canccel and go back to the homepage-->
                 <a href="{% url 'exercises_create' %}"><button type="button" class="btn">Create new exercise</button></a>
                 <a href="{% url 'Exercises_Home' %}"><button type="button" class="btn">Cancel</button></a>
             </div>

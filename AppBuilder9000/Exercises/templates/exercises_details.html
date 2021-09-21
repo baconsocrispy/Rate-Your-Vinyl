@@ -7,7 +7,8 @@
 {% block content %}
 
 <div class="exercises_names">
-    <form method="Post" action="../exercises_details/">
+    <form method="Post" id="thisForm" action="../exercises_details/">
+        <!--as table creates table without doing it ourselves-->
         <table>
             {% csrf_token %}
             {{ form.non_field_errors }}
@@ -16,7 +17,8 @@
         <div class="frmBtn_container">
             <input type="submit">
             <div class="frmBtn_container">
-                <button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button>
+                <!--creating path of the delete button so it will allow us to confirm before deleting exercise in dB-->
+                <button class="btn"><a href="../{{ form.pk }}exercises_delete/">DELETE</a></button>
                 <button class="btn"><a href="{% url 'exercises_names' %}">Cancel</a></button>
             </div>
         </div>
