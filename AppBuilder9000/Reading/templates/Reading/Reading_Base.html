@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/reading.css' %}">
+    </head>
+
+    <body>
+        <div class="page_container">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'Reading_Home' %}">Home</a></li>
+                    <li><a href="">Record Reading</a></li>
+                    <li><a href="">Archive</a></li>
+                </ul>
+            </nav>
+            <header>
+                <h1>{% block header %}{% endblock %}</h1>
+            </header>
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer>
+            <p>Reading Archive &copy;2021 | Nick Perkins</p>
+        </footer>
+    </body>
+</html>
