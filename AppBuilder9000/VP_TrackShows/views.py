@@ -19,7 +19,7 @@ def details(request, pk):
     return render(request, "VP_TrackShows/details.html", context)
 
 
-def delete(request, pk):
+def delete(request, pk):  # tests for delete work well.
     item = get_object_or_404(MyShows, pk=pk)
     form = ShowForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
@@ -29,7 +29,7 @@ def delete(request, pk):
     return render(request, 'VP_TrackShows/delete.html', context)
 
 
-def edit(request, pk):
+def edit(request, pk):  # tests for edits work well.
     item = get_object_or_404(MyShows, pk=pk)
     form = ShowForm(data=request.POST or None, instance=item)
     if request.method == 'POST':

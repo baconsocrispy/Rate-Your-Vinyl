@@ -29,6 +29,7 @@ urlpatterns = [
     path('TrackShows/', include('VP_TrackShows.urls')),
     path('Exercises/', include('Exercises.urls')),
     path('StatCheck/', include('StatCheck.urls')),
+    path('Reading/', include('Reading.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

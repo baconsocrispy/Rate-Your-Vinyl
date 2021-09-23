@@ -22,7 +22,7 @@ class MyShows(models.Model):
     show_title = models.CharField(max_length=75, null=False)
     status = models.CharField(max_length=10, choices=Show_Status, null=True)
     day_of_week = models.CharField(max_length=20, choices=Day_Of_Week)
-    airtime = models.TimeField()
+    airtime = models.TimeField(default='12:00')
     network = models.CharField(max_length=20)
 
     objects = models.Manager()
