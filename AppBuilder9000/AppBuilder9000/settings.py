@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'EdTech',
     'VP_TrackShows',
     'Exercises',
+    'StatCheck',
     'Reading',
 ]
 
