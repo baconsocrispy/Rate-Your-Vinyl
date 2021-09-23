@@ -23,7 +23,7 @@ element.style {
     display: flex!important;
 }
 body {
-     background-image: url('{% static 'image/app-images/bkgrd.jpg' %}');
+     background-image: url('/static/images/bkgrd.jpg');
 }
 
 *, ::after, ::before {
