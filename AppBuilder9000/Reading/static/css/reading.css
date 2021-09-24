@@ -46,6 +46,26 @@ li a:hover {
     background-color: #9b775d;
 }
 
+#table, #th, #td {
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    text-align: center;
+    width: 50%;
+    background-color: white;
+}
+
+#th {
+    background-color: #333;
+    height: 50px;
+    color: white;
+}
+
+#td {
+    background-color: rgba(51,51,51,0.8);
+    color: white;
+}
+
 /* HEADER */
 header {
     text-align: center;
@@ -57,9 +77,12 @@ header {
     margin: 0 auto;
     width: 30%;
     height: 100%;
-    background-color: #9b775d;
+    background-color: rgba(51,51,51,0.8);
 	border: 2px solid #333;
 	border-radius: 10px;
+	color: white;
+	position: relative;
+	padding-bottom: 50px;
 }
 
 .frmObject_container {
@@ -76,7 +99,7 @@ label {
     width: 95%;
     text-align: left;
     margin: 1% 0 0 0;
-    color: black;
+    color: white;
     font-weight: bold;
     line-height: 18px;
     font-size: 20px;
@@ -94,11 +117,15 @@ input, textarea {
 
 .frmBtn_container {
     margin: 0 auto;
-    padding: 15px;
+    position: absolute;
+    left: 78%;
 }
 
 .frmBtn {
     border-radius: 4px;
+    position: absolute;
+    left: 78%;
+    width: 100px;
 }
 
 
