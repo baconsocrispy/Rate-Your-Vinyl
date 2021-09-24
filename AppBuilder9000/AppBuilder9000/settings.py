@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'VP_TrackShows',
     'Exercises',
     'Reading',
+    'InlineSpeedSkates',
 ]
 
 MIDDLEWARE = [
