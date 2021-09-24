@@ -19,3 +19,8 @@ def Reading_Create(request):
         'form': form,
     }
     return render(request, 'Reading/Reading_Create.html', context)
+
+# View all Resources added to Database
+def Reading_Records(request):
+    records = Archive.objects.all()
+    return render(request, 'Reading/Reading_Records.html', {'records': records})
