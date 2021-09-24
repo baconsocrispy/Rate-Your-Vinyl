@@ -15,15 +15,14 @@
     <body>
         <div class="page_container">
             <!--grabs the navbar-->
-           {% include "InlineSpeedSkates_navbar.html" %}
+           {% include "skates_navbar.html" %}
            <header class="header-title">
                 <h1>{% block header %}{% endblock %}</h1>
            </header>
             {% block content %}{% endblock %}
         </div>
         <!--grabs the footer-->
-        {% include "InlineSpeedSkates_footer.html" %}
+        {% include "skates_footer.html" %}
     </body>
-
 
 </html>
