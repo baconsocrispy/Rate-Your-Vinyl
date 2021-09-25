@@ -128,3 +128,16 @@ body {
 }
 
 /* FOOTER STYLING END */
+
+
+/* BACKGROUND IMAGE BEGIN */
+.bg_img {
+  background-image: url("/static/images/inline-background.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+/* BACKGROUND IMAGE END */
