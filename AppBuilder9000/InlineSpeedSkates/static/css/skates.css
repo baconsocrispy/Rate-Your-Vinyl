@@ -20,6 +20,31 @@
 
 
 /* Change navbar styling on scroll */
+
+.Navbar {
+    overflow: hidden;
+    background-color: #FFB600;
+}
+
+.Navbar a {
+    float: left;
+    color: #322514;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.Navbar a:hover {
+    background-color: #50BCB9;
+    color: white;
+}
+
+.Navbar a.active {
+    background-color: #50BDB9;
+    color: white;
+}
+
 .navbar.active {
     background: #fff;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
@@ -60,6 +85,8 @@ body {
     min-height: 110vh;
     background-color: #4ca1af;
     background-image: linear-gradient(135deg, #4ca1af 0%, #c4e0e5 100%);
+    background-image: url("/static/images/inline-background-2.jpg");
+
 }
 
 /* NAVBAR STYLING BEGIN */
@@ -130,14 +157,3 @@ body {
 /* FOOTER STYLING END */
 
 
-/* BACKGROUND IMAGE BEGIN */
-.bg_img {
-  background-image: url("/static/images/inline-background.jpg");
-  background-color: #cccccc;
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-/* BACKGROUND IMAGE END */
