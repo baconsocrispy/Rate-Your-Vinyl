@@ -30,6 +30,7 @@ urlpatterns = [
     path('Exercises/', include('Exercises.urls')),
     path('StatCheck/', include('StatCheck.urls')),
     path('Reading/', include('Reading.urls')),
+    path('InlineSpeedSkates/', include('InlineSpeedSkates.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
