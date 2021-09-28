@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/Recipes.css' %}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'Recipes_Home' %}">Home</a></li>
+                <li><a href="#">Add Recipe</a></li>
+                <li><a href="#">See Recipes</a></li>
+            </ul>
+        </nav>
+        <div class="title">
+            <div class="">
+                <h1>Recipes</h1>
+                <p>Your online spot to add and view recipes</p>
+            </div>
+        </div>
+
+        <div class="footer">
+                <p>Recipes &#169;2021 | Gabe Larson</p>
+        </div>
+    </body>
+
+</html>

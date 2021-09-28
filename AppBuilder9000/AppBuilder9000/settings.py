@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'StatCheck',
     'Reading',
     'InlineSpeedSkates',
+    'Recipes',
 ]
 
 MIDDLEWARE = [
