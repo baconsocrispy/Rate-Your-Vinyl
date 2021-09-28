@@ -115,20 +115,6 @@ input, textarea {
     border: 2px solid #9b775d;
 }
 
-.frmBtn_container {
-    margin: 0 auto;
-    position: absolute;
-    left: 78%;
-}
-
-.frmBtn {
-    border-radius: 4px;
-    position: absolute;
-    left: 78%;
-    width: 100px;
-}
-
-
 /* FOOTER */
 footer {
     position: absolute;
