@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    }
+
+html {
+    background-color: aqua;
+    }
+
+body {
+	position: relative;
+	overflow: hidden;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+	padding: 0;
+}
+p {
+	padding: 2px 16px;
+	font-size: 14px;
+	font-family: Georgia, sans-serif;
+	color: white;
+}
+h1 {
+    color: black;
+    font-size: 100px;
+    font-weight: 800;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 5px 3px 1px white;
+    margin:0 auto;
+}
+
+h2 {
+    color: Black;
+    font-weight: 800;
+    font-family: 'Pacifico', cursive;
+    text-align: left;
+}
+h2 span {
+    font-variant: small-caps;
+    padding: 2px 14px;
+}
+
+.container {
+    padding: 2px 14px;
+}
+
+.box {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.box>* {
+	flex: 1 1 160px;
+}
+.center-img {
+    display: block;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+/* Float the list items side by side */
+ul.topnav li {
+    float: left;
+}
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: 0.5s;
+    font-size: 18px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.6s;
+    cursor: pointer;
+}
+ul.topnav li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.5s ease-in-out;
+    background-color: lightgrey;
+}
+/* Hide the list item that contains the link that should
+   open and close the topnav on small screens */
+ul.topnav li.icon {
+	display: none;
+}
+.header-title {
+	padding: 10px 16px;
+	text-align: center;
+}
+
+#block-footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+}
+#block-footer a, #block-footer p {
+    flex: 1;
+    color: white;
+    padding: 15px 15px;
+	font-size: 18px;
+    line-height: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#footer {
+    width: 40%;
+    text-align: center;
+}
+#block-footer{
+	float:center;
+	clear:both;
+	width:100%;
+}
+#block-footer a {
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+	outline: medium none;
+}
+#block-footer a:hover {
+    color: #CABE96;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.bg_img {
+    background-color: lightblue;
+    background-image: url('/static/images/eurotrip.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
