@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'StatCheck',
     'Reading',
     'InlineSpeedSkates',
+    'RevitFunctions',                       #story1, step2: register app from within MainProject>MainProject>settings.py.
 ]
 
 MIDDLEWARE = [
