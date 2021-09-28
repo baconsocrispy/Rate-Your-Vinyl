@@ -7,7 +7,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 def RevitFunctions_home(request):
     return render(request, 'RevitFunctions/RevitFunctions_home.html')
 
-
 def RevitFunctions_futureNav1(request):
     return render(request, 'RevitFunctions/RevitFunctions_futureNav1.html')
 
