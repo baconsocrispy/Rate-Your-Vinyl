@@ -11,7 +11,7 @@ def Reading_Create(request):
     form = RecordForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Reading_Home')
+        return redirect('Reading_Records')
     else:
         print(form.errors)
         form = RecordForm()
