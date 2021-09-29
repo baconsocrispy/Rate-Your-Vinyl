@@ -3,7 +3,7 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import RvtFunction, User                                       # MUST import classes
-from .forms import AddRvtFunctionForm, AddUserForm       # MUST import forms
+from .forms import AddRvtFunctionForm, AddUserForm                          # MUST import forms
 
 # Create your views here.
 def RevitFunctions_home(request):
@@ -12,7 +12,7 @@ def RevitFunctions_home(request):
 # Story2, step 4: Add a views function that renders the create page and utilizes the model form to save the collection item to the database.
 # function for the form: AddRvtFunction
 def RevitFunctions_AddRvtFunction(request):
-    form = AddRvtFunctionForm(data=request.POST or None)                       # request.POST is referring to the data that comes through when you "post" it from a form.
+    form = AddRvtFunctionForm(data=request.POST or None)                    # request.POST is referring to the data that comes through when you "post" it from a form.
                                                                                 # None is if no data is currently coming through.
                                                                                 # does not evaluate to True or False, but returns one of the objects.
                                                                             # When the QueryDict request.POST is empty, it takes a Falsy value, so the item on RHS
@@ -62,7 +62,7 @@ def RevitFunctions_UserRecords(request):
 
 
 # Retrive all RevitFunctions
-#def RevitFunctions_Details(request, pk):                                      #(request, id): pass id attribute from urls
+#def RevitFunctions_Details(request, pk):                                   #(request, id): pass id attribute from urls
 #    details = RvtFunctionForm(data=request.POST or None)
 #    if request.method == 'POST' and form.is_Valid():
 #       form.save()
