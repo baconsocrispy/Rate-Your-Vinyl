@@ -1,0 +1,31 @@
+{%extends "Recipes_Base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Recipes{% endblock %}
+
+{% block header %}
+<h1>Add a Recipe</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="form-group">
+        <form name="RecipeForm" method="POST" action="{% url 'Recipes_Create' %}">
+
+                <!--Cross site request forgery protection -->
+                {% csrf_token %}
+            <!--allows us to use crispy forms -->
+                {{ form|crispy }}
+            <input type="submit" class="btn" value="Create New Recipe" name="Save_Recipe">
+
+        </form>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

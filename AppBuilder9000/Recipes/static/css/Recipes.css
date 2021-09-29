@@ -13,7 +13,7 @@ a {
   text-decoration: none; /*this gets rid of the underline on the navbar links*/
 }
 
-.navbar {
+.navbarTest {
   opacity: 0.85;
   background-color: #927f68;
   display: flex;
@@ -21,7 +21,7 @@ a {
 }
 
 
-.navbar ul {
+.navbarTest ul {
  /* Let's reset the margin and padding of the list so it's is flush. */
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@ a {
   align-items:center;
 }
 
-.navbar ul li a {
+.navbarTest ul li a {
   color: #fff;
   padding: 24px;
   /*  This will ensure when we hover, focus, or is active we get the full width and height
@@ -42,9 +42,9 @@ a {
 }
 
 /* When a user hovers, focuses or if the link is active change the background */
-.navbar ul a:hover,
-.navbar ul a:focus,
-.navbar ul .active {
+.navbarTest ul a:hover,
+.navbarTest ul a:focus,
+.navbarTest ul .active {
   background-color: #272727;
 }
 
@@ -77,3 +77,4 @@ p {
     text-align: center;
     opacity: 0.85;
 }
+
