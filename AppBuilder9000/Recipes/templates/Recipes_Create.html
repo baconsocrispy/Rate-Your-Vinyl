@@ -6,11 +6,12 @@
 
 {% block header %}
 <h1>Add a Recipe</h1>
+<p>Begin by entering your recipe in the form below</p>
 {% endblock %}
 
 {% block content %}
 
-<div class="form-group">
+<div class="practice">
         <form name="RecipeForm" method="POST" action="{% url 'Recipes_Create' %}">
 
                 <!--Cross site request forgery protection -->

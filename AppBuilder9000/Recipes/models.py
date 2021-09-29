@@ -15,7 +15,7 @@ class Recipe(models.Model):
     user_name = models.CharField(max_length=24, default="", blank=True, null=False)
     recipe_name = models.CharField(max_length=24, default="", blank=True, null=False)
     main_ingredient = models.CharField(max_length=14, default="", blank=True, null=False)
-    main_ingredient2 = models.CharField(max_length=14, default="", blank=True, null=True)
+    main_ingredient_2 = models.CharField(max_length=14, default="", blank=True, null=True)
     steps = models.TextField(max_length=400, default="", blank=True)
 
     objects = models.Manager()
