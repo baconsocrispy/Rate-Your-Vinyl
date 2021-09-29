@@ -28,10 +28,11 @@ rvt_level_choice = [                                                    # using 
 ]
 
 job_category_choice = [
-    ('0 Designer', '0 Designer'),
-    ('1 Production', '1 Production'),
-    ('2 Administration', '2 Administration'),
-    ('3 Project Lead', '3 Project Lead'),
+    ('0 All', '0 All'),
+    ('1 Designer', '1 Designer'),
+    ('2 Production', '2 Production'),
+    ('3 Administration', '3 Administration'),
+    ('4 Project Lead', '4 Project Lead'),
 ]
 
 rvt_category_choice = [                                                # drop menu for types. dictionary object, tuple.
@@ -58,7 +59,7 @@ class User(models.Model):
 
                                                                         # basic schema of Product, must register the app in admin file for it to show on browser.
 class RvtFunction(models.Model):                                        # Model is the class
-    revit_level = models.CharField(max_length=80, default="",
+    revit_title = models.CharField(max_length=80, default="",
                                  blank=True, null=False)                # start off as empty: default = "", but the form can't be blank blank=True
     revit_description= models.TextField(max_length=300, default="",
                                        blank=True)                      # TextField allow for many texts
@@ -67,11 +68,12 @@ class RvtFunction(models.Model):                                        # Model 
     revit_level = models.CharField(max_length=80, choices=rvt_level_choice)
     job_category = models.CharField(max_length=80, choices=job_category_choice)
                                                                         # NOT utilized here: IntField does not have max_length - always check doc for more info
-####### NEED FOREIGN KEY TO COMBINE BOTH dB #######
+
+####### NEED 2 FOREIGN KEYS TO COMBINE BOTH revit_level & job_Category #######
 
     RvtFunctions = models.Manager()                                     # use the models that we involked. Must be within the class.
 
     def __str__(self):                                                  # dunnder __str__: Django will use the result of the function to display objects of that type (in this case it will print self).
-     return self.title                                                # this take the object we entered & turn it into a string,
+     return self.title                                                  # this take the object we entered & turn it into a string,
                                                                             # and return the title of the object. Always use the first object.
 

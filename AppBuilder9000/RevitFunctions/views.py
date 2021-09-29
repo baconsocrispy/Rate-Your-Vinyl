@@ -22,7 +22,8 @@ def RevitFunctions_AddRvtFunction(request):
                                                                                 # form = MyModelForm(request.POST)
 
 
-    if request.method == 'POST' and form.is_valid():                        # Django’s login form is returned using the POST method in which the browser
+    if request.method == 'POST' and form.is_valid():
+                                                                            # Django’s login form is returned using the POST method in which the browser
                                                                                 # bundles up the form data, encodes it for transmission, sends it to the server,
                                                                                 # and then receives back its response.
                                                                             # form.is_valid() = used to perform validation for each field of the form, it is defined
