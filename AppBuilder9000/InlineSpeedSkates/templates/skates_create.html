@@ -10,11 +10,9 @@
         <div class="reviewObject_container">
         {% csrf_token %}
         {{ form.as_p }}
+            <button class="reviewBtn" type="submit" name="Review_Create">Add Record</button>
         </div>
     </form>
-    <div class="reviewBtn_container">
-        <button class="reviewBtn" type="submit" name="Review_Create">Add Record</button>
-    </div>
 </div>
 {% endblock %}
 
