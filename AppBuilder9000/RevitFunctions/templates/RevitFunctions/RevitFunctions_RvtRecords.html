@@ -1,0 +1,33 @@
+<!-- Story2, Step3: Add a template to your app folder for creating a new item. -->
+<!-- RvtRecords page -->
+<!-- for formating the dB -->
+
+{% extends 'RevitFunctions/RevitFunctions_base.html' %}
+{% block title %}Rvt Functions{% endblock %}
+
+{% block header %}<h2>REVIT FUNCTIONS RECORDS</h2>{% endblock %}
+
+{% block content %}
+		<div class="table">
+			<table class="table table-responsive" id ="transactions-table">
+				<!-- Replace this with the Django populated transactions -->
+
+				<tr id="th">
+					<th>Revit Title</th>
+					<th>Revit Description</th>
+					<th>Revit Category</th>
+					<th>Revit Level</th>
+					<th>Job Category</th>
+				</tr>
+				{% for rvtrecord, total in rvtrecords %}
+				<tr id="td">
+					<td class="center">{{ rvtrecord.REVIT_TITLE }}</td>
+					<td class="center">{{ rvtrecord.REVIT_DESCRIPTION }}</td>
+					<td class="center">{{ rvtrecord.REVIT_CATEGORY }}</td>
+					<td class="center">{{ rvtrecord.REVIT_LEVEL }}</td>
+					<td class="center">{{ rvtrecord.JOB_CATEGORY}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+{% endblock %}

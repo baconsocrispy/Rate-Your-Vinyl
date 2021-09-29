@@ -1199,9 +1199,13 @@ textarea {
   cursor: pointer;
 }
 
+input,
 select {
   word-wrap: normal;
+  width: 20vw;                             /* set the form's drop menu Choice Type menu & input text box width */
+  margin-left: 2vw;                        /* add 25px between the label and the drop menu choice type & input text box*/
 }
+
 select:disabled {
   opacity: 1;
 }
@@ -1219,6 +1223,8 @@ select:disabled {
 
 textarea {
   resize: vertical;
+  width: 20vw;                             /* set the textarea box width */
+  margin-left: 2vw;                        /* add 25px between the label and textarea box*/
 }
 
 fieldset {

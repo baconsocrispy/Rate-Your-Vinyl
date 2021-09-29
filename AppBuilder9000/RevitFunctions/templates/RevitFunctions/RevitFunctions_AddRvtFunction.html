@@ -7,37 +7,49 @@
 	# next requires connecting the classes (views) with the functions by 5. urls.py
 -->
 
-<!-- RvtFunctions page -->
+<!-- Add RvtFunctions page -->
 <!-- Story2, Step 3: Add a template to your app folder for creating a new item. -->
-{% extends 'RevitFunctions_base.html' %}
-{% block title %}Add New User{% endblock %}
+<!-- next create tables to format dB. -->
+{% extends 'RevitFunctions/RevitFunctions_base.html' %}   <!-- MUST remember to add the app name prior to the base.html!!!! -->
+{% block title %}Add New Revit Functions{% endblock %}
 
 {% block content %}
+
 <section class="py-5">
     <div class="container px-5">
-	<h2>ADD REVIT FUNCTION</h2>
-    <div class="AddRvtFunction_Form">
-        <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+	    <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
             <div class="text-center mb-5">
-                <form method="POST">                        <!-- Replaced HTML form with the Django Form, Django’s login form is returned using the POST method,
-                                                                     in which the browser bundles up the form data, encodes it for transmission, sends it to the server,
-                                                                     and then receives back its response. -->
-                    {% csrf_token %}                        <!-- CSRF middleware and template tag provides easy-to-use protection against Cross Site Request Forgeries.
-                                                                     attack occurs when a malicious website contains a link, a form button or some JavaScript that is
-                                                                     intended to perform some action on your website, using the credentials of a logged-in user who visits
-                                                                     the malicious site in their browser.-->
-                    <table>                                 <!-- organize form as a table. {{ form.as_p}} will format it as a paragraph -->
-                        {{ form.as_table }}
-                    </table>
 
-                    <!-- Submit Button-->
-                    <div class="d-grid">
-                        <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Add Revit Function</button>
+                <h2 class="fw-bolder">ADD REVIT FUNCTION</h2>
+                <p class="lead fw-normal text-muted mb-0">Please Enter Info Below</p>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-6 col-xl-6">                         <!-- col-lg-6 is the offset of the form contents -->
+
+                    <div class="form-floating mb-3">                    <!-- space after the form with light grey color -->
+
+                        <form method="POST">                            <!-- Replaced HTML form with the Django Form, Django’s login form is returned using the POST method,
+                                                                                in which the browser bundles up the form data, encodes it for transmission, sends it to the server,
+                                                                                and then receives back its response. -->
+                            {% csrf_token %}                            <!-- CSRF middleware and template tag provides easy-to-use protection against Cross Site Request Forgeries.
+                                                                                attack occurs when a malicious website contains a link, a form button or some JavaScript that is
+                                                                                intended to perform some action on your website, using the credentials of a logged-in user who visits
+                                                                                the malicious site in their browser.-->
+                            <table>                                     <!-- organize form as a table. {{ form.as_p}} will format it as a paragraph -->
+                                {{ form.as_table }}
+                            </table>
+                            </br>
+
+                            <!-- Submit Button-->
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Add Revit Function</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
-    </div>
+
 </section>
 {% endblock %}

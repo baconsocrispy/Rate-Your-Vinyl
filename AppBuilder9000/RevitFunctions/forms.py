@@ -11,14 +11,13 @@ from .models import RvtFunction, User         # include all classes from this pa
 
 # story2, step2: Create a model form that will include any inputs the user needs to make
 # create RvtFunctions form
-class UserForm(ModelForm):                    # ModelForm is a subclass.
+class AddUserForm(ModelForm):                    # ModelForm is a subclass.
     class Meta:
         model = User
         fields ='__all__'                     # wild card, including all fields in the form.
 
-
-
-class RvtFunctionForm(ModelForm):             # ModelForm is a subclass.
+class AddRvtFunctionForm(ModelForm):             # ModelForm is a subclass.
     class Meta:
         model = RvtFunction
         fields ='__all__'                     # wild card, including all fields in the form.
+

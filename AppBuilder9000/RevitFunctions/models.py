@@ -21,53 +21,53 @@ from django.db import models
 
 
 rvt_level_choice = {
-    ('Novice','Novice' ),
-    ('Beginner', 'Beginner'),
-    ('Intermediate', 'Intermediate'),
-    ('Advance', 'Advance'),
+    ('0 Novice', '0 Novice'),
+    ('1 Beginner', '1 Beginner'),
+    ('2 Intermediate', '2 Intermediate'),
+    ('3 Advance', '3 Advance'),
 }
 
 job_category_choice = {
-    ('Designer', 'Designer'),
-    ('Production', 'Production'),
-    ('Administration', 'Administration'),
-    ('Project Lead', 'Project Lead'),
+    ('0 Designer', '0 Designer'),
+    ('1 Production', '1 Production'),
+    ('2 Administration', '2 Administration'),
+    ('3 Project Lead', '3 Project Lead'),
 }
 
 rvt_category_choice = {                                                 # drop menu for types. dictionary object, tuple.
-    ('Revit Basic', 'Revit Basic'),
-    ('Revit Maintenance', 'Revit Maintenance'),
-    ('Revit Troubleshoot', 'Revit Troubleshoot'),
-    ('Revit Collaboration', 'Revit Collaboration'),
-    ('Revit Plug-ins', 'Revit Plug-ins'),
-    ('Revit Modeling', 'Revit Modeling'),
-    ('Revit Documentation', 'Revit Documentation'),
-    ('BIM360', 'BIM360'),
+    ('0 Revit Basic', '0 Revit Basic'),
+    ('1 Revit Modeling', '1 Revit Modeling'),
+    ('2 Revit Documentation', '2 Revit Documentation'),
+    ('3 Revit Collaboration', '3 Revit Collaboration'),
+    ('4 Revit Plug-ins', '4 Revit Plug-ins'),
+    ('5 Revit Maintenance', '5 Revit Maintenance'),
+    ('6 BIM360', '6 BIM360'),
+    ('7 Revit Troubleshoot', '7 Revit Troubleshoot'),
 }
 
 
 class User(models.Model):
-    email = models.CharField(max_length=80, default="",                 # start off as empty: default = "", but the form can't be blank blank=True
+    EMAIL = models.CharField(max_length=80, default="",                 # start off as empty input field: default = "", but the form can't be blank blank=True
                                  blank=True, null=False)
-    rvt_level = models.CharField(max_length=50, choices=rvt_level_choice)
-    job_category = models.CharField(max_length=50, choices=job_category_choice)
+    REVIT_LEVEL = models.CharField(max_length=80, choices=rvt_level_choice)
+    JOB_CATEGORY = models.CharField(max_length=80, choices=job_category_choice)
                                                                         # NOT utilized here: IntField does not have max_length - always check doc for more info
 
-    Users = models.Manager()                                         # use the models that we involked. Must be within the class.
+    Users = models.Manager()                                            # use the models that we involked. Must be within the class.
 
 
                                                                         # basic schema of Product, must register the app in admin file for it to show on browser.
-class RvtFunction(models.Model):                                       # Model is the class
-    rvt_title = models.CharField(max_length=80, default="",
+class RvtFunction(models.Model):                                        # Model is the class
+    REVIT_TITLE = models.CharField(max_length=80, default="",
                                  blank=True, null=False)                # start off as empty: default = "", but the form can't be blank blank=True
-    rvt_description = models.TextField(max_length=300, default="",
+    REVIT_DESCRIPTION = models.TextField(max_length=300, default="",
                                        blank=True)                      # TextField allow for many texts
-    rvt_category = models.CharField(max_length=50,                      # fields, what are the restrictions, primary key auto create id for every entry in dB
+    REVIT_CATEGORY = models.CharField(max_length=80,                      # fields, what are the restrictions, primary key auto create id for every entry in dB
                                     choices=rvt_category_choice)        #inheritate the choices above class RvtFunctions
-    rvt_level = models.CharField(max_length=50, choices=rvt_level_choice)
-    job_category = models.CharField(max_length=50, choices=job_category_choice)
+    REVIT_LEVEL = models.CharField(max_length=80, choices=rvt_level_choice)
+    JOB_CATEGORY = models.CharField(max_length=80, choices=job_category_choice)
                                                                         # NOT utilized here: IntField does not have max_length - always check doc for more info
-    ####### NEED FOREIGN KEY TO COMBINE BOTH dB #######
+####### NEED FOREIGN KEY TO COMBINE BOTH dB #######
 
     RvtFunctions = models.Manager()                                     # use the models that we involked. Must be within the class.
 
