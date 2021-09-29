@@ -28,9 +28,11 @@
                                                                                                                 <!-- replace href="about.html" with proper Django attribute reference: with Django block tag -->
                                                                                                                 <!-- create a simple horizontal menu, add the .nav class to a <ul> element, followed by .nav-item for each <li> and add the .nav-link class to their links
                                                                                                                       Active states—with .active—to indicate the current page can be applied directly to .nav-links or their immediate parent .nav-items. -->
-                        <li class="nav-item"><a class="nav-link" href="{% url 'RevitFunctions_AddUser' %}">User</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'RevitFunctions_AddRvtFunction' %}">RVT Func</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'RevitFunctions_futureNav3' %}">futureNav3</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'RevitFunctions_AddUser' %}">+User</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'RevitFunctions_AddRvtFunction' %}">+RVT Func</a></li>
+
+                        <!-- Story3, Step 1: Create a new HTML page, link it from your home page. -->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'RevitFunctions_RvtRecords' %}">View RVT Records</a></li>
                     </ul>
                 </div>
             </div>

@@ -61,7 +61,7 @@ class User(models.Model):
 class RvtFunction(models.Model):                                        # Model is the class
     revit_title = models.CharField(max_length=80, default="",
                                  blank=True, null=False)                # start off as empty: default = "", but the form can't be blank blank=True
-    revit_description= models.TextField(max_length=300, default="",
+    revit_description = models.TextField(max_length=300, default="",
                                        blank=True)                      # TextField allow for many texts
     revit_category = models.CharField(max_length=80,                      # fields, what are the restrictions, primary key auto create id for every entry in dB
                                     choices=rvt_category_choice)        #inheritate the choices above class RvtFunctions
