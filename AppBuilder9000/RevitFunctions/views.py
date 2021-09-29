@@ -49,28 +49,16 @@ def RevitFunctions_AddUser(request):
         return render(request, 'RevitFunctions/RevitFunctions_AddUser.html', {'form': form})
 
 
-# Story2, Step5: Check the database to make sure your item saves without errors (must check SQLite3 after it generates dB)
-# function to see all records of RvtFunctions dB
+# Story3, Step2: Add in a function that gets all the items from the database and sends them to the template
+# function to see/retrieve all records of RvtFunctions dB
 def RevitFunctions_RvtRecords(request):
     rvtrecords = RvtFunction.RvtFunctions.all()                             # check models.py for proper class and object name.
     return render(request, 'RevitFunctions/RevitFunctions_RvtRecords.html', {'rvtrecords': rvtrecords})
 
 
-
-# Story2, Step5: Check the database to make sure your item saves without errors (must check SQLite3 after it generates dB)
-# function to see all records of RvtFunctions dB
-def RevitFunctions_UserRecords(request):
-    userrecords = User.Users.all()                                          # check models.py for proper class and object name.
-    return render(request, 'RevitFunctions/RevitFunctions_UserRecords.html', {'userrecords': userrecords})
+#def RevitFunctions_UserRecords(request):
+#    userrecords = User.Users.all()                                          # check models.py for proper class and object name.
+#    return render(request, 'RevitFunctions/RevitFunctions_UserRecords.html', {'userrecords': userrecords})
 
 
-# Retrive all RevitFunctions
-#def RevitFunctions_Details(request, pk):                                   #(request, id): pass id attribute from urls
-#    details = RvtFunctionForm(data=request.POST or None)
-#    if request.method == 'POST' and form.is_Valid():
-#       form.save()
-#        return redirect('RevitFunctions_home')
-#    else:
-#        return render(request, 'RevitFunctions_AddRvtFunction.html', {'form': form})
-def RevitFunctions_futureNav3(request):
-    return render(request, 'RevitFunctions/RevitFunctions_futureNav3.html')
+

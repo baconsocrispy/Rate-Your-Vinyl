@@ -21,9 +21,8 @@ urlpatterns = [
     # only views.home should not have any location. rest should enter what follows http://127.0.0.1:8000/xxxx/
     path('RevitFunctions/RevitFunctions_AddRvtFunction/', views.RevitFunctions_AddRvtFunction, name='RevitFunctions_AddRvtFunction'),
     path('RevitFunctions_AddUser/', views.RevitFunctions_AddUser, name='RevitFunctions_AddUser'),
-    path('RevitFunctions_RvtRecords/', views.RevitFunctions_RvtRecords, name='RevitFunctions_RvtRecords'),
-    path('RevitFunctions_UserRecords/', views.RevitFunctions_UserRecords, name='RevitFunctions_UserRecords'),
 
-    path('RevitFunctions_futureNav3/', views.RevitFunctions_futureNav3, name='RevitFunctions_futureNav3'),
+    path('RevitFunctions_RvtRecords/', views.RevitFunctions_RvtRecords, name='RevitFunctions_RvtRecords'),
+    #path('RevitFunctions_UserRecords/', views.RevitFunctions_UserRecords, name='RevitFunctions_UserRecords'),
 ]
 
