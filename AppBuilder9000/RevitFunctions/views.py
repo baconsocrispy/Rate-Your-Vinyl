@@ -22,15 +22,16 @@ def RevitFunctions_AddRvtFunction(request):
                                                                                 # form = MyModelForm(request.POST)
 
 
-    if request.method == 'POST' and form.is_valid():
+    if request.method == 'POST':
+        if form.is_valid():
                                                                             # Django’s login form is returned using the POST method in which the browser
                                                                                 # bundles up the form data, encodes it for transmission, sends it to the server,
                                                                                 # and then receives back its response.
                                                                             # form.is_valid() = used to perform validation for each field of the form, it is defined
                                                                                 # in Django Form class. It returns True if data is valid and place all data into a
                                                                                 # cleaned_data attribute.
-        form.save()
-        return redirect('RevitFunctions_home')                              # go back to home if true.
+            form.save()
+            return redirect('RevitFunctions_home')                          # go back to home if true.
     else:
         return render(request, 'RevitFunctions/RevitFunctions_AddRvtFunction.html', {'form': form})
                                                                             # enter form if false.
@@ -40,9 +41,10 @@ def RevitFunctions_AddRvtFunction(request):
 # function for the form: AddUser
 def RevitFunctions_AddUser(request):
     form = AddUserForm(data=request.POST or None)
-    if request.method == 'POST' and form.is_Valid():
-        form.save()
-        return redirect('RevitFunctions_home')
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('RevitFunctions_home')
     else:
         return render(request, 'RevitFunctions/RevitFunctions_AddUser.html', {'form': form})
 
