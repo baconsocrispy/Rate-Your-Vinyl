@@ -28,20 +28,21 @@
 					<!-- Replace this with the Django populated transactions -->
 
 					<tr id="th">
-						<th>Revit Title</th>											<!-- header fields -->
+						<th>Revit Title</th>									<!-- header fields -->
 						<th>Revit Description</th>
 						<th>Revit Category</th>
 						<th>Revit Level</th>
 						<th>Job Category</th>
 					</tr>
-					{% for rvtrecord, total in rvtrecords %}							<!-- for loop to filter what should show -->
-					<tr id="td">
-						<td>{{ rvtrecord.revit_title }}</td>				<!-- shows all categories -->
-						<td>{{ rvtrecord.revit_description }}</td>
-						<td>{{ rvtrecord.revit_category }}</td>
-						<td>{{ rvtrecord.revit_level }}</td>
-						<td>{{ rvtrecord.job_Category }}</td>
-					</tr>
+					{% for RvtFunction in rvtrecords %}							<!-- for loop to filter what should show -->
+																				<!-- loop the model class name in function's variable -->
+						<tr id="td">
+							<td>{{ RvtFunction.revit_title }}</td>				<!-- shows all categories, make sure spelling match -->
+							<td>{{ RvtFunction.revit_description }}</td>
+							<td>{{ RvtFunction.revit_category }}</td>
+							<td>{{ RvtFunction.revit_level }}</td>
+							<td>{{ RvtFunction.job_category }}</td>
+						</tr>
 					{% endfor %}
 				</table>
 			</div>
