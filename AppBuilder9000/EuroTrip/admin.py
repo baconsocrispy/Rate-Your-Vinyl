@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Location, thingsToDo, Accommodations
+
+admin.site.register(Exercises)
