@@ -12,7 +12,7 @@ def RevitFunctions_home(request):
 # Story2, step 4: Add a views function that renders the create page and utilizes the model form to save the collection item to the database.
 # function for the form: AddRvtFunction
 def RevitFunctions_AddRvtFunction(request):
-    form = RvtFunctionForm(data=request.POST or None)                       # request.POST is referring to the data that comes through when you "post" it from a form.
+    form = AddRvtFunctionForm(data=request.POST or None)                       # request.POST is referring to the data that comes through when you "post" it from a form.
                                                                                 # None is if no data is currently coming through.
                                                                                 # does not evaluate to True or False, but returns one of the objects.
                                                                             # When the QueryDict request.POST is empty, it takes a Falsy value, so the item on RHS
@@ -38,7 +38,7 @@ def RevitFunctions_AddRvtFunction(request):
 # Story2, step 4: Add a views function that renders the create page and utilizes the model form to save the collection item to the database.
 # function for the form: AddUser
 def RevitFunctions_AddUser(request):
-    form = UserForm(data=request.POST or None)
+    form = AddUserForm(data=request.POST or None)
     if request.method == 'POST' and form.is_Valid():
         form.save()
         return redirect('RevitFunctions_home')
@@ -48,7 +48,7 @@ def RevitFunctions_AddUser(request):
 
 # Story2, Step5: Check the database to make sure your item saves without errors (must check SQLite3 after it generates dB)
 # function to see all records of RvtFunctions dB
-def RvtRecords(request):
+def RevitFunctions_RvtRecords(request):
     rvtrecords = RvtFunction.RvtFunctions.all()                             # check models.py for proper class and object name.
     return render(request, 'RevitFunctions/RevitFunctions_RvtRecords.html', {'rvtrecords': rvtrecords})
 
@@ -56,7 +56,7 @@ def RvtRecords(request):
 
 # Story2, Step5: Check the database to make sure your item saves without errors (must check SQLite3 after it generates dB)
 # function to see all records of RvtFunctions dB
-def UserRecords(request):
+def RevitFunctions_UserRecords(request):
     userrecords = User.Users.all()                                          # check models.py for proper class and object name.
     return render(request, 'RevitFunctions/RevitFunctions_UserRecords.html', {'userrecords': userrecords})
 

@@ -20,21 +20,21 @@ from django.db import models
 # Story2, Step1: Create your model and add a migration, make sure to plan out all the categories you want to track for your object. Include an objects manager for accessing the database.
 
 
-rvt_level_choice = {
+rvt_level_choice = [                                                    # using [] will keep the contents as a List & in order as they're listed here. {} is a set and won't be in order as listed.
     ('0 Novice', '0 Novice'),
     ('1 Beginner', '1 Beginner'),
     ('2 Intermediate', '2 Intermediate'),
     ('3 Advance', '3 Advance'),
-}
+]
 
-job_category_choice = {
+job_category_choice = [
     ('0 Designer', '0 Designer'),
     ('1 Production', '1 Production'),
     ('2 Administration', '2 Administration'),
     ('3 Project Lead', '3 Project Lead'),
-}
+]
 
-rvt_category_choice = {                                                 # drop menu for types. dictionary object, tuple.
+rvt_category_choice = [                                                # drop menu for types. dictionary object, tuple.
     ('0 Revit Basic', '0 Revit Basic'),
     ('1 Revit Modeling', '1 Revit Modeling'),
     ('2 Revit Documentation', '2 Revit Documentation'),
@@ -43,14 +43,14 @@ rvt_category_choice = {                                                 # drop m
     ('5 Revit Maintenance', '5 Revit Maintenance'),
     ('6 BIM360', '6 BIM360'),
     ('7 Revit Troubleshoot', '7 Revit Troubleshoot'),
-}
+]
 
 
 class User(models.Model):
-    EMAIL = models.CharField(max_length=80, default="",                 # start off as empty input field: default = "", but the form can't be blank blank=True
+    email = models.CharField(max_length=80, default="",                 # start off as empty input field: default = "", but the form can't be blank blank=True
                                  blank=True, null=False)
-    REVIT_LEVEL = models.CharField(max_length=80, choices=rvt_level_choice)
-    JOB_CATEGORY = models.CharField(max_length=80, choices=job_category_choice)
+    revit_level = models.CharField(max_length=80, choices=rvt_level_choice)
+    job_category = models.CharField(max_length=80, choices=job_category_choice)
                                                                         # NOT utilized here: IntField does not have max_length - always check doc for more info
 
     Users = models.Manager()                                            # use the models that we involked. Must be within the class.
@@ -58,20 +58,20 @@ class User(models.Model):
 
                                                                         # basic schema of Product, must register the app in admin file for it to show on browser.
 class RvtFunction(models.Model):                                        # Model is the class
-    REVIT_TITLE = models.CharField(max_length=80, default="",
+    revit_level = models.CharField(max_length=80, default="",
                                  blank=True, null=False)                # start off as empty: default = "", but the form can't be blank blank=True
-    REVIT_DESCRIPTION = models.TextField(max_length=300, default="",
+    revit_description= models.TextField(max_length=300, default="",
                                        blank=True)                      # TextField allow for many texts
-    REVIT_CATEGORY = models.CharField(max_length=80,                      # fields, what are the restrictions, primary key auto create id for every entry in dB
+    revit_category = models.CharField(max_length=80,                      # fields, what are the restrictions, primary key auto create id for every entry in dB
                                     choices=rvt_category_choice)        #inheritate the choices above class RvtFunctions
-    REVIT_LEVEL = models.CharField(max_length=80, choices=rvt_level_choice)
-    JOB_CATEGORY = models.CharField(max_length=80, choices=job_category_choice)
+    revit_level = models.CharField(max_length=80, choices=rvt_level_choice)
+    job_category = models.CharField(max_length=80, choices=job_category_choice)
                                                                         # NOT utilized here: IntField does not have max_length - always check doc for more info
 ####### NEED FOREIGN KEY TO COMBINE BOTH dB #######
 
     RvtFunctions = models.Manager()                                     # use the models that we involked. Must be within the class.
 
     def __str__(self):                                                  # dunnder __str__: Django will use the result of the function to display objects of that type (in this case it will print self).
-     return self.title                                                  # this take the object we entered & turn it into a string,
+     return self.title                                                # this take the object we entered & turn it into a string,
                                                                             # and return the title of the object. Always use the first object.
 

@@ -19,7 +19,7 @@ urlpatterns = [
     # regular expressions, type in xxx.x.x.x:xxxx/admin/ & will see admin.site.urls (if mainApp has admin, there should be no admin in in individual apps such as here).
     # add URL for the html page, views.xxxx will call the function in views.py.
     # only views.home should not have any location. rest should enter what follows http://127.0.0.1:8000/xxxx/
-    path('RevitFunctions_AddRvtFunction/', views.RevitFunctions_AddRvtFunction, name='RevitFunctions_AddRvtFunction'),
+    path('RevitFunctions/RevitFunctions_AddRvtFunction/', views.RevitFunctions_AddRvtFunction, name='RevitFunctions_AddRvtFunction'),
     path('RevitFunctions_AddUser/', views.RevitFunctions_AddUser, name='RevitFunctions_AddUser'),
     path('RevitFunctions_RvtRecords/', views.RevitFunctions_RvtRecords, name='RevitFunctions_RvtRecords'),
     path('RevitFunctions_UserRecords/', views.RevitFunctions_UserRecords, name='RevitFunctions_UserRecords'),
