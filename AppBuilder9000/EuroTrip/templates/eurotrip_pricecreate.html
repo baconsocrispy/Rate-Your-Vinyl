@@ -1,0 +1,27 @@
+{% extends "eurotripbase.html" %}
+
+{% block title %}Price Form{% endblock %}
+
+{% block header %}Answer a few questions to better help other travellers{% endblock %}
+
+{% block content %}
+
+<div class="prices">
+    <!--action calling create record for dB-->
+    <form method="POST" action="{% url 'eurotrip_pricescreate' %}">
+        <div class="frmObject_container">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <!--as paragraph-->
+            {{ form.as_p }}
+        </div>
+        <div class="frmBtn_container">
+            <!--input goes to action-->
+            <input type="submit" class="btn" value="Post Prices" name="Save_Item">
+            <a href="{% url 'eurotrip_prices' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

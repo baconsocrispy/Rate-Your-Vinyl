@@ -73,15 +73,15 @@ class Location(models.Model):
         return self.city
 
 
-class thingsToDo(Model):
-    activity = models.CharField(max_length=200, help_text= "Please briefly explain the fun things you did there.")
+class thingsToDo(models.Model):
+    activity = models.CharField(max_length=200, help_text="Please briefly explain the fun things you did there.")
     duration_of_Activity = models.CharField(max_length=200, help_text="How long did you spend doing the activity?",
                                             choices=duration_of_Activity_Choices)
     startDate = models.DateField(help_text="Is this activity time sensitive? Is it only for a weekend, month, etc?")
     endDate = models.DateField(help_text="If there was a start date, is there an end date?")
     rating = models.CharField(max_length=100, choices=ratingChoices, help_text="Please rate your experience.")
     country = models.CharField(max_length=100, help_text="In which European country does this occur?")
-    city = models.ForeignKey(Location, on_delete=models.PROTECT(), max_length=200, help_text="It occurs in which city?")
+    city = models.ForeignKey(Location, on_delete=models.PROTECT, max_length=200, help_text="It occurs in which city?")
 
     objects = models.Manager()
 
@@ -89,12 +89,12 @@ class thingsToDo(Model):
         return self.activity
 
 
-class Accommodations(Model):
-    city = models.ForeignKey(Location, on_delete=models.PROTECT(), max_length=200, help_text="Where ya staying?")
+class Accommodations(models.Model):
+    city = models.ForeignKey(Location, on_delete=models.PROTECT, max_length=200, help_text="Where ya staying?")
     diningFacilities = models.BooleanField(help_text="Does the hotel have dining services?")
     cleanliness = models.CharField(max_length=200, help_text="How clean was this place?", choices=cleanlinessChoices)
     healthcare = models.BooleanField(help_text="Was the hotel within 10 minutes of a healthcare facility?")
-    accommodationName = models.CharField(max_length=200, help_text= "What was the name of where you stayed?")
+    accommodationName = models.CharField(max_length=200, help_text="What was the name of where you stayed?")
 
     objects = models.Manager()
 
@@ -102,7 +102,13 @@ class Accommodations(Model):
         return self.accommodationName
 
 
+class Pricing(models.Model):
+    city = models.ForeignKey(Location, on_delete=models.PROTECT, max_length=200, help_text="Where did you travel to?")
+    prices = models.CharField(max_length=150, help_text="How pricey was the location?", choices=priceChoices)
+    airlineprices = models.CharField(max_length=150, help_text="Choose a price category for the airfare, please.",
+                                     choices=priceChoices)
 
+    objects = models.Manager()
 
-
-
+    def __str__(self):
+        return self.city

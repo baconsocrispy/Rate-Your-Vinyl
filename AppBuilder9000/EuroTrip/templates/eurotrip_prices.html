@@ -1,15 +1,15 @@
 {% extends "eurotripbase.html" %}
 
-{% block title %}Location Info{% endblock %}
+{% block title %}Pricing{% endblock %}
 
-{% block header %}Information about European Locations{% endblock %}
+{% block header %}Let's Talk Cheddar{% endblock %}
 
 {% block content %}
-<div class="eurotrip_locations">
+<div class="eurotrip_prices">
     <!--Post method keeps it invincible -->
     <!--action brings you ... when the user clicks on the button-->
     <!--form tag creates a form for user input-->
-    <form name="LocationForm" method="GET" action="">
+    <form name="pricesForm" method="POST" action="">
         <div class="formObject">
             <!--django requirement to prevent cross site security risks, -->
             {% csrf_token %}
