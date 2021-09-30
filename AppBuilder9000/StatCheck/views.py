@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import Player, Team
 
 
+
 # Create your views here.
 def StatCheckHome(request):
     return render(request,'StatCheck/StatCheckHOME.html')
