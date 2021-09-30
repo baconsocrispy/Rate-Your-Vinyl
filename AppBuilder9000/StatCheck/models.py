@@ -12,7 +12,7 @@ class Player(models.Model):
 
 
 class Team(models.Model):
-    team_name = models.ForeignKey(Player, on_delete=models.CASCADE)
+    team_name = models.CharField(max_length=30)
     team_location = models.CharField(max_length=30)
     head_coach = models.CharField(max_length=30)
     team_mascot = models.CharField(max_length=30)
