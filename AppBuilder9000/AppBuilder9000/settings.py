@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'StatCheck',
     'Reading',
     'InlineSpeedSkates',
+    'WarriorStats',
     'EuroTrip',
     'RevitFunctions',                       #story1, step2: register app from within MainProject>MainProject>settings.py.
     'Recipes',
