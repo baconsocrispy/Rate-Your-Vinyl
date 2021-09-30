@@ -11,7 +11,7 @@ def Reading_Create(request):
     form = RecordForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Reading_Home')
+        return redirect('Reading_Records')
     else:
         print(form.errors)
         form = RecordForm()
@@ -24,3 +24,9 @@ def Reading_Create(request):
 def Reading_Records(request):
     records = Archive.objects.all()
     return render(request, 'Reading/Reading_Records.html', {'records': records})
+
+# Retrieve record details
+def Reading_Details(request, pk):
+    details = get_object_or_404(Archive, pk=pk)
+    context = {'details': details}
+    return render(request, "Reading/Reading_Details.html", context)

@@ -8,10 +8,9 @@
         <div class="frmObject_container">
         {% csrf_token %}
         {{ form.as_p }}
+            <button type="submit" name="Reading_Create">Add Record</button>
         </div>
+
     </form>
-    <div class="frmBtn_container">
-        <button class="frmBtn" type="submit" name="Reading_Create">Add Record</button>
-    </div>
 </div>
 {% endblock %}

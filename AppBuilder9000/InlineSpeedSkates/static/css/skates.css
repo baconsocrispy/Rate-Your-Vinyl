@@ -84,12 +84,14 @@
 body {
     min-height: 110vh;
     background-color: #4ca1af;
-    background-image: linear-gradient(135deg, #4ca1af 0%, #c4e0e5 100%);
-    background-image: url("/static/images/inline-background-2.jpg");
-
+    background-image: url('/static/images/inline-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-/* NAVBAR STYLING BEGIN */
+
+/* NAVBAR STYLING END */
 
 
 /* FOOTER STYLING BEGIN */
@@ -157,3 +159,62 @@ body {
 /* FOOTER STYLING END */
 
 
+/* REVIEW FORM STYLING BEGIN */
+
+/* FORM */
+.review_container {
+    margin: 0 auto;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(51,51,51,0.8);
+	border: 2px solid #333;
+	border-radius: 10px;
+	color: white;
+	position: relative;
+	padding-bottom: 50px;
+}
+
+.reviewObject_container {
+	color: black;
+	display: inline-block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+label {
+	display: inline-block;
+    width: 95%;
+    text-align: left;
+    margin: 1% 0 0 0;
+    color: white;
+    font-weight: bold;
+    line-height: 18px;
+    font-size: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    margin: 1% 0 0 0;
+    padding: 1% 0 2% 1%;
+    line-height: 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px solid #9b775d;
+}
+
+.reviewBtn_container {
+    margin: 0 auto;
+    position: absolute;
+    left: 78%;
+}
+
+.reviewBtn {
+    border-radius: 4px;
+    position: absolute;
+    left: 78%;
+    width: 100px;
+}
+
+/* REVIEW FORM STYLING END */

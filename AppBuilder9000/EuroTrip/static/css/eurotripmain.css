@@ -1,0 +1,24 @@
+.footer {
+  color: white;
+  display: inline-block;
+  width: 30%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+}
+
+.bg_img {
+    background-color: white;
+    background-image: url('/static/images/eurotrip.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
