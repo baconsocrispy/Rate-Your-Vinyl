@@ -26,7 +26,7 @@ ul {
 h2,
 h3,
 a {
-	color: #34495e;
+	color: #000000;
 }
 
 a {
@@ -53,7 +53,7 @@ a {
 }
 
 .main-nav a {
-	color: #34495e;
+	color: #000000;
 	font-size: .99em;
 }
 
@@ -74,6 +74,22 @@ a {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+}
+
+.title{
+    color: #F8F8FF;
+}
+
+.footer {
+  color: white;
+  display: inline-block;
+  width: 30%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  text-align: center;
 }
 
 
