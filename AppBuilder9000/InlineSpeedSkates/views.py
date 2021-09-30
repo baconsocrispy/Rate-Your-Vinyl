@@ -21,3 +21,9 @@ def Review_Create(request):
             'form': form,
         }
     return render(request, 'skates_create.html', context)
+
+
+# Display all Resources added to Database
+def Review_Display(request):
+    records = Review_Create().objects.all()
+    return render(request, 'InlinesSpeedSkates/skates_display.html', {'records': records})
