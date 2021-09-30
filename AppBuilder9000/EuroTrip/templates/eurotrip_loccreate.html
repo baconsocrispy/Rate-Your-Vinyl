@@ -1,20 +1,20 @@
 {% extends "eurotripbase.html" %}
 
-{% block title %}Exercises{% endblock %}
+{% block title %}Locations{% endblock %}
 
-{% block header %}Create a new workout:{% endblock %}
+{% block header %}Mention a New Location:{% endblock %}
 
 {% block content %}
 
 <div class="location">
     <!--action calling create record for dB-->
-    <form method="POST" action="{% url 'eurotrip_loccreate' %}">
+    <form method="POST">
         <div class="frmObject_container">
             {% csrf_token %}
             {{ form.non_field_errors }}
             <!--as paragraph-->
             {{ form.as_p }}
-            <button type="submit">submit</button>
+            <button type="submit" name="create">submit</button>
         </div>
 
     </form>

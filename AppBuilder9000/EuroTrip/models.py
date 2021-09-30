@@ -2,25 +2,7 @@ from django.db import models
 
 # The models I created required a lot of choice selections so for the next little bit here are the choices.
 # The first field in the choices is what will be stored in the dB, the second field is what the user sees.
-duration_of_Activity_Choices = (
-    ('30', '30 Minutes'),
-    ('60', '1 Hour'),
-    ('90', '1 Hour 30 Minutes'),
-    ('120', '2 Hours'),
-    ('180', '3 Hours'),
-    ('360', '6 Hours'),
-    ('720', '12 Hours'),
-    ('1440', '24 Hours'),
-    ('3000', 'A Few Days')
-)
 
-ratingChoices = (
-    ('1', 'Horrible'),
-    ('2', 'I\'ve seen worse'),
-    ('3', 'It was okay'),
-    ('4', 'It was good'),
-    ('5', 'Wow! Simply the best thing since sliced bread')
-)
 
 timeZoneChoices = (
     ('1', 'Azores'),
@@ -48,13 +30,6 @@ priceChoices = (
     ('5', 'Only for the high rollers')
 )
 
-cleanlinessChoices = (
-    ('1', 'Extremely dirty'),
-    ('2', 'Not the dirtiest, but less than desirable'),
-    ('3', 'Average cleanliness'),
-    ('4', 'A little cleaner than most'),
-    ('5', 'Extremely clean')
-)
 # I'm creating 3 basic models here to contain pertinent information about destinations in Europe
 
 

@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .eurotripforms import LocationForm
+from .forms import LocationForm
 # pulls in the data from all EuroTrip classes
 from .models import Location
 
 
-def eurotriphome (request):
+def eurotriphome(request):
     return render(request, 'eurotriphome.html')
 
 
