@@ -1,12 +1,13 @@
 {% extends "Reading/Reading_Base.html" %}
-{% block title %}Reading Archive{% endblock %}
+{% load static %}
+{% block title %} Reading Archive Details {% endblock %}
 
 {% block header %}
-    <h1>Archive of Records</h1>
+    <h1>Record Details</h1>
 {% endblock %}
 
 {% block content %}
-    <div class="table-container">
+    <div class="form-container">
         <table id="table">
             <thead>
                 <tr id="th">
@@ -18,15 +19,13 @@
                 </tr>
             </thead>
             <tbody>
-            {% for record in records %}
                 <tr id="td">
-                    <td><a href="{% url 'Reading_Details' record.pk %}">{{ record.date }}</a></td>
-                    <td>{{ record.title }}</td>
-                    <td>{{ record.author }}</td>
-                    <td>{{ record.number_of_pages_read }}</td>
-                    <td>{{ record.description_of_passage_read }}</td>
+                    <td>{{ details.date }}</td>
+                    <td>{{ details.title }}</td>
+                    <td>{{ details.author }}</td>
+                    <td>{{ details.number_of_pages_read }}</td>
+                    <td>{{ details.description_of_passage_read }}</td>
                 </tr>
-            {% endfor %}
             </tbody>
         </table>
     </div>
