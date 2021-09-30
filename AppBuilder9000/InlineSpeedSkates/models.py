@@ -69,6 +69,7 @@ OVERALL_RATING = (
 
 # this is a model for submission of an individual skate model reviews
 class Review(models.Model):
+    email = models.EmailField(('email address'), default="", blank=False, max_length=255)
     skate_brand = models.CharField(max_length=20, default="", blank=True, choices=BRANDS)
     boot_materials = models.CharField(max_length=20, default="", blank=True, choices=BOOT_MATERIALS)
     boot_style = models.CharField(max_length=20, default="", blank=True, choices=BOOT_STYLE)
@@ -83,4 +84,6 @@ class Review(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.skate_brand
+        return self.emails
+
+

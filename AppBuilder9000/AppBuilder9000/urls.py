@@ -34,6 +34,7 @@ urlpatterns = [
     path('EuroTrip/', include('EuroTrip.urls')),
     path('RevitFunctions/', include('RevitFunctions.urls')),            #Story1,Step5: Register urls with Mainapp.
     path('Recipes/', include('Recipes.urls')),
+    path('CultClassics/', include('cultclassicsapp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
