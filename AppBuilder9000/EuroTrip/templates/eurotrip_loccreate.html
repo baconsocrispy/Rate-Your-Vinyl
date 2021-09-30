@@ -1,4 +1,4 @@
-{% extends "exercises_base.html" %}
+{% extends "eurotripbase.html" %}
 
 {% block title %}Exercises{% endblock %}
 
@@ -6,20 +6,17 @@
 
 {% block content %}
 
-<div class="exercises_names">
+<div class="location">
     <!--action calling create record for dB-->
-    <form method="POST" action="{% url 'exercises_create' %}">
+    <form method="POST" action="{% url 'eurotrip_loccreate' %}">
         <div class="frmObject_container">
             {% csrf_token %}
             {{ form.non_field_errors }}
             <!--as paragraph-->
             {{ form.as_p }}
+            <button type="submit">submit</button>
         </div>
-        <div class="frmBtn_container">
-            <!--input goes to action-->
-            <input type="submit" class="btn" value="Create New Exercise" name="Save_Item">
-            <a href="{% url 'exercises_names' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
-        </div>
+
     </form>
 </div>
 
