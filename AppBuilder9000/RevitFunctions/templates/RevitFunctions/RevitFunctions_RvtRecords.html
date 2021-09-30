@@ -31,15 +31,14 @@
 						<th>Revit Title</th>									<!-- header field (show only the title -->
 
 					</tr>
-					{% for RvtFunction in rvtrecords %}							<!-- for loop to filter what should show -->
-																				<!-- loop the model class name in function's variable -->
+					{% for Rvt in rvtrecords %}									<!-- for loop to filter what should show -->
+																				<!-- Rvt can be anything, get the info from the variable from the class in views.py -->
 						<tr id="td">
-							<td>{{ RvtFunctions.revit_title }}</td>				<!-- shows all categories, make sure spelling match -->
+							<td>{{ Rvt.revit_title }}</td>						<!-- shows all categories, make sure spelling match -->
 
-							<td><a href="{% url RevitFunctions_RvtDetails %}">Details</a></td>
-																				<!-- Story4, Step3: Add in a link for each item on
-																					the display all items page that will direct to the
-																					details page for that item -->
+							<!-- Story4: step3: Add in a link for each item on the display all items page that will direct to the details page for that item -->
+							<td><a href="{% url 'RevitFunctions_RvtDetails' Rvt.pk %}">DETAILS</a></td>
+																				<!-- reference the same Rvt from this page -->
 
 						</tr>
 					{% endfor %}

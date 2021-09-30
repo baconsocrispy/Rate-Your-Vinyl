@@ -9,8 +9,7 @@
 
 <!-- Add RvtFunctions page -->
 <!-- Story4, Step1: Add details template to the template folder, register the url pattern  -->
-<!-- Story4, Step4: Display all the details of the item on the details page. -->
-<!-- this page appears when user click on the 'details' link in the records page -->
+<!-- this page only appears when user click on the 'details' link in the records page -->
 {% extends 'RevitFunctions/RevitFunctions_base.html' %}   						<!-- MUST remember to add the app name prior to the base.html!!!! -->
 {% block title %}Details of Revit Functions{% endblock %}
 
@@ -27,7 +26,7 @@
 			<div class="table">
 				<table class="table table-responsive" id ="transactions-table">
 					<!-- Replace this with the Django populated transactions -->
-
+					<!-- Story4, Step4: Display all the details of the item on the details page. -->
 					<tr id="th">
 						<th>Revit Title</th>									<!-- header fields -->
 						<th>Revit Description</th>
@@ -35,16 +34,15 @@
 						<th>Revit Level</th>
 						<th>Job Category</th>
 					</tr>
-					<!-- {% for RvtFunction in rvtrecords %}							 for loop to filter what should show -->
-																				<!-- loop the model class name in function's variable -->
+
 						<tr id="td">
-							<td>{{ RvtDetails.revit_title }}</td>				<!-- shows all categories, make sure spelling match -->
-							<td>{{ RvtDetails.revit_description }}</td>
-							<td>{{ RvtDetails.revit_category }}</td>
-							<td>{{ RvtDetails.revit_level }}</td>
-							<td>{{ RvtDetails.job_category }}</td>
+							<td>{{ rvtdetails.revit_title }}</td>				<!-- shows all categories, make sure spelling match -->
+							<td>{{ rvtdetails.revit_description }}</td>			<!-- should read the custom variable from the RevitFunctions_RvitDetails function, not the function itself.-->
+							<td>{{ rvtdetails.revit_category }}</td>
+							<td>{{ rvtdetails.revit_level }}</td>
+							<td>{{ rvtdetails.job_category }}</td>
 						</tr>
-					{% endfor %}
+
 				</table>
 			</div>
 		</div>

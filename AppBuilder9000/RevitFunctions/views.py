@@ -56,7 +56,7 @@ def RevitFunctions_RvtRecords(request):
     return render(request, 'RevitFunctions/RevitFunctions_RvtRecords.html', {'rvtrecords': rvtrecords})
 
 
-# story4, Step1: Add a details template to the template folder, register the url pattern
+# story4, Step2: Create a views function that will find a single item from the database and send it to the template
 # function to see/retrieve details of one item in records by primary key match
 def RevitFunctions_RvtDetails(request, pk):
     rvtdetails = get_object_or_404(RvtFunction, pk=pk)                      # check models.py for proper class and object name (class attribute name.variable attributes name)
