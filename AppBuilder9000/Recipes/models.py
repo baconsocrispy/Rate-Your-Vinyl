@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 
-TYPE_CHOICES = {
+TYPE_CHOICES = (
     ('Breakfast','Breakfast'),
     ('Lunch','Lunch'),
     ('Dinner','Dinner'),
     ('Dessert','Dessert'),
-}
+)
 
 
 class Recipe(models.Model):
