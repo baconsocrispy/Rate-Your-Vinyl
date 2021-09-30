@@ -74,6 +74,6 @@ class RvtFunction(models.Model):                                        # Model 
     RvtFunctions = models.Manager()                                     # use the models that we involked. Must be within the class.
 
     def __str__(self):                                                  # dunnder __str__: Django will use the result of the function to display objects of that type (in this case it will print self).
-     return self.title                                                  # this take the object we entered & turn it into a string,
+     return self.title                                            # this take the object we entered & turn it into a string,
                                                                             # and return the title of the object. Always use the first object.
 
