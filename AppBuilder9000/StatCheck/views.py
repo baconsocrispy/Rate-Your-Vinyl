@@ -1,4 +1,4 @@
-
+import requests
 from django.shortcuts import render, redirect
 from .forms import PlayerForm, TeamForm
 from django.contrib import messages
@@ -38,3 +38,12 @@ def CheckTeam(request):
     teamForm = TeamForm()
     Stat = Team.objects.all()
     return render(request, "StatCheck/StatCheckTEAM.html", context={'teamForm':teamForm, 'Stat':Stat})
+
+
+def player_display(request):
+    player_display = Player.objects.all()
+    content = {'player_display': player_display}
+    return render(request, 'StatCheckDISPLAY.html', content)
+
+
+
