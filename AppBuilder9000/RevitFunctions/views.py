@@ -110,7 +110,7 @@ def RevitFunctions_RvtDelete(request, pk):
 
 def RevitFunctions_RvtConfirmed(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST or None)
+        form = AddRvtFunctionForm(request.POST or None)
         if form.is_valid():
             form.delete()
             return redirect('RevitFunctions_RvtRecords')
