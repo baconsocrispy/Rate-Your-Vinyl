@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('TrackShows/', include('VP_TrackShows.urls')),
+    path('Blacksmithing/', include('Blacksmithing.urls')),
     path('Exercises/', include('Exercises.urls')),
     path('StatCheck/', include('StatCheck.urls')),
     path('Reading/', include('Reading.urls')),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('RevitFunctions/', include('RevitFunctions.urls')),            #Story1,Step5: Register urls with Mainapp.
     path('Recipes/', include('Recipes.urls')),
     path('CultClassics/', include('cultclassicsapp.urls')),
+
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

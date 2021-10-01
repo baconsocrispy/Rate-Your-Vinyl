@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
+    'Blacksmithing',
     'VP_TrackShows',
     'Exercises',
     'StatCheck',
