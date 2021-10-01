@@ -20,3 +20,17 @@ def Recipes_Create(request):
 def Recipes_See(request):
     recipes = Recipe.objects.all()
     return render(request, 'Recipes_See.html', {'recipes': recipes})
+
+def Recipes_Details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Recipe, pk=pk)
+    form = RecipeForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('Recipes_See')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'Recipes_Details.html', {'form': form})
