@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import player_display
 
 urlpatterns =[
     path('', views.StatCheckHome, name='StatCheckHome'),

@@ -1,14 +1,16 @@
 import requests
 from django.shortcuts import render, redirect
+from django.views import generic
+
 from .forms import PlayerForm, TeamForm
 from django.contrib import messages
 from .models import Player, Team
 
 
-
 # Create your views here.
 def StatCheckHome(request):
-    return render(request,'StatCheck/StatCheckHOME.html')
+    return render(request, 'StatCheck/StatCheckHOME.html')
+
 
 def CheckPlayer(request):
     if request.method == "POST":
@@ -19,11 +21,11 @@ def CheckPlayer(request):
         else:
             messages.error(request, 'Error saving form')
 
-
         return redirect("StatCheckPLAYER")
     playerForm = PlayerForm()
     Stat = Player.objects.all()
-    return render(request, "StatCheck/StatCheckPLAYER.html", context={'playerForm':playerForm, 'Stat':Stat})
+    return render(request, "StatCheck/StatCheckPLAYER.html", context={'playerForm': playerForm, 'Stat': Stat})
+
 
 def CheckTeam(request):
     if request.method == "POST":
@@ -34,17 +36,18 @@ def CheckTeam(request):
         else:
             messages.error(request, 'Error saving form')
 
-
         return redirect("StatCheckTEAM")
     teamForm = TeamForm()
     Stat = Team.objects.all()
-    return render(request, "StatCheck/StatCheckTEAM.html", context={'teamForm':teamForm, 'Stat':Stat})
-
+    return render(request, "StatCheck/StatCheckTEAM.html", context={'teamForm': teamForm, 'Stat': Stat})
 
 def player_display(request):
     player_display = Player.objects.all()
     content = {'player_display': player_display}
-    return render(request, 'StatCheckDISPLAY.html', content)
+    return render(request, 'StatCheck/StatCheckDISPLAY.html', content)
 
-
+def team_display(request):
+    team_display = Team.objects.all()
+    content = {'team_display': team_display}
+    return render(request, 'StatCheck/StatCheckDISPLAY.html', content)
 
