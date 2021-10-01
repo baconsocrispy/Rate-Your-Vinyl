@@ -13,39 +13,21 @@
           <div class="grid">
 
 
-              <! --- Start Cars Link -->
-              <a href="{% url 'Carhome' %}" class="grid-item app-image">
-              <img src="{% static 'images/app-images/Porche.jpg' %}" alt="Car">
-              <div class="fadedbox">
-                  <div class="title text">Car Photography</div>
-              </div>
-              </a>
-              <! --- End Cars Link -->
-
-
-               <!-- EdTech Link -->
-              <a href="{% url 'EdTech_Home' %}" class="grid-item app-image">
-                  <img src="{% static 'images/EdTech_Icon.png' %}" alt="EdTech">
-                  <div class="fadedbox">
-                      <div class="title text">Educational Technology</div>
-                  </div>
-              </a>
-              <!-- End EdTech Link -->
-
-              <!-- Anime Link -->
-              <a href="{% url 'Blacksmithing_Home' %}" class="grid-item app-image">
-                  <img src="{% static 'images/BS2.jpg' %}" alt="Blacksmithing">
-                  <div class="fadedbox">
-                      <div class="title text">Blacksmithing Tools</div>
-                  </div>
-              </a>
-              <!-- End Anime Link -->
-
               <!-- VP_TRACKSHOWS LINK START -->
               <a href="{% url 'home' %}" class="grid-item app-image">
                   <img src="{% static 'images/app-images/tvshows.jpg' %}" alt="TrackShows">
                   <div class="fadedbox">
                       <div class="title text">Track Shows</div>
+                  </div>
+              </a>
+              <!-- VP_TRACKSHOWS LINK END -->
+
+
+              <!-- blacksmith LINK START -->
+              <a href="{% url 'Blacksmithing_Home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/BS1.jpg' %}" alt="blacksmith">
+                  <div class="fadedbox">
+                      <div class="title text">BlackSmithing</div>
                   </div>
               </a>
               <!-- VP_TRACKSHOWS LINK END -->
@@ -124,6 +106,15 @@
               </a>
               <! --- Cult Classics Link -->
 
+
+              <! --- Golden State Warrior Stats Link -->
+              <a href="{% url 'stats_Home' %}" class="grid-item app-image">
+              <img src="{% static 'images/warriors.jpg' %}" alt="GSW Logo">
+              <div class="fadedbox">
+                  <div class="title text">Golden State Warrior Statistics</div>
+              </div>
+              </a>
+              <! --- End Golden State Warrior Stats Link -->
 
 
           </div>

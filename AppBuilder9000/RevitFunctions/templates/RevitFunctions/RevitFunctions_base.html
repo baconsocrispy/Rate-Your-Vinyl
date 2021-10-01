@@ -3,7 +3,6 @@
         Base template that inherent from other templates must add Django block tag, include that html.
         but it can't have both, as it will cause RecursionError at: maximum recursion depth exceeded...,
         This means: base.html with this line of code is running as an infinite loop -->
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -27,24 +26,22 @@
     <body>
 
         {% include "RevitFunctions/RevitFunctions_navbar.html" %}
-                                                        <!-- only add it in base html, inheritance, will show up in all other documents based on base
-                                                                do not add Django Block tag of extends to base.html in navbar html, as it will cause error:
+                                                <!-- only add it in base html, inheritance, will show up in all other documents based on base
+                                                                do not add Django Block tag of extends to base html in navbar html, as it will cause error:
                                                                 RecursionError at: maximum recursion depth exceeded...,
                                                                 This means: base html with this line of code is running as an infinite loop -->
 
 
         {% block content %} {% endblock %}
-
+                                                 <!-- only add it in base html, inheritance, will show up in all other documents based on base
+                                                                do not add Django Block tag of extends to contact html in contact html, as it will cause error
+                                                                RecursionError at: maximum recursion depth exceeded...,
+                                                                This means: base html with this line of code is running as an infinite loop -->
 
 
     </body>
 
     <footer>
         {% include "RevitFunctions/RevitFunctions_footer.html" %}
-                                                        <!-- only add it in base html, inheritance, will show up in all other documents based on base
-                                                                do not add Django Block tag of extends to contact html in contact html, as it will cause error:
-                                                                RecursionError at: maximum recursion depth exceeded...,
-                                                                This means: base html with this line of code is running as an infinite loop -->
-
     </footer>
 </html>
