@@ -101,16 +101,15 @@ def RevitFunctions_RvtEdit(request, pk):
 def RevitFunctions_RvtDelete(request, pk):
     rvtdelete = get_object_or_404(RvtFunction, pk=pk)
 
-    form = AddRvtFunctionForm(data=request.POST or None, instance=rvtdelete)
     if request.method == 'POST':
         rvtdelete.delete()
         return redirect('RevitFunctions_RvtRecords')
 
-    return render(request, 'RevitFunctions_RvtConfirmDelete.html', {'form': form})
+    return render(request, 'RevitFunctions_RvtConfirmDelete.html', {'rvtdelete': rvtdelete})
 
 def RevitFunctions_RvtConfirmed(request):
     if request.method == 'POST':
-        form = AddRvtFunctionForm(request.POST or None)
+        form = AddRvtFunctionForm(request.POST or None, instance=rvtdelete)
         if form.is_valid():
             form.delete()
             return redirect('RevitFunctions_RvtRecords')
