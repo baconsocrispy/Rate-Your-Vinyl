@@ -156,3 +156,13 @@ li a {
 li a:hover {
   background-color: #111;
 }
+
+.col-sm-9 {
+    opacity: 0.8;
+    border-radius: 8px;
+    border: 2px solid gray;
+    margin: 0 500px;
+    background-color: #311a14bb;
+    text-align: center;
+    padding: 0 10px;
+}

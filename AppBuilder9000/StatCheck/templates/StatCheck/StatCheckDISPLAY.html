@@ -13,11 +13,14 @@
   <div class="col-sm-8">
 
       {% for StatCheckDISPLAY in player_display %}
-      <p>{{StatCheckDISPLAY.first_name}}</p>
-      <p>{{StatCheckDISPLAY.last_name}}</p>
-      <p>{{StatCheckDISPLAY.what_number}}</p>
-      <p>{{StatCheckDISPLAY.strong_feet}}</p>
-      <p>{{StatCheckDISPLAY.what_position}}</p>
+
+       <td><a href="{% url 'StatCheckDETAIL' StatCheckDISPLAY.pk %}">Details</a></td>
+
+      <p>{{ StatCheckDISPLAY.first_name }}</p>
+      <p>{{ StatCheckDISPLAY.last_name }}</p>
+      <p>{{ StatCheckDISPLAY.what_number }}</p>
+      <p>{{ StatCheckDISPLAY.strong_feet }}</p>
+      <p>{{ StatCheckDISPLAY.what_position }}</p>
 
 <hr>
 
