@@ -1,5 +1,5 @@
 import requests
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 
 from .forms import PlayerForm, TeamForm
@@ -46,8 +46,6 @@ def player_display(request):
     content = {'player_display': player_display}
     return render(request, 'StatCheck/StatCheckDISPLAY.html', content)
 
-def team_display(request):
-    team_display = Team.objects.all()
-    content = {'team_display': team_display}
-    return render(request, 'StatCheck/StatCheckDISPLAY.html', content)
-
+def CheckDetail(request, pk):
+    CheckDetail = get_object_or_404(Player, pk=pk)
+    return render(request, 'StatCheck/StatCheckDETAIL.html', {'CheckDetail': CheckDetail})
