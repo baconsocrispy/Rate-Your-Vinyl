@@ -43,6 +43,9 @@
 							<td><a href="{% url 'RevitFunctions_RvtEdit' Rvt.pk %}">EDIT</a></td>
 																				<!-- reference the same Rvt from this page -->
 
+							<td><a href="{% url 'RevitFunctions_RvtDelete' Rvt.pk %}">DELETE</a></td>
+																				<!-- reference the same Rvt from this page -->
+
 						</tr>
 					{% endfor %}
 				</table>

@@ -31,6 +31,8 @@ urlpatterns = [
     #Story5, STep2: Use model forms and instances to display the content of a single item from the database
     path('<int:pk>/RevitFunctions_RvtEdit/', views.RevitFunctions_RvtEdit, name='RevitFunctions_RvtEdit'),
 
+    path('<int:pk>/RevitFunctions_RvtDelete/', views.RevitFunctions_RvtDelete, name='RevitFunctions_RvtDelete'),
+
 
 ]
 

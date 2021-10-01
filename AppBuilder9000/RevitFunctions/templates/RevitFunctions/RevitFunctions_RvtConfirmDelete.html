@@ -1,0 +1,18 @@
+{% extends "RevitFunctions/RevitFunctions_base.html" %}
+{% block title %}CONFIRM DELETE{% endblock %}
+
+{% block content %}
+
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <h2>Confirm Delete</h2>
+        <p>Are you sure you would like to delete "{{ rvtdelete.name }}" from the database?</p>
+
+        {{ rvtdelete.as_p }}
+
+        <input type="Submit" value="Yes, delete it!" class="btn">
+        <a href="{% url 'RevitFunctions_RvtRecords' %}"><button class="btn" type="button">CANCEL</button></a>
+
+    </form>
+
+{% endblock %}
