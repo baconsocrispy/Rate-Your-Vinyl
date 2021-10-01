@@ -16,3 +16,7 @@ def Recipes_Create(request):
         form = RecipeForm()
     context = {'form': form}
     return render(request, 'Recipes_Create.html', context)
+
+def Recipes_See(request):
+    recipes = Recipe.objects.all()
+    return render(request, 'Recipes_See.html', {'recipes': recipes})
