@@ -1,7 +1,7 @@
 #story1, step4: Add function to views to render the home page
 # add function with name matching urls.py views.xxxx (match xxxx), url will call this function and display something on the screen.
 
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404            # get_object_or_404 = This function calls the given model and get object from that if that object or model doesn’t exist it raise 404 error.
 from .models import RvtFunction, User                                       # MUST import classes
 from .forms import AddRvtFunctionForm, AddUserForm                          # MUST import forms
 
@@ -52,13 +52,13 @@ def RevitFunctions_AddUser(request):
 # Story3, Step2: Add in a function that gets all the items from the database and sends them to the template
 # function to see/retrieve all records of RvtFunctions dB
 def RevitFunctions_RvtRecords(request):
-    rvtrecords = RvtFunction.RvtFunctions.all()                             # check models.py for proper class and object name.
+    rvtrecords = RvtFunction.RvtFunctions.all()                             # check models.py for proper class and object name (class attribute name.variable attributes name)
     return render(request, 'RevitFunctions/RevitFunctions_RvtRecords.html', {'rvtrecords': rvtrecords})
 
 
-#def RevitFunctions_UserRecords(request):
-#    userrecords = User.Users.all()                                          # check models.py for proper class and object name.
-#    return render(request, 'RevitFunctions/RevitFunctions_UserRecords.html', {'userrecords': userrecords})
-
-
-
+# story4, Step2: Create a views function that will find a single item from the database and send it to the template
+# function to see/retrieve details of one item in records by primary key match
+def RevitFunctions_RvtDetails(request, pk):
+    rvtdetails = get_object_or_404(RvtFunction, pk=pk)                      # check models.py for proper class and object name (class attribute name.variable attributes name)
+                                                                            # match the primary key to query that particular item, then assign them into rvtdetails.
+    return render(request, 'RevitFunctions/RevitFunctions_RvtDetails.html', {'rvtdetails': rvtdetails})

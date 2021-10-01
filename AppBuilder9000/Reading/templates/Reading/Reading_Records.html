@@ -20,7 +20,7 @@
             <tbody>
             {% for record in records %}
                 <tr id="td">
-                    <td>{{ record.date }}</td>
+                    <td><a href="{% url 'Reading_Details' record.pk %}">{{ record.date }}</a></td>
                     <td>{{ record.title }}</td>
                     <td>{{ record.author }}</td>
                     <td>{{ record.number_of_pages_read }}</td>

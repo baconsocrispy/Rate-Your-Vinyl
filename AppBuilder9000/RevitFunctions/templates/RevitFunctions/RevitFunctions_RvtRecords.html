@@ -11,7 +11,7 @@
 <!-- Story3, Step 1: Create a new HTML page, link it from your home page. -->
 <!-- next create tables to format dB. -->
 {% extends 'RevitFunctions/RevitFunctions_base.html' %}   <!-- MUST remember to add the app name prior to the base.html!!!! -->
-{% block title %}Add New Revit Functions{% endblock %}
+{% block title %}Records of Revit Functions{% endblock %}
 
 
 {% block content %}
@@ -19,7 +19,7 @@
     <div class="container px-5">
 	    <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
             <div class="text-center mb-5">
-                <h2 class="fw-bolder">Records: Revit Functions</h2>
+                <h2 class="fw-bolder">&lt;Records&gt; Revit Functions</h2>
                 <p class="lead fw-normal text-muted mb-0">Revit Functions You Can Tackle!</p>
             </div>
 
@@ -28,20 +28,18 @@
 					<!-- Replace this with the Django populated transactions -->
 
 					<tr id="th">
-						<th>Revit Title</th>									<!-- header fields -->
-						<th>Revit Description</th>
-						<th>Revit Category</th>
-						<th>Revit Level</th>
-						<th>Job Category</th>
+						<th>Revit Title</th>									<!-- header field (show only the title -->
+
 					</tr>
-					{% for RvtFunction in rvtrecords %}							<!-- for loop to filter what should show -->
-																				<!-- loop the model class name in function's variable -->
+					{% for Rvt in rvtrecords %}									<!-- for loop to filter what should show -->
+																				<!-- Rvt can be anything, get the info from the variable from the class in views.py -->
 						<tr id="td">
-							<td>{{ RvtFunction.revit_title }}</td>				<!-- shows all categories, make sure spelling match -->
-							<td>{{ RvtFunction.revit_description }}</td>
-							<td>{{ RvtFunction.revit_category }}</td>
-							<td>{{ RvtFunction.revit_level }}</td>
-							<td>{{ RvtFunction.job_category }}</td>
+							<td>{{ Rvt.revit_title }}</td>						<!-- shows all categories, make sure spelling match -->
+
+							<!-- Story4: step3: Add in a link for each item on the display all items page that will direct to the details page for that item -->
+							<td><a href="{% url 'RevitFunctions_RvtDetails' Rvt.pk %}">DETAILS</a></td>
+																				<!-- reference the same Rvt from this page -->
+
 						</tr>
 					{% endfor %}
 				</table>

@@ -1,0 +1,51 @@
+<!-- 4. templates utilizing Django block tags.
+	# prior to this is 3. views.py
+	# templates renders the webpage, describes the design with basic logic statements of the page in html.
+		#Child can override Parent's settings.
+	# save file and check if these are working in browser.
+		#check dB and make sure objects are populated.
+	# next requires connecting the classes (views) with the functions by 5. urls.py
+-->
+
+<!-- Add RvtFunctions page -->
+<!-- Story4, Step1: Add details template to the template folder, register the url pattern  -->
+<!-- this page only appears when user click on the 'details' link in the records page -->
+{% extends 'RevitFunctions/RevitFunctions_base.html' %}   						<!-- MUST remember to add the app name prior to the base.html!!!! -->
+{% block title %}Details of Revit Functions{% endblock %}
+
+
+{% block content %}
+<section class="py-5">
+    <div class="container px-5">
+	    <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bolder">&lt;Records&gt; Revit Functions</h2>
+                <p class="lead fw-normal text-muted mb-0">Revit Functions You Can Tackle!</p>
+            </div>
+
+			<div class="table">
+				<table class="table table-responsive" id ="transactions-table">
+					<!-- Replace this with the Django populated transactions -->
+					<!-- Story4, Step4: Display all the details of the item on the details page. -->
+					<tr id="th">
+						<th>Revit Title</th>									<!-- header fields -->
+						<th>Revit Description</th>
+						<th>Revit Category</th>
+						<th>Revit Level</th>
+						<th>Job Category</th>
+					</tr>
+
+						<tr id="td">
+							<td>{{ rvtdetails.revit_title }}</td>				<!-- shows all categories, make sure spelling match -->
+							<td>{{ rvtdetails.revit_description }}</td>			<!-- should read the custom variable from the RevitFunctions_RvitDetails function, not the function itself.-->
+							<td>{{ rvtdetails.revit_category }}</td>
+							<td>{{ rvtdetails.revit_level }}</td>
+							<td>{{ rvtdetails.job_category }}</td>
+						</tr>
+
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
