@@ -32,7 +32,8 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px #003300;
 }
 
 .Navbar a:hover {
@@ -76,14 +77,8 @@
     }
 }
 
-.text-small {
-    font-size: 0.9rem !important;
-}
-
-
 body {
     min-height: 110vh;
-    background-color: #4ca1af;
     background-image: url('/static/images/inline-background.jpg');
     background-size: cover;
     background-position: center;
@@ -97,9 +92,7 @@ body {
 /* FOOTER STYLING BEGIN */
 
 .footer-basic {
-  padding:40px 0;
-  background-color:#ffffff;
-  color:#4b4c4d;
+  padding:75px 0;
 }
 
 .footer-basic ul {
@@ -116,7 +109,6 @@ body {
 }
 
 .footer-basic ul a {
-  color:inherit;
   text-decoration:none;
   opacity:0.8;
 }
@@ -127,7 +119,7 @@ body {
 
 .footer-basic .social {
   text-align:center;
-  padding-bottom:25px;
+  padding-bottom:15px;
 }
 
 .footer-basic .social > a {
@@ -140,7 +132,7 @@ body {
   border-radius:50%;
   border:1px solid #ccc;
   margin:0 8px;
-  color:inherit;
+  color:#0066ff;
   opacity:0.75;
 }
 
@@ -149,7 +141,7 @@ body {
 }
 
 .footer-basic .copyright {
-  margin-top:15px;
+  margin-top:10px;
   text-align:center;
   font-size:13px;
   color:#aaa;
@@ -218,3 +210,42 @@ input, textarea {
 }
 
 /* REVIEW FORM STYLING END */
+
+
+/* DISPLAY VIEW BEGIN */
+#table, #th, #td {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: rgba(51,51,51,0.8);
+    border-radius: 10px;
+    width: 1000px;
+}
+
+#th {
+    background-color: background-color: rgba(51,51,51,0.8);
+    color: #00ff00;
+    height: 50px;
+    opacity:0.80;
+}
+
+#td {
+    background-color: white;
+    opacity:0.60;
+}
+
+h4 {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(51,51,51,0.8);
+    text-align: center;
+    font-size: 10px;
+    font-color: #00ff00;
+    width: 1000px;
+    padding: .5% 1% 1% 1%;
+    opacity:0.95;
+}
+
+/* DISPLAY VIEW END*/

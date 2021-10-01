@@ -23,7 +23,8 @@ def Review_Create(request):
     return render(request, 'skates_create.html', context)
 
 
-# Display all Resources added to Database
+# Displays all Resources add to database
 def Review_Display(request):
-    records = Review_Create().objects.all()
-    return render(request, 'InlinesSpeedSkates/skates_display.html', {'records': records})
+    # gets objects of from database
+    records = Review.objects.all().order_by('overall_rating')
+    return render(request, 'skates_display.html', {'records': records})
