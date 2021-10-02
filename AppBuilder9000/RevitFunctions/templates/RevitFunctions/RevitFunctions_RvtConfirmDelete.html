@@ -10,7 +10,9 @@
                 <h2 class="fw-bolder">Confirm Delete</h2>
                 <p class="lead fw-normal text-muted mb-0">Are you sure you would like to delete the following from the database?</p>
             </div>
-        {% csrf_token %}
+
+			<form method="POST">												<!-- must add this for views.py function to post -->
+			{% csrf_token %}
 
 
         {{ rvtdelete.as_table }}
@@ -45,10 +47,13 @@
                                                                                 <!-- button align to right -->
                                                                                 <!-- because its input type, just give it a class matching button
                                                                                         instead of listing button class ="" -->
-                <button class="btn btn-primary btn-lg float-start" id="cancelButton" type="submit">CANCEL</button>
-                                                                                <!-- button align to left -->
-            </div>
 
+
+            </div>
+			</form>
+			<!-- keep this outside of the method = 'POST', or else it will read as confirming to delete!!! -->
+			<a href="{% url 'RevitFunctions_RvtRecords' %}"><button class="btn btn-primary btn-lg float-start" id="cancelButton" type="submit">CANCEL</button></a>
+                                                                                <!-- button align to left -->
         </div>
     </div>
 </section>

@@ -83,7 +83,7 @@ def RevitFunctions_RvtEdit(request, pk):
                                                                                 # form = MyModelForm(request.POST)
 
 
-    if request.method == 'POST':
+    if request.method == 'POST':                                            # if this method='POST', the template must have something referrencing this for it to POST somthing.
         if form.is_valid():
                                                                             # Django’s form is returned using the POST method in which the browser
                                                                                 # bundles up the form data, encodes it for transmission, sends it to the server,
@@ -102,14 +102,14 @@ def RevitFunctions_RvtDelete(request, pk):
     rvtdelete = get_object_or_404(RvtFunction, pk=pk)
     form = AddRvtFunctionForm(request.POST or None, instance=rvtdelete)
 
-    if request.method == 'POST':
+    if request.method == 'POST':                                            # if this method='POST', the template must have something referrencing this for it to POST somthing.
         rvtdelete.delete()
         return redirect('RevitFunctions_RvtRecords')
 
     return render(request, 'RevitFunctions/RevitFunctions_RvtConfirmDelete.html', {'rvtdelete': rvtdelete})
 
 def RevitFunctions_RvtConfirmDelete(request):
-    if request.method == 'POST':
+    if request.method == 'POST':                                            # if this method='POST', the template must have something referrencing this for it to POST somthing.
         form = AddRvtFunctionForm(request.POST or None)
         if form.is_valid():
             form.delete()
