@@ -7,11 +7,11 @@
 	# next requires connecting the classes (views) with the functions by 5. urls.py
 -->
 
-<!-- Add RvtFunctions page -->
-<!-- Story2, Step 3: Add a template to your app folder for creating a new item. -->
+<!-- Add RvtEdit page -->
+<!-- Story5, Step 1: Add an edit page to the templates (another pattern url) -->
 <!-- next create tables to format dB. -->
 {% extends 'RevitFunctions/RevitFunctions_base.html' %}   <!-- MUST remember to add the app name prior to the base.html!!!! -->
-{% block title %}Add New Revit Functions{% endblock %}
+{% block title %}Edit Revit Functions{% endblock %}
 
 {% block content %}
 
@@ -20,8 +20,8 @@
 	    <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
             <div class="text-center mb-5">
 
-                <h2 class="fw-bolder">+ADD REVIT FUNCTION</h2>
-                <p class="lead fw-normal text-muted mb-0">Please Enter Info Below</p>
+                <h2 class="fw-bolder">EDIT REVIT FUNCTION</h2>
+                <p class="lead fw-normal text-muted mb-0">Please Enter NEW Info Below</p>
             </div>
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6 col-xl-6">                         <!-- col-lg-6 is the offset of the form contents -->
@@ -40,9 +40,9 @@
                             </table>
                             </br>
 
-                            <!-- Submit Button-->
+                            <!-- Submit Button for Edit-->
                             <div class="d-grid">
-                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">ADD REVIT FUNCTION</button>
+                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">EDIT REVIT FUNCTION</button>
                             </div>
                         </form>
                     </div>

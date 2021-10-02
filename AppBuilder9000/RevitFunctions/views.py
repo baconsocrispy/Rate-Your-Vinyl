@@ -24,7 +24,7 @@ def RevitFunctions_AddRvtFunction(request):
 
     if request.method == 'POST':
         if form.is_valid():
-                                                                            # Django’s login form is returned using the POST method in which the browser
+                                                                            # Django’s form is returned using the POST method in which the browser
                                                                                 # bundles up the form data, encodes it for transmission, sends it to the server,
                                                                                 # and then receives back its response.
                                                                             # form.is_valid() = used to perform validation for each field of the form, it is defined
@@ -62,3 +62,57 @@ def RevitFunctions_RvtDetails(request, pk):
     rvtdetails = get_object_or_404(RvtFunction, pk=pk)                      # check models.py for proper class and object name (class attribute name.variable attributes name)
                                                                             # match the primary key to query that particular item, then assign them into rvtdetails.
     return render(request, 'RevitFunctions/RevitFunctions_RvtDetails.html', {'rvtdetails': rvtdetails})
+
+
+# Story5, step3: Have the views function send the information for the single item and save any changes.
+# function for the form: RvtEdit.html
+def RevitFunctions_RvtEdit(request, pk):
+    rvtedit = get_object_or_404(RvtFunction, pk=pk)                         # check models.py for proper class and object name (class attribute name.variable attributes name)
+
+    # Use model forms and instances to display the content of a single item from the database
+    form = AddRvtFunctionForm(data=request.POST or None, instance=rvtedit)  # instance=rvtedit will populate the cell with the original values.
+                                                                            # use the same form as AddRvtFunctionForm
+                                                                            # https://stackoverflow.com/questions/4673985/how-to-update-an-object-from-edit-form-in-django
+                                                                            # request.POST is referring to the data that comes through when you "post" it from a form.
+                                                                                # None is if no data is currently coming through.
+                                                                                # does not evaluate to True or False, but returns one of the objects.
+                                                                            # When the QueryDict request.POST is empty, it takes a Falsy value, so the item on RHS
+                                                                                # of the or operation is selected (which is None), and the form is initialized without
+                                                                                # vanilla arguments (i.e. with None): form = MyModelForm()
+                                                                                # Otherwise, when request.POST is not empty, the form is initialized with the QueryDict:
+                                                                                # form = MyModelForm(request.POST)
+
+
+    if request.method == 'POST':                                            # if this method='POST', the template must have something referrencing this for it to POST somthing.
+        if form.is_valid():
+                                                                            # Django’s form is returned using the POST method in which the browser
+                                                                                # bundles up the form data, encodes it for transmission, sends it to the server,
+                                                                                # and then receives back its response.
+                                                                            # form.is_valid() = used to perform validation for each field of the form, it is defined
+                                                                                # in Django Form class. It returns True if data is valid and place all data into a
+                                                                                # cleaned_data attribute.
+            form.save()
+            return redirect('RevitFunctions_RvtRecords')                    # go back to home if true.
+    else:
+        return render(request, 'RevitFunctions/RevitFunctions_RvtEdit.html', {'form': form})
+                                                                            # enter form if false.
+
+
+def RevitFunctions_RvtDelete(request, pk):
+    rvtdelete = get_object_or_404(RvtFunction, pk=pk)
+    form = AddRvtFunctionForm(request.POST or None, instance=rvtdelete)
+
+    if request.method == 'POST':                                            # if this method='POST', the template must have something referrencing this for it to POST somthing.
+        rvtdelete.delete()
+        return redirect('RevitFunctions_RvtRecords')
+
+    return render(request, 'RevitFunctions/RevitFunctions_RvtConfirmDelete.html', {'rvtdelete': rvtdelete})
+
+def RevitFunctions_RvtConfirmDelete(request):
+    if request.method == 'POST':                                            # if this method='POST', the template must have something referrencing this for it to POST somthing.
+        form = AddRvtFunctionForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('RevitFunctions_RvtRecords')
+    else:
+        return render(request, 'RevitFunctions/RevitFunctions_RvtRecords.html')
