@@ -63,7 +63,7 @@ a {
 
 
 
-.header {
+.header {/*this displays info on the heading page*/
 	padding-top: .5em;
 	padding-bottom: .5em;
 	border: 1px solid #a2a2a2;
@@ -80,7 +80,7 @@ a {
     color: #F8F8FF;
 }
 
-.footer {
+.footer {/*this displays info on the bottom of the page*/
   color: white;
   display: inline-block;
   width: 30%;
@@ -100,8 +100,32 @@ a {
 
 }
 
+table, th, td {/*this displays the info on the movie lists page*/
+    padding: 15px;
+    text-align: left;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    background: #000000;
+}
+
+th {
+    background: #FF8C00;
+}
+
+th {
+    background: #FF8C00;
+}
+
+
+
+
 
 /* =================================
+
   Media Queries
 ==================================== */
 

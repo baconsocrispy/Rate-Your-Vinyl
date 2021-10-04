@@ -1,0 +1,36 @@
+{% extends "CultClassicsBase.html" %}
+{% load static %}
+{% block title %}Cult Classics{% endblock %}
+
+{% block header %}
+        <h1>View Movies</h1>
+        <p>Behold the spectacle of Cult Classics!</p>
+{% endblock %}
+
+{% block content %}
+<table>
+     <thead>
+          <tr id="top">
+                  <th>Type</th>
+                  <th>User Name</th>
+                  <th>Movie Title</th>
+                  <th>Actor</th>
+                  <th>Actress</th>
+                  <th>Description</th>
+          </tr>
+     </thead>
+     <tbody>
+        {% for CultClassics in CultClassics %}
+        <tr id="">
+            <td>{{ CultClassics.Type }}</td>
+            <td>{{ CultClassics.User_Name }}</td>
+            <td>{{ CultClassics.Movie_Title }}</td>
+            <td>{{ CultClassics.Actor }}</td>
+            <td>{{ CultClassics.Actress }}</td>
+            <td>{{ CultClassics.Description }}</td>
+        </tr>
+        {% endfor %}
+     </tbody>
+</table>
+
+{% endblock %}
