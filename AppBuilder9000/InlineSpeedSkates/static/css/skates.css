@@ -1,31 +1,35 @@
 /* NAVBAR STYLING BEGIN */
 
+
+/* Navbar element hover transition */
 .navbar {
-    transition: all 0.4s;
+    transition: all 0.4s; /* Nav bar element hover transition */
 }
 
+/* Navbar link color */
 .navbar .nav-link {
     color: #fff;
 }
 
+/* Navbar link hover styling */
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
     color: #fff;
     text-decoration: none;
 }
 
+/* Bootstrap "branding" navbar color for "Inline Speed Skate Review Central" only */
 .navbar .navbar-brand {
     color: #fff;
 }
 
-
-/* Change navbar styling on scroll */
-
+/* Navbar background color */
 .Navbar {
     overflow: hidden;
     background-color: #FFB600;
 }
 
+/* Navbar background color */
 .Navbar a {
     float: left;
     color: #322514;
@@ -36,31 +40,38 @@
     text-shadow: 2px 2px 2px #003300;
 }
 
+/* Navbar hover background color change */
+a:hover
 .Navbar a:hover {
     background-color: #50BCB9;
     color: white;
 }
 
+/* Navbar active class background color */
 .Navbar a.active {
     background-color: #50BDB9;
     color: white;
 }
 
+/* Navbar active class background shadow */
 .navbar.active {
     background: #fff;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Navbar active class link color */
 .navbar.active .nav-link {
     color: #555;
 }
 
+/* Navbar active class link hover styling */
 .navbar.active .nav-link:hover,
 .navbar.active .nav-link:focus {
     color: #555;
     text-decoration: none;
 }
 
+/* Navbar active class hover color change */
 .navbar.active .navbar-brand {
     color: #555;
 }
@@ -77,6 +88,7 @@
     }
 }
 
+/* Background position and display distribution styling */
 body {
     min-height: 110vh;
     background-image: url('/static/images/inline-background.jpg');
@@ -85,16 +97,17 @@ body {
     background-attachment: fixed;
 }
 
-
 /* NAVBAR STYLING END */
 
 
 /* FOOTER STYLING BEGIN */
 
+/* Footer quadrant padding */
 .footer-basic {
-  padding:75px 0;
+  padding: 60px 0;
 }
 
+/* Footer unordered list styling */
 .footer-basic ul {
   padding:0;
   list-style:none;
@@ -104,22 +117,26 @@ body {
   margin-bottom:0;
 }
 
+/* Footer object padding */
 .footer-basic li {
   padding:0 10px;
 }
 
+/* Footer unordered list text styling */
 .footer-basic ul a {
   text-decoration:none;
   opacity:0.8;
 }
 
+/* Footer unordered list hover styling */
 .footer-basic ul a:hover {
   opacity:1;
 }
 
+/* Footer social media styling */
 .footer-basic .social {
   text-align:center;
-  padding-bottom:15px;
+  padding-bottom: 10px;
 }
 
 .footer-basic .social > a {
@@ -136,10 +153,12 @@ body {
   opacity:0.75;
 }
 
+/* Footer social media icon hover styling */
 .footer-basic .social > a:hover {
   opacity:0.9;
 }
 
+/* Footer copyright styling */
 .footer-basic .copyright {
   margin-top:10px;
   text-align:center;
@@ -153,32 +172,35 @@ body {
 
 /* REVIEW FORM STYLING BEGIN */
 
-/* FORM */
+/* Review Form Base Styling */
 .review_container {
     margin: 0 auto;
-    width: 30%;
+    width: 25%;
     height: 100%;
     background-color: rgba(51,51,51,0.8);
 	border: 2px solid #333;
 	border-radius: 10px;
 	color: white;
 	position: relative;
-	padding-bottom: 50px;
+	padding-bottom: 25px;
 }
 
+/* Review Form Data Entry Field Styling */
 .reviewObject_container {
 	color: black;
 	display: inline-block;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    padding: 0;
+    padding: 5px;
     text-align: center;
 }
 
+/* Review Form Data Entry Field Label Styling */
 label {
 	display: inline-block;
     width: 95%;
     text-align: left;
+    padding-left: 5px;
     margin: 1% 0 0 0;
     color: white;
     font-weight: bold;
@@ -186,44 +208,52 @@ label {
     font-size: 20px;
 }
 
+/* Review Form Data Entry Field Text Area */
 input, textarea {
     width: 100%;
     margin: 1% 0 0 0;
-    padding: 1% 0 2% 1%;
+    padding: 2% 0 2% 1%;
     line-height: 18px;
     font-size: 15px;
     border-radius: 5px;
     border: 2px solid #9b775d;
 }
 
+/* Review Form Button Container Position */
 .reviewBtn_container {
     margin: 0 auto;
     position: absolute;
     left: 78%;
 }
 
+/* Review Form Button Styling */
 .reviewBtn {
     border-radius: 4px;
-    position: absolute;
+    position: center;
     left: 78%;
     width: 100px;
+    color: #0000ff;
+    font-weight: bold;
 }
 
 /* REVIEW FORM STYLING END */
 
 
-/* DISPLAY VIEW BEGIN */
+/* DISPLAY TABLE VIEW BEGIN */
+
+/* Table container, header, and data field styling */
 #table, #th, #td {
     margin-left: auto;
     margin-right: auto;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     border: 1px solid black;
     background-color: rgba(51,51,51,0.8);
     border-radius: 10px;
-    width: 1000px;
+    width: 1100px;
 }
 
+/* Table header only styling */
 #th {
     background-color: background-color: rgba(51,51,51,0.8);
     color: #00ff00;
@@ -231,21 +261,22 @@ input, textarea {
     opacity:0.80;
 }
 
+/* Table data field only styling */
 #td {
     background-color: white;
     opacity:0.60;
+    color: #003300;
 }
 
-h4 {
+/* Table data field only styling */
+h5 {
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(51,51,51,0.8);
     text-align: center;
-    font-size: 10px;
-    font-color: #00ff00;
-    width: 1000px;
+    width: 1100px;
     padding: .5% 1% 1% 1%;
     opacity:0.95;
 }
 
-/* DISPLAY VIEW END*/
+/* TABLE DISPLAY VIEW END*/

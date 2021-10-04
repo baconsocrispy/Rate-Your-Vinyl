@@ -1,0 +1,51 @@
+{% extends 'skates_base.html' %}
+
+{% block title %}Speed Skate Details{% endblock %}
+
+{% block header %}<h4>Inline Speed Skate Review Details</h4>{% endblock %}
+
+<!-- Review Details Display Expanded Begin -->
+{% block content %}
+    <div class="table-container">
+        <table id="table">
+            <thead>
+                <tr id="th">
+                    <!-- Static table headers -->
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Boot Materials</th>
+                    <th>Boot Style</th>
+                    <th>Frame</th>
+                    <th>Bearings Rating</th>
+                    <th>Bearings Material</th>
+                    <th>Comfort</th>
+                    <th>Overall Rating</th>
+                    <th>Pros</th>
+                    <th>Cons</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for detail in details %}
+                <tr id="td">
+                    <!-- Review_Display function pulls records from database via the below xrefs -->
+                    <td>{{ detail.date }}</td>
+                    <td>{{ detail.user }}</td>
+                    <td>{{ detail.skate_brand }}</td>
+                    <td>{{ detail.boot_materials }}</td>
+                    <td>{{ detail.boot_style }}</td>
+                    <td>{{ detail.frame }}</td>
+                    <td>{{ detail.bearings_rating }}</td>
+                    <td>{{ detail.bearings_material }}</td>
+                    <td>{{ detail.comfort }}</td>
+                    <td>{{ detail.overall_rating }}</td>
+                    <td>{{ detail.pros }}</td>
+                    <td>{{ detail.cons }}</td>
+                </tr>
+            {% endfor %}
+            <tbody>
+        </table>
+    </div>
+{% endblock %}
+<!-- Review Details Display Expanded End -->
