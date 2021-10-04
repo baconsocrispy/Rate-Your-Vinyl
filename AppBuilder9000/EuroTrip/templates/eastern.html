@@ -1,0 +1,12 @@
+{% extends "eurotripbase.html" %}
+{% load static %}
+{% block title %}Locations{% endblock %}
+
+
+{% block content %}
+<div class="eastern">
+{% for city in location_list %}
+{{ city.country }}
+{% endfor %}
+</div>
+{% endblock %}

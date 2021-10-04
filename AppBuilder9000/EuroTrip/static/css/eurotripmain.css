@@ -12,6 +12,32 @@
 
 .bg_img {
     background-color: white;
+    background-image: url('/static/images/EuroTrip.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.eurosat_img {
+    background-color: white;
+    background-image: url('/static/images/eurosat.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+{
+    background-color: white;
     background-image: url('/static/images/eurotrip.jpg');
     background-size: cover;
     background-attachment:fixed;
@@ -22,3 +48,33 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+
+{
+    background-color: white;
+    background-image: url('/static/images/eurotrip.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+{
+    background-color: white;
+    background-image: url('/static/images/eurotrip.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.eastern {
+color : white;}
