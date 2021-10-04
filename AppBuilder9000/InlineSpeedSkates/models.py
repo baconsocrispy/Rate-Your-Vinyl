@@ -71,7 +71,7 @@ OVERALL_RATING = (
 # This is the model for the database table from which all data queries will extract data
 class Review(models.Model):
     date = models.DateField(auto_now_add=True, blank=False)
-    username = models.CharField(max_length=15, default="", blank=False, unique=True)
+    username = models.CharField(max_length=10, default="", blank=False)
     skate_brand = models.CharField(max_length=20, default="", blank=True, choices=BRANDS)
     model = models.CharField(max_length=20, default="", blank=True)
     boot_materials = models.CharField(max_length=20, default="", blank=True, choices=BOOT_MATERIALS)
@@ -81,8 +81,8 @@ class Review(models.Model):
     bearings_material = models.CharField(max_length=7, default="", blank=True, choices=BEARINGS_MATERIAL)
     comfort = models.CharField(max_length=13, default="", blank=True, choices=COMFORT)
     overall_rating = models.CharField(max_length=13, default="", blank=True, choices=OVERALL_RATING)
-    pros = models.TextField(max_length=300, default="", blank=True)
-    cons = models.TextField(max_length=300, default="", blank=True)
+    pros = models.TextField(max_length=100, default="", blank=True)
+    cons = models.TextField(max_length=100, default="", blank=True)
 
 # Objects manager that will also display the username field
     objects = models.Manager()

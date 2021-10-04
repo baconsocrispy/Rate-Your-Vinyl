@@ -37,23 +37,21 @@
                 </tr>
             </thead>
             <tbody>
-            {% for detail in details %}
                 <tr id="td">
                     <!-- Review_Display function pulls records from database via the below xrefs -->
-                    <td>{{ detail.date }}</td>
-                    <td>{{ detail.user }}</td>
-                    <td>{{ detail.skate_brand }}</td>
-                    <td>{{ detail.boot_materials }}</td>
-                    <td>{{ detail.boot_style }}</td>
-                    <td>{{ detail.frame }}</td>
-                    <td>{{ detail.bearings_rating }}</td>
-                    <td>{{ detail.bearings_material }}</td>
-                    <td>{{ detail.comfort }}</td>
-                    <td>{{ detail.overall_rating }}</td>
-                    <td>{{ detail.pros }}</td>
-                    <td>{{ detail.cons }}</td>
+                    <td>{{ details.date }}</td>
+                    <td>{{ details.user }}</td>
+                    <td>{{ details.skate_brand }}</td>
+                    <td>{{ details.boot_materials }}</td>
+                    <td>{{ details.boot_style }}</td>
+                    <td>{{ details.frame }}</td>
+                    <td>{{ details.bearings_rating }}</td>
+                    <td>{{ details.bearings_material }}</td>
+                    <td>{{ details.comfort }}</td>
+                    <td>{{ details.overall_rating }}</td>
+                    <td>{{ details.pros }}</td>
+                    <td>{{ details.cons }}</td>
                 </tr>
-            {% endfor %}
             <tbody>
         </table>
     </div>
