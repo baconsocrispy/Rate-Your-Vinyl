@@ -39,6 +39,12 @@
 							<!-- Story4: step3: Add in a link for each item on the display all items page that will direct to the details page for that item -->
 							<td><a href="{% url 'RevitFunctions_RvtDetails' Rvt.pk %}">DETAILS</a></td>
 																				<!-- reference the same Rvt from this page -->
+							<!-- Story5: step3: Use model forms and instances to display the content of a single item from the database -->
+							<td><a href="{% url 'RevitFunctions_RvtEdit' Rvt.pk %}">EDIT</a></td>
+																				<!-- reference the same Rvt from this page -->
+
+							<td><a href="{% url 'RevitFunctions_RvtDelete' Rvt.pk %}">DELETE</a></td>
+																				<!-- reference the same Rvt from this page -->
 
 						</tr>
 					{% endfor %}

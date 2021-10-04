@@ -7,6 +7,14 @@
     <title>Title</title>
     <link rel = 'stylesheet' href = "{% static '/StatCheck/StatCheckStylin.css' %}">
 </head>
+
+<ul>
+    <li><a class="nav-link active" aria-current="page" href="{% url 'StatCheckHome' %}">Home</a></li>
+    <li><a class="nav-link" href="{% url 'StatCheckTEAM' %}">Teams</a></li>
+    <li><a class="nav-link" href="{% url 'StatCheckPLAYER' %}">Players</a></li>
+    <li><a class="nav-link" href="{% url 'StatCheckDISPLAY' %}">Display</a></li>
+</ul>
+
 <body>
 {% block content %}
 
