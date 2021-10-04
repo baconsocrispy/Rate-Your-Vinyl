@@ -15,6 +15,8 @@ def RevitFunctions_AddRvtFunction(request):
     form = AddRvtFunctionForm(data=request.POST or None)                    # request.POST is referring to the data that comes through when you "post" it from a form.
                                                                                 # None is if no data is currently coming through.
                                                                                 # does not evaluate to True or False, but returns one of the objects.
+                                                                            # POST request sends the information from the form to the server, The server processes the information from the Post request
+                                                                                # The server responds by displaying whatever success or failure response it has
                                                                             # When the QueryDict request.POST is empty, it takes a Falsy value, so the item on RHS
                                                                                 # of the or operation is selected (which is None), and the form is initialized without
                                                                                 # vanilla arguments (i.e. with None): form = MyModelForm()

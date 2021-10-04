@@ -27,6 +27,8 @@ urlpatterns = [
     # use primary key to display the Balance Sheet (pairing)
     # can be '/RevitFunctions_RvtDetails/<int:pk>/'
     path('<int:pk>/RevitFunctions_RvtDetails/', views.RevitFunctions_RvtDetails, name='RevitFunctions_RvtDetails'),
+                                                # Variables within a GET request are usually sent either as part of the headers or as part of the url request.
+                                                    # Within Django we use url requests and url patterns for these variables.
 
     #Story5, STep2: Use model forms and instances to display the content of a single item from the database
     path('<int:pk>/RevitFunctions_RvtEdit/', views.RevitFunctions_RvtEdit, name='RevitFunctions_RvtEdit'),
