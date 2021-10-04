@@ -31,8 +31,9 @@ job_category_choice = [
     ('0 All', '0 All'),
     ('1 Designer', '1 Designer'),
     ('2 Production', '2 Production'),
-    ('3 Administration', '3 Administration'),
-    ('4 Project Lead', '4 Project Lead'),
+    ('3 Designer & Production', '3 Designer & Production'),
+    ('4 Administration', '4 Administration'),
+    ('5 Project Lead', '5 Project Lead'),
 ]
 
 rvt_category_choice = [                                                # drop menu for types. dictionary object, tuple.

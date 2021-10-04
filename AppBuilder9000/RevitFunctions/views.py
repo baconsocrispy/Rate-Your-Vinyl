@@ -4,6 +4,7 @@
 from django.shortcuts import render, redirect, get_object_or_404            # get_object_or_404 = This function calls the given model and get object from that if that object or model doesn’t exist it raise 404 error.
 from .models import RvtFunction, User                                       # MUST import classes
 from .forms import AddRvtFunctionForm, AddUserForm                          # MUST import forms
+import requests
 
 # Create your views here.
 def RevitFunctions_home(request):
@@ -118,3 +119,24 @@ def RevitFunctions_RvtConfirmDelete(request):
             return redirect('RevitFunctions_RvtRecords')
     else:
         return render(request, 'RevitFunctions/RevitFunctions_RvtRecords.html')
+
+
+# Story6, pt1 API
+
+def searchKeywords(request):
+    context = {}
+    if 'keywords' in request.GET:
+        keywords = request.GET['keywords']
+
+        url = "https://google-search3.p.rapidapi.com/api/v1/crawl/q=revit+save%20local%20+sync%20to%20central=100"
+
+        headers = {
+            'x-rapidapi-host': "google-search3.p.rapidapi.com",
+            'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
+            }
+
+        response = requests.request("GET", url, headers=headers)
+
+        print(response.text)
+
+
