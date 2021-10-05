@@ -5,4 +5,5 @@ from .import views
 urlpatterns = [
     path('', views.cultclassicsHome, name="cultclassicsHome"),
     path('CultClassicsCreate/', views.CultClassicsCreate, name='CultClassicsCreate'),
+    path('CultClassicsMovies/', views.CultClassicsMovies, name="CultClassicsMovies"),
 ]

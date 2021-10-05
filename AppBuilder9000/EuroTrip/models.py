@@ -30,7 +30,7 @@ priceChoices = (
 
 
 class Location(models.Model):
-    country = models.CharField(max_length=200, help_text="Which country are we talking about?")
+    country = models.CharField(max_length=200, help_text="Which country are we talking about?", null=True)
     city = models.CharField(max_length=200, help_text="Which city are we talking about?")
     timeZone = models.CharField(max_length=200, help_text="Please select from the list, to convert it's time zone.",
                                 choices=timeZoneChoices)
