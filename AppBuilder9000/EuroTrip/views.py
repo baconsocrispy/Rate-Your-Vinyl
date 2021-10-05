@@ -28,7 +28,7 @@ def easternlocationscreate(request):
 
 def eastern_list(request):
     location_list = Location.objects.all()
-    return render(request, 'templates/eastern.html',
+    return render(request, 'eastern.html',
             {'location_list': location_list})
 
 

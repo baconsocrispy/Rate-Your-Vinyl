@@ -5,36 +5,32 @@ from django.db import models
 
 
 timeZoneChoices = (
-    ('1', 'Azores'),
-    ('2', 'Iceland'),
-    ('3', 'Portugal, UK, Canary Islands'),
-    ('4', 'Western Europe, Scandinavia, Central Europe'),
     ('5', 'Finland, Ukraine, Romania, Greece'),
     ('6', 'Belarus, Western Russia, Turkey'),
     ('7', 'Georgia, Azerbaijan')
 )
 
 safetyChoices = (
-    ('1', 'Not safe at all'),
-    ('2', 'Not safe, would not bring family'),
-    ('3', 'Decently safe, just be careful and wise'),
-    ('4', 'No safety threats, but there are areas I would not go'),
-    ('5', 'Really safe, my grandma would be ok')
+    ('not safe, do not visit', 'Not safe at all'),
+    ('not safe', 'Not safe, would not bring family'),
+    ('somewhat safe', 'Decently safe, just be careful and wise'),
+    ('safer than others', 'No safety threats, but there are areas I would not go'),
+    ('Extremely Safe', 'Really safe, my grandma would be ok')
 )
 
 priceChoices = (
-    ('1', 'Extremely cheap to visit'),
-    ('2', 'Not the cheapest, but close'),
-    ('3', 'Average price'),
-    ('4', 'A little lavish'),
-    ('5', 'Only for the high rollers')
+    ('dirt cheap', 'Extremely cheap to visit'),
+    ('somewhat cheap', 'Not the cheapest, but close'),
+    ('average price', 'Average price'),
+    ('somewhat decadent', 'A little lavish'),
+    ('very decadent', 'Only for the high rollers')
 )
 
 # I'm creating 3 basic models here to contain pertinent information about destinations in Europe
 
 
 class Location(models.Model):
-    country = models.CharField(primary_key=True, max_length=200, help_text="Which city are we talking about?")
+    country = models.CharField(primary_key=True, max_length=200, help_text="Which country are we talking about?")
     city = models.CharField(max_length=200, help_text="Which city are we talking about?")
     timeZone = models.CharField(max_length=200, help_text="Please select from the list, to convert it's time zone.",
                                 choices=timeZoneChoices)

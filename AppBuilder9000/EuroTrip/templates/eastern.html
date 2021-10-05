@@ -4,9 +4,11 @@
 
 
 {% block content %}
-<div class="eastern">
+<!--<div class="eastern">-->
 {% for city in location_list %}
 {{ city.country }}
+{{ city.safety }}
+{{ city.prices }}
 {% endfor %}
-</div>
+<!--</div>-->
 {% endblock %}
