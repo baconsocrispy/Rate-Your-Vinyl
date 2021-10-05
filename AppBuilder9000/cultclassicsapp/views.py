@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import CultClassicsForm
+from .models import CultClassics
+
 
 # Creating views
 def cultclassicsHome(request):
@@ -15,3 +17,7 @@ def CultClassicsCreate(request):
         form = CultClassicsForm()
     context = {'form': form}
     return render(request, 'CultClassicsCreate.html', context)
+
+def CultClassicsMovies(request):
+    cultclassics = CultClassics.objects.all()
+    return render(request, 'CultClassicsMovies.html', {'cultclassics': cultclassics})
