@@ -33,6 +33,7 @@
 						<th>Revit Category</th>
 						<th>Revit Level</th>
 						<th>Job Category</th>
+						<th>Google Search Keywords</th>
 					</tr>
 
 						<tr id="td">
@@ -41,12 +42,16 @@
 							<td>{{ rvtdetails.revit_category }}</td>
 							<td>{{ rvtdetails.revit_level }}</td>
 							<td>{{ rvtdetails.job_category }}</td>
+							<td>{{ rvtdetails.google_keywords }}</td>			<!-- for predefined google search keywords -->
 						</tr>
 
 				</table>
-
-
 			</div>
+
+			<form id="form">
+				<input type="search" id="query" name="q" placeholder="{{ rvtdetails.google_keywords }}">
+				<button>Search</button>
+			</form>
 		</div>
 	</div>
 </section>
