@@ -69,6 +69,7 @@ class RvtFunction(models.Model):                                        # Model 
     revit_level = models.CharField(max_length=80, choices=rvt_level_choice)
     job_category = models.CharField(max_length=80, choices=job_category_choice)
                                                                         # NOT utilized here: IntField does not have max_length - always check doc for more info
+    # Story6 API
     google_keywords = models.CharField(max_length=100, default="", blank=True, null=False)
                                                                         # enter predefined google search keywrds for API google search.
 
