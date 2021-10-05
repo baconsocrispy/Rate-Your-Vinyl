@@ -1,0 +1,26 @@
+{% extends "eurotripbase.html" %}
+
+{% block title %}Details on European Cities{% endblock %}
+
+{% block header %}City Details:{% endblock %}
+
+{% block content %}
+{% extends "eurotripbase.html" %}
+{% load static %}
+{% block title %}Locations{% endblock %}
+
+
+{% block content %}
+<!--<div class="eastern">-->
+{% for city in location_list %}
+{{ city.country }}
+{{ city.city }}
+{{ city.safety }}
+{{ city.prices }}
+{% endfor %}
+<!--</div>-->
+{% endblock %}
+
+
+
+{% endblock %}

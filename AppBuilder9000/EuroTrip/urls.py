@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.eurotriphome, name="eurotriphome"),
     path('eastern/', views.eastern_list, name="eastern"),
     path('easternlocationscreate/', views.easternlocationscreate, name="easternlocationscreate"),
+    path('eurotripdetails/<int:pk>/', views.eurotripdetails, name="eurotripdetails"),
    ]
 
 

@@ -2,13 +2,26 @@
 {% load static %}
 {% block title %}Locations{% endblock %}
 
-
 {% block content %}
-<!--<div class="eastern">-->
-{% for city in location_list %}
-{{ city.country }}
-{{ city.safety }}
-{{ city.prices }}
-{% endfor %}
-<!--</div>-->
+<table>
+    <thead>
+        <tr id="top">
+            <th>Country</th>
+            <th>City</th>
+            <th>Price</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for city in cities %}
+        <tr id="">
+            <td>{{ city.country }}</td>
+            <td>{{ city.safety }}</td>
+            <td>{{ city.price }}</td>
+            <td><a href="{% url 'eurotripdetails' country.pk %}">View Details</a></td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
