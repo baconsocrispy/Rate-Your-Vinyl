@@ -70,7 +70,7 @@ OVERALL_RATING = (
 
 # This is the model for the database table from which all data queries will extract data
 class Review(models.Model):
-    date = models.DateField(auto_now_add=True, blank=False)
+    date = models.DateField(auto_now_add=True, blank=False, null=True)
     username = models.CharField(max_length=10, default="", blank=False)
     skate_brand = models.CharField(max_length=20, default="", blank=True, choices=BRANDS)
     model = models.CharField(max_length=20, default="", blank=True)
