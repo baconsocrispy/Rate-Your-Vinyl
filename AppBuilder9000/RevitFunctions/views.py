@@ -6,6 +6,10 @@ from .models import RvtFunction, User                                       # MU
 from .forms import AddRvtFunctionForm, AddUserForm                          # MUST import forms
 import requests
 
+# simple search https://rapidapi.com/apigeek/api/google-search3/tutorials/using-python-to-call-google-search-api
+import urllib
+import requests
+
 # Create your views here.
 def RevitFunctions_home(request):
     return render(request, 'RevitFunctions/RevitFunctions_home.html')
@@ -123,20 +127,38 @@ def RevitFunctions_RvtConfirmDelete(request):
 
 # Story6, pt1 API
 
-def searchKeywords(request):
-    context = {}
-    if 'keywords' in request.GET:
-        keywords = request.GET['keywords']
+# def searchKeywords(request):
+#    context = {}
 
-        url = "https://google-search3.p.rapidapi.com/api/v1/crawl/q=revit+save%20local%20+sync%20to%20central=100"
+#    if 'keywords' in request.GET:
+#        keywords = request.GET['keywords']
 
-        headers = {
-            'x-rapidapi-host': "google-search3.p.rapidapi.com",
-            'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
-            }
+#        url = "https://google-search3.p.rapidapi.com/api/v1/crawl/q=revit+save%20local%20+sync%20to%20central=100"
 
-        response = requests.request("GET", url, headers=headers)
+#        headers = {
+#            'x-rapidapi-host': "google-search3.p.rapidapi.com",
+#            'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
+#            }
 
-        print(response.text)
+#        response = requests.request("GET", url, headers=headers)
+
+#        print(response.text)
 
 
+# simple search https://rapidapi.com/apigeek/api/google-search3/tutorials/using-python-to-call-google-search-api
+headers = {
+    "x-rapidapi-key": "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37",
+    "x-rapidapi-host" :"google-search3.p.rapidapi.com"
+}
+
+query = {
+    "q": "{{ rvtdetails.google_keywords }}",
+    "lr": "lang_en",
+    "num": 20
+
+}
+
+resp = requests.get("https://rapidapi.p.rapidapi.com/api/v1/search/" + urllib.parse.urlencode(query), headers=headers)
+
+results = resp.json()
+print(results)
