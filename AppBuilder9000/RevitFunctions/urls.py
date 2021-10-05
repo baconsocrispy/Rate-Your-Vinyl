@@ -13,12 +13,13 @@ from . import views                                   # this use the views py fr
 # request sent to switchboard, and it comes to here, then url will say what to do.
 # UrlPatterns list = [ 'pattern to watch for', the function to call, "shortcut name"]
 # [ 'commands it's looking for', involk the response, or what should show on user's screen]
+# path (this is what shows up after 127.0.0.1:800/xxxxx, function to call, shortname)
 
 urlpatterns = [
     path('', views.RevitFunctions_home, name='RevitFunctions_home'),
-    # regular expressions, type in xxx.x.x.x:xxxx/admin/ & will see admin.site.urls (if mainApp has admin, there should be no admin in in individual apps such as here).
-    # add URL for the html page, views.xxxx will call the function in views.py.
-    # only views.home should not have any location. rest should enter what follows http://127.0.0.1:8000/xxxx/
+                                                # regular expressions, type in xxx.x.x.x:xxxx/admin/ & will see admin.site.urls (if mainApp has admin, there should be no admin in in individual apps such as here).
+                                                # add URL for the html page, views.xxxx will call the function in views.py.
+                                                # only views.home should not have any location. rest should enter what follows http://127.0.0.1:8000/xxxx/
     path('RevitFunctions_AddRvtFunction/', views.RevitFunctions_AddRvtFunction, name='RevitFunctions_AddRvtFunction'),
     path('RevitFunctions_AddUser/', views.RevitFunctions_AddUser, name='RevitFunctions_AddUser'),
 
@@ -30,12 +31,15 @@ urlpatterns = [
                                                 # Variables within a GET request are usually sent either as part of the headers or as part of the url request.
                                                     # Within Django we use url requests and url patterns for these variables.
 
-    #Story5, STep2: Use model forms and instances to display the content of a single item from the database
+    #Story5, Step2: Use model forms and instances to display the content of a single item from the database
     path('<int:pk>/RevitFunctions_RvtEdit/', views.RevitFunctions_RvtEdit, name='RevitFunctions_RvtEdit'),
 
     path('<int:pk>/RevitFunctions_RvtDelete/', views.RevitFunctions_RvtDelete, name='RevitFunctions_RvtDelete'),
     path('RevitFunctions_RvtConfirmDelete/', views.RevitFunctions_RvtConfirmDelete, name='RevitFunctions_RvtConfirmDelete'),
 
+    #Story6 pt1 API: so a new page generate from this url
+    path('GoogleSearchAPI/', views.searchKeywords, name='searchKeywords'),
+                                                # can name 'GoogleSearchAPI anything, this is what appears after http://127.0.0.1:8000/xxxx/
 
 ]
 

@@ -42,16 +42,17 @@
 							<td>{{ rvtdetails.revit_category }}</td>
 							<td>{{ rvtdetails.revit_level }}</td>
 							<td>{{ rvtdetails.job_category }}</td>
-							<!-- Story6 API -->
+							<!-- Story6 API, Step 4: Create a way to get any input information from the user and get the specific response for that input.
+    								(e.g. allow user to search specific terms through the api, getting all data for that search) -->
 							<td>{{ rvtdetails.google_keywords }}</td>			<!-- for predefined google search keywords -->
 						</tr>
 
 				</table>
 			</div>
 
-			<form id="form">
-				<input type="search" id="query" name="q" placeholder="{{ rvtdetails.google_keywords }}">
-				<button>Search</button>
+			<form id="form" method="GET" action="{% url 'searchKeywords' %}">   <!-- call the method named GET and the action is to execute the block tag -->
+				<input type="text" id="query" name="q" placeholder="{{ rvtdetails.google_keywords }}">
+				<button type="submit">Search</button>							<!-- button must be type submit -->
 			</form>
 		</div>
 	</div>
