@@ -46,4 +46,4 @@ def eurotripdetails(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, 'durotripdetails.html', {'form': form})
+        return render(request, 'eurotripdetails.html', {'form': form})
