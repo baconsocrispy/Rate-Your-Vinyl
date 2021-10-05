@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 
-TYPE_CHOICES = {
+TYPE_CHOICES = (
     ('Genres', 'Genres'),
     ('Year', 'Year'),
     ('Director', 'Director'),
     ('Color', 'Color'),
-}
+)
 
 class CultClassics(models.Model):
     type = models.CharField(max_length=25, choices=TYPE_CHOICES)
