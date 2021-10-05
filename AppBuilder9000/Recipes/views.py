@@ -34,3 +34,24 @@ def Recipes_Details(request, pk):
             print(form.errors)
     else:
         return render(request, 'Recipes_Details.html', {'form': form})
+
+
+def Recipes_Edit(request, pk):
+    item = get_object_or_404(Recipe, pk=pk)
+    form = RecipeForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('Recipes_See')
+    context = {'form': form}
+    return render(request, 'Recipes_Edit.html', context)
+
+def Recipes_Delete(request, pk):
+    item = get_object_or_404(Recipe, pk=pk)
+    form = RecipeForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('Recipes_See')
+    context = {'item': item, 'form': form}
+    return render(request, 'Recipes_Delete.html', context)
+
