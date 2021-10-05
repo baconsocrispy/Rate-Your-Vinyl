@@ -20,16 +20,18 @@
           </tr>
      </thead>
      <tbody>
-        {% for CultClassics in CultClassics %}
+     <div class="movies">
+        {% for entries in cultclassics %}
         <tr id="">
-            <td>{{ CultClassics.Type }}</td>
-            <td>{{ CultClassics.User_Name }}</td>
-            <td>{{ CultClassics.Movie_Title }}</td>
-            <td>{{ CultClassics.Actor }}</td>
-            <td>{{ CultClassics.Actress }}</td>
-            <td>{{ CultClassics.Description }}</td>
+            <td>{{ entries.type }}</td>
+            <td>{{ entries.user_name }}</td>
+            <td>{{ entries.Movie_Title }}</td>
+            <td>{{ entries.Actor }}</td>
+            <td>{{ entries.Actress }}</td>
+            <td>{{ entries.Description }}</td>
         </tr>
         {% endfor %}
+     </div>
      </tbody>
 </table>
 
