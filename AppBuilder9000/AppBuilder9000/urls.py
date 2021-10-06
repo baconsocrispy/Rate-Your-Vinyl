@@ -35,6 +35,7 @@ urlpatterns = [
     path('RevitFunctions/', include('RevitFunctions.urls')),            #Story1,Step5: Register urls with Mainapp.
     path('Recipes/', include('Recipes.urls')),
     path('CultClassics/', include('cultclassicsapp.urls')),
+    path('SushiRecipes/', include('SushiRecipes.urls')),
 
 ]
 
