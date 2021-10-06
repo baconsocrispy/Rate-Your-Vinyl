@@ -133,7 +133,7 @@ def searchKeywords(request):                                               # thi
         #print(searchText)                                                  # check in terminal if all searchText shows up.
 
         #Story6 API pt1, Step3: Connect to the API and write a basic JSON response (either to a txt file or the terminal)
-        url = "https://google-search3.p.rapidapi.com/api/v1/crawl/q={}central=100".format(searchText)
+        url = "https://google-search3.p.rapidapi.com/api/v1/crawl/q={}num=100".format(searchText)
         #print(url)                                                         # check in terminal if all url results are correct.
                                                                             # q={}central is JSON's way of putting in a wild card
                                                                                 # JSON is just a format for transferring data, a collection of Key Value pairs.
