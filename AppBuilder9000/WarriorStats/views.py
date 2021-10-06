@@ -10,7 +10,7 @@ def add_player(request):
     form = PlayerForm(data=request.POST or None)
     if request.method == 'POST' and form.is_valid():
         form.save()
-        return redirect('create.html')
+        return redirect('add_player')
     content = {'form': form}
     return render(request, 'WarriorStats/create.html', content)
 
