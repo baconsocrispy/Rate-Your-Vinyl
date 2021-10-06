@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'RevitFunctions',                       #story1, step2: register app from within MainProject>MainProject>settings.py.
     'Recipes',
     'cultclassicsapp',
+    'SushiRecipes',
 ]
 
 MIDDLEWARE = [
