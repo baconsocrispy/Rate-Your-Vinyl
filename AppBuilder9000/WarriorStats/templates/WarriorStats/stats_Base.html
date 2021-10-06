@@ -1,13 +1,15 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg_img">
 
 <head>
     <meta charset="UTF-8">
-    <title>GSW Statistics</title>
+    <title>Golden State Warriors Statistics</title>
     <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <link rel="stylesheet" type="text/css" href="{% static '/css/WarriorStatsStyle.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <title>Golden State Warriors Statistics</title>
 </head>
 
@@ -15,17 +17,26 @@
 
 <body>
 
-<div id="navbar">
-    <ul>
-        <li>Home</li>
-        <li>Player Stats</li>
-        <li>Team Stats</li>
-    </ul>
-</div>
+    <!--Navbar and Header-->
+    <div class="page_container">
+        {% include "WarriorStats/navbar.html" %}
+        <header class="header-title">
+            <h1>{% block header %}{% endblock %}</h1>
+        </header>
+    </div>
+    <!--End Navbar and Header-->
 
-<div id="block-footer">
-    <p id="footer">Golden State Warrior Statistics &copy 2021 | Jesse Kuykendall</p>
+
+    {% block content %}{% endblock %}
+
+
+    <!-- Footer -->
+<div class="footer-container">
+    {% include "WarriorStats/footer.html" %}
 </div>
+    <!-- End Footer -->
 
 </body>
+
+
 </html>
