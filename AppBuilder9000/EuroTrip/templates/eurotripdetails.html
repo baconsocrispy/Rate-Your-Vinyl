@@ -10,4 +10,13 @@
 {{ form.non_field_errors }}
 {{ form.as_table }}
 </table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="{% url 'etedit' %}">Update</a></li>
+    <li class="page-item"><a href="{% url 'etdelete' item.pk %}" class="btn btn-outline-danger-">Delete</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'eastern' %}">List of Locations</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'ethome' %}">Home</a></li>
+  </ul>
+</nav>
 {% endblock %}

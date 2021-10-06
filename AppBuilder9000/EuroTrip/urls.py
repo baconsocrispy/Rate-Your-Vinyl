@@ -6,10 +6,12 @@ from . import views
 
 # you invoke the name while the views.'method' page occurs on your browser
 urlpatterns = [
-    path('', views.eurotriphome, name="eurotriphome"),
+    path('', views.eurotriphome, name="ethome"),
     path('eastern/', views.eastern_list, name="eastern"),
     path('easternlocationscreate/', views.easternlocationscreate, name="easternlocationscreate"),
     path('eurotripdetails/<int:pk>/', views.eurotripdetails, name="eurotripdetails"),
+    path('etedit/<int:pk>/', views.etedit, name="etedit"),
+    path('etdelete/<int:pk>/', views.etdelete, name="etdelete"),
    ]
 
 

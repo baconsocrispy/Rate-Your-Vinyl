@@ -1,0 +1,15 @@
+{% extends "eurotripbase.html" %}
+{% load static %}
+{% block title %}Delete Page{% endblock %}
+{% block content %}
+<form method="POST" action=".">
+        {% csrf_token %}
+        <h2>Confirm Delete</h2>
+        <!--wildcard in curly brackets calls the item, exercise-->
+        <p>Are you sure you want to delete "{{item.Location}}" from the database?</p>
+        <!--form-->
+        {{ item.as_p }}
+
+        <input type="submit" value="Yes, let's do it!" class="btn">
+</form>
+{%endblock%}
