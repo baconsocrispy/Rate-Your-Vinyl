@@ -62,13 +62,44 @@
 																						<!-- button must be type submit -->
 					</form>
 				</div>
+			<div>
+			</div>
+			</div>
+			<br>
+		</div>
+	</div>
+</section>
 
-				<div>
-					<
 
+
+
+<section class="py-5">
+    <div class="container px-5">
+	    <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
+            <div class="text-center mb-5">
+
+				<h2 class="fw-bolder">ONLINE TUTORIALS</h2>
+				<p class="lead fw-normal text-muted mb-0">Try These Links!</p>
+			</div>
+
+			<div class="table">
+				<table class="table table-responsive">
+
+					<tr>
+						<th>URL Title</th>									<!-- header fields -->
+						<th>URL Link</th>
+					</tr>
+
+					<tr>
+						<td>{{ url_title }}</td>				<!-- shows all categories, make sure spelling match -->
+						<td>{{ url_list }}</td>			<!-- should read the custom variable from the RevitFunctions_RvitDetails function, not the function itself.-->
+					</tr>
+
+				</table>
 			</div>
 
 		</div>
 	</div>
 </section>
+
 {% endblock %}
