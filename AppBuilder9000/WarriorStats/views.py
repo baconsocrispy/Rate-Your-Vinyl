@@ -8,9 +8,8 @@ def stats_Home(request):
 
 def add_player(request):
     form = PlayerForm(data=request.POST or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('stats_Home')
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('create.html')
     content = {'form': form}
-    return render(request, 'create.html', content)
+    return render(request, 'WarriorStats/create.html', content)
