@@ -13,3 +13,7 @@ def add_player(request):
         return redirect('create.html')
     content = {'form': form}
     return render(request, 'WarriorStats/create.html', content)
+
+
+def view_Player(request):
+    return render(request, 'WarriorStats/players.html')
