@@ -17,6 +17,13 @@
         {{ form.as_table }}
     <table>
  </form>
+ <script>
+    var data = {{response}}
+    var json = JSON.parse(data);
+
+    document.write(json["title"]);
+    document.write(json.title);
+ </script>
 
 {{response}}
 
