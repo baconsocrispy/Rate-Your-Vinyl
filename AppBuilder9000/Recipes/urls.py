@@ -8,4 +8,5 @@ urlpatterns = [
     path('Recipes_Details/<int:pk>/', views.Recipes_Details, name="Recipes_Details"),
     path('Recipes_Edit/<int:pk>/', views.Recipes_Edit, name="Recipes_Edit"),
     path('Recipes_Delete/<int:pk>/', views.Recipes_Delete, name="Recipes_Delete"),
+    path('Recipes_API/', views.Recipes_SearchAPI, name="Recipes_API"),
 ]
