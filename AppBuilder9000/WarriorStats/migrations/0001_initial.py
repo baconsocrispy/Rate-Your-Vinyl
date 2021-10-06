@@ -17,7 +17,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('Name', models.CharField(max_length=50)),
-                ('Position', models.CharField(choices=[('PG', 'PG'), ('SG', 'SG'), ('SF', 'SF'), ('PF', 'PF'), ('C', 'C')], max_length=50)),
+                ('Position', models.CharField(choices=[('PG', 'PG'), ('SG', 'SG'), ('SF', 'SF'), ('PF', 'PF'),
+                                                       ('C', 'C')], max_length=50)),
                 ('Points_Per_Game', models.DecimalField(decimal_places=2, max_digits=15)),
                 ('Rebounds_Per_Game', models.DecimalField(decimal_places=2, max_digits=15)),
                 ('Assists_Per_Game', models.DecimalField(decimal_places=2, max_digits=15)),

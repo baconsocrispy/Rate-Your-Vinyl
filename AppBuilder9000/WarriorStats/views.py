@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from .models import Player
 from .forms import PlayerForm
 
 
