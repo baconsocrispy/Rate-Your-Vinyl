@@ -19,7 +19,7 @@
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="{% url 'etdelete' %}">Delete Location</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'etdelete' item.pk %}">Delete Location</a></li>
     <li class="page-item"><a class="page-link" href="{% url 'eastern' %}">List of Locations</a></li>
     <li class="page-item"><a class="page-link" href="{% url 'ethome' %}">Home</a></li>
   </ul>
