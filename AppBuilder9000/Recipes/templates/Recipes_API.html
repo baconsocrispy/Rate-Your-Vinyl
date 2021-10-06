@@ -1,0 +1,24 @@
+{% extends "Recipes_Base.html" %}
+{% load static %}
+{% block title %}Recipes{% endblock %}
+
+{% block header %}
+                <h1>Recipes API</h1>
+                <p></p>
+{% endblock %}
+
+{% block content %}
+
+ <form name="APIForm" method="POST">
+
+    <table>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.as_table }}
+    <table>
+ </form>
+
+{{response}}
+
+
+{% endblock %}
