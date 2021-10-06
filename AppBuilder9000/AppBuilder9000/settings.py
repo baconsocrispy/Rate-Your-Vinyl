@@ -40,16 +40,16 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'Cars',
-    'Blacksmithing',
-    'EdTech',
-    'VP_TrackShows',
     'Exercises',
-    'StatCheck',
     'Reading',
     'InlineSpeedSkates',
+    'WarriorStats',
+    'EuroTrip',
     'RevitFunctions',                       #story1, step2: register app from within MainProject>MainProject>settings.py.
     'Recipes',
+    'cultclassicsapp',
+    'ACNHdb',
+    'music_charts',
 ]
 
 MIDDLEWARE = [
