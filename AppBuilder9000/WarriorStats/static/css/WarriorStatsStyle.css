@@ -2,10 +2,43 @@
     margin: 0;
 }
 
-body {
-     background-image: url('/static/images/warriors.jpg');
-     background-size: cover;
+.container-fluid {
+    color: white;
 }
+
+.header-title {
+    text-align: center
+    color: white;
+}
+
+body, html {
+    background-image: url('/static/images/warriors.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+ul.topnav li {
+    float: left;
+}
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+ul.topnav li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: grey;
+
 
 ul {
   list-style-type: none;
@@ -29,31 +62,9 @@ li {
   cursor: pointer;
 }
 
-#block-footer {
-    clear: both;
-    display: flex;
-    width: 100%;
-	-moz-box-sizing: border-box;
-    margin: 0 auto;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    height: 40px;
+.container text-center {
+    align: center;
 }
-#block-footer a, #block-footer p {
-    flex: 1;
-    color: white;
-    padding: 15px 15px;
-	font-size: 18px;
-    line-height: 10px;
-	font-family:'PT Sans', Arial, Helvetica, sans-serif;
-}
-#footer {
-    width: 40%;
-    text-align: center;
-}
-#block-footer{
-	float:center;
-	clear:both;
-	width:100%;
-}
+
+
+

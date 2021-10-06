@@ -31,8 +31,9 @@ job_category_choice = [
     ('0 All', '0 All'),
     ('1 Designer', '1 Designer'),
     ('2 Production', '2 Production'),
-    ('3 Administration', '3 Administration'),
-    ('4 Project Lead', '4 Project Lead'),
+    ('3 Designer & Production', '3 Designer & Production'),
+    ('4 Administration', '4 Administration'),
+    ('5 Project Lead', '5 Project Lead'),
 ]
 
 rvt_category_choice = [                                                # drop menu for types. dictionary object, tuple.
@@ -68,6 +69,11 @@ class RvtFunction(models.Model):                                        # Model 
     revit_level = models.CharField(max_length=80, choices=rvt_level_choice)
     job_category = models.CharField(max_length=80, choices=job_category_choice)
                                                                         # NOT utilized here: IntField does not have max_length - always check doc for more info
+
+    # Story6 pt1 API, Step 4: Create a way to get any input information from the user and get the specific response for that input.
+        # (e.g. allow user to search specific terms through the api, getting all data for that search)
+    google_keywords = models.CharField(max_length=100, default="", blank=True, null=False)
+                                                                        # enter predefined google search keywrds for API google search.
 
 ####### NEED 2 FOREIGN KEYS TO COMBINE BOTH revit_level & job_Category #######
 
