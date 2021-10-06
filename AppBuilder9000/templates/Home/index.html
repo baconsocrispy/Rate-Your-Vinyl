@@ -12,35 +12,6 @@
         <h2 class="sub-title">App Directory</h2>
           <div class="grid">
 
-              <!-- VP_TRACKSHOWS LINK START -->
-              <a href="{% url 'NeighborhoodReview/NeighborhoodReview_home.html' %}" class="grid-item app-image">
-                  <img src="{% static 'images/app-images/Tree.jpg' %}" alt="NHR">
-                  <div class="fadedbox">
-                      <div class="title text">Neighborhood Review</div>
-                  </div>
-              </a>
-              <!-- VP_TRACKSHOWS LINK END -->
-
-
-              <!-- VP_TRACKSHOWS LINK START -->
-              <a href="{% url 'home' %}" class="grid-item app-image">
-                  <img src="{% static 'images/app-images/tvshows.jpg' %}" alt="TrackShows">
-                  <div class="fadedbox">
-                      <div class="title text">Track Shows</div>
-                  </div>
-              </a>
-              <!-- VP_TRACKSHOWS LINK END -->
-
-
-              <!-- blacksmith LINK START -->
-              <a href="{% url 'Blacksmithing_Home' %}" class="grid-item app-image">
-                  <img src="{% static 'images/BS1.jpg' %}" alt="blacksmith">
-                  <div class="fadedbox">
-                      <div class="title text">BlackSmithing</div>
-                  </div>
-              </a>
-              <!-- VP_TRACKSHOWS LINK END -->
-
               <!-- Exercise Link -->
               <a href="{% url 'Exercises_Home' %}" class="grid-item app-image">
                   <img src="{% static 'images/weights.jpg' %}" alt="Exercises">
@@ -50,14 +21,7 @@
               </a>
               <!-- End Exercise Link -->
 
-              <!-- Exercise Link -->
-              <a href="{% url 'StatCheckHome' %}" class="grid-item app-image">
-                  <img src="{% static 'images/app-images/imgg.png' %}" alt="United Logo">
-                  <div class="fadedbox">
-                      <div class="title text">StatCheck United</div>
-                  </div>
-              </a>
-              <!-- End Exercise Link -->
+
 
               <!-- Reading Link -->
               <a href="{% url 'Reading_Home' %}" class="grid-item app-image">
@@ -135,6 +99,14 @@
               <! --- ACNHdb -->
 
 
+              <!--- music_charts link ---->
+              <a href="{% url 'mcharts_base' %}" class="grid-item app-image">
+              <img src="{% static 'images/charts.jpg' %}" alt="music graph">
+              <div class="fadedbox">
+                  <div class="title text">Music Charts</div>
+              </div>
+              </a>
+              <!--- end of music_charts link ----->
           </div>
     </section>
 
