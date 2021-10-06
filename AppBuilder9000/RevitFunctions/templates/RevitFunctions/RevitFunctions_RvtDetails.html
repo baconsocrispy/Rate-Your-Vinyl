@@ -49,11 +49,25 @@
 
 				</table>
 			</div>
+			<br>
+			<br>
+			<div class="container px-5">
+				<div class="text-center mb-5">
+					<p class="lead fw-normal text-muted mb-0">Click the SEARCH Button: <br>Predefined Google Search Keywords Has Been Generated for You!</p>
+					<br>
+					<form id="form" method="GET" action="{% url 'searchKeywords' %}">   <!-- call the method named GET and the action is to execute the block tag -->
+						<input type="text" id="query" name="q" value="{{ rvtdetails.google_keywords }}">
+																						<!-- both placeholder or value will generate the keywords -->
+						<button class="btn btn-primary btn-lg" id="searchButton" type="submit">SEARCH</button>
+																						<!-- button must be type submit -->
+					</form>
+				</div>
 
-			<form id="form" method="GET" action="{% url 'searchKeywords' %}">   <!-- call the method named GET and the action is to execute the block tag -->
-				<input type="text" id="query" name="q" placeholder="{{ rvtdetails.google_keywords }}">
-				<button type="submit">Search</button>							<!-- button must be type submit -->
-			</form>
+				<div>
+					<
+
+			</div>
+
 		</div>
 	</div>
 </section>
