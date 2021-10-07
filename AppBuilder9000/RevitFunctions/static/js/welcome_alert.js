@@ -1,3 +1,2 @@
-function windowAlert () {
-    alert("Welcome! \nPlease select +USER to add a new User, \nSelect +RVT FUNC to add new Revit Functions, \nSelect RECORDS to access features associated with individual Revit Functions,\nSelect DETAILS to see all associated info of the Revit Function, \nSelect EDIT to edit the Revit Function's info, \nSelect DELETE to remove the Revit Function & its associated data, \nSelect SEARCH with predefined google search keywords to find resources online.");
-}
+
+window.alert("Welcome! Please select one of the following: \n     +USER to add a new User, \n+     RVT FUNC to add new Revit Functions, \n     Select RECORDS to access features associated with individual Revit Functions,\n     Select DETAILS to see all associated info of the Revit Function, \n     Select EDIT to edit the Revit Function's info, \n     Select DELETE to remove the Revit Function & its associated data, \n     Select SEARCH with predefined google search keywords to find resources online.");
