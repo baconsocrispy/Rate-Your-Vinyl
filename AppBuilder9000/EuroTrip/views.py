@@ -37,6 +37,21 @@ def eastern_list(request):
 def eurotripdetails(request, pk):
     pk = int(pk)
     item = get_object_or_404(Location, pk=pk)
+    # form = LocationForm(data=request.POST or None, instance=item)
+    # if request.method == 'POST':
+    #     if form.is_valid():
+    #         form2 = form.save(commit=False)
+    #         form2.save()
+    #         return redirect('eastern')
+    #     else:
+    #         print(form.errors)
+    # else:
+    return render(request, 'eurotripdetails.html', {'item': item})
+
+
+def etedit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Location, pk=pk)
     form = LocationForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         if form.is_valid():
@@ -46,4 +61,14 @@ def eurotripdetails(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, 'eurotripdetails.html', {'form': form})
+        return render(request, 'etedit.html', {'form': form, 'item':item})
+
+
+def etdelete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Location, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('eastern')
+    context = {"item": item}
+    return render(request, 'etdelete.html', context)

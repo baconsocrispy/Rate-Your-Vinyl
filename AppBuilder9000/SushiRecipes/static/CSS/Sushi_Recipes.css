@@ -1,0 +1,39 @@
+/*================GENERAL STYLING=============*/
+/*affects entire document*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*BODY */
+body {
+    background: url("/static/images/background.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+/*NAVBAR STYLING*/
+.navbar {
+    overflow: hidden;
+    background-color: black;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: pink;
+    text-align; center;
+    font-family; Verdana, Geneva, sans-serif;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Style the footer*/
+.footer {
+    position: fixed;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    background: yellow;
+    text-align: center;
+}
+
+
