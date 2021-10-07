@@ -1,2 +1,0 @@
-
-window.alert("Welcome! Please select one of the following: \n     +USER to add a new User, \n     +RVT FUNC to add new Revit Functions, \n     Select RECORDS to access Revit Function features,\n     Select DETAILS to see associated Revit Function info, \n     Select EDIT to edit the Revit Function's info, \n     Select DELETE to remove the Revit Function & data, \n     Select SEARCH with predefined google search keywords");
