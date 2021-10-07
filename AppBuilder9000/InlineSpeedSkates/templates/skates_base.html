@@ -1,11 +1,11 @@
 {% load static %}
 
-<!--a lot of the block tags inherit pages from other files-->
+<!-- Provides the template or structure of the Home page and all page quadrants/sections -->
 <!DOCTYPE html>
 <html lang="en" class="bg_img">
     <head>
         <meta charset="UTF-8">
-        <!--grabs the title from the respected page-->
+        <!-- Grabs the title from pages that inherited pages -->
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
@@ -16,26 +16,30 @@
     </head>
     <body>
         <div class="page_container">
-            <!--grabs the navbar-->
+            <!-- Grabs the navbar.html -->
            {% include "skates_navbar.html" %}
            <header class="header-title">
                 <h1>{% block header %}{% endblock %}</h1>
            </header>
             {% block content %}{% endblock %}
         </div>
-        <!--grabs the footer-->
+        <!-- Grabs the footer.html -->
         {% include "skates_footer.html" %}
     </body>
+
+    <!-- Bootstrap Begin -->
+    {%  block bootstrap %}
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    {%  endblock %}
+    <!-- Bootstrap End -->
 
     <!-- JavaScript Begin -->
     {%  block javascript %}
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     {%  endblock %}
     <!-- JavaScript End -->
-
 
 </html>

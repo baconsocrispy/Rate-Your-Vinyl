@@ -1,6 +1,7 @@
 from django.db import models
 
-# provides drop down of skate brands for which a review may be submitted
+
+# Provides drop down of skate brands for which a review may be submitted
 BRANDS = (
     ('Bont', 'Bont'),
     ('Flyke', 'Flyke'),
@@ -11,20 +12,20 @@ BRANDS = (
     ('Vanilla', 'Vanilla'),
 )
 
-# provides drop down of skate boot material combinations
+# Provides drop down of skate boot material combinations
 BOOT_MATERIALS = (
     ('Leather/Fiberglass', 'Leather/Fiberglass'),
     ('Leather/Carbon Fiber', 'Leather/Carbon Fiber'),
     ('Leather/Resin', 'Leather/Resin'),
 )
 
-# provides drop down of skate boot style (high/low)
+# Provides drop down of skate boot style (high/low)
 BOOT_STYLE = (
     ('Low Ankle', 'Low Ankle'),
     ('High Ankle', 'High Ankle'),
 )
 
-# provides drop down of skate chasis types
+# Provides drop down of skate chasis types
 FRAME = (
     ('Aluminum', 'Aluminum'),
     ('Carbon Fiber', 'Carbon Fiber'),
@@ -32,7 +33,7 @@ FRAME = (
     ('Steel', 'Steel'),
 )
 
-# provides drop down of a mix of industry bearing numerical ratings vs. other rating systems
+# Provides drop down of a mix of industry bearing numerical ratings vs. other rating systems
 # due to the complexity of this rating metric, provided selections are not all-inclusive
 BEARINGS_RATING = (
     ('ABEC (Below 7)', 'ABEC (Below 7)'),
@@ -43,15 +44,15 @@ BEARINGS_RATING = (
     ('Swiss', 'Swiss'),
 )
 
-# provides drop down of bearing material types
+# Provides drop down of bearing material types
 BEARINGS_MATERIAL = (
     ('Ceramic', 'Ceramic'),
     ('Steel', 'Steel'),
     ('Other', 'Other'),
 )
 
-# provides drop down of general comfort ratings
-# also providing pros and cons fields for more feedback detail
+# Provides drop down of general comfort ratings
+# Fields for user to submit pros and cons feedback are also provided
 COMFORT = (
     ('Poor', 'Poor'),
     ('Average', 'Average'),
@@ -59,7 +60,7 @@ COMFORT = (
     ('Above Average', 'Above Average'),
 )
 
-# provides numerical overall rating
+# Provides numerical overall rating
 OVERALL_RATING = (
     ('Poor', 'Poor'),
     ('Average', 'Average'),
@@ -67,10 +68,12 @@ OVERALL_RATING = (
     ('Above Average', 'Above Average'),
 )
 
-# this is a model for submission of an individual skate model reviews
+# This is the model for the database table from which all data queries will extract data
 class Review(models.Model):
-    email = models.EmailField(('email address'), default="", blank=False, max_length=255)
+    date = models.DateField(auto_now_add=True, blank=False, null=True)
+    username = models.CharField(max_length=10, default="", blank=False)
     skate_brand = models.CharField(max_length=20, default="", blank=True, choices=BRANDS)
+    model = models.CharField(max_length=20, default="", blank=True)
     boot_materials = models.CharField(max_length=20, default="", blank=True, choices=BOOT_MATERIALS)
     boot_style = models.CharField(max_length=20, default="", blank=True, choices=BOOT_STYLE)
     frame = models.CharField(max_length=15, default="", blank=True, choices=FRAME)
@@ -78,12 +81,13 @@ class Review(models.Model):
     bearings_material = models.CharField(max_length=7, default="", blank=True, choices=BEARINGS_MATERIAL)
     comfort = models.CharField(max_length=13, default="", blank=True, choices=COMFORT)
     overall_rating = models.CharField(max_length=13, default="", blank=True, choices=OVERALL_RATING)
-    pros = models.TextField(max_length=300, default="", blank=True)
-    cons = models.TextField(max_length=300, default="", blank=True)
+    pros = models.TextField(max_length=100, default="", blank=True)
+    cons = models.TextField(max_length=100, default="", blank=True)
 
+# Objects manager that will also display the username field
     objects = models.Manager()
 
     def __str__(self):
-        return self.emails
+        return self.username
 
 

@@ -1,0 +1,39 @@
+{% extends "WarriorStats/stats_Base.html" %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}GSW Player Stats{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale-1.0">
+        <link rel="stylesheet" type="text/css" href="{% static '/css/WarriorStatsStyle.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    </head>
+
+<div class="container">
+    <h1>{{ text }}</h1>
+    {% for player in players %}
+        <h2>{{ text }}</h2>
+        <ul>
+            <li>Name: {{player.Name }}</li>
+            <li>Position: {{ player.Position}}</li>
+            <li>Points Per Game: {{ player.Points_Per_Game }}</li>
+            <li> Rebounds Per Game: {{ player.Rebounds_Per_Game }}</li>
+            <li>Assists Per Game: {{ player.Assists_Per_Game }}</li>
+            <li>Steals Per Game: {{ player.Steals_Per_Game }}</li>
+        </ul>
+    {% endfor %}
+</div>
+{% endblock content %}

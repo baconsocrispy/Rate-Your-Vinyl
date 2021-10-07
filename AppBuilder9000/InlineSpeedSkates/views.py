@@ -8,7 +8,8 @@ from .models import Review
 def InlineSpeedSkates_Home(request):
     return render(request, 'skates_home.html')
 
-# Creates a new Record
+
+# Creates new inline skate review record and writes to database
 def Review_Create(request):
     form = ReviewForm(request.POST or None)
     if form.is_valid():
@@ -23,8 +24,14 @@ def Review_Create(request):
     return render(request, 'skates_create.html', context)
 
 
-# Displays all Resources add to database
+# Retrieves and displays all condensed records from database via skates_display.html
 def Review_Display(request):
-    # gets objects of from database
-    records = Review.objects.all().order_by('overall_rating')
+    records = Review.objects.all().order_by('date')
     return render(request, 'skates_display.html', {'records': records})
+
+# Retrieves expanded record details from database via hyperlink in skates_display.html
+# and launches skates_display.html
+def Review_Details(request, pk):
+    details = get_object_or_404(Review, pk=pk)
+    context = {'details': details}
+    return render(request, 'skates_details.html', context)
