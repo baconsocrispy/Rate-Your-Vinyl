@@ -1,5 +1,3 @@
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.conf.urls import include
 from django.urls import path
 from . import views
 
@@ -8,6 +6,5 @@ from . import views
 
 urlpatterns = [
     path('', views.mcharts_base, name="mcharts_base"),
-
-
+    path('create_chart/', views.create_chart, name="create_chart"),
 ]
