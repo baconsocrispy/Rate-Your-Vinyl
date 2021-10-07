@@ -65,12 +65,9 @@
 			<div>
 			</div>
 			</div>
-
 		</div>
 	</div>
 </section>
-
-
 
 
 <section class="py-5">
@@ -89,11 +86,13 @@
 						<th>URL Title</th>											<!-- header fields -->
 						<th>URL Link</th>
 					</tr>
+					{% for key,value in dictionary.items %}							<!-- pass in the key, value pair in dictionary.items. must add .items to dictionary, or error will state 2 values is required -->
 
 					<tr>
-						<td>{{ url_title }}</td><br>								<!-- shows all categories, make sure spelling match -->
-						<td>{{ x }}</td><br>									<!-- should read the custom variable from the RevitFunctions_RvitDetails function, not the function itself.-->
+						<td>{{ key }}</td>								<!-- populate all keys -->
+						<td><a href="{{ value }}">{{ value }}</a></td>			<!-- populate all values as links, add the anchor tag then the link is {{ vlaue }} -->
 					</tr>
+					{% endfor %}													<!-- must end the for loop -->
 
 				</table>
 			</div>
