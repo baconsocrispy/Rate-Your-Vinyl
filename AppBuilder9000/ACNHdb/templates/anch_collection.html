@@ -1,0 +1,12 @@
+{% extends "acnh_base.html" %}
+{% load static %}
+{% block title %} Your Collection {% endblock %}
+{% block content %}
+
+{% for Item in Items %}
+    {{ Item.item_type}}
+    {{ Item.name }}
+    {{ Item.amount }}
+{% endfor %}
+
+{% endblock %}
