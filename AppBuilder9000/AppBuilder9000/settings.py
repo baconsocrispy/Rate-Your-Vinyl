@@ -40,10 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'Blacksmithing',
-    'VP_TrackShows',
     'Exercises',
-    'StatCheck',
     'Reading',
     'InlineSpeedSkates',
     'WarriorStats',
@@ -51,6 +48,8 @@ INSTALLED_APPS = [
     'RevitFunctions',                       #story1, step2: register app from within MainProject>MainProject>settings.py.
     'Recipes',
     'cultclassicsapp',
+    'SushiRecipes',
+    'ACNHdb',
     'music_charts',
 ]
 
