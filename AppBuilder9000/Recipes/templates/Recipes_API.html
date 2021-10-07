@@ -18,7 +18,29 @@
     <table>
  </form>
 
-{{response}}
+
+
+    <table>
+    <thead>
+        <tr id="">
+            <th>Title</th>
+            <th>Cooking Time</th>
+            <th>Servings</th>
+            <th>URL</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for recipe in apidata.results %}
+        <tr id="">
+            <td>{{ recipe.title }}</td>
+            <td>{{ recipe.readyInMinutes }}</td>
+            <td>{{ recipe.servings }}</td>
+            <td><a href="{{ recipe.sourceUrl }}">click me</td>
+        </tr>
+
+    {% endfor %}
+
+
 
 
 {% endblock %}
