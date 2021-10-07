@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import PlayerForm
+from .models import Player
 
 
 def stats_Home(request):
@@ -15,5 +16,6 @@ def add_player(request):
     return render(request, 'WarriorStats/create.html', content)
 
 
-def view_Player(request):
-    return render(request, 'WarriorStats/players.html')
+def view_player(request):
+    players = Player.Players.all()
+    return render(request, 'WarriorStats/players.html', {'players': players})
