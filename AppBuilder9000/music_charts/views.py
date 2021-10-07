@@ -6,13 +6,13 @@ from .forms import ChartsForm
 
 # Create your views here.
 def mcharts_base(request):
-    return render(request, 'music_charts/mcharts_base.html',)
+    return render(request, 'music_charts/mcharts_base.html')
 
 def create_chart(request):
     form = ChartsForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('mcharts_base.html')
+            return redirect('create_chart')
     else:
         return render(request, 'music_charts/create_chart.html', {'form': form})
