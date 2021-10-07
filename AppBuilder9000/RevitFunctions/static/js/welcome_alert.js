@@ -1,0 +1,3 @@
+function windowAlert () {
+    window.alert("Welcome! \nPlease select +USER to add a new User, \nSelect +RVT FUNC to add new Revit Functions, \nSelect RECORDS to access features associated with individual Revit Functions,\nSelect DETAILS to see all associated info of the Revit Function, \nSelect EDIT to edit the Revit Function's info, \nSelect DELETE to remove the Revit Function & its associated data, \nSelect SEARCH with predefined google search keywords to find resources online.");
+}
