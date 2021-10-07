@@ -157,6 +157,7 @@ def searchKeywords(request):                                               # thi
             url_list.append(key['link'])
         print(url_list)                                                     # print to terminal of the url_list, good way to check if the above codes is populating the correct info
 
-
-        return render(request, 'RevitFunctions/RevitFunctions_RvtDetails.html', {'url_title': url_title, 'url_list': url_list})
+        for x in url_list:
+            print(x)
+        return render(request, 'RevitFunctions/RevitFunctions_RvtDetails.html', {'url_title': url_title, 'url_list': url_list, 'x': x})
                                                                             # return to home page after completed, or it will be stuck in this page.
