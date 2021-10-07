@@ -109,7 +109,8 @@ table, th, td {/*this displays the info on the movie lists page*/
     color: white;
 }
 
-.View Classics {
+.button{
+    border: none;
     color: white;
 }
 

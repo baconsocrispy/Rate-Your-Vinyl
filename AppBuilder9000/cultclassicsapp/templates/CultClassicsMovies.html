@@ -30,7 +30,7 @@
             <td>{{ entries.Actor }}</td>
             <td>{{ entries.Actress }}</td>
             <td>{{ entries.Description }}</td>
-            <td><a href="{% url 'CultClassicsDetails' entries.pk %}">View Classics</a></td>
+            <td><button><a href="{% url 'CultClassicsDetails' entries.pk %}">View Classics</a></button></td>
         </tr>
         {% endfor %}
      </div>
