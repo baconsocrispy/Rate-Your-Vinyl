@@ -14,6 +14,7 @@
                     <th>Song</th>
                     <th>Album</th>
                     <th>Rank this week</th>
+                    <th>Details</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                     <td>{{ info.song_title }}</td>
                     <td>{{ info.album_title }}</td>
                     <td>{{ info.rank_this_week }}</td>
+                    <td><a href="{% url 'chart_details' info.pk %}">Show</a></td>
                 </tr>
             {% endfor %}
             </tbody>
