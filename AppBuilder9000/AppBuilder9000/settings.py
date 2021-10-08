@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
+    'BoardGames',
     'Exercises',
     'Reading',
     'InlineSpeedSkates',
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
     'Recipes',
     'cultclassicsapp',
     'SushiRecipes',
+    'ACNHdb',
+    'music_charts',
 ]
 
 MIDDLEWARE = [

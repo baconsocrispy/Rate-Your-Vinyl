@@ -10,6 +10,8 @@
             <th>Safety</th>
             <th>Price</th>
             <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +21,9 @@
             <td>{{ city.safety }}</td>
             <td>{{ city.prices }}</td>
             <td><a href="{% url 'eurotripdetails' city.pk %}">View Details</a></td>
+            <td><a href="{% url 'etedit' city.pk %}">Update Details</a></td>
+            <td><a href="{% url 'etdelete' city.pk %}">Delete Details</a></td>
+
         </tr>
 
         {% endfor %}

@@ -1,0 +1,15 @@
+
+{% extends 'music_charts/mcharts_base.html' %}
+{% load static %}
+{% block title %}Add New User{% endblock %}
+
+{% block content %}
+
+<div id="create-table">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-container" value="Submit">Submit</button>
+    </form>
+</div>s
+{% endblock %}

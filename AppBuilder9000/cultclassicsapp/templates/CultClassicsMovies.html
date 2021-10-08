@@ -17,6 +17,7 @@
                   <th>Actor</th>
                   <th>Actress</th>
                   <th>Description</th>
+                  <th>Details</th>
           </tr>
      </thead>
      <tbody>
@@ -29,6 +30,7 @@
             <td>{{ entries.Actor }}</td>
             <td>{{ entries.Actress }}</td>
             <td>{{ entries.Description }}</td>
+            <td><button><a href="{% url 'CultClassicsDetails' entries.pk %}">View Classics</a></button></td>
         </tr>
         {% endfor %}
      </div>
