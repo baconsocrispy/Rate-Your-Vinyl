@@ -12,10 +12,10 @@ music_type = (
 # in a chart
 class Charts(models.Model):
     selection = models.CharField(max_length=50, choices=music_type)
-    artist_name = models.CharField(max_length=50, default='artist', blank=True, null=False)
-    song_title = models.CharField(max_length=50, default='song title', blank=True, null=False)
-    album_title = models.CharField(max_length=50, default='album title', blank=True, null=False)
-    rank_this_week = models.DecimalField(max_digits=200, decimal_places=2)
+    artist_name = models.CharField(max_length=50, default='', blank=True, null=False)
+    song_title = models.CharField(max_length=50, default='', blank=True, null=False)
+    album_title = models.CharField(max_length=50, default='', blank=True, null=False)
+    rank_this_week = models.IntegerField()
 
     objects = models.Manager()
 
