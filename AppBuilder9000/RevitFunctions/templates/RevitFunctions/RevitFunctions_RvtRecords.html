@@ -34,7 +34,10 @@
 					{% for Rvt in rvtrecords %}									<!-- for loop to filter what should show -->
 																				<!-- Rvt can be anything, get the info from the variable from the class in views.py -->
 						<tr id="td">
-							<td>{{ Rvt.revit_title }}</td>						<!-- shows all categories, make sure spelling match -->
+							<!-- Story9: Allow the user to save "favorites" of item -->
+							<td><input class="UserFavorites" type="checkbox" name="Favorites" value={{ Rvt.revit_title }}>{{ Rvt.revit_title }}</td>
+
+							<!-- shows all categories, make sure spelling match -->
 
 							<!-- Story4: step3: Add in a link for each item on the display all items page that will direct to the details page for that item -->
 							<td><a href="{% url 'RevitFunctions_RvtDetails' Rvt.pk %}">DETAILS</a></td>
