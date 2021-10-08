@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import SushiForm
 from .models import SushiRecipes
+from django.shortcuts import render
+
 
 
 def sushi_recipes_home(request):
