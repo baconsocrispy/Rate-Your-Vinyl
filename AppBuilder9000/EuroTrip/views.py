@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import LocationForm
 # pulls in the data from all EuroTrip classes
 from .models import Location
+import requests
 
 
 def eurotriphome(request):
@@ -72,3 +73,20 @@ def etdelete(request, pk):
         return redirect('eastern')
     context = {"item": item}
     return render(request, 'etdelete.html', context)
+
+
+def currency(request):
+    if request.method == 'GET':
+        convertfrom = request.GET.get('Currency1')
+        convertto = request.GET.get('Currency2')
+        amount = request.GET.get('Currency3')
+        print(convertfrom, convertto, amount)
+        api_url = 'https://api.api-ninjas.com/v1/convertcurrency?want={}&have={}&amount={}'.format(convertto, convertfrom, amount)
+        response = requests.get(api_url, headers={'X-Api-Key': 'AjW5PD2G1/MiCDKhJ9RQDw==BNSnGxHcYOKrO3Lk'})
+        # render to website importing json module
+        if response.status_code == requests.codes.ok:
+            print(response.text)
+            # render to website importing json module
+        else:
+            print("Error:", response.status_code, response.text)
+    return render(request, 'currency.html')
