@@ -1,0 +1,32 @@
+
+{% extends 'music_charts/mcharts_base.html' %}
+
+{% load static %}
+
+{% block content %}
+<p class="data-title">Music Records</p>
+    <div class="record-container">
+        <table class="record-table">
+            <thead>
+                <tr class="t-row">
+                    <th>Selection</th>
+                    <th>Artist</th>
+                    <th>Song</th>
+                    <th>Album</th>
+                    <th>Rank this week</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for info in data %}
+                <tr class="t-data">
+                    <td>{{ info.selection }}</td>
+                    <td>{{ info.artist_name }}</td>
+                    <td>{{ info.song_title }}</td>
+                    <td>{{ info.album_title }}</td>
+                    <td>{{ info.rank_this_week }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

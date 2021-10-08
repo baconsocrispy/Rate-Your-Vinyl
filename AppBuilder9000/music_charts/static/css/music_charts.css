@@ -35,6 +35,7 @@ body {
   border-radius: 12px;
   padding: 2vh;
 }
+/*------- footer section ---------- */
 .bottom {
   background-color: black;
   bottom: 0;
@@ -44,21 +45,101 @@ body {
 
 }
 .bottom-info {
-  position: relative;
+  position: absolute;
+  bottom: 5%;
   left: 40%;
   color: white;
   font: bold;
   font-size: 1.5vh;
   font-family: 'Teko', sans-serif;
 }
+/*------- end of footer section ---------- */
+.create_charts_title{
+    width: auto;
+    font-family: 'Teko', sans-serif;
+    font-size: 3vh;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1.5vh;
+    left: 40%;
+    position: absolute;
+    top: 17%;
+}
+.create-table {
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    background-color: #fff;
+    width: 50%;
+}
+.music-choices {
+    font-size: 2vh;
+    font-family: 'Teko', sans-serif;
+    border: 1px solid black;
+    padding: 4vh;
+}
+.chart-button {
+    background-color: white;
+    width: 20%;
+    position: absolute;
+    left: 41%;
+    padding 2vh;
+    height: 3vh;
+    top: 90%;
+}
 
-#create-table {
+.music-choices input {
+    background-color: #fff;
+    width: 70%;
+    position: absolute;
+    right: 5%;
+    height: 2.5vh;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.music-choices select {
+    width: 70%;
+    position: absolute;
+    right: 5%;
+    height: 2.5vh;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+/*------------------------------------------------ This next section is for the 'Charts' nav link--------------------*/
+.data-title {
+    font-family: 'Teko', sans-serif;
+    font-size: 3vh;
+    background-color: white;
     border: solid 1px black;
-    position: relative;
-    width: 800px;
-    height: auto;
     border-radius: 8px;
-    border: 2px solid gray;
-    box-shadow: 4px 3px #240f0ac5;
-    background-color: #311a14bb;
+    width: 20%;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    text-align: center;
+
+}
+.record-table {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 70%;
+    position: absolute;
+    left: 16%;
+    top: 20%;
+}
+
+.t-row {
+    background-color: white;
+    height: 4vh;
+}
+
+.t-data {
+    font-family: 'Teko', sans-serif;
+    background-color: #d6d6d0;
+    height: 4vh;
+    text-align: center;
 }

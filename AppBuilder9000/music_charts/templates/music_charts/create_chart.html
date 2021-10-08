@@ -1,15 +1,15 @@
 
 {% extends 'music_charts/mcharts_base.html' %}
 {% load static %}
-{% block title %}Add New User{% endblock %}
+{% block title %}<p class="create_charts_title">Add musical records below</p>{% endblock %}
 
 {% block content %}
 
-<div id="create-table">
-    <form method="POST">
+<div class="create-table">
+    <form method="POST" class="music-choices">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn-container" value="Submit">Submit</button>
+        <button type="submit" class="chart-button" value="Submit">Submit</button>
     </form>
-</div>s
+</div>
 {% endblock %}
