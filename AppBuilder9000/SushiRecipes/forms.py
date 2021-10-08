@@ -1,9 +1,8 @@
-from django.forms import ModelForm
-
+from django import forms
 from .models import SushiRecipes
 
 
-class SushiForm(ModelForm):
+class SushiForm(forms.ModelForm):
     class Meta:
         model = SushiRecipes
-        exclude = ["notes"]
+        fields = ('style', 'ingredients', 'steps', 'notes')

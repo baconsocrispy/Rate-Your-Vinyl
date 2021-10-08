@@ -1,8 +1,0 @@
-{% extends 'Sushi_Recipes_Base.html' %}
-	{% block title%}TEST{% endblock %}
-	{% block content %}
-				<form method="POST">
-					{% csrf_token %}
-					{{form.as_p}}
-				</form>
-	{% endblock %}
