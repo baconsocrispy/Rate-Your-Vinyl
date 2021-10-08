@@ -12,6 +12,15 @@
         <h2 class="sub-title">App Directory</h2>
           <div class="grid">
 
+               <!-- BoardGames Link -->
+              <a href="{% url 'BoardGames_home' %}" class="grid-item app-image">
+                  <img src="{% static 'images/BoardGamesApp.png' %}" alt="Board Games">
+                  <div class="fadedbox">
+                      <div class="title text">Board Games</div>
+                  </div>
+              </a>
+              <!-- End BoardGames Link -->
+
               <!-- Exercise Link -->
               <a href="{% url 'Exercises_Home' %}" class="grid-item app-image">
                   <img src="{% static 'images/weights.jpg' %}" alt="Exercises">
@@ -41,7 +50,7 @@
               </a>
               <! --- End Inline Speed Skates Link -->
               <!-- European Travel link start -->
-              <a href="{% url 'eurotriphome' %}" class="grid-item app-image">
+              <a href="{% url 'ethome' %}" class="grid-item app-image">
                   <img src="{% static 'images/EuroTrip.jpg' %}" alt="Eifel Tower at Night">
                   <div class="fadedbox">
                       <div class="title text">European Travel</div>
@@ -89,6 +98,14 @@
               </a>
               <! --- End Golden State Warrior Stats Link -->
 
+              <! --- ACNHdb -->
+              <a href="{% url 'acnh_home' %}" class="grid-item app-image">
+              <img src="{% static 'images/app-images/acnh.png' %}" alt="ACNH">
+              <div class="fadedbox">
+                  <div class="title text">ACNH db</div>
+              </div>
+              </a>
+              <! --- ACNHdb -->
 
               <! --- Sushi Recipes Link -->
               <a href="{% url 'Sushi_Recipes_Home' %}" class="grid-item app-image">
@@ -100,6 +117,15 @@
               <! --- End Sushi Recipes Link -->
 
 
+
+              <!--- music_charts link ---->
+              <a href="{% url 'mcharts_base' %}" class="grid-item app-image">
+              <img src="{% static 'images/charts.jpg' %}" alt="music graph">
+              <div class="fadedbox">
+                  <div class="title text">Music Charts</div>
+              </div>
+              </a>
+              <!--- end of music_charts link ----->
           </div>
     </section>
 
