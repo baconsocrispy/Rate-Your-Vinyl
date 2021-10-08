@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
     path('', views.mcharts_base, name="mcharts_base"),
     path('create_chart/', views.create_chart, name="create_chart"),
+    path('chart_data/', views.chart_data, name="chart_data"),
 ]

@@ -34,7 +34,7 @@ urlpatterns = [
     path('music_charts/', include('music_charts.urls')),
     path('SushiRecipes/', include('SushiRecipes.urls')),
     path('ACNHdb/', include('ACNHdb.urls')),
-    path('music_charts', include('music_charts.urls')),
+    path('music_charts/', include('music_charts.urls')),
 
 ]
 
