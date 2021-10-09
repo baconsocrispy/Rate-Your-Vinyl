@@ -3,6 +3,7 @@ from .forms import LocationForm
 # pulls in the data from all EuroTrip classes
 from .models import Location
 import requests
+import json
 
 
 def eurotriphome(request):
@@ -38,15 +39,6 @@ def eastern_list(request):
 def eurotripdetails(request, pk):
     pk = int(pk)
     item = get_object_or_404(Location, pk=pk)
-    # form = LocationForm(data=request.POST or None, instance=item)
-    # if request.method == 'POST':
-    #     if form.is_valid():
-    #         form2 = form.save(commit=False)
-    #         form2.save()
-    #         return redirect('eastern')
-    #     else:
-    #         print(form.errors)
-    # else:
     return render(request, 'eurotripdetails.html', {'item': item})
 
 
@@ -86,7 +78,13 @@ def currency(request):
         # render to website importing json module
         if response.status_code == requests.codes.ok:
             print(response.text)
-            # render to website importing json module
+            finalcurrency = response.json()
+            return render(request, 'currency.html', {
+                'convertfrom': finalcurrency['old_currency'],
+                'previousamt': finalcurrency['old_amount'],
+                'newcurrency': finalcurrency['new_currency'],
+                'finalamount': finalcurrency['new_amount']
+            })
         else:
             print("Error:", response.status_code, response.text)
     return render(request, 'currency.html')
