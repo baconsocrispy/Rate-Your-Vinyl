@@ -80,9 +80,10 @@ def currency(request):
             print(response.text)
             finalcurrency = response.json()
             return render(request, 'currency.html', {
-                'convertfrom': finalcurrency['convertfrom'],
-                'convertto': finalcurrency['convertto'],
-                'amount': finalcurrency['amount'],
+                'convertfrom': finalcurrency['old_currency'],
+                'previousamt': finalcurrency['old_amount'],
+                'newcurrency': finalcurrency['new_currency'],
+                'finalamount': finalcurrency['new_amount']
             })
         else:
             print("Error:", response.status_code, response.text)
