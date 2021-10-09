@@ -12,6 +12,7 @@ urlpatterns = [
     path('eurotripdetails/<int:pk>/', views.eurotripdetails, name="eurotripdetails"),
     path('etedit/<int:pk>/', views.etedit, name="etedit"),
     path('etdelete/<int:pk>/', views.etdelete, name="etdelete"),
+    path('currency/', views.currency, name="currencyconverter")
    ]
 
 
