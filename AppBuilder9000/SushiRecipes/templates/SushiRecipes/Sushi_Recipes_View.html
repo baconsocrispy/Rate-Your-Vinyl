@@ -1,0 +1,29 @@
+{% extends 'SushiRecipes/Sushi_Recipes_Base.html' %}
+
+{% block title%}TEST{% endblock %}
+
+{% block header%}TESTING{% endblock %}
+
+{% block content %}
+<table>
+    <tr id="head_row">
+        <th>Style</th>
+        <th>Ingredients</th>
+        <th>Steps</th>
+        <th>Notes</th>
+    </tr>
+
+    {% for view in view %}
+
+    <tr>
+        <td> {{view.style }} </td>
+        <td> {{view.ingredients }} </td>
+        <td> {{view.steps }} </td>
+        <td> {{view.notes }} </td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
