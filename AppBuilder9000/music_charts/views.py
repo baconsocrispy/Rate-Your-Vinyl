@@ -10,6 +10,8 @@ import requests
 def mcharts_base(request):
     return render(request, 'music_charts/mcharts_base.html')
 
+def mcharts_home(request):
+    return render(request, 'music_charts/mcharts_home.html')
 
 # on click displays update page, when form is created AND is valid it submits and returns to update page.
 def create_chart(request):
@@ -42,3 +44,8 @@ def chart_details(request, pk):
     else:
         return render(request, 'music_charts/chart_details.html', {'form': form})
 
+
+def delete_event(request, event_id): # deletes the selected row, and redirects to 'Charts'
+    event = Charts.objects.get(pk=event_id)
+    event.delete()
+    return redirect("chart_data")
