@@ -49,3 +49,11 @@ def delete_event(request, event_id): # deletes the selected row, and redirects t
     event = Charts.objects.get(pk=event_id)
     event.delete()
     return redirect("chart_data")
+
+def edit_chart(request, event_id):
+    changes = Charts.objects.get(pk=event_id)
+    form = ChartsForm(request.POST or None, instance=changes)
+    if form.is_valid():
+        form.save()
+        return redirect("chart_data")
+    return render(request, 'music_charts/edit_chart.html', {'changes': changes, 'form':form})

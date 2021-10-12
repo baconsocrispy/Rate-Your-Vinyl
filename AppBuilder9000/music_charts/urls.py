@@ -11,5 +11,6 @@ urlpatterns = [
     path('chart_data/', views.chart_data, name="chart_data"),
     path('<int:pk>/chart_details/', views.chart_details, name="chart_details"), # the int:pk resembles the current key for given object being viewed chart_details.html
     path('delete_event/<event_id>', views.delete_event, name="delete_event"),
+    path('edit_event/<event_id>', views.edit_chart, name="edit_chart"),
 
 ]
