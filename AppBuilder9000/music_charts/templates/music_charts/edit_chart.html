@@ -1,0 +1,11 @@
+{% extends 'music_charts/mcharts_base.html' %}
+
+{% block content %}
+
+<form class="create-table" method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Update" class="edit-btn">
+</form>
+
+{% endblock %}
