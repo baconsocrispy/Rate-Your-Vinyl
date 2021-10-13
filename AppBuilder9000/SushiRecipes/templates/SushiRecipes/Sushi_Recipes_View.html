@@ -16,10 +16,11 @@
     {% for view in view %}
 
     <tr>
-        <td> {{view.style }} </td>
-        <td> {{view.ingredients }} </td>
-        <td> {{view.steps }} </td>
-        <td> {{view.notes }} </td>
+        <td> {{view.style}} </td>
+        <td> {{view.ingredients}} </td>
+        <td> {{view.steps}} </td>
+        <td> {{view.notes}} </td>
+        <td><a href="{% url 'Sushi_Recipes_Details' view.pk %}">Details</a> </td>
 
     </tr>
     {% endfor %}

@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Oregon_Rocks</title>
+    </head>
+
+    <body>
+        <div class="page_container">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'Oregon_Rocks_Home' %}">Home</a></li>
+                    <li><a href="#">Locations/Map</a></li>
+                    <li><a href="#">Information</a></li>
+                </ul>
+            </nav>
+            <br>
+            <br>
+            <header>
+                <h1>{% block header %}Oregon Rockhounding{% endblock %}</h1>
+            </header>
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer>
+            <p>Oregon Rocks &copy;2021 | Jacob Drawhorn</p>
+        </footer>
+    </body>
+</html>

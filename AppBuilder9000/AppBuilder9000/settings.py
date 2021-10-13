@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'ACNHdb',
     'music_charts',
     'UtadaApp',
+    'OregonRocks',
 ]
 
 MIDDLEWARE = [
