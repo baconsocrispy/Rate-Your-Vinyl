@@ -35,7 +35,7 @@ urlpatterns = [
     path('music_charts/', include('music_charts.urls')),
     path('UtadaHikaru/', include('UtadaApp.urls')),
     path('OregonRocks/', include('OregonRocks.urls')),
-
+    path('FunkoCollector/', include('FunkoCollector.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
