@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PlayerForm
 from .models import Player
 
@@ -17,5 +17,11 @@ def add_player(request):
 
 
 def view_player(request):
-    players = Player.Players.all()
+    players = Player.Players.only('Name')
     return render(request, 'WarriorStats/players.html', {'players': players})
+
+
+def view_details(request, pk):
+    players = get_object_or_404(Player, pk=pk)
+    return render(request, 'WarriorStats/details.html', {'players': players})
+

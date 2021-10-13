@@ -23,8 +23,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('BoardGames/', include('BoardGames.urls')),
-    path('Exercises/', include('Exercises.urls')),
     path('Reading/', include('Reading.urls')),
     path('InlineSpeedSkates/', include('InlineSpeedSkates.urls')),
     path('WarriorStats/', include('WarriorStats.urls')),
@@ -32,10 +30,10 @@ urlpatterns = [
     path('RevitFunctions/', include('RevitFunctions.urls')),            #Story1,Step5: Register urls with Mainapp.
     path('Recipes/', include('Recipes.urls')),
     path('CultClassics/', include('cultclassicsapp.urls')),
-    path('music_charts/', include('music_charts.urls')),
     path('SushiRecipes/', include('SushiRecipes.urls')),
     path('ACNHdb/', include('ACNHdb.urls')),
     path('music_charts/', include('music_charts.urls')),
+    path('OregonRocks/', include('OregonRocks.urls')),
 
 ]
 

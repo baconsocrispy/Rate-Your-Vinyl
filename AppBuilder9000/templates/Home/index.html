@@ -12,26 +12,6 @@
         <h2 class="sub-title">App Directory</h2>
           <div class="grid">
 
-               <!-- BoardGames Link -->
-              <a href="{% url 'BoardGames_home' %}" class="grid-item app-image">
-                  <img src="{% static 'images/BoardGamesApp.png' %}" alt="Board Games">
-                  <div class="fadedbox">
-                      <div class="title text">Board Games</div>
-                  </div>
-              </a>
-              <!-- End BoardGames Link -->
-
-              <!-- Exercise Link -->
-              <a href="{% url 'Exercises_Home' %}" class="grid-item app-image">
-                  <img src="{% static 'images/weights.jpg' %}" alt="Exercises">
-                  <div class="fadedbox">
-                      <div class="title text">Muscle Group Exercises</div>
-                  </div>
-              </a>
-              <!-- End Exercise Link -->
-
-
-
               <!-- Reading Link -->
               <a href="{% url 'Reading_Home' %}" class="grid-item app-image">
                   <img src="{% static 'images/books.jpg' %}" alt="Reading">
@@ -115,6 +95,19 @@
               </div>
               </a>
               <! --- End Sushi Recipes Link -->
+
+              <! --- Oregon Rocks Link -->
+              <a href="{% url 'Oregon_Rocks_Home' %}" class="grid-item app-image">
+              <img src="{% static 'images/home_pic.jpg' %}" alt="Rocks">
+              <div class="fadedbox">
+                  <div class="title text">Oregon Rockhounding</div>
+              </div>
+              </a>
+              <! --- End Oregon Rocks Link -->
+
+
+
+
 
 
 

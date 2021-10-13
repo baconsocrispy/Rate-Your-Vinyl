@@ -6,6 +6,10 @@
     color: white;
 }
 
+.container-li {
+    text-align: center;
+}
+
 .header-title {
     padding: 10px 16px
     text-align: center
@@ -13,7 +17,7 @@
 }
 
 body, html {
-    background-image: url('/static/images/warriors.jpg');
+    background-image: url('/static/images/warriors2.jpg');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
