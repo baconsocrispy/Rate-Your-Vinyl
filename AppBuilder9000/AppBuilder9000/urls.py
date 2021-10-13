@@ -34,7 +34,7 @@ urlpatterns = [
     path('ACNHdb/', include('ACNHdb.urls')),
     path('music_charts/', include('music_charts.urls')),
     path('OregonRocks/', include('OregonRocks.urls')),
-
+    path('FunkoCollector/', include('FunkoCollector.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
