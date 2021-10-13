@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'SushiRecipes',
     'ACNHdb',
     'music_charts',
+    'OregonRocks',
 ]
 
 MIDDLEWARE = [
