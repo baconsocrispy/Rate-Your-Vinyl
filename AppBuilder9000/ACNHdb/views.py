@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
 from .models import *
+
 
 
 
@@ -24,4 +25,10 @@ def acnh_collection(request):
     Items = Item.Items.all()
     return render(request, 'anch_collection.html',
                   {'Items': Items})
+
+def acnh_details(request, pk):
+    Items = get_object_or_404(Item, pk=pk)
+    return render(request, 'acnh_details.html',
+                  {'Items': Items})
+
 
