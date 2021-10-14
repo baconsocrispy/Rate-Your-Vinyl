@@ -3,15 +3,18 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Charts
 from .forms import ChartsForm
 import requests
+import urllib.request
+from bs4 import BeautifulSoup as bs
+
+
+
 # pulls in the data from our class Charts
 
 # Create your views here.
 # on click renders the index.html or initial page for given app.
-def mcharts_base(request):
-    return render(request, 'music_charts/mcharts_base.html')
-
 def mcharts_home(request):
     return render(request, 'music_charts/mcharts_home.html')
+
 
 # on click displays update page, when form is created AND is valid it submits and returns to update page.
 def create_chart(request):
@@ -23,11 +26,13 @@ def create_chart(request):
     else:
         return render(request, 'music_charts/create_chart.html', {'form': form})
 
+
 # on click renders charts page with data created in update page if any.
 def chart_data(request):
     data = Charts.objects.all()
 
     return render(request, 'music_charts/chart_data.html', {'data': data})
+
 
 # renders a details form with corresponding integer key, per created item, as a separate html.
 def chart_details(request, pk):
@@ -45,10 +50,11 @@ def chart_details(request, pk):
         return render(request, 'music_charts/chart_details.html', {'form': form})
 
 
-def delete_event(request, event_id): # deletes the selected row, and redirects to 'Charts'
+def delete_event(request, event_id):  # deletes the selected row, and redirects to 'Charts'
     event = Charts.objects.get(pk=event_id)
     event.delete()
     return redirect("chart_data")
+
 
 def edit_chart(request, event_id):
     changes = Charts.objects.get(pk=event_id)
@@ -56,4 +62,8 @@ def edit_chart(request, event_id):
     if form.is_valid():
         form.save()
         return redirect("chart_data")
-    return render(request, 'music_charts/edit_chart.html', {'changes': changes, 'form':form})
+    return render(request, 'music_charts/edit_chart.html', {'changes': changes, 'form': form})
+
+
+result = requests.get("https://rapidapi.com/apimaker/api/billboard2/")
+print(result.status_code)

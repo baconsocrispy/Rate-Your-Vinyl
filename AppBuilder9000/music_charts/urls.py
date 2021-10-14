@@ -5,8 +5,7 @@ from . import views
 # given url
 
 urlpatterns = [
-    path('', views.mcharts_base, name="mcharts_base"),
-    path('mcharts_home/', views.mcharts_home, name="mcharts_home"),
+    path('', views.mcharts_home, name="mcharts_home"),
     path('create_chart/', views.create_chart, name="create_chart"),
     path('chart_data/', views.chart_data, name="chart_data"),
     path('<int:pk>/chart_details/', views.chart_details, name="chart_details"), # the int:pk resembles the current key for given object being viewed chart_details.html
