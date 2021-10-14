@@ -1,0 +1,75 @@
+body {
+    background-color: #353535;
+    color: #00e600;
+}
+
+ul {
+    background-color: #252525;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 1px solid black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #00ff00;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+li:last-child {
+  float:right;
+}
+
+/*
+a:link {
+    color: #00ff0a;
+}
+
+a:hover {
+    color: #00ff00;
+}
+
+a:visited {
+    color: #00af00;
+}
+
+a:active {
+  color: #00af00;
+}
+*/
+/* ============================
+|           Classes           |
+============================ */
+
+/* Header/Logo Title */
+.topSection{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.cim_Title{
+    background-color: #252525;
+    padding: 60px;
+    font-size: 30px;
+    text-align: center;
+    width: 100%
+    left: 0;
+}
+
+/* Header/Logo Title */
+
+
+/* Page Content */
+.content {padding:20px;}

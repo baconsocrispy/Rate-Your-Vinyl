@@ -15,17 +15,21 @@
                     <th>Album</th>
                     <th>Rank this week</th>
                     <th>Details</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
-            {% for info in data %}
+            {% for event in data %}
                 <tr class="t-data">
-                    <td>{{ info.selection }}</td>
-                    <td>{{ info.artist_name }}</td>
-                    <td>{{ info.song_title }}</td>
-                    <td>{{ info.album_title }}</td>
-                    <td>{{ info.rank_this_week }}</td>
-                    <td><a href="{% url 'chart_details' info.pk %}">Show</a></td>
+                    <td>{{ event.selection }}</td>
+                    <td>{{ event.artist_name }}</td>
+                    <td>{{ event.song_title }}</td>
+                    <td>{{ event.album_title }}</td>
+                    <td>{{ event.rank_this_week }}</td>
+                    <td><a href="{% url 'chart_details' event.pk %}">Show</a></td>
+                    <td><a href="{% url 'delete_event' event.id %}"><i class="far fa-trash-alt"></i></a></td>
+                    <td><a href="{% url 'edit_chart' event.id %}"><i class="far fa-edit"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>
