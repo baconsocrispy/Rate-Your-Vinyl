@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     'SushiRecipes',
     'ACNHdb',
     'music_charts',
-    'UtadaApp',
     'OregonRocks',
+    'ValItems',
+    'UtadaApp',
     'FunkoCollector',
 ]
 

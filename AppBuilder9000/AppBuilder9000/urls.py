@@ -33,9 +33,11 @@ urlpatterns = [
     path('SushiRecipes/', include('SushiRecipes.urls')),
     path('ACNHdb/', include('ACNHdb.urls')),
     path('music_charts/', include('music_charts.urls')),
-    path('UtadaHikaru/', include('UtadaApp.urls')),
     path('OregonRocks/', include('OregonRocks.urls')),
+    path('ValItems/', include('ValItems.urls')),
+    path('UtadaHikaru/', include('UtadaApp.urls')),
     path('FunkoCollector/', include('FunkoCollector.urls')),
+
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
