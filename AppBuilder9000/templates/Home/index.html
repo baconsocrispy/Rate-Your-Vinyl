@@ -105,9 +105,22 @@
               </a>
               <! --- End Oregon Rocks Link -->
 
+             <!--- Utada Hikaru link ---->
+              <a href="{% url 'hiki_home' %}" class="grid-item app-image">
+              <img src="{% static 'images/hiki.jpg' %}" alt="Utada Hikaru">
+                  <div class ="fadedbox">
+                      <div class="title text">Utada Hikaru</div>
+                  </div>
+              </a>
 
-
-
+                 <!--- FunkoCollector link ---->
+              <a href="{% url 'funkocollectorhome' %}" class="grid-item app-image">
+              <img src="{% static 'images/bg3.jpg' %}" alt="Funko Pops">
+                <div class="fadedbox">
+                     <div class="title text">Funko Collector</div>
+                </div>
+              </a>
+              <!--- end of FunkoCollector link ----->
 
 
 
@@ -120,14 +133,14 @@
               </a>
               <!--- end of music_charts link ----->
 
-              <!--- Utada Hikaru link ---->
-              <a href="{% url 'hiki_home' %}" class="grid-item app-image">
-              <img src="{% static 'images/hiki.jpg' %}" alt="Utada Hikaru">
-                  <div class ="fadedbox">
-                      <div class="title text">Utada Hikaru</div>
-                  </div>
+              <! --- Valheim Items Link --- >
+              <a href="{% url 'Val_home' %}" class="grid-item app-image">
+              <img src="{% static 'images/vh_logo.jpg' %}" alt="Valheim Items Coming Soon!">
+              <div class="fadedbox">
+                  <div class="title text">Valheim Items</div>
+              </div>
               </a>
-
+            <! --- End Valheim Items Link --- >
 
               <!--- Core_Item_Management link ---->
               <a href="{% url 'cim_home' %}" class="grid-item app-image">
@@ -137,6 +150,8 @@
               </div>
               </a>
               <!--- end of Core_Item_Management link ----->
+
+
           </div>
     </section>
 

@@ -50,9 +50,11 @@ INSTALLED_APPS = [
     'SushiRecipes',
     'ACNHdb',
     'music_charts',
-    'UtadaApp',
     'OregonRocks',
     'CoreItemManagement',
+    'ValItems',
+    'UtadaApp',
+    'FunkoCollector',
 ]
 
 MIDDLEWARE = [
