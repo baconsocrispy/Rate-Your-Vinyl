@@ -15,20 +15,22 @@
     <title>ACNH DB</title>
 </head>
 
- <body>
+
+
+  <body>
     <div class="container">
             <h1>{{ text }}</h1>
 
-            {% for Item in Items %}
                 <h2>{{ text }}</h2>
-             <ul>
-                    <li>   <a href="{% url 'acnh_details' Item.pk %}"> {{ Item.name }}</a></li>
-
+                <ul>
+                    <li>Name: {{ Items.name }}</li>
+                    <li>Amount: {{ Items.amount }}</li>
+                    <li>Type: {{ Items.item_type }}</li>
                 </ul>
-            {% endfor %}
-    </div>
- </body>
 
+    </div>
+
+ </body>
 {% endblock content %}
 <div class="footer-container">
     {% include "acnh_footer.html" %}

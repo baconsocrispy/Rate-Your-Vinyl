@@ -20,7 +20,7 @@ ul {
 }
 
 li {
-  float: left;
+  float: center;
   display: in-line-block;
   color: white;
   width: 33%;
