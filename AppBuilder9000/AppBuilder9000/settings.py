@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'music_charts',
     'OregonRocks',
     'ValItems',
+    'UtadaApp',
+    'FunkoCollector',
 ]
 
 MIDDLEWARE = [
