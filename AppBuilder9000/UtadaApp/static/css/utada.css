@@ -1,0 +1,27 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    background-image: url('../../static/images/hiki.jpg'); 
+    background-repeat: no-repeat;
+}
+
+/*navbar styling*/
+.navbar {
+  font-family: Verdana;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar a {
+ float: left;
+ display: block;
+ background-color: none;
+ color: white;
+ text-decoration: none;
+ text-align: center;
+}
+/*end of navbar styling*/
+
+h3 {
+color: white;
+
+}
