@@ -21,5 +21,3 @@ class Charts(models.Model):
 
     def __str__(self):
         return self.selection
-
-class Hot_hundred(models.Model):
