@@ -34,6 +34,7 @@ urlpatterns = [
     path('ACNHdb/', include('ACNHdb.urls')),
     path('music_charts/', include('music_charts.urls')),
     path('OregonRocks/', include('OregonRocks.urls')),
+    path('CoreItemManagement/', include('CoreItemManagement.urls')),
     path('ValItems/', include('ValItems.urls')),
     path('UtadaHikaru/', include('UtadaApp.urls')),
     path('FunkoCollector/', include('FunkoCollector.urls')),
