@@ -18,6 +18,7 @@ def Rocks_Create(request):
     }
     return render(request, 'OregonRocks/Rocks_Create.html', context)
 
+
 def Rock_Locations(request):
     locations = RockLoc.objects.all()
     return render(request, 'OregonRocks/Rock_Locations.html', {'locations': locations})
