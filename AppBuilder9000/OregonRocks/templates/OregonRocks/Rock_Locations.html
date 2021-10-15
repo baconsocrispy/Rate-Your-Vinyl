@@ -1,0 +1,31 @@
+{% extends "OregonRocks/OregonRocksBase.html" %}
+{% block title %}Rock Locations{% endblock %}
+
+{% block header %}
+    <h1>Oregon Rockhounding Locations</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="table-container">
+        <table id="table">
+            <thead>
+                <tr id="th">
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Created at</th>
+                    <th>Description of Location</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for location in locations %}
+                <tr id="td">
+                    <td><a href="{% url 'Rock_Details' location.pk %}">{{ location.date }}</a></td>
+                    <td>{{ location.name }}</td>
+                    <td>{{ location.address }}</td>
+                    <td>{{ location.location_description }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
