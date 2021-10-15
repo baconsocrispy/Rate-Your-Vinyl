@@ -12,12 +12,12 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
                 <!--nav bar -->
-            <div class="navbar">
-                <a href="#HOME">HOME </a> &nbsp;
-                <a href="#MUSIC">MUSIC </a> &nbsp;
-                <a href="#GALLERY">GALLERY </a> &nbsp;
-                <a href="#ABOUT">ABOUT </a> &nbsp;
-            </div>
+                    <div class="navbar">
+                <a href="{% url 'hiki_home.html'%}">HOME &nbsp; </a>
+                <a href="{% url 'hiki_music.html'%}">MUSIC &nbsp; </a>
+                <a href="#GALLERY">GALLERY &nbsp; </a>
+                <a href="#ABOUT">ABOUT &nbsp; </a>
+                    </div>
                 <!--end of nav bar-->
 <body>
             <h3> UTADA HIKARU</h3>
@@ -30,11 +30,6 @@
 
 
 
-
-
-<footer>
-
-</footer>
 
 </body>
 </html>
