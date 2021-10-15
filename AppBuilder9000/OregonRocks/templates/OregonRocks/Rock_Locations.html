@@ -14,6 +14,7 @@
                     <th>Name</th>
                     <th>Address</th>
                     <th>Description of Location</th>
+                    <th>Details</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                     <td>{{ location.name }}</td>
                     <td>{{ location.address }}</td>
                     <td>{{ location.location_description }}</td>
+                    <td><a href="{% url 'Rock_Details' location.pk %}">Details{{ location.details }}</a></td>
                 </tr>
             {% endfor %}
             </tbody>
