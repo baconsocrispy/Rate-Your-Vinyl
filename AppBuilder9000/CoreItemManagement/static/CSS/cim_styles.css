@@ -32,23 +32,35 @@ li:last-child {
   float:right;
 }
 
-/*
-a:link {
-    color: #00ff0a;
+/* General Table Styling */
+table {
+    border-left: 1px black;
 }
 
-a:hover {
-    color: #00ff00;
+th{
+	border-bottom: 1px solid black;
 }
 
-a:visited {
-    color: #00af00;
+tr td{
+	border: 1px solid black;
+	word-wrap: normal;
+	vertical-align: top;
+	width: auto;
+	height: 35px;
 }
 
-a:active {
-  color: #00af00;
+label {
+	width: 125px;
+	margin-left: 50px;
+	font-weight: bold;
+	opacity: initial;
 }
-*/
+
+input, select{
+	border-bottom: 1px black;
+}
+
+
 /* ============================
 |           Classes           |
 ============================ */
@@ -59,6 +71,9 @@ a:active {
     top: 0;
     left: 0;
 }
+
+
+/* Header/Logo Title */
 .cim_Title{
     background-color: #252525;
     padding: 60px;
@@ -68,8 +83,29 @@ a:active {
     left: 0;
 }
 
-/* Header/Logo Title */
+.center {
+	text-align: center;
+	width: 15%;
+}
 
+.left{
+	padding-left: 10px;
+	width: 30%;
+	word-wrap: normal;
+}
+
+.right {
+	padding-right: 5px;
+	width: 20%;
+	text-align: right;
+}
 
 /* Page Content */
-.content {padding:20px;}
+.content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 15px 1rem;
+    padding:20px;
+    background-color: #353535;
+}

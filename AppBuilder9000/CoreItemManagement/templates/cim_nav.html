@@ -2,7 +2,10 @@
     <nav>
         <ul>
             <li><a href="{% block home-button %}{% url 'cim_home' %}{% endblock %}">Home</a></li>
-            <li><a href="#items">Items</a></li>
+            <li><a href="{% block items-button %}{% url 'cim_list' %}{% endblock %}">Items</a></li>
+            <li><a href="{% block add-button %}{% url 'cim_new' %}{% endblock %}">Add</a></li>
+            <li><a href="{% block edit-button %}{% url 'cim_edit' %}{% endblock %}">Edit</a></li>
+            <li><a href="{% block addVendor-button %}{% url 'cim_newVendor' %}{% endblock %}">Add Vendor</a></li>
             <li><a href="#mainapp">Main App</a></li>
         </ul>
     </nav>
