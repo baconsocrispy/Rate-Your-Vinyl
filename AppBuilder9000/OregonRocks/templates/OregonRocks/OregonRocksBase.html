@@ -5,6 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/rocks.css' %}">
         <title>Oregon_Rocks</title>
     </head>
 
@@ -13,8 +14,8 @@
             <nav>
                 <ul>
                     <li><a href="{% url 'Oregon_Rocks_Home' %}">Home</a></li>
-                    <li><a href="#">Locations/Map</a></li>
-                    <li><a href="#">Information</a></li>
+                    <li><a href="{% url 'Rocks_Create' %}">Add Location</a></li>
+                    <li><a href="{% url 'Rock_Locations' %}">Locations</a></li>
                 </ul>
             </nav>
             <br>
