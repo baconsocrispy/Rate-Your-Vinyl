@@ -68,22 +68,17 @@ body {
 }
 
 /*------- footer section ---------- */
-.bottom {
-  background-color: black;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-  height: 4vh;
-
-}
 .bottom-info {
-  position: absolute;
-  bottom: 5%;
-  left: 40%;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
   color: white;
   font: bold;
   font-size: 1.5vh;
   font-family: 'Teko', sans-serif;
+  text-align: center;
 }
 /*------- end of footer section ---------- */
 

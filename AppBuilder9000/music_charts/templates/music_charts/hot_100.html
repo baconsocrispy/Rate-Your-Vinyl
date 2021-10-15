@@ -6,11 +6,21 @@
 
 {% block content %}
 <!---this is where the html tags and code will fall--->
-{% if chart %}
-
-
-
-
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Song</th>
+        <th>Artist</th>
+        <th>Wks on Chart</th>
+      </tr>
+        {% for store in song_data %}
+        <tr>
+            <td>{{ rank }}</td>
+            <td>{{ song }}</td>
+            <td>{{ artist }}</td>
+        </tr>
+            {% endfor %}
+    </table>
 
 <!--- end of html tags and python code----->
 {% endblock %}

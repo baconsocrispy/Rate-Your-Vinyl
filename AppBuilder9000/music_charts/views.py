@@ -65,5 +65,19 @@ def edit_chart(request, event_id):
     return render(request, 'music_charts/edit_chart.html', {'changes': changes, 'form': form})
 
 
-result = requests.get("https://rapidapi.com/apimaker/api/billboard2/")
-print(result.status_code)
+def hot_one_hundred(request):
+    URL = 'https://www.billboard.com/charts/hot-100'
+    response = requests.get(URL)
+    soup = bs(response.content, 'html.parser')
+    song_data = soup.findAll('li', attrs={"class": 'chart-list__element display--flex'})
+
+    for store in song_data:
+        number = store.button.span.span.text
+        titles = store.button.find('span', class_='chart-element__information')
+        title2 = titles.find('span', class_='chart-element__information__song text--truncate color--primary').text
+        artist = titles.find('span', class_='chart-element__information__artist text--truncate color--secondary').text
+        context = {'song_data': song_data, 'titles': titles, 'rank': number, 'song': title2, 'artist': artist}
+
+        return render(request, 'music_charts/hot_100.html', context)
+
+
