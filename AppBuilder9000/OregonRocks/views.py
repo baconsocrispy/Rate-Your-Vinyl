@@ -21,9 +21,9 @@ def Rocks_Create(request):
     }
     return render(request, 'OregonRocks/Rocks_Create.html', context)
 
-def Reading_Records(request):
-    records = Archive.objects.all()
-    return render(request, 'Reading/Reading_Records.html', {'records': records})
+def Rock_Locations(request):
+    locations = get_object_or_404(RockLoc, pk=pk)
+    return render(request, 'OregonRocks/Rock_Locations.html', {'locations': locations})
 
 def Rock_Details(request, pk):
     details = get_object_or_404(RockLoc, pk=pk)

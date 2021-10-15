@@ -6,7 +6,7 @@ body, html {
 }
 
 .bg_img {
-    background-image: url('home_pic.jpg');
+    background-image: url('images/home_pic.jpg');
     background-size: cover;
     background-position: center;
 }
