@@ -20,9 +20,12 @@ body {
  text-decoration: none;
  text-align: center;
 }
+
+
 /*end of navbar styling*/
 
 h3 {
-color: white;
+ color: white;
+ text-align: center;
 }
 
