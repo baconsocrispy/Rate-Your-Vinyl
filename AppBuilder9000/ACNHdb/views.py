@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
+from .models import *
+
+
+
 
 def acnh_home(request):
     return render(request, 'acnh_home.html')
@@ -17,15 +21,14 @@ def acnh_create(request):
     return render(request, 'acnh_create.html', content)
 
 
-
-
-
-
 def acnh_collection(request):
-    data = Item.objects.all()
+    Items = Item.Items.all()
+    return render(request, 'anch_collection.html',
+                  {'Items': Items})
 
-    itm = {
-        "Item": data
-    }
+def acnh_details(request, pk):
+    Items = get_object_or_404(Item, pk=pk)
+    return render(request, 'acnh_details.html',
+                  {'Items': Items})
 
-    return render("acnh_collection.html", itm)
+

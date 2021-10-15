@@ -51,6 +51,10 @@ INSTALLED_APPS = [
     'ACNHdb',
     'music_charts',
     'OregonRocks',
+    'CoreItemManagement',
+    'ValItems',
+    'UtadaApp',
+    'FunkoCollector',
 ]
 
 MIDDLEWARE = [

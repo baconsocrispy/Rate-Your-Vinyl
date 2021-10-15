@@ -2,7 +2,7 @@
     margin: 0;
 }
 
-body {
+html, body {
      background-image: url('/static/images/bg.png');
      background-size: cover;
 }
@@ -20,7 +20,7 @@ ul {
 }
 
 li {
-  float: left;
+  float: center;
   display: in-line-block;
   color: white;
   width: 33%;
