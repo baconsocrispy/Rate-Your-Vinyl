@@ -6,8 +6,9 @@ body {
 
 /*navbar styling*/
 .navbar {
-  font-family: Verdana;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-decoration: none;
+  font-size: 18px;
   display: inline-block;
 }
 
@@ -19,9 +20,12 @@ body {
  text-decoration: none;
  text-align: center;
 }
+
+
 /*end of navbar styling*/
 
 h3 {
-color: white;
-
+ color: white;
+ text-align: center;
 }
+
