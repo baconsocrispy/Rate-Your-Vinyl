@@ -13,15 +13,17 @@
 
 {% block content %}
 <br>
-<div class="text-center">
-    <h5></h5>
-    <!-- Replace the <input> with a Django form including a dropdown list of accounts-->
-    <form method="POST">
-        <label id="index-label">Enter Item Product Number:</label>
-        {% csrf_token %}
-        {{form.item}}
-        <button type="submit">Go to Item</button>
-    </form>
+<div class="content">
+    <div class="text-center">
+        <h5></h5>
+        <!-- Replace the <input> with a Django form including a dropdown list of accounts-->
+        <form method="POST">
+            <label id="index-label">Enter Item Product Number:</label>
+            {% csrf_token %}
+            {{form.item}}
+            <button type="submit">Go to Item</button>
+        </form>
+    </div>
 </div>
 <hr>
 

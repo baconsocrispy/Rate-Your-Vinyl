@@ -9,12 +9,12 @@ Categories:
 """
 
 
-CATEGORY = {
+CATEGORY = [
     ('Other', 'Other'),
     ('Produce', 'Produce'),
     ('Tobacco', 'Tobacco'),
     ('Vehicle', 'Vehicle'),
-}
+]
 
 
 # Create your models here.
