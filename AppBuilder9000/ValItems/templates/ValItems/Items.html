@@ -1,17 +1,36 @@
-{% extends "Val_base.html" %}
+{% extends 'Val_base.html' %}
+
 
 {% block title %}Valheim Items{% endblock %}
 
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
+
+<html>
 <body>
+    <div class="view_container">
+
+        <h3> TEST </h3>
+        			<table class="table table-responsive" id ="transactions-table">
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Level</th>
+					<th>Description</th>
+				</tr>
+
+				{% for i in Item %}
+				<tr>
+					<td>{{ Items.item_name }}</td>
+					<td>{{ Items.item_type }}</td>
+					<td>{{ Items.item_level }}</td>
+					<td>{{ Items.item_description }}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+    </div>
 
 </body>
 </html>
-
-{% endblock %}
+{% endblock content %}
