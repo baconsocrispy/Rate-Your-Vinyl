@@ -1,3 +1,21 @@
 from django.db import models
 
-# Create your models here.
+
+ITEM_TYPE_CHOICES = [
+    ('MATERIALS', 'Materials'),
+    ('TOOLS', 'Tools'),
+    ('WEAPONS', 'Weapons'),
+    ('ARMOR', 'Armor'),
+]
+
+
+class Item(models.Model):
+    item_type = models.CharField(max_length=20, choices=ITEM_TYPE_CHOICES)
+    item_name = models.CharField(max_length=50)
+    item_level = models.IntegerField()
+    item_description = models.TextField(max_length=1000, default="Item Description")
+
+    Items = models.Manager()
+
+    def __str__(self):
+        return self.item_name

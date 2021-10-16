@@ -18,16 +18,18 @@
     <div class="navbar">
         <ul>
             <li><a href="{% url 'Val_home' %}">Home</a></li>
-            <li><a href="">Items</a></li>
-            <li><a href="">food</a></li>
+            <li><a href="{% url 'Items' %}">Items</a></li>
+            <li><a href="{% url 'AddItem' %}">Add</a></li>
             <li><a href="">Contact</a></li>
         </ul>
     </div>
 
     <body id="body">
-        {% block content %}{% endblock %}
-        <div class="footer">
-            <p>Valheim Items - &copy Terry Nye 2021</p>
+        <div class="form-container">
+            {% block content %}{% endblock %}
+            <div class="footer">
+                <p>Valheim Items - &copy Terry Nye 2021</p>
+            </div>
         </div>
     </body>
 
