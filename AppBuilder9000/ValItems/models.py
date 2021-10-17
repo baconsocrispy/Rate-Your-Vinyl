@@ -2,10 +2,10 @@ from django.db import models
 
 
 ITEM_TYPE_CHOICES = [
-    ('MATERIALS', 'Materials'),
-    ('TOOLS', 'Tools'),
-    ('WEAPONS', 'Weapons'),
-    ('ARMOR', 'Armor'),
+    ('Materials', 'Materials'),
+    ('Tools', 'Tools'),
+    ('Weapons', 'Weapons'),
+    ('Armor', 'Armor'),
 ]
 
 
@@ -15,7 +15,7 @@ class Item(models.Model):
     item_level = models.IntegerField()
     item_description = models.TextField(max_length=1000, default="Item Description")
 
-    Items = models.Manager()
+    item_object = models.Manager()
 
     def __str__(self):
         return self.item_name

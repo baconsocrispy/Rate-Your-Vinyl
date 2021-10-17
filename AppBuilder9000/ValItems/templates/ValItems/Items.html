@@ -5,32 +5,15 @@
 
 
 {% block content %}
-
-<html>
-<body>
+	<h3> Item List </h3>
     <div class="view_container">
-
-        <h3> TEST </h3>
-        			<table class="table table-responsive" id ="transactions-table">
-				<tr>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Level</th>
-					<th>Description</th>
-				</tr>
-
-				{% for i in Item %}
-				<tr>
-					<td>{{ Items.item_name }}</td>
-					<td>{{ Items.item_type }}</td>
-					<td>{{ Items.item_level }}</td>
-					<td>{{ Items.item_description }}</td>
-				</tr>
-				{% endfor %}
-
-			</table>
+		{% for Item in items %}
+			<ul class="item_ul">
+				<li>Name: {{ Item.item_name }}</li>
+				<li>Type: {{ Item.item_type }}</li>
+				<li>Level: {{ Item.item_level }}</li>
+				<li>Description: {{ Item.item_description }}</li>
+			</ul>
+		{% endfor %}
     </div>
-
-</body>
-</html>
 {% endblock content %}
