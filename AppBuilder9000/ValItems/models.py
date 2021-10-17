@@ -1,6 +1,5 @@
 from django.db import models
 
-
 ITEM_TYPE_CHOICES = [
     ('Materials', 'Materials'),
     ('Tools', 'Tools'),

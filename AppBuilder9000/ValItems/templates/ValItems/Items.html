@@ -5,15 +5,12 @@
 
 
 {% block content %}
-	<h3> Item List </h3>
-    <div class="view_container">
-		{% for Item in items %}
-			<ul class="item_ul">
-				<li>Name: {{ Item.item_name }}</li>
-				<li>Type: {{ Item.item_type }}</li>
-				<li>Level: {{ Item.item_level }}</li>
-				<li>Description: {{ Item.item_description }}</li>
-			</ul>
-		{% endfor %}
-    </div>
+<h3> Item List </h3>
+<div class="view_container">
+    {% for Item in items %}
+    <ul class="item_ul">
+        <li><a href="{% url 'Details' Item.pk %} ">Name: {{ Item.item_name }}</li>
+    </ul>
+    {% endfor %}
+</div>
 {% endblock content %}

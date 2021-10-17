@@ -19,3 +19,8 @@ def AddItem(request):
 def Items(request):
     items = Item.item_object.all()
     return render(request, 'ValItems/Items.html', {'items': items})
+
+
+def Details(request, pk):
+    items = get_object_or_404(Item, pk=pk)
+    return render(request, 'ValItems/Details.html', {'items': items})
