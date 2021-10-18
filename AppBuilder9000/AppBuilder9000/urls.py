@@ -24,8 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/v1/", include("OregonRocks.urls")),
     path('', views.home, name='home'),
-    path('Reading/', include('Reading.urls')),
-    path('InlineSpeedSkates/', include('InlineSpeedSkates.urls')),
     path('WarriorStats/', include('WarriorStats.urls')),
     path('EuroTrip/', include('EuroTrip.urls')),
     path('RevitFunctions/', include('RevitFunctions.urls')),            #Story1,Step5: Register urls with Mainapp.
