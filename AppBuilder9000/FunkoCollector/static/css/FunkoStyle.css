@@ -46,3 +46,7 @@ border-radius: 20px;
    margin-left: -300px;
    margin-top: -300px;
 }
+
+.pull-right {
+float: right;
+}
