@@ -86,4 +86,3 @@ def hot_one_hundred(request):
     return render(request, 'music_charts/hot_100.html', {'song_list': song_list}) # call song_list from html song_list
 
 
-
