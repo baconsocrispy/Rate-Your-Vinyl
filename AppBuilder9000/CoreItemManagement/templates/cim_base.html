@@ -10,16 +10,16 @@
 <style>
 </style>
 <body>
-    <section id="header">
+    <section class="header">
         {% block navbar %}{% include 'cim_nav.html' %}{% endblock %}
         {% block header %}{% endblock %}
     </section>
 
-    <section id="content">
+    <section class="content">
         {% block content %}{% endblock %}
     </section>
 
-    <section id="footer">
+    <section class="footer">
         {% block footer %}{% include 'cim_footer.html' %}{% endblock %}
     </section>
 </body>
