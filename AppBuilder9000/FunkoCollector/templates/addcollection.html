@@ -1,0 +1,22 @@
+{% extends 'funkocollectorbase.html' %}
+{% block title %}Create New Account{% endblock %}
+
+
+{% block body %}
+
+<div class="container form-div">
+	<div class="form-group">
+		<h1>Add to collection.</h1>
+		{% if submitted %}
+		Your New Funko Pop was submitted Succefully!!!
+
+		{% else %}
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ form.as_p }}
+			  <input type="submit" value="Submit" class="btn btn-primary">
+			</form>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

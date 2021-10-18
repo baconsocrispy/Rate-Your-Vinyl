@@ -1,0 +1,35 @@
+{% extends 'funkocollectorbase.html' %}
+{% block title %}My Collection{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <h1>My Collection</h1>
+    <table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">Size</th>
+      <th scope="col">Name</th>
+      <th scope="col">Fandom</th>
+      <th scope="col">Chase</th>
+      <th scope="col">Purchase Price</th>
+      <th scope="col">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for popcollection in collectionpop %}
+
+    <tr>
+      <td class="table-info">{{ popcollection.size }}</td>
+      <td class="table-info">{{ popcollection.name }}</td>
+      <td class="table-info">{{ popcollection.fandome }}</td>
+      <td class="table-info">{{ popcollection.chase }}</td>
+      <td class="table-info">{{ popcollection.purchase_price }}</td>
+      <td class="table-info">{{ popcollection.value }}</td>
+
+    {% endfor %}
+    </tr>{{ popcollection }}
+  </tbody>
+</table>
+</div>
+{% endblock %}
