@@ -74,3 +74,27 @@ li a:hover {
     text-transform: uppercase;
 }
 /* End Basic Footer Style */
+
+/* Add Item Form Container Styling */
+.form-container {
+    background-color: white;
+}
+/* End Add Item Form Container Styling */
+
+/* Add Item Page Style */
+form {
+    display: inline-block;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -100px;
+    text-align: left;
+}
+
+.view_container {
+    display: inline-block;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: -100px;
+    text-align: left;
+}
+/* End Basic Footer Style */
