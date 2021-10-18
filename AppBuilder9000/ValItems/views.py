@@ -8,14 +8,14 @@ def Val_home(request):
 
 
 def AddItem(request):
-    form = ItemForm(request.POST)
-    if request.method == 'POST':
-        if form.is_valid():
-            print("VALID")
-            form.save()
-            return redirect('AddItem')
-    return render(request, 'ValItems/AddItem.html', {'form': form})
+    form = ItemForm(data=request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('AddItem')
+    content = {'form': form}
+    return render(request, 'ValItems/AddItem.html', content)
 
 
 def Items(request):
-    return render(request, 'ValItems/Items.html')
+    items = Item.item_object.all()
+    return render(request, 'ValItems/Items.html', {'items': items})
