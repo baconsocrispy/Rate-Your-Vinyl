@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'Reading',
-    'InlineSpeedSkates',
     'WarriorStats',
     'EuroTrip',
     'RevitFunctions',                       #story1, step2: register app from within MainProject>MainProject>settings.py.
