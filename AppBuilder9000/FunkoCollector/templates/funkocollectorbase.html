@@ -33,8 +33,16 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'collection' %}">Collection</a>
         </li>
+        <li>
+
+      </li>
       </ul>
     </div>
+    <form class="d-flex" method="POST" action="{% url 'searchcollection' %}">
+      {% csrf_token %}
+
+      <input class="form-control me-2 ms-auto" type="search" placeholder="Search Collection" aria-label="Search" name="searched"><button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
   </div>
 </nav>
 <!-- end nav bar -->

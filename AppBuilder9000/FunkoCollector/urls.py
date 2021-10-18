@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.funkocollectorhome, name='funkocollectorhome'),
     path('addcollection', views.addcollection, name='addcollection'),
     path('collection', views.collection, name='collection'),
+    path('searchcollection', views.searchcollection, name='searchcollection'),
 
 ]
