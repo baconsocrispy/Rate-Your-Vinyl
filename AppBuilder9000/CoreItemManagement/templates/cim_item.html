@@ -1,0 +1,50 @@
+{% extends "cim_base.html" %}
+
+{% block title %}Core Item Management{% endblock %}
+
+
+{% block header %}
+<div class="cim_Title">
+    <h1>Core Item Management</h1>
+    <h2>Item View</h2>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<br>
+<div class="content">
+    <div class="text-center">
+        <h5></h5>
+        <!-- Replace the <input> with a Django form including a dropdown list of accounts-->
+        <form method="POST">
+            <label id="index-label">Enter Item Product Number:</label>
+            {% csrf_token %}
+            {{form.item}}
+            <button type="submit">Go to Item</button>
+        </form>
+    </div>
+</div>
+<hr>
+
+<!--
+Variables:
+{{ pk.part_num }}
+{{ pk.name }}
+{{ pk.count }}
+{{ pk.category }}
+{{ pk.price }}
+{{ pk.vendor }}
+-->
+<div>
+    <h1>{{ pk.name }}</h1>
+    <h3>{{ pk.part_num }}</h3>
+    <span>
+        <p>{{ pk.count }}</p>
+        <p>{{ pk.category }}</p>
+        <p>{{ pk.price }}</p>
+        <p>{{ pk.vendor }}</p>
+    </span>
+</div>
+
+{% endblock %}

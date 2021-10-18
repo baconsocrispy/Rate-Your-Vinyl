@@ -1,0 +1,30 @@
+{% extends "cim_base.html" %}
+
+{% block title %}Core Item Management{% endblock %}
+
+
+{% block header %}
+<div class="cim_Title">
+    <h1>Core Item Management</h1>
+    <h2>Item List</h2>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<table class="table table-responsive" id ="transactions-table">
+    <!-- Replace this with the Django populated transactions -->
+    <tr id="headerRow">
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    {% for item, total in content.items %}
+    <tr>
+        <td class="center">{{ item.id }}</td>
+        <td class="center">{{ item.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}
