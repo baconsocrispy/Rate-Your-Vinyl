@@ -1,0 +1,18 @@
+body, html {
+    background-image: url('/static/images/bg3.jpg');
+    background-color: green;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: center;
+}
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: black;
+color: white;
+text-align: center;
+}
