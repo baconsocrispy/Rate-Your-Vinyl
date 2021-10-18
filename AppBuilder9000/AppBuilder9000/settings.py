@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'ValItems',
     'UtadaApp',
     'FunkoCollector',
+    'FantasyFB',
 ]
 
 MIDDLEWARE = [
