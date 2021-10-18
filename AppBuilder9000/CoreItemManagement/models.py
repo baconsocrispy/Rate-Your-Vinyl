@@ -39,4 +39,5 @@ class Vendor(models.Model):
     vendor_name = models.CharField(max_length=30)
     vendor_number = models.IntegerField()
     vendor_category = models.CharField(max_length=60, choices=CATEGORY, default=0)
+    vendor_contact = models.IntegerField()
 
