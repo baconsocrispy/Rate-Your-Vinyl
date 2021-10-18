@@ -37,6 +37,7 @@ urlpatterns = [
     path('ValItems/', include('ValItems.urls')),
     path('UtadaHikaru/', include('UtadaApp.urls')),
     path('FunkoCollector/', include('FunkoCollector.urls')),
+    path('FantasyFB/', include('FantasyFB.urls')),
 
 ]
 
