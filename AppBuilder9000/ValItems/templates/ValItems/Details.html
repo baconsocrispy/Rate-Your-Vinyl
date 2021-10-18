@@ -1,0 +1,14 @@
+{% extends "Val_base.html" %}
+
+{% block title %}Valheim Items{% endblock %}
+
+{% block content %}
+<div class="view_container">
+    <ul class="item_ul">
+        <li>Name: {{ items.item_name }}</li>
+        <li>Type: {{ items.item_type }}</li>
+        <li>Level: {{ items.item_level }}</li>
+        <li>Description: {{ items.item_description }}</li>
+    </ul>
+</div>
+{% endblock %}
