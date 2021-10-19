@@ -1,0 +1,32 @@
+{% extends 'utada_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Music {% endblock %}
+
+{% block content %}
+	<h3>ENTRIES</h3>
+
+    <div class="music-form container px-5 py-5 text-white border border-dark " >
+
+            <label>Entries</label>
+
+                <table class="table table-responsive" id ="transactions-table">
+				<!-- Replace this with the Django populated transactions -->
+				<tr id="headerRow">
+					<th>Song</th>
+					<th>Year</th>
+					<th>Image</th>
+
+				</tr>
+				{% for item in items %}
+				<tr>
+						<td class="center">{{ item.songs }}</td>
+						<td class="center">{{ item.year }}</td>
+						<td class="left">{{ item.image}}</td>
+
+				</tr>
+				{% endfor %}
+			</table>
+
+    </div>
+{% endblock %}
