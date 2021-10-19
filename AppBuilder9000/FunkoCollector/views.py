@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import FunkoPopName
 from .forms import CollectionForm
 from django.http import HttpResponseRedirect
@@ -55,3 +55,19 @@ def searchcollection(request):
 def detailscollection(request, funkopopname_id):
     detailspop = FunkoPopName.objects.get(pk=funkopopname_id)
     return render(request, 'detailscollection.html', {'detailspop': detailspop})
+
+def update_collection(request, funkopopname_id):
+    editpop = FunkoPopName.objects.get(pk=funkopopname_id)
+    form = CollectionForm(request.POST or None, instance=editpop)
+    if form.is_valid():
+        form.save()
+        return redirect('collection')
+    return render(request, 'editcollection.html', {'editpop': editpop, 'form': form})
+
+
+def delete_pop(request, funkopopname_id):
+    deletepop = FunkoPopName.objects.get(pk=funkopopname_id)
+    deletepop.delete()
+    return redirect('collection')
+
+

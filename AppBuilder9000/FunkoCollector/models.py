@@ -2,9 +2,9 @@ from django.db import models
 
 # tuple choices for database options of object size.
 SIZE_CHOICE = [
-    ('regular', '4_inch'),
-    ('medium', '6_inch'),
-    ('jumbo', '10_inch'),
+    ('Regular', '4_inch'),
+    ('Medium', '6_inch'),
+    ('Jumbo', '10_inch'),
 ]
 # tuple choices for database option of object rarity
 CHASE = [
