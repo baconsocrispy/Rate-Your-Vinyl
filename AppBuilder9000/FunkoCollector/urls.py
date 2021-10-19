@@ -10,5 +10,7 @@ urlpatterns = [
     path('searchcollection', views.searchcollection, name='searchcollection'),
     # shows the html and the id path of the object being displayed in the url
     path('detailscollection/<funkopopname_id>', views.detailscollection, name='detailscollection'),
+    path('editcollection/<funkopopname_id>', views.update_collection, name='editcollection'),
+    path('delete_pop/<funkopopname_id>', views.delete_pop, name='delete-pop'),
 
 ]
