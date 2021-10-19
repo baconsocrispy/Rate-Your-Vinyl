@@ -1,10 +1,11 @@
 {% extends 'funkocollectorbase.html' %}
 {% block title %}My Collection{% endblock %}
 
-<!-- display the saved information in a database in a table -->
+<!-- display the saved information in a database in a table styled with bootstrap -->
 {% block body %}
 <div class="container">
     <h1>My Collection</h1>
+    <p class="green_font"><b>click on the name for details:</b></p>
     <table class="table">
   <thead>
     <tr class="table-dark">
@@ -17,16 +18,19 @@
     </tr>
   </thead>
   <tbody>
+  <!-- django code with a For statement to iterate though the database to display the saved data in the table from each
+      key size, name, fandom, chase, purchase_price, value. -->
   {% for popcollection in collectionpop %}
 
     <tr>
       <td class="table-info">{{ popcollection.size }}</td>
-      <td class="table-info">{{ popcollection.name }}</td>
+      <!-- added clickable link to each name in the table to be directed to a details page for each object -->
+      <td class="table-info"><a href="{% url 'detailscollection' popcollection.id %}">{{ popcollection.name }}</a></td>
       <td class="table-info">{{ popcollection.fandome }}</td>
       <td class="table-info">{{ popcollection.chase }}</td>
       <td class="table-info">{{ popcollection.purchase_price }}</td>
       <td class="table-info">{{ popcollection.value }}</td>
-
+    <!-- end django for loop -->
     {% endfor %}
     </tr>{{ popcollection }}
   </tbody>
