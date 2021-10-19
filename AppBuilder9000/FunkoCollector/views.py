@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 
+
 def funkocollectorhome(request):
     return render(request, 'funkocollectorhome.html')
 
@@ -46,3 +47,11 @@ def searchcollection(request):
         return render(request, 'searchcollection.html', {'searched': searched, 'pops': pops})
     else:
         return render(request, 'searchcollection.html', {})
+
+# function for rendering a details page from a clickable link found by the pk-id of an object in the database
+# to display the details of that one object.
+
+
+def detailscollection(request, funkopopname_id):
+    detailspop = FunkoPopName.objects.get(pk=funkopopname_id)
+    return render(request, 'detailscollection.html', {'detailspop': detailspop})

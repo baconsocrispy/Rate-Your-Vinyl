@@ -50,3 +50,11 @@ border-radius: 20px;
 .pull-right {
 float: right;
 }
+
+.red_font {
+color: red;
+}
+
+.green_font {
+color: lime;
+}
