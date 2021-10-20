@@ -11,12 +11,13 @@
 
 
 
-<div class="music">
+<div class="music px-5 py-5 text-white">
     <form class="sub-form pb-5" name="MusicForm" method="POST">
         <table>
             {% csrf_token %}
             {{ form.non_field_errors }}
             {{ form.as_table}}
+
         </table>
     </form>
 </div>

@@ -17,13 +17,16 @@
 					<th>Year</th>
 					<th>Image</th>
 
+				<th>Details</th>
+
+
 				</tr>
 				{% for item in items %}
 				<tr>
 						<td class="center">{{ item.songs }}</td>
 						<td class="center">{{ item.year }}</td>
 						<td class="left">{{ item.image}}</td>
-
+						<td class="left"><a href="{% url 'hiki_details' item.pk %}">Details</a></td>
 				</tr>
 				{% endfor %}
 			</table>

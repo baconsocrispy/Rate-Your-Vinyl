@@ -28,12 +28,12 @@ def entries(request):
 #details page
 def submissions (request,pk):
       entry = get_object_or_404(Music,pk=pk)
-      form = MusicForm(data=request.Post or None, instance=entry)
+      form = MusicForm(data=request.POST or None, instance=entry)
       if request.method =='POST':
             if form.is_valid():
                   form = form.save(commit=False)
                   form.save()
-                  return redirect('music')
+                  return redirect('hiki_music')
             else:
                   print(form.errors)
       else:
