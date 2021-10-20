@@ -100,9 +100,13 @@ form {
     position: absolute;
     margin-top: 150px;
     margin-left: -10px;
-    text-align: left;
     word-wrap: normal;
 }
 
+.save-item-button .delete-item-button {
+    display: inline-block;
+    margin-top: 50px;
+    text-decoration: none;
+}
 
 
