@@ -123,3 +123,9 @@ footer {
     color: white;
     text-align: center;
 }
+
+#del_button {
+    text-color: black;
+    border-color: red;
+    background-color: red;
+}

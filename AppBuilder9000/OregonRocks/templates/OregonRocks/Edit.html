@@ -4,13 +4,12 @@
 {% block content %}
 <div class="form_container">
     <form method="POST">
-        <h1>Rockhounding Location Form</h1>
         <div class="frmObject_container">
-        {% csrf_token %}
-        {{ form.as_p }}
-            <button type="submit" name="Rocks_Create">Add Location</button>
+            {% csrf_token %}
+            <!-- organize form as a table. {{ form.as_p}} will format it as a paragraph -->
+            {{ form.as_p }}
+            <button type="submit" name="update">Submit Update</button>
         </div>
-
     </form>
 </div>
 {% endblock %}
