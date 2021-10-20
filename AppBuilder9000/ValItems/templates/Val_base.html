@@ -25,12 +25,18 @@
 </div>
 
 <body id="body">
-<div class="form-container">
-    {% block content %}{% endblock %}
-    <div class="footer">
-        <p>Valheim Items - &copy Terry Nye 2021</p>
+
+    <div class="form-container">
+        {% block content %}{% endblock %}
+        <div class="footer">
+            <p>Valheim Items - &copy Terry Nye 2021</p>
+        </div>
     </div>
-</div>
+
+{% block script %}
+{% endblock %}
+
+
 </body>
 
 </html>
