@@ -37,7 +37,7 @@ html, body {
     background-color: #4b4200;
 }
 
-ul {
+.base_ul {
     float: center;
     list-style: none;
 }
@@ -90,11 +90,19 @@ form {
     text-align: left;
 }
 
+.item_ul {
+    display: flex;
+    position: inline;
+    padding: 10px;
+}
+
 .view_container {
-    display: inline-block;
     position: absolute;
     margin-top: 150px;
-    margin-left: -100px;
+    margin-left: -10px;
     text-align: left;
+    word-wrap: normal;
 }
-/* End Basic Footer Style */
+
+
+
