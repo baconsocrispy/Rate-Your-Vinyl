@@ -5,12 +5,14 @@
 
 
 {% block content %}
+
+
 <h3>SUBMISSIONS</h3>
 
 
 
 <div class="music">
-    <form class="sub-form pb-5" name="MusicForm" method="POST" action="../submissions">
+    <form class="sub-form pb-5" name="MusicForm" method="POST">
         <table>
             {% csrf_token %}
             {{ form.non_field_errors }}

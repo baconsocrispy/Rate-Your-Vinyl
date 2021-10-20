@@ -23,22 +23,21 @@ def music(request):
 def entries(request):
     items = Music.Songs.all()
     context = {'items':items}
-    return render(request,'hiki_entries',context)
+    return render(request,'hiki_entries.html',context)
 
 #details page
 def submissions (request,pk):
-      pk = int(pk)
       entry = get_object_or_404(Music,pk=pk)
       form = MusicForm(data=request.Post or None, instance=entry)
       if request.method =='POST':
             if form.is_valid():
-                  form2 = form.save(commit=False)
-                  form2.save()
+                  form = form.save(commit=False)
+                  form.save()
                   return redirect('music')
             else:
                   print(form.errors)
       else:
-            return render(request,'hiki_details')
+            return render(request,'hiki_details.html', {'form': form})
 
 
 
