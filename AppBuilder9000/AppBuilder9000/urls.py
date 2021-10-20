@@ -38,6 +38,7 @@ urlpatterns = [
     path('UtadaHikaru/', include('UtadaApp.urls')),
     path('FunkoCollector/', include('FunkoCollector.urls')),
     path('FantasyFB/', include('FantasyFB.urls')),
+    path('SportsCars/', include('SportsCars.urls')),
 
 ]
 
