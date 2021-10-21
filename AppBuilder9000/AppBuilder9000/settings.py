@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'UtadaApp',
     'FunkoCollector',
     'FantasyFB',
+    'theforce',
 ]
 
 MIDDLEWARE = [
