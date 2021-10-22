@@ -1,5 +1,10 @@
 html {
-    background-color: #aa42ff;
+    background-image: url("../images/bg-img.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
@@ -10,7 +15,6 @@ h1 {
     padding-top: 0.4%;
 }
 
-/* Navbar container */
 .navbar {
   background-color: #333;
   font-family: Arial;
@@ -21,7 +25,6 @@ h1 {
   z-index: 1;
 }
 
-/* Links inside the navbar */
 .navbar a {
   float: left;
   font-size: 16px;
@@ -39,13 +42,11 @@ button {
     width: 100%;
 }
 
-/* The dropdown container */
 .dropdown {
   float: left;
   width: 32.63%;
 }
 
-/* Dropdown button */
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
@@ -53,16 +54,15 @@ button {
   color: white;
   padding: 14px 16px;
   background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  margin: 0;
 }
 
-/* Add a red background color to navbar links on hover */
+
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #8A2BE2;
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -73,7 +73,6 @@ button {
   width: 32.661%;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
   float: none;
   color: black;
@@ -83,12 +82,10 @@ button {
   text-align: left;
 }
 
-/* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -97,17 +94,16 @@ button {
   position: relative;
   text-align: center;
   color: white;
+  bottom: 100%;
 }
 
-
 .img-container .content {
-  position: absolute; /* Position the background text */
-  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1; /* Grey text */
-  width: 100%; /* Full width */
-  padding: 10px; /* Some padding */
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 10px;
 }
 
 .content .img-text-head {
@@ -118,3 +114,56 @@ button {
 .content .img-text {
     font-size: 25px;
 }
+
+.form-container {
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
+    margin: 0 auto;
+    width: 30%;
+    height: 100%;
+    border: 2px solid rgba(0,0,0,0.7);
+    color: white;
+    position: relative;
+}
+
+input, textarea {
+    width: 100%;
+    margin: 1% 0 0 0;
+    padding: 1% 0 2% 1%;
+    line-height: 18px
+    font-size: 15px
+    border-radius: 5px
+    border: 2px solid black;
+}
+
+label {
+    display: inline-block;
+    width: 95%;
+    text-align: left;
+    margin: 1% 0 0 0;
+    color: white;
+    font-weight: bold;
+    line-height: 18px;
+    font-size: 20px;
+}
+
+#sub-btn, #cancel {
+    margin-bottom: 10px;
+    width: 40%;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+#sub-btn:hover {
+    background-color: green;
+    color: white;
+}
+
+#cancel:hover {
+    background-color: red;
+    color: white;
+}
+
