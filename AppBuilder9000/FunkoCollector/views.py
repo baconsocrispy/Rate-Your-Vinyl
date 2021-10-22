@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
+from requests import request
+
 from .models import FunkoPopName
 from .forms import CollectionForm
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+import requests
+from bs4 import BeautifulSoup
 
 
 
@@ -56,6 +60,11 @@ def detailscollection(request, funkopopname_id):
     detailspop = FunkoPopName.objects.get(pk=funkopopname_id)
     return render(request, 'detailscollection.html', {'detailspop': detailspop})
 
+# function for rendering a update page form from a button on the  collection table for each object found by the pk-id
+# in the database in a form that shows all the data from the database in the form.  You can then change the information
+# in each field or just one field.  Click submit to save changes.  The changes will overwrite the data in the database
+# that can be displayed in the collection page.
+
 def update_collection(request, funkopopname_id):
     editpop = FunkoPopName.objects.get(pk=funkopopname_id)
     form = CollectionForm(request.POST or None, instance=editpop)
@@ -64,10 +73,34 @@ def update_collection(request, funkopopname_id):
         return redirect('collection')
     return render(request, 'editcollection.html', {'editpop': editpop, 'form': form})
 
+# a function for deleting objects in the database.  A button in the Collection table colored red for each item in the
+# database to be able to delete that item.  There is a conformation pop up that will act as a double check to make sure
+# you want to delete the item from the database.
+
 
 def delete_pop(request, funkopopname_id):
     deletepop = FunkoPopName.objects.get(pk=funkopopname_id)
     deletepop.delete()
     return redirect('collection')
+
+
+def pop_news(request):
+    url = "https://hotstuff4geeks.com/funko-pop-news/"
+    headers = {
+        "user-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                      "Chrome/95.0.4638.54 Safari/537.36",
+        "Accept-Language": "en",
+    }
+    r = requests.get(url, headers=headers)
+    soup = BeautifulSoup(r.text, "lxml")
+    popnews = soup.find_all('article')
+    for news in popnews:
+        names_pop = news.find('h2', class_='elementor-post__title').get_text()
+        date_pop = news.find(class_='elementor-post-date').get_text()
+        info_pop = news.a['href']
+        names_pop.strip()
+        date_pop.strip()
+        return render(request, 'popnews.html', {'names_pop': names_pop, 'date_pop': date_pop, 'info_pop': info_pop})
+
 
 
