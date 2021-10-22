@@ -1,0 +1,29 @@
+{% extends 'utada_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Music {% endblock %}
+
+
+{% block content %}
+
+<form>
+    <table>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {{ form.as_table}}
+    </table>
+</form>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+

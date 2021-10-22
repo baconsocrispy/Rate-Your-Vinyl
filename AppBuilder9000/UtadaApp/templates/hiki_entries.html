@@ -27,8 +27,12 @@
 						<td class="center">{{ item.year }}</td>
 						<td class="left">{{ item.image}}</td>
 						<td class="left"><a href="{% url 'hiki_details' item.pk %}">Details</a></td>
+						<td class="left"><a href="{% url 'hiki_edit' edits.id %}">Edit</a></td>
 				</tr>
 				{% endfor %}
+
+
+
 			</table>
 
     </div>

@@ -71,6 +71,14 @@ th {
   width: 50%;
 }
 
-.sub-form {
-    margin: 0px auto;
+img {
+ width: 100%;
+ height: 100%;
+ max-width: 100%;
+}
+
+.container-md {
+  width: 100%;
+  height: auto;
+
 }

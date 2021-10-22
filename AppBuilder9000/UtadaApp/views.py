@@ -40,4 +40,14 @@ def submissions (request,pk):
             return render(request,'hiki_details.html', {'form': form})
 
 
+def editer(request, id):
+      edits = Music.Songs.all(Music,pk=id)
+      form = MusicForm(request.POST or None,instance=edits)
+      if form.is_valid():
+            form.save()
+            return redirect('hiki_music')
+      return render(request,'hiki_edit.html', {'edits': edits, 'form':form})
+
+
+
 
