@@ -6,16 +6,15 @@
 
 {% block content %}
 
-<form>
-    <table>
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        {{ form.as_table}}
-    </table>
-</form>
+<h3>Add a Song</h3>
 
-
-
+<div class="edit_container px-5 py-5">
+        <form method="POST">
+                {% csrf_token %}
+                {{form | crispy}}
+        <button class="btn btn-outline-light mx-auto d-block" type="Submit" name="Submit Changes">Submit Changes</button>
+        </form>
+</div>
 
 
 
