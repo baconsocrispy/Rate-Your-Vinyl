@@ -4,21 +4,28 @@
 {% block body %}
 
 
+
+<h1>Pop News...</h1>
 <div class="container">
-  <h1>Pop News...</h1>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-md-3 row-cols-md-4 g-1">
 
-  <div class="card" style="width: 18rem;">
+    {% for pop in pop_list %}
 
-    <div class="card-body">
-
-      <h5 class="card-title">{{ names_pop }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Posted: {{ date_pop }}</h6>
-      <a href="{{ info_pop }}" class="card-link">News Details</a>
-
+    <div class="col">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ pop.title }}</h5>
+            <a href="{{ pop.link }}" class="card-link">News Details</a>
+          </div>
+        </div>
+      </div><br>
     </div>
+
+    {% endfor %}
 
   </div>
 </div>
-
+<br><br><br>
 
 {% endblock %}

@@ -83,8 +83,11 @@ def delete_pop(request, funkopopname_id):
     deletepop.delete()
     return redirect('collection')
 
+# function for a web scrape to pull specific details from a website to be displayed on a django template for the funko
+# app
 
 def pop_news(request):
+    # URL to be scraped
     url = "https://hotstuff4geeks.com/funko-pop-news/"
     headers = {
         "user-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -92,15 +95,26 @@ def pop_news(request):
         "Accept-Language": "en",
     }
     r = requests.get(url, headers=headers)
+    # utilizing the BeautifulSoup and lxml modules
     soup = BeautifulSoup(r.text, "lxml")
     popnews = soup.find_all('article')
+
+    pop_list = []
+
     for news in popnews:
-        names_pop = news.find('h2', class_='elementor-post__title').get_text()
-        date_pop = news.find(class_='elementor-post-date').get_text()
+        names_pop = news.find(class_='elementor-post__title').get_text()
+        date_pop = news.find(class_='elementor-post-date')
         info_pop = news.a['href']
-        names_pop.strip()
-        date_pop.strip()
-        return render(request, 'popnews.html', {'names_pop': names_pop, 'date_pop': date_pop, 'info_pop': info_pop})
+
+        info = {
+            "title": names_pop.strip(),
+            "date": date_pop,
+            "link": info_pop
+        }
+        pop_list.append(info)
+
+    return render(request, 'popnews.html', {'pop_list': pop_list})
+
 
 
 

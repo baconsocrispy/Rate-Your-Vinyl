@@ -21,7 +21,7 @@ def popnews():
         names_pop = news.find('h2', class_='elementor-post__title').text
         date_pop = news.find(class_='elementor-post-date').text
         info_pop = news.a['href']
-        print(names_pop.strip())
+        print(names_pop.strip() if names_pop is not None else '')
         print(date_pop.strip())
         print(info_pop)
         print(' ')
