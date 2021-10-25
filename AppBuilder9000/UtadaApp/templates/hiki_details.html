@@ -10,16 +10,11 @@
 <h3>SUBMISSIONS</h3>
 
 
+<div class="music-container">
+    <div class="music px-5 py-5 text-white container-md">
+        <img src="{% static '/images/utadalive.jpg' %}">
 
-<div class="music px-5 py-5 text-white">
-    <form class="sub-form pb-5" name="MusicForm" method="POST">
-        <table>
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            {{ form.as_table}}
-
-        </table>
-    </form>
+    </div>
 </div>
 
 

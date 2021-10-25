@@ -71,6 +71,34 @@ th {
   width: 50%;
 }
 
-.sub-form {
+img {
+ width: 100%;
+ height: 100%;
+ max-width: 100%;
+}
+
+.container-md {
+  width: 100%;
+  height: auto;
+
+}
+
+.slideshow-container {
+  width: 500px;
+  margin: 0px auto;
+}
+
+.p-container {
+   margin: 30px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   color: white;
+   font-size: 150%;
+   text-align: center;
+}
+
+
+.music-container {
+    width: 650px;
     margin: 0px auto;
+
 }

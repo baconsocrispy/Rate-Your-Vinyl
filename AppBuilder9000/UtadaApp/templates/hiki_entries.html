@@ -18,6 +18,8 @@
 					<th>Image</th>
 
 				<th>Details</th>
+				<th>Edit</th>
+				<th>Delete</th>
 
 
 				</tr>
@@ -27,8 +29,14 @@
 						<td class="center">{{ item.year }}</td>
 						<td class="left">{{ item.image}}</td>
 						<td class="left"><a href="{% url 'hiki_details' item.pk %}">Details</a></td>
+						<td class="left"><a href="{% url 'hiki_edit' item.pk %}">Edit</a></td>
+						<td class="left"><a href="{% url 'hiki_delete' item.pk %}">Delete</a></td>
 				</tr>
+
 				{% endfor %}
+
+
+
 			</table>
 
     </div>

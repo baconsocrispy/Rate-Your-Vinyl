@@ -37,7 +37,25 @@ def submissions (request,pk):
             else:
                   print(form.errors)
       else:
-            return render(request,'hiki_details.html', {'form': form})
+          return render(request,'hiki_details.html', {'form':form})
 
+
+
+def editer(request,pk):
+    edits = get_object_or_404(Music, pk=pk)
+    form = MusicForm(request.POST or None,instance=edits)
+    if form.is_valid():
+        form.save()
+        return redirect('hiki_entries')
+    return render(request, 'hiki_edit.html', {'edits':edits, 'form':form})
+
+
+
+def delete(request,pk):
+    item = get_object_or_404(Music, pk=pk)
+    if request.method =='POST':
+        item.delete()
+        return redirect('hiki_entries')
+    return render(request, 'hiki_delete.html')
 
 
