@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/animeReviews.css' %}">
+</head>
+    <body>
+
+        {% block navbar %}
+        <nav id="menu">
+            <div class="menu-item">
+                <div class="menu-text">
+                    <a href="#home">Home</a>
+                </div>
+                <div class="menu-text">
+                    <a href="#About">About</a>
+                </div>
+                <div class="menu-text">
+                    <a href="#Contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+
+    </body>
+    <footer>
+        <p>Anime Reviews | &copy 2021</p>
+    </footer>
+</html>
