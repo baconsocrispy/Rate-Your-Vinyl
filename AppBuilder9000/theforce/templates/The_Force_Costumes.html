@@ -1,0 +1,30 @@
+{% extends "The_Force_Base.html" %}
+{% load static %}
+{% block title %} Star Wars Costume Design {% endblock %}
+
+{% block header %}
+    <h1>Star Wars Costume Designs!!!</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <table id="table">
+            <thead>
+                <tr id="th">
+                    <th>Light Side</th>
+                    <th>Dark Side</th>
+                    <th>Storm Trooper</th>
+                    <th>Bounty Hunter</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="td">
+                    <td>{{ details.order_from }}</td>
+                    <td>{{ details.name }}</td>
+                    <td>{{ details. address }}</td>
+                    <td>{{ details.convention }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

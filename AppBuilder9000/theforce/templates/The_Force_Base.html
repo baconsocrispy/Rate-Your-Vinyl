@@ -7,24 +7,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
        <link rel="stylesheet" href="{% static 'css/theforce.css' %}">
     </head>
-    <body>
-        <div>
-            <header>
-                {% block navbar %}
-                <ul class="navbar">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+   <body>
+        <div class="page_container">
+            <nav>
+                <ul>
+                    <li><a href="{% url '_Home' %}">Home</a></li>
+                    <li><a href="{% url 'TheForce' %}">Add Location</a></li>
+                    <li><a href="{% url 'Edit' %}">Locations</a></li>
                 </ul>
-                {% endblock %}
-                <h1>{% block header %}{% endblock %}</h1>
+            </nav>
+            <br>
+            <br>
+            <header>
+                <h1>{% block header %}The Force{% endblock %}</h1>
             </header>
             {% block content %}{% endblock %}
         </div>
 
-
+        <footer>
+            <p>Jedi Mind Trick &copy;2021 | Stephen Parks</p>
+        </footer>
     </body>
 
 
 
 </html>
+

@@ -10,7 +10,7 @@ TYPE_CHOICES = (
     ('Kylo Ren', 'Kylo Ren'),
 )
 
-class CultClassics(models.Model):
+class TheForce(models.Model):
     Jedi = models.CharField(max_length=25, choices=TYPE_CHOICES)
     Your_Name = models.CharField(max_length=25, default="", blank=True, null=False)
     Your_favorite_movie = models.CharField(max_length=25, default="", blank=True, null=False)
