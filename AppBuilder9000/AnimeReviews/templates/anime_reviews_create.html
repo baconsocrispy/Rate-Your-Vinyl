@@ -12,7 +12,9 @@
 		<form method="POST" class="animeForm">
 			{% csrf_token %}
 			{{form.as_p}}
-			<button id="add_anime_button" type="submit" name="Save_Anime">Add Anime Review</button>
+			<div class="submitBtn">
+				<button id="add_anime_button" type="submit" name="Save_Anime">Add Anime Review</button>
+			</div>
 		</form>
 	</div>
 
