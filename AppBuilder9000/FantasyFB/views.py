@@ -3,8 +3,10 @@ from .models import Player
 from .forms import NewPlayer
 # Create your views here.
 
+
 def fantasyFB_home(request):
     return render(request, 'fantasyFB_home.html')
+
 
 def fantasyFB_form(request):
     form = NewPlayer(request.POST or None)
@@ -18,3 +20,8 @@ def fantasyFB_form(request):
         'form': form,
     }
     return render(request, 'fantasyFB_form.html', context)
+
+
+def fantasyFB_roster(request):
+    players = Player.objects.all()
+    return render(request, 'fantasyFB_roster.html', {'players': players})
