@@ -1,0 +1,21 @@
+{% extends 'anime_reviews_base.html' %}
+
+{% load static %}
+
+{% block title %}Add New Anime{% endblock %}
+
+
+{% block content %}
+<h3>Add your Anime Review here.</h3>
+
+	<div class="anime_container">
+		<form method="POST" class="animeForm">
+			{% csrf_token %}
+			{{form.as_p}}
+			<div class="submitBtn">
+				<button id="add_anime_button" type="submit" name="Save_Anime">Add Anime Review</button>
+			</div>
+		</form>
+	</div>
+
+{% endblock %}
