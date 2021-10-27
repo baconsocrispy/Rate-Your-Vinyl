@@ -7,6 +7,14 @@ html {
     width: 100%;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
 h1 {
     text-align: center;
     color: white;
@@ -21,73 +29,26 @@ h1 {
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
   z-index: 1;
 }
 
 .navbar a {
   float: left;
-  font-size: 16px;
+  font-size: 20px;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   text-decoration: none;
-}
-
-.navbtn {
-    width: 32%;
+  width: 32%;
 }
 
 button {
     width: 100%;
 }
 
-.dropdown {
-  float: left;
-  width: 32.63%;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover {
   background-color: #8A2BE2;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  width: 32.661%;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .img-container {
@@ -165,5 +126,46 @@ label {
 #cancel:hover {
     background-color: red;
     color: white;
+}
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.6);
+  height: 100%;
+  border: 2px solid rgba(0,0,0,0.7);
+  color: black;
+  position: relative;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.tbl-head {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+th {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+th, td {
+    border-radius: 5px;
+    border: 2px solid lightblue;
+    background-color: white;
+    padding: 5px;
+    text-align: center;
 }
 
