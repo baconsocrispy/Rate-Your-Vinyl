@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'FantasyFB',
     'theforce',
     'AnimeReviews',
+    'KeyMaster',
+
 ]
 
 MIDDLEWARE = [

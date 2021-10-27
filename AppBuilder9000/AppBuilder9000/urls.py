@@ -36,6 +36,8 @@ urlpatterns = [
     path('FantasyFB/', include('FantasyFB.urls')),
     path('theforce/', include('theforce.urls')),
     path('AnimeReviews/', include('AnimeReviews.urls')),
+    path('KeyMaster/', include('KeyMaster.urls')),
+
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
