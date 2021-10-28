@@ -28,7 +28,7 @@ class Player(models.Model):
     position = models.CharField(max_length=2, choices=POSITION_CHOICES)
     reason = models.TextField(max_length=500, default="", null=False)
 
-    objects = models.Manager()
+    Players = models.Manager()
 
     def __str__(self):
         return self.name

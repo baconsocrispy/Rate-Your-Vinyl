@@ -20,7 +20,7 @@
                     {% if player.team == 'Marvel' %}
                 <tr>
                     <td>{{ player.position }}</td>
-                    <td>{{ player.name }}</td>
+                    <td><a href="{% url 'fantasyFB_details' player.pk %}">{{ player.name }}</a></td>
                     {% endif %}
                 </tr>
 
@@ -42,7 +42,7 @@
                     {% if player.team == 'DC' %}
                 <tr>
                     <td>{{ player.position }}</td>
-                    <td>{{ player.name }}</td>
+                    <td><a href="{% url 'fantasyFB_details' player.pk %}">{{ player.name }}</a></td>
                     {% endif %}
                 </tr>
 
