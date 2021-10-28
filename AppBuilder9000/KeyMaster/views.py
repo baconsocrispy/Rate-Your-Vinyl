@@ -12,6 +12,7 @@ def KeyMasterAddGame(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            return redirect('KeyMaster_home')
     content = {'form': form}
     return render(request, 'KeyMasterAddGame.html', content)
 
@@ -20,6 +21,7 @@ def KeyMasterAddDLC(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            return redirect('KeyMaster_home')
     content = {'form': form}
     return render(request, 'KeyMasterAddDLC.html', content)
 
@@ -28,5 +30,6 @@ def KeyMasterAddWishlist(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            return redirect('KeyMaster_home')
     content = {'form': form}
     return render(request, 'KeyMasterWishlist.html', content)
