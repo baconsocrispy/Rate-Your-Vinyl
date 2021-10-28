@@ -37,6 +37,7 @@ urlpatterns = [
     path('theforce/', include('theforce.urls')),
     path('AnimeReviews/', include('AnimeReviews.urls')),
     path('KeyMaster/', include('KeyMaster.urls')),
+    path('CocktailRecipes/', include('CocktailRecipes.urls')),
 
 ]
 

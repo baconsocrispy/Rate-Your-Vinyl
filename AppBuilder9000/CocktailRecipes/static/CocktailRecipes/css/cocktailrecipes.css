@@ -1,0 +1,20 @@
+/*=====================
+    General Styling
+=====================*/
+/* this styles and resizes the background image on home.html */
+body {
+    background-image: url('../images/bg_img.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #bfbfc0;
+}
+
+#footer_text {
+    margin: auto;
+}
+
+h1 {
+    color: white;
+}

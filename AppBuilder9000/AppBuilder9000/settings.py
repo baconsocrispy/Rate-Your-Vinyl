@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'theforce',
     'AnimeReviews',
     'KeyMaster',
+    'CocktailRecipes',
 
 ]
 
