@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="/static/css/theforce.css ">
+        <link rel="stylesheet" href="{% static 'css/theforce.css' %}">
     </head>
    <body>
         <div class="page_container">
@@ -23,12 +23,11 @@
             </header>
             {% block content %}{% endblock %}
         </div>
-
-        <footer>
-            <p>Jedi Mind Trick &copy;2021 | Stephen Parks</p>
-        </footer>
     </body>
 
+    <footer>
+        <p>Jedi Mind Trick &copy;2021 | Stephen Parks</p>
+    </footer>
 
 
 </html>

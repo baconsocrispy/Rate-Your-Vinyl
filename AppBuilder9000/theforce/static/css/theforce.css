@@ -1,9 +1,14 @@
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-image: url('/static/images/lightsaberfight.jpg);
-    background-repeat: no-repeat;
-    background-size: 100%;
+
+body{
+  background-image: url('/static/images/lightsaberfight.jpg'); /* The image used */
+  background-color: red; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
+
+
 
 /*navbar styling*/
 .navbar {
@@ -24,6 +29,13 @@ body {
 
 
 /*end of navbar styling*/
+
+h1 {
+color: blue;
+font-family: cambria;
+}
+
+
 
 h3 {
  color: white;
@@ -55,14 +67,17 @@ h3 {
   display:block;
   margin: 0.2em auto;
  }
+
+footer {
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    color: #ff7575;
 }
 
-
-.music_container{
-    width: 50%;
-    margin: 0px auto;
-
-}
 
 th {
   width: 50%;
