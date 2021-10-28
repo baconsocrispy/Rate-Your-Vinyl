@@ -8,7 +8,6 @@ def The_Force_home(request):
     return render(request, 'The_Force_Home.html')
 
 def The_Force_Create(request):
-    if request.method == "POST":
         form = TheForceForm(request.POST or None)
         if form.is_valid():
             form.save()
@@ -16,7 +15,7 @@ def The_Force_Create(request):
 
         else:
             print(form.errors)
-            form = TheForce()
+            form = TheForceForm()
         context = {
             'form': form,
         }
@@ -34,17 +33,18 @@ def The_Force_Costumes(request, pk):
     return render(request, TheForce, context)
 
 def Edit(request, pk):
-    item = get_object_or_404("", pk=pk)
+    item = get_object_or_404(TheForce, pk=pk)
     form = TheForceForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('TheForce')
+            return redirect('The_Force_Event')
+
         else:
             print(form.errors)
     else:
-        return render(request,The_Force_Create, {'form': form, 'item':item})
+        return render(request, The_Force_Create, {'form': form, 'item': item})
 
 def update(request, pk):
      TheForce = The_Force_Costumes().objects.get(pk=pk)

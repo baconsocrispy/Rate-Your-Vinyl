@@ -5,15 +5,15 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="stylesheet" href="{% static 'css/theforce.css' %}">
+       <link rel="stylesheet" href="/static/css/theforce.css ">
     </head>
    <body>
         <div class="page_container">
             <nav>
                 <ul>
                     <li><a href="{% url '_Home' %}">Home</a></li>
-                    <li><a href="{% url 'TheForce' %}">Add Location</a></li>
-                    <li><a href="{% url 'Edit' %}">Locations</a></li>
+                    <li><a href="{% url 'TheForce' %}">More About You</a></li>
+                    <li><a href="{% url 'Edit' %}">Events</a></li>
                 </ul>
             </nav>
             <br>
