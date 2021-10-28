@@ -23,5 +23,10 @@ def fantasyFB_form(request):
 
 
 def fantasyFB_roster(request):
-    players = Player.objects.all()
+    players = Player.Players.all()
     return render(request, 'fantasyFB_roster.html', {'players': players})
+
+
+def fantasyFB_details(request, pk):
+    players = get_object_or_404(Player, pk=pk)
+    return render(request, 'fantasyFB_details.html', {'players': players})

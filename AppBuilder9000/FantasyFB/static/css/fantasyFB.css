@@ -40,7 +40,7 @@ h1 {
   padding-top: 16px;
   padding-bottom: 16px;
   text-decoration: none;
-  width: 32%;
+  width: 33.33%;
 }
 
 button {
@@ -76,7 +76,7 @@ button {
     font-size: 25px;
 }
 
-.form-container {
+.form-container, .details {
     border-radius: 10px;
     background-color: rgba(0,0,0,0.6);
     padding: 20px;
@@ -169,3 +169,41 @@ th, td {
     text-align: center;
 }
 
+.details {
+    width: 40%;
+    text-align: center;
+}
+
+.details h2 {
+    text-align: center;
+    font-size: 70px;
+    text-decoration: underline;
+    margin: 2px
+}
+
+.left, .right {
+    display: inline-block;
+    font-size: 50px;
+}
+
+.left {
+    margin-right: 80px;
+}
+
+#reason-header {
+    font-size: 40px;
+    font-style: italic;
+    text-align: center;
+    margin-top: -5px;
+}
+
+.reason {
+    width: 80%;
+    border: 2px none;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+    font-size: 25px;
+    margin: 0 auto;
+    padding: 1px;
+}
