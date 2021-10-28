@@ -11,10 +11,12 @@
         <div>
             <nav class="navbar">
                 <ul class="menu">
-                    <a href=""><li>Live Projects Home</li></a>
-                    <a href=""><li>KeyMaster Home</li></a>
+                    <a href="{% url 'home' %}"><li>Live Projects Home</li></a>
+                    <a href="{% url 'KeyMaster_home' %}"><li>KeyMaster Home</li></a>
+                    <a href="{% url 'addgame' %}"><li>Add a Game</li></a>
+                    <a href="{% url 'adddlc' %}"><li>Add DLC</li></a>
+                    <a href="{% url 'addwish' %}"><li>Add to Wishlist</li></a>
                     <a href=""><li>Game List</li></a>
-                    <a href=""><li>Add a Game</li></a>
                 </ul>
             </nav>
         </div>
