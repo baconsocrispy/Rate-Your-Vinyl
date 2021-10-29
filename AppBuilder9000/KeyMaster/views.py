@@ -33,3 +33,8 @@ def KeyMasterAddWishlist(request):
             return redirect('KeyMaster_home')
     content = {'form': form}
     return render(request, 'KeyMasterWishlist.html', content)
+
+def KeyMaster_Gamelist(request):
+    game_list = Games.objects.all().order_by('game_name')
+    wish_list = Wishlist.objects.all().order_by('game_title')
+    return render(request, 'KeyMaster_Gamelist.html', {'game_list': game_list, 'wish_list': wish_list})
