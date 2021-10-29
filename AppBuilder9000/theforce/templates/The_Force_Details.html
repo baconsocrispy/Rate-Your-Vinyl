@@ -1,0 +1,30 @@
+{% extends 'The_Force_Base.html' %}
+{% load static %}
+{% block title %} The Force Details {% endblock %}
+
+{% block header %}
+    <h1>The Force Details</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <table id="table">
+            <thead>
+                <tr id="th">
+                    <th>Your Age?</th>
+                    <th>Years a fan?</th>
+                    <th>Own any Collectables?</th>
+                    <th>Favorite Quote?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="td">
+                    <td>{{ details.Age }}</td>
+                    <td>{{ details.Years }}</td>
+                    <td>{{ details.Collectables }}</td>
+                    <td>{{ details.Favorite }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

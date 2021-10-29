@@ -45,6 +45,13 @@ def Edit(request, pk):
         return render(request, 'The_Force_Create.html', {'form': form, 'item': item})
 
 
+def The_Force_Details(request, pk):
+    details = get_object_or_404(TheForce, pk=pk)
+    context = {'Details': Details}
+    return render(request, "The_Force_Details.html", context)
+
+
+
 
 def ConfirmDelete(request, pk):
     item = get_object_or_404('TheForce', pk=pk)

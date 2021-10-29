@@ -8,5 +8,5 @@ urlpatterns = [
        path('Costumes/', views.The_Force_Costumes, name='Costumes'),
        path('Edit/<int:pk>/', views.Edit, name='Edit'),
        path('ConfirmDelete/<int:pk>/', views.ConfirmDelete, name='ConfirmDelete'),
-
+       path('Details<int:pk>/', views.The_Force_Details, name='Details'),
 ]
