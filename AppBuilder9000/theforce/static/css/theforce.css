@@ -1,8 +1,23 @@
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-image: url('../../static/images/hiki.jpg');
-    background-repeat: no-repeat;
+
+body{
+  background-image: url('/static/images/lightsaberfight.jpg'); /* The image used */
+  background-color: red; /* Used if the image is unavailable */
+  height: 800px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
+
+.footer {
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+}
+
+
 
 /*navbar styling*/
 .navbar {
@@ -13,7 +28,7 @@ body {
 }
 
 .navbar a {
- float: left;
+ float: center;
  display: block;
  background-color: none;
  color: white;
@@ -23,6 +38,13 @@ body {
 
 
 /*end of navbar styling*/
+
+h1 {
+color: white;
+font-family: Arial;
+}
+
+
 
 h3 {
  color: white;
@@ -54,14 +76,6 @@ h3 {
   display:block;
   margin: 0.2em auto;
  }
-}
-
-
-.music_container{
-    width: 50%;
-    margin: 0px auto;
-
-}
 
 th {
   width: 50%;
@@ -74,3 +88,4 @@ th {
 .sub-form {
     margin: 0px auto;
 }
+

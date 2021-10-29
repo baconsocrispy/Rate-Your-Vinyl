@@ -64,6 +64,8 @@ def confirmDel(request, pk):
 
 
 
+
+
 #geolocator = Nominatim(user_agent="location")
 
 
