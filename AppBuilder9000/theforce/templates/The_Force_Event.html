@@ -28,9 +28,9 @@
                     <td>{{ event.Your_Favorite_Scene }}</td>
                     <td>{{ event.Light_or_Dark }}</td>
                     <td>{{ event.Is_The_Force_With_You }}</td>
-                    <td><a href="{% url 'Costumes' %}">Costumes </a></td>
                     <td><a href="{% url 'Edit' event.pk %}">Edit Entry</a></td>
-                    <td><a href="{% url 'ConfirmDelete' event.pk %}">Delete Details</a></td>
+                    <td><a href="{% url 'ConfirmDelete' event.pk %}">Delete Entry</a></td>
+                    <td><a href="{% url 'Details' event.pk %}">Details</a></td>
                 </tr>
             {% endfor %}
             </tbody>

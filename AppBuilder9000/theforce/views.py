@@ -27,8 +27,7 @@ def The_Force_Events(request):
     Event = TheForce.objects.all()
     return render(request, 'The_Force_Event.html', {'Event': Event})
 
-def The_Force_Costumes(request):
-    return render(request, 'The_Force_Costumes.html')
+
 
 def Edit(request, pk):
     item = get_object_or_404(TheForce, pk=pk)
@@ -46,7 +45,7 @@ def Edit(request, pk):
 
 
 def The_Force_Details(request, pk):
-    details = get_object_or_404(TheForce, pk=pk)
+    Details = get_object_or_404(TheForce, pk=pk)
     context = {'Details': Details}
     return render(request, "The_Force_Details.html", context)
 
@@ -54,10 +53,10 @@ def The_Force_Details(request, pk):
 
 
 def ConfirmDelete(request, pk):
-    item = get_object_or_404('TheForce', pk=pk)
+    item = get_object_or_404(TheForce, pk=pk)
     if request.method == 'POST':
         item.delete()
-        return redirect('The_Force_Event')
+        return redirect('Event')
     context = {'item': item}
     return render(request, 'The_Force_ConfirmDelete.html', context)
 
