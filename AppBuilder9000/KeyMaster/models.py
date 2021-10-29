@@ -55,7 +55,7 @@ class Wishlist(models.Model):
     game_title = models.CharField(max_length=50, default="", blank=False)
     genre = models.CharField(max_length=50, default="", choices=GENRE_CHOICES)
     store_name = models.CharField(max_length=50, default="", choices=STORE_CHOICES)
-    release_date = models.DateField(auto_now_add=False, auto_now=False, blank=False)
+    release_date = models.DateField(auto_now_add=False, auto_now=False, null=True, blank=True)
 
     objects = models.Manager()
 
