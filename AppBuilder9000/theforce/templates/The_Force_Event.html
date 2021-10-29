@@ -20,15 +20,17 @@
                 </tr>
             </thead>
             <tbody>
-            {% for event in event %}
+            {% for event in Event %}
                 <tr id="td">
-                    <td>{{ event.created_at }}</a></td>
-                    <td>{{ event.name }}</td>
-                    <td>{{ event. address }}</td>
-                    <td>{{ event.event_description }}</td>
-                     <td><a href="{% url 'The_Force_Costumes' event.pk %}">Costumes{{ event.costumes }}</a></td>
-                    <td><a href="{% url 'Edit' event.pk %}">Edit Entry{{ event. edit }}</a></td>
-                    <td><a href="{% url 'confirmDelete' event.pk %}">Delete Details</a></td>
+                    <td>{{ event.Jedi }}</td>
+                    <td>{{ event.Your_Name }}</td>
+                    <td>{{ event.Your_favorite_movie }}</td>
+                    <td>{{ event.Your_Favorite_Scene }}</td>
+                    <td>{{ event.Light_or_Dark }}</td>
+                    <td>{{ event.Is_The_Force_With_You }}</td>
+                    <td><a href="{% url 'Costumes' %}">Costumes </a></td>
+                    <td><a href="{% url 'Edit' event.pk %}">Edit Entry</a></td>
+                    <td><a href="{% url 'ConfirmDelete' event.pk %}">Delete Details</a></td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -25,12 +25,10 @@ def The_Force_Create(request):
 
 def The_Force_Events(request):
     Event = TheForce.objects.all()
-    return render(request, 'TheForce', {'Event': Event})
+    return render(request, 'The_Force_Event.html', {'Event': Event})
 
-def The_Force_Costumes(request, pk):
-    costumes = get_object_or_404('', pk=pk)
-    context = {'costumes': costumes}
-    return render(request, TheForce, context)
+def The_Force_Costumes(request):
+    return render(request, 'The_Force_Costumes.html')
 
 def Edit(request, pk):
     item = get_object_or_404(TheForce, pk=pk)
@@ -39,18 +37,14 @@ def Edit(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('The_Force_Event')
+            return redirect('Event')
 
         else:
             print(form.errors)
     else:
-        return render(request, The_Force_Create, {'form': form, 'item': item})
+        return render(request, 'The_Force_Create.html', {'form': form, 'item': item})
 
-def update(request, pk):
-     TheForce = The_Force_Costumes().objects.get(pk=pk)
-     TheForce.name = request.POST.get('name')
-     TheForce.save()
-     return redirect('The_Force_Event')
+
 
 def ConfirmDelete(request, pk):
     item = get_object_or_404('TheForce', pk=pk)

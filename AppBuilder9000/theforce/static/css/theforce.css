@@ -2,10 +2,19 @@
 body{
   background-image: url('/static/images/lightsaberfight.jpg'); /* The image used */
   background-color: red; /* Used if the image is unavailable */
-  height: 500px; /* You must set a specified height */
+  height: 800px; /* You must set a specified height */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
 }
 
 
@@ -31,8 +40,8 @@ body{
 /*end of navbar styling*/
 
 h1 {
-color: blue;
-font-family: cambria;
+color: white;
+font-family: Arial;
 }
 
 
@@ -68,17 +77,6 @@ h3 {
   margin: 0.2em auto;
  }
 
-footer {
-    left: 0;
-    bottom: 0;
-    position: fixed;
-    height: 50px;
-    width: 100%;
-    overflow: hidden;
-    color: #ff7575;
-}
-
-
 th {
   width: 50%;
 }
@@ -90,3 +88,4 @@ th {
 .sub-form {
     margin: 0px auto;
 }
+
