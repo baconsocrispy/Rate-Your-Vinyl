@@ -6,6 +6,7 @@ urlpatterns = [
     path('addgame/', views.KeyMasterAddGame, name='addgame'),
     path('adddlc/', views.KeyMasterAddDLC, name='adddlc'),
     path('addwish/', views.KeyMasterAddWishlist, name='addwish'),
+    path('gamelist/', views.KeyMaster_Gamelist, name="gamelist"),
 
 
 ]
