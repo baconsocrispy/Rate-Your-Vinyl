@@ -9,6 +9,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-color: #bfbfc0;
+    margin-bottom: 5vh;
 }
 
 #footer_text {
@@ -17,4 +18,13 @@ body {
 
 h1 {
     color: white;
+}
+
+.add_cocktail_form {
+	position: relative;
+	width: 30vw;
+	margin-top: 10vh;
+    margin-left: 35vw;
+    margin-right: 35vw;
+	color: white;
 }
