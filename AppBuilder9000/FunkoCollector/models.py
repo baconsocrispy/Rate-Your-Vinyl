@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # tuple choices for database options of object size.
 SIZE_CHOICE = [
     ('Regular', '4_inch'),
@@ -25,3 +26,4 @@ class FunkoPopName(models.Model):
 
     def __str__(self):
         return self.name
+
