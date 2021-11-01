@@ -162,6 +162,10 @@ th {
 	background-color: #EDFAFD;
 	color: #000;
 }
+.editA, .deleteA {
+    text-decoration: none;
+    color: #fff;
+}
 footer{
       position: absolute;
       bottom: 0;

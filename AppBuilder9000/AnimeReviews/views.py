@@ -37,9 +37,18 @@ def anime_reviews_edit(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('anime_reviews_details')
+            return redirect('anime_reviews_view')
 
         else:
             print(form.errors)
     else:
-        return render(request, 'anime_reviews_view.html', {'form': form, 'item': item})
+        return render(request, 'anime_reviews_edit.html', {'form': form, 'item': item})
+
+
+def anime_reviews_delete(request, pk):
+    item = get_object_or_404(Anime, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('anime_reviews_view')
+    context = {'item': item}
+    return render(request, 'anime_reviews_delete', context)
