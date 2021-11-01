@@ -1,11 +1,10 @@
 {% extends "anime_reviews_base.html" %}
 {% load static %}
-{% block title %}All Reviews{% endblock %}
-
+{% block title %}Review Details{% endblock %}
 
 {% block content %}
 
-<h1 class="viewHead">All Anime Reviews</h1>
+<h1 class="viewHead">Review Details</h1>
 
 <div class="table_container">
     <table class="review_table">
@@ -18,17 +17,15 @@
                 <th>Review</th>
             </tr>
         </thead>
-        {% for view in view %}
         <tbody>
             <tr class="tBody">
-                <td><a href="{% url 'anime_reviews_details' view.pk %}">{{ view.animeName }}</a></td>
-                <td>{{ view.numOfEpisodes }}</td>
-                <td>{{ view.studioName }}</td>
-                <td>{{ view.rating }}</td>
-                <td>{{ view.review }}</td>
+                <td>{{ details.animeName }}</td>
+                <td>{{ details.numOfEpisodes }}</td>
+                <td>{{ details.studioName }}</td>
+                <td>{{ details.rating }}</td>
+                <td>{{ details.review }}</td>
             </tr>
         </tbody>
-        {% endfor %}
     </table>
 </div>
 
