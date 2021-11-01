@@ -22,3 +22,9 @@ def anime_reviews_create(request):
 def anime_reviews_view(request):
     view = Anime.objects.all()
     return render(request, 'anime_reviews_view.html', {'view': view})
+
+
+def anime_reviews_details(request, pk):
+    details = get_object_or_404(Anime, pk=pk)
+    context = {'details': details}
+    return render(request, 'anime_reviews_details.html', context)
