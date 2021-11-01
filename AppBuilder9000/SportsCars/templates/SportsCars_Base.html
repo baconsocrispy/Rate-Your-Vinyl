@@ -1,26 +1,25 @@
 {% load static %}
+<!Doctype html>
+<html lang="en" class="bg_img">
+      <head>
+          <meta charset="UTF-8">
+          <title>{% block title %}{% endblock %}</title>
+          <meta name="viewport" content="width=device-width", initial-scale="1">
+          <link rel="stylesheet" type="text/css" href="{% static 'css/SportsCars.css' %}">
+      </head>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/SportsCars.css' %}">
-    </head>
-    <body>
-        <div>
-            <header>
-                {% block navbar %}
-                <ul class="topnav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Inventory</a></li>
-                    <li><a href="#">Add a Car</a></li>
-                </ul>
-                {% endblock %}
-                <h1>{% block header %}{% endblock %}</h1>
-            </header>
-            {% block content %}{% endblock %}
-        </div>
-    </body>
+      <ul class="topnav">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="#">Supercars</a></li>
+          <li><a href="#">Add a Car</a></li>
+      </ul>
+
+      <body>
+            <div class="page_container">
+                <header class="header_title">
+                    <h1>{% block header %}{% endblock %}</h1>
+                </header>
+                {% block content %}{% endblock %}
+            </div>
+      </body>
 </html>
