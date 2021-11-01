@@ -28,3 +28,18 @@ def anime_reviews_details(request, pk):
     details = get_object_or_404(Anime, pk=pk)
     context = {'details': details}
     return render(request, 'anime_reviews_details.html', context)
+
+
+def anime_reviews_edit(request, pk):
+    item = get_object_or_404(Anime, pk=pk)
+    form = NewAnime(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('anime_reviews_details')
+
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'anime_reviews_view.html', {'form': form, 'item': item})

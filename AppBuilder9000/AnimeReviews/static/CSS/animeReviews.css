@@ -88,7 +88,7 @@ h3 {
     padding-top: 1em;
     padding-bottom: 1em;
 }
-#add_anime_button {
+#add_anime_button, #editBtn, #deleteBtn {
       box-sizing: border-box;
       -webkit-appearance: none;
          -moz-appearance: none;
@@ -125,7 +125,7 @@ h3 {
       -webkit-transition: background 300ms ease-in-out;
       transition: background 300ms ease-in-out;
 }
-#add_anime_button:hover, #add_anime_button:focus {
+#add_anime_button:hover, #add_anime_button:focus, #editBtn:hover, #editBtn:focus, #deleteBtn:hover, #deleteBtn:focus {
     color: #fff;
     outline: 0;
     background-position: 100px;
