@@ -82,5 +82,5 @@ def anime_reviews_api(request):
     context = {
         'resultList': resultList
     }
-    print(resultList)
+
     return render(request, 'anime_reviews_api.html', context)
