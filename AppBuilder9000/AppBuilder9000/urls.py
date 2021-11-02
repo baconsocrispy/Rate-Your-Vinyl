@@ -24,13 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/v1/", include("OregonRocks.urls")),
     path('', views.home, name='home'),
-    path('WarriorStats/', include('WarriorStats.urls')),
-    path('EuroTrip/', include('EuroTrip.urls')),
-    path('RevitFunctions/', include('RevitFunctions.urls')),            #Story1,Step5: Register urls with Mainapp.
-    path('Recipes/', include('Recipes.urls')),
-    path('CultClassics/', include('cultclassicsapp.urls')),
-    path('SushiRecipes/', include('SushiRecipes.urls')),
-    path('ACNHdb/', include('ACNHdb.urls')),
     path('music_charts/', include('music_charts.urls')),
     path('OregonRocks/', include('OregonRocks.urls')),
     path('CoreItemManagement/', include('CoreItemManagement.urls')),
@@ -39,6 +32,10 @@ urlpatterns = [
     path('FunkoCollector/', include('FunkoCollector.urls')),
     path('FantasyFB/', include('FantasyFB.urls')),
     path('SportsCars/', include('SportsCars.urls')),
+    path('theforce/', include('theforce.urls')),
+    path('AnimeReviews/', include('AnimeReviews.urls')),
+    path('KeyMaster/', include('KeyMaster.urls')),
+    path('CocktailRecipes/', include('CocktailRecipes.urls')),
 
 ]
 

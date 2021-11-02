@@ -40,13 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'WarriorStats',
-    'EuroTrip',
-    'RevitFunctions',                       #story1, step2: register app from within MainProject>MainProject>settings.py.
-    'Recipes',
-    'cultclassicsapp',
-    'SushiRecipes',
-    'ACNHdb',
     'music_charts',
     'OregonRocks',
     'CoreItemManagement',
@@ -55,6 +48,11 @@ INSTALLED_APPS = [
     'FunkoCollector',
     'FantasyFB',
     'SportsCars',
+    'theforce',
+    'AnimeReviews',
+    'KeyMaster',
+    'CocktailRecipes',
+
 ]
 
 MIDDLEWARE = [

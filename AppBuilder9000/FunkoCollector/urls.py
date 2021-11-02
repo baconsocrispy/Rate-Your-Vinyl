@@ -12,5 +12,5 @@ urlpatterns = [
     path('detailscollection/<funkopopname_id>', views.detailscollection, name='detailscollection'),
     path('editcollection/<funkopopname_id>', views.update_collection, name='editcollection'),
     path('delete_pop/<funkopopname_id>', views.delete_pop, name='delete-pop'),
-
+    path('popnews', views.pop_news, name='pop-news')
 ]
