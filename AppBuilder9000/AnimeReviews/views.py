@@ -51,4 +51,4 @@ def anime_reviews_delete(request, pk):
         item.delete()
         return redirect('anime_reviews_view')
     context = {'item': item}
-    return render(request, 'anime_reviews_delete', context)
+    return render(request, 'anime_reviews_delete.html', context)
