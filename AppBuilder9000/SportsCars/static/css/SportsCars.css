@@ -70,3 +70,16 @@ ul.topnav li.icon {
 	padding: 2px 16px;
 	text-align: center;
 }
+.NewSportsCar-form {
+	position: relative;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+}
+.NewSportsCar-button{
+	background-color: darkgray;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
