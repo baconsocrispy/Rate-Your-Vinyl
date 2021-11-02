@@ -110,14 +110,16 @@ input {
     text-align: left;
     border: 4px inset gray;
     background-color: gray;
-    padding: 15px;
+    padding: 20px;
     margin: auto;
     margin-top: 20px;
+    color: black;
+
 }
 
 .GameList li {
     border: 2px solid black;
-    background-color: gray;
+    background-color: white;
     width: 300px;
-
+    padding: 5px;
 }

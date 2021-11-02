@@ -38,3 +38,13 @@ def KeyMaster_Gamelist(request):
     game_list = Games.objects.all().order_by('game_name')
     wish_list = Wishlist.objects.all().order_by('game_title')
     return render(request, 'KeyMaster_Gamelist.html', {'game_list': game_list, 'wish_list': wish_list})
+
+def details(request, pk):
+    games = get_object_or_404(Games, pk=pk)
+    content = {'games': games}
+    return render(request, 'KeyMasterGameDetail.html', content)
+
+def wish_details(request, pk):
+    wish = get_object_or_404(Wishlist, pk=pk)
+    content = {'wish': wish}
+    return render(request, 'KeyMasterWishDetail.html', content)
