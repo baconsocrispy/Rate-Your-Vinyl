@@ -1,3 +1,5 @@
+import requests
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewAnime
 from .models import Anime
@@ -52,3 +54,33 @@ def anime_reviews_delete(request, pk):
         return redirect('anime_reviews_view')
     context = {'item': item}
     return render(request, 'anime_reviews_delete.html', context)
+
+
+def anime_reviews_api(request):
+    url = "https://jikan1.p.rapidapi.com/search/anime"
+
+    querystring = {"q": "Attack on Titan"}
+
+    headers = {
+        'x-rapidapi-host': "jikan1.p.rapidapi.com",
+        'x-rapidapi-key': "daa3c3b9d7mshaa4e1ceb0660c2dp1caa26jsn9495166557eb"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    result = json.loads(response.text)
+
+    resultList = []
+
+    for i in result['results']:
+        url = i['url']
+        img_url = i['image_url']
+        title = i['title']
+        resultArray = (url, img_url, title)
+        resultList.append(resultArray)
+
+    context = {
+        'resultList': resultList
+    }
+    print(resultList)
+    return render(request, 'anime_reviews_api.html', context)
