@@ -28,3 +28,27 @@ def anime_reviews_details(request, pk):
     details = get_object_or_404(Anime, pk=pk)
     context = {'details': details}
     return render(request, 'anime_reviews_details.html', context)
+
+
+def anime_reviews_edit(request, pk):
+    item = get_object_or_404(Anime, pk=pk)
+    form = NewAnime(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('anime_reviews_view')
+
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'anime_reviews_edit.html', {'form': form, 'item': item})
+
+
+def anime_reviews_delete(request, pk):
+    item = get_object_or_404(Anime, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('anime_reviews_view')
+    context = {'item': item}
+    return render(request, 'anime_reviews_delete.html', context)

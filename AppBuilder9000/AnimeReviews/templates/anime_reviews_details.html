@@ -28,5 +28,9 @@
         </tbody>
     </table>
 </div>
+<div class="submitBtn">
+    <button id="editBtn" name="Edit_Anime"><a class="editA" href="{% url 'anime_reviews_edit' details.pk %}">Edit Review</a></button>
+    <button id="deleteBtn" name="Delete_Anime"><a class="deleteA" href="{% url 'anime_reviews_delete' details.pk %}">Delete Review</a></button>
+</div>
 
 {% endblock %}
