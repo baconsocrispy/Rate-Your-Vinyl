@@ -1,0 +1,16 @@
+{% extends 'KeyMaster_base.html' %}
+{% block title %}Add Game to List{% endblock %}
+{% block content %}
+    <h3>Game Details</h3>
+    <div class="GameContainer">
+
+        <strong>{{ games.game_name }}</strong>
+        <ul class="GameList">
+        Genre: <li>{{ games.genre|capfirst }}</li>
+        Purchased from: <li>{{ games.store_name|capfirst }}</li>
+        Game Key(if applicable):<li>{{ games.game_key }}</li>
+        </ul>
+
+        </form>
+    </div>
+{% endblock %}
