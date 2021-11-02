@@ -3,6 +3,17 @@
 <!DOCTYPE html>
 <html>
 
+
+
+
+    {% block content %}{% endblock %}
+
+
+    <div class="footer">
+        <p>Sushi Recipes for the Sushi Chef 2021 | Cody Harris</p>
+    </div>
+
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
@@ -18,16 +29,5 @@
         <a href="{% url 'Sushi_Recipes_View' %}">Ingredients</a>
     </div>
 </header>
-<body id="body">
-
-
-
-    {% block content %}{% endblock %}
-
-
-    <div class="footer">
-        <p>Sushi Recipes for the Sushi Chef 2021 | Cody Harris</p>
-    </div>
-
-</body>
+<body id="body"></body>
 </html>
