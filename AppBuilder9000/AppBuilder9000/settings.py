@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'UtadaApp',
     'FunkoCollector',
     'FantasyFB',
+    'SportsCars',
     'theforce',
     'AnimeReviews',
     'KeyMaster',

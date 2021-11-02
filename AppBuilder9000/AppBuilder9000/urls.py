@@ -31,6 +31,7 @@ urlpatterns = [
     path('UtadaHikaru/', include('UtadaApp.urls')),
     path('FunkoCollector/', include('FunkoCollector.urls')),
     path('FantasyFB/', include('FantasyFB.urls')),
+    path('SportsCars/', include('SportsCars.urls')),
     path('theforce/', include('theforce.urls')),
     path('AnimeReviews/', include('AnimeReviews.urls')),
     path('KeyMaster/', include('KeyMaster.urls')),
