@@ -11,5 +11,8 @@ urlpatterns = [
     path('gamelist/', views.KeyMaster_Gamelist, name="gamelist"),
     path('<int:pk>/details/', views.details, name="details"),
     path('<int:pk>/wish_details/', views.wish_details, name="wish_details"),
+    path('<int:pk>/KeyMaster_edit/', views.game_edit, name="KeyMaster_edit"),
+    path('<int:pk>/KeyMaster_delete/', views.game_delete, name="KeyMaster_delete"),
+    path('confirmDelete/', views.confirmed, name="confirmed")
 
 ]
