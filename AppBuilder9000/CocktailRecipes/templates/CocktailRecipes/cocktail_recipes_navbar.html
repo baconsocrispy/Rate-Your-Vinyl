@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-transparent">
   <!-- need to add brand logo as homepage link -->
-  <a class="navbar-brand" href="#">Brand</a>
+  <a class="navbar-brand" href="{% url 'home' %}">App Builder 9000</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,8 +15,8 @@
       <li class="nav-item {{add_cocktail}}">
         <a class="nav-link" href="{% url 'cocktail_recipes_add_cocktail' %}">Add Cocktail Recipe</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+      <li class="nav-item {{cocktail_list}}">
+        <a class="nav-link" href="{% url 'cocktail_recipes_cocktail_list' %}">Cocktail List</a>
       </li>
     </ul>
     <!-- need to add functionality to this after DB is set up -->
