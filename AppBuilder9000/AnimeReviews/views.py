@@ -57,27 +57,29 @@ def anime_reviews_delete(request, pk):
 
 
 def anime_reviews_api(request):
-    url = "https://jikan1.p.rapidapi.com/search/anime"
-
-    querystring = {"q": "Attack on Titan"}
-
-    headers = {
-        'x-rapidapi-host': "jikan1.p.rapidapi.com",
-        'x-rapidapi-key': "daa3c3b9d7mshaa4e1ceb0660c2dp1caa26jsn9495166557eb"
-    }
-
-    response = requests.request("GET", url, headers=headers, params=querystring)
-
-    result = json.loads(response.text)
 
     resultList = []
 
-    for i in result['results']:
-        url = i['url']
-        img_url = i['image_url']
-        title = i['title']
-        resultArray = (url, img_url, title)
-        resultList.append(resultArray)
+    if request.method == 'POST':
+        url = "https://jikan1.p.rapidapi.com/search/anime"
+
+        querystring = {"q": request.POST['searchTerm']}
+
+        headers = {
+            'x-rapidapi-host': "jikan1.p.rapidapi.com",
+            'x-rapidapi-key': "daa3c3b9d7mshaa4e1ceb0660c2dp1caa26jsn9495166557eb"
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
+        result = json.loads(response.text)
+
+        for i in result['results']:
+            url = i['url']
+            img_url = i['image_url']
+            title = i['title']
+            resultArray = (url, img_url, title)
+            resultList.append(resultArray)
 
     context = {
         'resultList': resultList

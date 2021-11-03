@@ -6,7 +6,6 @@ body {
 }
 body {
 	line-height: 26px;
-	background-color: #46879B;
 	font-family: "Lato", sans-serif;
 	font-weight: 400;
 	font-size: 16px;
@@ -207,22 +206,22 @@ th {
     padding: 10px;
     border-radius: 8px;
 }
-.card-deck {
+.card-group {
     background-color: #46879B;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-bottom: 1em;
     text-align: center;
 }
 .card {
+    max-width: 300px;
+    max-height: 600px;
+}
+.card-img-top {
     max-width: 300px;
     max-height: 450px;
 }
 footer{
       position: fixed;
       bottom: 0;
-      height: 2.5rem;
-      width: 50%;
+      height: 3rem;
       color: #fff;
       margin: auto;
       width: 100%;
