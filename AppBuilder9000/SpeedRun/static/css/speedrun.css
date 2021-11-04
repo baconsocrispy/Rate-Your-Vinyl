@@ -1,0 +1,27 @@
+/*Styling*/
+
+/*---------------
+Adding background image
+---------------*/
+body {
+    background-image: url('/static/images/speedrun-background.png');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #000000;
+    margin-bottom: 5vh;
+}
+
+.homeHeading {
+    text-align: center;
+    color: #ffffff;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #ffffff;
+    padding: 15px 0;
+}
