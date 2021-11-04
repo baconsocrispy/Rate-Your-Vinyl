@@ -27,3 +27,9 @@ def add_cocktail(request):
     # passes navbar active
     content = {'form': form, 'add_cocktail': 'active'}
     return render(request, 'CocktailRecipes/cocktail_recipes_add_cocktail.html', content)
+
+
+def cocktail_list(request):
+    cocktails = Cocktail.Cocktails.all().order_by('cocktail_name')
+    content = {'cocktails': cocktails, 'cocktail_list': 'active'}
+    return render(request, 'CocktailRecipes/cocktail_recipes_cocktail_list.html', content)

@@ -70,3 +70,63 @@ ul.topnav li.icon {
 	padding: 2px 16px;
 	text-align: center;
 }
+.NewSportsCar-form {
+	position: relative;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+}
+.NewSportsCar-button{
+	background-color: darkgray;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+th{
+	border: 3px solid black;
+}
+
+tr td{
+	height: 25px;
+	border: 2px solid black;
+	word-wrap: normal;
+	vertical-align: top;
+	width: auto;
+}
+
+#headerRow {
+	color: darkslateblue;
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	width: 15%;
+}
+
+.left{
+	padding-left: 10px;
+	width: 30%;
+	word-wrap: normal;
+}
+
+.right {
+	padding-right: 5px;
+	width: 20%;
+	text-align: right;
+}
+#Supercars-table {
+	background-color:white;
+	width: 90%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: 2px solid gray;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: auto;
+	float: center;
+	position: relative;
+}
