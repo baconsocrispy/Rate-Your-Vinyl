@@ -16,7 +16,7 @@
 				<tr>
 					<td class="center">{{ CarEntries.Year }}</td>
 					<td class="center">{{ CarEntries.Make }}</td>
-					<td class="left">{{ CarEntries.Model }}</td>
+					<td class="left"><a href="{% url 'CarDetails' CarEntries.pk %}">{{ CarEntries.Model }}</a></td>
 					<td class="right">{{ CarEntries.Engine }}</td>
 					<td class="right">{{ CarEntries.Horsepower }}</td>
 					<td class="right">{{ CarEntries.Top_Speed }}</td>

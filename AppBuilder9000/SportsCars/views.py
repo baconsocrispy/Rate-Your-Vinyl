@@ -21,3 +21,9 @@ def Supercars(request):
     sportscar = SportsCar.objects.all()
     content = {'sportscar': sportscar}
     return render(request, 'Supercars.html', content)
+
+
+def CarDetails(request, pk):
+    cardetails = get_object_or_404(SportsCar, pk=pk)
+    content = {'cardetails': cardetails}
+    return render(request, 'CarDetails.html', content)
