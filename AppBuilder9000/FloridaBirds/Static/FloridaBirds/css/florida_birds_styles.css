@@ -11,11 +11,22 @@ body {
 
 .add_bird_form {
 	position: left;
-	width: 30vw;
+
 	margin-top: 10vh;
-    margin-left: 35vw;
+    margin-left: 2vw;
     margin-right: 35vw;
-	color: blue;
+	color: navy;
+}
+
+
+#nav1{
+
+color: navy;
+background color: blue;
+}
+
+.form-group{
+
 }
 
 
