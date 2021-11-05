@@ -7,7 +7,7 @@ class Anime(models.Model):
     numOfEpisodes = models.IntegerField()
     studioName = models.CharField(max_length=50)
     rating = models.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
-    review = models.CharField(max_length=1500)
+    review = models.TextField(max_length=1500)
 
     objects = models.Manager()
 
