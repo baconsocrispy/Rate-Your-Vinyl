@@ -11,7 +11,7 @@
           <tbody class="table-borderless">
           {% for cocktail in cocktails %}
             <tr>
-              <td>{{cocktail.cocktail_name|title}}</td>
+              <td><a href="{% url 'cocktail_recipes_details' cocktail.pk %}">{{cocktail.cocktail_name|title}}</a> </td>
               <td>{{cocktail.avg_rating|default:'No ratings yet'}}</td>
             </tr>
           {% endfor %}
