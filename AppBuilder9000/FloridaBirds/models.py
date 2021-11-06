@@ -9,7 +9,7 @@ class BirdDescription(models.Model):
     date_seen = models.DateField(blank=True)
     habitat = models.TextField(max_length=100)
     description = models.TextField(max_length=100)
-    image = models.ImageField(blank=True)
+    image = models.TextField(blank=True)
 
 # BirdDescription is the models manager for accessing the dB.
     BirdDescriptions = models.Manager()
