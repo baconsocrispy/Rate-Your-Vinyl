@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from .models import BirdDescription
 from .forms import BirdDescriptionForm
 
 
@@ -11,6 +11,7 @@ def florida_birds_home(request):
     # render method takes the request object and template name as arguments
     # returns httpResponse object with rendered text.
     return render(request, 'FloridaBirds/FloridaBirds_home.html')
+
 
 # View to add a bird to database.
 
@@ -26,3 +27,10 @@ def add_bird(request):
         form = BirdDescriptionForm()
         context = {'form': form}  # dictionary item
     return render(request, 'FloridaBirds/FloridaBirds_add_bird.html', context)
+
+
+# View to display all birds from database.
+
+def display_all_birds(request):
+    bird_data = BirdDescription.objects.all()
+    return render(request, "FloridaBirds/FloridaBirds_display_all_birds.html", {'bird_data': bird_data})
