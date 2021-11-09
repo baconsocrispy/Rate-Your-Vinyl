@@ -18,7 +18,8 @@
     <h5 class="card-title">{{ bird.description }}</h5>
     <p class="card-text">{{ bird.habitat}}</p>
 
-    <a href="#" class="btn btn-primary">Click here for more information</a>
+      <!-href specifies the url that must be gone to once "click here for more information" is clicked->
+    <a href="{% url 'florida_birds_details' bird.pk %}" class="btn btn-primary">Click here for more information</a>
 
   </div>
 </div>
