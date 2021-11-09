@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 
 def BoardGames_home(request):
     boardgames = BoardGame.objects.all()
-    return render(request, 'BoardGames/home.html', {'boardGames': boardgames})
+    return render(request, 'BoardGames/musicfiles_home.html', {'boardGames': boardgames})
 
 
 def BoardGames_get(request, pk):
@@ -44,7 +44,7 @@ def BoardGames_edit(request, pk):
 def BoardGames_delete(request, pk):
     BoardGame.objects.filter(id=pk).delete()
     boardgames = BoardGame.objects.all()
-    return render(request, 'BoardGames/home.html', {'boardGames': boardgames})
+    return render(request, 'BoardGames/musicfiles_home.html', {'boardGames': boardgames})
 
 
 def BoardGames_favorite(request, pk):
