@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/anime_reviews_edit/', views.anime_reviews_edit, name="anime_reviews_edit"),
     path('<int:pk>/anime_reviews_delete/', views.anime_reviews_delete, name="anime_reviews_delete"),
     path('anime_reviews_api/', views.anime_reviews_api, name="anime_reviews_api"),
+    path('anime_reviews_news/', views.anime_reviews_news, name="anime_reviews_news"),
 ]

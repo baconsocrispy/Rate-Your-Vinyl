@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'KeyMaster',
     'CocktailRecipes',
     'MusicFiles',
+    'FloridaBirds',
+    'SpeedRun',
 
 ]
 

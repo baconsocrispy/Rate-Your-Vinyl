@@ -8,7 +8,8 @@
 {% block content %}
 <h1 class="viewHead">Add your Anime Review here.</h1>
 
-	<div class="anime_container">
+<div class="anime_container">
+	<div class="form-group">
 		<form method="POST" class="animeForm">
 			{% csrf_token %}
 			{{form.as_p}}
@@ -17,5 +18,6 @@
 			</div>
 		</form>
 	</div>
+</div>
 
 {% endblock %}

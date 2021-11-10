@@ -36,7 +36,9 @@ urlpatterns = [
     path('AnimeReviews/', include('AnimeReviews.urls')),
     path('KeyMaster/', include('KeyMaster.urls')),
     path('CocktailRecipes/', include('CocktailRecipes.urls')),
-    path('MusicFiles/', include('MusicFiles.urls'))
+    path('FloridaBirds/', include('FloridaBirds.urls')),
+    path('SpeedRun/', include('SpeedRun.urls')),
+    path('MusicFiles/', include('MusicFiles.urls')),
 
 ]
 

@@ -7,7 +7,7 @@
 <h1 class="viewHead">Review Details</h1>
 
 <div class="table_container">
-    <table class="review_table">
+    <table class="table" id="detailTbl">
         <thead>
             <tr class="tHead">
                 <th>Anime Name</th>
@@ -29,8 +29,8 @@
     </table>
 </div>
 <div class="submitBtn">
-    <button id="editBtn" name="Edit_Anime"><a class="editA" href="{% url 'anime_reviews_edit' details.pk %}">Edit Review</a></button>
-    <button id="deleteBtn" name="Delete_Anime"><a class="deleteA" href="{% url 'anime_reviews_delete' details.pk %}">Delete Review</a></button>
+    <a class="editA" href="{% url 'anime_reviews_edit' details.pk %}"><button id="editBtn" name="Edit_Anime">Edit Review</button></a>
+    <a class="deleteA" href="{% url 'anime_reviews_delete' details.pk %}"><button id="deleteBtn" name="Delete_Anime">Delete Review</button></a>
 </div>
 
 {% endblock %}

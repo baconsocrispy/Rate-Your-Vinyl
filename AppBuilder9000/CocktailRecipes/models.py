@@ -1,38 +1,30 @@
 from django.db import models
+from .fields import IngredientMultiField
+
+
+class IngredientMultiModelField(models.Field):
+
+    def formfield(self, **kwargs):
+        defaults = {'form_class': IngredientMultiField}
+        defaults.update(kwargs)
+        return super(IngredientMultiModelField, self).formfield(**defaults)
+
+    def get_internal_type(self):
+        return 'TextField'
 
 
 class Cocktail(models.Model):
     cocktail_name = models.CharField(max_length=50, unique=True)
-    ingredient_1 = models.CharField(max_length=50)
-    quantity_1 = models.DecimalField(max_digits=3, decimal_places=1)
-    unit_1 = models.CharField(max_length=15)
-    ingredient_2 = models.CharField(max_length=50, blank=True)
-    quantity_2 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_2 = models.CharField(max_length=15, blank=True)
-    ingredient_3 = models.CharField(max_length=50, blank=True)
-    quantity_3 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_3 = models.CharField(max_length=15, blank=True)
-    ingredient_4 = models.CharField(max_length=50, blank=True)
-    quantity_4 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_4 = models.CharField(max_length=15, blank=True)
-    ingredient_5 = models.CharField(max_length=50, blank=True)
-    quantity_5 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_5 = models.CharField(max_length=15, blank=True)
-    ingredient_6 = models.CharField(max_length=50, blank=True)
-    quantity_6 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_6 = models.CharField(max_length=15, blank=True)
-    ingredient_7 = models.CharField(max_length=50, blank=True)
-    quantity_7 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_7 = models.CharField(max_length=15, blank=True)
-    ingredient_8 = models.CharField(max_length=50, blank=True)
-    quantity_8 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_8 = models.CharField(max_length=15, blank=True)
-    ingredient_9 = models.CharField(max_length=50, blank=True)
-    quantity_9 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_9 = models.CharField(max_length=15, blank=True)
-    ingredient_10 = models.CharField(max_length=50, blank=True)
-    quantity_10 = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    unit_10 = models.CharField(max_length=15, blank=True)
+    ingredient_1 = IngredientMultiModelField(blank=True)
+    ingredient_2 = IngredientMultiModelField(blank=True)
+    ingredient_3 = IngredientMultiModelField(blank=True)
+    ingredient_4 = IngredientMultiModelField(blank=True)
+    ingredient_5 = IngredientMultiModelField(blank=True)
+    ingredient_6 = IngredientMultiModelField(blank=True)
+    ingredient_7 = IngredientMultiModelField(blank=True)
+    ingredient_8 = IngredientMultiModelField(blank=True)
+    ingredient_9 = IngredientMultiModelField(blank=True)
+    description = models.TextField()
     directions = models.TextField()
     avg_rating = models.DecimalField(max_digits=2, decimal_places=1, blank=True, null=True)
     # photo = models.FileField(upload_to='static/CocktailRecipes/user_images', blank=True)
