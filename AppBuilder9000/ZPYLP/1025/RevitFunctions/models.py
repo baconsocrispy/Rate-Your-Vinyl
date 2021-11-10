@@ -1,5 +1,5 @@
 # 1. Create your models here.
-    # 0 prior to this, set up the settings.py, base.html, home.html, some css, urls, views.
+    # 0 prior to this, set up the settings.py, base.html, musicfiles_home.html, some css, urls, views.
     # Models.py is How data is represented, accessed, manipulated. defined/represented by Python classes, automated by Django.
     # the class is called model. it drives the dB data.
     # this should be in the app directory folder, RevitFunctions is an app (there can be more than 1 app)

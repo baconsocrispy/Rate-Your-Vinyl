@@ -19,7 +19,7 @@ import http.client
 
 # Displays the home page
 def BestGamesEver_Home(request):
-    return render(request, 'BestGamesEver/home.html')
+    return render(request, 'BestGamesEver/musicfiles_home.html')
 
 #Function for user to create a Db entry
 def Game_Create(request):
