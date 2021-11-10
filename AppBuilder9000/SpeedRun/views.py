@@ -33,3 +33,16 @@ def add_game(request):
         form = GameForm()
         context = {'form': form}
     return render(request, 'speed_run_create_game.html', context)
+
+
+def all_games(request):
+    games = GameName.objects.all()
+    return render(request, 'speed_run_all_games.html', {'games': games})
+
+
+def game_record(request, game):
+    allrecords = Record.objects.all()
+    records = list(filter(lambda x: x == game, allrecords))
+    return render(request, 'speed_run_game_records.html', {'records': records})
+
+

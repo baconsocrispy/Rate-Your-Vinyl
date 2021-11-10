@@ -1,0 +1,37 @@
+{% extends 'speed_run_base.html' %}
+{% load static %}
+
+{% block title %}{{ records.game }} Records{% endblock %}
+
+{% block content %}
+
+<h1 class="homeHeading">{{ records.game }}</h1>
+
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr class="tHead">
+                <th>Player</th>
+                <th>Time</th>
+                <th>Platform</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        {% for record in records %}
+        <tbody>
+            <tr class="tBody">
+                <td>{{ record.name }}</td>
+                <td>{{ record.time }}</td>
+                <td>{{ record.platform }}</td>
+                <td>{{ record.date }}</td>
+                <!-- didn't know if this might help with the list produced
+                {% for value in record %}
+                    <td>{{ value }}</td>
+                {% endfor %} -->
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

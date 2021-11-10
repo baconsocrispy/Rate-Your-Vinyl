@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from datetime import date
 
+
 # game name model
 class GameName(models.Model):
     game_name = models.CharField(max_length=60, default="")
@@ -45,8 +46,8 @@ PLATFORM_CHOICES = {
 # creating a speedrun class object
 class Record(models.Model):
     player = models.CharField(max_length=60, default="")
-    game = models.ForeignKey(GameName, on_delete=models.CASCADE)
-    time = models.CharField(max_length=30, default="")
+    game = models.ForeignKey(GameName, related_name='records', on_delete=models.CASCADE)
+    time = models.CharField(max_length=30, default="HH:MM:SS")
     platform = models.CharField(max_length=60, choices=PLATFORM_CHOICES, default="")
     date = models.DateField(default=date.today)
 

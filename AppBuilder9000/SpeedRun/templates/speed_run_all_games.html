@@ -1,0 +1,27 @@
+{% extends 'speed_run_base.html' %}
+{% load static %}
+
+{% block title %}Game List{% endblock %}
+
+{% block content %}
+
+<h1 class="homeHeading">Choose a game</h1>
+
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr class="tHead">
+                <th>Game Name</th>
+            </tr>
+        </thead>
+        {% for game in games %}
+        <tbody>
+            <tr class="tBody">
+                <td><a href="{% url 'speed_run_game_records' game.game_name %}">{{ game.game_name }}</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
