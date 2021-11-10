@@ -39,6 +39,7 @@ urlpatterns = [
     path('FloridaBirds/', include('FloridaBirds.urls')),
     path('SpeedRun/', include('SpeedRun.urls')),
     path('HotSprings/', include('HotSprings.urls')),
+    path('MusicFiles/', include('MusicFiles.urls')),
 
 ]
 

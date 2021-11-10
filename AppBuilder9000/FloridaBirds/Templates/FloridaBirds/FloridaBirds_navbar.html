@@ -21,8 +21,11 @@
         </li>
 
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search for a bird..." aria-label="Search">
+      <form class="d-flex" method=POST action="{#}">
+
+        {% csrf_token %}
+
+        <input class="form-control me-2" type="search" placeholder="Search for a bird..." aria-label="Search" name="searched">
         <button type="button" class="btn btn-outline-info">Search </button>
       </form>
     </div>

@@ -7,7 +7,7 @@ from .models import Player
 
 
 def blazerstats_home(request):
-    return render(request, 'BlazerStats/home.html')
+    return render(request, 'BlazerStats/musicfiles_home.html')
 
 
 def blazerstats_create(request):
