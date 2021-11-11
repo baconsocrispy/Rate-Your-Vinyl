@@ -46,6 +46,7 @@ def display_details(request, pk):
     birddetail = BirdDescription.objects.get(pk=pk)
     return render(request, "FloridaBirds/FloridaBirds_details.html", {"birddetail": birddetail})
 
+
 # View to search for a particular bird using the search box
 
 
@@ -58,3 +59,22 @@ def display_details(request, pk):
 # {'searched': searched, 'birds': birds})
 # else:
 # return render(request, 'FloridaBirds/FloridaBirds_search_collection.html', {})
+
+
+def edit(request, pk):
+    birdedit = BirdDescription.objects.get(pk=pk)
+    form = BirdDescriptionForm(request.POST or None, instance=birdedit)
+    if form.is_valid():
+        form.save()
+        return redirect('florida_birds_display_all_birds')
+
+    return render(request, "FloridaBirds/FloridaBirds_edit.html", {"birdedit": birdedit, 'form': form})
+
+
+def delete(request, pk):
+    birddelete = BirdDescription.objects.get(pk=pk)
+    if request.method == 'POST':
+        birddelete.delete()
+        return redirect('florida_birds_display_all_birds')
+    context = {'birddelete': birddelete}
+    return render(request, 'FloridaBirds/FloridaBirds_delete.html', context)
