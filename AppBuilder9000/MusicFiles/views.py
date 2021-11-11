@@ -27,3 +27,12 @@ def musicfiles_create(request):
     return render(request, 'musicfiles_create.html', context)
 
 
+#returns all files within the database
+
+
+def all_files_view(request):
+    obj = Files.objects.all()
+    return render(request, 'musicfiles_list.html', {'file_list': obj})
+
+
+
