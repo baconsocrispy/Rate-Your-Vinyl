@@ -7,7 +7,7 @@
 
 <h1 class="homeHeading">{{ details.player }} Record</h1>
 
-<div class="table-container">
+<div class="container-md">
     <table class="table table-dark table-striped w-75 p-3 position-absolute top-50 start-50 translate-middle">
         <thead>
             <tr class="table-dark">
@@ -28,6 +28,11 @@
             </tr>
         </tbody>
     </table>
+    <div class="text-center">
+        <a href="{% url 'speed_run_edit' details.pk %}"><button type="button" class="btn btn-dark" name="Edit_Record">Edit Record</button></a>
+        <a href="{% url 'speed_run_delete' details.pk %}"><button type="button" class="btn btn-dark" name="Delete_Record">Delete Record</button></a>
+    </div>
 </div>
+
 
 {% endblock %}

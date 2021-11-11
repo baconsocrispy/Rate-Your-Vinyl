@@ -46,6 +46,12 @@ body {
     color: white;
 }
 
+#center-btn {
+    position: absolute;
+    bottom: 75%;
+    left: 50%;
+}
+
 footer {
     position: absolute;
     bottom: 0;

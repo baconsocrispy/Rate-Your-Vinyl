@@ -8,4 +8,6 @@ urlpatterns = [
     path('speed_run_all_games/', views.all_games, name='speed_run_all_games'),
     path('speed_run_game_records/<int:pk>', views.game_record, name='speed_run_game_records'),
     path('speed_run_details/<int:pk>', views.speed_run_details, name='speed_run_details'),
+    path('speed_run_edit/<int:pk>', views.speed_run_edit, name='speed_run_edit'),
+    path('speed_run_delete/<int:pk>', views.speed_run_delete, name='speed_run_delete'),
 ]

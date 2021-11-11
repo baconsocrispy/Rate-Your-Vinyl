@@ -13,9 +13,9 @@
             {% csrf_token %}
             {{ form.as_p }}
             <div class="frmBtn_container">
-                <input type="submit" class="btn" id="btn" value="Add Record" name="Add_Record">
-                <a href="{% url 'speed_run_create_game' %}"><button type="button" class="btn" id="btn" value="Add Game">Don't See your game?</button></a>
-                <a href="{% url 'speed_run_home' %}"><button type="button" class="btn" id="btn" value="Cancel">Cancel</button></a>
+                <input type="submit" class="btn btn-dark" value="Add Record" name="Add_Record">
+                <a href="{% url 'speed_run_create_game' %}"><button type="button" class="btn btn-dark" value="Add Game">Don't See your game?</button></a>
+                <a href="{% url 'speed_run_home' %}"><button type="button" class="btn btn-dark" value="Cancel">Cancel</button></a>
             </div>
         </form>
     </div>
