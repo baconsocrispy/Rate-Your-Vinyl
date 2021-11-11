@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'MusicFiles',
     'FloridaBirds',
     'SpeedRun',
+    'Snowboarding',
+    'HotSprings',
 
 ]
 
