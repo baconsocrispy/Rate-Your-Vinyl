@@ -1,6 +1,10 @@
-from django.shortcuts import render, redirect
+from django.db.models import Q
+from django.shortcuts import render, redirect, get_object_or_404
+from django.template.defaulttags import comment
+
 from .models import BirdDescription
 from .forms import BirdDescriptionForm
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -34,3 +38,23 @@ def add_bird(request):
 def display_all_birds(request):
     bird_data = BirdDescription.objects.all()
     return render(request, "FloridaBirds/FloridaBirds_display_all_birds.html", {'bird_data': bird_data})
+
+
+# View to display detail of one bird from the display_all_birds file.
+
+def display_details(request, pk):
+    birddetail = BirdDescription.objects.get(pk=pk)
+    return render(request, "FloridaBirds/FloridaBirds_details.html", {"birddetail": birddetail})
+
+# View to search for a particular bird using the search box
+
+
+# def search_collection(request):
+# if request.method == "POST":
+# searched = request.POST['searched']
+# birds = BirdDescription.objects.filter(Q(name__contains=searched))
+
+# return render(request, 'FloridaBirds/FloridaBirds_search_collection.html',
+# {'searched': searched, 'birds': birds})
+# else:
+# return render(request, 'FloridaBirds/FloridaBirds_search_collection.html', {})

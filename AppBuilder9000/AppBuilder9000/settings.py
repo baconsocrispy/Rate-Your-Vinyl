@@ -52,9 +52,11 @@ INSTALLED_APPS = [
     'AnimeReviews',
     'KeyMaster',
     'CocktailRecipes',
+    'MusicFiles',
     'FloridaBirds',
     'SpeedRun',
     'Snowboarding',
+    'HotSprings',
 
 ]
 

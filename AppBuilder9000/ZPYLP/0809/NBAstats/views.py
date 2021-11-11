@@ -167,7 +167,7 @@ def b_ref(request):
                     pk += 1  # this gets set as the primary key
                 check_name = playerName
     context = {'player_dict': player_dict}
-    return render(request, 'nba-home.html', context)
+    return render(request, 'nba-musicfiles_home.html', context)
 
 
 # ===============================================================================================
