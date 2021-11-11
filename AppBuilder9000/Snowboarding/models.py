@@ -1,9 +1,5 @@
 from django.db import models
 
-Ryder_Name = [
-('Style','Style'),
-]
-
 class Ryder(models.Model):
     First_Name = models.CharField(max_length=60, default="", blank=True, null=False)
     Last_Name = models.CharField(max_length=60, default="", blank=True, null=False)
