@@ -47,3 +47,7 @@ def game_record(request, pk):
     return render(request, 'speed_run_game_records.html', content)
 
 
+def speed_run_details(request, pk):
+    details = get_object_or_404(Record, pk=pk)
+    content = {'details': details}
+    return render(request, 'speed_run_details.html', content)
