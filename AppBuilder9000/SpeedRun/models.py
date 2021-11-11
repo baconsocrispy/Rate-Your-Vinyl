@@ -54,4 +54,8 @@ class Record(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.sr_player
+        return [self.player,
+                self.time,
+                self.platform,
+                self.date]
+

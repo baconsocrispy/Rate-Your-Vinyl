@@ -1,16 +1,16 @@
 {% extends 'speed_run_base.html' %}
 {% load static %}
 
-{% block title %}{{ records.game }} Records{% endblock %}
+{% block title %}{{ gamename.game_name }} Records{% endblock %}
 
 {% block content %}
 
-<h1 class="homeHeading">{{ records.game }}</h1>
+<h1 class="homeHeading">{{ gamename.game_name }}</h1>
 
 <div class="table-container">
-    <table class="table">
+    <table class="table table-dark table-striped w-75 p-3 position-absolute top-50 start-50 translate-middle">
         <thead>
-            <tr class="tHead">
+            <tr class="table-dark">
                 <th>Player</th>
                 <th>Time</th>
                 <th>Platform</th>
@@ -19,15 +19,11 @@
         </thead>
         {% for record in records %}
         <tbody>
-            <tr class="tBody">
-                <td>{{ record.name }}</td>
-                <td>{{ record.time }}</td>
-                <td>{{ record.platform }}</td>
-                <td>{{ record.date }}</td>
-                <!-- didn't know if this might help with the list produced
-                {% for value in record %}
-                    <td>{{ value }}</td>
-                {% endfor %} -->
+            <tr class="table-dark">
+                <td class="table-dark">{{ record.player }}</td>
+                <td class="table-dark">{{ record.time }}</td>
+                <td class="table-dark">{{ record.platform }}</td>
+                <td class="table-dark">{{ record.date }}</td>
             </tr>
         </tbody>
         {% endfor %}
