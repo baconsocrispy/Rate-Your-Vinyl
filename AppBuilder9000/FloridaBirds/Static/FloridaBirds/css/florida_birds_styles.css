@@ -6,11 +6,24 @@ body {
     background-attachment: fixed;
     background-size: cover;
 
-}
-
-.content{
-    color:
-
-
 
 }
+
+.add_bird_form {
+	position: left;
+
+	margin-top: 10vh;
+    margin-left: 2vw;
+    margin-right: 35vw;
+	color: navy;
+}
+
+
+
+
+
+
+
+
+
+

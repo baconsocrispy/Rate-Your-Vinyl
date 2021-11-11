@@ -4,7 +4,7 @@ from .forms import ShowForm
 
 
 def home(request):
-    return render(request, 'VP_TrackShows/home.html')
+    return render(request, 'VP_TrackShows/musicfiles_home.html')
 
 
 def allshows(request):

@@ -13,7 +13,7 @@ class GameName(models.Model):
         return self.game_name
 
 # limiting choices of platforms
-PLATFORM_CHOICES = {
+PLATFORM_CHOICES = (
     ('Atari 2600','Atari 2600'),
     ('Xbox','Xbox'),
     ('Xbox 360','Xbox 360'),
@@ -38,7 +38,7 @@ PLATFORM_CHOICES = {
     ('PlayStation 4','PlayStation 4'),
     ('PlayStation 5','PlayStation 5'),
     ('PC','PC'),
-}
+)
 
 
 

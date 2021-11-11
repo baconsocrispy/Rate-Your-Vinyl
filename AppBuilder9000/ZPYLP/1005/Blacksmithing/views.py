@@ -5,7 +5,7 @@ from .models import Tool
 
 # Displays the home page
 def Blacksmithing_Home(request):
-    return render(request, 'Blacksmithing/home.html')
+    return render(request, 'Blacksmithing/musicfiles_home.html')
 
 
 # Function for user to create a Db entry
