@@ -1,4 +1,4 @@
-{% extends "New_Ryder.html" %}
+{% extends "SnowboardingBase.html" %}
 
 {% block title %}Snowboarding{% endblock %}
 
@@ -11,6 +11,6 @@
             {{ form.as_p }}
             <button type="submit" name="New_Ryder_Form" id="sub-btn">Add Ryder</button>
         </form>
-        <a href="{% url 'New_Ryder_home' %}"><button id="cancel">Cancel</button></a>
+        <a href="{% url 'Snowboarding_Home' %}"><button id="cancel">Cancel</button></a>
     </div>
 {% endblock %}

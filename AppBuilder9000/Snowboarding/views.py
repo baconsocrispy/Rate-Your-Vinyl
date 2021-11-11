@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Ryder
+from .forms import RyderForm
 
 
 def home(request):
     return render(request, "SnowboardingHome.html")
 
 def AddNewRyder(request):
-    form = Ryder(data=request.POST or None)
+    form = RyderForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
