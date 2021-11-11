@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Ryder
-from .forms import Ryder_Forms
+
 
 def home(request):
     return render(request, "SnowboardingHome.html")
