@@ -1,9 +1,11 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Snowboarding {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/snowboarding.css' %}">
 
 </head>
 {% block content %}
@@ -11,8 +13,8 @@
 <div class="navbar">
     <ul class="menu">
         <li><a href="#Home">Home</a></li>
-        <li><a href="#Gallery">Gallery</a></li>
-        <li><a href="#Icons">Icons</a></li>
+        <li><a href="{% url 'AddNewRyder' %}">Add New Ryder</a></li>
+
     </ul>
 </div>
 

@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Ryder
 
-# Register your models here.
+
+admin.site.register(Ryder)
