@@ -20,6 +20,7 @@
      </tr>
  <tr>
      {% for file in file_list %}
+     <td><a href="{% url 'musicfiles_details' file.pk  %}">{{ file.name }}</a> </td>
      <td>{{file.id}}</td>
      <td>{{file.name}}</td>
      <td>{{file.type}}</td>

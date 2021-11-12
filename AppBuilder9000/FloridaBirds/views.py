@@ -1,6 +1,10 @@
+import json
+
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.defaulttags import comment
+import requests
+import http.client
 
 from .models import BirdDescription
 from .forms import BirdDescriptionForm
@@ -78,3 +82,21 @@ def delete(request, pk):
         return redirect('florida_birds_display_all_birds')
     context = {'birddelete': birddelete}
     return render(request, 'FloridaBirds/FloridaBirds_delete.html', context)
+
+
+def api(request):
+    conn = http.client.HTTPSConnection("public-holiday.p.rapidapi.com")
+
+    headers = {
+        'x-rapidapi-host': "public-holiday.p.rapidapi.com",
+        'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
+    }
+
+    conn.request("GET", "/2021/US", headers=headers)
+
+    res = conn.getresponse()
+    data = res.read()
+
+    print(data.decode("utf-8"))
+
+    return render(request, 'FloridaBirds/FloridaBirds_api.html')
