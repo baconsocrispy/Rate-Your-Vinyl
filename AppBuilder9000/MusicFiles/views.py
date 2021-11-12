@@ -35,4 +35,10 @@ def all_files_view(request):
     return render(request, 'musicfiles_list.html', {'file_list': obj})
 
 
+def musicFileDetails(request, pk):
+    details = get_object_or_404(Files, pk=pk)
+    context = {'details': details}
+    return render(request, 'musicfiles_details.html', context)
+
+
 
