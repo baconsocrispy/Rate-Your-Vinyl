@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from .forms import SpeedrunForm
 from .game_forms import GameForm
 from .models import Record, GameName
+import requests
+import json
+import http.client
 
 
 # render home page
@@ -80,4 +83,26 @@ def speed_run_delete(request, pk):
         return redirect('speed_run_all_games')
     context = {'item': item}
     return render(request, 'speed_run_delete.html', context)
+
+
+def speed_run_api(request):
+    conn = http.client.HTTPSConnection("rawg-video-games-database.p.rapidapi.com")
+
+    headers = {
+        'x-rapidapi-host': "rawg-video-games-database.p.rapidapi.com",
+        'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
+    }
+
+    conn.request("GET", "/games?key=5f37df7ee53e491f847a43dfa97cb3a2", headers=headers)
+
+    res = conn.getresponse()
+    data = res.read()
+
+    print(data.decode("utf-8"))
+    return render(request, 'speed_run_api.html')
+
+    # would like to retrieve name, description,
+    # platforms name, image if available,
+    # release date, rating, maybe url link
+
 

@@ -10,4 +10,5 @@ urlpatterns = [
     path('speed_run_details/<int:pk>', views.speed_run_details, name='speed_run_details'),
     path('speed_run_edit/<int:pk>', views.speed_run_edit, name='speed_run_edit'),
     path('speed_run_delete/<int:pk>', views.speed_run_delete, name='speed_run_delete'),
+    path('speed_run_api/', views.speed_run_api, name='speed_run_api'),
 ]
