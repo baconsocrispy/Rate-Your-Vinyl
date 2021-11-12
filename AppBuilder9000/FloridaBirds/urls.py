@@ -8,5 +8,6 @@ urlpatterns = [
     path('bird-details/<int:pk>/', views.display_details, name='florida_birds_details'),
     path('bird-edit/<int:pk>/', views.edit, name='florida_birds_edit'),
     path('delete_bird/<int:pk>/', views.delete, name='florida_birds_delete'),
+    path('api/', views.api, name='florida_birds_api'),
     # path('search-collection', views.search_collection, name='search_collection'),
 ]
