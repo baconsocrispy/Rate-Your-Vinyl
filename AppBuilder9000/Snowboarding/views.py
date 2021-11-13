@@ -15,3 +15,10 @@ def AddNewRyder(request):
     content = {'form': form}
     return render(request, 'New_Ryder.html', content)
 
+def GetAllRyders(request):
+    if request.method == 'GET':
+        ryders_queryset = Ryder.objects.all() #returns queryset
+        ryders_dict = {'ryders': ryders_queryset}
+        return render(request, 'Dear_Ryder.html', ryders_dict)
+        # get functions must return a dictionary not a queryset
+
