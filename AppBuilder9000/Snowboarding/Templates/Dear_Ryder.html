@@ -1,0 +1,23 @@
+{% extends "SnowboardingBase.html" %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<h1 class="ryder-list"> Ryders List</h1>
+{% for ryder in ryders %}
+    <h1>{{ ryder.First_Name }} {{ ryder.Last_Name }}</h1>
+    <h3>Style: {{ ryder.Style }}</h3>
+    <h3>Sponsor: {{ ryder.Sponsor }}</h3>
+{% endfor %}
+
+<h1>Ryder of the Day: {{ ryders | random }} </h1>
+
+{% endblock %}
+</body>
+</html>
