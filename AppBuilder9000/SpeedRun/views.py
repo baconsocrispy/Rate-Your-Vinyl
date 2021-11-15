@@ -86,23 +86,36 @@ def speed_run_delete(request, pk):
 
 
 def speed_run_api(request):
-    conn = http.client.HTTPSConnection("rawg-video-games-database.p.rapidapi.com")
 
-    headers = {
-        'x-rapidapi-host': "rawg-video-games-database.p.rapidapi.com",
-        'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
+    search_list = []
+
+    if request.method == 'POST':
+
+        url = "https://rawg-video-games-database.p.rapidapi.com/games?key=5f37df7ee53e491f847a43dfa97cb3a2"
+
+        headers = {
+            'x-rapidapi-host': "rawg-video-games-database.p.rapidapi.com",
+            'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
+        }
+
+        params = {"search": request.POST['searchItem']}
+
+        response = requests.request("GET", url, headers=headers, params=params)
+
+        game_data = json.loads(response.text)
+
+        for game in game_data['results']:
+            bg_img = game['background_image']
+            title = game['name']
+            release = game['released']
+            rating = game['rating']
+            game_array = (bg_img, title, release, rating)
+            search_list.append(game_array)
+
+    content = {
+        'search_list': search_list
     }
 
-    conn.request("GET", "/games?key=5f37df7ee53e491f847a43dfa97cb3a2", headers=headers)
-
-    res = conn.getresponse()
-    data = res.read()
-
-    print(data.decode("utf-8"))
-    return render(request, 'speed_run_api.html')
-
-    # would like to retrieve name, description,
-    # platforms name, image if available,
-    # release date, rating, maybe url link
+    return render(request, 'speed_run_api.html', content)
 
 
