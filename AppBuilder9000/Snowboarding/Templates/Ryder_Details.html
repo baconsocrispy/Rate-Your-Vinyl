@@ -1,0 +1,15 @@
+{% extends "SnowboardingBase.html" %}
+{% block title %}Snowboarding{% endblock %}
+{% block content %}
+    <h1> Ryder Details</h1>
+
+    <div class="RyderInfo">
+        <ul class="Details">
+            <strong>First Name</strong><li> {{ Ryder_Details.First_Name }}</li>
+            <strong>Last Name</strong><li> {{ Ryder_Details.Last_Name }}</li>
+            <strong>Style</strong><li> {{ Ryder_Details.Style }}</li>
+            <strong>Sponsor</strong><li> {{ Ryder_Details.Sponsor }}</li>
+        </ul>
+
+    </div>
+{% endblock %}
