@@ -19,6 +19,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from todo.views import todoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,6 +41,9 @@ urlpatterns = [
     path('SpeedRun/', include('SpeedRun.urls')),
     path('HotSprings/', include('HotSprings.urls')),
     path('MusicFiles/', include('MusicFiles.urls')),
+    path('todo/', todoView),
+
+
 
 ]
 

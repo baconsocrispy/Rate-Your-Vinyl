@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'FloridaBirds',
     'SpeedRun',
     'HotSprings',
+    'todo',
 
 ]
 
