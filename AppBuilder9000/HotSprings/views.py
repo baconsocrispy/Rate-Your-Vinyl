@@ -26,3 +26,5 @@ def list_hotsprings(request):
     hotsprings = HotSprings.objects.all()
     return render(request, 'hotsprings_list.html', {'hotsprings': hotsprings})
 
+
+

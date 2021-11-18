@@ -1,4 +1,7 @@
+
 {% block header %}Hot Springs{% endblock %}
+
+{% include "hotsprings_navbar.html" %}
 
 {% block content %}
 
@@ -23,7 +26,13 @@
 
 
 
-
-
-
 {% endblock %}
+
+
+
+{% for hotsprings in hotsprings %}
+
+    <h1>{{ hotsprings.name }}</h1>
+    <p>{{ hotsprings.description}}</p>
+
+{% endfor %}
