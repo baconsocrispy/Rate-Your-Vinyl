@@ -1,7 +1,9 @@
 from django.urls import path
-
-from . import views
+from .import views
 
 urlpatterns = [
     path('', views.hotsprings_home, name='hotsprings_home'),
+    path('hotsprings_create/', views.add_hotsprings, name='hotsprings_create'),
+    path('hotsprings_list/', views.list_hotsprings, name='hotsprings_list')
+
 ]
