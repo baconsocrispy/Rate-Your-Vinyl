@@ -42,7 +42,7 @@ urlpatterns = [
     path('HotSprings/', include('HotSprings.urls')),
     path('MusicFiles/', include('MusicFiles.urls')),
     path('Rock/', include('Rock.urls')),
-    path('Todo/', include('Todo.urls')),
+    path('Todo/', include('todo.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
