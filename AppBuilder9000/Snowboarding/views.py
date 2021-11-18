@@ -27,5 +27,30 @@ def Ryder_Details(request, pk):
     context = {'Ryder_Details': Ryder_Details}
     return render(request, 'Ryder_Details.html', context)
 
+def Edit_Ryder(request, pk):
+    ryder = get_object_or_404(Ryder, pk=pk)
+    form = RyderForm(data=request.POST or None, instance=ryder)
+    if form.is_valid():
+        form.save()
+        return redirect('Ryders')
+    content = {'form': form}
+    return render(request, 'Edit_Ryder.html', content)
+
+def Delete_Ryder(request, pk):
+    ryder = get_object_or_404(Ryder, pk=pk)
+    if request.method == 'POST':
+        ryder.delete()
+        return redirect('Ryders')
+    content = {'ryder', ryder}
+    return render(request, 'Delete_Ryder.html', content)
+
+
+
+
+
+
+
+
+
 
 

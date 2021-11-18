@@ -9,6 +9,8 @@
             <strong>Last Name</strong><li> {{ Ryder_Details.Last_Name }}</li>
             <strong>Style</strong><li> {{ Ryder_Details.Style }}</li>
             <strong>Sponsor</strong><li> {{ Ryder_Details.Sponsor }}</li>
+            <li><a href="{% url 'Edit_Ryder' Ryder_Details.pk %}">Edit Ryder</a></li>
+            <li><a href="{% url 'Delete_Ryder' Ryder_Details.pk %}">Delete Ryder</a></li>
         </ul>
 
     </div>
