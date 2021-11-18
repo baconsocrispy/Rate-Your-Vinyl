@@ -41,7 +41,7 @@ def Delete_Ryder(request, pk):
     if request.method == 'POST':
         ryder.delete()
         return redirect('Ryders')
-    content = {'ryder', ryder}
+    content = {'ryder': ryder}
     return render(request, 'Delete_Ryder.html', content)
 
 
