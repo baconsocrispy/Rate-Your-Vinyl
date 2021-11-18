@@ -20,7 +20,6 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/v1/", include("OregonRocks.urls")),
@@ -42,9 +41,7 @@ urlpatterns = [
     path('Snowboarding/', include('Snowboarding.urls')),
     path('HotSprings/', include('HotSprings.urls')),
     path('MusicFiles/', include('MusicFiles.urls')),
-
-
-
+    path('Todo/', include('Todo.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
