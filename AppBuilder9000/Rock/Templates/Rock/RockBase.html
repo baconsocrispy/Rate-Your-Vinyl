@@ -7,13 +7,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static '/CSS/HardRock.css' %}">
 		<title>80's Hard RocK</title>
 	</head>
 	<header>
-		<p>Welcome to the 80's Hard Rock</p>
+		<h1>Welcome to the 80's Hard Rock</h1>
 	</header>
 
-	<body style="background-color:gray;">
+	<body style="background-color: light gray;">
 
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
@@ -21,9 +22,9 @@
 			  <a class="navbar-brand" href="#">80's Hard Rock</a>
 			</div>
 			<ul class="nav navbar-nav">
-			  <li class="active"><a href="#">Home</a></li>
+			  <li class="active"><a href="{% url 'RocksHome' %}">Home</a></li>
+			  <li><a href="{% url 'Rock_Create' %}">Add New Band Member</a></li>
 			  <li><a href="#">Hair Metal</a></li>
-			  <li><a href="#">Glam Metal</a></li>
 			  <li><a href="#">Thrash Metal</a></li>
 			</ul>
 		  </div>
@@ -34,7 +35,10 @@
 
 
 
-	<footer>
-            <p>80's Hard Rock &copy;2021 | George Pruitt</p>
-	</footer>
+	<section id="block-footer">
+			<p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
+			<p id="footer-left">&copy;2021 - 80's Hard Rock/ George Pruitt</p>
+		</section>
+
+
 </html>

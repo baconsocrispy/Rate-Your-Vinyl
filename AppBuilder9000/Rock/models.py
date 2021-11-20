@@ -4,9 +4,12 @@ from django.db import models
 
 
 class HardRock(models.Model):
-    artist = models.CharField(max_length=60)
+    Band = models.CharField(max_length=60)
     member = models.CharField(max_length=60)
     Genre = models.CharField(max_length=60)
     album = models.CharField(max_length=60)
 
     objects = models.Manager()
+
+    def __str__(self):
+        return self.member
