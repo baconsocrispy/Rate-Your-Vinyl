@@ -1,0 +1,21 @@
+{% block header %}Hot Springs{% endblock %}
+
+{% include "hotsprings_navbar.html" %}
+
+{% load static %}
+{% block title %}Hot Springs Details{% endblock %}
+
+<div class="main">
+
+	<!-- Specify fields to be displayed -->
+	{{ hotsprings.hot_springs_name }}<br/>
+	{{ hotsprings.description}}<br/>
+	{{ hotsprings.hot_springs_type }}<br/>
+	{{ hotsprings.clothing_optional}}<br/>
+	{{ hotsprings.stay_accommodations }}<br/>
+	{{ hotsprings.city}}<br/>
+	{{ hotsprings.state}}<br/>
+
+</div>
+
+

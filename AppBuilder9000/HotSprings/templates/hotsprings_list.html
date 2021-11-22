@@ -28,11 +28,14 @@
 
 {% endblock %}
 
+<div class="main">
 
+	{% for hotsprings in hotsprings %}
 
-{% for hotsprings in hotsprings %}
+	<a href = "../{{ hotsprings.pk }}/details/">{{ hotsprings.hot_springs_name }}<br/>
+	{{ hotsprings.description}}<br/>
+	<hr/>
 
-    <h1>{{ hotsprings.name }}</h1>
-    <p>{{ hotsprings.description}}</p>
+	{% endfor %}
 
-{% endfor %}
+</div>
