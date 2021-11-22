@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'HotSprings',
     'Rock',
     'Todo',
+    'Todo',
     'Masonry',
 
 ]

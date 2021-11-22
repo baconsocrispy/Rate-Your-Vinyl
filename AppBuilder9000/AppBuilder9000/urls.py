@@ -31,7 +31,6 @@ urlpatterns = [
     path('Rock/', include('Rock.urls')),
     path('Todo/', include('Todo.urls')),
     path('Masonry/', include('Masonry.urls')),
-
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

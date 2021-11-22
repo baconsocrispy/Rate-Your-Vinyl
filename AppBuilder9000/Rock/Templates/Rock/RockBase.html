@@ -13,6 +13,7 @@
 		<p>Welcome to the 80's Hard Rock</p>
 	</header>
 
+
 	<body style="background-color:gray;">
 
 		<nav class="navbar navbar-default">
@@ -21,14 +22,16 @@
 			  <a class="navbar-brand" href="#">80's Hard Rock</a>
 			</div>
 			<ul class="nav navbar-nav">
-			  <li class="active"><a href="#">Home</a></li>
-			  <li><a href="#">Hair Metal</a></li>
-			  <li><a href="#">Glam Metal</a></li>
+			  <li class="active"><a href="RocksHome">Home</a></li>
+			  <li><a href="Rock_Create">Add a Band Member</a></li>
+			  <li><a href="List">List all Objects</a></li>
 			  <li><a href="#">Thrash Metal</a></li>
+
 			</ul>
 		  </div>
 		</nav>
-
+		{% block content %}
+		{% endblock %}
 
 	</body>
 
