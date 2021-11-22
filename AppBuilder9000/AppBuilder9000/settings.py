@@ -57,8 +57,7 @@ INSTALLED_APPS = [
     'SpeedRun',
     'Snowboarding',
     'HotSprings',
-    'Rock',
-    'Todo',
+    'Masonry',
 
 ]
 
