@@ -1,24 +1,24 @@
 from django.db import models
 
-type_choices = {
+type_choices = [
     ('Outdoor', 'Outdoor'),
     ('Indoor', 'Indoor'),
     ('Both', 'Both'),
-}
+]
 
-bathingsuit_choices = {
+bathingsuit_choices = [
     ('Required', 'Required'),
     ('Optional', 'Optional'),
-}
+]
 
-stay_overnight = {
+stay_overnight = [
     ('Tent Camping', 'Tent Camping'),
     ('Trailer Hookups', 'Trailer Hookups'),
     ('Cabin Rentals', 'Cabin Rentals'),
     ('Resort', 'Resort'),
     ('Camping & Rentals', 'Camping & Rentals'),
     ('No Overnight Stay', 'No Overnight Stay'),
-}
+]
 
 class HotSprings(models.Model):
     hot_springs_name = models.CharField(max_length=50)
