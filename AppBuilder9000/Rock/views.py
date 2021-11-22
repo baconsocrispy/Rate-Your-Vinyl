@@ -20,5 +20,5 @@ def Rock_Create(request):
         if form.is_valid():
             form.save()
             return redirect('RocksHome')
-    context = {'form': form}
-    return render(request, 'Rock/Rock_Create.html', context)
+    content = {'form': form}
+    return render(request, 'Rock/Rock_Create.html', content)
