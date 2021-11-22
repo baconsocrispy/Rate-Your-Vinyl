@@ -5,20 +5,20 @@
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="{% static 'CSS/one_page_website.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'CSS/one_page_website.css' %}" defer>
         <link rel="stylesheet" type="text/css" href="{% static 'CSS/animations1.css' %}">
     </head>
+
+
     <body>
+    {% include "Masonry/Masonry_navbar.html" %}
         <div class="page_container">
-            {% include "Masonry_navbar.html" %}
             <header class="header-title">
                 <h1>{% block header %}{% endblock %}</h1>
             </header>
             {% block content %}{% endblock %}
         </div>
 
-        {% include "Masonry_footer.html" %}
+        {% include "Masonry/Masonry_footer.html" %}
     </body>
 </html>

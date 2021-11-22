@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def Masonry_home(request):
+def masonry_home(request):
     # This render function will take the request argument, and return the html document as a response
 
-    return render(request, 'Masonry_home.html')
+    return render(request, 'Masonry/Masonry_home.html')

@@ -284,7 +284,7 @@ section {
 /*=========================================
     HOME SECTION STYLES
 ===========================================*/
-#home {
+ #bg_image {
     background: url(../imagesmasonry/masonryBG.jpg) no-repeat 50% 50%;
     background-attachment: fixed;
     -webkit-background-size: cover;
@@ -327,6 +327,10 @@ section {
     padding: 5px 20px 20px 20px;
     border: 1px dotted #FFE4C4;
     padding: 5px;
+}
+
+.header {
+    padding-top: 140px;
 }
 
 /*=========================================
