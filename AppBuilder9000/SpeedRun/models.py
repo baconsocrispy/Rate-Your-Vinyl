@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 from datetime import date
 
+
 # game name model
 class GameName(models.Model):
     game_name = models.CharField(max_length=60, default="")
@@ -12,7 +13,7 @@ class GameName(models.Model):
         return self.game_name
 
 # limiting choices of platforms
-PLATFORM_CHOICES = {
+PLATFORM_CHOICES = (
     ('Atari 2600','Atari 2600'),
     ('Xbox','Xbox'),
     ('Xbox 360','Xbox 360'),
@@ -37,7 +38,7 @@ PLATFORM_CHOICES = {
     ('PlayStation 4','PlayStation 4'),
     ('PlayStation 5','PlayStation 5'),
     ('PC','PC'),
-}
+)
 
 
 
@@ -45,12 +46,16 @@ PLATFORM_CHOICES = {
 # creating a speedrun class object
 class Record(models.Model):
     player = models.CharField(max_length=60, default="")
-    game = models.ForeignKey(GameName, on_delete=models.CASCADE)
-    time = models.CharField(max_length=30, default="")
+    game = models.ForeignKey(GameName, related_name='records', on_delete=models.CASCADE)
+    time = models.CharField(max_length=30, default="HH:MM:SS")
     platform = models.CharField(max_length=60, choices=PLATFORM_CHOICES, default="")
     date = models.DateField(default=date.today)
 
     objects = models.Manager()
 
     def __str__(self):
-        return self.sr_player
+        return [self.player,
+                self.time,
+                self.platform,
+                self.date]
+

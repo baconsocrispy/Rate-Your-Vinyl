@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>80's Hard RocK</title>
+	</head>
+	<header>
+		<p>Welcome to the 80's Hard Rock</p>
+	</header>
+
+
+	<body style="background-color:gray;">
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="#">80's Hard Rock</a>
+			</div>
+			<ul class="nav navbar-nav">
+			  <li class="active"><a href="RocksHome">Home</a></li>
+			  <li><a href="Rock_Create">Add a Band Member</a></li>
+			  <li><a href="List">List all Objects</a></li>
+			  <li><a href="#">Thrash Metal</a></li>
+
+			</ul>
+		  </div>
+		</nav>
+		{% block content %}
+		{% endblock %}
+
+	</body>
+
+
+
+	<footer>
+            <p>80's Hard Rock &copy;2021 | George Pruitt</p>
+	</footer>
+</html>

@@ -22,24 +22,14 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("api/v1/", include("OregonRocks.urls")),
     path('', views.home, name='home'),
-    path('music_charts/', include('music_charts.urls')),
-    path('OregonRocks/', include('OregonRocks.urls')),
-    path('CoreItemManagement/', include('CoreItemManagement.urls')),
-    path('ValItems/', include('ValItems.urls')),
-    path('UtadaHikaru/', include('UtadaApp.urls')),
-    path('FunkoCollector/', include('FunkoCollector.urls')),
-    path('FantasyFB/', include('FantasyFB.urls')),
-    path('SportsCars/', include('SportsCars.urls')),
-    path('theforce/', include('theforce.urls')),
     path('AnimeReviews/', include('AnimeReviews.urls')),
-    path('KeyMaster/', include('KeyMaster.urls')),
-    path('CocktailRecipes/', include('CocktailRecipes.urls')),
-    path('FloridaBirds/', include('FloridaBirds.urls')),
     path('SpeedRun/', include('SpeedRun.urls')),
+    path('Snowboarding/', include('Snowboarding.urls')),
     path('HotSprings/', include('HotSprings.urls')),
-
+    path('MusicFiles/', include('MusicFiles.urls')),
+    path('Rock/', include('Rock.urls')),
+    path('Masonry/', include('Masonry.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
