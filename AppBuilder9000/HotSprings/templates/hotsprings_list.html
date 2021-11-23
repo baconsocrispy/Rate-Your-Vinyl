@@ -12,7 +12,7 @@
             <label for="menu_id">Select a hot springs from the list to edit:</label>
             <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
             {% for hotsprings in hotsprings %}
-                <option value="../{{ hotsprings.pk }}/details/">{{ hotsprings.hot_springs_name }}</option>
+                <option value="../{{ hotsprings.pk }}/hotsprings_details/">{{ hotsprings.hot_springs_name }}</option>
             {% endfor %}
             </select>
             <div class="fromBtn_container">
@@ -26,16 +26,16 @@
 
 
 
-{% endblock %}
-
 <div class="main">
 
 	{% for hotsprings in hotsprings %}
 
-	<a href = "../{{ hotsprings.pk }}/details/">{{ hotsprings.hot_springs_name }}<br/>
+	<a href = "../{{ hotsprings.pk }}/hotsprings_details/">{{ hotsprings.hot_springs_name }}<br/>
 	{{ hotsprings.description}}<br/>
 	<hr/>
 
 	{% endfor %}
 
 </div>
+
+{% endblock %}
