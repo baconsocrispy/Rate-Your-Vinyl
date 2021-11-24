@@ -7,29 +7,29 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href = " {% static 'CSS/HardRock.css' %}" >
 		<title>80's Hard RocK</title>
 	</head>
 	<header>
-		<p>Welcome to the 80's Hard Rock</p>
+		<h1>Welcome to the 80's Hard Rock</h1>
 	</header>
 
 
-	<body style="background-color:gray;">
+	<body>
+		<div class="page_container">
+            {% include "Rock/NAV-Bar.html" %}
+            <header class="header-title">
+                <h1>{% block header %}{% endblock %}</h1>
+            </header>
 
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<div class="navbar-header">
-			  <a class="navbar-brand" href="#">80's Hard Rock</a>
-			</div>
-			<ul class="nav navbar-nav">
-			  <li class="active"><a href="RocksHome">Home</a></li>
-			  <li><a href="Rock_Create">Add a Band Member</a></li>
-			  <li><a href="List">List all Objects</a></li>
-			  <li><a href="#">Thrash Metal</a></li>
+        </div>
 
-			</ul>
-		  </div>
-		</nav>
+        {% include "Rock/HardRockFooter.html" %}
+
+
+
 		{% block content %}
 		{% endblock %}
 
@@ -37,7 +37,4 @@
 
 
 
-	<footer>
-            <p>80's Hard Rock &copy;2021 | George Pruitt</p>
-	</footer>
 </html>

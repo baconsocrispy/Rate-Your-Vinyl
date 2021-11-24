@@ -1,10 +1,12 @@
-
 from django.urls import path
+from django.contrib import admin
 from . import views
 
 urlpatterns = [
     path('RocksHome', views.RocksHome, name='RocksHome'),
-    path('Rock_Create', views.Rock_Create, name='Rock_Create'),
-    path('List', views.HardRock_List, name='List'),
-
+    path('RockCreate', views.Rock_Create, name='RockCreate'),
+    path('HardRock_List', views.HardRock_List, name='HardRock_List'),
+    path('admin_console', views.admin_console, name="admin_console"),
+    path('<int:pk>/details/', views.details, name="details"),
+    path('HardRock_Details', views.HardRock_Details, name='HardRock_Details'),
 ]
