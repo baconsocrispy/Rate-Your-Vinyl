@@ -12,13 +12,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Ryder',
+            name='HardRock',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('First_Name', models.CharField(blank=True, default='', max_length=60)),
-                ('Last_Name', models.CharField(blank=True, default='', max_length=60)),
-                ('Style', models.CharField(blank=True, default='', max_length=60)),
-                ('Sponsor', models.CharField(blank=True, default='', max_length=60)),
+                ('artist', models.CharField(max_length=60)),
+                ('member', models.CharField(max_length=60)),
+                ('Genre', models.CharField(max_length=60)),
+                ('album', models.CharField(max_length=60)),
             ],
         ),
     ]
