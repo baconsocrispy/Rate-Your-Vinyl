@@ -35,7 +35,7 @@ def createQuote(request):
     form = QuoteForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('quote_console')
+        return redirect('masonry_home')
     else:
         print(form.errors)
         form = QuoteForm()
