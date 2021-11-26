@@ -1,12 +1,11 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from .form import CampsitesForm
 from .models import CampSites
-import django.shortcuts
 
 
 def campsites_home(request):
-    return django.shortcuts.render(request, 'campsites_home.html')
+    return render(request, 'campsites_home.html')
 
 
 def add_campsites(request):
@@ -18,18 +17,18 @@ def add_campsites(request):
         print(form.errors)
         form = CampsitesForm()
         context = {'form': form}
-    return django.shortcuts.render(request, 'campsites_create.html', context)
+    return render(request, 'campsites_create.html', context)
 
 
 def list_campsites(request):
     campsites = CampSites.Sites.all()
-    return django.shortcuts.render(request, 'campsites_list.html', {'campsites': campsites})
+    return render(request, 'campsites_list.html', {'campsites': campsites})
 
 
 def campsites_details(request, pk):
     details = get_object_or_404(CampSites, pk=pk)
     context = {'details': details}
-    return django.shortcuts.render(request, 'campsites_details.html', context)
+    return render(request, 'campsites_details.html', context)
 
 
 # update view for details
@@ -53,5 +52,5 @@ def update_view(request, pk):
     # add form dictionary to context
     context["form"] = form
 
-    return django.shortcuts.render(request, "update_view.html", context)
+    return render(request, "update_view.html", context)
 
