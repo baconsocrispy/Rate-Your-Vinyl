@@ -11,7 +11,7 @@
            <label for="menu_id">Select a Band Member from this list to edit:</label>
            <select id="menu_id" name="menu" onchange="top.location.href=this.options[this.selectedIndex].value;">
            {% for HardRock in list %}
-                   <option>{{HardRock.member}}</option>
+                   <option value="{{HardRock.pk}}/details/">{{HardRock.member}}</option>
             {% endfor %}
            </select>
            <div class="fromBtn_container">
