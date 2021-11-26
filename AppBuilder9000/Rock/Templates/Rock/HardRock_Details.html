@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "Rock/RockBase.html" %}
 
 {% block header %}Band Details:{% endblock %}
 
@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="admin_panel" >
-   <form name="HardRockForm" method="POST" action="">
+   <form name="HardRockForm" method="POST" action="../details/">
       <table>
           {% csrf_token %}
           {{ form.non_field_errors }}
@@ -16,7 +16,7 @@
            <input type="submit">
            <div class="frmBtn_container">
                <button class="btn"><a href="../{{ form.pk }}delete/">DELETE </a></button>
-               <button class="btn"><a href="{% url 'rock_admin_console' %}">CANCEL</a></button>
+               <button class="btn"><a href="{% url 'RocksHome' %}">CANCEL</a></button>
            </div>
        </div>
    </form>
