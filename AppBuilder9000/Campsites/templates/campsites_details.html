@@ -1,0 +1,21 @@
+{% block header %}Campsites{% endblock %}
+
+{% include "campsites_navbar.html" %}
+
+{% load static %}
+{% block title %}CampSite Details{% endblock %}
+
+{% block content %}
+<div class="main">
+
+	<!-- Specify fields to be displayed -->
+	{{ details.name }}<br/>
+	{{ details.description }}<br/>
+	{{ details.site_amenities }}<br/>
+	{{ details.site_activities }}<br/>
+	{{ details.city }}<br/>
+	{{ details.state }}<br/>
+
+</div>
+{% endblock %}
+
