@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.masonry_home, name='masonry_home'),
+    path('Create/', views.createQuote, name='createQuote'),
 ]
