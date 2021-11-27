@@ -1,4 +1,4 @@
-{% extends "Rockbase.html" %}
+{% extends "Rock/RockBase.html" %}
 
 {% block title %}80's Hard Rock{% endblock %}
 
@@ -15,7 +15,7 @@
             {{ item.as_p }}
 
         <input type="submit" value="Yes, delete it!" class="btn">
-        <a href=" {% url 'admin_console' %}"><button class="btn" type="button">Cancel</button> </a>
+        <a href=" {% url 'HardRock_List' %}"><button class="btn" type="button">Cancel</button> </a>
     </form>
 
 
