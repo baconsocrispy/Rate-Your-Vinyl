@@ -30,11 +30,6 @@ def HardRock_Details(request):
     return render(request, 'Rock/HardRock_Details.html')
 
 
-def rock_admin_console(request):
-    Rock = HardRock.objects.all()
-    return render(request, 'Rock/HardRock_List.html', {'Rock': Rock})
-
-
 def details(request, pk):
     pk = int(pk)
     item = get_object_or_404(HardRock, pk=pk)
@@ -55,7 +50,7 @@ def delete(request, pk):
     item = get_object_or_404(HardRock, pk=pk)
     if request.method == 'POST':
         item.delete()
-        return redirect('rock_admin_console')
+        return redirect('HardRock_List')
     context = {"item": item}
     return render(request, "Rock/confirm_Delete.html", context)
 
@@ -66,6 +61,6 @@ def confirmed(request):
         form = HardRockForm(request.POST or None)
         if form.is_valid():
             form.delete()
-            return redirect('rock_admin_console')
+            return redirect('HardRock_List')
     else:
-        return redirect('rock_admin_console')
+        return redirect('HardRock_List')
