@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .forms import QuoteForm
@@ -11,7 +12,7 @@ def masonry_home(request):
     return render(request, 'Masonry/Masonry_home.html')
 
 
-def quote_console(request):
+def quote_view(request):
     quotes = Quotes.objects.all()
     return render(request, 'Masonry/quotes_page.html', {'quotes': quotes})
 
@@ -28,14 +29,14 @@ def details(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, 'Masonry/present_quote.html', {'form': form})
+        return render(request, 'Masonry/masonry_details.html', {'form': form})
 
 
 def createQuote(request):
     form = QuoteForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('masonry_home')
+        return redirect('createQuote')
     else:
         print(form.errors)
         form = QuoteForm()
@@ -44,3 +45,6 @@ def createQuote(request):
     }
     return render(request, 'Masonry/createQuote.html', context)
 
+
+def gallery(request):
+    return render(request, 'Masonry/Masonry_gallery.html')

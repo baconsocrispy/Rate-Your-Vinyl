@@ -12,3 +12,6 @@ class Quotes(models.Model):
     Est_cost = models.DecimalField(default=0.00, max_digits=1000000000, decimal_places=2)
 
     objects = models.Manager()
+
+    def __str__(self):
+        return self.Namerec
