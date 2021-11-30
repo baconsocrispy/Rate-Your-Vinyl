@@ -1,8 +1,6 @@
 {% extends "Masonry/Masonry_base.html" %}
 {% load static %}
 
-{% block nav %}{% include "Masonry/Masonry_navbar.html" %}{% endblock %}
-
 {% block title %}Mina's Masonry{% endblock %}
 
 {% block content %}
@@ -16,7 +14,7 @@
         {{ item.as_p }}
 
         <input type="submit" value="Yes, delete it!" class="btn">
-        <a href="{% url 'quote_view' %}"><button class="btn" type="button">Cancel</button></a>
+        <a href="{% url 'All_quotes' %}"><button class="btn" type="button">Cancel</button></a>
     </form>
 
 

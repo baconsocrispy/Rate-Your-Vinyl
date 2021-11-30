@@ -203,6 +203,13 @@ h4 {
     font-weight: 900;
 }
 
+h5 {
+    color:DarkCyan;
+    font-weight: 900;
+    box-shadow: 5px 2px 3px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+}
+
 p {
     font-weight: 300;
     line-height: 30px;
@@ -258,7 +265,6 @@ section {
 .wrap {
     height: 100%;
     width: 100%;
-    position: absolute;
     /* This ensures that the image cannot
        render outside of their container
        without forcing any scrollbars*/
@@ -266,6 +272,11 @@ section {
     top: 0;
     left: 0;
     text-align: center;
+}
+
+.d-block w-100 {
+    width: 50%;
+
 }
 
 .masonry-container {
