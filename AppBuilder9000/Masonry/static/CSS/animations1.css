@@ -1,7 +1,7 @@
 /*=======================================
     MENU SECTION ANIMATION
 =========================================*/
-.menu {
+.masonry_nav {
     color: bisque;
     font: bold 12px/18px sans-serif;
     text-align: center;
@@ -12,7 +12,7 @@
     text-decoration: none;
 }
 
-.menu li {
+.masonry_nav li {
     color: black;
     background-color: rgba(225, 225, 255, 1);
     display: inline-block;
@@ -30,7 +30,7 @@
     transition-timing-function: ease-in-out;
 }
 
-.menu li:hover {
+.masonry_nav li:hover {
     color: #f00;
     background-color: rgba(100,65,0,.3);
 }
