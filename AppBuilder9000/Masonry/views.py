@@ -25,18 +25,38 @@ def details(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('quote_console')
+            return redirect('quote_view')
         else:
             print(form.errors)
     else:
         return render(request, 'Masonry/masonry_details.html', {'form': form})
 
 
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Quotes, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('masonry_home')
+    context = {"item": item}
+    return render(request, "Masonry/confirmDelete.html", context)
+
+def confirmed(request):
+    if request.method == 'POST':
+        # creates form instance and binds data to it
+        form = QuoteForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('masonry_home')
+    else:
+        return redirect('masonry_home')
+
+
 def createQuote(request):
     form = QuoteForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('createQuote')
+        return redirect('masonry_home')
     else:
         print(form.errors)
         form = QuoteForm()
