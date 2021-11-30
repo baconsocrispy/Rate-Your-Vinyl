@@ -9,13 +9,14 @@
 
 <div class="quote_panel">
     <form name="quoteForm" method="POST" action="">
-        <div class="formObject">
+        <div class="form-text">
             {% csrf_token %}
-            <label for="menu_id">Select a product from the list to edit:</label>
-            <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
-            {% for quote in quotes %}
-                <option value="../{{ quote.pk }}/details/">{{ quote.Namerec }}</option>
-            {% endfor %}
+            <label for="menu_id" class="labelIndex">Look at quotes:</label>
+            <select class="selectIndex" id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                <option value="">...</option>
+                {% for quote in quotes %}
+                    <option value="../{{ quote.pk }}/details/">{{ quote.Namerec }}</option>
+                {% endfor %}
             </select>
         </div>
     </form>
@@ -23,7 +24,7 @@
     <div class="fromBtn_container">
         <a href="{% url 'createQuote' %}"><button type="button" class="btn">Create New Product</button></a>
         <a href="{% url 'masonry_home' %}"><button type="button" class="btn">Logout of Profile</button></a>
-        <a href="{% url 'masonry_details' %}"><button type="button" class="btn" value="Quote Details">Details</button></a>
+
     </div>
 
 </div>

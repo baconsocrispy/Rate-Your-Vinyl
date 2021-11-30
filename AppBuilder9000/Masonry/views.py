@@ -25,11 +25,11 @@ def details(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('quote_view')
+            return redirect('All_quotes')
         else:
             print(form.errors)
     else:
-        return render(request, 'Masonry/masonry_details.html', {'form': form})
+        return render(request, 'Masonry/Masonry_details.html', {'form': form})
 
 
 def delete(request, pk):
@@ -40,6 +40,7 @@ def delete(request, pk):
         return redirect('masonry_home')
     context = {"item": item}
     return render(request, "Masonry/confirmDelete.html", context)
+
 
 def confirmed(request):
     if request.method == 'POST':
