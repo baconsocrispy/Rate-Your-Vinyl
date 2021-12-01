@@ -1,12 +1,10 @@
-from tkinter import Entry
-
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import HardRock
+
 from .forms import HardRockForm
+from .models import HardRock
 
 
 # Create your views here.
-
 
 
 def RocksHome(request):
@@ -15,7 +13,7 @@ def RocksHome(request):
 
 def HardRock_List(request):
     list = HardRock.objects.all()
-    return render(request, 'Rock/HardRock_List.html', {'list':list})
+    return render(request, 'Rock/HardRock_List.html', {'list': list})
 
 
 def Rock_Create(request):
@@ -27,13 +25,10 @@ def Rock_Create(request):
     content = {'form': form}
     return render(request, 'Rock/Rock_Create.html', content)
 
+
 def HardRock_Details(request):
     return render(request, 'Rock/HardRock_Details.html')
 
-def admin_console(request):
-    from AppBuilder9000 import Rock
-    HardRock = Rock.objects.all()
-    return render(request, 'Rock/HardRock_List.html', {'Rock': Rock})
 
 def details(request, pk):
     pk = int(pk)
@@ -43,8 +38,29 @@ def details(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('admin_console')
+            return redirect('HardRock_List')
         else:
             print(form.errors)
     else:
-        return render(request, 'Rock/HardRock_List.html', {'form' : form})
+        return render(request, 'Rock/HardRock_Details.html', {'form': form})
+
+
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(HardRock, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('HardRock_List')
+    context = {"item": item}
+    return render(request, "Rock/confirm_Delete.html", context)
+
+
+def confirmed(request):
+    if request.method == 'POST':
+        # creates form instance and binds data to it
+        form = HardRockForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('HardRock_List')
+    else:
+        return redirect('HardRock_List')
