@@ -31,13 +31,14 @@
 
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid bg-light text-center">
         <div class="container">
             <h1 class="display-3">Campsite</h1>
-             <br><br>
-                Welcome to my first liveproject site! I've always had a passion for the great outdoors and wanted to share my passion with you. Click around, add a few campsites you
-                know and love. Thanks for coming!
-            <br><br>
+            <br>
+            <p class="lead text-dark">Welcome to my first liveproject site! I've always had a passion for the great outdoors
+                and wanted to share my passion with you. Click around, add a few campsites you
+                know and love. Thanks for coming!</p>
+
             <p><a class="btn btn-primary btn-lg" href="{% url 'campsites_list' %}" role="button">Learn more &raquo;</a></p>
         </div>
     </div>
@@ -46,21 +47,21 @@
 
 <div class="card-group">
   <div class="card text-white bg-success mb-3">
-    <img src="{% static 'images/campfire.jpg' %}" class="card-img-top" alt="campfire">
+    <img src="{% static 'images/camp.jpg' %}" class="card-img-top" alt="campfire">
     <div class="card-body">
       <h5 class="card-title text-center">Hidden gems</h5>
       <p class="card-text text-center">Sites on the rise</p>
     </div>
   </div>
   <div class="card text-light bg-warning mb-3">
-    <img src="{% static 'images/pets.jpg' %}" class="card-img-top" alt="pets">
+    <img src="{% static 'images/pet.jpg' %}" class="card-img-top" alt="pets">
     <div class="card-body">
       <h5 class="card-title text-center">Pet Friendly</h5>
       <p class="card-text text-center">Bring your pet companion on a trip of a lifetime</p>
     </div>
   </div>
   <div class="card text-light bg-primary mb-3">
-    <img src="{% static 'images/rv.jpg' %}" class="card-img-top" alt="rv">
+    <img src="{% static 'images/fire.jpg' %}" class="card-img-top" alt="rv">
     <div class="card-body">
       <h5 class="card-title text-center">Travel Anywhere</h5>
       <p class="card-text text-center">Head out today</p>
