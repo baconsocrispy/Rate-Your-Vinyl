@@ -27,21 +27,15 @@ activities_choices = [
 
 
 class CampSites(models.Model):
-
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=60, choices=type_choices)
     site_amenities = models.CharField(max_length=60, default="", choices=amenities_choices)
     site_activities = models.CharField(max_length=60, default="", choices=activities_choices)
     description = models.TextField(max_length=500, default="", blank=True)
+    city = models.CharField(max_length=500, default="", blank=True)
+    state = models.CharField(max_length=500, default="", blank=True)
 
-    Sites = models.Manager()
-
-
-class Location(CampSites):
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
-
-    Location = models.Manager()
+    objects = models.Manager()
 
     def __str__(self):
         return self.name

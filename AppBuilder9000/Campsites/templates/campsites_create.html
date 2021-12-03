@@ -1,14 +1,11 @@
 {% extends 'campsites_base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-
-{% include "campsites_navbar.html" %}
+{% block header %}CampSites{% endblock %}
 
 {% block content %}
-
-    <h1 class="heading">Add a New Campsite:</h1>
-
-        <div>
+<h1 class="heading text-center">Add a New Campsite:</h1>
+    <div class="container">
         <form method="POST" class="control-label col-xs-1">
             {% csrf_token %}
             {{ form|crispy }}
