@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'Masonry',
     'Campsites',
     'CampingSupplies',
-
+    'Gardening',
 ]
 
 MIDDLEWARE = [
