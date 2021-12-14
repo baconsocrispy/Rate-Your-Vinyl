@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Rock',
     'Masonry',
     'Campsites',
+    'CampingSupplies',
     'Gardening',
 ]
 
