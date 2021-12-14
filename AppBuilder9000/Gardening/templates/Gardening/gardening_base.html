@@ -1,0 +1,38 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/gardening_main.css' %}">
+        <title>{% block title %}My Gardening App{% endblock %}</title>
+    </head>
+
+    <body class="gardening_body">
+        <div>
+
+            <!--default navigation and heading for each page-->
+            {% block navbar %}
+                {% include 'Gardening/navbar.html' %}
+            {% endblock %}
+            <!-- end navigation -->
+        </div>
+         <!-- Page Header -->
+            <h1 class="hero_title">{% block heading %} <!--insert each page heading here -->{% endblock %}</h1>
+
+        <!--Page Content-->
+        <div>
+            {% block content %}
+                <!--insert content for each individual page-->
+            {% endblock %}
+        </div>
+        <!-- End Page Content-->
+
+        <!--Footer-->
+        {% block footer %}
+            {% include 'Gardening/footer.html'%}
+        {% endblock %}
+        <!-- End Footer-->
+    </body>
+</html>
