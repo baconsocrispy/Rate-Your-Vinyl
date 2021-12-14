@@ -24,3 +24,11 @@ def show_plant(request):
 
     context = {'show_plants': show_plants}
     return render(request, "Gardening/show_plant.html", context)
+
+
+# This genreates a page of details for each plant in the database
+def plant_details(request):
+    details = Plants.objects.get(id=id)
+
+    context = {'details': details}
+    return render(request, "Gardening/gardening_details", context)
