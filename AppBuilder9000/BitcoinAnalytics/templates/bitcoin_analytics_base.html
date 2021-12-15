@@ -6,8 +6,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static '/CSS/shared.css' %}">
-         <link rel="stylesheet" href="{% static '/CSS/animations.css' %}">
+        <link rel="stylesheet" href="{% static 'BitcoinAnalytics/CSS/shared.css' %}">
+        <link rel="stylesheet" href="{% static 'BitcoinAnalytics/CSS/animations.css' %}">
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body id="body">
@@ -18,7 +18,7 @@
               <a href="{% url 'bitcoin_analytics_home' %}"><li>HOME</li></a>
               <a href="{% url 'bitcoin_analytics_home' %}"><li>STATS</li></a>
               <a href="{% url 'bitcoin_analytics_home' %}"><li>VISUAL</li></a>
-              <a href="{% url 'bitcoin_analytics_home' %}"><li>FORECASTING</li></a>
+              <a href="{% url 'create' %}"><li>COMPETITION</li></a>
             </ul>
           </div>
         </div>
