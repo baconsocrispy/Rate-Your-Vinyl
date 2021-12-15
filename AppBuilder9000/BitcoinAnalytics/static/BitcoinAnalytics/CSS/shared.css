@@ -5,8 +5,8 @@ html, body {
 
 body {
 	font-family: Lucida Sans Unicode;
-	text-align: right;
-	background-image: url("../../static/images/background.jpg");
+	text-align: left;
+	background-image: url("../../../static/BitcoinAnalytics/images/background.jpg");
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
