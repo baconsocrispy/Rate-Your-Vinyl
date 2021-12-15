@@ -19,24 +19,8 @@ size_choices = [
 
 class Tent(models.Model):
     Color = models.CharField(max_length=30, default="", choices=color_choices)
-    PersonCount = models.IntegerField(max_length=2)
+    PersonCount = models.IntegerField()
     Price = models.FloatField(max_length=30)
-
-class CookingTool(models.Model):
-    Product_Name = models.CharField(max_length=30)
-    Price = models.FloatField(max_length=30)
-    Material = models.CharField(max_length=30)
-
-class Pants(models.Model):
-    Size = models.CharField(max_length=30, default="", choices=size_choices)
-    Price = models.FloatField(max_length=30)
-    Color = models.CharField(max_length=30, default="", choices=color_choices)
-
-
-class Coat(models.Model):
-    Size = models.CharField(max_length=30)
-    Price = models.FloatField(max_length=30)
-    Color = models.CharField(max_length=30, default="", choices=color_choices)
 
     object = models.Manager
 

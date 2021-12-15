@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render,redirect
-from .forms import campingsuppliesform
+from .forms import TentForm
 
 def Camping_Supplies_Home(request):
     #this function will take the request object and use it to find and display the Camping_Supplies_Home.html
@@ -7,13 +7,13 @@ def Camping_Supplies_Home(request):
     return render(request, 'Camping_Supplies_Home.html')
 
 def Camping_Supplies_Create(request):
-    form = campingsuppliesform(request.POST or None)
+    form = TentForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
         return redirect('Camping_Supplies_Create')
     else:
         print(form.errors)
-        form = campingsuppliesform
+        form = TentForm
         context = {'form': form}
     return render(request, 'create.html', context)

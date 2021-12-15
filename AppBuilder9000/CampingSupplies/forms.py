@@ -1,7 +1,8 @@
 from django.forms import ModelForm
-from .models import Tent, CookingTool, Pants, Coat
+from .models import Tent
 
-class campingsuppliesform(ModelForm):
+class TentForm(ModelForm):
     class Meta:
-        model = Tent, CookingTool, Pants, Coat
-        fields ="__all__"
+        model = Tent
+        fields = "__all__"
+
