@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'Campsites',
     'CampingSupplies',
     'Gardening',
-
+    'BitcoinAnalytics',
 ]
 
 MIDDLEWARE = [
