@@ -13,6 +13,12 @@ def create_player(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('basketball_stats_home')
+            return redirect('basketball_stats_players')
     context = {'form': form}
     return render(request, 'BasketballStats/BasketballStats_create.html', context)
+
+
+def player_stats(request):
+    player_list = Players.Player.all()
+    context = {'player_list': player_list}
+    return render(request, 'BasketballStats/BasketballStats_players.html', context)

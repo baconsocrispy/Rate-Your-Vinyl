@@ -1,5 +1,8 @@
 body {
-    background-color: lightblue;
+    background-image: url("../images/basketball_hoop.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 footer {
@@ -13,5 +16,11 @@ footer {
 }
 
 h1 {
-    text-align: center
+    text-align: center;
+    color: lightblue;
+}
+
+h3 {
+    text-align: center;
+    color: lightblue;
 }
