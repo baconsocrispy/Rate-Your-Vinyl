@@ -8,7 +8,7 @@
     <h2 class="d-inline p-1 my-1 text-success">{{ details.name }} Details</h2>
     <hr>
 <!--    <div class="spacer"></div>-->
-    <table id="plant_table" class="table display table-light table-hover table-striped" style="text-align:center; color:#ff5200;">
+    <table class="table display table-light table-hover table-striped" style="text-align:center; color:#ff5200;">
 <!--        This is the header row of the table-->
         <thead class="thead-light">
         <tr>
@@ -21,7 +21,6 @@
       </thead>
 <!--        This is the content added to the table from the database-->
       <tbody>
-      {% for plant in show_plants %}
         <tr>
           <th scope="row">{{details.name}}</th>
           <td>{{details.type}}</td>
@@ -29,7 +28,6 @@
           <td>{{details.date_planted}}</td>
           <td>{{details.days_to_harvest}} days</td>
         </tr>
-      {% endfor %}
 
 
 

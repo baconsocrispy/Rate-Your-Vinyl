@@ -30,7 +30,7 @@
           <td>{{plant.season_planted}}</td>
           <td>{{plant.date_planted}}</td>
           <td>{{plant.days_to_harvest}} days</td>
-          <td><a href="{% url 'plant_details' show_plants.pk %}" name="plant_details">See details for this plant</a></td>
+          <td><a href="{% url 'plant_details' plant.pk %}" name="plant_details">See details for this plant</a></td>
         </tr>
       {% endfor %}
       </tbody>
