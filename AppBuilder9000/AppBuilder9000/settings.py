@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'Gardening',
     'BitcoinAnalytics',
     'BasketballStats',
+    'Stocks',
     'DNDCharacters',
 ]
 
