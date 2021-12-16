@@ -20,4 +20,5 @@ def create_player(request):
 
 def player_stats(request):
     player_list = Players.Player.all()
-    return render(request, 'BasketballStats/BasketballStats_players.html', {'player_list', player_list})
+    context = {'player_list': player_list}
+    return render(request, 'BasketballStats/BasketballStats_players.html', context)
