@@ -33,6 +33,8 @@ urlpatterns = [
     path('Campsites/', include('Campsites.urls')),
     path('CampingSupplies/', include('CampingSupplies.urls')),
     path('Gardening/', include('Gardening.urls')),
+    path('BitcoinAnalytics', include('BitcoinAnalytics.urls')),
+    path('BasketballStats', include('BasketballStats.urls')),
     path('Stocks/', include('Stocks.urls')),
 ]
 

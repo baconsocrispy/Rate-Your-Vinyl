@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'Campsites',
     'CampingSupplies',
     'Gardening',
+    'BitcoinAnalytics',
+    'BasketballStats',
     'Stocks',
 ]
 
