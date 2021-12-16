@@ -7,4 +7,5 @@ urlpatterns = [
     path('add_player/', views.create_player, name='basketball_stats_create'),
     path('players/', views.player_stats, name='basketball_stats_players'),
     path('<int:pk>/details/', views.player_details, name='basketball_stats_details'),
+    path('<int:pk>/edit/', views.player_edit, name='basketball_stats_edit'),
 ]
