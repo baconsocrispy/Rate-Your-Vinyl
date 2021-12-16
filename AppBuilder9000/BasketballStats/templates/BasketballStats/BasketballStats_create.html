@@ -6,13 +6,13 @@
 {% block header %}Add Player Stats{% endblock %}
 
 {% block content %}
-<div id="form-container">
+<div id="form-container" class="table-responsive">
     <form method="POST">
         {% csrf_token %}
             <table id="table" class="table table-dark table-bordered table-hover text-center">
                 {{ form.as_table }}
             </table>
-        <button type="submit">Add</button>
+        <button type="submit" class="btn btn-dark btn-lg btn-block">Add Player</button>
     </form>
 </div>
 {% endblock %}
