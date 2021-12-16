@@ -1,0 +1,24 @@
+/* General Styling */
+
+html, body {
+	height: cover;
+	width: cover;
+}
+
+body {
+	font-family: Lucida Sans Unicode;
+	text-align: center;
+	background-image: url('../../static/images/dd-artwork-chimera.jpg');
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	overflow: scroll;
+	background-repeat: no-repeat;
+}
+
+h1{
+	color: black;
+	font-size: 36px;
+	text-align: center;
+}
