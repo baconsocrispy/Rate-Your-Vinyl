@@ -6,11 +6,11 @@
         <h3>Join our Quarterly Competition</h3>
     </div>
     <div class="Container">
-            <form method="POST">
-                {% csrf_token %}
-                {{form.as_p}}
-                <button id="new-competitor-button" type="submit" name="Save_Competitor">Submit Entry</button>
-            </form>
-            <br>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button id="new-competitor-button" type="submit" name="Save_Competitor">Submit Entry</button>
+        </form>
+        <br>
     </div>
 {% endblock %}
