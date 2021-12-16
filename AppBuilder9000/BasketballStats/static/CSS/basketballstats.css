@@ -17,10 +17,16 @@ footer {
 
 h1 {
     text-align: center;
-    color: lightblue;
+    color: blue;
 }
 
 h3 {
     text-align: center;
-    color: lightblue;
+    color: blue;
+}
+
+caption {
+    color: lightskyblue;
+    font-weight: bold;
+    text-align: right;
 }
