@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from AppBuilder9000.BasketballStats.models import Players
+from .models import Players
 
 
 class PlayersForm(ModelForm):
