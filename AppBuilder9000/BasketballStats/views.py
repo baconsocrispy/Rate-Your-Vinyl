@@ -14,5 +14,5 @@ def create_player(request):
         if form.is_valid():
             form.save()
             return redirect('basketball_stats_home')
-    content = {'form': form}
-    return render(request, 'BasketballStats/BasketballStats_create.html', content)
+    context = {'form': form}
+    return render(request, 'BasketballStats/BasketballStats_create.html', context)
