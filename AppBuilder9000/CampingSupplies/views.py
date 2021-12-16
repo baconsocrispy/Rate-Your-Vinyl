@@ -26,5 +26,8 @@ def SuppliesList(request):
 
 def Tent_Details(request, pk):
     details = get_object_or_404(Tent, pk=pk)
+    #dictionary
     context = {'details': details}
     return render(request, 'Camping_Supplies_Details.html', context)
+
+
