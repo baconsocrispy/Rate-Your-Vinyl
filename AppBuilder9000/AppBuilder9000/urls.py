@@ -33,6 +33,7 @@ urlpatterns = [
     path('Campsites/', include('Campsites.urls')),
     path('CampingSupplies/', include('CampingSupplies.urls')),
     path('Gardening/', include('Gardening.urls')),
+    path('Stocks/', include('Stocks.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

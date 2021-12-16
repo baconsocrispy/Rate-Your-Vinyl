@@ -1,0 +1,45 @@
+/* Temporary */
+html, body {
+    background-color: black;
+    color: green;
+    display: flexbox;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #213e4a;
+}
+ul.topnav li {
+    float: left;
+}
+
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+ul.topnav li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: #355664;
+}
+/* Hide the list item that contains the link that should
+   open and close the topnav on small screens */
+ul.topnav li.icon {
+	display: none;
+}
