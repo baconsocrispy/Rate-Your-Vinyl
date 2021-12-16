@@ -18,7 +18,7 @@
         <tbody>
         {% for Player in player_list %}
             <tr>
-                <td><a href="{% url 'basketball_stats_details' Player.id %}">{{ Player }}</a></td>
+                <td><a href="{% url 'basketball_stats_details' Players.id %}">{{ Player }}</a></td>
                 <td>{{ Player.mvp_awards }}</td>
                 <td>{{ Player.championships }}</td>
             </tr>
