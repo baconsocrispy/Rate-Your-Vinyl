@@ -25,6 +25,6 @@ def player_stats(request):
 
 
 def player_details(request, pk):
-    details = get_object_or_404(Players, pk)
-    context = {'details', details}
+    details = get_object_or_404(Players, pk=pk)
+    context = {'details': details}
     return render(request, 'BasketballStats/BasketballStats_details.html', context)
