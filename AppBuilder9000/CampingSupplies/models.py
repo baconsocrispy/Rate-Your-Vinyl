@@ -22,9 +22,9 @@ class Tent(models.Model):
     PersonCount = models.IntegerField()
     Price = models.FloatField(max_length=30)
 
-    object = models.Manager
+    object = models.Manager()
 
     def __str__(self):
-        return self.name
+        return self.Color
 
 # Create your models here.
