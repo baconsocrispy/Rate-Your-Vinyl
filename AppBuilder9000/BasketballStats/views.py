@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayersForm
 from .models import Players
 
@@ -22,3 +22,9 @@ def player_stats(request):
     player_list = Players.Player.all()
     context = {'player_list': player_list}
     return render(request, 'BasketballStats/BasketballStats_players.html', context)
+
+
+def player_details(request, pk):
+    details = get_object_or_404(Players, pk=pk)
+    context = {'details': details}
+    return render(request, 'BasketballStats/BasketballStats_details.html', context)
