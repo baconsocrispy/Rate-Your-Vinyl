@@ -6,4 +6,5 @@ urlpatterns = [
     path('create/', views.Camping_Supplies_Create, name='Camping_Supplies_Create'),
     path('SuppliesList/', views.SuppliesList, name='SuppliesList'),
     path('<int:pk>/Tent_Details/', views.Tent_Details, name='Tent_Details'),
+    path('<int:pk>/Tent_Edit/', views.Tent_Edit, name='Tent_Edit'),
 ]

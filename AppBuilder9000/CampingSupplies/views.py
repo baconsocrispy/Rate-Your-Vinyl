@@ -30,4 +30,39 @@ def Tent_Details(request, pk):
     context = {'details': details}
     return render(request, 'Camping_Supplies_Details.html', context)
 
+def Tent_Delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Tent, pk=pk)
+    if request.method == 'POST':
+        Tent.delete()
+        return redirect('Camping_Supplies_Home')
+    context = {"item": item}
+    return render(request, "delete.html", context) #needs to be html
+
+
+def confirmed(request):
+    if request.method == 'POST':
+        # creates form instance and binds data to it
+        form = TentForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('Camping_Supplies_Home')
+    else:
+        return redirect('Camping_Supplies_Home')
+
+def Tent_Edit(request, pk):
+        site = get_object_or_404(Tent, pk=pk)
+        form = TentForm(data=request.POST or None, instance=site)
+        if request.method == 'POST':
+            if form.is_valid():
+                form2 = form.save(commit=False)
+                form2.save()
+                return redirect('SuppliesList')
+            else:
+                print(form.errors)
+        else:
+            return render(request, 'Camping_Supplies_Edit.html', {'form': form, 'site': site})
+
+
+
 
