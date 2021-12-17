@@ -3,6 +3,7 @@ from .forms import PlayersForm
 from .models import Players
 import requests
 
+
 # Create your views here.
 def home(request):
     return render(request, 'BasketballStats/BasketballStats_home.html')
@@ -50,14 +51,16 @@ def player_delete(request, pk):
     return render(request, 'BasketballStats/BasketballStats_delete.html', {'item': item, 'form': form})
 
 
-def stats_page(request):
-    url = "https://api-nba-v1.p.rapidapi.com/standings/standard/2021"
-    headers = {
-        'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
-        'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
-    }
-
-    response = requests.request("GET", url, headers=headers)
-    print(response.text)
+def standings_page(request):
+    if request.method == 'POST':
+        if request.is_valid():
+            print(request.text)
+        # url = "https://api-nba-v1.p.rapidapi.com/standings/standard/(season)".format(season)
+        # headers = {
+        #     'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
+        #     'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
+        # }
+        #
+        # response = requests.request("GET", url, headers=headers)
+        # print(response.text)
     return render(request, 'BasketballStats/BasketballStats_team_standings.html')
-
