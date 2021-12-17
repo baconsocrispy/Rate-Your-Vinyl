@@ -8,4 +8,5 @@ urlpatterns = [
     path('players/', views.player_stats, name='basketball_stats_players'),
     path('<int:pk>/details/', views.player_details, name='basketball_stats_details'),
     path('<int:pk>/edit/', views.player_edit, name='basketball_stats_edit'),
+    path('<int:pk>/delete', views.player_delete, name='basketball_stats_delete'),
 ]
