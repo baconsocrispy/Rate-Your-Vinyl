@@ -8,7 +8,7 @@
 
 {% block content %}
     <h3 style="text-align: center; color: blue;">Make an Edit</h3>
-    <div id="form-container">
+    <div id="form-container" class="table-responsive w-50 mx-auto">
         <form method='POST'>
             {% csrf_token %}
             <table id="table" class="table table-dark table-bordered table-hover text-center">
