@@ -6,7 +6,8 @@
 
 {% block content %}
 <h3>Select a Year</h3>
-    <form method="POST">
+    <form method="POST" action="{% url 'basketball_stats_standings' %}">
+    {% csrf_token %}
     <label for="season">Choose a season:</label>
     <select name="season" id="season">
         <option value="2015">2015</option>
