@@ -28,3 +28,23 @@ def player_details(request, pk):
     details = get_object_or_404(Players, pk=pk)
     context = {'details': details}
     return render(request, 'BasketballStats/BasketballStats_details.html', context)
+
+
+def player_edit(request, pk):
+    item = get_object_or_404(Players, pk=pk)
+    form = PlayersForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('basketball_stats_players')
+    context = {'form': form}
+    return render(request, 'BasketballStats/BasketballStats_edit.html', context)
+
+
+def player_delete(request, pk):
+    item = get_object_or_404(Players, pk=pk)
+    form = PlayersForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('basketball_stats_players')
+    return render(request, 'BasketballStats/BasketballStats_delete.html', {'item': item, 'form': form})
