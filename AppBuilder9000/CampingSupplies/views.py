@@ -34,10 +34,10 @@ def Tent_Delete(request, pk):
     pk = int(pk)
     item = get_object_or_404(Tent, pk=pk)
     if request.method == 'POST':
-        Tent.delete()
+        item.delete()
         return redirect('Camping_Supplies_Home')
     context = {"item": item}
-    return render(request, "delete.html", context) #needs to be html
+    return render(request, "Camping_Supplies_Delete.html", context) #needs to be html
 
 
 def confirmed(request):
