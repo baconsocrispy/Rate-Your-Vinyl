@@ -46,5 +46,5 @@ def player_delete(request, pk):
     form = PlayersForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         item.delete()
-        return redirect('basketball_stats_player')
+        return redirect('basketball_stats_players')
     return render(request, 'BasketballStats/BasketballStats_delete.html', {'item': item, 'form': form})
