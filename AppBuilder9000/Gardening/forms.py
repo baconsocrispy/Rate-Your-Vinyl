@@ -8,6 +8,7 @@ class PlantsForm(ModelForm):
     helper = FormHelper()
     helper.label_class = 'col-lg-8'
 
+
     class Meta:
         model = Plants
         fields = '__all__'
