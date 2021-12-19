@@ -2,8 +2,41 @@
 
 {% block title %}Dungeons and Dragons Characters!{% endblock %}
 
-{% block header %} Welcome to the Beginning of Your New Grand Adventure! {% endblock %}
+
+{% block header %} <h1 class="welcomeh1">Welcome to the Beginning of Your New Grand Adventure! </h1>{% endblock %}
 
 {% block content%}
+    <div class="cards">
+
+      <div class="card">
+        <img src="static/images/HowToImage.jpg" alt="..." class="card-img-top">
+        <div class="card-body">
+          <h2 class="card-title">Selectable Title 2</h2>
+          <p>
+            You can select this text even though the whole card is clickable. <a href="#2">Read more...</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/HowToImage.jpeg" alt="..." class="card-img-top">
+        <div class="card-body">
+          <h2 class="card-title">Selectable Title 3</h2>
+          <p>
+            You can select this text even though the whole card is clickable. <a href="#3">Read more...</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/HowToImage.jpeg" alt="..." class="card-img-top">
+        <div class="card-body">
+          <h2 class="card-title">Selectable Title 4</h2>
+          <p>
+            You can select this text even though the whole card is clickable. <a href="#4">Read more...</a>
+          </p>
+        </div>
+      </div>
+    </div>
 
 {% endblock %}
