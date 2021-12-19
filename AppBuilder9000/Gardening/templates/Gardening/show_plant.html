@@ -18,6 +18,7 @@
           <th scope="col">Season Planted</th>
           <th scope="col">Date Planted</th>
           <th scope="col">Days to Harvest/Maturity</th>
+          <th scope="col">Details</th>
         </tr>
       </thead>
 <!--        This is the content added to the table from the database-->
@@ -29,6 +30,7 @@
           <td>{{plant.season_planted}}</td>
           <td>{{plant.date_planted}}</td>
           <td>{{plant.days_to_harvest}} days</td>
+          <td><a href="{% url 'plant_details' plant.pk %}" name="plant_details">See details for this plant</a></td>
         </tr>
       {% endfor %}
       </tbody>

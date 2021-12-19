@@ -13,15 +13,16 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Tent',
+            name='Players',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Color', models.CharField(choices=[('Red', 'Red'), ('Blue', 'Blue'), ('Orange', 'Orange'), ('Yellow', 'Yellow'), ('Green', 'Green'), ('Purple', 'Purple')], default='', max_length=30)),
-                ('PersonCount', models.IntegerField()),
-                ('Price', models.FloatField(max_length=30)),
+                ('name', models.CharField(max_length=50)),
+                ('seasons_played', models.IntegerField(default='')),
+                ('mvp_awards', models.IntegerField(default='')),
+                ('championships', models.IntegerField(default='')),
             ],
             managers=[
-                ('object', django.db.models.manager.Manager()),
+                ('Player', django.db.models.manager.Manager()),
             ],
         ),
     ]
