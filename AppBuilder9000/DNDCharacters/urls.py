@@ -6,5 +6,8 @@ urlpatterns = [
     path('', views.dnd_characters_howto, name="dnd_characters_HowTo"),
     path('', views.dnd_characters_classdescript, name="dnd_characters_ClassDescript"),
     path('createCharacter', views.createCharacter, name="createCharacter"),
-    path('admin_console', views.admin_console, name="admin_console"),
+    path('dnd_character_lookup', views.dnd_character_lookup, name="dnd_character_lookup"),
+    path('dnd_character_search', views.dnd_character_search, name="dnd_character_search"),
+    path('show_character/<character_id>', views.show_character, name="show_character"),
+
 ]

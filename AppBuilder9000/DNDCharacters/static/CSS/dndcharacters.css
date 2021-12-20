@@ -20,7 +20,7 @@ body {
 }
 
 h1{
-	color: black;
+	color: white;
 	font-size: 36px;
 	text-align: center;
 }
@@ -112,16 +112,20 @@ ul.topnav li.icon {
 
 /*Card formating for clickable icons*/
 .cards {
+  align: right;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 37px auto 0;
-  width: calc(280px * 4);
+  margin: 115px 350px;
+
+  width: calc(720px * 3);
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
 }
 
 .card {
   box-shadow: 0 3px 10px 0 #aaa;
   cursor: pointer;
-  height: 280px;
+  height: auto;
   position: relative;
   width: 243px;
 }
@@ -165,7 +169,7 @@ ul.topnav li.icon {
     border: 2px solid rgba(0,0,0,0.4);
     color: white;
     position: relative;
-    z-index: 2
+    z-index: 2;
 
 }
 
@@ -203,7 +207,7 @@ ul.topnav li.icon {
     display: inline-block;
     width: 150px; /* button size */
     margin: 2% 2% 2% 2%;
-    color: black;
+    color: grey;
     padding: 10px 0px;
     text-decoration: none;
     font-size: 14px;
@@ -267,7 +271,26 @@ label {
     width: 95%;
     text-align: left;
     margin: 1% 0 0 0;
-    color: black;
+    color: white;
     line-height: 18px;
     font-size: 20px;
+}
+table{
+    margin-top: 100px;
+}
+table, th, td {
+    color: white;
+    font-size: 110%;
+    border: 3px solid white;
+}
+
+.search_container input{
+    align: right;
+    margin-left:325px;
+    margin-bottom: 10px;
+
+}
+
+.table_container_links {
+    background: black;
 }

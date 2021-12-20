@@ -7,7 +7,7 @@
 {% block content%}
     <div class="form_container">
         <form method="POST" action="{% url 'createCharacter' %}">
-            <div>
+            <div class="frmObject_container">
                 <!-- Cross Site Request Forgery (csrf_token) protection -->
                 {% csrf_token %}
                 {{ form.non_field_errors }}
