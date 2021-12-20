@@ -13,6 +13,7 @@ body {
     background-size: cover;
 	overflow: scroll;
 	background-repeat: no-repeat;
+	background-color: black;
 }
 
 h1 {
@@ -28,7 +29,7 @@ h2 {
 /*Container Styling */
 .intro-container{
 	opacity: 0.90;
-	position: relative;
+/*	position: relative;*/
 	width: auto;
 	height: auto;
 	border-radius: 8px;
@@ -36,32 +37,33 @@ h2 {
 	box-shadow: 4px 3px darkslateblue;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 85px;
+/*	margin-top: 85px;*/
 	background-color: lightsteelblue;
 }
 
 
 .Wrap {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    /* This ensures that the images cannot render outside of their container without forcing any scrollbars*/
+/*    height: 100%;
+    width: 100%;*/
+/*    position: absolute;
+    *//* This ensures that the images cannot render outside of their container without forcing any scrollbars*//*
     overflow: hidden;
     top: 0;
-    left: 0;
+    left: 0;*/
     text-align: center;
+/*    background-color: green;*/
 }
 
 .MenuContainer {
     max-height: 340px;
     margin: 0% auto;
-    content: " ";
+/*    content: " ";*/
     /* top: 0%;
     left: 0;
     position: absolute; /* to the top edge of the screen */
     width: 100%;
-    position: fixed;
-    z-index: 100;
+/*    position: fixed;*/
+/*    z-index: 100;*/
     /* background-color: rgba(255, 255, 255, 0.5); */
 }
 
@@ -121,6 +123,17 @@ tr td{
 .center {
 	text-align: center;
 	width: 15%;
+}
+
+.noVisualButton {
+	background-color: transparent;
+	border: none;
+}
+
+.noVisualButton:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .left{
