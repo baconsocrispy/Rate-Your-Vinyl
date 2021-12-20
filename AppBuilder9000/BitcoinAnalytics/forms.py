@@ -7,3 +7,8 @@ class CompetitorForm(ModelForm):
         model = Competitor
         fields = '__all__'
 
+
+# class CompetitorListForm(ModelForm):
+#     class Meta:
+#         model = CompetitorList
+#         fields = '__all__'
