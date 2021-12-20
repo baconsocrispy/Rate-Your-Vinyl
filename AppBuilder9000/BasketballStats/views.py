@@ -53,13 +53,14 @@ def player_delete(request, pk):
 
 def standings_page(request):
     season = {}
-    if 'season' in request.GET:
-        season = request.GET['season']
-        url = 'https://api-nba-v1.p.rapidapi.com/standings/standard/{season}'
+    if 'season' in request.POST:
+        season = request.POST['season']
+        url = 'https://api-nba-v1.p.rapidapi.com/standings/standard/' + season
         headers = {
              'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
              'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
         }
         response = requests.request("GET", url, headers=headers)
         print(response.text)
-    return render(request, 'BasketballStats/BasketballStats_team_standings.html')
+    context = {'season': season}
+    return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
