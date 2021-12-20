@@ -5,7 +5,7 @@
 {% block header %}Your favorite stocks{% endblock %}
 
 {% block content %}
-
+<!--
 <div>
     <form name="stockForm" method="POST" action="">
         <div>
@@ -23,5 +23,32 @@
         </div>
     </form>
 </div>
+<br>
+-->
+
+
+    <div>
+        {% csrf_token %}
+        <div>
+            <table>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Name</th>
+                </tr>
+                {% for stock in stocks %}
+                <tr>
+                    <td><a href="../{{ stock.pk }}/details/">{{ stock.ticker | upper }}</a></td>
+                    <td>{{ stock.name | title }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <br>
+        <div>
+            <a href="{% url 'add_favorites' %}"><button type="button">Add Favorites</button></a>
+            <a href="{% url 'stocks_home' %}"><button type="button">Cancel</button></a>
+        </div>
+    </div>
+
 
 {% endblock %}
