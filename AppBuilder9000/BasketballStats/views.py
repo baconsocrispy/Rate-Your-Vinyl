@@ -52,8 +52,9 @@ def player_delete(request, pk):
 
 
 def standings_page(request):
-    if request.method == 'POST':
-        if request.is_valid():
+    season = {}
+    if 'season' in request.GET:
+
             print(request.text)
         # url = "https://api-nba-v1.p.rapidapi.com/standings/standard/(season)".format(season)
         # headers = {
