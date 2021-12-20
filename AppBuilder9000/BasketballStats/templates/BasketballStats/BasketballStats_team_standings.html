@@ -1,0 +1,21 @@
+{% extends "BasketballStats_base.html" %}
+{% load static %}
+{% block title %}Basketball Stats{% endblock %}
+
+{% block header %}Team Standings{% endblock %}
+
+{% block content %}
+<h3>Select a Year</h3>
+    <form method="POST" action="{% url 'basketball_stats_standings' %}">
+    {% csrf_token %}
+    <label for="season">Choose a season:</label>
+    <select name="season" id="season">
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+    </form>
+{% endblock %}
