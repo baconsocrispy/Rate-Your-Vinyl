@@ -28,7 +28,9 @@
 </div>
 <div class="submitBtn">
     <div class="submitBtn">
-    <button class="btn btn-info"><a href="{% url 'SuppliesList' %}">CANCEL</a></button>
+        <a href="../{{ form.pk }}Tent_Delete/"><button type="button" class="btn">Delete</button></a>
+        <button class="btn btn-info"><a href="{% url 'SuppliesList' %}">CANCEL</a></button>
+         <a href="../{{ form.pk }}Tent_Edit/"><button type="button" class="btn">Edit</button></a>
     </div>
 </div>
 {% endblock %}

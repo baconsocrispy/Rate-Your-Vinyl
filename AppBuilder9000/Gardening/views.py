@@ -35,3 +35,25 @@ def plant_details(request, pk):
 
     context = {'details': details}
     return render(request, "Gardening/gardening_details.html", context)
+
+# This allows the user to edit a specific plant in the garden planner
+def edit_plant(request, pk):
+    show_plants = Plants.objects.get(pk=pk)
+    form = PlantsForm(request.POST, request.FILES, instance=show_plants)
+    if request.method == "POST":
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.user = request.user
+            form2.save()
+            return redirect("show_plant")
+    else:
+        form = PlantsForm(instance=show_plants)
+        context = {'form': form, 'show_plants': show_plants}
+    return render(request, "Gardening/edit_plant.html", context)
+
+
+# This allows the user to delete a specific plant from the garden planner
+def delete_plant(request, pk):
+    show_plants = Plants.objects.get(pk=pk)
+    show_plants.delete()
+    return redirect("show_plant")
