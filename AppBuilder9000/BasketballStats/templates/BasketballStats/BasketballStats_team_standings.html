@@ -18,4 +18,9 @@
     <br><br>
     <input type="submit" value="Submit">
     </form>
+{% for team in team_list %}
+    {% for t in team %}
+        {{ t }}
+    {% endfor %}
+{% endfor %}
 {% endblock %}
