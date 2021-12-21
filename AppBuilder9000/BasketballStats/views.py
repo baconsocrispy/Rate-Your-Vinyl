@@ -61,10 +61,11 @@ def standings_page(request):
              'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
         }
         response = requests.request("GET", url, headers=headers)
-        print(response.text)
-        team_standings = ['api']['standings']['conference']['rank']
+        print(response.json())
+        team_standings = json.loads(response.text)
+        print(team_standings['api']['standings'][0]['teamId'])
         for team in team_standings:
-            team_name = team['teamID']
-            ranking = team['rank']
+            team_name = team['teamId']
+            ranking = team['conference': 'rank']
             print(team_name + ', ' + ranking)
     return render(request, 'BasketballStats/BasketballStats_team_standings.html')
