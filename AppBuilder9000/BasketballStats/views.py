@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayersForm
 from .models import Players
 import requests
+import json
 
 
 # Create your views here.
@@ -52,7 +53,6 @@ def player_delete(request, pk):
 
 
 def standings_page(request):
-    season = {}
     if 'season' in request.POST:
         season = request.POST['season']
         url = 'https://api-nba-v1.p.rapidapi.com/standings/standard/' + season
@@ -62,5 +62,9 @@ def standings_page(request):
         }
         response = requests.request("GET", url, headers=headers)
         print(response.text)
-    context = {'season': season}
-    return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
+        team_standings = ['api']['standings']['conference']['rank']
+        for team in team_standings:
+            team_name = team['teamID']
+            ranking = team['rank']
+            print(team_name + ', ' + ranking)
+    return render(request, 'BasketballStats/BasketballStats_team_standings.html')
