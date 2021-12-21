@@ -52,8 +52,27 @@ def player_delete(request, pk):
     return render(request, 'BasketballStats/BasketballStats_delete.html', {'item': item, 'form': form})
 
 
+def fetch_team_name():
+    full_name = {}
+    url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
+    headers = {
+        'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
+        'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
+    }
+    response = requests.request("GET", url, headers=headers)
+    team_names = json.loads(response.text)
+    for teams in team_names['api']['teams']:
+        if teams['nbaFranchise'] == '1':
+            full_name[teams['teamId']] = teams['fullName']
+    return full_name
+
+
 def standings_page(request):
+    team_list = []
+    west_team = []
+    east_team = []
     if 'season' in request.POST:
+        full_name_dict = fetch_team_name()
         season = request.POST['season']
         url = 'https://api-nba-v1.p.rapidapi.com/standings/standard/' + season
         headers = {
@@ -61,11 +80,22 @@ def standings_page(request):
              'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
         }
         response = requests.request("GET", url, headers=headers)
-        print(response.json())
         team_standings = json.loads(response.text)
-        print(team_standings['api']['standings'][0]['teamId'])
-        for team in team_standings:
-            team_name = team['teamId']
-            ranking = team['conference': 'rank']
-            print(team_name + ', ' + ranking)
-    return render(request, 'BasketballStats/BasketballStats_team_standings.html')
+        for team in team_standings['api']['standings']:
+            team_name = full_name_dict[team['teamId']]
+            conference = team['conference']['name']
+            ranking = team['conference']['rank']
+            team_result = (team_name, conference, ranking)
+            team_list.append(team_result)
+            if team['conference']['name'] == 'west':
+                west_team.append(team_result)
+            else:
+                east_team.append(team_result)
+            team_list.sort(key=lambda a: int(a[2]))
+            west_team.sort(key=lambda a: int(a[2]))
+            east_team.sort(key=lambda a: int(a[2]))
+        print(team_list)
+        print(west_team)
+        print(east_team)
+    context = {'team_list': team_list, 'west_team': west_team, 'east_team': east_team}
+    return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
