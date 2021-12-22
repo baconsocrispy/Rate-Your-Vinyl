@@ -8,6 +8,7 @@
 <h3>Select a Year</h3>
     <form method="POST" action="{% url 'basketball_stats_standings' %}">
     {% csrf_token %}
+    <div class="my-menu">
     <label for="season" style="color: white">Choose a season:</label>
     <select name="season" id="season">
         <option value="2018">2018</option>
@@ -15,6 +16,7 @@
         <option value="2020">2020</option>
         <option value="2021">2021</option>
     </select>
+    </div>
     <br><br>
     <button type="submit" value="Submit" class="btn btn-dark btn-lg btn-block w-25 mx-auto">Submit</button>
     </form>
