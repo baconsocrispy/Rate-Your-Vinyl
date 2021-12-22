@@ -3,25 +3,26 @@
 {% block title %}Competitor Details{% endblock %}
 {% block content %}
     <div class="Container">
-        <h5>See individual competitor details.</h5>
+        <h4>See individual competitor details.</h4>
 
         <table class="table table-responsive" id="competition-table">
             <tr id="headerRow">
                 <th>Name</th>
                 <th>Price Prediction</th>
                 <th>LinkedIn Profile</th>
+                <th>Options</th>
             </tr>
             {% for key in competitionRow %}
             <tr>
                 <td class="center">{{ key.name | capfirst }}</td>
                 <td class="center">{{ key.price }}</td>
                 <td class="center">{{ key.linkedIn }}</td>
+                <td class="center">
+                    <button type="submit" value="{{ key.name }}"
+                    id="{{ key.name }}" name="name">Edit Entry</button>
+                </td>
             </tr>
             {% endfor %}
         </table>
     </div>
-
-
-
-
 {% endblock %}

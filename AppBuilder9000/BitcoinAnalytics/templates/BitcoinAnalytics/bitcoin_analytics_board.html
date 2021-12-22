@@ -9,7 +9,7 @@
                 <tr id="headerRow">
                     <th>Name</th>
                     <th>Price Prediction</th>
-                    <th>LinkedIn Profile</th>
+<!--                    <th>LinkedIn Profile</th>-->
                 </tr>
                 {% for key in competitionRow %}
                 <tr>
@@ -18,7 +18,7 @@
                                 id="{{ key.name }}" name="name" class="noVisualButton">{{ key.name | capfirst }}</button>
                     </td>
                     <td class="center">{{ key.price }}</td>
-                    <td class="center">{{ key.linkedIn }}</td>
+<!--                    <td class="center">{{ key.linkedIn }}</td>-->
                 </tr>
                 {% endfor %}
             </table>

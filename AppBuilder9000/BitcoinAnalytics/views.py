@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import UpdateView
+
 from .forms import CompetitorForm
 from .models import Competitor
 
@@ -31,6 +33,12 @@ def create_competitor(request):
             return redirect('bitcoin_analytics_home')
     content = {'form': form}
     return render(request, 'BitcoinAnalytics/bitcoin_analytics_add_competitor.html', content)
+
+
+class EditCompetitor(UpdateView):
+    model = Competitor
+    fields = ['name'] # once working try using '__all__' inside the brackets to show all columns
+    template_name_suffix = '/edit_competitor/'
 
 
 def show_competition(request):
