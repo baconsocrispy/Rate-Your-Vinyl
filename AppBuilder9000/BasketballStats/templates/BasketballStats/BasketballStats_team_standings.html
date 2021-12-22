@@ -18,15 +18,25 @@
     <br><br>
     <input type="submit" value="Submit">
     </form>
-{% for team in west_team %}
-    {% for t in team %}
-        {{ t }}
-    {% endfor %}
-{% endfor %}
-<br><br>
-{% for team in east_team %}
-    {% for t in team %}
-        {{ t }}
-    {% endfor %}
-{% endfor %}
+<div class="container">
+    <h2>Standings for: {{ season }}</h2>
+    <div class="row">
+        <div class="col text-center" style="color: white">
+            <h2>West</h2>
+        {% for team in west_team %}
+            {% for t in team %}
+                <p>{{ t }}</p>
+            {% endfor %}
+        {% endfor %}
+        </div>
+        <div class="col text-center" style="color: white">
+            <h2>East</h2>
+        {% for team in east_team %}
+            {% for t in team %}
+                <p>{{ t }}</p>
+            {% endfor %}
+        {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
