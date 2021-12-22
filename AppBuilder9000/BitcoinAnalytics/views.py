@@ -18,13 +18,6 @@ def home(request):
     return render(request, 'BitcoinAnalytics/bitcoin_analytics_home.html', content)
 
 
-def selection(request, pk):
-    competitor = Competitor.Competition.filter(name=pk)
-    content = {'competitionRow': competitor}
-    print(content)
-    return render(request, 'BitcoinAnalytics/bitcoin_analytics_competitor_details.html', content)
-
-
 def create_competitor(request):
     form = CompetitorForm(data=request.POST or None)
     if request.method == 'POST':
@@ -35,10 +28,10 @@ def create_competitor(request):
     return render(request, 'BitcoinAnalytics/bitcoin_analytics_add_competitor.html', content)
 
 
-class EditCompetitor(UpdateView):
-    model = Competitor
-    fields = ['name'] # once working try using '__all__' inside the brackets to show all columns
-    template_name_suffix = '/edit_competitor/'
+# class EditCompetitor(UpdateView):
+#     model = Competitor
+#     fields = ['name'] # once working try using '__all__' inside the brackets to show all columns
+#     template_name_suffix = '/edit_competitor/'
 
 
 def show_competition(request):
@@ -49,6 +42,47 @@ def show_competition(request):
         return selection(request, pk)
 
     return render(request, 'BitcoinAnalytics/bitcoin_analytics_board.html', {'competitionRow': competition})
+
+
+def selection(request, pk):
+    competitor = Competitor.Competition.filter(name=pk)
+    content = {'competitionRow': competitor}
+    print(content)
+    # if request.method == 'POST':
+    #     pk = request.POST['name']
+    #     return update_competitor(request, pk)
+    return render(request, 'BitcoinAnalytics/bitcoin_analytics_competitor_details.html', content)
+
+
+def update_competitor(request, pk):
+    competitorSingle = get_object_or_404(Competitor, name=pk)
+    form = CompetitorForm(request.POST or None, instance=competitorSingle)
+    if form.is_valid():
+        form.save()
+        return redirect('bitcoin_analytics_home')
+    content = {'form': form}
+    return render(request, 'BitcoinAnalytics/bitcoin_analytics_competitor_details.html', content)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # def show_details(request):
