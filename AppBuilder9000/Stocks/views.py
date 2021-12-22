@@ -35,3 +35,41 @@ def details(request, pk):
     item = get_object_or_404(Stocks, pk=pk)
     return render(request, 'Stocks/stocks_details.html', {'item': item})
 
+
+def edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Stocks, pk=pk)
+    form = StocksForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('stocks_favorites')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'Stocks/stocks_edit.html', {'form': form})
+
+
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Stocks, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('stocks_favorites')
+    else:
+        return render(request, "Stocks/confirm_delete.html", {'item': item})
+
+
+def confirm(request):
+    if request.method == 'POST':
+        #   creates form instance and binds data to it
+        form = StocksForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('stocks_favorites')
+    else:
+        return redirect('stocks_favorites')
+
+
+
