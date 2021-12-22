@@ -18,7 +18,13 @@
     <br><br>
     <input type="submit" value="Submit">
     </form>
-{% for team in team_list %}
+{% for team in west_team %}
+    {% for t in team %}
+        {{ t }}
+    {% endfor %}
+{% endfor %}
+<br><br>
+{% for team in east_team %}
     {% for t in team %}
         {{ t }}
     {% endfor %}
