@@ -33,14 +33,5 @@ def add_favorites(request):
 def details(request, pk):
     pk = int(pk)
     item = get_object_or_404(Stocks, pk=pk)
-    form = StocksForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('stocks_favorites')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'Stocks/stocks_details.html', {'form': form})
+    return render(request, 'Stocks/stocks_details.html', {'item': item})
 
