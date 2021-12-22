@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayersForm
 from .models import Players
 import requests
+import json
 
 
 # Create your views here.
@@ -51,9 +52,27 @@ def player_delete(request, pk):
     return render(request, 'BasketballStats/BasketballStats_delete.html', {'item': item, 'form': form})
 
 
+def fetch_team_name():
+    full_name = {}
+    url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
+    headers = {
+        'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
+        'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
+    }
+    response = requests.request("GET", url, headers=headers)
+    team_names = json.loads(response.text)
+    for teams in team_names['api']['teams']:
+        if teams['nbaFranchise'] == '1':
+            full_name[teams['teamId']] = teams['fullName']
+    return full_name
+
+
 def standings_page(request):
-    season = {}
+    west_team = []
+    east_team = []
+    season = ' '
     if 'season' in request.POST:
+        full_name_dict = fetch_team_name()
         season = request.POST['season']
         url = 'https://api-nba-v1.p.rapidapi.com/standings/standard/' + season
         headers = {
@@ -61,6 +80,16 @@ def standings_page(request):
              'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
         }
         response = requests.request("GET", url, headers=headers)
-        print(response.text)
-    context = {'season': season}
+        team_standings = json.loads(response.text)
+        for team in team_standings['api']['standings']:
+            team_name = full_name_dict[team['teamId']]
+            ranking = team['conference']['rank']
+            team_result = (ranking, team_name)
+            if team['conference']['name'] == 'west':
+                west_team.append(team_result)
+            else:
+                east_team.append(team_result)
+            west_team.sort(key=lambda a: int(a[0]))
+            east_team.sort(key=lambda a: int(a[0]))
+    context = {'west_team': west_team, 'east_team': east_team, 'season': season}
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
