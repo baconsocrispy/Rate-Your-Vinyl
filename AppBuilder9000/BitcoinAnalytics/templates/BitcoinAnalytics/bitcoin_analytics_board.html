@@ -3,31 +3,25 @@
 {% block title %}Competition Board{% endblock %}
 {% block content %}
     <div class="Container">
-        <table class="table table-responsive" id="competition-table">
-            <tr id="headerRow">
-                <th>Name</th>
-                <th>Price Prediction</th>
-                <th>LinkedIn Profile</th>
-            </tr>
-            {% for key in competitionRow %}
-            <tr>
-                <td class="center">{{ key.name | capfirst }}</td>
-                <td class="center">{{ key.price }}</td>
-                <td class="center">{{ key.linkedIn }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-
-        <!--        <form>-->
-<!--            <br>-->
-<!--            <label>Competitor Name: </label>-->
-<!--            <input id="competitor" type="text" name="competitor" value="{{ competitor }}" readonly>-->
-<!--            <br><br>-->
-<!--            <label>Price Prediction: </label>-->
-<!--            <input id="price" type="text" name="price" value="{{ price }}" readonly>-->
-<!--            <label>LinkedIn Profile: </label>-->
-<!--            <input id="linkedIn" type="text" name="linkedIn" value="{{ linkedIn }}" readonly>-->
-<!--        </form>-->
-<!--        <br><br>-->
+        <form method="POST">
+            {% csrf_token %}
+            <table class="table table-responsive" id="competition-table">
+                <tr id="headerRow">
+                    <th>Name</th>
+                    <th>Price Prediction</th>
+<!--                    <th>LinkedIn Profile</th>-->
+                </tr>
+                {% for key in competitionRow %}
+                <tr>
+                    <td class="center">
+                        <button type="submit" value="{{ key.name }}"
+                                id="{{ key.name }}" name="name" class="noVisualButton">{{ key.name | capfirst }}</button>
+                    </td>
+                    <td class="center">{{ key.price }}</td>
+<!--                    <td class="center">{{ key.linkedIn }}</td>-->
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
     </div>
 {% endblock %}
