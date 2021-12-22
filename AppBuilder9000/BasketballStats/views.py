@@ -83,12 +83,12 @@ def standings_page(request):
         for team in team_standings['api']['standings']:
             team_name = full_name_dict[team['teamId']]
             ranking = team['conference']['rank']
-            team_result = (team_name, ranking)
+            team_result = (ranking, team_name)
             if team['conference']['name'] == 'west':
                 west_team.append(team_result)
             else:
                 east_team.append(team_result)
-            west_team.sort(key=lambda a: int(a[1]))
-            east_team.sort(key=lambda a: int(a[1]))
+            west_team.sort(key=lambda a: int(a[0]))
+            east_team.sort(key=lambda a: int(a[0]))
     context = {'west_team': west_team, 'east_team': east_team}
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
