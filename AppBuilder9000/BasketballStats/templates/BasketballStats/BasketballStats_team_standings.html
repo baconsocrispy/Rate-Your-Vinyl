@@ -24,17 +24,13 @@
         <div class="col text-center" style="color: white">
             <h2>West</h2>
         {% for team in west_team %}
-            {% for t in team %}
-                <p>{{ t }}</p>
-            {% endfor %}
+            <p>{{ team.1 }}</p>
         {% endfor %}
         </div>
         <div class="col text-center" style="color: white">
             <h2>East</h2>
         {% for team in east_team %}
-            {% for t in team %}
-                <p>{{ t }}</p>
-            {% endfor %}
+            <p>{{ team.1 }}</p>
         {% endfor %}
         </div>
     </div>
