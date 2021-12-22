@@ -104,3 +104,4 @@ MainProject/log.json
 *.idea
 
 /virtualenviroment/
+/AppBuilder9000/DNDCharacters/migrations/0001_initial.py
