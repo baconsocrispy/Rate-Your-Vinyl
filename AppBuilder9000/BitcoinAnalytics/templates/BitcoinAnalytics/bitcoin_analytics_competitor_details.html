@@ -18,8 +18,8 @@
                 <td class="center">{{ key.price }}</td>
                 <td class="center">{{ key.linkedIn }}</td>
                 <td class="center">
-                    <button type="submit" value="{{ key.name }}"
-                    id="{{ key.name }}" name="name">Edit Entry</button>
+                    <button type="submit" name="name"><a href="{% url 'edit_competitor' key.pk %}">Edit</a></button>
+                    <button type="submit" name="name"><a href="{% url 'delete_competitor' key.pk %}">Delete</a></button>
                 </td>
             </tr>
             {% endfor %}

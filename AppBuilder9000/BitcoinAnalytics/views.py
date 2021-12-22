@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import UpdateView
 
 from .forms import CompetitorForm
 from .models import Competitor
@@ -23,15 +22,9 @@ def create_competitor(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('bitcoin_analytics_home')
+            return redirect('board')
     content = {'form': form}
     return render(request, 'BitcoinAnalytics/bitcoin_analytics_add_competitor.html', content)
-
-
-# class EditCompetitor(UpdateView):
-#     model = Competitor
-#     fields = ['name'] # once working try using '__all__' inside the brackets to show all columns
-#     template_name_suffix = '/edit_competitor/'
 
 
 def show_competition(request):
@@ -48,44 +41,23 @@ def selection(request, pk):
     competitor = Competitor.Competition.filter(name=pk)
     content = {'competitionRow': competitor}
     print(content)
-    # if request.method == 'POST':
-    #     pk = request.POST['name']
-    #     return update_competitor(request, pk)
     return render(request, 'BitcoinAnalytics/bitcoin_analytics_competitor_details.html', content)
 
 
 def update_competitor(request, pk):
-    competitorSingle = get_object_or_404(Competitor, name=pk)
+    competitorSingle = get_object_or_404(Competitor, pk=pk)
     form = CompetitorForm(request.POST or None, instance=competitorSingle)
     if form.is_valid():
         form.save()
-        return redirect('bitcoin_analytics_home')
+        return redirect('board')
     content = {'form': form}
-    return render(request, 'BitcoinAnalytics/bitcoin_analytics_competitor_details.html', content)
+    return render(request, 'BitcoinAnalytics/bitcoin_analytics_edit_competitor.html', content)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def show_details(request):
-#     form = CompetitorListForm(data=request.POST or None)
-#     content = {'form': form}
-#     return render(request, 'BitcoinAnalytics/bitcoin_analytics_competitor_details.html', content)
+def delete_competitor(request, pk):
+    competitorSingle = get_object_or_404(Competitor, pk=pk)
+    content = {'competitionRow': competitorSingle}
+    if request.method == 'POST':
+        competitorSingle.delete()
+        return redirect('board')
+    return render(request, 'BitcoinAnalytics/bitcoin_analytics_delete_competitor.html', content)
