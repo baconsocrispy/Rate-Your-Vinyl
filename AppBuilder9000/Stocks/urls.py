@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.stocks_home, name='stocks_home'),
     path('stocks_favorites/', views.favorites, name='stocks_favorites'),
     path('stocks_add_favorites/', views.add_favorites, name='add_favorites'),
+    path('<int:pk>/details/', views.details, name="details"),
 ]
 
