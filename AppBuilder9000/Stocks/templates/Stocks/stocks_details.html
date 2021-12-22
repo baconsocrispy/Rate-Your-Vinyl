@@ -7,20 +7,29 @@
 {% block content %}
 
 <div>
-    <form name="stockForm" method="POST" action="../details/">
+    {% csrf_token %}
+    <div>
         <table>
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            {{ form.as_p }}
+            <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ item.ticker | upper }}</td>
+                <td>{{ item.name | title }}</td>
+            </tr>
+            </tbody>
         </table>
+    </div>
+    <div>
         <div>
-            <button type="submit" name="Save">Save</button>
-            <div>
-                <a href="#"><button type="button" value="delete">DELETE</button></a>
-                <a href="{% url 'stocks_favorites' %}"><button type="button" value="cancel">CANCEL</button></a>
-            </div>
+            <a href="#"><button type="button" value="Edit">Edit</button></a>
+            <a href="{% url 'stocks_favorites' %}"><button type="button" value="back">Back</button></a>
         </div>
-    </form>
+    </div>
 </div>
 
 
