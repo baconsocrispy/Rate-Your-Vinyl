@@ -70,6 +70,7 @@ def fetch_team_name():
 def standings_page(request):
     west_team = []
     east_team = []
+    season = ' '
     if 'season' in request.POST:
         full_name_dict = fetch_team_name()
         season = request.POST['season']
