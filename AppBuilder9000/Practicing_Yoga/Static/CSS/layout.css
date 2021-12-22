@@ -3,7 +3,15 @@ html, body {
     margin: 0;
 	padding: 0;
 	background-color:#BFC9CA
+}
+header,h2{
+text-align: center;
+}
 
+.text{
+    font-family: Helvetica, sans-sarif;
+    font-weight: 12px,
+}
 ul.topnav {
     list-style-type: none;
     margin: 0;

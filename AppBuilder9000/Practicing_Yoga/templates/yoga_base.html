@@ -8,17 +8,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" type="text/css" href="{% Static 'Practicing_Yoga/CSS/layout.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'CSS/layout.css' %}">
 	</head>
     <body>
         <div class="page_container">
-            {% include "navbar.html" %}
+            {% include "Practicing_Yoga/yoga_navbar.html" %}
             <header class="header-title">
                 <h1>{% block header %}{% endblock %}</h1>
 		    </header>
-            {% block content %}{% endblock %}
-        </div>
 
+        </div>
+	{% block content %}{% endblock %}
 
     </body>
 </html>
