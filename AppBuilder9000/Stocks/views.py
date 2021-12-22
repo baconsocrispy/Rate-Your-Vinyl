@@ -28,3 +28,10 @@ def add_favorites(request):
         'form': form,
     }
     return render(request, 'Stocks/stocks_add_favorites.html', context)
+
+
+def details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Stocks, pk=pk)
+    return render(request, 'Stocks/stocks_details.html', {'item': item})
+
