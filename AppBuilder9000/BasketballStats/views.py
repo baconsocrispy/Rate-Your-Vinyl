@@ -90,5 +90,5 @@ def standings_page(request):
                 east_team.append(team_result)
             west_team.sort(key=lambda a: int(a[0]))
             east_team.sort(key=lambda a: int(a[0]))
-    context = {'west_team': west_team, 'east_team': east_team}
+    context = {'west_team': west_team, 'east_team': east_team, 'season': season}
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
