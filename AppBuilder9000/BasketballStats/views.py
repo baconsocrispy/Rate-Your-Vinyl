@@ -68,7 +68,6 @@ def fetch_team_name():
 
 
 def standings_page(request):
-    team_list = []
     west_team = []
     east_team = []
     if 'season' in request.POST:
@@ -83,19 +82,13 @@ def standings_page(request):
         team_standings = json.loads(response.text)
         for team in team_standings['api']['standings']:
             team_name = full_name_dict[team['teamId']]
-            conference = team['conference']['name']
             ranking = team['conference']['rank']
-            team_result = (team_name, conference, ranking)
-            team_list.append(team_result)
+            team_result = (team_name, ranking)
             if team['conference']['name'] == 'west':
                 west_team.append(team_result)
             else:
                 east_team.append(team_result)
-            team_list.sort(key=lambda a: int(a[2]))
-            west_team.sort(key=lambda a: int(a[2]))
-            east_team.sort(key=lambda a: int(a[2]))
-        print(team_list)
-        print(west_team)
-        print(east_team)
-    context = {'team_list': team_list, 'west_team': west_team, 'east_team': east_team}
+            west_team.sort(key=lambda a: int(a[1]))
+            east_team.sort(key=lambda a: int(a[1]))
+    context = {'west_team': west_team, 'east_team': east_team}
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
