@@ -44,3 +44,19 @@ def show_character(request, character_id):
     character = Characters.objects.get(pk=character_id)
     return render(request, 'DNDCharacters/dnd_show_character.html', {'character': character})
 
+def update_character(request, character_id):
+    character = Characters.objects.get(pk=character_id)
+    form = CharacterForm(request.POST or None, instance=character)
+    if form.is_valid():
+        form.save()
+        return redirect('dnd_character_lookup')
+    return render(request, 'DNDCharacters/dnd_character_update.html', {'character': character, 'form': form})
+
+def delete_character(request, character_id):
+    character = Characters.objects.get(pk=character_id)
+    information = {'characters': character}
+    if request.method == "POST":
+        character.delete()
+        return redirect('dnd_character_lookup')
+    return render(request, 'DNDCharacters/delete_confirm.html', information)
+
