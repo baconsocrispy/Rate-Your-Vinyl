@@ -102,7 +102,7 @@ def history_scarping(request):
     page = requests.get("https://www.dunkest.com/en/nba/news/58063/nba-champions-winners-1947-2021")
     soup = BeautifulSoup(page.content, 'html.parser')
     previous_champions = soup.find('section', class_='post__content text-article')
-    champions = previous_champions.find_all('tr')
+    champions = previous_champions.find_all('tr')[1:]
     for tr in champions:
         td = tr.find_all('td')
         row = [i.text for i in td]
