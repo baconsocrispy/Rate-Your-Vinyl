@@ -3,6 +3,7 @@ from .forms import PlayersForm
 from .models import Players
 import requests
 import json
+from bs4 import BeautifulSoup
 
 
 # Create your views here.
@@ -93,3 +94,13 @@ def standings_page(request):
             east_team.sort(key=lambda a: int(a[0]))
     context = {'west_team': west_team, 'east_team': east_team, 'season': season}
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
+
+
+# This grabs a table of NBA Champions
+def history_scarping(request):
+    page = requests.get("https://www.dunkest.com/en/nba/news/58063/nba-champions-winners-1947-2021")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    previous_champions = soup.find('section', class_='post__content text-article')
+    champions = previous_champions.find_all(class_='wp-block-table')
+    print(champions)
+    return render(request, 'BasketballStats/BasketballStats_history.html')
