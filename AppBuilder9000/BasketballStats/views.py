@@ -98,9 +98,15 @@ def standings_page(request):
 
 # This grabs a table of NBA Champions
 def history_scarping(request):
+    champion_list = []
     page = requests.get("https://www.dunkest.com/en/nba/news/58063/nba-champions-winners-1947-2021")
     soup = BeautifulSoup(page.content, 'html.parser')
     previous_champions = soup.find('section', class_='post__content text-article')
-    champions = previous_champions.find_all(class_='wp-block-table')
-    print(champions)
-    return render(request, 'BasketballStats/BasketballStats_history.html')
+    champions = previous_champions.find_all('tr')[1:]
+    for tr in champions:
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        cells = row
+        champion_list.append(cells)
+    context = {'champion_list': champion_list}
+    return render(request, 'BasketballStats/BasketballStats_history.html', context)
