@@ -37,6 +37,7 @@ urlpatterns = [
     path('BasketballStats', include('BasketballStats.urls')),
     path('Stocks/', include('Stocks.urls')),
     path('DNDCharacters', include('DNDCharacters.urls')),
+    path('StudyApp/', include('StudyApp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
