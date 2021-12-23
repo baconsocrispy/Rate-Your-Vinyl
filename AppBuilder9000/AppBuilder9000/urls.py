@@ -13,9 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-#from django.conf import settings    #FOR PILLOW LIBRARY
-#from django.conf.urls.static import static     #FOR PILLOW LIBRARY
+# from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+# from django.conf import settings    #FOR PILLOW LIBRARY
+# from django.conf.urls.static import static     #FOR PILLOW LIBRARY
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -37,9 +37,10 @@ urlpatterns = [
     path('BasketballStats', include('BasketballStats.urls')),
     path('Stocks/', include('Stocks.urls')),
     path('DNDCharacters', include('DNDCharacters.urls')),
+    path('CryptoAnalytics/', include('CryptoAnalytics.urls')),
 ]
 
-#urlpatterns +=staticfiles_urlpatterns()
+# urlpatterns +=staticfiles_urlpatterns()
 
-#if settings.DEBUG:  # FOR PILLOW LIBRARY
+# if settings.DEBUG:  # FOR PILLOW LIBRARY
 #    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

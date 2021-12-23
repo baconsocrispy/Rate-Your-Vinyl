@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'BasketballStats',
     'Stocks',
     'DNDCharacters',
+    'CryptoAnalytics',
 ]
 
 MIDDLEWARE = [
