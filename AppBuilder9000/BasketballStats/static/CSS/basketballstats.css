@@ -30,3 +30,15 @@ caption {
     font-weight: bold;
     text-align: right;
 }
+
+#list-container {
+    margin-bottom: 50px;
+}
+
+.my-menu {
+    text-align: center;
+}
+
+#container {
+    margin-bottom: 50px;
+}
