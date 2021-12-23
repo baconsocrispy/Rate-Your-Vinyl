@@ -96,10 +96,11 @@ def standings_page(request):
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
 
 
+# This grabs a table of NBA Champions
 def history_scarping(request):
-    page = requests.get("https://en.wikipedia.org/wiki/National_Basketball_Association")
+    page = requests.get("https://www.dunkest.com/en/nba/news/58063/nba-champions-winners-1947-2021")
     soup = BeautifulSoup(page.content, 'html.parser')
-    previous_champions = soup.find_all(class_='wikitable sortable jquery-tablesorter')
-    champions = previous_champions[0]
-    print(champions.prettify())
+    previous_champions = soup.find('section', class_='post__content text-article')
+    champions = previous_champions.find_all(class_='wp-block-table')
+    print(champions)
     return render(request, 'BasketballStats/BasketballStats_history.html')
