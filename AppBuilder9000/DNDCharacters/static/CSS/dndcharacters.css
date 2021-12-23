@@ -67,6 +67,13 @@ ul.topnav li.icon {
   font-size: 50px;
 }
 
+p{
+   padding: 2px;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+}
+
 #block-footer {
     clear: both;
     display: flex;
@@ -268,7 +275,7 @@ input, textarea {
 }
 label {
 	display: inline-block;
-    width: 95%;
+    width: 50%;
     text-align: left;
     margin: 1% 0 0 0;
     color: white;
@@ -306,10 +313,3 @@ h3 {
     text-decoration: underline;
     color: white;
 }
-table#table1 {
-    text-align: center;
-    width: 100px;
-    margin-left:auto;
-    margin-right:auto;
-}
-tr#table1, td#table1 {text-align:left;}
