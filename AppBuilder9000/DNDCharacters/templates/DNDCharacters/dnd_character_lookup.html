@@ -2,37 +2,21 @@
 
 {% block title %}Dungeons and Dragons Characters!{% endblock %}
 
-{% block header %} <h1 class="welcomeh1">Search and Modify the Currently Active Characters: </h1>{% endblock %}
+{% block header %} <h1 class="welcomeh1">Currently Active Characters: </h1>{% endblock %}
 
 {% block content%}
-    <div class="container">
+    <div class="">
 
-            <table class="table_container">
-                  <tr class="tbl_format">
-                    <th>Character Name</th>
-                    <th>Character Class</th>
-                    <th>Strength</th>
-                    <th>Dexterity</th>
-                    <th>Constitution</th>
-                    <th>Intellegence</th>
-                    <th>Wisdom</th>
-                    <th>Charisma</th>
-                    <th>Background</th>
-                  </tr>
+
+
+                    <h1>Character Name</h1>
+
                 {% for character in characters %}
-                  <tr>
-                    <td>{{ character.Character_Name }}</td>
-                    <td>{{ character.Character_Class }}</td>
-                    <td>{{ character.Strength }}</td>
-                    <td>{{ character.Dexterity }}</td>
-                    <td>{{ character.Constitution }}</td>
-                    <td>{{ character.Intellegence }}</td>
-                    <td>{{ character.Wisdom }}</td>
-                    <td>{{ character.Charisma }}</td>
-                    <td>{{ character.Background }}</td>
-                  </tr>
+
+                    <ul><a href="{% url 'show_character' character.id %}"> {{ character }} </a></ul>
+
                 {% endfor %}
-            </table>
+
 
     </div>
 

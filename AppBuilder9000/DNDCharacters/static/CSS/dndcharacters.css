@@ -2,7 +2,7 @@
 html {
     scroll-behavior: smooth;
 }
-html, body {
+html {
 	height: cover;
 	width: cover;
 }
@@ -277,8 +277,10 @@ label {
 }
 table{
     margin-top: 100px;
+    margin-left: 100px;
 }
 table, th, td {
+    align: center;
     color: white;
     font-size: 110%;
     border: 3px solid white;
@@ -294,3 +296,20 @@ table, th, td {
 .table_container_links {
     background: black;
 }
+
+div.container {
+	width: 98%;
+	margin: 1%;
+
+}
+h3 {
+    text-decoration: underline;
+    color: white;
+}
+table#table1 {
+    text-align: center;
+    width: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+tr#table1, td#table1 {text-align:left;}
