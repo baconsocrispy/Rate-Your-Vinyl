@@ -1,0 +1,65 @@
+
+html {
+    background-color: darkblue
+}
+h1, h2, h3, h4, h5 {
+    margin-left: 40px;
+}
+p {
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+#carouselExampleCaptions {
+    width: 450px;
+    height: 220px;
+    margin: 0 auto;
+    border-radius: 3px;
+    margin-bottom: 090px;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+.hints-caption {
+    color: black;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    overflow: hidden;
+    background: #213e4a;
+}
+/* Float the list items side by side */
+ul.topnav li {
+    float: left;
+}
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+ul.topnav li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: darkblue;
+    color: white;
+    font-weight: 900
+}
+
+.center {
+    padding-bottom: 8px;
+    text-align: center;
+}

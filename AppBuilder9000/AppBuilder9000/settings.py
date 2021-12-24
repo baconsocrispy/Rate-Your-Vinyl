@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'BitcoinAnalytics',
     'BasketballStats',
     'Stocks',
+    'StudyApp',
     'DNDCharacters',
+    'Practicing_Yoga',
 ]
 
 MIDDLEWARE = [
