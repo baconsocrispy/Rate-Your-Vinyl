@@ -5,7 +5,7 @@
 {% block header %}Delete Confirmation{% endblock %}
 
 {% block content %}
-
+    <div class="center-txt">
     <form name="stockForm" method="POST" action=".">
             {% csrf_token %}
             <p>Are you sure you would like to delete "{{item.ticker}}" from the database?</p>
@@ -13,6 +13,7 @@
             <button type="submit">Submit</button>
         <a href="{% url 'stocks_favorites' %}"><button class="btn" type="button" value="cancel">CANCEL</button></a>
     </form>
+    </div>
 
 
 {% endblock %}

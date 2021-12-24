@@ -1,8 +1,9 @@
-
+import requests
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Stocks
 from .forms import StocksForm
+from bs4 import BeautifulSoup
 
 # Create your views here.
 
@@ -71,5 +72,32 @@ def confirm(request):
     else:
         return redirect('stocks_favorites')
 
+
+def news(request):
+    return render(request, 'Stocks/stocks_news.html')
+
+
+def stock_news(request):
+    feed = []
+
+    page = requests.get("https://www.marketwatch.com/latest-news?mod=top_nav")
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    article = soup.find('div', class_='column column--primary j-moreHeadlineWrapper')
+    news_article = article.find_all(class_='article__content')
+
+    #   Retrieves the title, link to article, and summary of article
+    for i, p in zip(news_article, news_article):
+        title = i.find(class_="article__headline").get_text()
+        link = i.a["href"]
+        summary = i.find(class_="article__summary").get_text()
+        news_array = (title, link, summary)
+        feed.append(news_array)
+
+    context = {
+        'feed': feed
+    }
+
+    return render(request, 'Stocks/stocks_news.html', context)
 
 
