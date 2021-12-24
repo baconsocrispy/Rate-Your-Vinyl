@@ -38,6 +38,7 @@ urlpatterns = [
     path('Stocks/', include('Stocks.urls')),
     path('DNDCharacters', include('DNDCharacters.urls')),
     path('Practicing_Yoga/', include('Practicing_Yoga.urls')),
+    path('StudyApp/', include('StudyApp.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
