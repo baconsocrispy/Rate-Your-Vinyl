@@ -63,3 +63,93 @@ ul.topnav li a:hover {
     padding-bottom: 8px;
     text-align: center;
 }
+
+/*========================================================
+    Study App Sign Up Form
+==========================================================*/
+
+.form-container {
+    margin: 0 auto;
+    width: 50%;
+    height: 60%;
+    background: #213e4a;
+    color: white;
+    border: 2px solid blue;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+}
+
+.form-object {
+      display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+.form-object label {
+    margin-right: 40%;
+}
+
+input[type="email"] {
+    margin-left: 20%
+}
+input[type="password"] {
+    margin-left: 4%;
+}
+
+button[value="Cancel"] {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 100px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: white;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+button[value="Cancel"]:hover {
+    background-color: darkgray;
+    color: black;
+    font-weight: 900;
+    border: 2px solid darkblue;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+input[type="submit"] {
+    flex-grow: 1;
+    width: 10%;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin: 2% 2% 2% 2%;
+    color: white;
+    padding: 9px 0px 9px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+input[type="submit"]:hover {
+    background-color: blue;
+    color: white;
+    font-weight: 900;
+    border: 2px solid darkblue;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+
+

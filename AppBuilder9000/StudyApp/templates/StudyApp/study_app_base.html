@@ -14,12 +14,12 @@
                 <!-- Navbar subject to change depending on time
                      Must create and add links to other webpages -->
                 <ul class="topnav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{% url 'study_home' %}">Home</a></li>
                     <li><a href="#">Study Goals</a></li>
-                    <li><a href="#">Milestone Rewards</a></li>
                     <li><a href="#">Progress</a></li>
                     <li><a href="#">Focus Time</a></li>
                     <li><a href="#">Login</a></li>
+                    <li><a href="{% url 'sign_up' %}">SignUp</a></li>
                 </ul>
                 <header>
                     <h1>{% block header %} {% endblock %}</h1>
