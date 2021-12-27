@@ -100,7 +100,7 @@ input[type="password"] {
     margin-left: 4%;
 }
 
-button[value="Cancel"] {
+button[name="Members"], button[name="Back"], button[value="Create"], button[value="Cancel"] {
 	flex-grow: 2;
     justify-content: center;
     text-align: center;
@@ -116,8 +116,9 @@ button[value="Cancel"] {
     cursor: pointer;
     border: 2px solid white;
     border-radius: 5px;
+    background: black;
 }
-button[value="Cancel"]:hover {
+button[name="Members"], button[name="Back"], button[value="Create"], button[value="Cancel"]:hover {
     background-color: darkgray;
     color: black;
     font-weight: 900;
@@ -151,5 +152,10 @@ input[type="submit"]:hover {
 	transition: opacity 0.3s ease-in-out;
 }
 
+button[name="Members"], button[name="Back"], button[value="Create"] {
+    background: black;
+    color: white;
+    border: 2px solid white;
+}
 
 

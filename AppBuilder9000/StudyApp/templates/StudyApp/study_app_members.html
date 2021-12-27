@@ -1,0 +1,25 @@
+{% extends "StudyApp/study_app_base.html" %}
+{% load static %}
+
+{% block title %} Members {% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+ <div class="form-container">
+    <form method="POST" action="">
+        <h1>Members</h1>
+        <label for="register_id">Select your Username:</label>
+            <select id="register_id" name="member" onChange="top.location.href=this.options[this.selectedIndex].value;">
+            {% for member in register %}
+                <option value="../{{ member.pk }}/info/">{{ member.username }}</option>
+            {% endfor %}
+            </select>
+            <div class="buttons">
+                <a href="{% url 'sign_up' %}"><button type="button" value="Create">Create Profile</button></a>
+                <a href="{% url 'study_home' %}"><button type="button" name="Back">Back</button></a>
+                <a href="{% url 'login' %}"><button type="button" name="Members">Members Login</button></a>
+            </div>
+    </div>
+{% endblock %}
