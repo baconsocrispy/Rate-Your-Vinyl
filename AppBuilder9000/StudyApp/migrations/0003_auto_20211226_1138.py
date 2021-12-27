@@ -5,10 +5,6 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('StudyApp', '0002_auto_20211223_2033'),
-    ]
-
     operations = [
         migrations.RemoveField(
             model_name='goals',
