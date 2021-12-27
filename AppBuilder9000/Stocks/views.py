@@ -86,11 +86,11 @@ def stock_news(request):
     article = soup.find('div', class_='column column--primary j-moreHeadlineWrapper')
     news_article = article.find_all(class_='article__content')
     #   Retrieves the title, link to article, and summary of article
+
     for i in news_article:
         title = i.find(class_="article__headline").get_text()
         link = i.a["href"]
-        summary = i.find(class_="article__summary").get_text()
-        news_array = (title, link, summary)
+        news_array = (title, link)
         feed.append(news_array)
 
     context = {

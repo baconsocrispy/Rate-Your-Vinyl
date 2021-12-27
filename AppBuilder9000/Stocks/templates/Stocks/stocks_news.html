@@ -3,14 +3,13 @@
 {% block title %}Stocks{% endblock %}
 
 {% block header %}Stock News{% endblock %}
-<p>These articles are from <a href=""</p>
+<p>These articles are from <a href=""></a></p>
 
 {% block content %}
     <div>
         {% for i in feed %}
         <div class="item">
             <a href="{{ i.1 }}"><p>{{ i.0 }}</p></a>
-            <p>{{ i.2 }}</p>
         </div>
         {% endfor %}
     </div>
