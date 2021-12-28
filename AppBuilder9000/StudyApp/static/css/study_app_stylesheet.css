@@ -158,4 +158,57 @@ button[name="Members"], button[name="Back"], button[value="Create"] {
     border: 2px solid white;
 }
 
+/* Database Container on Members Page */
+.db-container {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 100px;
+    align-items: center;
+}
+
+/* Members Info Table */
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+td, th {
+    border: 2px solid white;
+    padding: 0 20px 0 20px;
+}
+
+th {
+    background: darkblue;
+    font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
