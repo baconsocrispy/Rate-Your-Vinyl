@@ -76,9 +76,6 @@ def members(request):
     return render(request, 'StudyApp/study_app_members.html', {'register':register})
 
 def edit(request, pk):
-# Shows all items of a particular member selected from 'Register' model
-# NOTE: Update button is not functional.. fix upon submission of story 4
-def info(request, pk):
     pk = int(pk)
     inst = get_object_or_404(Register, pk=pk)
     # FMI (For My Information), don't forget to add "data=" to the request.POST
@@ -88,7 +85,6 @@ def info(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('members')
 #           NOTE TO SELF: FMI, redirect does not need "request, path" just the pattern name will suffice
 #               You'll get an error if you add "request" so be sure not to
             return redirect("members")
