@@ -20,3 +20,7 @@ def create(request):
         'form': form,
     }
     return render(request, 'Practicing_Yoga/yoga_create.html', context)
+
+def items(request):
+    obj = Yoga.objects.all()
+    return render(request, 'Practicing_Yoga/yoga_items.html', {'obj': obj})
