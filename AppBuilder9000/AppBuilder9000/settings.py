@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'StudyApp',
     'DNDCharacters',
     'Practicing_Yoga',
+    'CryptoAnalytics',
 ]
 
 MIDDLEWARE = [

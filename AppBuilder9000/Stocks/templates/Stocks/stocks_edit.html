@@ -6,18 +6,18 @@
 
 {% block content %}
 
-<div>
+<div class="center-txt">
     <form name="stockForm" method="POST" action="../edit/">
-        <table>
+        <table class="center-tbl">
             {% csrf_token %}
             {{ form.non_field_errors }}
             {{ form.as_table }}
         </table>
         <div>
-            <button type="submit">Submit</button>
             <div>
-                <a href="../{{ item.pk }}delete/"><button class="btn" type="button" value="delete">DELETE</button></a>
-                <a href="{% url 'stocks_favorites' %}"><button class="btn" type="button" value="cancel">CANCEL</button></a>
+                <button type="submit">Submit</button>
+                <a href="../{{ item.pk }}delete/"><button type="button" value="delete">DELETE</button></a>
+                <a href="{% url 'stocks_favorites' %}"><button type="button" value="cancel">CANCEL</button></a>
             </div>
         </div>
     </form>
