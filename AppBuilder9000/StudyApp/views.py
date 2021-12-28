@@ -26,13 +26,18 @@ def sign_up(request):
         return render(request, 'StudyApp/study_app_signup.html', {'form':form})
 
 
-
+# Displays diary form when clicked from navbar
+"""
+    Need to find a way to only allow access to this page once logged in.
+    Must figure out a way to first have a properly functioning login page.
+    From there, ensure the form submits to the appropriate model 'Diary' not 'Register'
+"""
 def diary(request):
     form = DiaryForm(request.POST or None)
     if request.method == "OST":
         if form.is_valid():
             form.save()
-            return redirect(request, "StudyApp/study_app_home.html")
+            return redirect("study_home")
         else:
             print(form.errors)
     else:
@@ -54,6 +59,9 @@ def diary(request):
         return render(request, 'StudyApp/study_app_diary.html', {'form':form})
     Had errors... """
 
+# displays a login page without functioning buttons
+# Must figure out logic to allow authentication of credentials
+#   that are already stored in the database
 def login(request):
     form = LoginForm(request.POST or None)
     context = {
@@ -61,31 +69,29 @@ def login(request):
     }
     return render(request, 'StudyApp/study_app_login.html', context)
 
+# Renders the member page
+# See 'study_app_members.html for logic that displays all items in db
 def members(request):
     register = Register.objects.all()
     return render(request, 'StudyApp/study_app_members.html', {'register':register})
 
-def edit(request, pk):
+# Shows all items of a particular member selected from 'Register' model
+# NOTE: Update button is not functional.. fix upon submission of story 4
+def info(request, pk):
     pk = int(pk)
     inst = get_object_or_404(Register, pk=pk)
-    # FMI (For My Information), don't forget to add "data=" to the request.POST
     form = UserForm(data=request.POST or None, instance=inst)
     if request.method == "POST":
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('members')
+#           NOTE TO SELF: FMI, redirect does not need "request, path" just the pattern name will suffice
+#               You'll get an error if you add "request" so be sure not to
+            return redirect("members")
         else:
             print(form.errors)
     else:
-        return render(request, "StudyApp/study_app_edit.html", {'form':form})
-
-def info(request, pk):
-    pk = int(pk)
-    # the .filter() allows me to get the selected username's info
-    register = Register.objects.all().filter(id=pk)
-    return render(request, 'StudyApp/study_app_info.html', {'register':register})
-
+        return render(request, "StudyApp/study_app_info.html", {'form':form})
 
 
 
