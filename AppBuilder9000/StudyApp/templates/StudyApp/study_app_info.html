@@ -8,19 +8,30 @@
 {% block content %}
 
     <div class="form-container">
+        <form name="UserForm" method="POST" action="../edit/">
+            <h1> Members' Info </h1>
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+                {% for member in register %}
+                    <tr>
+                        <td>{{ member.first_name|title }}</td>
+                        <td>{{ member.last_name|title }}</td>
+                        <td>{{ member.username|title }}</td>
+                        <td>{{ member.email }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
 
-        <form method="POST" action="../info/">
-            <h1>Members' Info</h1>
-            <div class="form-object">
-                <!-- Cross Site Request Forgery (csrf_token) protection -->
-                <!-- form.as_p places the form in html paragraph tags...</p> <p> -->
-                {% csrf_token %}
-                {{ form.non_field_errors }} <!-- show error if required field empty -->
-                {{ form.as_p }}
-            </div>
             <div class="">
-                <input type="submit" class="btn" value="Update Info" name="Save_Item">
+                <input type="submit" class="btn" value="Edit Info" name="Edit_tem">
                 <a href="{% url 'members' %}"><button class="btn" type="button" value="Cancel">Back</button></a>
-        </div>
-
+            </div>
+        </form>
+    </div>
 {% endblock %}

@@ -65,19 +65,27 @@ def members(request):
     register = Register.objects.all()
     return render(request, 'StudyApp/study_app_members.html', {'register':register})
 
-def info(request, pk):
+def edit(request, pk):
     pk = int(pk)
     inst = get_object_or_404(Register, pk=pk)
-    form = UserForm(request.POST or None, instance=inst)
+    # FMI (For My Information), don't forget to add "data=" to the request.POST
+    form = UserForm(data=request.POST or None, instance=inst)
     if request.method == "POST":
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect(request, "StudyApp/study_app_members.html", {'form':form})
+            return redirect('members')
         else:
             print(form.errors)
     else:
-        return render(request, "StudyApp/study_app_info.html", {'form':form})
+        return render(request, "StudyApp/study_app_edit.html", {'form':form})
+
+def info(request, pk):
+    pk = int(pk)
+    # the .filter() allows me to get the selected username's info
+    register = Register.objects.all().filter(id=pk)
+    return render(request, 'StudyApp/study_app_info.html', {'register':register})
+
 
 
 
