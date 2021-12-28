@@ -75,23 +75,34 @@ def members(request):
     register = Register.objects.all()
     return render(request, 'StudyApp/study_app_members.html', {'register':register})
 
+def edit(request, pk):
 # Shows all items of a particular member selected from 'Register' model
 # NOTE: Update button is not functional.. fix upon submission of story 4
 def info(request, pk):
     pk = int(pk)
     inst = get_object_or_404(Register, pk=pk)
+    # FMI (For My Information), don't forget to add "data=" to the request.POST
+    form = UserForm(data=request.POST or None, instance=inst)
     form = UserForm(data=request.POST or None, instance=inst)
     if request.method == "POST":
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
+            return redirect('members')
 #           NOTE TO SELF: FMI, redirect does not need "request, path" just the pattern name will suffice
 #               You'll get an error if you add "request" so be sure not to
             return redirect("members")
         else:
             print(form.errors)
     else:
-        return render(request, "StudyApp/study_app_info.html", {'form':form})
+        return render(request, "StudyApp/study_app_edit.html", {'form':form})
+
+def info(request, pk):
+    pk = int(pk)
+    # the .filter() allows me to get the selected username's info
+    register = Register.objects.all().filter(id=pk)
+    return render(request, 'StudyApp/study_app_info.html', {'register':register})
+
 
 
 
