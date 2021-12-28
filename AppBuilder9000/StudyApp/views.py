@@ -16,7 +16,7 @@ def sign_up(request):
     if request.method == "POST":
         if form.is_valid():
             form.save()
-            return redirect('study_home')
+            return redirect('members')
         else:
             print(form.errors)
     else:
@@ -80,7 +80,6 @@ def edit(request, pk):
     inst = get_object_or_404(Register, pk=pk)
     # FMI (For My Information), don't forget to add "data=" to the request.POST
     form = UserForm(data=request.POST or None, instance=inst)
-    form = UserForm(data=request.POST or None, instance=inst)
     if request.method == "POST":
         if form.is_valid():
             form2 = form.save(commit=False)
@@ -99,7 +98,29 @@ def info(request, pk):
     register = Register.objects.all().filter(id=pk)
     return render(request, 'StudyApp/study_app_info.html', {'register':register})
 
+# Creating Delete and Confirmation methods for study_app_edit.html
+def delete(request, pk):
+    pk = int(pk)
+    # only the instance selected from the db is needed to delete it
+    # you don't have to add the form
+    inst = get_object_or_404(Register, pk=pk)
+    # if the user presses the delete button, delete item and redirect
+    if request.method == "POST":
+        inst.delete()
+        return redirect("members")
+    # note the indentation
+    return render(request, "StudyApp/study_app_confirm.html", {'inst':inst})
 
+def confirm(request):
+    # yf yes is pressed, delete form with data
+    # if no (or else:, return to members page
+    if request.method == "POST":
+        form = UserForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('member')
+        else:
+            return redirect('members')
 
 
 

@@ -8,7 +8,7 @@
 {% block content %}
 
     <div class="form-container">
-        <form name="UserForm" method="POST" action="../edit/">
+        <form name="UserForm" method="POST" action="">
             <h1> Members' Info </h1>
             {% csrf_token %}
             <table>
@@ -29,7 +29,8 @@
             </table>
 
             <div class="">
-                <input type="submit" class="btn" value="Edit Info" name="Edit_tem">
+                <a href="../edit/"><button class="btn" type="button" value="Cancel">Edit Profile</button></a>
+                <a href="../delete/"><button name="delete" class="btn" type="button" value="Delete">Delete Member</button></a>
                 <a href="{% url 'members' %}"><button class="btn" type="button" value="Cancel">Back</button></a>
             </div>
         </form>

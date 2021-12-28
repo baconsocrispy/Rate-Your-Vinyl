@@ -1,4 +1,7 @@
 
+/*=====================================================
+    GENERAL STYLING
+==========================================================================*/
 html {
     background-color: darkblue
 }
@@ -10,6 +13,9 @@ p {
     margin-left: 40px;
 }
 
+/*=============================================================
+    CAROUSEL CUSTOM STYLING (BOOTSTRAP)
+=====================================================================================*/
 #carouselExampleCaptions {
     width: 450px;
     height: 220px;
@@ -26,6 +32,9 @@ img {
     color: black;
 }
 
+/*=================================================
+    NAVBAR STYLING
+====================================================================*/
 ul.topnav {
     list-style-type: none;
     margin: 0;
@@ -34,7 +43,7 @@ ul.topnav {
     overflow: hidden;
     background: #213e4a;
 }
-/* Float the list items side by side */
+
 ul.topnav li {
     float: left;
 }
@@ -65,7 +74,7 @@ ul.topnav li a:hover {
 }
 
 /*========================================================
-    Study App Sign Up Form
+    Study App Form
 ==========================================================*/
 
 .form-container {
@@ -100,7 +109,7 @@ input[type="password"] {
     margin-left: 4%;
 }
 
-button[name="Members"], button[name="Back"], button[value="Create"], button[value="Cancel"] {
+button[value="Delete"], button[name="Members"], button[name="Back"], button[value="Create"], button[value="Cancel"] {
 	flex-grow: 2;
     justify-content: center;
     text-align: center;
@@ -126,6 +135,14 @@ button[name="Members"], button[name="Back"], button[value="Create"], button[valu
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
 }
+
+button[value="Delete"]:hover {
+    background: red;
+    border: 2px solid white
+    color: white;
+    font-weight: 900;
+}
+
 input[type="submit"] {
     flex-grow: 1;
     width: 10%;
@@ -152,11 +169,6 @@ input[type="submit"]:hover {
 	transition: opacity 0.3s ease-in-out;
 }
 
-button[name="Members"], button[name="Back"], button[value="Create"] {
-    background: black;
-    color: white;
-    border: 2px solid white;
-}
 
 /* Database Container on Members Page */
 .db-container {
@@ -166,8 +178,9 @@ button[name="Members"], button[name="Back"], button[value="Create"] {
     height: 100px;
     align-items: center;
 }
-
-/* Members Info Table */
+/*=============================================================
+    MEMBERS INFO TABLE
+=================================================================== */
 table {
     margin-left: auto;
     margin-right: auto;
