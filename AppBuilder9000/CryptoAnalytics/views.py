@@ -1,15 +1,12 @@
 from django.contrib import messages
 
 from django.shortcuts import render, redirect
-from .models import Post
+
 from .forms import UserRegisterForm
 
 
 def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'CryptoAnalytics/crypto_analytics_home.html', context)
+    return render(request, 'CryptoAnalytics/crypto_analytics_home.html')
 
 
 def about(request):
