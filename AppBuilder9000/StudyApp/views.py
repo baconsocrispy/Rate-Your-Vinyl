@@ -4,6 +4,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Register, Diary
 from .forms import UserForm, DiaryForm, LoginForm
 
+# imports needed for Beautiful Soup
+import requests
+from bs4 import BeautifulSoup
+
 
 # Create your views here.
 
@@ -85,7 +89,6 @@ def edit(request, pk):
             form2 = form.save(commit=False)
             form2.save()
 #           NOTE TO SELF: FMI, redirect does not need "request, path" just the pattern name will suffice
-#               You'll get an error if you add "request" so be sure not to
             return redirect("members")
         else:
             print(form.errors)
@@ -122,7 +125,25 @@ def confirm(request):
         else:
             return redirect('members')
 
+"""
+======================================================
+    BEAUTIFUL SOUP SECTION
+========================================================================
+"""
+# Creating the view method that will render the study_app_focu.html template
+def focus(request):
+    page = requests.get("https://www.sciencenewsforstudents.org/article/top-10-tips-study-smarter-not-longer-study-skills")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    # Target the html tag I want (which are the h4 tags)
+    tips = soup.find_all('h4')
+    # creates a tuple containing all ten tips I want to display
+    top_ten = (tips[0].get_text(), tips[1].get_text(), tips[2].get_text(), tips[3].get_text(), tips[4].get_text(),
+               tips[6].get_text(), tips[7].get_text(), tips[8].get_text(), tips[9].get_text(), tips[10].get_text())
+    # use for logic to display each tip as a list
+    for item in top_ten:
+        print(item)
 
+    return render(request, "StudyApp/study_app_focus.html")
 
 
 

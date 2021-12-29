@@ -17,6 +17,7 @@
                     <li><a href="{% url 'study_home' %}">Home</a></li>
                     <li><a href="{% url 'members' %}">Members</a></li>
                     <li><a href="{% url 'diary' %}">Diary</a></li>
+                    <li><a href="{% url 'focus' %}">Focus Time</a></li>
                 </ul>
                 <header>
                     <h1>{% block header %} {% endblock %}</h1>
@@ -26,7 +27,7 @@
                 {% endblock %}
             </div>
             <div class="center">
-                <p><a href="#"> Study App</a> | &copy; 2021 | <a href="www.learncodinganywhere.com">The Tech Academy</a></p>
+                <p><a href="{% url 'study_home' %}"> Study App</a> | &copy; 2021 | <a href="www.learncodinganywhere.com">The Tech Academy</a></p>
             </div>
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
