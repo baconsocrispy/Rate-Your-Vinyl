@@ -130,6 +130,10 @@ def confirm(request):
     BEAUTIFUL SOUP SECTION
 ========================================================================
 """
+# NOTE: for this section, you will need to import a method and a class
+#   import requests,
+#   from bs4 import BeautifulSoup
+
 # Creating the view method that will render the study_app_focu.html template
 def focus(request):
     page = requests.get("https://www.sciencenewsforstudents.org/article/top-10-tips-study-smarter-not-longer-study-skills")
