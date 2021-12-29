@@ -1,8 +1,14 @@
-from django import forms
+from django.forms import ModelForm
 
-from django.contrib.auth.forms import UserCreationForm
+from .models import Post
 
 
-class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField()
+class UserRegisterForm(ModelForm):
+
+    class Meta:
+        model = Post
+        fields = "__all__"
+
+
+
 

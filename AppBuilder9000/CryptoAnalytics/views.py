@@ -14,8 +14,8 @@ def about(request):
 
 
 def register(request):
+    form = UserRegisterForm(data=request.POST or None)
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -23,5 +23,5 @@ def register(request):
             return redirect('crypto_home')
         else:
             form = UserRegisterForm()
-        return render(request, 'user/register.html', {'form': form})
+    return render(request, 'CryptoAnalytics/register.html', {'form': form})
 
