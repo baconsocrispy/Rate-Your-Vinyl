@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.home, name='yoga_home'),
     path('create', views.create, name="yoga_create"),
     path('items', views.items, name="yoga_items"),
+    path('<int:pk>/details/', views.details, name="yoga_details"),
 ]
