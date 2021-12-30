@@ -28,10 +28,10 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'crypto_home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'crypto_about' %}">About</a>
+                        <a class="nav-item nav-link" href="{% url 'crypto_display' %}">Temp</a>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="#">Login</a>
+                            <a class="nav-item nav-link" href="{% url 'crypto_login' %}">Login</a>
                             <a class="nav-item nav-link" href="{% url 'crypto_register' %}">Register</a>
                         </div>
                     </div>
@@ -43,8 +43,8 @@
 
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Our Sidebar</h3>
-                    <p class='text-muted'>You can put any information here you'd like.
+                    <h3>Quick Updates</h3>
+                    <p class='text-muted'>Check The latest Updates!
                         <ul class="list-group">
                             <li class="list-group-item list-group-item-light">Latest Posts</li>
                             <li class="list-group-item list-group-item-light">Announcements</li>
@@ -55,10 +55,8 @@
                   </div>
                 </div>
               </div>
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}{% endblock %}
-                </div>
+            <div class="container">
+                {% block content %}{% endblock %}
             </div>
     </main>
 

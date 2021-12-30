@@ -1,7 +1,7 @@
 from django.contrib import messages
-
 from django.shortcuts import render, redirect
-
+from . import forms
+from .models import Post
 from .forms import UserRegisterForm
 
 
@@ -25,3 +25,19 @@ def register(request):
             form = UserRegisterForm()
     return render(request, 'CryptoAnalytics/register.html', {'form': form})
 
+
+def login_page(request):
+    form = forms.LoginForm()
+    if request.method == 'POST':
+        form = forms.LoginForm(request.POST)
+        if form.is_valid():
+            pass
+    return render(request, 'CryptoAnalytics/login.html', context={'form': form})
+
+
+def crypto_display(request):
+    all_objects = Post.post.all()
+
+    context = {'all_objects': all_objects}
+
+    return render(request, 'CryptoAnalytics/crypto_display.html', context)

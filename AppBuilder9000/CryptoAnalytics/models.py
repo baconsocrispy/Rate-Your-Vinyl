@@ -9,6 +9,8 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.CharField(max_length=100)
 
+    post = models.Manager()
+
     def __str__(self):
         return self.title
 
@@ -17,4 +19,4 @@ class Profile(models.Model):
     User = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return f'{self.User.username} Profile'
