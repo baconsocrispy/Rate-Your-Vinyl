@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'crypto_home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'crypto_about' %}">About</a>
+                        <a class="nav-item nav-link" href="{% url 'crypto_display' %}">Temp</a>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
                             <a class="nav-item nav-link" href="{% url 'crypto_login' %}">Login</a>
@@ -55,10 +55,10 @@
                   </div>
                 </div>
               </div>
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}{% endblock %}
-                </div>
+            <div class="container">
+
+                {% block content %}{% endblock %}
+
             </div>
     </main>
 

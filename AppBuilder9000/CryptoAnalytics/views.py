@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from . import forms
-from .models import Post, Profile
+from .models import Post
 from .forms import UserRegisterForm
 
 
@@ -35,8 +35,8 @@ def login_page(request):
     return render(request, 'CryptoAnalytics/login.html', context={'form': form})
 
 
-def showthis(request):
-    all_objects = Post.objects.all(), Profile.objects.all()
+def crypto_display(request):
+    all_objects = Post.post.all()
 
     context = {'all_objects': all_objects}
 
