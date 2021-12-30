@@ -195,6 +195,29 @@ th {
     font-weight: 900;
 }
 
+/*======================================================================
+    FOCUS TIME STYLING
+==============================================================================================*/
+.page-container {
+    display: flex;
+}
+
+.tips-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* Side Navbar Section */
+.sidenav-container {
+    width: 30%;
+    position: fixed;
+    display: block;
+    margin-left: 78%;
+}
+.sidenav {
+    list-style-type: none;
+
+}
 
 
 
