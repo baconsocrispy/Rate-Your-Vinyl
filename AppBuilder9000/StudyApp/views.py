@@ -149,7 +149,6 @@ def focus(request):
                para[40].get_text(), tips[8].get_text(), para[41].get_text(), para[42].get_text(),  tips[9].get_text(),
                para[44].get_text(), para[47].get_text(), tips[10].get_text(), para[48].get_text(), para[50].get_text(),
                para[51].get_text(), para[52].get_text(), tips[11].get_text, para[53].get_text(), para[54].get_text())
-    #   NOTE: The for loop logic will now be placed in the
     """
         Attempted code:
         study = {'top_ten':top_ten}
@@ -157,6 +156,31 @@ def focus(request):
     """
     #   creating a direct dictionary of top_ten in the return
     return render(request, "StudyApp/study_app_focus.html", {'top_ten':top_ten})
+
+
+"""
+==================================================================================
+    API SECTION 
+=========================================================================================================
+"""
+# the API being used is http://www.boredapi.com/api/activity/
+# This API will randomly generate an activity the user could partake if they so choose to
+# creating the def to render new template
+
+# NOTE: only import needed is:
+#   import requests
+def activity(request):
+    response = requests.get("http://www.boredapi.com/api/activity/")
+    activity = response.json()
+    # this prints out in the terminal an activity that was randomly assigned
+    print(activity['activity'])
+    return render(request, 'StudyApp/study_app_api.html', {
+        'activity':activity['activity'],
+        'type':activity['type'],
+        'participants':activity['participants']
+    })
+
+
 
 
 
