@@ -5,7 +5,7 @@
 {% block header %}Add Favorites{% endblock %}
 
 {% block content %}
-    <div>
+    <div class="center-txt">
         <form method="POST" action="{% url 'add_favorites' %}">
             <div>
                 {% csrf_token %}

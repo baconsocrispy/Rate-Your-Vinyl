@@ -7,19 +7,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Robot" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/stocks_main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/stocks_test.css' %}">
         <title>{% block title %} {% endblock %}</title>
 
     </head>
     <body>
-        <div>
-            {% include "Stocks/stocks_navbar.html" %}
-            <header>
+
+        <div class="container">
+            <div class="item">
+                {% include "Stocks/stocks_navbar.html" %}
                 <h1>{% block header %} {% endblock %}</h1>
-            </header>
-            {% block content %} {% endblock %}
+            </div>
+            <div class="item">
+                {% block content %} {% endblock %}
+            </div>
+            <div class="item">
+                {% include "Stocks/footer.html" %}
+            </div>
         </div>
-        {% include "Stocks/footer.html" %}
+
 
     </body>
 </html>

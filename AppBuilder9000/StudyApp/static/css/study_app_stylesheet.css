@@ -1,4 +1,7 @@
 
+/*=====================================================
+    GENERAL STYLING
+==========================================================================*/
 html {
     background-color: darkblue
 }
@@ -10,6 +13,9 @@ p {
     margin-left: 40px;
 }
 
+/*=============================================================
+    CAROUSEL CUSTOM STYLING (BOOTSTRAP)
+=====================================================================================*/
 #carouselExampleCaptions {
     width: 450px;
     height: 220px;
@@ -26,6 +32,9 @@ img {
     color: black;
 }
 
+/*=================================================
+    NAVBAR STYLING
+====================================================================*/
 ul.topnav {
     list-style-type: none;
     margin: 0;
@@ -34,7 +43,7 @@ ul.topnav {
     overflow: hidden;
     background: #213e4a;
 }
-/* Float the list items side by side */
+
 ul.topnav li {
     float: left;
 }
@@ -63,3 +72,156 @@ ul.topnav li a:hover {
     padding-bottom: 8px;
     text-align: center;
 }
+
+/*========================================================
+    Study App Form
+==========================================================*/
+
+.form-container {
+    margin: 0 auto;
+    width: 50%;
+    height: 60%;
+    background: #213e4a;
+    color: white;
+    border: 2px solid blue;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+}
+
+.form-object {
+      display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+.form-object label {
+    margin-right: 40%;
+}
+
+input[type="email"] {
+    margin-left: 20%
+}
+input[type="password"] {
+    margin-left: 4%;
+}
+
+button[value="Delete"], button[name="Members"], button[name="Back"], button[value="Create"], button[value="Cancel"] {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 100px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: white;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 5px;
+    background: black;
+}
+button[name="Members"], button[name="Back"], button[value="Create"], button[value="Cancel"]:hover {
+    background-color: darkgray;
+    color: black;
+    font-weight: 900;
+    border: 2px solid darkblue;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+button[value="Delete"]:hover {
+    background: red;
+    border: 2px solid white
+    color: white;
+    font-weight: 900;
+}
+
+input[type="submit"] {
+    flex-grow: 1;
+    width: 10%;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin: 2% 2% 2% 2%;
+    color: white;
+    padding: 9px 0px 9px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+input[type="submit"]:hover {
+    background-color: blue;
+    color: white;
+    font-weight: 900;
+    border: 2px solid darkblue;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+
+/* Database Container on Members Page */
+.db-container {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 100px;
+    align-items: center;
+}
+/*=============================================================
+    MEMBERS INFO TABLE
+=================================================================== */
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+td, th {
+    border: 2px solid white;
+    padding: 0 20px 0 20px;
+}
+
+th {
+    background: darkblue;
+    font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
