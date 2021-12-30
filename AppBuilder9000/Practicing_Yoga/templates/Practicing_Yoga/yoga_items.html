@@ -8,7 +8,7 @@
 
 {% for yoga in obj %}
 <ul>
-    <li>{{ Yoga.name }}</li>
+    <li> <a href="{% url 'yoga_details' details.type %}"> {{ yoga.name }}</a> </li>
 </ul>
 
 {% endfor %}
