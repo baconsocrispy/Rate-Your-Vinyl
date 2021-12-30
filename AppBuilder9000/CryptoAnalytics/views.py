@@ -40,4 +40,4 @@ def crypto_display(request):
 
     context = {'all_objects': all_objects}
 
-    return render(request, 'CryptoAnalytics/crypto_analytics_home.html', context)
+    return render(request, 'CryptoAnalytics/crypto_display.html', context)
