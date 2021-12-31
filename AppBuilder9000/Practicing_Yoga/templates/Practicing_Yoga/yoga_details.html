@@ -6,21 +6,34 @@
 
 {% block content%}
 
-<table>
-     <tr>
-         <th>{{'Type'|upper}}</th>
-         <th>{{'Name'|upper}}</th>
-         <th>{{'Benefits'|upper}}</th>
+<div class="detailContainer">
+    <div class="detail1">
+        <table>
+            <tr>
+                <th>{{'Type'|upper}}</th>
+                <th>{{'Name'|upper}}</th>
+                <th>{{'Benefits'|upper}}</th>
 
-     </tr>
- <tr>
+            </tr>
+        </table>
+    </div>
 
-     <td>{{details.type}}</td>
-     <td>{{details.name}}</td>
-     <td>{{details.benefits}}</td>
+    <div class="detail2">
+        <table>
+            <tr>
 
- </tr>
-</table>
+                <td>{{details.type}}</td>
+                <td>{{details.name}}</td>
+                <td>{{details.benefits}}</td>
+
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+
+
 
 
 {% endblock %}
