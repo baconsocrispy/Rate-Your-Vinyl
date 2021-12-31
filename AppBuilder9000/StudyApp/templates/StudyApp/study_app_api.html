@@ -6,13 +6,40 @@
 {% block header %} {% endblock %}
 
 {% block content %}
+<div class="api-container">
     <h1>Bored?</h1>
     <br>
     <p>Need an escape from the daily clock work that is your life? Give this activity a go:</p>
-    <p>Note: The activity changes as you refresh the page. However, it's more fun to just take the first one given.
+    <p>To get started, enter the number of participants who wants to try their luck!
     </p>
-    <br><br>
-    <h2>Activity</h2>
-    <!-- Here's where the activity, type, and participants from the activity API WILL BE DISPLAYED. -->
 
+    <form method="POST" action="{% url 'activity' %}">
+        {% csrf_token %}
+        <label>How Many Members (note: You may enter 1, 2, 3, 4, 5, or 8</label><br>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="messages">{{ message }}</p>
+                {{ break }}
+            {% endfor %}
+        {% endif %}
+        <input type="number" name="players" placeholder="Number of Participants">
+
+        <input type="submit" value="Search">
+        <br>
+        {% if request.method == "POST"%}
+            <h1>Results</h1><br>
+            <h2>Activity</h2>
+            <p>{{ ref_activity }}</p>
+            <h2>Type</h2>
+            <p>{{ ref_type }}</p>
+            <h2>Participants</h2>
+            <p>{{ ref_part }}</p>
+            <h2>Price</h2>
+            <p>{{ ref_price }}</p>
+            <h2>Accessibility</h2>
+            <p id="end">{{ ref_acce }}</p>
+        {% else %}
+        {% endif %}
+    </form>
+</div>
 {% endblock %}
