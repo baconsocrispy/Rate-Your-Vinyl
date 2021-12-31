@@ -74,7 +74,7 @@ ul.topnav li a:hover {
 }
 
 /*========================================================
-    Study App Form
+    Study App Forms
 ==========================================================*/
 
 .form-container {
@@ -144,6 +144,9 @@ input[type="email"] {
 input[type="password"] {
     margin-left: 4%;
 }
+.buttons {
+    margin-top: 30px;
+}
 
 button[value="Delete"], button[name="Members"], button[name="Back"], button[value="Create"], button[value="Cancel"] {
 	flex-grow: 2;
@@ -211,9 +214,12 @@ input[type="submit"]:hover {
     display: block;
     margin: 0 auto;
     width: 50%;
-    height: 100px;
+    height: 200px;
     align-items: center;
+    font-size: 15pt;
+    font-weight: 500;
 }
+
 /*=============================================================
     MEMBERS INFO TABLE
 =================================================================== */
