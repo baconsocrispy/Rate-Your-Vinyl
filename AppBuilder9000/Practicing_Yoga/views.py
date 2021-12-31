@@ -24,3 +24,8 @@ def create(request):
 def items(request):
     obj = Yoga.objects.all()
     return render(request, 'Practicing_Yoga/yoga_items.html', {'obj': obj})
+
+def details(request, pk):
+    details = get_object_or_404(Yoga, pk=pk)
+    context = {'details': details}
+    return render(request, 'Practicing_Yoga/yoga_details.html', context)
