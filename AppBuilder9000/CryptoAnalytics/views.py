@@ -46,4 +46,4 @@ def crypto_display(request):
 def crypto_details(request, pk):
     details = get_object_or_404(Post, pk=pk)
     context = {'details': details}
-    return render(request, 'crypto_details.html', context)
+    return render(request, 'CryptoAnalytics/crypto_details.html', context)

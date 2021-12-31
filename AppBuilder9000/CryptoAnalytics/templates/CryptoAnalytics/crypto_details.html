@@ -1,14 +1,14 @@
 {% extends "crypto_analytics_base.html" %}
 {% block content %}
-    {% for i in all_objects %}
+
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
             Details List
             </a>
-            <a href="#" class="list-group-item list-group-item-action">{{ i.author }}</a>
-            <a href="#" class="list-group-item list-group-item-action">{{ i.content }}</a>
-            <a href="#" class="list-group-item list-group-item-action">{{ i.title }}</a>
-            <a href="#" class="list-group-item list-group-item-action">{{ i.date_posted }}</a>
+            <a href="#" class="list-group-item list-group-item-action">{{ details.author }}</a>
+            <a href="#" class="list-group-item list-group-item-action">{{ details.content }}</a>
+            <a href="#" class="list-group-item list-group-item-action">{{ details.title }}</a>
+            <a href="#" class="list-group-item list-group-item-action">{{ details.date_posted }}</a>
         </div>
-    {% endfor %}
+
 {% endblock %}
