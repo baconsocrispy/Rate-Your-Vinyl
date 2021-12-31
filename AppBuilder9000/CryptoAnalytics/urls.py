@@ -7,6 +7,6 @@ urlpatterns = [
     path('register', views.register, name='crypto_register'),
     path('login', views.login_page, name='crypto_login'),
     path('about', views.about, name='crypto_about'),
-    path('display', views.crypto_display, name='crypto_display'),
+    path('display', views.crypto_display, name='crypto_display.html'),
 
 ]

@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . import forms
 from .models import Post
 from .forms import UserRegisterForm
@@ -41,3 +41,9 @@ def crypto_display(request):
     context = {'all_objects': all_objects}
 
     return render(request, 'CryptoAnalytics/crypto_display.html', context)
+
+
+def crypto_details(request, pk):
+    details = get_object_or_404(Post, pk=pk)
+    context = {'details': details}
+    return render(request, 'crypto_details.html', context)
