@@ -170,15 +170,26 @@ def focus(request):
 # NOTE: only import needed is:
 #   import requests
 def activity(request):
-    response = requests.get("http://www.boredapi.com/api/activity/")
-    activity = response.json()
-    # this prints out in the terminal an activity that was randomly assigned
-    print(activity['activity'])
-    return render(request, 'StudyApp/study_app_api.html', {
-        'activity':activity['activity'],
-        'type':activity['type'],
-        'participants':activity['participants']
-    })
+    # if the user clicks the search button
+    if request.method == "POST":
+        number = request.POST['players']
+        # if the number the user enters is any of the following an error message will appear
+        # NOTE: if the user submits a blank form, an error page loads
+        if int(number) > 8 or int(number) < 1 or int(number) == 10 or int(number) == 6 or int(number) == 7:
+            messages.info(request, 'please enter either 1 to 5, or 8!!')
+            return redirect('activity')
+        else:
+            players = requests.get("http://www.boredapi.com/api/activity?participants="+str(number))
+            refine = players.json()
+            return render(request, "StudyApp/study_app_api.html", {
+                'ref_activity':refine['activity'],
+                'ref_type':refine['type'],
+                'ref_part':refine['participants'],
+                'ref_price':refine['price'],
+                'ref_acce':refine['accessibility']
+            })
+    else:
+        return render(request, "StudyApp/study_app_api.html")
 
 
 
