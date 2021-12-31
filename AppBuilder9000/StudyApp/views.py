@@ -130,20 +130,68 @@ def confirm(request):
     BEAUTIFUL SOUP SECTION
 ========================================================================
 """
-# Creating the view method that will render the study_app_focu.html template
+# NOTE: for this section, you will need to import a module and a class
+#   import requests,
+#   from bs4 import BeautifulSoup
+
+# Creating the view method that will render the study_app_focus.html template
 def focus(request):
     page = requests.get("https://www.sciencenewsforstudents.org/article/top-10-tips-study-smarter-not-longer-study-skills")
     soup = BeautifulSoup(page.content, 'html.parser')
     # Target the html tag I want (which are the h4 tags)
     tips = soup.find_all('h4')
+    para = soup.find_all('p')
     # creates a tuple containing all ten tips I want to display
-    top_ten = (tips[0].get_text(), tips[1].get_text(), tips[2].get_text(), tips[3].get_text(), tips[4].get_text(),
-               tips[6].get_text(), tips[7].get_text(), tips[8].get_text(), tips[9].get_text(), tips[10].get_text())
-    # use for logic to display each tip as a list
-    for item in top_ten:
-        print(item)
+    top_ten = (tips[0].get_text(), para[15].get_text(), para[16].get_text(), tips[1].get_text(), para[18].get_text(),
+               para[19].get_text(), tips[2].get_text(), para[22].get_text(), para[23].get_text(), tips[3].get_text(),
+               para[24].get_text(), para[25].get_text(), tips[4].get_text(), para[30].get_text(), para[31].get_text(),
+               tips[6].get_text(), para[34].get_text(), para[35].get_text(),  tips[7].get_text(), para[38].get_text(),
+               para[40].get_text(), tips[8].get_text(), para[41].get_text(), para[42].get_text(),  tips[9].get_text(),
+               para[44].get_text(), para[47].get_text(), tips[10].get_text(), para[48].get_text(), para[50].get_text(),
+               para[51].get_text(), para[52].get_text(), tips[11].get_text, para[53].get_text(), para[54].get_text())
+    """
+        Attempted code:
+        study = {'top_ten':top_ten}
+        but it didn't render on the webpage
+    """
+    #   creating a direct dictionary of top_ten in the return
+    return render(request, "StudyApp/study_app_focus.html", {'top_ten':top_ten})
 
-    return render(request, "StudyApp/study_app_focus.html")
+
+"""
+==================================================================================
+    API SECTION 
+=========================================================================================================
+"""
+# the API being used is http://www.boredapi.com/api/activity/
+# This API will randomly generate an activity the user could partake if they so choose to
+# creating the def to render new template
+
+# NOTE: only import needed is:
+#   import requests
+def activity(request):
+    # if the user clicks the search button
+    if request.method == "POST":
+        number = request.POST['players']
+        # if the number the user enters is any of the following an error message will appear
+        # NOTE: if the user submits a blank form, an error page loads
+        if int(number) > 8 or int(number) < 1 or int(number) == 10 or int(number) == 6 or int(number) == 7:
+            messages.info(request, 'please enter either 1 to 5, or 8!!')
+            return redirect('activity')
+        else:
+            players = requests.get("http://www.boredapi.com/api/activity?participants="+str(number))
+            refine = players.json()
+            return render(request, "StudyApp/study_app_api.html", {
+                'ref_activity':refine['activity'],
+                'ref_type':refine['type'],
+                'ref_part':refine['participants'],
+                'ref_price':refine['price'],
+                'ref_acce':refine['accessibility']
+            })
+    else:
+        return render(request, "StudyApp/study_app_api.html")
+
+
 
 
 
