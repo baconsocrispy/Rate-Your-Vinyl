@@ -2,7 +2,7 @@
 {% block content %}
     {% for i in all_objects %}
         <ul>
-            <li>{{ i.content }}</li>
+            <li><a href="{% url 'crypto_details' i.pk %}">{{ i.title }}</a></li>
         </ul>
     {% endfor %}
 {% endblock %}
