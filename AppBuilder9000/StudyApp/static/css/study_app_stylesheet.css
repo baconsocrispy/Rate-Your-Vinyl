@@ -3,7 +3,11 @@
     GENERAL STYLING
 ==========================================================================*/
 html {
-    background-color: darkblue
+    background-color: darkblue;
+}
+.main {
+    background-image: linear-gradient(#213e4a, darkblue);
+    color: white;
 }
 h1, h2, h3, h4, h5 {
     margin-left: 40px;
@@ -38,7 +42,6 @@ img {
 ul.topnav {
     list-style-type: none;
     margin: 0;
-    margin-bottom: 20px;
     padding: 0;
     overflow: hidden;
     background: #213e4a;
@@ -48,7 +51,7 @@ ul.topnav li {
     float: left;
 }
 /* Style the links inside the list items */
-ul.topnav li a {
+.navbar_item {
     display: inline-block;
     color: #f2f2f2;
     text-align: center;
@@ -60,11 +63,18 @@ ul.topnav li a {
     transition-duration: 0.4s;
     cursor: pointer;
 }
-ul.topnav li a:hover {
+.active, .navbar_item:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
     background-color: darkblue;
     color: white;
+    font-weight: 900
+}
+ul.topnav li a:focus {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: lightblue;
+    color: black;
     font-weight: 900
 }
 
@@ -141,6 +151,25 @@ ul.topnav li a:hover {
 input[type="email"] {
     margin-left: 20%
 }
+.di_form {
+    width: 100%;
+    text-align: left;
+    margin-top: 30px;
+}
+.di_form label {
+    margin-right: 10px;
+    margin-left: 0;
+}
+.di_form input {
+    margin-left: 10%;
+}
+.di_form select {
+    margin-left: 8%;
+}
+.di_form textarea {
+    margin-left: 18.9%;
+}
+
 input[type="password"] {
     margin-left: 4%;
 }

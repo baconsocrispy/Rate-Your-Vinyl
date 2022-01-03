@@ -14,9 +14,11 @@
             <div class="form-object">
                 <!-- Cross Site Request Forgery (csrf_token) protection -->
                 <!-- form.as_p places the form in html paragraph tags...</p> <p> -->
-                {% csrf_token %}
-                {{ form.non_field_errors }} <!-- show error if required field empty -->
-                {{ form.as_p }}
+                <div class="di_form">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }} <!-- show error if required field empty -->
+                    {{ form.as_p }}
+                </div>
             </div>
             <div class="">
                 <input type="submit" class="btn" value="Submit Entry" name="Save_Item">
