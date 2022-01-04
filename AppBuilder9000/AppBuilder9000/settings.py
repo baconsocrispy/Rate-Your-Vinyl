@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'DNDCharacters',
     'Practicing_Yoga',
     'CryptoAnalytics',
+    'PetAdoption',
     'MusicReviews',
 ]
 

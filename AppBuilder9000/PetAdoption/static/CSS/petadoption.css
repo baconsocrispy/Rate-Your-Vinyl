@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+}
+
+html {
+    background-color: #28112B;
+    font-family: "Exo", sans-serif;
+    color: white;
+}
+
+body {
+	position: relative;
+	overflow: hidden;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+	padding: 0;
+}
+
+h1{
+	color: white;
+	font-size: 36px;
+	text-align: center;
+	padding: 20px;
+}
+
+h3{
+	color: white;
+	font-size: 25px;
+	text-align: center;
+}
+
+
+/* This is the entire page wrapper */
+.site-container {
+    max-width: 100%;
+    height: 100%;
+    background-color: #28112B;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Navbar styling */
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8DAA91;
+}
+/* Float the list items side by side */
+ul.topnav li {
+    float: left;
+}
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+ul.topnav li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: #8DAA91;
+}
+/* Hide the list item that contains the link that should
+   open and close the topnav on small screens */
+ul.topnav li.icon {
+	display: none;
+}
+
+
+/* Footer styling */
+footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    background-color: #8DAA91;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    color: white;
+	text-decoration: none;
+	outline: medium none;
+	text-align: center;
+}
+
+footer p {
+    color: white;
+    padding: 15px 15px;
+	font-size: 14px;
+    line-height: 10px;
+    margin: auto;
+}
