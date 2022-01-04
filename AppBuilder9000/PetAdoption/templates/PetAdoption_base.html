@@ -1,0 +1,34 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Pet Adoption{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/petadoption.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo">
+</head>
+<body>
+    <!--NAVBAR-->
+    {% include "PetAdoption/PetAdoption_navbar.html" %}
+    <!--END NAVBAR-->
+
+    <!--HEADER-->
+    <div>
+        <h1>{% block header %}{% endblock %}</h1>
+    </div>
+    <!--END HEADER-->
+
+    <!--PAGE CONTENT-->
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <!--END PAGE CONTENT-->
+
+</body>
+
+<footer class="footer">
+    <p>Jaq Law &copy; 2021</p>
+</footer>
+
+</html>
