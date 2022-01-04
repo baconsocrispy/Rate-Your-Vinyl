@@ -1,0 +1,35 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %} Welcome to Music Reviews! {% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/Music_Reviews.css' %}">
+    </head>
+<body>
+    {% comment %} NavBar {% endcomment %}
+    <div class="navbar">
+        <a href="">Home</a>
+        <a href="">Reviews</a>
+        <a href="">Add Reviews</a>
+    </div>
+    <div class="page_container">
+        <div class="backgroundphoto">
+            <img src="{% static 'images/musicreviewbackground.jpg' %}">
+        </div>
+
+        <header class="header-title">
+            <h1>{% block header %} {% endblock %}</h1>
+        </header>
+        {% block content %} {% endblock %}
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(66, 66, 66);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 1px 1px 25px .5px black;
+    padding-left: 1em;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    padding: .5em;
+    text-decoration: none;
+    color: white;
+}
+
+.backgroundphoto {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    z-index: -1;
+}
+
+.phototext {
+    width:100%;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding-top: 1.2em;
+}
