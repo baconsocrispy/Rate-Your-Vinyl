@@ -38,3 +38,13 @@ body {
     text-align: center;
     padding-top: 1.2em;
 }
+
+.review_form {
+    margin-top: 5.5em;
+    padding: 2em;
+    border-radius: 5px;
+    background-color: rgba(128, 128, 128, 0.308);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
