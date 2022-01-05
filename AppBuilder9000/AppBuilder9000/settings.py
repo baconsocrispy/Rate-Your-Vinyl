@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'CryptoAnalytics',
     'PetAdoption',
     'MusicReviews',
+    'NYC_Guide',
 ]
 
 MIDDLEWARE = [
