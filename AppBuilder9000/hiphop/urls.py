@@ -1,5 +1,5 @@
 from django.urls import path
-from AppBuilder9000.Hiphop.templates.hiphop import views
+from . import views
 
 
 urlpatterns = [
