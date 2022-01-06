@@ -1,0 +1,105 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin:0%;
+    opacity: 1;
+    transition: 3s opacity;
+    font-family: 'Calibri', Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+body.fade-out {
+    opacity: .1;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 3%;
+    color: #e27d60;
+    padding-top: 1vw;
+}
+
+h2 {
+    font-family: 'Calibri', Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #e27d60;
+    padding-top: 1vw;
+}
+
+p {
+    font-family: 'Calibri', Arial, Helvetica, sans-serif;
+    text-align: justify;
+    color: black;
+    font-size: 1.25vw;
+    line-height: 1.5;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.center {
+    text-align: center;
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/** NAVBAR **/
+.Navbar {
+    overflow: hidden;
+    background-color: #e8a87c;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-animation: moveNav 3s;
+    animation: moveNav 3s;
+}
+
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left:0vw;}
+}
+
+.Navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    padding: .75vw 1vw;
+    text-decoration: none;
+    font-family: 'Calibri', Arial, Helvetica, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    position: relative;
+    -webkit-animation: moveNavText 3.75s;
+    animation: moveNavText 3.75s; 
+}
+
+@keyframes moveNavtext {
+    from {left: -100vw;}
+    to {left:0vw;}
+}
+
+@media screen and (max-width: 576px) {
+    .Navbar a {
+        width: 25%;
+        font-size: 12px;
+    }
+}
+
+.Navbar a:hover {
+    background-color: #e27d60;
+    color: #e8a87c;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/** END OF NAVBAR ** /
