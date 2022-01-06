@@ -1,0 +1,19 @@
+{% extends "musicreviews_base.html" %}
+{% load static %}
+
+{% block title %} View Reviews {% endblock %}
+
+{% block header %} <div class="phototext"> View some reviews of music! </div> {% endblock %}
+
+{% block content %}
+
+<div class="">
+    <form name="reviewForm" method="post" action="">
+        <div class="form-text">
+            {% csrf_token %}
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

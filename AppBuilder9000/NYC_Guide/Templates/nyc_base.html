@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <link rel="stylesheet" href="{% static '/CSS/NYC.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <header>
+        <div class="Navbar">
+            <a class="active" href="#Home">Home</a>
+            <a href="">Search Restaurants</a>
+            <a href="">All Restaurants</a>
+            <a href="">Random Picker</a>
+        </div>
+    </header>
+
+    <body>
+        {% block content %}
+
+        {% endblock %}
+    </body>
+
+    <footer>
+        <p>
+            <p class="center">New York City Eats: A Guide &nbsp;|&nbsp;<a href="https://www.instagram.com/mal.inthecity/" target="_blank">Follow on Instagram!</a>&nbsp;|&nbsp;
+            <br>
+            </p>
+    </footer>
+
+</html>
