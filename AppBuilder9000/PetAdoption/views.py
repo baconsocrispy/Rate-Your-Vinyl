@@ -13,29 +13,35 @@ def pet_adoption_list(request):
         if form.is_valid():
             form.save()
             return redirect('pet_adoption_home')
-    content = {'form': form}
-    return render(request, 'PetAdoption/PetAdoption_list.html', content)
+    context = {'form': form}
+    return render(request, 'PetAdoption/PetAdoption_list.html', context)
 
 
 def pet_adoption_dogs(request):
     dogs = Pet.Pets.all().filter(species='Dog')
-    content = {'dogs': dogs}
-    return render(request, 'PetAdoption/PetAdoption_dogs.html', content)
+    context = {'dogs': dogs}
+    return render(request, 'PetAdoption/PetAdoption_dogs.html', context)
 
 
 def pet_adoption_cats(request):
     cats = Pet.Pets.all().filter(species='Cat')
-    content = {'cats': cats}
-    return render(request, 'PetAdoption/PetAdoption_cats.html', content)
+    context = {'cats': cats}
+    return render(request, 'PetAdoption/PetAdoption_cats.html', context)
 
 
 def pet_adoption_other(request):
     others = Pet.Pets.all().filter(species='Other')
-    content = {'others': others}
-    return render(request, 'PetAdoption/PetAdoption_other.html', content)
+    context = {'others': others}
+    return render(request, 'PetAdoption/PetAdoption_other.html', context)
 
 
 def pet_adoption_all(request):
     pets = Pet.Pets.all()
-    content = {'pets': pets}
-    return render(request, 'PetAdoption/PetAdoption_all.html', content)
+    context = {'pets': pets}
+    return render(request, 'PetAdoption/PetAdoption_all.html', context)
+
+
+def pet_adoption_details(request, pk):
+    details = get_object_or_404(Pet, pk=pk)
+    context = {'details': details}
+    return render(request, 'PetAdoption/PetAdoption_details.html', context)

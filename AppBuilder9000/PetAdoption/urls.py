@@ -9,4 +9,5 @@ urlpatterns = [
     path('/cats/', views.pet_adoption_cats, name='pet_adoption_cats'),
     path('/other/', views.pet_adoption_other, name='pet_adoption_other'),
     path('/all/', views.pet_adoption_all, name='pet_adoption_all'),
+    path('<int:pk>/details/', views.pet_adoption_details, name='pet_adoption_details'),
 ]

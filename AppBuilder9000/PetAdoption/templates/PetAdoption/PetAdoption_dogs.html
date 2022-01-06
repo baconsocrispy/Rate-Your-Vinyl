@@ -17,13 +17,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Name: {{ dog.name|capfirst }} </h5>
                         <p class="card-text">Description: {{ dog.description }}</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="{% url 'pet_adoption_details' dog.id %}" class="btn btn-dark">Details</a>
+                        </div>
                     </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Breed: {{ dog.breed }}</li>
-                            <li class="list-group-item">Color: {{ dog.color }}</li>
-                            <li class="list-group-item">Weight: {{ dog.weight }} lbs</li>
-                            <li class="list-group-item">Sex: {{ dog.sex }}</li>
-                        </ul>
                 </div>
             </div>
         </div>
