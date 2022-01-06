@@ -1,0 +1,26 @@
+{% extends "musicreviews_base.html" %}
+{% load static %}
+{% block title %} Add Music Reviews {% endblock %}
+{% block header %} <div class="videotext"> Review your favorite Music </div> {% endblock %}
+
+{% block content %}
+
+    <div class="review_form">
+        <form method="POST" action="{% url 'createReview' %}">
+            <div class="frmObject">
+                <!-- Cross Site Request Forgery (csrf_token) protection -->
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+            </div>
+            <div class="frmButton_Container">
+                <input type="submit" class="btn" value="Create Review" name="Save_Review">
+                <a href="{% url 'review_view' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+                <a href="{% url 'review_view' %}"><button type="button" class="btn" value="View All">View All</button></a>
+            </div>
+        </form>
+    </div>
+
+
+
+{% endblock %}

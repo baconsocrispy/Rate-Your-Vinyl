@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+}
+
+html {
+    background-color: #28112B;
+    font-family: "Exo", sans-serif;
+}
+
+body {
+    background-color: #28112B;
+    font-family: "Exo", sans-serif;
+	position: relative;
+	overflow: scroll;
+}
+
+html, body {
+    background-color: #28112B;
+    font-family: "Exo", sans-serif;
+    height: 100%;
+    margin: 0;
+	padding: 0;
+}
+
+h1 {
+	color: white;
+	font-size: 36px;
+	text-align: center;
+	padding: 20px;
+	font-family: "Exo", sans-serif;
+}
+
+h3 {
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	font-family: "Exo", sans-serif;
+}
+
+p {
+    flex: 1;
+    padding: 15px 15px;
+	padding: 20px;
+    text-align: center;
+    font-family: "Exo", sans-serif;
+}
+
+
+/* This is the entire page wrapper */
+.site-container {
+    max-width: 100%;
+    height: 100%;
+    background-color: #28112B;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Navbar styling */
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8DAA91;
+}
+
+/* Float the list items side by side */
+ul.topnav li {
+    float: left;
+}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+ul.topnav li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: #8DAA91;
+}
+
+/* Hide the list item that contains the link that should
+   open and close the topnav on small screens */
+ul.topnav li.icon {
+	display: none;
+}
+
+
+/* card styling */
+.cards {
+    margin: 30px 50px;
+}
+
+
+/* form styling */
+.form_container {
+    border-radius: 10px;
+    background-color: #453643;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 20px;
+    width: 30%;
+    border: 2px solid rgba(0,0,0,0.4);
+    color: white;
+    position: relative;
+}
+
+.frmObject_container {
+	display: block;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    color: white;
+}
+
+.frmBtn_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+#btn {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 150px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: grey;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+#btn:hover {
+    background-color: #28112b;
+    color: white;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+input, textarea {
+    width: 100%;
+    margin: 1% 0 0 0;
+    padding: 1% 0 2% 1%;
+    line-height: 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px solid silver;
+}
+
+
+/* Footer styling */
+footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 10px auto;
+    background-color: #8DAA91;
+    bottom: 0;
+    height: 40px;
+    color: white;
+	text-decoration: none;
+	outline: medium none;
+	text-align: center;
+}
+
+footer p {
+    color: white;
+    padding: 15px 15px;
+	font-size: 14px;
+    line-height: 10px;
+    margin: auto;
+    font-family: "Exo", sans-serif;
+}

@@ -1,0 +1,112 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+/* navbar */
+
+.navbar {
+    overflow: hidden;
+    background-color: rgb(66, 66, 66);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 1px 1px 25px .5px black;
+    padding-left: 1em;
+    -webkit-animation: movenav 2.5s;
+    animation: movenav 2.5s;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    padding: .5em;
+    text-decoration: none;
+    color: white;
+    transition: transform 2s;
+}
+
+@keyframes movenav {
+    from {top: -50vh;}
+    to {top: 0vh;}
+}
+
+.navbar a:hover {
+    transform: scale(1.1);
+}
+
+/* navbar end */
+
+/* video */
+
+.backgroundvideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width:100%;
+    z-index: -1;
+}
+
+.videotext {
+    font-size: .8em;
+    text-transform: lowercase;
+    font-family: Verdana, sans-serif;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding-top: 1.5em;
+    text-shadow: 1px 1px black;
+    -webkit-animation: movetext 5s;
+    animation: movetext 5s;
+}
+
+@keyframes movetext {
+    from {top: -50vh;}
+    to {top: 0vh;}
+}
+
+/* video end */
+
+.review_form {
+    margin-top: 5.5em;
+    padding: 2em;
+    border-radius: 5px;
+    background-color: rgba(128, 128, 128, 0.308);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.revForm {
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-position: inside;
+    background-color: rgba(66,66,66,.5);
+    padding: 1em;
+    max-width: 35%;
+    border-radius: 10px;
+}
+
+.revForm label {
+    font-family: Verdana, sans-serif;
+}
+
+.revForm a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    font-family: 'Courier New', monospace;
+
+}
