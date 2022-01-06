@@ -1,5 +1,4 @@
 from django.db import models
-from localflavor.us.us_states import US_STATES
 
 # to lessen errors in spelling for later search features
 BoroughType= [('Manhattan', 'Manhattan'), ('Brooklyn', 'Brooklyn'), ('Queens', 'Queens'), ('Staten Island', 'Staten Island'), ('Bronx', 'Bronx')]
@@ -20,7 +19,7 @@ class Restaurants(models.Model):
     neighborhood= models.CharField(max_length=75)
     price_range= models.CharField(max_length=100, choices= PriceRange)
     address=models.CharField(max_length=225)
-    state= models.CharField(max_length=100, choices= US_STATES)
+    state= models.CharField(max_length=100)
     zip_code= models.IntegerField()
 
     Restaurants= models.Manager()
