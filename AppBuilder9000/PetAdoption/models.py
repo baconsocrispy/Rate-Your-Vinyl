@@ -7,10 +7,17 @@ SEX_CHOICES = (
     ('Female', 'Female')
 )
 
+# defining species choices
+SPECIES_CHOICES = (
+    ('Dog', 'Dog'),
+    ('Cat', 'Cat'),
+    ('Other', 'Other')
+)
+
 
 class Pet(models.Model):
     name = models.CharField(max_length=50)
-    species = models.CharField(max_length=50)
+    species = models.CharField(max_length=10, choices=SPECIES_CHOICES)
     breed = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
     weight = models.IntegerField()
