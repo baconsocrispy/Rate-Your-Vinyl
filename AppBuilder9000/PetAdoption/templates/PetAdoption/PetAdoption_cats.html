@@ -1,0 +1,36 @@
+{% extends "PetAdoption_base.html" %}
+{% load static %}
+
+{% block title %}Cats for Adoption{% endblock %}
+
+{% block header %}Cats for Adoption{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+{% for cat in cats %}
+    <div class="row">
+        <div class="col-sm-4 mb-5">
+            <div class="cards h-100">
+                <div class="card h-100" style="width: 18rem;">
+                    <img class="card-img-top" src="../../static/images/cat.jpeg" alt="cat">
+                    <div class="card-body">
+                        <h5 class="card-title">Name: {{ cat.name|capfirst }} </h5>
+                        <p class="card-text">Description: {{ cat.description }}</p>
+                    </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Breed: {{ cat.breed }}</li>
+                            <li class="list-group-item">Color: {{ cat.color }}</li>
+                            <li class="list-group-item">Weight: {{ cat.weight }} lbs</li>
+                            <li class="list-group-item">Sex: {{ cat.sex }}</li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+    </div>
+</div>
+{% endblock %}
