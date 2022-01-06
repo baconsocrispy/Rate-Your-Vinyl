@@ -1,19 +1,26 @@
 {% extends "musicreviews_base.html" %}
 {% load static %}
-
 {% block title %} View Reviews {% endblock %}
-
-{% block header %} <div class="phototext"> View some reviews of music! </div> {% endblock %}
+{% block header %} <div class="videotext"> music reviews </div> {% endblock %}
 
 {% block content %}
 
-<div class="">
-    <form name="reviewForm" method="post" action="">
-        <div class="form-text">
+<div>
+    <form class="revForm" method="post" action="">
+        <div>
             {% csrf_token %}
+            <label>Select a review from the list to edit: </label>
+                <ul>
+                    {% for review in reviews %}
+                        <li><a href="">{{ review.Artist }} | {{ review.Song }} | {{ review.Stars }}</a></li>
+                    {% endfor %}
+                </ul>
+            <div>
+                <a href="{% url 'createReview' %}"><button type="button" class="btn">Write new review</button></a>
+                <a href="{% url 'music_reviews_home' %}"><button type="button" class="btn">Cancel</button></a>
+            </div>
         </div>
     </form>
-
 </div>
 
 {% endblock %}
