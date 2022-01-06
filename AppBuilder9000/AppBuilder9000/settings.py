@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'DNDCharacters',
     'Practicing_Yoga',
     'CryptoAnalytics',
-    'hiphop',
+    'Hiphop',
 ]
 
 MIDDLEWARE = [
