@@ -1,7 +1,7 @@
 {% extends "musicreviews_base.html" %}
 {% load static %}
 {% block title %} View Reviews {% endblock %}
-{% block header %} <div class="videotext"> music reviews </div> {% endblock %}
+{% block header %} <div class="videotext"> all music reviews </div> {% endblock %}
 
 {% block content %}
 
@@ -9,10 +9,12 @@
     <form class="revForm" method="post" action="">
         <div>
             {% csrf_token %}
-            <label>Select a review from the list to edit: </label>
+            <label>Select a review from the list: </label>
+            <br>
+            <br>
                 <ul>
                     {% for review in reviews %}
-                        <li><a href="">{{ review.Artist }} | {{ review.Song }} | {{ review.Stars }}</a></li>
+                    <li><a href="{% url 'display_reviews' review.id %}">{{ review.Artist }} | {{ review.Song }} | {{ review.Stars }}</a></li>
                     {% endfor %}
                 </ul>
             <div>
