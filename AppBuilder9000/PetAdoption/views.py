@@ -45,3 +45,25 @@ def pet_adoption_details(request, pk):
     details = get_object_or_404(Pet, pk=pk)
     context = {'details': details}
     return render(request, 'PetAdoption/PetAdoption_details.html', context)
+
+
+def pet_adoption_edit(request, pk):
+    details = get_object_or_404(Pet, pk=pk)
+    form = PetForm(data=request.POST or None, instance=details)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('pet_adoption_all')
+    context = {'details': details, 'form': form}
+    return render(request, 'PetAdoption/PetAdoption_edit.html', context)
+
+
+def pet_adoption_delete(request, pk):
+    item = get_object_or_404(Pet, pk=pk)
+    form = PetForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('pet_adoption_all')
+    context = {'item': item, 'form': form}
+    return render(request, 'PetAdoption/PetAdoption_deleteconfirm.html', context)
+

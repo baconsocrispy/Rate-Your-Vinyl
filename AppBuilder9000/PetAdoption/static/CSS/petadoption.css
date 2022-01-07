@@ -41,6 +41,15 @@ p {
     font-family: "Exo", sans-serif;
 }
 
+a {
+  color: #8DAA91;
+}
+
+a:hover {
+  color: #8DAA91;
+  text-decoration: none;
+}
+
 
 /* This is the entire page wrapper */
 #page-container {
@@ -156,14 +165,14 @@ ul.topnav li.icon {
     width: 100%;
 }
 
-#btn {
+.formbtn {
 	flex-grow: 2;
     justify-content: center;
     text-align: center;
     display: inline-block;
     width: 150px; /* button size */
     margin: 2% 2% 2% 2%;
-    color: grey;
+    color: black;
     padding: 10px 0px;
     text-decoration: none;
     font-size: 14px;
@@ -174,7 +183,7 @@ ul.topnav li.icon {
     border-radius: 5px;
 }
 
-#btn:hover {
+.formbtn:hover {
     background-color: #28112b;
     color: white;
     border: 2px solid #b3b3b3;
