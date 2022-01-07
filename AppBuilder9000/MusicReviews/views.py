@@ -33,23 +33,18 @@ def review_view(request):
     return render(request, 'musicreviews_view.html', {'reviews': reviews})
 
 
+def review_viewlist(request):
+    reviews = Review.objects.all()
+    return render(request, 'musicreviews_viewlist.html', {'reviews': reviews})
+
+
 def back_home(request):
     return render(request, '../templates/home/index.html')
 
 
 def display_reviews(request, pk):
-    pk = int(pk)
     item = get_object_or_404(Review, pk=pk)
-    form = ReviewForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('music_reviews_home')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'musicreviews_view.html', {'form': form})
+    return render(request, 'musicreviews_viewlist.html', {'item': item})
 
 
 def delete(request, pk):
