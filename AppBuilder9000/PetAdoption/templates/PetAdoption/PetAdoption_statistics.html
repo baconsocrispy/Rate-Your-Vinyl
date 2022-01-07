@@ -7,7 +7,7 @@
 
 {% block content %}
 <div id="container" class="table-responsive w-75 mx-auto">
-    <table id="table" class="table table-dark table-bordered table-hover text-center" data-toggle="table">
+    <table id="table" class="table table-dark table-bordered text-center" data-toggle="table">
         <caption>Cat and Dog Adoption Statistics</caption>
         <thead>
             <tr>
@@ -18,12 +18,14 @@
             </tr>
         </thead>
         <tbody>
+        {% for pet in pet_list %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ pet.0 }}</td>
+                <td>{{ pet.1 }}</td>
+                <td>{{ pet.2 }}</td>
+                <td>{{ pet.3 }}</td>
             </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>
