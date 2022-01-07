@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'PetAdoption',
     'MusicReviews',
     'NYC_Guide',
+    'Hiphop',
 ]
 
 MIDDLEWARE = [

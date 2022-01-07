@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome to the best hiphop page!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/Hiphop_css.css' %}">
+</head>
+<body>
+    {% comment %} Navbar {% endcomment %}
+    <div class="navbar">
+        <a href="">Home</a>
+        <a href="">HipHop</a>
+        <a href="">R&B</a>
+    </div>
+    <div class="page_container">
+
+        <header class="header-title">
+            <h1>{% block header %} {% endblock %}</h1>
+        </header>
+        {% block content %} {% endblock %}
+    </div>
+
+
+</body>
+</html>
