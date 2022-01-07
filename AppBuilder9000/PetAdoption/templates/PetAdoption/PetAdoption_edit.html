@@ -18,8 +18,10 @@
         </form>
     </div>
     <div class="form_container">
+        <a href="{% url 'pet_adoption_delete' details.id %}">
             <div class="frmBtn_container">
-                <button class="formbtn"><a href="{% url 'pet_adoption_delete' details.id %}">DELETE</a></button>
+                <button class="formbtn">DELETE</button>
             </div>
+        </a>
     </div>
 {% endblock %}

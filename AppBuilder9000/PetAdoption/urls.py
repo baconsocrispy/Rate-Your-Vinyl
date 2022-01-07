@@ -12,4 +12,5 @@ urlpatterns = [
     path('<int:pk>/details/', views.pet_adoption_details, name='pet_adoption_details'),
     path('<int:pk>/edit/', views.pet_adoption_edit, name='pet_adoption_edit'),
     path('<int:pk>/delete/', views.pet_adoption_delete, name='pet_adoption_delete'),
+    path('statistics/', views.pet_adoption_statistics, name='pet_adoption_statistics'),
 ]
