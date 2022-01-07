@@ -1,8 +1,7 @@
 {% extends "musicreviews_base.html" %}
-
+{% load static %}
 {% block title %} Add Music Reviews {% endblock %}
-
-{% block header %} <div class="phototext"> Review your favorite Music! </div> {% endblock %}
+{% block header %} <div class="videotext"> Review your favorite Music </div> {% endblock %}
 
 {% block content %}
 
@@ -16,17 +15,10 @@
             </div>
             <div class="frmButton_Container">
                 <input type="submit" class="btn" value="Create Review" name="Save_Review">
-                <a href="{% url 'createReview' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
-                <a href="{% url 'review_view' %}"><button type="button" class="btn" value="View All">View All</button></a>
+                <a href="{% url 'review_view' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
             </div>
         </form>
     </div>
-
-
-
-
-
-
 
 
 

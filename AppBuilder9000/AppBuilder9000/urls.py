@@ -39,6 +39,7 @@ urlpatterns = [
     path('PetAdoption', include('PetAdoption.urls')),
     path('MusicReviews/', include('MusicReviews.urls')),
     path('NYC_Guide/', include('NYC_Guide.urls')),
+    path('Hiphop/', include('Hiphop.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

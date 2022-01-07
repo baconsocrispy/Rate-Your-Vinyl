@@ -103,3 +103,37 @@ p {
 }
 
 /** END OF NAVBAR ** /
+
+/** FORMS **/
+
+.rest-form {
+    background-color: #e8a87c;
+    position: relative;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    border: 3px solid #e27d60;
+}
+
+.new-rest-button {
+    background-color: #fff;
+    color: #e27d60;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 7px;
+}
+
+.new-rest-button:hover {
+    background-color: #e27d60;
+    color: #fff;
+}
+
+/** FOOTER **/
+footer {
+    padding: 15%;
+    background-color: #e8a87c;
+}
