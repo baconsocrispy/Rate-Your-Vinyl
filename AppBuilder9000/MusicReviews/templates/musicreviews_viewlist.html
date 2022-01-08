@@ -13,11 +13,12 @@
             <p class="bounce"> <br> {{ item.Artist }} <br><br>
 
             </p>
-            <p> | {{ item.Album }} <br>| {{ item.Song }} <br>| {{ item.Review }} <br>| {{ item.Stars }} </p>
+            <p>| {{ item.Album }} <br>| {{ item.Song }} <br>| {{ item.Review }} <br>| {{ item.Stars }} </p>
             <br>
             <br>
             <div>
                 <a href="{% url 'createReview' %}"><button type="button" class="btn">Write new review</button></a>
+                <a href="{% url 'editReview' item.id %}"><button type="button" class="btn">Edit review</button></a>
                 <a href="{% url 'review_view' %}"><button type="button" class="btn">Cancel</button></a>
             </div>
         </div>
