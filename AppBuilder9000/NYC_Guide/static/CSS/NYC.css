@@ -132,8 +132,41 @@ p {
     color: #fff;
 }
 
+/** TABLE STYLING **/
+
+.all-table {
+    width: 80%;
+    border: 3px solid #e8a87c;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.all-table tr {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.all-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #e8a87c;
+    color: white;
+}
+
+.all-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/** END OF TABLE STYLING **/
+
 /** FOOTER **/
 footer {
     padding: 15%;
     background-color: #e8a87c;
 }
+
+/** END FOOTER **/
