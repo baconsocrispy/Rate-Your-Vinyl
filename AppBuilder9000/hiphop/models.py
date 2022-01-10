@@ -1,13 +1,13 @@
 from django.db import models
 from django import forms
 
-TYPE_CHOICES = {
+TYPE_CHOICES = [
     ('1 mic', '1 mic'),
     ('2 mic', '2 mic'),
     ('3 mic', '3 mic'),
     ('4 mic', '4 mic'),
     ('5 mic', '5 mic'),
-}
+]
 
 
 class Choice(models.Model):
