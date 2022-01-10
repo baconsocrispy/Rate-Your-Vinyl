@@ -22,7 +22,7 @@ class Pet(models.Model):
     color = models.CharField(max_length=50)
     weight = models.IntegerField()
     sex = models.CharField(max_length=10, choices=SEX_CHOICES)
-    description = models.TextField(max_length=500)
+    description = models.TextField(max_length=1000)
 
     # reference the pet by name
     def __str__(self):
