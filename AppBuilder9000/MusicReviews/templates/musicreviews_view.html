@@ -6,17 +6,19 @@
 {% block content %}
 
 <div>
-    <form class="revForm" method="post" action="">
+    <form class="revView" method="post" action="">
         <div>
             {% csrf_token %}
             <label>Select a review from the list: </label>
             <br>
             <br>
-                <ul>
                     {% for review in reviews %}
-                    <li><a href="{% url 'display_reviews' review.id %}">{{ review.Artist }} | {{ review.Song }} | {{ review.Stars }}</a></li>
-                    {% endfor %}
+                <ul>
+                    <div class="revList">
+                        <li><a href="{% url 'display_reviews' review.id %}">{{ review.Artist }} | {{ review.Song }} | {{ review.Stars }}</a></li>
+                    </div>
                 </ul>
+                    {% endfor %}
             <div>
                 <a href="{% url 'createReview' %}"><button type="button" class="btn">Write new review</button></a>
                 <a href="{% url 'music_reviews_home' %}"><button type="button" class="btn">Cancel</button></a>
