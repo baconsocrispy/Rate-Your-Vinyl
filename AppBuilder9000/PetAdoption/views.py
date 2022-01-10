@@ -112,23 +112,32 @@ def get_access_token():
 
 
 def pet_adoption_portland(request):
-    # get the access token by calling the get_access_token function from above
-    access_token = get_access_token()
+    species = ' '
+    animals_avail = {}
 
-    # the request based on Petfinder's API documentation, converted from curl commands
-    headers = {
-        'Authorization': 'Bearer ' + access_token,
-    }
+    if 'species' in request.POST:
+        # take user input of species
+        species = request.POST['species']
 
-    # the search parameters we want (chosen from Petfinder's API documentation
-    params = (
-        ('type', 'Dog'),
-        ('location', 'Portland, Oregon'),
-        ('limit', '6'),
-    )
+        # get the access token by calling the get_access_token function from above
+        access_token = get_access_token()
 
-    response = requests.get('https://api.petfinder.com/v2/animals', headers=headers, params=params)
-    context = json.loads(response.text)
+        # the request based on Petfinder's API documentation, converted from curl commands
+        headers = {
+            'Authorization': 'Bearer ' + access_token,
+        }
+
+        # the search parameters we want (chosen from Petfinder's API documentation) + user input
+        params = (
+            ('type', species),
+            ('location', 'Portland, Oregon'),
+            ('limit', '6'),
+        )
+
+        response = requests.get('https://api.petfinder.com/v2/animals', headers=headers, params=params)
+        animals_avail = json.loads(response.text)
+
+    context = animals_avail
     print(context)
     return render(request, 'PetAdoption/PetAdoption_portland.html', context)
 
