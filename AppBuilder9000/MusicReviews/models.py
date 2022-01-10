@@ -2,13 +2,13 @@ from django.db import models
 from django import forms
 
 
-TYPE_CHOICES = {
+TYPE_CHOICES = [
     ('1 star', '1 star'),
     ('2 star', '2 star'),
     ('3 star', '3 star'),
     ('4 star', '4 star'),
     ('5 star', '5 star'),
-}
+]
 
 
 # Create your models here.
