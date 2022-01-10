@@ -148,3 +148,11 @@ def pet_adoption_portland(request):
     # headers=headers)
 
 
+def pet_adoption_add(request, animal):
+    form = PetForm(data=request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('pet_adoption_all')
+    context = {'form': form, 'animal': animal}
+    return render(request, 'PetAdoption/PetAdoption_add.html', context)

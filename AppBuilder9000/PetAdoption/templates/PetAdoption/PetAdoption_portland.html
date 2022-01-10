@@ -44,6 +44,13 @@
                     <li class="list-group-item">Color: {{ animal.colors.primary }}</li>
                     <li class="list-group-item">Size: {{ animal.size }} </li>
                     <li class="list-group-item">Sex: {{ animal.gender }}</li>
+                    <li class="list-group-item">
+                        <a href="{% url 'pet_adoption_add' animal %}">
+                        <div class="frmBtn_container">
+                            <button class="formbtn" name="Add_Pet">Add to database</button>
+                        </div>
+                        </a>
+                    </li>
                 </ul>
           </div>
           <div class="card-footer text-muted">
