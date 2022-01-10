@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Pet
 from .forms import PetForm
 import requests
+import json
 from bs4 import BeautifulSoup
 
 
@@ -90,5 +91,60 @@ def pet_adoption_statistics(request):
     context = {'pet_list': pet_list}
     print(pet_list)
     return render(request, 'PetAdoption/PetAdoption_statistics.html', context)
+
+
+# Petfinder API request functions:
+
+def get_access_token():
+    # from petfinder api documentation, converted curl commands to python
+    data = {
+        'grant_type': 'client_credentials',
+        'client_id': '7hE0KUXcBfMv65qj5sHjVzXSpzfH949wkefITm6y49nupe0NZA',
+        'client_secret': '8y8tAJxIL8sZLkCf7KvTZx8OYCnSWbvYKt5WBwg5'
+    }
+
+    response = requests.post('https://api.petfinder.com/v2/oauth2/token', data=data)
+    # from the response get just the access token
+    token_response = json.loads(response.text)
+    my_access_token = token_response['access_token']
+
+    return my_access_token
+
+
+def pet_adoption_portland(request):
+    species = ' '
+    animals_avail = {}
+
+    if 'species' in request.POST:
+        # take user input of species
+        species = request.POST['species']
+
+        # get the access token by calling the get_access_token function from above
+        access_token = get_access_token()
+
+        # the request based on Petfinder's API documentation, converted from curl commands
+        headers = {
+            'Authorization': 'Bearer ' + access_token,
+        }
+
+        # the search parameters we want (chosen from Petfinder's API documentation) + user input
+        params = (
+            ('type', species),
+            ('location', 'Portland, Oregon'),
+            ('limit', '6'),
+        )
+
+        response = requests.get('https://api.petfinder.com/v2/animals', headers=headers, params=params)
+        animals_avail = json.loads(response.text)
+
+    context = animals_avail
+    print(context)
+    return render(request, 'PetAdoption/PetAdoption_portland.html', context)
+
+    # NB. Original query string below. It seems impossible to parse and
+    # reproduce query strings 100% accurately so the one below is given
+    # in case the reproduced version is not "correct".
+    # response = requests.get('https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}',
+    # headers=headers)
 
 
