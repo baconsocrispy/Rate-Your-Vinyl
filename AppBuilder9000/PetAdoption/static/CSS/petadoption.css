@@ -11,7 +11,7 @@ body {
 }
 
 html, body {
-    background-color: #28112B;
+    background-color: #272932;
     font-family: "Exo", sans-serif;
     height: 100%;
     margin: 0;
@@ -70,7 +70,7 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #8DAA91;
+    background-color: #343a40;
 }
 
 /* override bootstrap container-fluid properties by making
@@ -102,7 +102,7 @@ ul.topnav li a {
 ul.topnav li a:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
-    background-color: #8DAA91;
+    background-color: #343a40;
 }
 
 /* Hide the list item that contains the link that should
@@ -112,7 +112,7 @@ ul.topnav li.icon {
 }
 
 
-/* homepage image styling */
+/* homepage image styling & effects */
 .image {
     display: flex;
     justify-content: center;
@@ -120,12 +120,12 @@ ul.topnav li.icon {
     margin-bottom: 100px;
 }
 
+
 .image img {
     border-radius: 20px;
     width: 70%;
+    position: absolute;
 }
-
-
 
 
 
@@ -138,7 +138,7 @@ ul.topnav li.icon {
 /* form styling */
 .form_container {
     border-radius: 10px;
-    background-color: #453643;
+    background-color: #343a40;
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -172,7 +172,7 @@ ul.topnav li.icon {
     display: inline-block;
     width: 150px; /* button size */
     margin: 2% 2% 2% 2%;
-    color: black;
+    color: #343a40;
     padding: 10px 0px;
     text-decoration: none;
     font-size: 14px;
@@ -184,7 +184,7 @@ ul.topnav li.icon {
 }
 
 .formbtn:hover {
-    background-color: #28112b;
+    background-color: #272932;
     color: white;
     border: 2px solid #b3b3b3;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -201,13 +201,25 @@ input, textarea {
     border: 2px solid silver;
 }
 
+/* for portland page */
+.my-menu {
+    text-align: center;
+}
+
+.borderbox {
+    margin: 0 auto;
+    padding: 20px;
+    width: 50%;
+    border: 2px solid silver;
+}
+
 
 /* Footer styling */
 footer {
     width: 100%;
 	-moz-box-sizing: border-box;
     margin: 0 auto;
-    background-color: #8DAA91;
+    background-color: #343a40;
     height: 40px;
     color: white;
 	text-decoration: none;
