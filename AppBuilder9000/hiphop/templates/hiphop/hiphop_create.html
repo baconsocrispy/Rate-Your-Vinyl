@@ -1,0 +1,38 @@
+{% extends "hiphop_base.html" %}
+
+{% block title %} Pick Your Favorite Year {% endblock %}
+
+{% block header %} <div class="phototext">Choose your favorite hip hop Era</div> {% endblock%}
+
+{% block content %}
+
+    <div class="hiphop_form">
+        <form method="POST" action="{% url 'createChoose'%">
+            <div class="frmObject">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+            </div>
+            <div class="frmButton_Container">
+                <input type="submit" class="btn" value="Create Choose" name="Save_choose">
+                <a href="{% url 'createChoose' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+                <a href="{% url 'choice_view' %}"><button type="button" class="btn" value="View All">View All</button></a>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
