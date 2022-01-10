@@ -1,18 +1,19 @@
 {% extends "musicreviews_base.html" %}
 {% load static %}
-{% block header %}Delete Confirmation:{% endblock %}
+{% block header %} <div class="videotext"> Delete Confirmation: </div> {% endblock %}
 
 {% block content %}
 
-    <form method="POST" action=".">
+    <form method="POST" class="dltContainer">
+
         {% csrf_token %}
-        <h2>Confirm Delete</h2>
-        <p>Are you sure you would like to delete "{{item.name}}" from the database?</p>
 
-        {{ item.as_p }}
+        <h2 class="bounce">Confirm Delete</h2>
 
-        <input type="submit" value="Yes, delete it!" class="btn">
-        <a href="{% url 'music_review_home' %}"><button class="btn" type="button">Cancel</button></a>
+        <p class="dltText"> Are you sure you would like to delete <br><span> "{{ item.Artist }}'s" </span> song, <span> "{{ item.Song }}" </span><br> from the database? </p>
+
+        <input type="submit" value="Yes, delete it!" class="btn" onclick="return confirm('Are you sure you want to delete this?')">
+        <a href="{% url 'review_view' %}"><button class="btn" type="button">Cancel</button></a>
     </form>
 
 {% endblock %}

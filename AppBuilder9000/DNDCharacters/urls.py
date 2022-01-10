@@ -11,6 +11,7 @@ urlpatterns = [
     path('show_character/<character_id>', views.show_character, name="show_character"),
     path('update_character/<character_id>', views.update_character, name="update_character"),
     path('delete_character/<character_id>', views.delete_character, name="delete_character"),
+    path('delete_character/<character_id>', views.delete_character, name="delete_character"),
 
 
 ]

@@ -13,3 +13,9 @@ def add_rest(request):
             return redirect('nyc_guide_home')
     content = {'form': form}
     return render(request, 'NYC_Guide/add_rest.html', content)
+
+
+def all_rest(request):
+    every_rest= Restaurants.Restaurants.all()
+    context= {'every_rest': every_rest}
+    return render(request, 'NYC_Guide/all_rest.html', context)
