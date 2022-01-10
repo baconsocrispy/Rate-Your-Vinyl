@@ -1,4 +1,4 @@
-{% extends "hiphop_base.html" %}
+{% extends "Hiphop/hiphop_base.html" %}
 
 {% block title %} Pick Your Favorite Year {% endblock %}
 
@@ -7,32 +7,18 @@
 {% block content %}
 
     <div class="hiphop_form">
-        <form method="POST" action="{% url 'createChoose'%">
+        <form method="POST">
             <div class="frmObject">
                 {% csrf_token %}
                 {{ form.non_field_errors }}
                 {{ form.as_p }}
             </div>
             <div class="frmButton_Container">
-                <input type="submit" class="btn" value="Create Choose" name="Save_choose">
-                <a href="{% url 'createChoose' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
-                <a href="{% url 'choice_view' %}"><button type="button" class="btn" value="View All">View All</button></a>
+                <input type="submit" class="btn">
+                <a href="{% url 'hiphop_home' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+                <a type="button" class="btn" value="View All">View All</button></a>
             </div>
         </form>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 {% endblock %}
