@@ -15,7 +15,12 @@
             <header>
                 <h1>{% block header %}"Get Your Local Weather Here!"{% endblock %}</h1>
             </header>
-            {% block content %}<h2>"Stay informed about the weather that impacts you the most!"</h2>{% endblock %}
+            <div>
+                <h2>"Stay informed about the weather that impacts you the most!"</h2>
+            </div>
+            <div>
+                {% block content %}{% endblock %}
+            </div>
         </div>
     </body>
 </html>

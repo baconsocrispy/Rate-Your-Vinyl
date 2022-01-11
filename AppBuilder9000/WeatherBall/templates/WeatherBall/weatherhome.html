@@ -1,26 +1,10 @@
-{% extends "weatherbase.html" %}
-    <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends "WeatherBall/weatherbase.html" %}
+{% load static %}
 
-</body>
-</html>>
-        <html lang="en">
-            <head>
-            {% block title %<strong>}WeatherBall</strong>{% endblock %}
+{% block title %}<strong>WeatherBall</strong>{% endblock %}
 
-            {% block header %}<u>Welcome to the WeatherBall!</u>{% endblock %}
-            </head>
-        <body>
-            {% block content %}
-            <h1><p><i>"This site is designed to bring you up to the minute local weather!"</i></p></h1>
-            {% endblock %}
-        </body>
-        </html>
+{% block header %}<u>Welcome to the WeatherBall!</u>{% endblock %}
+
+{% block content %}
+<h1>"This site is designed to bring you up to the minute local weather!"</h1>
+{% endblock %}
