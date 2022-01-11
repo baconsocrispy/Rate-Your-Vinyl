@@ -1,9 +1,14 @@
 {% extends "weatherbase.html" %}
+    <!DOCTYPE html>
+        <html lang="en">
+            <head>
+            {% block title %}WeatherBall{% endblock %}
 
-{% block title %}WeatherBall{% endblock %}
-
-{% block header %}Welcome to the WeatherBall!{% endblock %}
-
-{% block content %}
-
-{% endblock %}
+            {% block header %}Welcome to the WeatherBall!{% endblock %}
+            </head>
+        <body>
+            {% block content %}
+            <h1><p>"This site is designed to bring you up to the minute local weather!"</p></h1>
+            {% endblock %}
+        </body>
+        </html>
