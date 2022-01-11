@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'MusicReviews',
     'NYC_Guide',
     'Hiphop',
+    'PokeDex',
+    'BestCities',
     'WeatherBall',
 ]
 
