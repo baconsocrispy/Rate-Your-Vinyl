@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class BestcitiesConfig(AppConfig):
+class BestCitiesConfig(AppConfig):
     name = 'BestCities'
