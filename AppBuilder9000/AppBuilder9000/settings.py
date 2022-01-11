@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'NYC_Guide',
     'Hiphop',
     'PokeDex',
+    'BestCities',
 ]
 
 MIDDLEWARE = [

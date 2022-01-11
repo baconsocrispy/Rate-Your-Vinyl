@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/Best_Cities_css.css' %}">
+    </head>
+    <body>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Top Cities</a>
+            <a href="#">About</a>
+        <div>
+        <header>
+            <h1>{% block header %}{% endblock %}</h1>
+        </header>
+        {% block content %}{% endblock %}
+    </body>
+</html>
