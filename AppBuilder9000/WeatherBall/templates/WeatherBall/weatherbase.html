@@ -7,11 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="">
+        <link rel="stylesheet" type="text/css" href="{% static 'CSS/weatherball.css' %}">
     </head>
     <body>
         <div class="page_container">
-            {% include "weathernav.html" %}
+            {% include "WeatherBall/weathernav.html" %}
             <header>
                 <h1>{% block header %}"Get Your Local Weather Here!"{% endblock %}</h1>
             </header>
