@@ -40,6 +40,7 @@ urlpatterns = [
     path('MusicReviews/', include('MusicReviews.urls')),
     path('NYC_Guide/', include('NYC_Guide.urls')),
     path('Hiphop/', include('Hiphop.urls')),
+    path('WeatherBall/', include('WeatherBall.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
