@@ -12,10 +12,10 @@
     <body>
         <div class="page_container">
             {% include "weathernav.html" %}
-            <header class=""header-title">
-                <h1>{% block header %}{% endblock %}</h1>
+            <header>
+                <h1>{% block header %}"Get Your Local Weather Here!"{% endblock %}</h1>
             </header>
-            {% block content %}{% endblock %}
+            {% block content %}<h2>"Stay informed about the weather that impacts you the most!"</h2>{% endblock %}
         </div>
     </body>
 </html>
