@@ -7,21 +7,23 @@
 
 {% block content %}
 
-<h3>Search by Species</h3>
-    <form method="POST" action="{% url 'pet_adoption_portland' %}">
-    {% csrf_token %}
-    <div class="my-menu">
-        <label for="species" style="color: white">Choose a species:</label>
-        <select name="species" id="species">
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <option value="Rabbit">Rabbit</option>
-            <option value="Bird">Bird</option>
-        </select>
-    </div>
-    <br>
-    <button type="submit" value="Submit" class="btn btn-dark btn-lg btn-block w-25 mx-auto">Submit</button>
-    </form>
+<div class="borderbox">
+    <h3>Search by Species</h3>
+        <form method="POST" action="{% url 'pet_adoption_portland' %}">
+        {% csrf_token %}
+        <div class="my-menu">
+            <label for="species" style="color: white">Choose a species:</label>
+            <select name="species" id="species">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Bird">Bird</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit" value="Submit" class="btn btn-dark btn-lg btn-block w-25 mx-auto">Submit</button>
+        </form>
+</div>
 <br><br>
 <h2 class="text-center" style="color: white">Results</h2>
 
