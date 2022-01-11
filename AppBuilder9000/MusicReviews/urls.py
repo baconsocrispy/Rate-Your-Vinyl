@@ -11,4 +11,5 @@ urlpatterns = [
     path('confirmDelete/', views.confirmDelete, name='confirmDelete'),
     path('<int:pk>/display_reviews/', views.display_reviews, name='display_reviews'),
     path('<int:pk>/editReview/', views.editReview, name='editReview'),
+    path('beautiful_soup/', views.beautiful_soup, name='beautiful_soup'),
 ]

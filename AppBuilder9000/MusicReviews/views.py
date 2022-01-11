@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import ReviewForm
 from .models import Review
+from bs4 import BeautifulSoup
 import requests
 import json
 
@@ -12,6 +13,15 @@ import json
 def music_reviews_home(request):
     # this will return you to the home page of music reviews
     return render(request, 'musicreviews_home.html')
+
+
+def beautiful_soup(request):
+    first_review = []
+    page = requests.get("http://performermag.com/new-music-and-video/reviews/indie-pop-reviews/tutlie-young-cries-review/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    review_list = soup.find(id='content-area')
+    print(review_list)
+    return render(request, 'musicreviews_beautifulsoup.html')
 
 
 def createReview(request):
