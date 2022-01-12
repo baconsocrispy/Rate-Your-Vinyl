@@ -214,3 +214,17 @@ label, h2 {
     text-transform: capitalize;
 }
 
+.scrapedText {
+    font-size: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    color: white;
+    background-color: rgba(0,0,0,.75);
+    width:50%;
+    line-height: 2em;
+    padding: 1em;
+    border-radius: 15px;
+    overflow:hidden;
+}
+
