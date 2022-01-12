@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlacesForm
+
 from .models import Places
 
 def Best_Cities_home(request): #function to render the home page
@@ -17,3 +18,7 @@ def Best_Cities_create(request): #function to add a city to the database
         'form': form,
     }
     return render(request, 'BestCities/Best_Cities_create.html', context)
+
+def Best_Cities_topcities(request):
+    topC = Places.objects.all()
+    return render(request, 'BestCities/Best_Cities_topcities.html', {'topC': topC})

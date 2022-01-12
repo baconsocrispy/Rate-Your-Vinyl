@@ -11,3 +11,26 @@ nav {
     background-color: #D4A373;
     text-align: left;
 }
+
+table, th, td {
+    margin-left: 37%;
+    margin-bottom: 25px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    background-color: #ccd5ae;
+}
+
+th, td {
+    padding: 10px;
+}
+
+.form-input {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 25px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    background-color: #ccd5ae;
+}
