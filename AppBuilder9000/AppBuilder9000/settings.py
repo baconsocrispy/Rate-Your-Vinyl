@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'Hiphop',
     'PokeDex',
     'BestCities',
+    'WeatherBall',
 ]
 
 MIDDLEWARE = [
