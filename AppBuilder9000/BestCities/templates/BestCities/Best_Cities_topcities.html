@@ -9,20 +9,18 @@
 {% block content %}
 
 <div>
-    <form name="PlacesForm" method="POST" action="../details/">
-        <table class="table-center">
-            <tr>
-                <th>City</th>
-                <th>State</th>
-            </tr>
-            {% for places in topC %}
-            <tr>
-                <td><a href="{% url 'Best_Cities_details' %}">{{ places.city }}</a></td>
-                <td>{{ places.state }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </form>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>State</th>
+        </tr>
+        {% for places in topC %}
+        <tr>
+            <td><a href="{% url 'Best_Cities_details' places.id %}">{{ places.city }}</a></td>
+            <td>{{ places.state }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </div>
 
 {% endblock %}

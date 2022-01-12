@@ -10,7 +10,14 @@
 
 <div>
     <div>
-        <table>
+        <table class="description-width">
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th>Cost Index</th>
+                <th>Average Cost of Living</th>
+                <th>Description</th>
+            </tr>
             <tr>
                 <td>{{ item.city }}</td>
                 <td>{{ item.state }}</td>
@@ -22,6 +29,7 @@
         <div>
             <div>
                 <button class="btn"><a href="{% url 'Best_Cities_home' %}">Home</a></button>
+                <button class="btn"><a href="{% url 'Best_Cities_topcities' %}">View Another City</a></button>
             </div>
         </div>
     </div>
