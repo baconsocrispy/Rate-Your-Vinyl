@@ -1,13 +1,5 @@
 from django.db import models
 
-class Users(models.Model):
-    fname = models.CharField(max_length=30)
-    lname = models.CharField(max_length=30)
-    email = models.EmailField(max_length=50)
-
-    def __str__(self):
-        return self.fname + ' ' + self.lname
-
 STATES = [
         ('AL', 'Alabama'),
         ('AK', 'Alaska'),
@@ -70,11 +62,14 @@ STATES = [
         ('WY', 'Wyoming'),
     ]
 
-class Area(models.Model):
+class Users(models.Model):
+    fname = models.CharField(max_length=30)
+    lname = models.CharField(max_length=30)
+    email = models.EmailField(max_length=50)
     state = models.CharField(max_length=2, choices=STATES)
-
     def __str__(self):
-        return self.STATES
+        return self.fname + ' ' + self.lname + ' of {STATES}'
+
 
 
 
