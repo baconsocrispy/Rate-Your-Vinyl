@@ -1,0 +1,22 @@
+{% extends 'Hiphop/hiphop_base.html' %}
+
+{% block title %}Details{% endblock %}
+
+    {% block content %}
+            <h1>{{ Hiphop_request.mics }}</h1>
+
+            <table class="details-music">
+                <tr>
+                    <th>80,s Music</th>
+                    <th>90,s Music</th>
+                    <th>2000,s Music</th>
+                    <th>Today's Music</th>
+                </tr>
+                <tr>
+                    <td>{{ Hiphop_request.80,s_music }}</td>
+                    <td>{{ Hiphop_request.90,s_music }}</td>
+                    <td>{{ Hiphop_request.2000,s_music }}</td>
+                    <td>{{ Hiphop_request.today's_music }}</td>
+                </tr>
+            </table>
+    {%endblock %}

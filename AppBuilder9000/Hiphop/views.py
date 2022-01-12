@@ -25,6 +25,11 @@ def all_items(request):
     context = {'all_hiphop': all_hiphop}
     return render(request, 'Hiphop/all_items.html', context)
 
+def hiphop_details(request, objects_id):
+    hiphop_request = get_object_or_404(Hiphop, pk=objects_id)
+    context = {'hiphop_request': hiphop_request}
+    return render(request, 'Hiphop/details.html', context)
+
 
 #def choose_view(request):
  #   choose = choose.objects.all()
