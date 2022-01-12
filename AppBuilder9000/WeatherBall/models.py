@@ -1,6 +1,6 @@
 from django.db import models
 
-class User(models.Model):
+class Users(models.Model):
     fname = models.CharField(max_length=30)
     lname = models.CharField(max_length=30)
     email = models.EmailField(max_length=50)
@@ -8,8 +8,7 @@ class User(models.Model):
     def __str__(self):
         return self.fname + ' ' + self.lname
 
-class Area(models.Model):
-    STATES = [
+STATES = [
         ('AL', 'Alabama'),
         ('AK', 'Alaska'),
         ('AS', 'American Samoa'),
@@ -70,6 +69,8 @@ class Area(models.Model):
         ('WI', 'Wisconsin'),
         ('WY', 'Wyoming'),
     ]
+
+class Area(models.Model):
     state = models.CharField(max_length=2, choices=STATES)
 
     def __str__(self):

@@ -1,14 +1,14 @@
 from django.forms import ModelForm
-from .models import User
+from .models import Users
 from .models import Area
 
-class UserForm(ModelForm):
+class UsersForm(ModelForm):
     class Meta:
-        model = User
-        fields = ['fname', 'lname', 'email']
+        model = Users
+        fields = '__all__'
 
 class AreaForm(ModelForm):
     class Meta:
         model = Area
-        fields = 'STATES'
+        fields = '__all__'
 
