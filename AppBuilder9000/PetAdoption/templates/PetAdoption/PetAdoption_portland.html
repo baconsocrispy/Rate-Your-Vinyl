@@ -28,7 +28,7 @@
 <h2 class="text-center" style="color: white">Results</h2>
 
 <!-- bootstrap cards for displaying search data from api -->
-{% for animal in animals %}
+{% for animal in animals_avail %}
 <div class="row min-vw-50 justify-content-md-center">
     <div class="col-sm-6">
         <div class="card text-center">
@@ -37,19 +37,18 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ animal.name|capfirst }}</h5>
-            <img class="card-img-top" src="{{ animal.photos.0.large }}" alt="animal">
+            <img class="card-img-top" src="{{ animal.photo }}" alt="animal">
             <p class="card-text">{{ animal.description }}</p>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Breed: {{ animal.breeds.primary }}</li>
-                    <li class="list-group-item">Color: {{ animal.colors.primary }}</li>
+                    <li class="list-group-item">Breed: {{ animal.breed }}</li>
+                    <li class="list-group-item">Color: {{ animal.color }}</li>
                     <li class="list-group-item">Size: {{ animal.size }} </li>
-                    <li class="list-group-item">Sex: {{ animal.gender }}</li>
+                    <li class="list-group-item">Sex: {{ animal.sex }}</li>
                     <li class="list-group-item">
-                        <a href="{% url 'pet_adoption_add' animal %}">
-                        <div class="frmBtn_container">
-                            <button class="formbtn" name="Add_Pet">Add to database</button>
-                        </div>
-                        </a>
+                        <form action="{% url 'pet_adoption_add' animal.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="submit" value="Add Pet to List" />
+                        </form>
                     </li>
                 </ul>
           </div>

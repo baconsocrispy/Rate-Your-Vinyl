@@ -14,5 +14,5 @@ urlpatterns = [
     path('<int:pk>/delete/', views.pet_adoption_delete, name='pet_adoption_delete'),
     path('statistics/', views.pet_adoption_statistics, name='pet_adoption_statistics'),
     path('portland/', views.pet_adoption_portland, name='pet_adoption_portland'),
-    path('add/', views.pet_adoption_add, name='pet_adoption_add'),
+    path('add/<str:animal>/', views.pet_adoption_add, name='pet_adoption_add'),
 ]
