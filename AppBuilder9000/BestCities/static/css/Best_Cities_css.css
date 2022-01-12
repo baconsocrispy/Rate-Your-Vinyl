@@ -1,3 +1,13 @@
 html {
     background-color: #faedcd;
+    font-family: 'Merriweather', serif;
+}
+
+header, body {
+    text-align: center;
+}
+nav {
+    color: white;
+    background-color: #D4A373;
+    text-align: left;
 }
