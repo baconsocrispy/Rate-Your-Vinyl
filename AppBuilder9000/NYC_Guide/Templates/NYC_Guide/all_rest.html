@@ -8,16 +8,12 @@
 					<tr>
 						<th>Name</th>
 						<th>Cuisine</th>
-						<th>Borough</th>
-						<th>Neighborhood</th>
 						<th>Price Range</th>
 					</tr>
 					{% for Restaurants in every_rest %}
 						<tr>
 							<td><a href="{% url 'details' Restaurants.id %}">{{ Restaurants.restaurant_name }}</a></td>
 							<td>{{ Restaurants.cuisine }}</td>
-							<td>{{ Restaurants.borough }}</td>
-							<td>{{ Restaurants.neighborhood }}</td>
 							<td>{{ Restaurants.price_range }}</td>
 						</tr>
 					{% endfor %}
