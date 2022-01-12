@@ -6,10 +6,10 @@ class User(models.Model):
     email = models.EmailField(max_length=50)
 
     def __str__(self):
-        return self.name.fname + ' ' + self.lname
+        return self.fname + ' ' + self.lname
 
 class Area(models.Model):
-    STATES = (
+    STATES = [
         ('AL', 'Alabama'),
         ('AK', 'Alaska'),
         ('AS', 'American Samoa'),
@@ -69,11 +69,11 @@ class Area(models.Model):
         ('WV', 'West Virginia'),
         ('WI', 'Wisconsin'),
         ('WY', 'Wyoming'),
-    )
+    ]
     state = models.CharField(max_length=2, choices=STATES)
 
     def __str__(self):
-        return self.name.STATES
+        return self.STATES
 
 
 
