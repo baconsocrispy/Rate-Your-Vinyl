@@ -17,10 +17,11 @@ def music_reviews_home(request):
 
 def beautiful_soup(request):
     first_review = []
-    page = requests.get("http://performermag.com/new-music-and-video/reviews/indie-pop-reviews/tutlie-young-cries-review/")
+    page = requests.get("https://en.wikipedia.org/wiki/Music")
     soup = BeautifulSoup(page.content, 'html.parser')
-    review_list = soup.find(id='content-area')
-    print(review_list)
+    music = soup.find_all('p')
+    reviews = music[0].get_text()
+    print(reviews)
     return render(request, 'musicreviews_beautifulsoup.html')
 
 
