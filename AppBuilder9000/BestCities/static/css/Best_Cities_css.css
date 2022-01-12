@@ -13,7 +13,8 @@ nav {
 }
 
 table, th, td {
-    margin-left: 37%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 25px;
     border: 1px solid black;
     border-collapse: collapse;
@@ -25,9 +26,13 @@ th, td {
     padding: 10px;
 }
 
+.description-width {
+    max-width: 100px;
+}
+
 .form-input {
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 25px;
     border: 1px solid black;
     border-collapse: collapse;
