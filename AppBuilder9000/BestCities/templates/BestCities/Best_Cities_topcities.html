@@ -1,0 +1,35 @@
+{% extends "BestCities/Best_Cities_base.html" %}
+
+{% block title %}Top Cities{% endblock %}
+
+{% block header %}These are the top cities according to our users!{% endblock %}
+
+{% block content %}
+
+<div>
+    <form name="PlacesForm" method="POST" action="../details/">
+        <table class="table-center">
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th>Cost of Living Average</th>
+            </tr>
+            {% for places in topC %}
+            <tr>
+                <td>{{ places.city }}</td>
+                <td>{{ places.state }}</td>
+                <td>{{ places.cost_of_living_average }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div>
+            <input type="submit">
+            <div>
+                <button><a href="#">DELETE</a></button>
+                <button><a href="#">Cancel</a></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
