@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Restaurants
 from .forms import RestaurantForm
+import requests
 
 def home(request):
     return render(request, 'NYC_Guide/nyc_home.html')
@@ -58,3 +59,20 @@ def delete(request, restaurants_id):
         return redirect('all_rest')
     context= {'form': form, 'restaurant': restaurant}
     return render(request, 'NYC_Guide/delete.html', context)
+
+
+def opentable(request):
+    response=requests.get('https://opentable.herokuapp.com/api')
+    print(response.json())
+    return render(request, 'NYC_Guide/opentable.html')
+
+# going to attempt to play around with func below so ignore for now
+# def opentable2(request):
+#     restaurant = []
+#     if 'id' in request.GET:
+#         id = request.GET['id']
+#         url = 'https://opentable.herokuapp.com/api/restaurants/%s' % id
+#         response = requests.get(url)
+#         restaurant = response.json()
+#         print()
+#     return render(request, 'NYC_Guide/opentable.html', {'restaurant': restaurant})
