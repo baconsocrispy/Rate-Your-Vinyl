@@ -20,7 +20,7 @@ def beautiful_soup(request):
     page = requests.get("https://en.wikipedia.org/wiki/Music")
     soup = BeautifulSoup(page.content, 'html.parser')
     music = soup.find_all('p')
-    reviews = music[0].get_text()
+    reviews = music[1].get_text()
     print(reviews)
     return render(request, 'musicreviews_beautifulsoup.html')
 
