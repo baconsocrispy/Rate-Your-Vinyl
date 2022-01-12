@@ -14,7 +14,7 @@
 					</tr>
 					{% for Restaurants in every_rest %}
 						<tr>
-							<td>{{ Restaurants.restaurant_name }}</td>
+							<td><a href="{% url 'details' Restaurants.id %}">{{ Restaurants.restaurant_name }}</a></td>
 							<td>{{ Restaurants.cuisine }}</td>
 							<td>{{ Restaurants.borough }}</td>
 							<td>{{ Restaurants.neighborhood }}</td>

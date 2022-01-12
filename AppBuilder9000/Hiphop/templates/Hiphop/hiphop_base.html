@@ -8,20 +8,22 @@
     <link rel="stylesheet" type="text/css" href="{% static 'CSS/Hiphop_css.css' %}">
 </head>
 <body>
-    {% comment %} Navbar {% endcomment %}
+    <!--navbar-->
     <div class="navbar">
-        <a href="">Home</a>
+        <a href="{% url 'hiphop_home' %}">Home</a>
         <a href="">HipHop</a>
-        <a href="">R&B</a>
+        <a href="{% url 'hiphopviews_view' %}">Choose</a>
+        <a href="{% url 'all_items' %}">HIP HOP LIST</a>
     </div>
+
+    <div class="header-title">
+        <h1>{% block header %} {% endblock %}</h1>
+    </div>
+
+
     <div class="page_container">
-
-        <header class="header-title">
-            <h1>{% block header %} {% endblock %}</h1>
-        </header>
-        {% block content %} {% endblock %}
+         {% block content %} {% endblock %}
     </div>
-
 
 </body>
 </html>
