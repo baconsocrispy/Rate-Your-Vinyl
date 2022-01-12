@@ -4,6 +4,7 @@ from .forms import ReviewForm
 from .models import Review
 from bs4 import BeautifulSoup
 import requests
+import os
 import json
 
 
@@ -16,12 +17,14 @@ def music_reviews_home(request):
 
 
 def beautiful_soup(request):
-    first_review = []
     page = requests.get("https://en.wikipedia.org/wiki/Music")
     soup = BeautifulSoup(page.content, 'html.parser')
     music = soup.find_all('p')
     reviews = music[1].get_text()
-    print(reviews)
+    text = '{{% extends "musicreviews_base.html" %}} {{% load static %}} {{% block title %}} music {{% endblock %}} {{% block header %}} <div class="videotext"> what is music? </div> {{% endblock %}} \
+     {{% block content %}} <p class=\'scrapedText\'> {0} </p> {{% endblock %}}'
+    with open('templates/musicreviews_beautifulsoup.html', 'w', encoding='utf-8') as f:
+        f.write(text.format(reviews))
     return render(request, 'musicreviews_beautifulsoup.html')
 
 
