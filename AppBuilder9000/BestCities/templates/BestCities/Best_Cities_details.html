@@ -1,0 +1,30 @@
+{% extends "BestCities/Best_Cities_base.html" %}
+
+{% load static %}
+
+{% block title %}City Details{% endblock %}
+
+{% block header %}Here are the details for the city you chose!{% endblock %}
+
+{% block content %}
+
+<div>
+    <div>
+        <table>
+            <tr>
+                <td>{{ item.city }}</td>
+                <td>{{ item.state }}</td>
+                <td>{{ item.cost_index }}</td>
+                <td>{{ item.cost_of_living_average }}</td>
+                <td>{{ item.description }}</td>
+            </tr>
+        </table>
+        <div>
+            <div>
+                <button class="btn"><a href="{% url 'Best_Cities_home' %}">Home</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
