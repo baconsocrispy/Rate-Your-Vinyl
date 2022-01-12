@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import PokemonForm
+from .models import Pokemon
 
 
 # Create your views here.
@@ -16,3 +17,9 @@ def addPokemon(request):
             return redirect('PokeDex_home')
     content = { 'form': form }
     return render(request, 'PokeDex/AddPokemon_form.html', content)
+
+def show_pokemon(request):
+    show_pokemon = Pokemon.object.all()
+
+    context = {'show_pokemon': show_pokemon}
+    return render(request, "PokeDex/PokeDex_showPokemon.html", context)
