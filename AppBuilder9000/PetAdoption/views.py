@@ -1,9 +1,12 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Pet
 from .forms import PetForm
 import requests
 import json
 from bs4 import BeautifulSoup
+from operator import itemgetter
+import random
 
 
 def pet_adoption_home(request):
@@ -113,7 +116,7 @@ def get_access_token():
 
 def pet_adoption_portland(request):
     species = ' '
-    animals_avail = {}
+    animals_avail = []
 
     if 'species' in request.POST:
         # take user input of species
@@ -135,9 +138,26 @@ def pet_adoption_portland(request):
         )
 
         response = requests.get('https://api.petfinder.com/v2/animals', headers=headers, params=params)
-        animals_avail = json.loads(response.text)
+        parsed = json.loads(response.text)
+        animals_parsed = parsed['animals']
 
-    context = animals_avail
+        for animal in animals_parsed:
+            large_photos = list(map(itemgetter('large'), animal['photos']))
+            results = {
+                'name': animal['name'],
+                'species': animal['species'],
+                'breed': animal['breeds']['primary'],
+                'color': animal['colors']['primary'],
+                'size': animal['size'],
+                'sex': animal['gender'],
+                'description': animal['description'],
+                'photo': large_photos[0],
+                # save the id to send to add function
+                'id': animal['id']
+            }
+            animals_avail.append(results)
+
+    context = {'animals_avail': animals_avail}
     print(context)
     return render(request, 'PetAdoption/PetAdoption_portland.html', context)
 
@@ -147,4 +167,47 @@ def pet_adoption_portland(request):
     # response = requests.get('https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}',
     # headers=headers)
 
+
+# To add the pet from petfinder to our database, we take the animal's id
+# and use this function to call the petfinder api again selecting only
+# the pet we want to add
+def pet_adoption_add(request, animal):
+    animal_id = animal
+
+    # get the access token by calling the get_access_token function from above
+    access_token = get_access_token()
+
+    # the request based on Petfinder's API documentation, converted from curl commands
+    headers = {
+        'Authorization': 'Bearer ' + access_token,
+    }
+
+    response = requests.get('https://api.petfinder.com/v2/animals/' + animal_id, headers=headers)
+    # get the response and extract the info from the json file
+    parsed = json.loads(response.text)
+    chosen = parsed['animal']
+    pet_weight = chosen['size']
+
+    # change the size designation to an integer weight (our database uses integers)
+    if pet_weight == 'Small':
+        weight = 2
+    if pet_weight == 'Medium':
+        weight = 10
+    if pet_weight == 'Large':
+        weight = 30
+    if pet_weight == 'Xlarge':
+        weight = 80
+
+    new_animal = Pet.Pets.create(name=chosen['name'],
+                                 species=chosen['species'],
+                                 breed=chosen['breeds']['primary'],
+                                 color=chosen['colors']['primary'],
+                                 sex=chosen['gender'],
+                                 description=chosen['description'],
+                                 weight=weight
+                                 )
+    # save the new animal to our database
+    new_animal.save()
+    # return to a confirmation page
+    return render(request, 'PetAdoption/PetAdoption_saveconfirmation.html')
 
