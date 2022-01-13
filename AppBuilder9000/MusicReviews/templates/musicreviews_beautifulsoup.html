@@ -1,0 +1,15 @@
+{% extends "musicreviews_base.html" %}
+{% load static %}
+{% block title %} music {% endblock %}
+{% block header %} <div class="videotext"> what is music </div> {% endblock %}
+
+{% block content %}
+
+    <div>
+        {{ dict_music.as_p }}
+    </div>
+
+
+
+
+{% endblock %}
