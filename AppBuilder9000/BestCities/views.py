@@ -33,11 +33,11 @@ def Best_Cities_edit(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('Best_Cities_home')
+            return redirect('Best_Cities_topcities')
         else:
             print(form.errors)
     else:
-        return render(request, 'BestCities/Best_Cities_edit.html', {'item': item})
+        return render(request, 'BestCities/Best_Cities_edit.html', {'form': form, 'item': item})
 
 def Best_Cities_delete(request, pk):
     change = get_object_or_404(Places, pk=pk)
@@ -49,9 +49,9 @@ def Best_Cities_delete(request, pk):
 
 def Best_Cities_confirmed(request):
     if request.method == 'POST':
-        formDelete = PlacesForm(request.POST or None)
-        if formDelete.is_valid():
-            formDelete.delete()
+        form = PlacesForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
             return redirect('Best_Cities_topcities')
     else:
         return redirect('Best_Cities_home')
