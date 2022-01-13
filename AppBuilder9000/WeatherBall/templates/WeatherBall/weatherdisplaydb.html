@@ -17,12 +17,30 @@
             <header>
                 <h1>{% block header %}Get Your Local Weather Here!"{% endblock %}</h1>
             </header>
-            {% block content %}
-            <div>
-                <h2>"User Profile Display"</h2>
-            </div>
-            <div>
-                {% endblock %}
+{% block content %}
+                <div class="container">
+                    <h2>"User Profile Display"</h2>
+                    <thead>
+                        <tr>
+                            <th scope="col" data-field="fname" data-sortable="true" class="w-25">First Name</th>
+                            <th scope="col" data-field="lname" data-sortable="true" class="w-25">Last Name</th>
+                            <th scope="col" data-field="email" data-sortable="true" class="w-25">Email</th>
+                            <th scope="col" data-field="state" data-sortable="true" class="w-25">State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+{% for i in display %}
+                        <tr>
+                            <td><a href="{% url 'weatherdisplaydb' Users.id %}">{{ Users }}</a></td>
+                            <td>{{ i.fname }}</td>
+                            <td>{{ i.lname }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.state }}</td>
+                        </tr>
+{% endfor %}
+                    </tbody>
+                </div>
+{% endblock %}
             </div>
         </div>
     </body>
