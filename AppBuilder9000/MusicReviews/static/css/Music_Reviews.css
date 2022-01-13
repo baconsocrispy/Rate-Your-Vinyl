@@ -227,3 +227,8 @@ label, h2 {
     overflow:hidden;
 }
 
+.scrapedText a {
+    text-decoration:none;
+    color:inherit;
+}
+

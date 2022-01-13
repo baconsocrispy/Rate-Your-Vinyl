@@ -1,12 +1,15 @@
 {% extends "musicreviews_base.html" %}
 {% load static %}
 {% block title %} API {% endblock %}
-{% block header %} <div class="videotext"> API </div> {% endblock %}
+{% block header %} <div class="videotext"> music news </div> {% endblock %}
 
 {% block content %}
 
-    <div>
-        {{ title }}
+    <div class="scrapedText">
+        {{ text }}
+        <br>
+        <p> source = <a target="_blank" href="{{ link }}"> 9 to 5 </a> </p>
+        <p> published on {{ published }} </p>
     </div>
 
 {% endblock %}
