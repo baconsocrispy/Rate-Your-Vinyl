@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 from .forms import UsersForm
-from .models import Users
-
 
 def weather_home(request):
     return render(request, 'WeatherBall/weatherhome.html')
@@ -18,3 +16,7 @@ def weather_create(request):
         'form': form,
     }
     return render(request, 'WeatherBall/weathercreate.html', context)
+
+def weather_db(request):
+    return render(request, 'WeatherBall/weatherdisplaydb.html')
+
