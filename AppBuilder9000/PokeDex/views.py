@@ -33,3 +33,21 @@ def pokemon_details(request, pk):
     details = get_object_or_404(Pokemon, pk=pk)
     context = {'details': details}
     return render(request, 'PokeDex/pokemonDetails.html', context)
+
+def edit_pokemon(request, pk):
+    show_pokemon = get_object_or_404(Pokemon, pk=pk)
+    form = PokemonForm(data=request.POST or None, instance=show_pokemon)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('show_pokemon')
+    context = {'form': form}
+    return render(request, 'PokeDex/PokeDex_edit.html', context)
+
+def delete_pokemon(request, pk):
+    show_pokemon = get_object_or_404(Pokemon, pk=pk)
+    form = PokemonForm(data=request.POST or None, instance=show_pokemon)
+    if request.method == 'POST':
+            show_pokemon.delete()
+            return redirect('show_pokemon')
+    return render(request, 'PokeDex/PokeDex_delete.html', {'show_pokemon': show_pokemon, 'form': form})
