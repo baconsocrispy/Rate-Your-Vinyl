@@ -28,7 +28,8 @@
         </table>
         <div>
             <div>
-                <button class="btn"><a href="{% url 'Best_Cities_home' %}">Home</a></button>
+                <button><a href="{% url 'Best_Cities_edit' item.id %}">Edit</a></button>
+                <button><a href="{% url 'Best_Cities_delete' item.id %}">Delete</a></button>
                 <button class="btn"><a href="{% url 'Best_Cities_topcities' %}">View Another City</a></button>
             </div>
         </div>
