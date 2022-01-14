@@ -5,7 +5,7 @@ from .models import Pokemon
 # imports needed to run BeautifulSoup and do web scraping
 import requests
 from bs4 import BeautifulSoup
-
+import random
 
 
 # All of these functions here will need to be added to the urls.py files to be able to make them work and to call them
@@ -68,6 +68,7 @@ def pokeDex_search(request):
     page = requests.get("https://www.pokemon.com/us/pokedex/")
     soup = BeautifulSoup(page.content, 'html.parser')
     pokemon_list = []
+    final_list = []
     for i in soup.find_all('li'):
         li_text = i.get_text(strip=True)
         if len(li_text):
@@ -77,6 +78,9 @@ def pokeDex_search(request):
     while i < 898: # number of pokemon
         print(pokemon_list[d + i])
         i += 1
-    context = {}
-    return render(request, 'PokeDex/PokeDex_search.html', context)
 
+    for i in range(0,15):
+        n = random.choices(pokemon_list)
+        final_list.append(n)
+    context = {'final_list': final_list}
+    return render(request, 'PokeDex/PokeDex_search.html', context)
