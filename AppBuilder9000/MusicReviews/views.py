@@ -20,9 +20,7 @@ def beautiful_soup(request):
     page = requests.get("https://en.wikipedia.org/wiki/Music")
     soup = BeautifulSoup(page.content, 'html.parser')
     music = soup.find_all('p')
-    reviews = music[1].get_text()
-    dictionary_music = []
-    text = dictionary_music.append(reviews)
+    text = music[1].get_text()
     context = {
         'text': text,
     }
@@ -30,7 +28,6 @@ def beautiful_soup(request):
 
 
 def apiLoad(request):
-    title_list = []
     url = "https://google-search3.p.rapidapi.com/api/v1/news/q=music+spotify"
     headers = {
         'x-user-agent': "desktop",
@@ -45,12 +42,33 @@ def apiLoad(request):
     text = title['title']
     link = title['link']
     published = title['published']
+    publishedby = title['source']['title']
+    title1 = data['entries'][1]
+    text1 = title1['title']
+    link1 = title1['link']
+    published1 = title1['published']
+    publishedby1 = title1['source']['title']
+    title2 = data['entries'][2]
+    text2 = title2['title']
+    link2 = title2['link']
+    published2 = title2['published']
+    publishedby2 = title2['source']['title']
     context = {
         'text': text,
         'link': link,
         'published': published,
+        'publishedby': publishedby,
+        'text1': text1,
+        'link1': link1,
+        'published1': published1,
+        'publishedby1': publishedby1,
+        'text2': text2,
+        'link2': link2,
+        'published2': published2,
+        'publishedby2': publishedby2,
     }
-    print(str(title_list))
+    print(str(title))
+    print(str(response))
     return render(request, 'musicreviews_apiView.html', context)
 
 
@@ -109,4 +127,3 @@ def confirmDelete(request):
             return redirect('review_view')
     else:
         return redirect('review_view')
-
