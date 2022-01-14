@@ -30,7 +30,6 @@ def beautiful_soup(request):
 
 
 def apiLoad(request):
-    title_list = []
     url = "https://google-search3.p.rapidapi.com/api/v1/news/q=music+spotify"
     headers = {
         'x-user-agent': "desktop",
@@ -50,7 +49,8 @@ def apiLoad(request):
         'link': link,
         'published': published,
     }
-    print(str(title_list))
+    print(str(text))
+    print(str(title))
     return render(request, 'musicreviews_apiView.html', context)
 
 
