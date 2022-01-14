@@ -2,6 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PokemonForm
 from .models import Pokemon
 
+# imports needed to run BeautifulSoup and do web scraping
+import requests
+from bs4 import BeautifulSoup
+
+
 
 # All of these functions here will need to be added to the urls.py files to be able to make them work and to call them
 
@@ -51,3 +56,22 @@ def delete_pokemon(request, pk):
             show_pokemon.delete()
             return redirect('show_pokemon')
     return render(request, 'PokeDex/PokeDex_delete.html', {'show_pokemon': show_pokemon, 'form': form})
+
+"""
+======================================================
+    BEAUTIFUL SOUP SECTION
+========================================================================
+"""
+
+def pokeDex_search(request):
+    pokemon = []
+    page = requests.get("https://www.pokemon.com/us/pokedex/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    pokemon_info = soup.find_all('div', class_='pokemon-info')
+    for i in pokemon_info:
+        info = i.find_all('h5')
+        info.get_text()
+        pokemon.append(info)
+    print(pokemon)
+    return render(request, 'PokeDex/PokeDex_search.html')
+
