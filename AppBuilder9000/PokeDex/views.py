@@ -63,15 +63,20 @@ def delete_pokemon(request, pk):
 ========================================================================
 """
 
+
 def pokeDex_search(request):
-    pokemon = []
     page = requests.get("https://www.pokemon.com/us/pokedex/")
     soup = BeautifulSoup(page.content, 'html.parser')
-    pokemon_info = soup.find_all('div', class_='pokemon-info')
-    for i in pokemon_info:
-        info = i.find_all('h5')
-        info.get_text()
-        pokemon.append(info)
-    print(pokemon)
-    return render(request, 'PokeDex/PokeDex_search.html')
+    pokemon_list = []
+    for i in soup.find_all('li'):
+        li_text = i.get_text(strip=True)
+        if len(li_text):
+            pokemon_list.append(li_text)
+    d = pokemon_list.index('1 - Bulbasaur')
+    i = 0
+    while i < 898: # number of pokemon
+        print(pokemon_list[d + i])
+        i += 1
+    context = {}
+    return render(request, 'PokeDex/PokeDex_search.html', context)
 
