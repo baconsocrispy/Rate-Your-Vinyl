@@ -11,20 +11,3 @@ body {
 	text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
 }
 
-#container {
-    padding-top: 330px;
-    padding-left: 227px;
-    padding-right: 970px;
-}
-
-#form-container {
-    padding-top: 330px;
-    padding-left: 227px;
-    padding-right: 970px;
-}
-
-#delete-container {
-    padding-top: 330px;
-    padding-left: 227px;
-    padding-right: 970px;
-}
