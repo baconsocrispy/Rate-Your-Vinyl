@@ -31,11 +31,13 @@ def weather_details(request, pk):
     return render(request, 'WeatherBall/weatherdetails.html', context)
 
 
-def weather_edit(request):
-    form = UsersForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('#')
+def weather_edit(request, pk):
+    edit = get_object_or_404(Users, pk=pk)
+    form = UsersForm(data=request.POST or None, instance=edit)
+    if request.method=='POST':
+        if form.is_valid():
+            form.save()
+            return redirect('weather_details')
     else:
         print(form.errors)
         form = UsersForm()
