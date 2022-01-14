@@ -87,10 +87,10 @@ def yelp(request):
             results= {
                 'name': businesses['name'],
                 'website': businesses['url'],
-                'phone': businesses['phone'],
+                'display_phone': businesses['display_phone'],
                 'rating': businesses['rating'],
-                'price': businesses['price'],
-                'location': businesses['location'],
+                # 'price': businesses['price'],
+                'transactions': businesses['transactions'],
                 'id': businesses['id']
             }
             restaurants.append(results)

@@ -3,6 +3,8 @@
 {% block title%}See Your Restaurant on Open Table{% endblock %}
 
 	{% block content %}
+
+
 		<h2>Search a Restaurant from Yelp</h2>
 			<form method="POST" action="{% url 'yelp' %}">
 				{% csrf_token %}
@@ -10,14 +12,20 @@
         <br>
        			 <button class="search_btn" type="submit">Search</button>
 			</form>
-		{% for businesses in restaurants %}
-		<h3>{{ businesses.name }}</h3>
-		<ul>
-			<li>Phone Number: {{ businesses.phone }}</li>
-			<li>Price: {{ businesses.price }}</li>
-			<li>Rating: {{ businesses.rating }}</li>
-		</ul>
-		{% endfor %}
+		{% if restaurants %}
+			{% for businesses in restaurants %}
+			<h3>{{ businesses.name }}</h3>
+			<ul>
+				<li>Phone Number: {{ businesses.display_phone }}</li>
+<!--				<li>Price: {{ businesses.price }}</li>-->
+				<li>Rating: {{ businesses.rating }}</li>
+				<li>Available Options: {{ businesses.transactions }}</li>
+			</ul>
+			{% endfor %}
+
+			{% else %}
+			No search results for this query.
+		{% endif %}
 
 
 	{% endblock %}
