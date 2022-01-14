@@ -25,3 +25,8 @@ def weather_db(request):
     }
     return render(request, 'WeatherBall/weatherdisplaydb.html', context)
 
+def weather_details(request, pk):
+    details = get_object_or_404(Users, pk=pk)
+    context = {'details': details}
+    return render(request, 'WeatherBall/weatherballdetails.html', context)
+
