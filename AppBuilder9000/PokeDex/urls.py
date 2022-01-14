@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/pokemonDetails/', views.pokemon_details, name="pokemon_details"),
     path('<int:pk>/PokeDex_edit/', views.edit_pokemon, name='PokeDex_edit'),
     path('<int:pk>/PokeDex_delete/', views.delete_pokemon, name='PokeDex_delete'),
+    path('PokeDex_search/', views.pokeDex_search, name='PokeDex_search')
 ]
