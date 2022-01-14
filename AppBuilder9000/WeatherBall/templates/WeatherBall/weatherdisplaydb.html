@@ -17,7 +17,7 @@
                         <tbody>
                             {% for i in display %}
                             <tr class="table-info">
-                                <td class="table-secondary"><a href="">{{ i.fname }}</a></td>
+                                <td class="table-secondary"><a href="{% url 'weather_details' i.id %}">{{ i.fname }}</a></td>
                                 <td class="table-secondary">{{ i.lname }}</td>
                                 <td class="table-secondary">{{ i.email }}</td>
                                 <td class="table-secondary">{{ i.state }}</td>

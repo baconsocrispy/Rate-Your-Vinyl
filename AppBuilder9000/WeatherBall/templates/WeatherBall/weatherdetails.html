@@ -2,12 +2,20 @@
 {% load static %}
 {% block title %}WeatherBall{% endblock %}
 {% block content %}
-    <tr class="table-info">
-        <td class="table-secondary"><a href="{% url 'weatherdetails' Users.id %}">{{ details.fname }}</a></td>
-        <td class="table-secondary">{{ details.lname }}</td>
-        <td class="table-secondary">{{ details.email }}</td>
-        <td class="table-secondary">{{ details.state }}</td>
-    </tr>
+    <table class="table table-striped table-hover">
+        <thead class="thead-light">
+            <tr class="table-active">
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">State</th>
+            </tr>
+            <tr class="table-primary">
+                <td class="table-secondary">{{ details.fname }}</td>
+                <td class="table-secondary">{{ details.lname }}</td>
+                <td class="table-secondary">{{ details.email }}</td>
+                <td class="table-secondary">{{ details.state }}</td>
+            </tr>
+        </thead>
+    </table>
 {% endblock %}
-
-
