@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'PokeDex',
     'BestCities',
     'WeatherBall',
+    'ComercialAirplanes',
 ]
 
 MIDDLEWARE = [
