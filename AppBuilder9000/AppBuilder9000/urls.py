@@ -43,6 +43,7 @@ urlpatterns = [
     path('PokeDex/', include('PokeDex.urls')),
     path('BestCities/', include('BestCities.urls')),
     path('WeatherBall/', include('WeatherBall.urls')),
+    path('ComercialAirplanes/', include('ComercialAirplanes.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
