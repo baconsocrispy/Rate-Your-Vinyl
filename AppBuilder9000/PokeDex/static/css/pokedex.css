@@ -12,13 +12,12 @@ body {
 	text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
 }
 #block-footer {
+    position: fixed;
     clear: both;
     display: flex;
     width: 100%;
-	-moz-box-sizing: border-box;
     margin: 0 auto;
     background-color: #17262c;
-    position: absolute;
     bottom: 0;
     height: 40px;
 }

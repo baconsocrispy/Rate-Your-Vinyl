@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Users
 from .forms import UsersForm
 
@@ -24,6 +24,12 @@ def weather_db(request):
         'display': display
     }
     return render(request, 'WeatherBall/weatherdisplaydb.html', context)
+
+def weather_details(request, pk):
+    details = get_object_or_404(Users, pk=pk)
+    context = {'details': details}
+    return render(request, 'WeatherBall/weatherdetails.html', context)
+
 
 def weather_edit(request):
     form = UsersForm(request.POST or None)

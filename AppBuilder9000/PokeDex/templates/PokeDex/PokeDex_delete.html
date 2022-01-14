@@ -7,7 +7,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/details.css' %}">
-<div id="delete-container">
+<div id="delete-container" style="padding-top: 330px; padding-left: 231px; padding-right: 995px;">
     <form method="post">
         {% csrf_token %}
         {{ pokemon.as_p }}
