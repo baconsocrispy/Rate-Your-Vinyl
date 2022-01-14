@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlacesForm
 from .models import Places
+from django.http import JsonResponse
+import requests
 
 def Best_Cities_home(request): #function to render the home page
     return render(request, 'BestCities/Best_Cities_home.html')
@@ -55,3 +57,19 @@ def Best_Cities_confirmed(request):
             return redirect('Best_Cities_topcities')
     else:
         return redirect('Best_Cities_home')
+
+def Best_Cities_weather(request):
+    url = "https://community-open-weather-map.p.rapidapi.com/weather"
+
+    querystring = {"q": "London,uk", "lat": "0", "lon": "0", "callback": "test", "id": "2172797", "lang": "null",
+                   "units": "imperial", "mode": "xml"}
+
+    headers = {
+        'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
+        'x-rapidapi-key': "be30be0618mshf5d1c84d0650830p17fd71jsn7b66e52ac477"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    print(response.text)
+    return render(request, 'BestCities/Best_Cities_weather.html', {'response': response})
