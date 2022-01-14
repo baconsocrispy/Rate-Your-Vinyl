@@ -9,7 +9,7 @@ AVG_COST_OF_LIVING = {
 class Places(models.Model):
     city = models.CharField(max_length=30, default="", blank=True, null=False)
     state = models.CharField(max_length=2, default="", blank=True, null=False)
-    cost_index = models.DecimalField(default=0.00, max_digits=1000, decimal_places=1)
+    state_cost_index = models.DecimalField(default=0.00, max_digits=1000, decimal_places=1)
     cost_of_living_average = models.CharField(max_length=60, choices=AVG_COST_OF_LIVING)
     description = models.TextField(max_length=300, default="", blank=True, null=False)
 

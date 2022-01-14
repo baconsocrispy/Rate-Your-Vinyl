@@ -27,7 +27,7 @@ th, td {
 }
 
 .description-width {
-    max-width: 100px;
+    max-width: 700px;
 }
 
 .form-input {
@@ -38,4 +38,16 @@ th, td {
     border-collapse: collapse;
     padding: 5px;
     background-color: #ccd5ae;
+    max-width: 500px;
+}
+
+.paragraph-justify {
+    text-align: justify;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.btn {
+    background-color: #e9edc9
 }
