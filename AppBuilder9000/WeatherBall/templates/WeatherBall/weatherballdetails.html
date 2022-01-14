@@ -3,7 +3,7 @@
 {% block title %}WeatherBall{% endblock %}
 {% block content %}
     <tr class="table-info">
-        <td class="table-secondary"><a href="{% url 'weatherballdetails' Users.id %}">{{ details.fname }}</a></td>
+        <td class="table-secondary"><a href="{% url 'weatherdetails' Users.id %}">{{ details.fname }}</a></td>
         <td class="table-secondary">{{ details.lname }}</td>
         <td class="table-secondary">{{ details.email }}</td>
         <td class="table-secondary">{{ details.state }}</td>

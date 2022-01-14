@@ -28,5 +28,5 @@ def weather_db(request):
 def weather_details(request, pk):
     details = get_object_or_404(Users, pk=pk)
     context = {'details': details}
-    return render(request, 'WeatherBall/weatherballdetails.html', context)
+    return render(request, 'WeatherBall/weatherdetails.html', context)
 
