@@ -9,7 +9,6 @@ html {
 
 body {
     margin: 0;
-    user-select: none;
 }
 
 /* navbar */
@@ -226,5 +225,10 @@ label, h2 {
     padding: 1em;
     border-radius: 15px;
     overflow:hidden;
+}
+
+.scrapedText a {
+    text-decoration:none;
+    color:inherit;
 }
 

@@ -21,11 +21,37 @@ def beautiful_soup(request):
     soup = BeautifulSoup(page.content, 'html.parser')
     music = soup.find_all('p')
     reviews = music[1].get_text()
-    text = '{{% extends "musicreviews_base.html" %}} {{% load static %}} {{% block title %}} music {{% endblock %}} {{% block header %}} <div class="videotext"> what is music? </div> {{% endblock %}} \
-     {{% block content %}} <p class=\'scrapedText\'> {0} </p> {{% endblock %}}'
-    with open('templates/musicreviews_beautifulsoup.html', 'w', encoding='utf-8') as f:
-        f.write(text.format(reviews))
-    return render(request, 'musicreviews_beautifulsoup.html')
+    dictionary_music = []
+    text = dictionary_music.append(reviews)
+    context = {
+        'text': text,
+    }
+    return render(request, 'musicreviews_beautifulsoup.html', context)
+
+
+def apiLoad(request):
+    title_list = []
+    url = "https://google-search3.p.rapidapi.com/api/v1/news/q=music+spotify"
+    headers = {
+        'x-user-agent': "desktop",
+        'x-proxy-location': "US",
+        'x-rapidapi-host': "google-search3.p.rapidapi.com",
+        'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37",
+
+    }
+    response = requests.request("GET", url, headers=headers)
+    data = response.json()
+    title = data['entries'][0]
+    text = title['title']
+    link = title['link']
+    published = title['published']
+    context = {
+        'text': text,
+        'link': link,
+        'published': published,
+    }
+    print(str(title_list))
+    return render(request, 'musicreviews_apiView.html', context)
 
 
 def createReview(request):
