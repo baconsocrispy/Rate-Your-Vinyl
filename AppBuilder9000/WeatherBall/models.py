@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 STATES = [
         ('AL', 'Alabama'),
@@ -71,8 +70,4 @@ class Users(models.Model):
     objects = models.Manager()
     def __str__(self):
         return self.fname + ' ' + self.lname + ' of {STATES}'
-
-
-
-
 

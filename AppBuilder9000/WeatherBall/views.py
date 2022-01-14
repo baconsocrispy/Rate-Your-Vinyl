@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .forms import UsersForm
+from django.shortcuts import render, redirect
 from .models import Users
+from .forms import UsersForm
 
 def weather_home(request):
     return render(request, 'WeatherBall/weatherhome.html')

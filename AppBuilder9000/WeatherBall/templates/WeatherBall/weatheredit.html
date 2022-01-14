@@ -1,22 +1,9 @@
 {% extends "WeatherBall/weatherbase.html" %}
 {% load static %}
+{% block title %}WeatherBall{% endblock %}
+{% include "WeatherBall/weathernav.html" %}
+{% block header %}Get Your Local Weather Here!"{% endblock %}
 
-<!DOCTYPE html>
-<html lang="en" class="bg_img">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}WeatherBall{% endblock %}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="{% static 'CSS/weatherball.css' %}">
-    </head>
-    <body>
-        <div class="page_container">
-            {% include "WeatherBall/weathernav.html" %}
-            <header>
-                <h1>{% block header %}Get Your Local Weather Here!"{% endblock %}</h1>
-            </header>
             {% block content %}
             <div>
                 <h2>"Edit User Information"</h2>
@@ -38,6 +25,5 @@
                 </div>
                 {% endblock %}
             </div>
-        </div>
     </body>
 </html>
