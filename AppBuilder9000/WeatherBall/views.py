@@ -25,3 +25,15 @@ def weather_db(request):
     }
     return render(request, 'WeatherBall/weatherdisplaydb.html', context)
 
+def weather_edit(request):
+    form = UsersForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('#')
+    else:
+        print(form.errors)
+        form = UsersForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'WeatherBall/weatheredit.html', context)
