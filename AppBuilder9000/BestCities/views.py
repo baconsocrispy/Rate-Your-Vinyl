@@ -3,6 +3,8 @@ from .forms import PlacesForm
 from .models import Places
 from django.http import JsonResponse
 import requests
+import json
+
 
 def Best_Cities_home(request): #function to render the home page
     return render(request, 'BestCities/Best_Cities_home.html')
@@ -61,8 +63,8 @@ def Best_Cities_confirmed(request):
 def Best_Cities_weather(request):
     url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
-    querystring = {"q": "London,uk", "lat": "0", "lon": "0", "callback": "test", "id": "2172797", "lang": "null",
-                   "units": "imperial", "mode": "xml"}
+    querystring = {"q": "Chattanooga,tn,us", "lat": "0", "lon": "0", "callback": "test", "id": "2172797", "lang": "null",
+                   "units": "imperial"}
 
     headers = {
         'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
@@ -71,5 +73,7 @@ def Best_Cities_weather(request):
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    print(response.text)
+    weather = json.loads(response.text)
+    print(weather)
+
     return render(request, 'BestCities/Best_Cities_weather.html', {'response': response})
