@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 STATES = [
         ('AL', 'Alabama'),
@@ -67,9 +68,9 @@ class Users(models.Model):
     lname = models.CharField(max_length=30)
     email = models.EmailField(max_length=50)
     state = models.CharField(max_length=2, choices=STATES)
+    objects = models.Manager()
     def __str__(self):
         return self.fname + ' ' + self.lname + ' of {STATES}'
-
 
 
 
