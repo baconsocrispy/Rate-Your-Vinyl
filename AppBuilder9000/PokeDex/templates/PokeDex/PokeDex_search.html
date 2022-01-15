@@ -6,5 +6,60 @@
 {% block header %} <h1 style="padding-top: 100px; padding-left: 580px; padding-right: 575px;">Here is a list of Pokémon that you may add to your PokeDex!</h1>  {% endblock %}
 
 {% block content %}
+<!-- This is the info and styling we have used to be able to get the info from the view to show up on the actual webpage
+linked to our search button and we passed in the variable into all of the td tags and did random with them so each time
+the page is refreshed a new pokemon will be generated-->
+<div id="container" class="table-responsive w-75 table-sm mx-auto" style="padding-left: 390px; padding-right: 365px;">
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pokémon:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+        <td>{{ final_list | random }}</td>
+    </tr>
 
+  </tbody>
+</table>
+</div>
 {% endblock %}
