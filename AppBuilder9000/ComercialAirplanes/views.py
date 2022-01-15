@@ -12,7 +12,7 @@ def addpage(request):
     form = Airplaneform(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('ComercialAirplanes/ComercialAirplanes_add.html')
+        return redirect('ComercialAirplanes/ComercialAirplane_home.html')
     else:
         print(form.errors)
         form = Airplaneform()

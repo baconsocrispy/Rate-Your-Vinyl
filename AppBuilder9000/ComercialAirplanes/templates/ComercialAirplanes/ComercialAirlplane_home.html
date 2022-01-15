@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %} CommercialAirplanes Collector {%  end block title %}</title>
-    {% nav bar %}
-    <div style="background-color:white;" class="topnav">
-        <a class="" href="#home">Home</a>
-        <a class="" href="#Collection">Commercial Airplane Addition</a>
-        <a class="" href="#contact">Contact Me</a>
-    </div>
-    {% end nav bar %}
-</head>
-<body style="background-color:blue;">
+{% extends "ComercialAirlplanes_base.html" %}
+{% load static from staticfiles %}
+{% block content %}
+
 <h1> Inflight Airplane <b>MODEL</b> tracker</h1>
 <p>This app is created for aviation enthusiast - who, for any reason needs to know how many airplanes of a specific model<br>
     are currently flying in the air and their destinations.<br>
@@ -23,9 +13,4 @@
     or to simply watch it land!
 </p>
 <p>This app is useful and authorized for any relatable uses</p>
-</body>
-
-<footer>
-    <a>Created by Sean M Crawford</a>
-</footer>
-</html>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "ComercialAirplanes_base.html" %}
+{% load static %}
+{% nav bar %} {% end nav bar %}
+{% block content %}
+
+<div class="formContainer">
+    <form method="POST">
+        <div class="frmObject_container">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="yoga_create">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
