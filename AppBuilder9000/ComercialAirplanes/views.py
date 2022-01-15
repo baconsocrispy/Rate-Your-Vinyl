@@ -6,7 +6,7 @@ from .forms import Airplaneform
 
 
 def homepage(request):
-    return render(request, 'ComercialAirplanes/ComercialAirplanes_home.html')
+    return render(request, 'ComercialAirplanes/ComercialAirplane_home.html')
 
 def addpage(request):
     form = Airplaneform(request.POST or None)
@@ -19,5 +19,5 @@ def addpage(request):
     context = {
         'form': form,
     }
-    return render(request, 'Practicing_Yoga/yoga_create.html', context)
+    return render(request, 'ComercialAirplanes/ComercialAirplane_add.html', context)
 
