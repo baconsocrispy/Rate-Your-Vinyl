@@ -63,7 +63,18 @@ def delete_pokemon(request, pk):
 ========================================================================
 """
 
-
+""" here we have our code to scrape the number and name of the pokemon from the pokemon.com website to put into our
+search page later. We use the request.get here and put in the web link we are wanting to scrape the info from and then do
+the beautifulSoup below and pass in the page content and have it sent back through html.parser and then we make 2 empty
+lists that we will use further down to get the final info we want later. We then do a for loop to find all the 'li' tags
+in the web link above and then wek ask to get the text from those and to strip them to a string and then we say if the 
+length of the text is what we want to return the info and we append the info below and then we make a var to get the info
+we want and pass in an example of what we want returned and then we do a while loop to get our final output and we get 
+that by putting the name and number of the pokemon we get from our pokemon list into a var and then we append the var
+and add 1 each time we run the while loop until we get to the final number and each time it runs it will get the pokemon
+name and number assosiated with it and give it back to us and then we pass the final list into our context and have it
+returned with our search.html page and then we will run the list in the search.html page to display the info we got from 
+here."""
 def pokeDex_search(request):
     page = requests.get("https://www.pokemon.com/us/pokedex/")
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -76,11 +87,8 @@ def pokeDex_search(request):
     d = pokemon_list.index('1 - Bulbasaur')
     i = 0
     while i < 898: # number of pokemon
-        print(pokemon_list[d + i])
+        poke_list = pokemon_list[d + i]
+        final_list.append(poke_list)
         i += 1
-
-    for i in range(0,15):
-        n = random.choices(pokemon_list)
-        final_list.append(n)
     context = {'final_list': final_list}
     return render(request, 'PokeDex/PokeDex_search.html', context)
