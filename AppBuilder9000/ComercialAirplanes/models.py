@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 
 
@@ -24,12 +25,14 @@ Propulsion = [
 ]
 
 class Airplane(models.Model):
-    Manufacture = models.CharField(max_length=20, default='', choices=Manufacture)
-    Size = models.CharField(max_length=20, default='', choices=Type)
     Propulsion = models.CharField(max_length=20, default='', choices=Propulsion)
-    Model = models.CharField(max_length=20, default='')
+    Manufacture = models.CharField(max_length=20, default='', choices=Manufacture)
+    AircraftType = models.CharField(max_length=20, default='', choices=Type)
+    ModelNumber = models.CharField(max_length=20, default='')
+    Price = models.DecimalField(default=0.00, max_digits=20, decimal_places=2)
 
-    Plane = models.manager
+    Plane = models.Manager()
 
     def __str__ (self):
         return self.Manufacture
+
