@@ -4,19 +4,20 @@
 {% block header %}Get Your Local Weather Here!"{% endblock %}
 {% block content %}
 <div>
-    <h2>"Edit User Information"</h2>
+    <h2>"Delete User Information"</h2>
 </div>
 <div>
     <div>
-        <form method="POST">
+        <form method="POST" action=".">
                 <!-- Cross Site Request Forgery {csrf_token} protection -->
                 {% csrf_token %}
                 {{ form.non_field_errors }}
+            <h2>Confirm Delete</h2>
+        <p>Are you sure you would like to delete "{{item.fname}}" from the database?</p>
                 {{ form.as_p }}
             <div>
-                <input type="submit" class="btn" value="Save Changes" name="Save_Changes">
-                <a href="#"><button type="button" class="btn" value="Cancel">Cancel</button></a>
-                <a onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+                <input type="submit" value="Yes, delete it!" class="btn">
+                <a href="{% url 'weather_db' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
             </div>
          </form>
     </div>
