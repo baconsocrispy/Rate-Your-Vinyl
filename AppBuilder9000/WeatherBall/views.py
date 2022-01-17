@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Users
 from .forms import UsersForm
+from bs4 import BeautifulSoup
+import requests
 
 def weather_home(request):
     return render(request, 'WeatherBall/weatherhome.html')
@@ -52,3 +54,8 @@ def weather_delete(request, pk):
         item.delete()
         return redirect('weather_db')
     return render(request, 'WeatherBall/weatherdelete.html', {'item': item, 'form': form})
+
+def weather_scraping(request):
+    page = requests.get("https://dataquestio.github.io/web-scraping-pages/simple.html")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    soup
