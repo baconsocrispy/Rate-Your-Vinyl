@@ -16,7 +16,7 @@
             <div>
                 <input type="submit" class="btn" value="Save Changes" name="Save_Changes">
                 <a href="#"><button type="button" class="btn" value="Cancel">Cancel</button></a>
-                <a href="#"><button type="button" class="btn" value="Delete">Delete</button></a>
+                <a href="{% url 'weather_delete' item.id %}"><button type="button" class="btn" value="Delete">Delete</button></a>
             </div>
          </form>
     </div>

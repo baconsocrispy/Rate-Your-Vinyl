@@ -50,5 +50,5 @@ def weather_delete(request, pk):
     form = UsersForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         item.delete()
-        #return redirect('weather_db')
-    #return render(request, 'WeatherBall/weatherdelete.html', {'item': item, 'form': form})
+        return redirect('weather_db')
+    return render(request, 'WeatherBall/weatherdelete.html', {'item': item, 'form': form})
