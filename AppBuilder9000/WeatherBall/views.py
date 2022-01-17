@@ -45,13 +45,3 @@ def weather_edit(request, pk):
         'form': form
     }
     return render(request, 'WeatherBall/weatheredit.html', context)
-
-
-def weather_delete(request, pk):
-    pk = int(pk)
-    item = get_object_or_404(Users, pk=pk)
-    if request.method == 'POST':
-        item.delete()
-        return redirect('weather_db')
-    context = {"item": item,}
-    return render(request, "WeatherBall/weatherdelete.html", context)
