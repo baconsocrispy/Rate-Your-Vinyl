@@ -41,7 +41,7 @@ def weather_edit(request, pk):
             print(form.errors)
             form = UsersForm()
     context = {
-        'form': form
+        'form': form, 'edit': edit
     }
     return render(request, 'WeatherBall/weatheredit.html', context)
 

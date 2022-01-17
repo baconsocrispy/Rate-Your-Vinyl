@@ -15,9 +15,10 @@
                 {{ form.as_p }}
             <div>
                 <input type="submit" class="btn" value="Save Changes" name="Save_Changes">
-                <a href="#"><button type="button" class="btn" value="Cancel">Cancel</button></a>
-                <a href="{% url 'weather_delete' item.id %}"><button type="button" class="btn" value="Delete">Delete</button></a>
+                <a href="{% url 'weather_home' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+                <a href="{% url 'weather_delete' edit.id %}"><button type="button" class="btn" value="Delete">Delete</button></a>
             </div>
          </form>
     </div>
+</div>
 {% endblock %}

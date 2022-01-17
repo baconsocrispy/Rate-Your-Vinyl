@@ -15,7 +15,7 @@
         <p>Are you sure you would like to delete "{{item.fname}}" from the database?</p>
                 {{ item.as_p }}
             <div>
-                <button type="submit" class="btn btn-danger">Delete</button></a>
+                <button style="submit" class="btn" onclick="return confirm('Are you sure you want to delete this User?')">Delete</button></a>
             </div>
          </form>
     </div>
