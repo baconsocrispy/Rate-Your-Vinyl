@@ -6,11 +6,11 @@
 
 {% load crispy_forms_tags %}
 
-{% block header %} Add Pokémon to PokeDex {% endblock %}
+{% block header %} <h1 style="padding-left: 140px;">Add Pokémon to PokeDex</h1> {% endblock %}
 
 {% block content %}
 
-    <div id="form-container" class="table-responsive table-sm mx-auto" style="padding-left: 610px; padding-right: 585px; padding-top: 100px;">
+    <div id="form-container" class="table-responsive table-sm mx-auto" style="padding-left: 528px; padding-right: 255px; padding-top: 50px;">
         <form method="post" action="">
             {% csrf_token %}
                 <table id="table" class="table table-secondary table-bordered table-hover text-center">
