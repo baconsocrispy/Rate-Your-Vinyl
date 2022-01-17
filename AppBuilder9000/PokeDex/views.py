@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PokemonForm
 from .models import Pokemon
+from django.contrib import messages
+import json
 
 # imports needed to run BeautifulSoup and do web scraping
 import requests
 from bs4 import BeautifulSoup
-import random
-
 
 # All of these functions here will need to be added to the urls.py files to be able to make them work and to call them
 
@@ -92,3 +92,30 @@ def pokeDex_search(request):
         i += 1
     context = {'final_list': final_list}
     return render(request, 'PokeDex/PokeDex_search.html', context)
+
+"""
+==================================================================================
+    API SECTION 
+=========================================================================================================
+"""
+
+def more_info(request):
+    # this is the link we are using for our api
+    info = requests.get("https://pokeapi.co/api/v2/pokemon/")
+    # this is how we get the text into json and also reach into the "results" within the api
+    poke_info = info.json()['results']
+    # we then make an empty list to get the names within the "results" below
+    poke_name = []
+    # we run this for loop to reach into the "results and find the "name" of pokemons
+    for i in poke_info:
+        name = i['name']
+        # this will then get the value within the name and then we printed it below
+        # and now we should have the names of the pokemon printed from the api
+        poke_name.append(name)
+    print(poke_name)
+    return render(request, 'PokeDex/PokeDex_api.html')
+
+
+
+
+
