@@ -61,19 +61,40 @@ def Best_Cities_confirmed(request):
         return redirect('Best_Cities_home')
 
 def Best_Cities_weather(request):
-    url = "https://community-open-weather-map.p.rapidapi.com/weather"
+    info = []
 
-    querystring = {"q": "Chattanooga,tn,us", "lat": "0", "lon": "0", "callback": "test", "id": "2172797", "lang": "null",
-                   "units": "imperial"}
+    if request.method == 'POST':
+        url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
-    headers = {
-        'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
-        'x-rapidapi-key': "be30be0618mshf5d1c84d0650830p17fd71jsn7b66e52ac477"
+        querystring = {"q": request.POST['searchTerm'], "units": "imperial", "mode": "JSON"}
+
+        headers = {
+            'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
+            'x-rapidapi-key': "be30be0618mshf5d1c84d0650830p17fd71jsn7b66e52ac477"
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
+        weather = json.loads(response.text)
+
+        name = weather['name']
+        info.append(name)
+        main_info = weather['main']
+        temperature = main_info['temp']
+        info.append(temperature)
+        feelsTemp = main_info['feels_like']
+        info.append(feelsTemp)
+        THigh = main_info['temp_max']
+        info.append(THigh)
+        TLow = main_info['temp_min']
+        info.append(TLow)
+        Hum = main_info['humidity']
+        info.append(Hum)
+        Wind = weather['wind']['speed']
+        info.append(Wind)
+
+    context = {
+        'info': info
     }
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
-
-    weather = json.loads(response.text)
-    print(weather)
-
-    return render(request, 'BestCities/Best_Cities_weather.html', {'response': response})
+    return render(request, 'BestCities/Best_Cities_weather.html', context)

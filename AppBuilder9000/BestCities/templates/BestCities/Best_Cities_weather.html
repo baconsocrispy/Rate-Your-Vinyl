@@ -4,10 +4,25 @@
 
 {% block title %}Top City Weather{% endblock %}
 
-{% block header %}Weather Information{% endblock %}
+{% block header %}Weather Search{% endblock %}
 
 {% block content %}
 
-{{ response.text }}
+<div>
+    <form method="POST">
+        <input type="checkbox" name="is_closed" value="closed" {% if 'closed' in 'is_closed' %} checked{% else %} '' {% endif %}>
+    </form>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="search"
+               class="search-field"
+               name="searchTerm"
+               placeholder="Chattanooga,tn,us"
+               required />
+        <input type="submit">
+    </form>
+
+
+</div>
 
 {% endblock %}
