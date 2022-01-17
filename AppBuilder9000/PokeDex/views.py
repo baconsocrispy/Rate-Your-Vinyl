@@ -120,13 +120,9 @@ def more_info(request):
             abilities.append(ability_name_two)
             poke_type = poke_name['types']
             first_type = poke_type[0]
-            second_type = poke_type[1]
             poke_type_one = first_type['type']
-            poke_type_two = second_type['type']
             type_name_one = poke_type_one['name']
-            type_name_two = poke_type_two['name']
             species.append(type_name_one)
-            species.append(type_name_two)
 
         return render(request, 'PokeDex/PokeDex_api.html',
                       {'value': value,
