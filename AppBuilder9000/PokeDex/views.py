@@ -100,6 +100,7 @@ def pokeDex_search(request):
 
 def more_info(request):
     abilities = []
+    species = []
     if request.method == "POST":
         value = request.POST['pokemon'].lower()
         if value == "":
@@ -109,15 +110,27 @@ def more_info(request):
             poke_info = info.json()
             poke_name = poke_info
             poke_abilities = poke_name['abilities']
-            poke_ability_one = poke_abilities['ability'][0]
-            poke_ability_two = poke_abilities['ability'][1]
+            first_ability = poke_abilities[0]
+            second_ability = poke_abilities[1]
+            poke_ability_one = first_ability['ability']
+            poke_ability_two = second_ability['ability']
             ability_name_one = poke_ability_one['name']
             ability_name_two = poke_ability_two['name']
             abilities.append(ability_name_one)
             abilities.append(ability_name_two)
+            poke_type = poke_name['types']
+            first_type = poke_type[0]
+            second_type = poke_type[1]
+            poke_type_one = first_type['type']
+            poke_type_two = second_type['type']
+            type_name_one = poke_type_one['name']
+            type_name_two = poke_type_two['name']
+            species.append(type_name_one)
+            species.append(type_name_two)
+
         return render(request, 'PokeDex/PokeDex_api.html',
                       {'value': value,
-                       'type': poke_name['types'],
+                       'species': species,
                        'abilities': abilities})
     else:
         return render(request, 'PokeDex/PokeDex_api.html')
