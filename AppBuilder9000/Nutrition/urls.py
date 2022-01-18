@@ -12,4 +12,4 @@ urlpatterns = [
     path('', views.nutrition_home, name="nutrition_home"),
 ]
     #when it sees name="nutrition_home" it knows to go to the views.createRecord method and
-    #change the name of the URL to include createRecord
+    #change the name of the URL to include nutrition_home
