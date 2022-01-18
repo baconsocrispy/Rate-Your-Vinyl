@@ -93,25 +93,24 @@ def Best_Cities_weather(request):
         THumid = main_info['humidity']
         info.append(THumid)
 
-
-        Ctemp = request.POST.get('CurrentTemp', '') == 'on'
-        print(Ctemp)
-        FeelsTemp = request.POST.get('feelsTemp', '') == 'on'
-        print(FeelsTemp)
-        TodayHigh = request.POST.get('THigh', '') == 'on'
-        print(TodayHigh)
-        TodayLow = request.POST.get('TLow', '') == 'on'
-        print(TodayLow)
-        Humid = request.POST.get('Hum', '') == 'on'
-        print(Humid)
-        WindSpeed = request.POST.get('Wind', '') == 'on'
-        print(WindSpeed)
+    CTemp = request.POST.get('CurrentTemp', '') == 'on'
+    print(CTemp)
+    FT = request.POST.get('feelsTemp', '') == 'on'
+    print(FT)
+    TH = request.POST.get('THigh', '') == 'on'
+    print(TH)
+    TL = request.POST.get('TLow', '') == 'on'
+    print(TL)
+    WindSpeed = request.POST.get('Wind', '') == 'on'
+    print(WindSpeed)
+    THumid = request.POST.get('Hum', '') == 'on'
+    print(THumid)
 
     context = {
-        'info': info, 'Ctemp': Ctemp, 'FeelsTemp': FeelsTemp, 'TodayHigh': TodayHigh, 'TodayLow': TodayLow,
-        'WindSpeed': WindSpeed, 'Humid': Humid
+        'info': info, 'CTemp': CTemp, 'FT': FT, 'TH': TH, 'TL': TL,
+        'WindSpeed': WindSpeed, 'THumid': THumid
     }
 
-    print(info)
+
     return render(request, 'BestCities/Best_Cities_weather.html', context)
 
