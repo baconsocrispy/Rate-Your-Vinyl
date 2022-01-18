@@ -59,7 +59,7 @@ the page is refreshed a new pokemon will be generated-->
         <td>{{ final_list | random }}</td>
     </tr>
     <tr>
-      <a href="{% url 'more_info' %}" style="font-size: 14px;"><p style="color: rgba(0, 219, 255, 0.8);">Copy a name below and click here to find out more info about that pokémon!</p></a>
+      <p id="link"><a href="{% url 'more_info' %}" style="font-size: 14px;" >Copy a name below and click here to find out more info about that pokémon!</a></p>
     </tr>
   </tbody>
 </table>
