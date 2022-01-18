@@ -1,0 +1,46 @@
+{% extends 'MagicTheGathering/MagicTheGathering_base.html' %}
+{% block title %}MTG Home{% endblock %}
+
+{% block content %}
+
+    <div class="header_container">
+        <h1> Welcome </h1>
+    </div>
+
+    <div class="about_container">
+        <h2> About Magic the Gathering! </h2>
+        <p>
+            Welcome to the wonderful world of Magic The Gathering! Magic is a head-to-head collectable card game!
+            It's filled with fantasy and strategy to can appeal to any individual! One of the largest parts about MTG
+            is keeping your cards organized and sorted! This app helps keep track of the cards you own by allowing you
+            to put them in a database and then search them up at a whim! Feel free to look into the About page if you're
+            looking to learn more about the game. Otherwise, have fun starting your collection!!
+        </p>
+    </div>
+
+    <div>
+        <h2> ADD A CARD TO THE DATA BASE</h2>
+        <div class="add_container">
+            Here is where you will add a card to your collection!
+            <form method="POST">
+                <label>Card Info:</label>
+                <div>
+                    <button type="submit" class="button"><a href="">ADD CARD</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <h2> LOOK AT YOUR DATA BASE</h2>
+        <div class="collection_container">
+            Here is where you will look at the cards in your collection!
+            <div>
+            <button type="submit" class="button"><a href="">VIEW COLLECTION</a></button>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
