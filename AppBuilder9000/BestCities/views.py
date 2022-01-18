@@ -3,6 +3,8 @@ from .forms import PlacesForm
 from .models import Places
 from django.http import JsonResponse
 import requests
+import json
+
 
 def Best_Cities_home(request): #function to render the home page
     return render(request, 'BestCities/Best_Cities_home.html')
@@ -59,17 +61,57 @@ def Best_Cities_confirmed(request):
         return redirect('Best_Cities_home')
 
 def Best_Cities_weather(request):
-    url = "https://community-open-weather-map.p.rapidapi.com/weather"
+    info = []
 
-    querystring = {"q": "London,uk", "lat": "0", "lon": "0", "callback": "test", "id": "2172797", "lang": "null",
-                   "units": "imperial", "mode": "xml"}
+    if request.method == 'POST':
+        url = "https://community-open-weather-map.p.rapidapi.com/weather"
 
-    headers = {
-        'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
-        'x-rapidapi-key': "be30be0618mshf5d1c84d0650830p17fd71jsn7b66e52ac477"
+        querystring = {"q": request.POST['searchTerm'], "units": "imperial", "mode": "JSON"}
+
+        headers = {
+            'x-rapidapi-host': "community-open-weather-map.p.rapidapi.com",
+            'x-rapidapi-key': "be30be0618mshf5d1c84d0650830p17fd71jsn7b66e52ac477"
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
+        weather = json.loads(response.text)
+
+        name = weather['name']
+        info.append(name)
+        main_info = weather['main']
+        temperature = main_info['temp']
+        info.append(temperature)
+        feelsT = main_info['feels_like']
+        info.append(feelsT)
+        TH = main_info['temp_max']
+        info.append(TH)
+        TL = main_info['temp_min']
+        info.append(TL)
+        Wind = weather['wind']['speed']
+        info.append(Wind)
+        THumid = main_info['humidity']
+        info.append(THumid)
+
+
+        Ctemp = request.POST.get('CurrentTemp', '') == 'on'
+        print(Ctemp)
+        FeelsTemp = request.POST.get('feelsTemp', '') == 'on'
+        print(FeelsTemp)
+        TodayHigh = request.POST.get('THigh', '') == 'on'
+        print(TodayHigh)
+        TodayLow = request.POST.get('TLow', '') == 'on'
+        print(TodayLow)
+        Humid = request.POST.get('Hum', '') == 'on'
+        print(Humid)
+        WindSpeed = request.POST.get('Wind', '') == 'on'
+        print(WindSpeed)
+
+    context = {
+        'info': info, 'Ctemp': Ctemp, 'FeelsTemp': FeelsTemp, 'TodayHigh': TodayHigh, 'TodayLow': TodayLow,
+        'WindSpeed': WindSpeed, 'Humid': Humid
     }
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
+    print(info)
+    return render(request, 'BestCities/Best_Cities_weather.html', context)
 
-    print(response.text)
-    return render(request, 'BestCities/Best_Cities_weather.html', {'response': response})
