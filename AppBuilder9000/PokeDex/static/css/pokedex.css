@@ -52,3 +52,12 @@ body {
 #dropdownMenuButton {
     padding: 0px,4px,0px,4px;
 }
+
+#link {
+    color: rgba(0, 219, 255, 0.8);
+}
+
+#link a:hover {
+    color: rgba(159, 255, 4, 0.952);
+    text-shadow: 0 1px 0 rgb(247, 76, 9);
+}
