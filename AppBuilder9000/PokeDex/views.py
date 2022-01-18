@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PokemonForm
 from .models import Pokemon
 from django.contrib import messages
-import json
 
 # imports needed to run BeautifulSoup and do web scraping
 import requests
@@ -100,21 +99,41 @@ def pokeDex_search(request):
 """
 
 def more_info(request):
-    # this is the link we are using for our api
-    info = requests.get("https://pokeapi.co/api/v2/pokemon/")
-    # this is how we get the text into json and also reach into the "results" within the api
-    poke_info = info.json()['results']
-    # we then make an empty list to get the names within the "results" below
-    poke_name = []
-    # we run this for loop to reach into the "results and find the "name" of pokemons
-    for i in poke_info:
-        name = i['name']
-        # this will then get the value within the name and then we printed it below
-        # and now we should have the names of the pokemon printed from the api
-        poke_name.append(name)
-    print(poke_name)
-    return render(request, 'PokeDex/PokeDex_api.html')
+    abilities = [] # we make an empty list to store later on value
+    species = []
+    if request.method == "POST": # we run this if else statement to make sure that the user input isn't blank
+        value = request.POST['pokemon'].lower()
+        if value == "":
+            messages.info(request, 'Please enter in a Pokémon name!') # if it is blank run this message
+        else: # else run the code below
+            info = requests.get("https://pokeapi.co/api/v2/pokemon/" + str(value)) # this is the api key with our value var
+            poke_info = info.json() # this is to get the api info in json
+            poke_name = poke_info # we then put that info above into a new var to reference below
+            poke_abilities = poke_name['abilities'] # this is to go into the abilities section of the api
+            first_ability = poke_abilities[0] # this is to get the first ability of the pokemon
+            second_ability = poke_abilities[1] # this is to get the second
+            poke_ability_one = first_ability['ability'] # we then reference the var above and plug in with the lst of ability to get 'ability' from the api
+            poke_ability_two = second_ability['ability']
+            ability_name_one = poke_ability_one['name'] # then here we we get what the name of the ability is
+            ability_name_two = poke_ability_two['name']
+            abilities.append(ability_name_one) # then we append that info to get it into a str
+            abilities.append(ability_name_two)
+            poke_type = poke_name['types'] # we do the same thing with type
+            first_type = poke_type[0] # here we only get one type though cause not all pokemon have more than 1 type and throws an error
+            poke_type_one = first_type['type']
+            type_name_one = poke_type_one['name'] # get the type name
+            species.append(type_name_one)
+            poke_picture = poke_name['sprites'] # here is how we get the picture location of the pokemon
+            front_picture = poke_picture['front_default'] # this is to get the front default picture of pokemon
 
+        return render(request, 'PokeDex/PokeDex_api.html',
+                      {'value': value,
+                       'species': species,
+                       'abilities': abilities,
+                       'front_picture': front_picture}) # this is how we return this info to our api.html page and make dictionaries out of the info we got
+                        # and then we turn them into vars in the html when we call them to display the info we got here
+    else:
+        return render(request, 'PokeDex/PokeDex_api.html')
 
 
 
