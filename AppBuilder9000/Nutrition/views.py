@@ -4,6 +4,6 @@ from django.http import HttpResponse
 # Create your views here.
 
 def nutrition_home(request):
-    return render(request, 'Nutrition/Nutrition_home.html')
+    return render(request, 'Nutrition_home.html')
 
 
