@@ -10,6 +10,9 @@ from . import views #the directory of . is our current directory
 urlpatterns = [
 
     path('', views.nutrition_home, name="Nutrition_home"),
+    path('create_account/', views.create_account, name='create_account'),
+    path('make_query/', views.make_query, name='make_query'),
+
 ]
     #when it sees name="nutrition_home" it knows to go to the views.createRecord method and
     #change the name of the URL to include nutrition_home
