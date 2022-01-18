@@ -82,19 +82,36 @@ def Best_Cities_weather(request):
         main_info = weather['main']
         temperature = main_info['temp']
         info.append(temperature)
-        feelsTemp = main_info['feels_like']
-        info.append(feelsTemp)
-        THigh = main_info['temp_max']
-        info.append(THigh)
-        TLow = main_info['temp_min']
-        info.append(TLow)
-        Hum = main_info['humidity']
-        info.append(Hum)
+        feelsT = main_info['feels_like']
+        info.append(feelsT)
+        TH = main_info['temp_max']
+        info.append(TH)
+        TL = main_info['temp_min']
+        info.append(TL)
         Wind = weather['wind']['speed']
         info.append(Wind)
+        THumid = main_info['humidity']
+        info.append(THumid)
+
+
+        Ctemp = request.POST.get('CurrentTemp', '') == 'on'
+        print(Ctemp)
+        FeelsTemp = request.POST.get('feelsTemp', '') == 'on'
+        print(FeelsTemp)
+        TodayHigh = request.POST.get('THigh', '') == 'on'
+        print(TodayHigh)
+        TodayLow = request.POST.get('TLow', '') == 'on'
+        print(TodayLow)
+        Humid = request.POST.get('Hum', '') == 'on'
+        print(Humid)
+        WindSpeed = request.POST.get('Wind', '') == 'on'
+        print(WindSpeed)
 
     context = {
-        'info': info
+        'info': info, 'Ctemp': Ctemp, 'FeelsTemp': FeelsTemp, 'TodayHigh': TodayHigh, 'TodayLow': TodayLow,
+        'WindSpeed': WindSpeed, 'Humid': Humid
     }
 
+    print(info)
     return render(request, 'BestCities/Best_Cities_weather.html', context)
+
