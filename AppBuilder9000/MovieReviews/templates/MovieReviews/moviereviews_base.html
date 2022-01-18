@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %} {% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/moviereviews.css' %}">
+    </head>
+    <body>
+        <div class="page_container">
+            {% include "MovieReviews/moviereviews_navbar.html" %}
+            <header class="header-title">
+                <h1>{% block header %} {% endblock %}</h1>
+            </header>
+            <h3> This is app is for people who enjoy movies! It gives you reviews of current<br>
+                movies and also allows you to create reviews as well!<br> </h3>
+
+        </div>
+
+
+
+
+
+        {% include "MovieReviews/moviereviews_footer.html" %}
+
+    </body>
+</html>
