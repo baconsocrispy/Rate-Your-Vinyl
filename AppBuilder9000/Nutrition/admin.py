@@ -4,3 +4,5 @@ from django.contrib import admin
 from .models import PersonalizedNutrition, Account
 from .forms import AccountForm, NutritionalQuery
 
+admin.site.register(Account) #this is all that is needed to tell our admin software how to manage our product module
+admin.site.register(PersonalizedNutrition) #this is all that is needed to tell our admin software how to manage our product module
