@@ -9,7 +9,7 @@ from . import views #the directory of . is our current directory
 #('pattern to watch for',method to call,"shortcut name")
 urlpatterns = [
 
-    path('', views.nutrition_home, name="nutrition_home"),
+    path('', views.nutrition_home, name="Nutrition_home"),
 ]
     #when it sees name="nutrition_home" it knows to go to the views.createRecord method and
     #change the name of the URL to include nutrition_home

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en" class="bg_img">
     <head>
@@ -5,7 +7,7 @@
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="" rel="">
-        <link rel="" type="" href="">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     </head>
     <body>
@@ -14,7 +16,7 @@
                 <li><a href="">Nutrition</a></li>
                 <li><a href="">See Our Data</a></li>
                 <li><a href="">Admin Panel</a></li>
-</ul>
+            </ul>
             <header class="header-title">
                 <h1>{% block header %}{% endblock %}</h1>
 
@@ -25,7 +27,7 @@
         <section id="block-footer">
             <p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
             <p id="footer-left">&copy;2022 - The Nutrition Immune Compiler</p>
-</section>
+        </section>
     </body>
 
 </html>
