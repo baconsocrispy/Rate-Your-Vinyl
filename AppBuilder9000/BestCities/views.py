@@ -4,6 +4,7 @@ from .models import Places
 from django.http import JsonResponse
 import requests
 import json
+from bs4 import BeautifulSoup
 
 
 def Best_Cities_home(request): #function to render the home page
@@ -94,17 +95,11 @@ def Best_Cities_weather(request):
         info.append(THumid)
 
     CTemp = request.POST.get('CurrentTemp', '') == 'on'
-    print(CTemp)
     FT = request.POST.get('feelsTemp', '') == 'on'
-    print(FT)
     TH = request.POST.get('THigh', '') == 'on'
-    print(TH)
     TL = request.POST.get('TLow', '') == 'on'
-    print(TL)
     WindSpeed = request.POST.get('Wind', '') == 'on'
-    print(WindSpeed)
     THumid = request.POST.get('Hum', '') == 'on'
-    print(THumid)
 
     context = {
         'info': info, 'CTemp': CTemp, 'FT': FT, 'TH': TH, 'TL': TL,
@@ -114,3 +109,16 @@ def Best_Cities_weather(request):
 
     return render(request, 'BestCities/Best_Cities_weather.html', context)
 
+def Best_Cities_scrape(request):
+    page = requests.get("https://www.currentresults.com/Weather/US/average-annual-state-temperatures.php")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    AZAverage = soup.find_all('td', string='60.3')
+    AZState = soup.find_all('td', string='Arizona')
+
+    context = {
+        'AZAverage': AZAverage, 'AZState': AZState
+    }
+
+    print(AZState)
+    print(AZAverage)
+    return render(request, 'BestCities/Best_Cities_scrape.html', context)
