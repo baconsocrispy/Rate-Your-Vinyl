@@ -44,6 +44,7 @@ urlpatterns = [
     path('BestCities/', include('BestCities.urls')),
     path('WeatherBall/', include('WeatherBall.urls')),
     path('ComercialAirplanes/', include('ComercialAirplanes.urls')),
+    path('MagicTheGathering/', include('MagicTheGathering.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

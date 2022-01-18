@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'BestCities',
     'WeatherBall',
     'ComercialAirplanes',
+    'MagicTheGathering',
 ]
 
 MIDDLEWARE = [
