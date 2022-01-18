@@ -29,24 +29,24 @@
         <hr width="600" color="black">
         <table border="1">
             <tr>
-                {% if Ctemp or FeelsTemp or TodayHigh or TodayLow or WindSpeed or Humid %}
+                {% if CTemp or FT or TH or TL or WindSpeed or THumid %}
                     <h3>Weather for {{info.0}}</h3>
                 {% endif %}
             </tr>
             <tr>
-                {% if Ctemp %}
+                {% if CTemp %}
                     <th>Current Temperature (F)</th>
                 {% endif %}
-                {% if FeelsTemp %}
+                {% if FT %}
                     <th>Feels Like (F)</th>
                 {% endif %}
-                {% if TodayHigh %}
+                {% if TH %}
                     <th>Today's High (F)</th>
                 {% endif %}
-                {% if TodayLow %}
+                {% if TL %}
                     <th>Today's Low (F)</th>
                 {% endif %}
-                {% if Humid %}
+                {% if THumid %}
                     <th>Humidity (%)</th>
                 {% endif %}
                 {% if WindSpeed %}
@@ -55,19 +55,19 @@
 
             </tr>
             <tr>
-                {% if Ctemp %}
+                {% if CTemp %}
                    <td>{{info.1}}</td>
                 {% endif %}
-                {% if FeelsTemp %}
+                {% if FT %}
                     <td>{{info.2}}</td>
                 {% endif %}
-                {% if TodayHigh %}
+                {% if TH %}
                     <td>{{info.3}}</td>
                 {% endif %}
-                {% if TodayLow %}
+                {% if TL %}
                     <td>{{info.4}}</td>
                 {% endif %}
-                {% if Humid %}
+                {% if THumid %}
                     <td>{{info.6}}</td>
                 {% endif %}
                 {% if WindSpeed %}
