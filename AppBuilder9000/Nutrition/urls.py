@@ -8,8 +8,8 @@ from . import views #the directory of . is our current directory
 #ANATOMY OF A URL ROUTE:
 #('pattern to watch for',method to call,"shortcut name")
 urlpatterns = [
-    path('admin_console', views.admin_console, name="admin_console"),
-    path('', views.nutrition_home, name="home"),#call details() and pass in pk
 
-    #when it sees name="createRecord" it knows to go to the views.createRecord method and
+    path('', views.nutrition_home, name="nutrition_home"),
+]
+    #when it sees name="nutrition_home" it knows to go to the views.createRecord method and
     #change the name of the URL to include createRecord
