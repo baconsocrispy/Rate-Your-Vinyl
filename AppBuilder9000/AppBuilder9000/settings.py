@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'WeatherBall',
     'ComercialAirplanes',
     'Nutrition',
+    'MovieReviews',
+    'MagicTheGathering',
 ]
 
 MIDDLEWARE = [

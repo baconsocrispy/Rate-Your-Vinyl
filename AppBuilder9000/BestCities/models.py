@@ -1,10 +1,10 @@
 from django.db import models
 
-AVG_COST_OF_LIVING = {
+AVG_COST_OF_LIVING = [
     ('Above Average','Above Average'),
     ('Average','Average'),
     ('Below Average','Below Average'),
-}
+]
 
 class Places(models.Model):
     city = models.CharField(max_length=30, default="", blank=True, null=False)
@@ -17,5 +17,4 @@ class Places(models.Model):
 
     def __str__(self):
         return self.city
-
 
