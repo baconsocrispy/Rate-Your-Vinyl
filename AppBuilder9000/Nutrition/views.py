@@ -15,6 +15,6 @@ def create_account(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('Nutrition_home')
     content = {'form': form}
     return render(request, 'Nutrition/Nutrition_createnewaccount.html', content)

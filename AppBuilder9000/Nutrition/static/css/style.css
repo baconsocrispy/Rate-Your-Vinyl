@@ -1,197 +1,255 @@
-/* General Styling */
+* {
+    margin: 0;
+}
 
-html, body {
-	height: cover;
-	width: cover;
+html {
+    background-color: lightblue;
 }
 
 body {
-	font-family: Lucida Sans Unicode;
-	text-align: center;
-	background-image: url('../../static/images/CheckCalligraphyPen.jpg');
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-	overflow: scroll;
-	background-repeat: no-repeat;
-}
-
-h1{
-	color: black;
-	font-size: 36px;
-	text-align: center;
-}
-
-/* General Form Field Styling */
-label {
-	width: 125px;
-	margin-left: 50px;
-	font-weight: bold;
-	opacity: initial;
-}
-
-#index-label {
-    margin-left: -75px;
-    margin-bottom: 15px;
-}
-
-input, select{
-	width: 500px;
-	border-radius: 5px;
-	box-shadow: 4px 2px darkslateblue;
-}
-
-/* General Table Styling */
-th{
-	border: 3px solid black;
-}
-
-tr td{
-	height: 25px;
-	border: 2px solid black;
-	word-wrap: normal;
-	vertical-align: top;
-	width: auto;
-}
-
-#headerRow {
-	color: darkslateblue;
-	text-align: center;
-}
-
-.center {
-	text-align: center;
-	width: 15%;
-}
-
-.left{
-	padding-left: 10px;
-	width: 30%;
-	word-wrap: normal;
-}
-
-.right {
-	padding-right: 5px;
-	width: 20%;
-	text-align: right;
-}
-
-
-/* Drop-Down Menu Styling */
-.JavaScriptDropdown{
 	position: relative;
-	margin-top: 0;
+	overflow: hidden;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+	padding: 0;
+}
+p {
+	padding: 2px 16px;
+	font-size: 15px;
+	font-family: 'Lato', Georgia, sans-serif;
+	color: #666666;
+}
+h1 {
+    color: #0404B4;
+    font-family: 'Lobster';
+    text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
+    margin:0 auto;
+}
+h2 {
+    color: #0404B4;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+h2 span {
+    font-variant: small-caps;
+    padding: 2px 16px;
+}
+.container {
+    padding: 2px 16px;
 }
 
-/*Container Styling */
-.checkbook-container{
-	opacity: 0.8;
-	position: relative;
-	width: 800px;
-	height: auto;
-	border-radius: 8px;
-	border: 2px solid gray;
-	box-shadow: 4px 3px darkslateblue;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 25px;
-	background-color: lightsteelblue;
+.box {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
-.checkbook-container h2{
-	color: darkslateblue;
-	font-size: 32px;
-	font-weight: bold;
-	text-align: center;
-	text-decoration: underline;
+.box>* {
+	flex: 1 1 160px;
 }
-
-.checkbook-container h3{
-	font-size: 24px;
-	text-decoration: underline;
-	text-align: center;
-	color:darkslateblue;
-	font-weight: bold;
-	margin-left: 25px;
-	margin-top: 15px;
+.center-img {
+    display: block;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
-
-/* All Transactions Form and Table Styling */
-#all-transactions-form {
-	position: relative;
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #213e4a;
 }
-
-#all-transactions-form button{
-	background-color: darkgray;
-	position: relative;
-	right: 40px;
-	float: right;
+/* Float the list items side by side */
+ul.topnav li {
+    float: left;
 }
-
-#all-transactions-form button:hover {
-	background-color: lightgray;
-}
-
-#accountholder {
-	width: 575px;
-}
-
-#balance{
-	width: 250px;
-}
-
-#transactions-table {
-	background-color:white;
-	width: 90%;
-	height: auto;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 10px;
-	border: 2px solid gray;
-	border-collapse: collapse;
-	border-radius: 8px;
-	table-layout: auto;
-	float: center;
-	position: relative;
-}
-
-/* New Account and New Transaction Styling */
-.account-form, .new-transaction-form {
-	position: relative;
-	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 700px;
-}
-
-/* Button styling */
-.checkbook-container button, .new-account-button{
-	background-color: darkgray;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-button a, button a:hover{
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+ul.topnav li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: #355664;
+}
+/* Hide the list item that contains the link that should
+   open and close the topnav on small screens */
+ul.topnav li.icon {
+	display: none;
+}
+.header-title {
+	padding: 2px 16px;
 	text-align: center;
-	color:black;
+}
+.price {
+	padding: 0px 0px;
+	display: flex;
+	justify-content: flex-start;
+	color: darkgreen;
+}
+.price span {
+	align-self: flex-end;
+}
+/* This is the entire page wrapper */
+.site-container {
+    max-width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* This controls the form size and contents */
+.admin_panel {
+    margin: 0 auto;
+    width: 50%;
+    height: 80%;
+    background-color: #fffaf4;
+	border: 1px solid #d6d6d6;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	transition: all 0.3s ease-in-out;
+	border-radius: 10px;
+    transition: 0.3s;
+}
+.admin_panel:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+.card {
+    /* Add shadows to create the lifting "card" effect */
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px; /* 5px rounded corners */
+    transition: 0.3s;
+	width: 50%;
+	margin: 5px;
+	background-color: #fffaf4;
+	border: 1px solid #d6d6d6;
+}
+.card:hover {
+	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+/* form item container */
+.frmObject_container {
+	display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
 }
 
-.checkbook-container button:hover, .new-account-button:hover{
-	background-color: lightgray;
+.fieldWrapper{
+	display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
 }
-
-/* Footer styling */
+/* form button container */
+.frmBtn_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+.btn {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 150px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: black;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+.btn:hover {
+    background-color: #355664;
+    color: white;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+input[type="submit"] {
+    flex-grow: 1;
+    width: 10%;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin: 2% 2% 2% 2%;
+    color: black;
+    padding: 9px 0px 9px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+input[type="submit"]:hover {
+    background-color: #355664;
+    color: white;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+select {
+	padding: 4px 10px;
+	width: 40%;
+	display: inline-block;
+	margin: 1% 0% 0 1%;
+	border: 2px solid silver;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #E8E8E8 inset;
+}
+input, textarea {
+    width: 100%;
+    margin: 1% 0 0 0;
+    padding: 1% 0 2% 1%;
+    line-height: 18px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px solid silver;
+}
+label {
+	display: inline-block;
+    width: 95%;
+    text-align: left;
+    margin: 1% 0 0 0;
+    color: black;
+    line-height: 18px;
+    font-size: 20px;
+}
 #block-footer {
     clear: both;
     display: flex;
     width: 100%;
 	-moz-box-sizing: border-box;
     margin: 0 auto;
-    background-color: darkslateblue;
-    position: fixed;
+    background-color: #213e4a;
+    position: absolute;
     bottom: 0;
     height: 40px;
 }
@@ -219,6 +277,18 @@ button a, button a:hover{
 	outline: medium none;
 }
 #block-footer a:hover {
-    color: steelblue;
+    color: #CABE96;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.bg_img {
+    background-color: lightblue;
+    background-image: url('/static/images/hotel_img3.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
