@@ -1,0 +1,13 @@
+{% extends 'MagicTheGathering/MagicTheGathering_base.html' %}
+{% block title %}Create New Collection{% endblock %}
+{% block content %}
+	<h3>CREATE NEW COLLECTION</h3>
+	<div id="collection-form">
+		<form method="POST"> <!-- Replace this with the Django Form -->
+			{% csrf_token %}
+			{{form.as_p}}
+			<button id="new-collection-button" type="submit" name="Save_Collection">Create Collection</button>
+		</form>
+		<br>
+	</div>
+{% endblock %}

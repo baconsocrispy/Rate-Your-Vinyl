@@ -25,7 +25,8 @@
             <form method="POST">
                 <label>Card Info:</label>
                 <div>
-                    <button type="submit" class="button"><a href="">ADD CARD</a></button>
+                    <button type="submit" class="button"><a href="{% url 'add' %}">ADD CARD</a></button>
+                    <button type="submit" class="button"><a href="{% url 'create' %}">Make Collection</a></button>
                 </div>
             </form>
         </div>
