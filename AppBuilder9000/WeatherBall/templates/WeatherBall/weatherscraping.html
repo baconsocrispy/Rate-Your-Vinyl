@@ -13,10 +13,10 @@
             </tr>
         </thead>
         <tbody>
-        {% for i in detailed_forecast %}
+        {% for details in detailed_forecast %}
             <tr class="table-info">
-                <td class=table-secondary">{{ i.detailed_forecast }}</td>
-                <td class=table-secondary">{{ i.weather_body }}</td>
+                <td class=table-secondary">{{ detailed_forecast }}</td>
+                <td class=table-secondary">{{ weather_body }}</td>
             </tr>
         {% endfor %}
         </tbody>
