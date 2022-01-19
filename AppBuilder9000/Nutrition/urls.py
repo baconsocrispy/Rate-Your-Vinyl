@@ -12,6 +12,8 @@ urlpatterns = [
     path('', views.nutrition_home, name="Nutrition_home"),
     path('create_account/', views.create_account, name='create_account'),
     path('make_query/', views.make_query, name='make_query'),
+    path('display_db', views.display_db, name="display_db"),
+
 
 ]
     #when it sees name="nutrition_home" it knows to go to the views.createRecord method and

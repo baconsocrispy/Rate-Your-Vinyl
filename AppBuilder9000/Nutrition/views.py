@@ -28,3 +28,10 @@ def make_query(request):
             return redirect('Nutrition_home')
     content = {'form': form}
     return render(request, 'Nutrition/Nutrition_makequery.html', content)
+
+def display_db(request):#methods are always lower case as a naming convention
+    accounts = Account.Accounts.all()
+    nutritionqueries = PersonalizedNutrition.Personalized.all()
+
+    content = {'accounts': accounts, 'nutritionqueries': nutritionqueries}
+    return render(request, 'Nutrition/Nutrition_displaydb.html', content)
