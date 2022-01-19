@@ -57,14 +57,21 @@ def weather_delete(request, pk):
     return render(request, 'WeatherBall/weatherdelete.html', {'item': item, 'form': form})
 
 def weather_scraping(request):
-    seven_day_forecast = [] #List to store days of the week
+    detailed_forecast = [] #Lists details of forecast
+    weather_body = [] #Lists forecast details for each day
     page = requests.get("https://forecast.weather.gov/MapClick.php?lat=35.3434&lon=-90.2983")
     soup = BeautifulSoup(page.content, 'html.parser')
-    seven_day = soup.find(id="seven-day-forecast")
-    forecast_items = seven_day.find_all(class_="tombstone-container")
-    for i in forecast_items:
-        i = forecast_items.find('p').get_text()
-        seven_day_forecast.append(i)
-
-    print(seven_day_forecast)
+    current = soup.find(id="detailed-forecast-body")
+    div_items = current.find_all("div")
+    for forecast in div_items:
+        bingo = forecast.find_all('b')
+        for i in bingo:
+            text = i.get_text()
+            detailed_forecast.append(text)
+    #for content in weather_body:
+        #weekly = content.find('div').get_text()
+        #for
+        #weather_body.append(content)
+    print(detailed_forecast)
+    #print(weather_body)
     return render(request, 'WeatherBall/weatherscraping.html')
