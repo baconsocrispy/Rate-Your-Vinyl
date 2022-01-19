@@ -294,6 +294,10 @@ label {
 }
 
 /* General Table Styling */
+.tablescroll {
+    overflow-y: scroll;
+    height: 300px;
+}
 th{
 	border: 3px solid black;
 }
@@ -350,6 +354,21 @@ tr td{
 
 
 #transactions-table {
+	background-color:white;
+	width: 90%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: 2px solid gray;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: auto;
+	float: center;
+	position: relative;
+}
+
+#transactions-table2 {
 	background-color:white;
 	width: 90%;
 	height: auto;
