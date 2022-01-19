@@ -112,13 +112,34 @@ def Best_Cities_weather(request):
 def Best_Cities_scrape(request):
     page = requests.get("https://www.currentresults.com/Weather/US/average-annual-state-temperatures.php")
     soup = BeautifulSoup(page.content, 'html.parser')
-    AZAverage = soup.find_all('td', string='60.3')
-    AZState = soup.find_all('td', string='Arizona')
+    general = soup.find('div', class_='clearboth')
+    generalTables = general.find_all('table')
+
+
+    tempList = []
+    for data in generalTables:
+        temp = data.find_all('td')
+        for x in temp:
+            temperature = x.get_text()
+            tempList.append(temperature)
+
+
+    stateList = []
+    counter = 0
+    while counter < len(tempList):
+        stateList.append(tempList[counter])
+        counter += 4
+
+    tempHighList = []
+    counter = 1
+    while counter < len(tempList):
+        tempHighList.append(tempList[counter])
+        counter += 4
+
 
     context = {
-        'AZAverage': AZAverage, 'AZState': AZState
+        'stateList': stateList, 'tempHighList': tempHighList
     }
 
-    print(AZState)
-    print(AZAverage)
+
     return render(request, 'BestCities/Best_Cities_scrape.html', context)
