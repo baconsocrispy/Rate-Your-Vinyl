@@ -20,7 +20,7 @@ def addPokemon(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('PokeDex_home')
+            return redirect('show_pokemon')
     content = { 'form': form }
     return render(request, 'PokeDex/AddPokemon_form.html', content)
 
@@ -38,9 +38,11 @@ def pokemon_details(request, pk):
     context = {'details': details}
     return render(request, 'PokeDex/pokemonDetails.html', context)
 
+""" here we are getting our pokemon form from our model and making sure that the new info the user put in is valid within
+our form requirement fields and if it is to save the new info they put in and then redirect back to the show pokemon html"""
 def edit_pokemon(request, pk):
     show_pokemon = get_object_or_404(Pokemon, pk=pk)
-    form = PokemonForm(data=request.POST or None, instance=show_pokemon)
+    form = PokemonForm(data=request.POST or None, instance=show_pokemon) # this instance makes it show the info that was already entered in about the pokemon you are editing
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -48,6 +50,8 @@ def edit_pokemon(request, pk):
     context = {'form': form}
     return render(request, 'PokeDex/PokeDex_edit.html', context)
 
+# This is our function we set up to pass into our delete html for if the user wants to delete a pokemon from their pokedex and if they
+# click no it wil then redirect back to their pokedex and if they click yes then a pop up will confirm they want to do that and then redirect to the pokedex
 def delete_pokemon(request, pk):
     show_pokemon = get_object_or_404(Pokemon, pk=pk)
     form = PokemonForm(data=request.POST or None, instance=show_pokemon)
@@ -99,8 +103,7 @@ def pokeDex_search(request):
 """
 
 def more_info(request):
-    abilities = [] # we make an empty list to store later on value
-    species = []
+    complete_info = []
     if request.method == "POST": # we run this if else statement to make sure that the user input isn't blank
         value = request.POST['pokemon'].lower()
         if value == "":
@@ -110,27 +113,49 @@ def more_info(request):
             poke_info = info.json() # this is to get the api info in json
             poke_name = poke_info # we then put that info above into a new var to reference below
             poke_abilities = poke_name['abilities'] # this is to go into the abilities section of the api
-            first_ability = poke_abilities[0] # this is to get the first ability of the pokemon
-            second_ability = poke_abilities[1] # this is to get the second
-            poke_ability_one = first_ability['ability'] # we then reference the var above and plug in with the lst of ability to get 'ability' from the api
-            poke_ability_two = second_ability['ability']
-            ability_name_one = poke_ability_one['name'] # then here we we get what the name of the ability is
-            ability_name_two = poke_ability_two['name']
-            abilities.append(ability_name_one) # then we append that info to get it into a str
-            abilities.append(ability_name_two)
             poke_type = poke_name['types'] # we do the same thing with type
-            first_type = poke_type[0] # here we only get one type though cause not all pokemon have more than 1 type and throws an error
-            poke_type_one = first_type['type']
-            type_name_one = poke_type_one['name'] # get the type name
-            species.append(type_name_one)
             poke_picture = poke_name['sprites'] # here is how we get the picture location of the pokemon
             front_picture = poke_picture['front_default'] # this is to get the front default picture of pokemon
 
-        return render(request, 'PokeDex/PokeDex_api.html',
-                      {'value': value,
-                       'species': species,
-                       'abilities': abilities,
-                       'front_picture': front_picture}) # this is how we return this info to our api.html page and make dictionaries out of the info we got
+            pokemon_type = ""
+            ''' here we are doing a for loop so we can get all the types of what the pokemon might be. We make a var and
+            have it assigned to a blank str and then in the for loop we use the poke_type var because it goes into the 
+            api and finds the section that has Types in it and then we will loop through all the values inside that section
+            of the api and find the sections inside it of Type and then inside type we find the section with Name to get
+            the actual name of the types the pokemon are. So if they have 1 or more type, this loop will get any info that
+            is associated there with the specific pokemon called.'''
+            for pokemon in poke_type:
+                pokemon_type = pokemon_type + pokemon['type']['name'] + ", "
+
+            # here we are doing the same thing as above but to get the abilities of the pokemon
+            pokemon_ablity = ""
+
+            for poke in poke_abilities:
+                pokemon_ablity = pokemon_ablity + poke['ability']['name'] + ", "
+            # this is then going to be a var holding our dictionary that is holding the values of the info we got from
+            # the above code.
+            results = {
+                'value': value, # this is the value of the poke name the user put or copied into our search bar in html
+                'species': pokemon_type, # this is the value of the poke types we got from our for loop above
+                'ability': pokemon_ablity, # this is the value of the poke abilites we got from the for loop above
+                'front_picture': front_picture # this is value of our front_picture var above
+            }
+            complete_info.append(results) # we then take that info and pass it into our empty list var from the very top
+            # and then append the parameter passed in to this to get the string and then use the new info stored inside
+            # complete_info and create a for loop in our html to get the info out of it and to be displayed on our api html page.
+
+            # here is the new schema we made to take in the api info from above and put those values into our original schema values
+            # and are able to save the pokemon info from the api into our pokedex(database)
+            new_pokemon = Pokemon.object.create(
+                name = value,
+                type = pokemon_type,
+                abilities = pokemon_ablity
+
+            )
+            new_pokemon.save()
+
+        context = {'complete_info': complete_info}
+        return render(request, 'PokeDex/PokeDex_api.html', context) # this is how we return this info to our api.html page and make dictionaries out of the info we got
                         # and then we turn them into vars in the html when we call them to display the info we got here
     else:
         return render(request, 'PokeDex/PokeDex_api.html')
