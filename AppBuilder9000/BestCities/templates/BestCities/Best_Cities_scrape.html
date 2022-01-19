@@ -1,5 +1,18 @@
-{{AZAverage}}
-{{AZState}}
+{% extends "BestCities/Best_Cities_base.html" %}
+
+{% block title %}Scraped Info{% endblock %}
+
+{% block header %}{{ headerDisplay }}{% endblock %}
+
+{% block content %}
+
+{% for state in finalStateList %}
+{{ state }}<br><br>
+{% endfor %}
+
+{% endblock %}
+
+
 
 <!-- I would like to display the average high
  and low temps for the states displayed

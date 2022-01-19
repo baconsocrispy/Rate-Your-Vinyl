@@ -112,13 +112,124 @@ def Best_Cities_weather(request):
 def Best_Cities_scrape(request):
     page = requests.get("https://www.currentresults.com/Weather/US/average-annual-state-temperatures.php")
     soup = BeautifulSoup(page.content, 'html.parser')
-    AZAverage = soup.find_all('td', string='60.3')
-    AZState = soup.find_all('td', string='Arizona')
+    StateAverages = soup.find_all(class_='articletable tablecol-1-left')
+    set1 = StateAverages[0]
+    set2 = StateAverages[1]
+    set3 = StateAverages[2]
+    text1 = set1.get_text()
+    text2 = set2.get_text()
+    text3 = set3.get_text()
+    allText = text1 + text2 + text3
+    splitText = allText.split()
+
+    header = []
+    for i in range(6):
+        header.append(splitText[i])
+        header.append(' ')
+    header.pop()
+    headerDisplay = header[0]
+    for i in range(1,11):
+        headerDisplay += header[i]
+
+    states1 = []
+    for i in range(12,28):
+        states1.append(splitText[i])
+        states1.append(' ')
+    states1.pop()
+
+    states2 = []
+    for i in range(35, 46):
+        states2.append(splitText[i])
+        states2.append(' ')
+    states2.pop()
+
+    NHstate = []
+    for i in range(46,48):
+        NHstate.append(splitText[i])
+        NHstate.append(' ')
+    NHstate.pop()
+
+    NJstate = []
+    for i in range(48, 50):
+        NJstate.append(splitText[i])
+        NJstate.append(' ')
+    NJstate.pop()
+
+    NMstate = []
+    for i in range(50, 52):
+        NMstate.append(splitText[i])
+        NMstate.append(' ')
+    NMstate.pop()
+
+    NYstate = []
+    for i in range(52, 54):
+        NYstate.append(splitText[i])
+        NYstate.append(' ')
+    NYstate.pop()
+
+    NCstate = []
+    for i in range(54, 56):
+        NCstate.append(splitText[i])
+        NCstate.append(' ')
+    NCstate.pop()
+
+    NDstate = []
+    for i in range(56, 58):
+        NDstate.append(splitText[i])
+        NDstate.append(' ')
+    NDstate.pop()
+
+    states3 = []
+    for i in range(64,68):
+        states3.append(splitText[i])
+        states3.append(' ')
+    states3.pop()
+
+    RIstate = []
+    for i in range(68, 70):
+        RIstate.append(splitText[i])
+        RIstate.append(' ')
+    RIstate.pop()
+
+    SCstate = []
+    for i in range(70, 72):
+        SCstate.append(splitText[i])
+        SCstate.append(' ')
+    SCstate.pop()
+
+    SDstate = []
+    for i in range(72, 74):
+        SDstate.append(splitText[i])
+        SDstate.append(' ')
+    SDstate.pop()
+
+    states4 = []
+    for i in range(74, 80):
+        states4.append(splitText[i])
+        states4.append(' ')
+    states4.pop()
+
+    WVstate = []
+    for i in range(80, 82):
+        WVstate.append(splitText[i])
+        WVstate.append(' ')
+    WVstate.pop()
+
+    states5 = []
+    for i in range(82, 84):
+        states5.append(splitText[i])
+        states5.append(' ')
+    states5.pop()
+
+
+
+    finalStateList = states1 + states2 + NHstate + NJstate + NMstate + NYstate + NCstate + NDstate + states3 + RIstate + SCstate + SDstate + states4 + WVstate + states5
+
+
 
     context = {
-        'AZAverage': AZAverage, 'AZState': AZState
+        'headerDisplay': headerDisplay, 'finalStateList': finalStateList
     }
 
-    print(AZState)
-    print(AZAverage)
+
     return render(request, 'BestCities/Best_Cities_scrape.html', context)
