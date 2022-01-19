@@ -3,7 +3,6 @@ from .models import Users
 from .forms import UsersForm
 from bs4 import BeautifulSoup
 import requests
-import pandas as pd
 
 def weather_home(request):
     return render(request, 'WeatherBall/weatherhome.html')
@@ -68,10 +67,11 @@ def weather_scraping(request):
         for i in bingo:
             text = i.get_text()
             detailed_forecast.append(text)
-    #for content in weather_body:
-        #weekly = content.find('div').get_text()
-        #for
-        #weather_body.append(content)
+    for content in div_items:
+        clouds = content.find_all(class_="forecast-text")
+        for rain in clouds:
+            message = rain.get_text()
+            weather_body.append(message)
     print(detailed_forecast)
-    #print(weather_body)
+    print(weather_body)
     return render(request, 'WeatherBall/weatherscraping.html')
