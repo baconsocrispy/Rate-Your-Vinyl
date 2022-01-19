@@ -72,5 +72,6 @@ def weather_scraping(request):
         for rain in clouds:
             message = rain.get_text()
             weather_body.append(message)
+    print(detailed_forecast)
     context = {'detailed_forecast': detailed_forecast, 'weather_body': weather_body}
     return render(request, 'WeatherBall/weatherscraping.html', context)
