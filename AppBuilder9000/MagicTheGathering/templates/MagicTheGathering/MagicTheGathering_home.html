@@ -40,11 +40,11 @@
                     {% csrf_token %}
                     <label id="index-label">Choose Account:</label>
                     <select class="collection" name="menu" onChange="top.location.herf=this.option[this.selectedIndex].value;">
-                    {% for collection in collection %}
-                        <option value = "../{{ collections.pk }}/collection/">{{ collection.collection_name }}</option>
-                    {% endfor %}
+                    {% for m in collection %}
+                        <option value ="../{{ m.pk }}/collection/">{{ m.collection_name }}</option>
+                        {% endfor %}
                     </select>
-                    <button type="submit" href="{% url 'collection' %}">Go to Account</button>
+
                 </form>
             </div>
         </div>

@@ -11,10 +11,9 @@ def MagicTheGathering_home(request):
 
 
 def collection(request, pk):
-     data = get_object_or_404(Collection, pk=pk)
-     cards= Card.Cards.filter(card_name=pk)
-     content = {'collection': data, 'cards':cards}
-     return render(request, 'MagicTheGathering/ViewCollection.html', content)
+     details = get_object_or_404(Collection, pk=pk)
+     context = {'details': details}
+     return render(request, 'ViewCollection.html', context)
 
 
 def create_collection(request):
