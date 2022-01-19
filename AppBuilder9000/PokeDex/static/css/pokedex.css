@@ -1,9 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url("../images/Pokémon_Stadium.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 .header-title {
 	padding: 2px 16px;

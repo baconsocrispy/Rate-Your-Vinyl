@@ -1,4 +1,5 @@
 from django.db import models
+from django.db import connections
 
 TYPE_CHOICES = [
     ('General','General'),
@@ -47,4 +48,7 @@ class Card(models.Model):
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
 
     Cards = models.Manager()
+
+    def __str__(self):
+        return self.card_name
 
