@@ -13,7 +13,7 @@ Manufacture = [
 #to provide choices for inpput user
 
 Type = [
-    ('Widebody', 'Widenody'),
+    ('Widebody', 'Widebody'),
     ('Narrowbody', 'Narrowbody'),
 ]
 
