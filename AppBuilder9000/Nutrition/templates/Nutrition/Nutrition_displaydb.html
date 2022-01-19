@@ -1,0 +1,61 @@
+{% extends 'Nutrition/Nutrition_base.html' %}
+{% load static %}
+
+
+{% block title %}Database Contents{% endblock %}
+{% block content %}
+
+			<h2>ACCOUNTS IN DATABASE</h2>
+
+			<table class="table table-responsive" id ="transactions-table">
+
+				<tr id="headerRow">
+					<td>Primary Key ID</td>
+					<td>Name</td>
+					<td>Age</td>
+					<td>Gender</td>
+					<td>Email</td>
+				</tr>
+				{% for account in accounts %}
+				<tr>
+					<td class="center">{{ account.id }}</td>
+					<td class="center">{{ account.name }}</td>
+					<td class="left">{{ account.age }}</td>
+					<td class="right">{{ account.gender }}</td>
+					<td class="right">{{ account.email }}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+
+            <h2>NUTRITION PATHS IN DATABASE</h2>
+
+			<table class="table table-responsive" id ="transactions-table">
+
+				<tr id="headerRow">
+					<td>Primary Key ID</td>
+                    <td>Foreign Key ID</td>
+					<td>Name</td>
+					<td>Age</td>
+					<td>Gender</td>
+					<td>Area of Health</td>
+                    <td>Supplement Type</td>
+
+				</tr>
+				{% for nutritionquery in nutritionqueries %}
+				<tr>
+					<td class="center">{{ nutritionquery.account_id }}</td>
+                    <td class="center">{{ nutritionquery.key.id }}</td>
+					<td class="center">{{ nutritionquery.name }}</td>
+					<td class="left">{{ nutritionquery.age }}</td>
+					<td class="right">{{ nutritionquery.gender }}</td>
+					<td class="right">{{ nutritionquery.area_of_health }}</td>
+                    <td class="right">{{ nutritionquery.supplement_type }}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+
+
+			<br><br>
+{% endblock %}
