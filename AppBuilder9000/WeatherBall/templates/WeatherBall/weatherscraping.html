@@ -2,5 +2,24 @@
 {% load static %}
 {% block title %}WeatherBall{% endblock %}
 {% block content %}
-<p>This is a sample paragraph!</p>
+
+<div id="container" class="table-responsive w-75 mx=auto">
+    <table class="table table-striped table-hover">>
+        <p>This is a sample paragraph!</p>
+        <thead>
+            <tr class="table-primary">
+                <th>Day of the Week</th>
+                <th>Details of Forecast</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in detailed_forecast %}
+            <tr class="table-info">
+                <td class=table-secondary">{{ i.detailed_forecast }}</td>
+                <td class=table-secondary">{{ i.weather_body }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
