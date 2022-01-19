@@ -1,15 +1,36 @@
 {%extends "ComercialAirplanes_base.html"%}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    {% block title %}Plane Collection{% endblock %}
 </head>
 
-{% blockcontent %}
+{% block content %}
 <body>
 
+
+{% block header %}These are the top cities according to our users!{% endblock %}
+
+{% block content %}
+
+<div>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>State</th>
+        </tr>
+        {% for Airplane in PC %}
+        <tr>
+            <td><a href="{% url 'Best_Cities_details' places.id %}">{{ places.city }}</a></td>
+            <td>{{ places.state }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
 </body>
 {% endblock %}
 </html>

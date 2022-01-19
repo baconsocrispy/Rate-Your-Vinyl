@@ -19,3 +19,8 @@ def addpage(request):
         'form': form,
     }
     return render(request, 'ComercialAirplanes/ComercialAirplanes_add.html', context)
+
+def Collection(request):
+    PC = Airplane(all)
+    return render(request, 'CommercialAirplanes/CommercialAirplanes_Collection.html', {'PC': PC})
+    PC.save()
