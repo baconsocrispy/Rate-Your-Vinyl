@@ -7,7 +7,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/api.css' %}">
-<div class="api-container">
+<div class="api-container" style="margin-top: 70px;">
     <h1>Pokémon Info</h1>
     <br>
     <form method="post" action="{% url 'more_info' %}">
@@ -27,6 +27,7 @@
             <br>
             <h2>Pokémon Abilities:</h2>
             <h4 style="padding-left: 10px;padding-top: 10px; padding-bottom: 50px;">{{ pokemon.ability }}</h4>
+            <button disabled style="margin-left: 695px; position: fixed; color: white;">This Pokémon has automatically been added to your PokeDex!</button>
         {% endfor %}
     </form>
 
