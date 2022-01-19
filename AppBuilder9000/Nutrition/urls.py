@@ -13,7 +13,8 @@ urlpatterns = [
     path('create_account/', views.create_account, name='create_account'),
     path('make_query/', views.make_query, name='make_query'),
     path('display_db', views.display_db, name="display_db"),
-    path('<int:pk>/display_details/', views.display_details, name="display_details"),#call display_details() and pass in pk
+    path('<int:pk>/display_account_details/', views.display_account_details, name="display_account_details"),#call display_details() and pass in pk
+    path('<int:pk>/display_nutrition_details/', views.display_nutrition_details, name="display_nutrition_details"),
 
 
 ]

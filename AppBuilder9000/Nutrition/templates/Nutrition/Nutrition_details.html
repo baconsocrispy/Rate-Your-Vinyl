@@ -4,10 +4,11 @@
 
 {% block title %}Database Item Details{% endblock %}
 
-{% block header %}Item Details:{% endblock %}
+{% block header %}Details:{% endblock %}
 
 {% block content %}
-
+	{% if item %}
+<br><br>
 			<h2>ACCOUNTS DETAILS</h2>
 
 			<table class="table table-responsive" id ="transactions-table">
@@ -19,21 +20,25 @@
 					<td>Gender</td>
 					<td>Email</td>
 				</tr>
-				{% for i in item %}
+
 				<tr>
-					<td class="center">{{ i.id }}</td>
-					<td class="center">{{ i.name }}</td>
-					<td class="center">{{ i.age }}</td>
-					<td class="center">{{ i.gender }}</td>
-					<td class="center">{{ i.email }}</td>
+					<td class="center">{{ item.id }}</td>
+					<td class="center">{{ item.name }}</td>
+					<td class="center">{{ item.age }}</td>
+					<td class="center">{{ item.gender }}</td>
+
+					<td class="center">{{ item.email }}</td>
+					<td class="center">{{ item.area_of_health }}</td>
+					<td class="center">{{ item.supplement_type }}</td>
+
 				</tr>
-				{% endfor %}
+
 
 			</table>
+	{% elif nutrition_item %}
+			<h2>NUTRITION PATH DETAILS</h2>
 
-			<!--<h2>NUTRITION PATH DETAILS</h2>
-
-			<table class="table table-responsive" id ="">
+			<table class="table table-responsive" id ="transactions-table2">
 
 				<tr id="">
 					<td>Primary Key ID</td>
@@ -45,18 +50,19 @@
                     <td>Supplement Type</td>
 
 				</tr>
-				{% for nutritionquery in nutritionqueries %}
-				<tr>
-					<td class="center">{{ nutritionquery.account_id }}</td>
-                    <td class="center">{{ nutritionquery.key.id }}</td>
-					<td class="center">{{ nutritionquery.name }}</td>
-					<td class="center">{{ nutritionquery.age }}</td>
-					<td class="center">{{ nutritionquery.gender }}</td>
-					<td class="center">{{ nutritionquery.area_of_health }}</td>
-                    <td class="center">{{ nutritionquery.supplement_type }}</td>
-				</tr>
-				{% endfor %}
 
-			</table>-->
+				<tr>
+					<td class="center">{{ nutrition_item.account_id }}</td>
+                    <td class="center">{{ nutrition_item.key.id }}</td>
+					<td class="center">{{ nutrition_item.name }}</td>
+					<td class="center">{{ nutrition_item.age }}</td>
+					<td class="center">{{ nutrition_item.gender }}</td>
+					<td class="center">{{ nutrition_item.area_of_health }}</td>
+                    <td class="center">{{ nutrition_item.supplement_type }}</td>
+				</tr>
+
+
+			</table>
+	{% endif %}
 
 {% endblock %}
