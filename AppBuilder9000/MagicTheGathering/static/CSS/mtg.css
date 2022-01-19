@@ -46,6 +46,30 @@ input, select{
 	box-shadow: 4px 2px darkslateblue;
 }
 
+label {
+	width: 125px;
+	margin-left: 50px;
+	font-weight: bold;
+	opacity: initial;
+}
+
+#index-label {
+    margin-left: -75px;
+    margin-bottom: 15px;
+}
+
+input, select{
+	width: 500px;
+	border-radius: 5px;
+	box-shadow: 4px 2px darkslateblue;
+}
+
+
+
+
+
+
+
 /* General Container Styling */
 .header_container {
     box-sizing: border-box;
@@ -179,5 +203,6 @@ tr td{
 #block-footer a:hover {
     color: steelblue;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
 
 
