@@ -38,9 +38,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'HotSprings',
-    'Rock',
-    'Masonry',
     'Campsites',
     'CampingSupplies',
     'Gardening',
@@ -59,6 +56,9 @@ INSTALLED_APPS = [
     'BestCities',
     'WeatherBall',
     'ComercialAirplanes',
+    'Nutrition',
+    'MovieReviews',
+    'MagicTheGathering',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +143,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static',
+
 ]
 
 # FOR PILLOW LIBRARY

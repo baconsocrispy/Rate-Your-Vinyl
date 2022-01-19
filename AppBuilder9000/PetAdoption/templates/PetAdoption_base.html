@@ -11,25 +11,27 @@
 
 </head>
 <body>
+    {% include 'PetAdoption/includes/messages.html' %}
+
     <div id="page-container">
-        <div id="content-wrap">
+
     <!--NAVBAR-->
     {% include "PetAdoption/PetAdoption_navbar.html" %}
     <!--END NAVBAR-->
 
     <!--HEADER-->
     <br><br>
-    <div>
-        <h1>{% block header %}{% endblock %}</h1>
-    </div>
+        <div>
+            <h1>{% block header %}{% endblock %}</h1>
+        </div>
     <!--END HEADER-->
 
     <!--PAGE CONTENT-->
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+        <div id="content-wrap">
+            {% block content %}{% endblock %}
+        </div>
     <!--END PAGE CONTENT-->
-            </div>
+
     </div>
 
 <script src="{% static 'JS/petadoption.js' %}" ></script>

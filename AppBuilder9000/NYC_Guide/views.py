@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Restaurants
 from .forms import RestaurantForm
 import requests
+import pprint
+import json
 
 def home(request):
     return render(request, 'NYC_Guide/nyc_home.html')
@@ -60,19 +62,38 @@ def delete(request, restaurants_id):
     context= {'form': form, 'restaurant': restaurant}
     return render(request, 'NYC_Guide/delete.html', context)
 
+def yelp(request):
+    restname= ' '
+    restaurants= []
 
-def opentable(request):
-    response=requests.get('https://opentable.herokuapp.com/api')
-    print(response.json())
-    return render(request, 'NYC_Guide/opentable.html')
+    if 'restname' in request.POST:
+        restname= request.POST['restname']
 
-# going to attempt to play around with func below so ignore for now
-# def opentable2(request):
-#     restaurant = []
-#     if 'id' in request.GET:
-#         id = request.GET['id']
-#         url = 'https://opentable.herokuapp.com/api/restaurants/%s' % id
-#         response = requests.get(url)
-#         restaurant = response.json()
-#         print()
-#     return render(request, 'NYC_Guide/opentable.html', {'restaurant': restaurant})
+        api_key= 'pmbFT7XHbjX6Ra3SSVspU_FyovRnPt7wBmMXJzH4Sa8MxVhRmZI7LsuSLFvS5v8JQp_TMK1qa-WP-T8uymCj3E2XrMZUgDXxhWm99fWazkuy_Uv35PHeZgb3VZLfYXYx'
+        headers = {'Authorization': 'Bearer %s' % api_key}
+
+        params = (
+            ('term', restname),
+            ('location', 'New York, NY'),
+            ('limit', '10')
+        )
+
+        url = "https://api.yelp.com/v3/businesses/search"
+        response = requests.get(url, headers=headers, params=params)
+        parsed= response.json()
+        rest_parsed=parsed['businesses']
+
+        for businesses in rest_parsed:
+            results= {
+                'name': businesses['name'],
+                'website': businesses['url'],
+                'display_phone': businesses['display_phone'],
+                'rating': businesses['rating'],
+                # 'price': businesses['price'],
+                'transactions': businesses['transactions'],
+                'id': businesses['id']
+            }
+            restaurants.append(results)
+    context={'restaurants': restaurants}
+    print(context)
+    return render(request, 'NYC_Guide/yelp.html', context)

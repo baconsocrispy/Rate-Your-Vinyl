@@ -1,12 +1,14 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Q
 from .models import Pet
 from .forms import PetForm
 import requests
 import json
 from bs4 import BeautifulSoup
 from operator import itemgetter
-import random
+from django.contrib import messages
+from rest_framework import viewsets
+from .serializers import PetSerializer
 
 
 def pet_adoption_home(request):
@@ -18,7 +20,11 @@ def pet_adoption_list(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            # add confirmation message
+            messages.success(request, "Pet listed!")
             return redirect('pet_adoption_home')
+        # add error message if failed
+        messages.error(request, "Error, pet not listed.")
     context = {'form': form}
     return render(request, 'PetAdoption/PetAdoption_list.html', context)
 
@@ -211,3 +217,33 @@ def pet_adoption_add(request, animal):
     # return to a confirmation page
     return render(request, 'PetAdoption/PetAdoption_saveconfirmation.html')
 
+
+def pet_adoption_search(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+
+        submitbutton = request.GET.get('submit')
+
+        if query is not None:
+            lookups = Q(name__icontains=query) | Q(species__icontains=query) | Q(breed__icontains=query) \
+                      | Q(color__icontains=query) | Q(sex__icontains=query) | Q(description__icontains=query)
+
+            results = Pet.Pets.filter(lookups).distinct()
+
+            context = {'results': results,
+                       'submitbutton': submitbutton}
+
+            return render(request, 'PetAdoption/PetAdoption_search.html', context)
+
+        else:
+            return render(request, 'PetAdoption/PetAdoption_search.html')
+
+    else:
+        return render(request, 'PetAdoption/PetAdoption_search.html')
+
+
+# api viewset
+
+class PetViewSet(viewsets.ModelViewSet):
+    queryset = Pet.Pets.all()
+    serializer_class = PetSerializer

@@ -1,0 +1,68 @@
+{% extends 'Nutrition/Nutrition_base.html' %}
+{% load static %}
+
+
+{% block title %}Database Item Details{% endblock %}
+
+{% block header %}Details:{% endblock %}
+
+{% block content %}
+	{% if item %}
+<br><br>
+			<h2>ACCOUNTS DETAILS</h2>
+
+			<table class="table table-responsive" id ="transactions-table">
+
+				<tr id="headerRow">
+					<td>Primary Key ID</td>
+					<td>Name</td>
+					<td>Age</td>
+					<td>Gender</td>
+					<td>Email</td>
+				</tr>
+
+				<tr>
+					<td class="center">{{ item.id }}</td>
+					<td class="center">{{ item.name }}</td>
+					<td class="center">{{ item.age }}</td>
+					<td class="center">{{ item.gender }}</td>
+
+					<td class="center">{{ item.email }}</td>
+					<td class="center">{{ item.area_of_health }}</td>
+					<td class="center">{{ item.supplement_type }}</td>
+
+				</tr>
+
+
+			</table>
+	{% elif nutrition_item %}
+			<h2>NUTRITION PATH DETAILS</h2>
+
+			<table class="table table-responsive" id ="transactions-table2">
+
+				<tr id="">
+					<td>Primary Key ID</td>
+                    <td>Foreign Key ID</td>
+					<td>Name</td>
+					<td>Age</td>
+					<td>Gender</td>
+					<td>Area of Health</td>
+                    <td>Supplement Type</td>
+
+				</tr>
+
+				<tr>
+					<td class="center">{{ nutrition_item.account_id }}</td>
+                    <td class="center">{{ nutrition_item.key.id }}</td>
+					<td class="center">{{ nutrition_item.name }}</td>
+					<td class="center">{{ nutrition_item.age }}</td>
+					<td class="center">{{ nutrition_item.gender }}</td>
+					<td class="center">{{ nutrition_item.area_of_health }}</td>
+                    <td class="center">{{ nutrition_item.supplement_type }}</td>
+				</tr>
+
+
+			</table>
+	{% endif %}
+
+{% endblock %}

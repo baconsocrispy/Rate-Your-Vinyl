@@ -42,24 +42,24 @@ p {
 }
 
 a {
-  color: #8DAA91;
+    color: #8DAA91;
 }
 
 a:hover {
-  color: #8DAA91;
-  text-decoration: none;
+    color: #8DAA91;
+    text-decoration: none;
 }
 
 
 /* This is the entire page wrapper */
 #page-container {
-  position: relative;
-  min-height: 100vh;
+    position: relative;
+    min-height: 100vh;
 }
 
 /* This is the content wrapper */
 #content-wrap {
-  padding-bottom: 40px;    /* Footer height */
+    padding-bottom: 40px;    /* Footer height */
 }
 
 
@@ -118,6 +118,7 @@ ul.topnav li.icon {
     justify-content: center;
     margin-top: 50px;
     margin-bottom: 100px;
+    height: 500px;
 }
 
 
@@ -211,6 +212,17 @@ input, textarea {
     padding: 20px;
     width: 50%;
     border: 2px solid silver;
+}
+
+/* styling for confirmation message from list page */
+.messages {
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+}
+
+.messages h1 {
+    color: #BF070C;
 }
 
 

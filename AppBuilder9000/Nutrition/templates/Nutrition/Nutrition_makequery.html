@@ -1,0 +1,14 @@
+{% extends 'Nutrition/Nutrition_base.html' %}
+{% load static %}
+
+	{% block title%}Create Personalized Nutrition Path{% endblock %}
+	{% block content %}
+			<div class="new-transaction-form">
+				<form method="POST">
+					{% csrf_token %}
+					{{ form.as_p}}
+					<button id="new-transaction-button" type="submit" name="Save_Transaction">Create Path</button>
+				</form>
+				<br>
+			</div>
+	{% endblock %}
