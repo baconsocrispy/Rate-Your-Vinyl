@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'Nutrition',
     'MovieReviews',
     'MagicTheGathering',
+    'HotSprings',
 ]
 
 MIDDLEWARE = [
