@@ -1,0 +1,38 @@
+{% extends 'checkbook_base.html' %}
+{% block title %}Collection{% endblock %}
+{% block content %}
+			<div id="all-collection-form">
+				<form>
+					<br>
+					<!-- Use value to add the Django populated details-->
+					<label>Collection Name:</label>
+					<input id="collectionname" type="text" name="collectionName" value="" readonly>
+					<br><br>
+					<label>Collection Type:</label>
+					<input id="collectiontype" type="text" name="collectionType" value="" readonly>
+					<button type="button"><a href=>Add Card+</a></button>
+
+				</form>
+				<br><br>
+			</div>
+			<h2>Card Collection</h2>
+
+			<table class="table table-responsive" id ="transactions-table">
+				<!-- Replace this with the Django populated transactions -->
+				<tr id="headerRow">
+					<th>Name</th>
+					<th>Color</th>
+					<th>Type</th>
+					<th>Cost</th>
+                    <th>Text</th>
+				</tr>
+				{% for key, total in table_contents.items %}
+				<tr>
+					<td class="center">{{ key.name }}</td>
+					<td class="center">{{ key.Color }}</td>
+					<td class="left">{{ key.Type }}</td>
+					<td class="right">{{ key.Cost }}</td>
+					<td class="right">{{ key.text }}</td>
+				</tr>
+				{% endfor %}
+{% endblock %}

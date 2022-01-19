@@ -9,4 +9,5 @@ urlpatterns = [
     path('delete/<int:pk>/', views.Best_Cities_delete, name='Best_Cities_delete'),
     path('edit/<int:pk>/', views.Best_Cities_edit, name='Best_Cities_edit'),
     path('weather/', views.Best_Cities_weather, name='Best_Cities_weather'),
+    path('scrape/', views.Best_Cities_scrape, name='Best_Cities_scrape'),
     ]
