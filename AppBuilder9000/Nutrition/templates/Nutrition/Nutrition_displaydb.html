@@ -10,19 +10,15 @@
 			<table class="table table-responsive" id ="transactions-table">
 
 				<tr id="headerRow">
-					<td>Primary Key ID</td>
+					<td>Account ID</td>
 					<td>Name</td>
-					<td>Age</td>
-					<td>Gender</td>
-					<td>Email</td>
+
 				</tr>
 				{% for account in accounts %}
 				<tr>
 					<td class="center">{{ account.id }}</td>
-					<td class="center">{{ account.name }}</td>
-					<td class="left">{{ account.age }}</td>
-					<td class="right">{{ account.gender }}</td>
-					<td class="right">{{ account.email }}</td>
+					<td class="center"><a href="{% url 'display_details' account.id %}"><button class="btn">{{ account.name }}</button></a></td>
+
 				</tr>
 				{% endfor %}
 
@@ -33,24 +29,18 @@
 			<table class="table table-responsive" id ="transactions-table">
 
 				<tr id="headerRow">
-					<td>Primary Key ID</td>
-                    <td>Foreign Key ID</td>
+					<td>Nutrition ID</td>
 					<td>Name</td>
-					<td>Age</td>
-					<td>Gender</td>
 					<td>Area of Health</td>
-                    <td>Supplement Type</td>
+
 
 				</tr>
 				{% for nutritionquery in nutritionqueries %}
 				<tr>
-					<td class="center">{{ nutritionquery.account_id }}</td>
-                    <td class="center">{{ nutritionquery.key.id }}</td>
+					<td class="center">{{ nutritionquery.id }}</td>
 					<td class="center">{{ nutritionquery.name }}</td>
-					<td class="left">{{ nutritionquery.age }}</td>
-					<td class="right">{{ nutritionquery.gender }}</td>
-					<td class="right">{{ nutritionquery.area_of_health }}</td>
-                    <td class="right">{{ nutritionquery.supplement_type }}</td>
+					<td class="center">{{ nutritionquery.area_of_health }}</td>
+
 				</tr>
 				{% endfor %}
 

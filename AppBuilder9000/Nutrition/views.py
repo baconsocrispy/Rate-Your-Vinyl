@@ -35,3 +35,11 @@ def display_db(request):#methods are always lower case as a naming convention
 
     content = {'accounts': accounts, 'nutritionqueries': nutritionqueries}
     return render(request, 'Nutrition/Nutrition_displaydb.html', content)
+
+def display_details(request, pk):
+    item = get_object_or_404(Account, pk=pk)
+    # above : query dB for all data on that particular account
+
+    return render(request, 'Nutrition/Nutrition_details.html', {'item': item})
+    # this else says we will be rendering the Nutrition_details.html page for the user (STEP 1):
+    # on this page, user will have a chance to make edits to the item he selected from dropdown
