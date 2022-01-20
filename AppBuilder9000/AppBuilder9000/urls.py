@@ -34,7 +34,6 @@ urlpatterns = [
     path('StudyApp/', include('StudyApp.urls')),
     path('CryptoAnalytics/', include('CryptoAnalytics.urls')),
     path('PetAdoption', include('PetAdoption.urls')),
-    path('MusicReviews/', include('MusicReviews.urls')),
     path('NYC_Guide/', include('NYC_Guide.urls')),
     path('Hiphop/', include('Hiphop.urls')),
     path('PokeDex/', include('PokeDex.urls')),
@@ -43,6 +42,8 @@ urlpatterns = [
     path('ComercialAirplanes/', include('ComercialAirplanes.urls')),
     path('Nutrition/', include('Nutrition.urls')),
     path('MovieReviews/', include('MovieReviews.urls')),
+    path('MagicTheGathering/', include('MagicTheGathering.urls')),
+    path('HotSprings/', include('HotSprings.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

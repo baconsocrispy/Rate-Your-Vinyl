@@ -1,8 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url("../images/pokeDex.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .header-title {
