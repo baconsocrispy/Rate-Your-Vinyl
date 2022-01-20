@@ -3,6 +3,7 @@ from .models import Users
 from .forms import UsersForm
 from bs4 import BeautifulSoup
 import requests
+import json
 
 def weather_home(request):
     return render(request, 'WeatherBall/weatherhome.html')
@@ -75,3 +76,8 @@ def weather_scraping(request):
     print(detailed_forecast)
     context = {'detailed_forecast': detailed_forecast, 'weather_body': weather_body}
     return render(request, 'WeatherBall/weatherscraping.html', context)
+
+def weather_api(request):
+    response = requests.get("https://api.weather.gov/points/35.1492,-90.1897")
+    print(response)
+    return render(request, 'WeatherBall/weatherapi.html')
