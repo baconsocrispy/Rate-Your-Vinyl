@@ -1,0 +1,57 @@
+{% extends 'Nutrition/Nutrition_base.html' %}
+{% load static %}
+
+{% block title %}Royal Hotels{% endblock %}
+
+{% block header %}Product Details:{% endblock %}
+
+{% block content %}
+
+<div class="admin_panel">
+    {% if aform %}
+    <form name="productForm" method="POST" action="../edit_account/"><!--go back one directory (..) and say details-->
+
+        <table>
+            {% csrf_token %}
+            {{ aform.non_field_errors }}
+            {{ aform.as_table }} <!--this method puts in form data we get into a table format so long
+             as it is within <table> tags...basically this method creates all the HTML needed to render
+            the form data in a table format for us and so saves us a lot of coding -->
+        </table>
+        <div class="frmBtn_container">
+            <input type="submit" value="Submit"> <!--this associates /w the action attribute of the form tag above-->
+            <div class="frmBtn_container">
+                <a href="../{{ aform.pk }}delete_account/" class="btn">DELETE</a><!--this is saying go back a directory, put
+                a number in that corresponds to the form's pk (which is the item's pk), and calls delete
+                method to delete it-->
+                <a href="{% url 'display_db' %}" class="btn">CANCEL</a><!--this will call the admin_console method, which
+                will take us to the admin_console web page-->
+            </div>
+        </div>
+    </form>
+
+    {% elif nform %}
+    <form name="productForm" method="POST" action="../edit_nutrition/"><!--go back one directory (..) and say details-->
+
+        <table>
+            {% csrf_token %}
+            {{ nform.non_field_errors }}
+            {{ nform.as_table }} <!--this method puts in form data we get into a table format so long
+             as it is within <table> tags...basically this method creates all the HTML needed to render
+            the form data in a table format for us and so saves us a lot of coding -->
+        </table>
+        <div class="frmBtn_container">
+            <input type="submit" value="Submit"> <!--this associates /w the action attribute of the form tag above-->
+            <div class="frmBtn_container">
+                <button class="btn"><a href="../{{ nform.pk }}delete_nutrition/">DELETE</a></button><!--this is saying go back a directory, put
+                a number in that corresponds to the form's pk (which is the item's pk), and calls delete
+                method to delete it-->
+                <button class="btn"><a href="{% url 'display_db' %}">CANCEL</a></button><!--this will call the admin_console method, which
+                will take us to the admin_console web page-->
+            </div>
+        </div>
+    </form>
+</div>
+    {% endif %}
+
+{% endblock %}

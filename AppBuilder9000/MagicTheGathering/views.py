@@ -5,14 +5,16 @@ from .forms import CardForm, CollectionForm
 
 
 def MagicTheGathering_home(request):
-     # this will return user to MTG home page
+     #collection = Collection.Collection.all()
+     #content = {'collection': collection}
      return render(request, 'MagicTheGathering/MagicTheGathering_home.html')
 
 
 def collection(request):
-     data = Card.Cards.all()
-     card = {"cards_number": data}
-     return render(request, 'MagicTheGathering/ViewCollection.html', card)
+     cards = Card.Cards.all()
+     context = {'cards': cards}
+     return render(request, 'MagicTheGathering/ViewCollection.html', context)
+
 
 def create_collection(request):
      form = CollectionForm(data=request.POST or None)
@@ -30,6 +32,12 @@ def create_card(request):
                form.save()
      content = {'form': form}
      return render(request, 'MagicTheGathering/AddCardTransaction.html', content)
+
+def details(request, pk):
+     card_details = get_object_or_404(Card, pk=pk)
+     context = {'card_details':card_details}
+     return render(request, 'MagicTheGathering/CardDetails.html', context)
+
 
 
 
