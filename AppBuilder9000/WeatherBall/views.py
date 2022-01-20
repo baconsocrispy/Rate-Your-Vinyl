@@ -63,7 +63,7 @@ def weather_scraping(request):
     current = soup.find(id="detailed-forecast-body")
     div_items = current.find_all("div")
     for forecast in div_items:
-        bingo = forecast.find_all('b')
+        bingo = forecast.find_all(class_="forecast-label")
         for i in bingo:
             text = i.get_text()
             detailed_forecast.append(text)
@@ -73,5 +73,5 @@ def weather_scraping(request):
             message = rain.get_text()
             weather_body.append(message)
     print(detailed_forecast)
-    print(weather_body)
-    return render(request, 'WeatherBall/weatherscraping.html')
+    context = {'detailed_forecast': detailed_forecast, 'weather_body': weather_body}
+    return render(request, 'WeatherBall/weatherscraping.html', context)
