@@ -22,4 +22,4 @@ def addpage(request):
 
 def Collection(request):
     PC = Airplane.Plane.all()
-    return render(request, 'ComercialAirplanes/CommercialAirplanes_collection.html', {'PC': PC})
+    return render(request, 'ComercialAirplanes/CommercialAirplanes_Collection.html', {'PC': PC})
