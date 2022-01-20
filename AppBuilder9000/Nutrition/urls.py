@@ -15,6 +15,11 @@ urlpatterns = [
     path('display_db', views.display_db, name="display_db"),
     path('<int:pk>/display_account_details/', views.display_account_details, name="display_account_details"),#call display_details() and pass in pk
     path('<int:pk>/display_nutrition_details/', views.display_nutrition_details, name="display_nutrition_details"),
+    path('<int:pk>/delete_account/', views.delete_account, name="delete_account"),
+    path('<int:pk>/delete_nutrition/', views.delete_nutrition, name="delete_nutrition"),
+    path('<int:pk>/edit_account/', views.edit_account, name="edit_account"),
+    path('<int:pk>/edit_nutrition/', views.edit_nutrition, name="edit_nutrition"),
+
 
 
 ]
