@@ -21,6 +21,5 @@ def addpage(request):
     return render(request, 'ComercialAirplanes/ComercialAirplanes_add.html', context)
 
 def Collection(request):
-    PC = Airplane(all)
-    return render(request, 'CommercialAirplanes/CommercialAirplanes_Collection.html', {'PC': PC})
-    PC.save()
+    PC = Airplane.Plane.all()
+    return render(request, 'ComercialAirplanes/CommercialAirplanes_collection.html', {'PC': PC})
