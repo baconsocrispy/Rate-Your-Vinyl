@@ -92,7 +92,7 @@ def weather_api(request):
         # this is then going to be a var holding our dictionary that is holding the values of the info we got from
         # the above code.
         for update in wx_info:
-            update = wx_info + ['periods']
+            sunny = update + ['periods']
     results = {
         'properties': wx_properties,  # this is the value of the weather properties we got from the for loop above
         'periods': wx_info,  # this is the value of the weather types we got from our for loop above
