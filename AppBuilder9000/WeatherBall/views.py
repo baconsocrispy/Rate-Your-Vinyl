@@ -79,5 +79,12 @@ def weather_scraping(request):
 
 def weather_api(request):
     response = requests.get("https://api.weather.gov/points/35.1492,-90.1897")
-    print(response)
+    print(response.json())
+
+    def jprint(obj):
+        # create a formatted string of the Python JSON object
+        text = json.dumps(obj, sort_keys=True, indent=4)
+
+        print(text)
+    jprint(response.json())
     return render(request, 'WeatherBall/weatherapi.html')
