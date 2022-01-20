@@ -115,6 +115,7 @@ def history_scraping(request):
 def web_scraping(request):
     roster = []
     player_numbers = []
+    position = []
     page = requests.get("https://www.basketball-reference.com/teams/POR/2022.html")
     soup = BeautifulSoup(page.content, 'html.parser')
     table = soup.find('table', id='roster')
@@ -128,8 +129,11 @@ def web_scraping(request):
         five = a.find('td')
         six = five.text
         roster.append(six)
-    print(roster)
-    print(player_numbers)
+    for b in four:
+        seven = b.find('td', [1])
+        eight = seven.text
+        position.append(eight)
+    print(position)
     context = {
         'roster': roster, 'player_numbers': player_numbers
     }
