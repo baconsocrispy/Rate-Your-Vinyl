@@ -1,5 +1,4 @@
 html {
-    background-color: #faedcd;
     font-family: 'Merriweather', serif;
 }
 
@@ -7,9 +6,13 @@ header, body {
     text-align: center;
 }
 nav {
-    color: white;
+    color: black;
     background-color: #D4A373;
     text-align: left;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 table, th, td {
@@ -50,4 +53,37 @@ th, td {
 
 .btn {
     background-color: #e9edc9
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #e7c8a0;
+    color: black;
+    text-align: center;
+}
+
+
+
+.zoom {
+    transition: transform .8s;
+}
+
+.zoom:hover {
+    background-color: #deb68a;
+    transform: scale(1.5);
+}
+
+.button-up {
+    margin-bottom: 15px;
 }
