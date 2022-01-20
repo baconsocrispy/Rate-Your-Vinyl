@@ -11,7 +11,7 @@
 	{% if item %}
 
 <br><br>
-			<h2>ACCOUNTS DETAILS</h2>
+			<h2>ACCOUNT DETAILS</h2>
 
 			<table class="table table-responsive" id ="transactions-table">
 
@@ -35,6 +35,7 @@
 
 
 			</table>
+<button class="btn"><a href="{% url 'edit_account' item.id %}">Click to Edit</a></button>
 
 	{% elif nutrition_item %}
 
@@ -63,6 +64,7 @@
 
 
 			</table>
+<button class="btn"><a href="{% url 'edit_nutrition' nutrition_item.id %}">Click to Edit</a></button>
 	{% endif %}
 
 {% endblock %}
