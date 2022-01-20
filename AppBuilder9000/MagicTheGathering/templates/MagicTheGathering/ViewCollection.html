@@ -7,6 +7,7 @@
 						{% csrf_token %}
 						<label for="menu_id">Select a card from the list to edit:</label>
 						<select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+							<option value="#">-----------</option>
 						{% for cards in cards %}
 							<option value="../{{ cards.pk }}/Card_details/">{{ cards.card_name }}</option>
 						{% endfor %}
