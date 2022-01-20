@@ -25,8 +25,8 @@
             <form method="POST">
                 <label>Card Info:</label>
                 <div>
-                    <button type="submit" class="button"><a href="{% url 'add' %}">ADD CARD</a></button>
-                    <button type="submit" class="button"><a href="{% url 'create' %}">Make Collection</a></button>
+                    <button type="submit" class="button" id="button"><a href="{% url 'add' %}">ADD CARD</a></button>
+                    <button type="submit" class="button" id="button3"><a href="{% url 'create' %}">Make Collection</a></button>
                 </div>
             </form>
         </div>
@@ -44,7 +44,7 @@
                         <option value ="">{{ collection.collection_name }}</option>
                     {% endfor %}
                     </select>-->
-                    <button type="submit"><a href="{% url 'collection' %}"> Go to Collection</a></button>
+                    <button type="submit" id="button4"><a href="{% url 'collection' %}"> Go to Collection</a></button>
                 </form>
             </div>
         </div>

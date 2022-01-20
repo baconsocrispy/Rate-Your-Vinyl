@@ -24,4 +24,11 @@
 					<td class="right">{{ card_details.card_text }}<br/>
 				</tr>
 </div>
+
+<div class="fromBtn_container">
+	<a href="{% url 'editCardInfo' card_details.id %}"><button type="submit" class="btn" id="button2">Edit Card Info</button></a>
+	<a href="{% url 'collection' %}"><button type="submit" class="btn" id="button4">Cancel</button></a>
+</div>
+
+
 {% endblock %}
