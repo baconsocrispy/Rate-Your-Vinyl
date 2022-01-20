@@ -34,13 +34,21 @@
 
     <div>
         <h2> LOOK AT YOUR DATA BASE</h2>
-        <div class="collection_container">
-            Here is where you will look at the cards in your collection!
-            <button type="submit" class="button"><a href="{% url 'collection' %}">VIEW COLLECTION</a></button>
+            <div class="collection_container">
+                Here is where you will look at the cards in your collection!
+                <!--<form method="POST" action="">
+                    {% csrf_token %}
+                    <label id="index-label">Choose Account:</label>
+                    <select class="collection" name="menu" onChange="top.location.herf=this.option[this.selectedIndex].value;">
+                    {% for collection in collection %}
+                        <option value ="">{{ collection.collection_name }}</option>
+                    {% endfor %}
+                    </select>-->
+                    <button type="submit"><a href="{% url 'collection' %}"> Go to Collection</a></button>
+                </form>
             </div>
         </div>
 
     </div>
-
 
 {% endblock %}
