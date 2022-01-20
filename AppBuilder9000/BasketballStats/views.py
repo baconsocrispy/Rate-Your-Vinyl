@@ -112,5 +112,5 @@ def history_scraping(request):
     return render(request, 'BasketballStats/BasketballStats_history.html', context)
 
 
-#def web_scraping(request):
-
+def web_scraping(request):
+    return render(request, 'BasketballStats/BasketballStats_web_scraping.html')
