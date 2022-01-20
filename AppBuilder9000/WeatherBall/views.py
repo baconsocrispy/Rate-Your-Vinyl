@@ -78,13 +78,28 @@ def weather_scraping(request):
     return render(request, 'WeatherBall/weatherscraping.html', context)
 
 def weather_api(request):
-    response = requests.get("https://api.weather.gov/points/35.1492,-90.1897")
-    print(response.json())
-
-    def jprint(obj):
-        # create a formatted string of the Python JSON object
-        text = json.dumps(obj, sort_keys=True, indent=4)
-
-        print(text)
-    jprint(response.json())
+    complete_info = []
+    response = requests.get("https://api.weather.gov/gridpoints/MEG/36,66/forecast")
+    wx_properties = ['properties']  # this is to go into the properties section of the api
+    wx_info = ['periods']  # we do the same thing with field name seeking forecast
+    ''' Here we are doing a for loop to get all of the weather types.
+    Made a var assigned as blank string then in for loop we use weather_type to go
+    into API and locate the section that has Properties and will then loop through to locate 
+    the info in the Periods section. This will loop multiple times to find all results of Periods.
+    '''
+    for update in wx_properties:
+        update = wx_properties + ['properties']
+        # this is then going to be a var holding our dictionary that is holding the values of the info we got from
+        # the above code.
+        for update in wx_info:
+            update = wx_info + ['periods']
+    results = {
+        'properties': wx_properties,  # this is the value of the weather properties we got from the for loop above
+        'periods': wx_info,  # this is the value of the weather types we got from our for loop above
+    }
+    complete_info.append(results)  # we then take that info and pass it into our empty list var from the very top
+    # and then append the parameter passed in to this to get the string and then use the new info stored inside
+    # complete_info and create a for loop in our html to get the info out of it and to be displayed on our api html page.
+    sleet = json.loads(response.text)
+    print(sleet)
     return render(request, 'WeatherBall/weatherapi.html')
