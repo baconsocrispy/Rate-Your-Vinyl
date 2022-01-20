@@ -21,10 +21,10 @@
         <div class="frmBtn_container">
             <input type="submit" value="Submit"> <!--this associates /w the action attribute of the form tag above-->
             <div class="frmBtn_container">
-                <button class="btn"><a href="../{{ aform.pk }}delete_account/">DELETE</a></button><!--this is saying go back a directory, put
+                <a href="../{{ aform.pk }}delete_account/" class="btn">DELETE</a><!--this is saying go back a directory, put
                 a number in that corresponds to the form's pk (which is the item's pk), and calls delete
                 method to delete it-->
-                <button class="btn"><a href="{% url 'display_db' %}">CANCEL</a></button><!--this will call the admin_console method, which
+                <a href="{% url 'display_db' %}" class="btn">CANCEL</a><!--this will call the admin_console method, which
                 will take us to the admin_console web page-->
             </div>
         </div>
