@@ -10,5 +10,5 @@ urlpatterns = [
     path('<int:pk>/edit/', views.player_edit, name='basketball_stats_edit'),
     path('<int:pk>/delete', views.player_delete, name='basketball_stats_delete'),
     path('standings/', views.standings_page, name='basketball_stats_standings'),
-    path('history/', views.history_scarping, name='basketball_stats_history'),
+    path('history/', views.history_scraping, name='basketball_stats_history'),
 ]
