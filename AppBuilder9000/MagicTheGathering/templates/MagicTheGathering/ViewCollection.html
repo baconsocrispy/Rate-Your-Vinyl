@@ -2,19 +2,18 @@
 {% block title %}Collection{% endblock %}
 {% block content %}
 			<div id="all-collection-form">
-				<form>
-					<br>
-					<!-- Use value to add the Django populated details-->
-					<label>Collection Name:</label>
-					<input id="collectionname" type="text" name="collectionName" value="" readonly>
-					<br><br>
-					<label>Collection Type:</label>
-					<input id="collectiontype" type="text" name="collectionType" value="" readonly>
-					<button type="button"><a href="{% url 'add' %}">Add Card</a></button>
-
+				<form name="hotspringsForm" method="POST" action="">
+					<div class="formObject">
+						{% csrf_token %}
+						<label for="menu_id">Select a card from the list to edit:</label>
+						<select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+						{% for cards in cards %}
+							<option value="../{{ cards.pk }}/Card_details/">{{ cards.card_name }}</option>
+						{% endfor %}
+						</select>
+							<br><br>
+					</div>
 				</form>
-				<br><br>
-			</div>
 			<h2>Card Collection</h2>
 
 			<table class="table table-responsive" id ="transactions-table">

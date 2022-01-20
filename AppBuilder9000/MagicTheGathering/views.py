@@ -5,15 +5,15 @@ from .forms import CardForm, CollectionForm
 
 
 def MagicTheGathering_home(request):
-     collection = Collection.Collection.all()
-     content = {'collection': collection}
-     return render(request, 'MagicTheGathering/MagicTheGathering_home.html', content)
+     #collection = Collection.Collection.all()
+     #content = {'collection': collection}
+     return render(request, 'MagicTheGathering/MagicTheGathering_home.html')
 
 
-def collection(request, pk):
-     details = get_object_or_404(Collection, pk=pk)
-     context = {'details': details}
-     return render(request, 'ViewCollection.html', context)
+def collection(request):
+     cards = Card.Cards.all()
+     context = {'cards': cards}
+     return render(request, 'MagicTheGathering/ViewCollection.html', context)
 
 
 def create_collection(request):

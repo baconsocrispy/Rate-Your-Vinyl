@@ -1,5 +1,18 @@
 {% extends 'MagicTheGathering/MagicTheGathering_base.html' %}
-{% block title%}Add New Card{% endblock %}
-{% block content %}
 
+{% load static %}
+
+{% block title %}Card Details{% endblock %}
+
+{% block content %}
+<div class="main">
+
+	<!-- Specify fields to be displayed -->
+	{{ card_details.card_name }}<br/>
+	{{ card_details.card_color }}<br/>
+	{{ card_details.card_type }}<br/>
+	{{ card_details.card_cost }}<br/>
+	{{ card_details.card_text }}<br/>
+
+</div>
 {% endblock %}
