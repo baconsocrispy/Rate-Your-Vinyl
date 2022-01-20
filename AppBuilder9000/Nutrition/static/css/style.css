@@ -296,7 +296,9 @@ label {
 /* General Table Styling */
 .tablescroll {
     overflow-y: scroll;
-    height: 300px;
+    height: 215px;
+    margin: 12px;
+
 }
 th{
 	border: 3px solid black;
@@ -363,7 +365,7 @@ tr td{
 	border: 2px solid gray;
 	border-collapse: collapse;
 	border-radius: 8px;
-	table-layout: auto;
+	table-layout: fixed;
 	float: center;
 	position: relative;
 }
@@ -378,7 +380,7 @@ tr td{
 	border: 2px solid gray;
 	border-collapse: collapse;
 	border-radius: 8px;
-	table-layout: auto;
+	table-layout: fixed;
 	float: center;
 	position: relative;
 }
