@@ -27,9 +27,42 @@ header  {
     color: red;
 }
 
+h1 {
+    color: #0404B4;
+    font-family: 'Lobster';
+    text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
+    margin:0 auto;
+}
 h3 {
+    color: #0404B4;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-    color: red;
+}
+h3 span {
+    font-variant: small-caps;
+    padding: 2px 16px;
+}
+.container {
+    padding: 2px 16px;
+}
+
+.box {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.box>* {
+	flex: 1 1 160px;
+}
+.center-img {
+    display: block;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }
 
 ul.topnav {
@@ -61,3 +94,19 @@ ul.topnav li a:hover {
 	transition: opacity 0.3s ease-in-out;
     background-color: #355664;
 
+.header-title {
+	padding: 2px 16px;
+	text-align: center;
+}
+.bg_img {
+    background-color: lightblue;
+    background-image: url('/static/images/moviereviews_4.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
