@@ -113,4 +113,11 @@ def history_scraping(request):
 
 
 def web_scraping(request):
+    injured_player = []
+    injury_description = []
+    page = requests.get("https://www.basketball-reference.com/teams/POR/2022.html")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    table = soup.find('div', id='div_injuries')
+    injured_player.append(table)
+    print(injured_player)
     return render(request, 'BasketballStats/BasketballStats_web_scraping.html')
