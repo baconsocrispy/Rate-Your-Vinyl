@@ -1,7 +1,9 @@
-from django.http import HttpResponseRedirect
+import json
+import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Collection, Card
 from .forms import CardForm, CollectionForm
+from mtgsdk import Card, Set, Type, Supertype, Subtype, Changelog
 
 
 def MagicTheGathering_home(request):
@@ -57,6 +59,29 @@ def delete_card(request, pk):
         return redirect('collection')
     context = {"item": item,}
     return render(request, "MagicTheGathering/Magic_confirmdelete.html", context)
+
+def MagicTheGathering_API(request):
+    url = "https://api.magicthegathering.io/v1/cards"
+
+    parameters = {
+        'name':'Tarmogoyf'
+    }
+
+    response = requests.get(url, params=parameters)
+    data = json.loads(response.text)
+    card_info = data['cards']
+    cards=card_info[0]
+    name=cards['name']
+    type=cards['type']
+    color=cards['colors']
+    manaCost=cards['manaCost']
+    text=cards['text']
+    print(type)
+    print(color)
+    print(manaCost)
+    print(name)
+    print(text)
+    return render(request, 'MagicTheGathering/Magic_API.html')
 
 
 
