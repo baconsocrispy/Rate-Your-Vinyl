@@ -10,25 +10,6 @@
         <h1> Reviewed Movies </h1>
 
         <div class="movie_data">
-                        <div class="frmObject">
-                                {% csrf_token %}
-                                {{ form.movie }}
-                                {{ form.as_table }}
-                                <label>Select from Movie Titles</label>
-                                <input id="moviegenre" type="text" name="moviegenre" value="">
-                                <label>Select from Movie Genres</label>
-                                <input id="movietitle" type="text" name="movietitle" value="">
-                                <label>Select from Movie Actors</label>
-                                <input id="movieactor" type="text" name="movieactor" value="">
-                                <label>Select from Movie Directors</label>
-                                <input id="moviedirector" type="text" name="moviedirector" value="">
-                                <button type="submit">Go To Movies</button>
-                        </div>
-
-
-        </div>
-
-        <div class="movie_data">
                 <table>
                         <tr>
                                 <th>Genre</th>
