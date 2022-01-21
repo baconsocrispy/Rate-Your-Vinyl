@@ -133,9 +133,11 @@ def scraper(request):
     if request.method == 'POST':
         page = requests.get('https://www.nutraingredients-usa.com/')
         soup = BeautifulSoup(page.content, 'html.parser')
-        refined = soup.find_all('div', class_='Teaser-text')
-        print(refined)
-        return render(request, 'Nutrition/Nutrition_home.html')
+        nutrition_data = dict()
+        nutrition_data['values'] = soup.find_all('div', class_='Teaser-text')
+
+
+        return render(request, 'Nutrition/Nutrition_home.html',{'nutrition_data': nutrition_data})
     else:
         return render(request, 'Nutrition/Nutrition_scrapedcontent.html')
 
