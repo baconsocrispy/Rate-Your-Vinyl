@@ -94,9 +94,9 @@ def weather_api(request):
         # this is then going to be a var holding our dictionary that is holding the values of the info we got from
         # the above code.
         complete_info.append(updates)
-        for i in wx_info:
-            temp = i['temperature'] #Will give the daily high and low temperature for the period.
-            not_complete_info.append(temp)
+    for i in wx_info:
+        temp = i['temperature'] #Will give the daily high and low temperature for the period.
+        not_complete_info.append(temp)
       # we then take that info and pass it into our empty list var from the very top
     # and then append the parameter passed in to this to get the string and then use the new info stored inside
     # complete_info and create a for loop in our html to get the info out of it and to be displayed on our api html page.
