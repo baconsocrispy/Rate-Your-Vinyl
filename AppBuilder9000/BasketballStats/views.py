@@ -139,24 +139,28 @@ def web_scraping(request):
         pos = pos_list.text
         position.append(pos)
         height_list = td_list[2]
-        pos = pos_list.text
-        height.append()
+        heights = height_list.text
+        height.append(heights)
         weight_list = td_list[3]
-        pos = pos_list.text
-        weight.append()
+        weights = weight_list.text
+        weight.append(weights)
         bday_list = td_list[4]
-        pos = pos_list.text
-        birthday.append()
+        bdays = bday_list.text
+        birthday.append(bdays)
         experience_list = td_list[6]
-        pos = pos_list.text
-        years_experience.append()
+        exp = experience_list.text
+        years_experience.append(exp)
         college_list = td_list[7]
-        pos = pos_list.text
-        college.append()
-    print(roster)
+        colleges = college_list.text
+        college.append(colleges)
+    print(position)
+    print(height)
+    print(weight)
+    print(birthday)
+    print(years_experience)
+    print(college)
 
-
-    zipped_list = zip(player_numbers, roster, position)
+    zipped_list = zip(player_numbers, roster, position, height, weight, birthday, years_experience, college)
     context = {
         'zipped_list': zipped_list
     }
