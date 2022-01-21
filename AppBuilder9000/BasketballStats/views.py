@@ -113,9 +113,14 @@ def history_scraping(request):
 
 
 def web_scraping(request):
-    roster = []
     player_numbers = []
+    roster = []
     position = []
+    height = []
+    weight = []
+    birthday = []
+    years_experience = []
+    college = []
     page = requests.get("https://www.basketball-reference.com/teams/POR/2022.html")
     soup = BeautifulSoup(page.content, 'html.parser')
     table = soup.find('table', id='roster')
@@ -125,15 +130,32 @@ def web_scraping(request):
         three = i.text
         player_numbers.append(three)
     four = one.find_all('tr')
-    for a in four:
-        five = a.find('td')
-        six = five.text
-        roster.append(six)
-    for b in four:
-        seven = b.find('td', class_='center')
-        eight = seven.text
-        position.append(eight)
-    print(position)
+    for tds in four:
+        td_list = tds.find_all('td')
+        name_list = td_list[0]
+        names = name_list.text
+        roster.append(names)
+        pos_list = td_list[1]
+        pos = pos_list.text
+        position.append(pos)
+        height_list = td_list[2]
+        pos = pos_list.text
+        height.append()
+        weight_list = td_list[3]
+        pos = pos_list.text
+        weight.append()
+        bday_list = td_list[4]
+        pos = pos_list.text
+        birthday.append()
+        experience_list = td_list[6]
+        pos = pos_list.text
+        years_experience.append()
+        college_list = td_list[7]
+        pos = pos_list.text
+        college.append()
+    print(roster)
+
+
     zipped_list = zip(player_numbers, roster, position)
     context = {
         'zipped_list': zipped_list
