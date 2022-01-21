@@ -4,6 +4,8 @@ from django.http import HttpResponse
 
 from .models import Account, PersonalizedNutrition
 from .forms import AccountForm, NutritionalQuery
+import requests
+from bs4 import BeautifulSoup
 # Create your views here.
 
 
@@ -123,3 +125,25 @@ def edit_nutrition(request, pk):
     form with item fields filled in can be rendered on the user's screen...form variable is 
     passed on to the render and will be rendered within the present_product page"""
 
+
+#_________________TESTING CODE BELOW - UNFINISHED CODE BELOW - TEST CODE BELOW_______________________________
+
+
+def scraper(request):
+    if request.method == 'POST':
+        page = requests.get('https://www.nutraingredients-usa.com/')
+        soup = BeautifulSoup(page.content, 'html.parser')
+        refined = soup.find_all('div', class_='Teaser-text')
+        print(refined)
+        return render(request, 'Nutrition/Nutrition_home.html')
+    else:
+        return render(request, 'Nutrition/Nutrition_scrapedcontent.html')
+
+
+
+"""The above function scrapes https://www.nutraingredients-usa.com/ ... specifically, it looks at the 
+two bottom HTML elements within this path: <article class='teaser'> --> <div class='teaser-text'> --> 
+<h3 class='teaser-title'> ... SCRAPING THIS 
+<p class='teaser-intro'> ... SCRAPING THIS TOO 
+
+It scrapes headlines and teaster-text and prints it in terminal window when template 'scrape' button is clicked."""
