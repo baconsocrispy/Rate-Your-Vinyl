@@ -25,6 +25,11 @@ h3 {
     color: blue;
 }
 
+h6 {
+    text-align: center;
+    color: blue;
+}
+
 caption {
     color: lightskyblue;
     font-weight: bold;
