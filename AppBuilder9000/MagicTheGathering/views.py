@@ -1,4 +1,4 @@
-
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Collection, Card
 from .forms import CardForm, CollectionForm
@@ -37,6 +37,28 @@ def details(request, pk):
      card_details = get_object_or_404(Card, pk=pk)
      context = {'card_details':card_details}
      return render(request, 'MagicTheGathering/CardDetails.html', context)
+
+
+def editCardInfo(request, pk):
+    card_details = get_object_or_404(Card, pk=pk)
+    form = CardForm(data=request.POST or None, instance=card_details)
+    if request.method == 'POST':
+         if form.is_valid():
+              form.save()
+              return redirect('collection')
+         else:
+              print(form.errors)
+    return render(request, 'MagicTheGathering/CardEdit.html', {'form': form})
+
+def delete_card(request, pk):
+    item = get_object_or_404(Card, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('collection')
+    context = {"item": item,}
+    return render(request, "MagicTheGathering/Magic_confirmdelete.html", context)
+
+
 
 
 
