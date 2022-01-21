@@ -21,3 +21,11 @@ def moviereviews_create(request):
         'form': form
     }
     return render(request, 'MovieReviews/moviereviews_create.html', context)
+
+
+def moviereviews_display(request):
+    movies = Movies.Movies.all()
+    context = {
+        'movies': movies
+    }
+    return render(request, 'MovieReviews/moviereviews_display.html',  context)
