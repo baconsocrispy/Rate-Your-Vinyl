@@ -3,7 +3,7 @@ import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Collection, Card
 from .forms import CardForm, CollectionForm
-from mtgsdk import Card, Set, Type, Supertype, Subtype, Changelog
+
 
 
 def MagicTheGathering_home(request):
@@ -64,7 +64,7 @@ def MagicTheGathering_API(request):
     url = "https://api.magicthegathering.io/v1/cards"
 
     parameters = {
-        'name':'Tarmogoyf'
+        'name': 'Tarmagoyf'
     }
 
     response = requests.get(url, params=parameters)
@@ -76,12 +76,9 @@ def MagicTheGathering_API(request):
     color=cards['colors']
     manaCost=cards['manaCost']
     text=cards['text']
-    print(type)
-    print(color)
-    print(manaCost)
     print(name)
-    print(text)
-    return render(request, 'MagicTheGathering/Magic_API.html')
+    content = {'name':name, 'type':type, 'color': color, 'manaCost':manaCost, 'text':text}
+    return render(request, 'MagicTheGathering/Magic_API.html', content)
 
 
 
