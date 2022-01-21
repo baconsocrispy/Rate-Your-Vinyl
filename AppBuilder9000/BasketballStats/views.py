@@ -134,7 +134,8 @@ def web_scraping(request):
         eight = seven.text
         position.append(eight)
     print(position)
+    zipped_list = zip(player_numbers, roster, position)
     context = {
-        'roster': roster, 'player_numbers': player_numbers, 'position': position
+        'zipped_list': zipped_list
     }
     return render(request, 'BasketballStats/BasketballStats_web_scraping.html', context)
