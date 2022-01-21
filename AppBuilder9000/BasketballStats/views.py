@@ -130,11 +130,11 @@ def web_scraping(request):
         six = five.text
         roster.append(six)
     for b in four:
-        seven = b.find('td', [1])
+        seven = b.find('td', class_='center')
         eight = seven.text
         position.append(eight)
     print(position)
     context = {
-        'roster': roster, 'player_numbers': player_numbers
+        'roster': roster, 'player_numbers': player_numbers, 'position': position
     }
     return render(request, 'BasketballStats/BasketballStats_web_scraping.html', context)
