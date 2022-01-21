@@ -134,7 +134,12 @@ def scraper(request):
         page = requests.get('https://www.nutraingredients-usa.com/')
         soup = BeautifulSoup(page.content, 'html.parser')
         nutrition_data = dict()
-        nutrition_data['values'] = soup.find_all('div', class_='Teaser-text')
+        refined = soup.find_all('div', class_='Teaser-text')
+        nutrition_data['values'] = [pt.get_text() for pt in refined]
+
+
+
+
 
 
         return render(request, 'Nutrition/Nutrition_home.html',{'nutrition_data': nutrition_data})
