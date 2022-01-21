@@ -64,7 +64,7 @@ def MagicTheGathering_API(request):
     url = "https://api.magicthegathering.io/v1/cards"
 
     parameters = {
-        'name': 'Tarmagoyf'
+        'name': 'Tarmogoyf'
     }
 
     response = requests.get(url, params=parameters)
