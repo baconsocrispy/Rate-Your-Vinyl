@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.MagicTheGathering_home, name='MagicTheGathering_home'),
+    path('MagicTheGathering_API/', views.MagicTheGathering_API, name='MagicTheGathering_API'),
     path('create/', views.create_collection, name='create'),
     path('add/', views.create_card, name='add'),
     path('collection/>', views.collection, name='collection'),
