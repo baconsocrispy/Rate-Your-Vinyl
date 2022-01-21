@@ -3,6 +3,7 @@ from .models import Users
 from .forms import UsersForm
 from bs4 import BeautifulSoup
 import requests
+import json
 
 def weather_home(request):
     return render(request, 'WeatherBall/weatherhome.html')
@@ -75,3 +76,30 @@ def weather_scraping(request):
     print(detailed_forecast)
     context = {'detailed_forecast': detailed_forecast, 'weather_body': weather_body}
     return render(request, 'WeatherBall/weatherscraping.html', context)
+
+def weather_api(request):
+    complete_info = []
+    not_complete_info = []
+    response = requests.get("https://api.weather.gov/gridpoints/MEG/36,66/forecast")
+    sleet = json.loads(response.text)
+    wx_properties = sleet['properties']  # this is to go into the properties section of the api
+    wx_info = wx_properties['periods']  # we do the same thing with field name seeking forecast
+    ''' Here we are doing a for loop to get all of the weather types.
+    Made a var assigned as blank string then in for loop we use weather_type to go
+    into API and locate the section that has Properties and will then loop through to locate 
+    the info in the Periods section. This will loop multiple times to find all results of Periods.
+    '''
+    for update in wx_info:
+        updates = update['name'] #Will give day/s of the week as the result.
+        # this is then going to be a var holding our dictionary that is holding the values of the info we got from
+        # the above code.
+        complete_info.append(updates)
+    for i in wx_info:
+        temp = i['temperature'] #Will give the daily high and low temperature for the period.
+        not_complete_info.append(temp)
+      # we then take that info and pass it into our empty list var from the very top
+    # and then append the parameter passed in to this to get the string and then use the new info stored inside
+    # complete_info and create a for loop in our html to get the info out of it and to be displayed on our api html page.
+    print(complete_info)
+    print(not_complete_info)
+    return render(request, 'WeatherBall/weatherapi.html')
