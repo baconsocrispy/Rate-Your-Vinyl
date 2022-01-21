@@ -7,3 +7,5 @@ class MovieForm(ModelForm):
     class Meta:
         model = Movies
         fields = '__all__'
+
+

@@ -9,24 +9,47 @@
 
         <h1> Reviewed Movies </h1>
 
-<div class="movie_data">
-        <form name="movieForm" method="POST" action="">
-                <div class="frmObject">
-                        {% csrf_token %}
-                        {{ form.movie }}
-                        <label>Select from Movie Titles</label>
-                        <input id="moviegenre" type="text" name="moviegenre" value="">
-                        <label>Select from Movie Genres</label>
-                        <input id="movietitle" type="text" name="movietitle" value="">
-                        <label>Select from Movie Actors</label>
-                        <input id="movieactor" type="text" name="movieactor" value="">
-                        <label>Select from Movie Directors</label>
-                        <input id="moviedirector" type="text" name="moviedirector" value="">
-                        <button type="submit">Go To Movies</button>
-                </div>
+        <div class="movie_data">
+                <form name="movieForm" method="POST" action="">
+                        <div class="frmObject">
+                                {% csrf_token %}
+                                {{ form.movie }}
+                                {{ form.as_table }}
+                                <label>Select from Movie Titles</label>
+                                <input id="moviegenre" type="text" name="moviegenre" value="">
+                                <label>Select from Movie Genres</label>
+                                <input id="movietitle" type="text" name="movietitle" value="">
+                                <label>Select from Movie Actors</label>
+                                <input id="movieactor" type="text" name="movieactor" value="">
+                                <label>Select from Movie Directors</label>
+                                <input id="moviedirector" type="text" name="moviedirector" value="">
+                                <button type="submit">Go To Movies</button>
+                        </div>
 
-        </form>
-</div>
+                </form>
+        </div>
+
+        <div class="movie_data">
+                <table>
+                        <tr>
+                                <th>Genre</th>
+                                <th>Title</th>
+                                <th>Actor</th>
+                                <th>Director</th>
+                                <th>Stars</th>
+                        </tr>
+                        {% for movies in movies %}
+                        <tr>
+                                <td>{{ movies.genre }}</td>
+                                <td>{{ movies.title }}</td>
+                                <td>{{ movies.actor }}</td>
+                                <td>{{ movies.director }}</td>
+                                <td>{{ movies.stars }}</td>
+                        </tr>
+
+                        {% endfor %}
+                </table>
+        </div>
 
 
 
