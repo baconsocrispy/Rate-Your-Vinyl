@@ -12,4 +12,5 @@ urlpatterns = [
     path('standings/', views.standings_page, name='basketball_stats_standings'),
     path('history/', views.history_scraping, name='basketball_stats_history'),
     path('bball_ref/', views.web_scraping, name='basketball_stats_web_scraping'),
+    path('balldontlie/', views.ball_dont_lie, name='basketball_stats_bdl_api'),
 ]
