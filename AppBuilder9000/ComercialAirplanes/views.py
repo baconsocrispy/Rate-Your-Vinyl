@@ -4,6 +4,8 @@ from .models import Airplane
 
 
 
+
+
 def homepage(request):
     return render(request, 'ComercialAirplanes/ComercialAirplane_home.html')
 
@@ -23,3 +25,7 @@ def addpage(request):
 def Collection(request):
     PC = Airplane.Plane.all()
     return render(request, 'ComercialAirplanes/CommercialAirplanes_Collection.html', {'PC': PC})
+
+def details(request, pk):
+    data = get_object_or_404(Airplane, pk=pk)
+    return render(request, 'ComercialAirplanes/CommercialAirplanes_details.html', {'data': data})
