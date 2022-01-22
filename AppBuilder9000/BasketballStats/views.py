@@ -170,4 +170,10 @@ def web_scraping(request):
 
 
 def ball_dont_lie(request):
+    url = 'https: // www.balldontlie.io / api / v1 / season_averages'
+    parameters = {
+        'api/v1/season_averages?season=2021&player_ids[]=1'
+    }
+    response = requests.request("GET", url, params=parameters)
+
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html')
