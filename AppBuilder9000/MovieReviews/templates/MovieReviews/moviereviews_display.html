@@ -7,29 +7,35 @@
 
 {% block content %}
 
-        <h1> Reviewed Movies </h1>
-
-        <div class="movie_data">
-                <table>
+<h1> Reviewed Movies </h1>
+<div id="table_container"></div>
+        <table class="table display table-bordered table-light table-hover table-striped">
+                <thread class="thread-light">
                         <tr>
-                                <th>Genre</th>
-                                <th>Title</th>
-                                <th>Actor</th>
-                                <th>Director</th>
-                                <th>Stars</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Genre</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Rating</th>
+                                <th scope="col">Director</th>
+                                <th scope="col">Actor</th>
+                                <th scope="col">Stars</th>
                         </tr>
+                        <tbody>
                         {% for movies in movies %}
                         <tr>
-                                <td>{{ movies.genre }}</td>
-                                <td>{{ movies.title }}</td>
-                                <td>{{ movies.actor }}</td>
+                                <td><a href="{% url 'moviereviews_details' movies.id %}">{{ movies.title}}</a> </td>
+                                <td>{{ movies.genre}}</td>
+                                <td>{{ movies.description }}</td>
+                                <td>{{ movies.rating }}</td>
                                 <td>{{ movies.director }}</td>
+                                <td>{{ movies.actor }}</td>
                                 <td>{{ movies.stars }}</td>
                         </tr>
-
                         {% endfor %}
-                </table>
-        </div>
+                        </tbody>
+                </thread>
+        </table>
+</div>
 
 
 
