@@ -6,5 +6,45 @@
 
 {% block content %}
 
+{% if nutrition_data %}
 
+
+<h2>Scraped Data</h2>
+		<div class="tablescrollscraped">
+			<table class="table table-responsive" id ="transactions-table">
+
+				<tr id="headerRow">
+					<td>Nutritional Supplement News</td>
+
+
+				</tr>
+				{% for i in nutrition_data.values %}
+
+				<tr>
+
+
+					<td class="center">{{ i }}</td>
+
+
+
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+{% endif %}
 {% endblock %}
+
+{% comment %}
+The below code worked to render scraped data
+
+{% if nutrition_data %}
+        {% for i in nutrition_data.values %}
+        <h3> {{ i }} </h3>
+
+
+        {% endfor %}
+
+{% endif %}
+
+{% endcomment %}
