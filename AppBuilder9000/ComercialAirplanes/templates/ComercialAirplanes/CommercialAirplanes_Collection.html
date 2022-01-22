@@ -16,7 +16,7 @@
         </tr>
         {% for Airplane in PC %}
         <tr>
-            <td><a href="#">{{ Airplane.Manufacture }}</a></td>
+            <td><a href="{% url 'CommercialAirplanes_details' Airplane.pk %}">{{ Airplane.Manufacture }}</a></td>
             <td>{{ Airplane.ModelNumber }}</td>
         </tr>
         {% endfor %}
