@@ -63,23 +63,29 @@ def delete_card(request, pk):
 def MagicTheGathering_API(request):
     url = "https://api.magicthegathering.io/v1/cards"
 
-    parameters = {
-        'name': 'Tarmogoyf'
-    }
+    if request.method == "POST":
+        value = request.POST['mtg'].capitalize()
+        if value == '':
+            message.info(request, 'Plwase enter in a Card name!')
+        else:
+            paramaters = {
+                'name': value
+            }
 
-    response = requests.get(url, params=parameters)
-    data = json.loads(response.text)
-    card_info = data['cards']
-    cards=card_info[0]
-    name=cards['name']
-    type=cards['type']
-    color=cards['colors']
-    manaCost=cards['manaCost']
-    text=cards['text']
-    print(name)
-    content = {'name':name, 'type':type, 'color': color, 'manaCost':manaCost, 'text':text}
-    return render(request, 'MagicTheGathering/Magic_API.html', content)
-
+            response = requests.get(url, params=paramaters)
+            data = json.loads(response.text)
+            card_info= data['cards']
+            cards=card_info[0]
+            name= cards['name']
+            type= cards['type']
+            color= cards['colors']
+            manaCost=cards['manaCost']
+            text= cards['text']
+            print(name)
+            content = {'name':name, 'type':type, 'color':color, 'manaCost':manaCost, 'text':text }
+            return render(request, "MagicTheGathering/Magic_API.html", content)
+    else:
+        return render(request, "MagicTheGathering/Magic_API.html")
 
 
 

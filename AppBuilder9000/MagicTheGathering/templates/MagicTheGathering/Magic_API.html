@@ -11,10 +11,10 @@
 <div>
     <h3>Search a Card</h3>
     <div>
-		<form method="post">
+		<form method="post" action="{% url 'MagicTheGathering_API' %}">
 			{% csrf_token %}
-			<input>
-			<button id="new-collection-button" type="submit" name="Save_Collection">Search</button>
+			<input type="text" name="mtg" placeholder="Enter Card name">
+        	<input type="submit" value="Search">
 		</form>
 	</div>
 </div>
@@ -38,6 +38,8 @@
 					<td class="right">{{ text }}<br/>
 				</tr>
 </div>
+
+
 
 
 
