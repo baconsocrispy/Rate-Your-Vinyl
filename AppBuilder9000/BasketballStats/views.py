@@ -167,3 +167,7 @@ def web_scraping(request):
         'zipped_list': zipped_list
     }
     return render(request, 'BasketballStats/BasketballStats_web_scraping.html', context)
+
+
+def ball_dont_lie(request):
+    return render(request, 'BasketballStats/BasketballStats_.html')
