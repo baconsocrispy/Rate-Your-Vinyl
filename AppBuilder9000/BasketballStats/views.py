@@ -170,4 +170,4 @@ def web_scraping(request):
 
 
 def ball_dont_lie(request):
-    return render(request, 'BasketballStats/BasketballStats_.html')
+    return render(request, 'BasketballStats/BasketballStats_bdl_api.html')
