@@ -170,11 +170,28 @@ def web_scraping(request):
 
 
 def ball_dont_lie(request):
-    url = 'https://www.balldontlie.io/api/v1/season_averages'
-    parameters = {
-        'season': '2021', 'player_ids': '1'
+    atlantic = []
+    #central = []
+    #southeast = []
+    #northwest = []
+    #pacific = []
+    #southwest = []
+    url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
+
+    headers = {
+        'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
+        'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
     }
-    response = requests.request("GET", url, params=parameters)
-    season_averages = json.loads(response.text)
-    print(season_averages)
+
+    response = requests.request("GET", url, headers=headers)
+    teams_info = json.loads(response.text)
+    team_list = teams_info['api']['teams']
+    for teams in team_list:
+        name = teams['fullName']
+        if teams['leagues']['standard']['divName'] == 'Atlantic':
+            atlantic.append(name)
+    #eastern_conference = zip(atlantic, central, southeast)
+    #western_conference = zip(northwest, pacific, southwest)
+    #league = zip(eastern_conference, western_conference)
+    print(atlantic)
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html')
