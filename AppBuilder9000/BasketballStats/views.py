@@ -171,11 +171,12 @@ def web_scraping(request):
 
 def ball_dont_lie(request):
     atlantic = []
-    #central = []
-    #southeast = []
-    #northwest = []
-    #pacific = []
-    #southwest = []
+    central = []
+    southeast = []
+    northwest = []
+    pacific = []
+    southwest = []
+    utah_teams = []
     url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
 
     headers = {
@@ -190,8 +191,26 @@ def ball_dont_lie(request):
         name = teams['fullName']
         if teams['leagues']['standard']['divName'] == 'Atlantic':
             atlantic.append(name)
-    #eastern_conference = zip(atlantic, central, southeast)
-    #western_conference = zip(northwest, pacific, southwest)
-    #league = zip(eastern_conference, western_conference)
-    print(atlantic)
+
+        if teams['leagues']['standard']['divName'] == 'Central':
+            central.append(name)
+
+        if teams['leagues']['standard']['divName'] == 'Southeast':
+            southeast.append(name)
+
+        if teams['leagues']['standard']['divName'] == 'Northwest':
+            if name == 'Utah Blue' or 'Utah White':
+                utah_teams.append(name)
+            else:
+                northwest.append(name)
+
+        if teams['leagues']['standard']['divName'] == 'Pacific':
+            pacific.append(name)
+
+        if teams['leagues']['standard']['divName'] == 'Southwest':
+            southwest.append(name)
+
+    eastern_conference = zip(atlantic, central, southeast)
+    western_conference = zip(northwest, pacific, southwest)
+    print(atlantic, central, southeast, northwest, pacific, southwest)
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html')
