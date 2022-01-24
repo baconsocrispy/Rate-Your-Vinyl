@@ -177,6 +177,7 @@ def ball_dont_lie(request):
     pacific = []
     southwest = []
     utah_teams = []
+    logos = []
     url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
 
     headers = {
@@ -189,16 +190,20 @@ def ball_dont_lie(request):
     team_list = teams_info['api']['teams']
     for teams in team_list:
         name = teams['fullName']
+        logo = teams['logo']
         division = teams['leagues']['standard']['divName']
 
         if division == 'Atlantic':
             atlantic.append(name)
+            logos.append(logo)
 
         elif division == 'Central':
             central.append(name)
+            logos.append(logo)
 
         elif division == 'Southeast':
             southeast.append(name)
+            logos.append(logo)
 
         elif division == 'Northwest':
             if name == 'Utah Blue':
@@ -207,18 +212,22 @@ def ball_dont_lie(request):
                 utah_teams.append(name)
             else:
                 northwest.append(name)
+                logos.append(logo)
 
         elif division == 'Pacific':
             pacific.append(name)
+            logos.append(logo)
 
         elif division == 'Southwest':
             southwest.append(name)
+            logos.append(logo)
 
     eastern_conference = zip(atlantic, central, southeast)
     western_conference = zip(northwest, pacific, southwest)
     context = {
         'eastern_conference': eastern_conference, 'western_conference': western_conference,
         'atlantic': atlantic, 'central': central, 'southeast': southeast,
-        'northwest': northwest, 'pacific': pacific, 'southwest': southwest
+        'northwest': northwest, 'pacific': pacific, 'southwest': southwest,
+        'logos': logos
     }
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
