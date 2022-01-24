@@ -5,8 +5,8 @@
 {% block header %}Ball Don't Lie API{% endblock %}
 
 {% block content %}
-<div class="container w-75">
-    <div id="eastern-conference" class="col-lg-6 col-md-6 col-sm-12">
+<div class="row container w-75 mx-auto">
+    <div id="eastern-conference" class="col-lg-6 col-md-6 col-sm-12 mx-auto">
         <table class="table table-dark table-bordered table-hover text-center" data-toggle="table">
             <thead>
                 <tr>
@@ -22,24 +22,17 @@
                     <td>{{ atlantic }}</td>
                 </tr>
                 {% endfor %}
-            <thead>
                 <tr>
-                    <th>Central Division</th>
+                    <th><b>Central Division</b></th>
                 </tr>
-            </thead>
-            <tbody>
                 {% for central in central %}
                 <tr>
                     <td>{{ central }}</td>
                 </tr>
                 {% endfor %}
-            </tbody>
-            <thead>
                 <tr>
-                    <th>Southeast Division</th>
+                    <th><b>Southeast Division</b></th>
                 </tr>
-            </thead>
-            <tbody>
                 {% for southeast in southeast %}
                 <tr>
                     <td>{{ southeast }}</td>
@@ -48,7 +41,7 @@
             </tbody>
         </table>
     </div>
-    <div id="western-conference" class="col-lg-6 col-md-6 col-sm-12">
+    <div id="western-conference" class="col-lg-6 col-md-6 col-sm-12 mx-auto">
         <table class="table table-dark table-bordered table-hover text-center" data-toggle="table">
              <thead>
                 <tr>
@@ -64,25 +57,17 @@
                     <td>{{ northwest }}</td>
                 </tr>
                 {% endfor %}
-            </tbody>
-            <thead>
                 <tr>
-                    <th>Pacific Division</th>
+                    <th><b>Pacific Division</b></th>
                 </tr>
-            </thead>
-            <tbody>
                 {% for pacific in pacific %}
                 <tr>
                     <td>{{ pacific }}</td>
                 </tr>
                 {% endfor %}
-            </tbody>
-            <thead>
                 <tr>
-                    <th>Southwest Division</th>
+                    <th><b>Southwest Division</b></th>
                 </tr>
-            </thead>
-            <tbody>
                 {% for southwest in southwest %}
                 <tr>
                     <td>{{ southwest }}</td>
