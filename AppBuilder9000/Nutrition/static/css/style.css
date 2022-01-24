@@ -292,3 +292,102 @@ label {
     -o-background-size: cover;
     background-size: cover;
 }
+
+/* General Table Styling */
+.tablescroll {
+    overflow-y: scroll;
+    height: 215px;
+    margin: 12px;
+
+}
+
+.tablescrollscraped {
+    overflow-y: scroll;
+    height: 500px;
+    margin: 12px;
+
+}
+th{
+	border: 3px solid black;
+}
+
+tr td{
+	height: 25px;
+	border: 2px solid black;
+	word-wrap: normal;
+	vertical-align: top;
+	width: auto;
+}
+
+#headerRow {
+	color: darkslateblue;
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	width: 15%;
+}
+
+.left{
+	padding-left: 10px;
+	width: 30%;
+	word-wrap: normal;
+}
+
+.right {
+	padding-right: 5px;
+	width: 20%;
+	text-align: right;
+}
+
+/* All Transactions Form and Table Styling */
+#all-transactions-form {
+	position: relative;
+}
+
+#all-transactions-form button{
+	background-color: darkgray;
+	position: relative;
+	right: 40px;
+	float: right;
+}
+
+#all-transactions-form button:hover {
+	background-color: lightgray;
+}
+
+#accountholder {
+	width: 575px;
+}
+
+
+#transactions-table {
+	background-color:white;
+	width: 90%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: 2px solid gray;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: fixed;
+	float: center;
+	position: relative;
+}
+
+#transactions-table2 {
+	background-color:white;
+	width: 90%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: 2px solid gray;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: fixed;
+	float: center;
+	position: relative;
+}

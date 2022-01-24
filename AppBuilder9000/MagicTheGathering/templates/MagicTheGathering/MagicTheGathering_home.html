@@ -25,7 +25,8 @@
             <form method="POST">
                 <label>Card Info:</label>
                 <div>
-                    <button type="submit" class="button"><a href="">ADD CARD</a></button>
+                    <button type="submit" class="button" id="button"><a href="{% url 'add' %}">ADD CARD</a></button>
+                    <button type="submit" class="button" id="button3"><a href="{% url 'create' %}">Make Collection</a></button>
                 </div>
             </form>
         </div>
@@ -33,14 +34,31 @@
 
     <div>
         <h2> LOOK AT YOUR DATA BASE</h2>
-        <div class="collection_container">
-            Here is where you will look at the cards in your collection!
-            <div>
-            <button type="submit" class="button"><a href="">VIEW COLLECTION</a></button>
+            <div class="collection_container">
+                Here is where you will look at the cards in your collection!
+                <!--<form method="POST" action="">
+                    {% csrf_token %}
+                    <label id="index-label">Choose Account:</label>
+                    <select class="collection" name="menu" onChange="top.location.herf=this.option[this.selectedIndex].value;">
+                    {% for collection in collection %}
+                        <option value ="">{{ collection.collection_name }}</option>
+                    {% endfor %}
+                    </select>-->
+                    <button type="submit" id="button4"><a href="{% url 'collection' %}"> Go to Collection</a></button>
+                </form>
             </div>
         </div>
 
-    </div>
+    <div>
 
+        <div class="add_container">
+            <h3>Search a Card</h3>
+            <form method="post" action="{% url 'MagicTheGathering_API' %}">
+                {% csrf_token %}
+                <input type="text" name="mtg" placeholder="Enter Card name">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
 
 {% endblock %}

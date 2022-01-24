@@ -1,0 +1,44 @@
+
+{% extends "MovieReviews/moviereviews_base.html" %}
+
+{% load static %}
+
+{% block title %} See Our Movie Reviews {% endblock %}
+
+{% block content %}
+
+<h1> Reviewed Movies </h1>
+<div id="table_container"></div>
+        <table class="table display table-bordered table-light table-hover table-striped">
+                <thread class="thread-light">
+                        <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Genre</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Rating</th>
+                                <th scope="col">Director</th>
+                                <th scope="col">Actor</th>
+                                <th scope="col">Stars</th>
+                        </tr>
+                        <tbody>
+                        {% for movies in movies %}
+                        <tr>
+                                <td><a href="{% url 'moviereviews_details' movies.id %}">{{ movies.title}}</a></td>
+                                <td>{{ movies.genre}}</td>
+                                <td>{{ movies.description }}</td>
+                                <td>{{ movies.rating }}</td>
+                                <td>{{ movies.director }}</td>
+                                <td>{{ movies.actor }}</td>
+                                <td>{{ movies.stars }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                </thread>
+        </table>
+</div>
+
+
+
+{% endblock %}
+
+

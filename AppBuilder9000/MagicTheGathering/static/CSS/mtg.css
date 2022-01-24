@@ -46,6 +46,76 @@ input, select{
 	box-shadow: 4px 2px darkslateblue;
 }
 
+label {
+	width: 125px;
+	margin-left: 50px;
+	font-weight: bold;
+	opacity: initial;
+}
+
+#index-label {
+    margin-left: -75px;
+    margin-bottom: 15px;
+}
+
+input, select{
+	width: 500px;
+	border-radius: 5px;
+	box-shadow: 4px 2px darkslateblue;
+}
+
+#button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#button2 {
+  background-color: #f44336; /* Red */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#button3 {
+  background-color: DarkBlue; /* Blue */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#button4 {
+  background-color: #e7e7e7; /* Grey */
+  border: none;
+  color: Black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+#button5 {
+  background-color: Black; /* Grey */
+  border: none;
+  color: White;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
 /* General Container Styling */
 .header_container {
     box-sizing: border-box;
@@ -179,5 +249,6 @@ tr td{
 #block-footer a:hover {
     color: steelblue;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
 
 

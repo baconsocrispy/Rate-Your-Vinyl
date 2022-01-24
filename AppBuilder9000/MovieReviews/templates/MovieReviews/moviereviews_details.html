@@ -1,0 +1,48 @@
+
+{% extends "MovieReviews/moviereviews_base.html" %}
+
+
+{% block title %} Movie Details {% endblock %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+    <h1>Movie Details</h1>
+    <div id="table_container"></div>
+        <table class="table display table-bordered table-light table-hover table-striped">
+            <thread class="thread-light">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Director</th>
+                    <th scope="col">Actor</th>
+                    <th scope="col">Stars</th>
+                </tr>
+            </thread>
+            <tbody>
+                <tr>
+                    <th scope="row">{{movie_item.title}}</th>
+                    <td>{{movie_item.genre}}</td>
+                    <td>{{movie_item.description}}</td>
+                    <td>{{movie_item.rating}}</td>
+                    <td>{{movie_item.director}}</td>
+                    <td>{{movie_item.actor}}</td>
+                    <td>{{movie_item.stars}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+
+
+
+
+
+{% endblock %}

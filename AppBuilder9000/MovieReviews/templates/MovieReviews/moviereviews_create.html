@@ -1,0 +1,22 @@
+{% extends "MovieReviews/moviereviews_base.html" %}
+
+
+{% block title %} Submit Your Reviews {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<h1>Submit Your Movie Reviews</h1>
+<div class = "admin_panel">
+    <form method="POST">
+        <div class="frmObject_container">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </div>
+        <div class="frmBtn_container">
+            <input type="submit" class="btn" value="Create a Movie Review" name="Save_Item">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'Nutrition/Nutrition_base.html' %}
+{% load static %}
+
+{% block content %}
+<form name="productForm" method="POST" action="../scraper/">
+    {% csrf_token %}
+    <input type="submit" value="Scrape Some Pages!">
+
+
+
+{% endblock %}

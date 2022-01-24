@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'Practicing_Yoga',
     'CryptoAnalytics',
     'PetAdoption',
-    'MusicReviews',
     'NYC_Guide',
     'Hiphop',
     'PokeDex',
@@ -59,6 +58,7 @@ INSTALLED_APPS = [
     'Nutrition',
     'MovieReviews',
     'MagicTheGathering',
+    'HotSprings',
 ]
 
 MIDDLEWARE = [
