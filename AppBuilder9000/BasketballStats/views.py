@@ -189,28 +189,34 @@ def ball_dont_lie(request):
     team_list = teams_info['api']['teams']
     for teams in team_list:
         name = teams['fullName']
-        if teams['leagues']['standard']['divName'] == 'Atlantic':
+        division = teams['leagues']['standard']['divName']
+
+        if division == 'Atlantic':
             atlantic.append(name)
 
-        if teams['leagues']['standard']['divName'] == 'Central':
+        elif division == 'Central':
             central.append(name)
 
-        if teams['leagues']['standard']['divName'] == 'Southeast':
+        elif division == 'Southeast':
             southeast.append(name)
 
-        if teams['leagues']['standard']['divName'] == 'Northwest':
-            if name == 'Utah Blue' or 'Utah White':
+        elif division == 'Northwest':
+            if name == 'Utah Blue':
+                utah_teams.append(name)
+            elif name == 'Utah White':
                 utah_teams.append(name)
             else:
                 northwest.append(name)
 
-        if teams['leagues']['standard']['divName'] == 'Pacific':
+        elif division == 'Pacific':
             pacific.append(name)
 
-        if teams['leagues']['standard']['divName'] == 'Southwest':
+        elif division == 'Southwest':
             southwest.append(name)
 
     eastern_conference = zip(atlantic, central, southeast)
     western_conference = zip(northwest, pacific, southwest)
-    print(atlantic, central, southeast, northwest, pacific, southwest)
-    return render(request, 'BasketballStats/BasketballStats_bdl_api.html')
+    context = {
+        'eastern_conference': eastern_conference, 'western_conference': western_conference
+    }
+    return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
