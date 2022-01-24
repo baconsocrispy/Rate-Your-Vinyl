@@ -14,7 +14,7 @@ TYPE_CHOICES = [
 class Movies(models.Model):
     genre = models.CharField(max_length=100, default="", blank=True)
     title = models.CharField(max_length=300, default="", blank=True, null=False)
-    description = models.TextField(max_length=5000, default="", blank=True)
+    description = models.TextField(max_length=1000, default="", blank=True)
     rating = models.CharField(max_length=50, default="", blank=True)
     director = models.CharField(max_length=100, default="", blank=True)
     actor = models.CharField(max_length=100, default="", blank=True)

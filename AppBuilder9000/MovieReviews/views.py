@@ -28,4 +28,14 @@ def moviereviews_display(request):
     context = {
         'movies': movies
     }
-    return render(request, 'MovieReviews/moviereviews_display.html',  context)
+    return render(request, 'MovieReviews/moviereviews_display.html', context)
+
+
+def moviereviews_details(request, pk):
+    movie_item = get_object_or_404(Movies, pk=pk)
+    context = {'movie_item': movie_item
+    }
+    return render(request, 'MovieReviews/moviereviews_details.html', context)
+
+
+
