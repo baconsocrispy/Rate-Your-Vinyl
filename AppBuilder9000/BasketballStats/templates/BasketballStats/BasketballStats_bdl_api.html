@@ -76,49 +76,44 @@
             </tbody>
         </table>
     </div>
-    <div>
+    <div id="logo-container">
+
         <div id="atlantic-logos">
-            <img src="{{ logos.0 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.1 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.2 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.3 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.4 }}" width="300" height="300" style="display: inline-block;">
+            {% for logo in atlantic_logos %}
+            <img src="{{ logo }}" width="300" height="300" style="display: inline-block;" class="mx-auto">
+            {% endfor %}
         </div>
+
         <div id="central-logos">
-            <img src="{{ logos.5 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.6 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.7 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.8 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.9 }}" width="300" height="300" style="display: inline-block;">
+            {% for logo in central_logos %}
+            <img src="{{ logo }}" width="300" height="300" style="display: inline-block;" class="mx-auto">
+            {% endfor %}
         </div>
-        <div id="souteast-logos">
-            <img src="{{ logos.10 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.11 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.12 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.13 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.14 }}" width="300" height="300" style="display: inline-block;">
+
+        <div id="southeast-logos">
+            {% for logo in southeast_logos %}
+            <img src="{{ logo }}" width="300" height="300" style="display: inline-block;" class="mx-auto">
+            {% endfor %}
         </div>
+
         <div id="northwest-logos">
-            <img src="{{ logos.15 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.16 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.17 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.18 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.19 }}" width="300" height="300" style="display: inline-block;">
+            {% for logo in northwest_logos %}
+            <img src="{{ logo }}" width="300" height="300" style="display: inline-block;" class="mx-auto">
+            {% endfor %}
         </div>
+
         <div id="pacific-logos">
-            <img src="{{ logos.20 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.21 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.22 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.23 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.24 }}" width="300" height="300" style="display: inline-block;">
+            {% for logo in pacific_logos %}
+            <img src="{{ logo }}" width="300" height="300" style="display: inline-block;" class="mx-auto">
+            {% endfor %}
         </div>
+
         <div id="southwest-logos">
-            <img src="{{ logos.25 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.26 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.27 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.28 }}" width="300" height="300" style="display: inline-block;">
-            <img src="{{ logos.29 }}" width="300" height="300" style="display: inline-block;">
+            {% for logo in southwest_logos %}
+            <img src="{{ logo }}" width="300" height="300" style="display: inline-block;" class="mx-auto">
+            {% endfor %}
         </div>
+
     </div>
 </div>
 {% endblock %}
