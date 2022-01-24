@@ -177,7 +177,12 @@ def ball_dont_lie(request):
     pacific = []
     southwest = []
     utah_teams = []
-    logos = []
+    atlantic_logos = []
+    central_logos = []
+    southeast_logos = []
+    northwest_logos = []
+    pacific_logos = []
+    southwest_logos = []
     url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
 
     headers = {
@@ -195,15 +200,15 @@ def ball_dont_lie(request):
 
         if division == 'Atlantic':
             atlantic.append(name)
-            logos.append(logo)
+            atlantic_logos.append(logo)
 
         elif division == 'Central':
             central.append(name)
-            logos.append(logo)
+            central_logos.append(logo)
 
         elif division == 'Southeast':
             southeast.append(name)
-            logos.append(logo)
+            southeast_logos.append(logo)
 
         elif division == 'Northwest':
             if name == 'Utah Blue':
@@ -212,15 +217,15 @@ def ball_dont_lie(request):
                 utah_teams.append(name)
             else:
                 northwest.append(name)
-                logos.append(logo)
+                northwest_logos.append(logo)
 
         elif division == 'Pacific':
             pacific.append(name)
-            logos.append(logo)
+            pacific_logos.append(logo)
 
         elif division == 'Southwest':
             southwest.append(name)
-            logos.append(logo)
+            southwest_logos.append(logo)
 
     eastern_conference = zip(atlantic, central, southeast)
     western_conference = zip(northwest, pacific, southwest)
@@ -228,6 +233,7 @@ def ball_dont_lie(request):
         'eastern_conference': eastern_conference, 'western_conference': western_conference,
         'atlantic': atlantic, 'central': central, 'southeast': southeast,
         'northwest': northwest, 'pacific': pacific, 'southwest': southwest,
-        'logos': logos
+        'atlantic_logos': atlantic_logos, 'central_logos': central_logos, 'southeast_logos': southeast_logos,
+        'northwest_logos': northwest_logos, 'pacific_logos': pacific_logos, 'southwest_logos': southwest_logos
     }
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
