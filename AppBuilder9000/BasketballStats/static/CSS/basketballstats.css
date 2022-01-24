@@ -55,3 +55,39 @@ caption {
 #western-conference {
     margin-bottom: 50px;
 }
+
+#logo-container {
+    margin-bottom: 50px;
+    background-color: darkgrey;
+    opacity: 0.75;
+}
+
+#atlantic-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#central-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#southeast-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#northwest-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#pacific-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#southwest-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
