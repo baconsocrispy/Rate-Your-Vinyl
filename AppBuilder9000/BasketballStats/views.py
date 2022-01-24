@@ -217,6 +217,8 @@ def ball_dont_lie(request):
     eastern_conference = zip(atlantic, central, southeast)
     western_conference = zip(northwest, pacific, southwest)
     context = {
-        'eastern_conference': eastern_conference, 'western_conference': western_conference
+        'eastern_conference': eastern_conference, 'western_conference': western_conference,
+        'atlantic': atlantic, 'central': central, 'southeast': southeast,
+        'northwest': northwest, 'pacific': pacific, 'southwest': southwest
     }
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
