@@ -97,7 +97,7 @@ def standings_page(request):
 
 
 # This grabs a table of NBA Champions
-def history_scarping(request):
+def history_scraping(request):
     champion_list = []
     page = requests.get("https://www.dunkest.com/en/nba/news/58063/nba-champions-winners-1947-2021")
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -110,3 +110,130 @@ def history_scarping(request):
         champion_list.append(cells)
     context = {'champion_list': champion_list}
     return render(request, 'BasketballStats/BasketballStats_history.html', context)
+
+
+def web_scraping(request):
+    player_numbers = []
+    roster = []
+    position = []
+    height = []
+    weight = []
+    birthday = []
+    years_experience = []
+    college = []
+    page = requests.get("https://www.basketball-reference.com/teams/POR/2022.html")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    table = soup.find('table', id='roster')
+    one = table.find('tbody')
+    two = one.find_all('th')
+    for i in two:
+        three = i.text
+        player_numbers.append(three)
+
+    four = one.find_all('tr')
+    for tds in four:
+        td_list = tds.find_all('td')
+
+        name_list = td_list[0]
+        names = name_list.text
+        roster.append(names)
+
+        pos_list = td_list[1]
+        pos = pos_list.text
+        position.append(pos)
+
+        height_list = td_list[2]
+        heights = height_list.text
+        height.append(heights)
+
+        weight_list = td_list[3]
+        weights = weight_list.text
+        weight.append(weights)
+
+        bday_list = td_list[4]
+        bdays = bday_list.text
+        birthday.append(bdays)
+
+        experience_list = td_list[6]
+        exp = experience_list.text
+        years_experience.append(exp)
+
+        college_list = td_list[7]
+        colleges = college_list.text
+        college.append(colleges)
+
+    zipped_list = zip(player_numbers, roster, position, height, weight, birthday, years_experience, college)
+    context = {
+        'zipped_list': zipped_list
+    }
+    return render(request, 'BasketballStats/BasketballStats_web_scraping.html', context)
+
+
+def ball_dont_lie(request):
+    atlantic = []
+    central = []
+    southeast = []
+    northwest = []
+    pacific = []
+    southwest = []
+    utah_teams = []
+    atlantic_logos = []
+    central_logos = []
+    southeast_logos = []
+    northwest_logos = []
+    pacific_logos = []
+    southwest_logos = []
+    url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
+
+    headers = {
+        'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
+        'x-rapidapi-key': "93c897feddmshe43ca8b1cec9f29p1e574bjsn0ad1ca76158a"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    teams_info = json.loads(response.text)
+    team_list = teams_info['api']['teams']
+    for teams in team_list:
+        name = teams['fullName']
+        logo = teams['logo']
+        division = teams['leagues']['standard']['divName']
+
+        if division == 'Atlantic':
+            atlantic.append(name)
+            atlantic_logos.append(logo)
+
+        elif division == 'Central':
+            central.append(name)
+            central_logos.append(logo)
+
+        elif division == 'Southeast':
+            southeast.append(name)
+            southeast_logos.append(logo)
+
+        elif division == 'Northwest':
+            if name == 'Utah Blue':
+                utah_teams.append(name)
+            elif name == 'Utah White':
+                utah_teams.append(name)
+            else:
+                northwest.append(name)
+                northwest_logos.append(logo)
+
+        elif division == 'Pacific':
+            pacific.append(name)
+            pacific_logos.append(logo)
+
+        elif division == 'Southwest':
+            southwest.append(name)
+            southwest_logos.append(logo)
+
+    eastern_conference = zip(atlantic, central, southeast)
+    western_conference = zip(northwest, pacific, southwest)
+    context = {
+        'eastern_conference': eastern_conference, 'western_conference': western_conference,
+        'atlantic': atlantic, 'central': central, 'southeast': southeast,
+        'northwest': northwest, 'pacific': pacific, 'southwest': southwest,
+        'atlantic_logos': atlantic_logos, 'central_logos': central_logos, 'southeast_logos': southeast_logos,
+        'northwest_logos': northwest_logos, 'pacific_logos': pacific_logos, 'southwest_logos': southwest_logos
+    }
+    return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)

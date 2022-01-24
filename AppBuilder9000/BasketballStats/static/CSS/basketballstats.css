@@ -25,6 +25,11 @@ h3 {
     color: blue;
 }
 
+h6 {
+    text-align: center;
+    color: blue;
+}
+
 caption {
     color: lightskyblue;
     font-weight: bold;
@@ -41,4 +46,52 @@ caption {
 
 #container {
     margin-bottom: 50px;
+}
+
+#eastern-conference {
+    margin-bottom: 50px;
+}
+
+#western-conference {
+    margin-bottom: 50px;
+}
+
+#logo-container {
+    margin-bottom: 50px;
+    background-color: #7F7F7F;
+}
+
+#atlantic-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#central-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#southeast-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#northwest-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#pacific-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#southwest-logos {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    margin-left: 25px;
+    margin-right: 25px;
 }
