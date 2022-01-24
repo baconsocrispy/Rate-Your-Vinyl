@@ -5,5 +5,87 @@
 {% block header %}Ball Don't Lie API{% endblock %}
 
 {% block content %}
-
+<div id="container" class="container mx-auto">
+    <table id="table" class="table table-responsive table-dark table-bordered table-hover text-center w-50 mx-auto" data-toggle="table">
+        <thead>
+            <tr>
+                <th>Eastern Conference</th>
+            </tr>
+            <tr>
+                <th>Atlantic Division</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for atlantic in atlantic %}
+            <tr>
+                <td>{{ atlantic }}</td>
+            </tr>
+            {% endfor %}
+        <thead>
+            <tr>
+                <th>Central Division</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for central in central %}
+            <tr>
+                <td>{{ central }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <thead>
+            <tr>
+                <th>Southeast Division</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for southeast in southeast %}
+            <tr>
+                <td>{{ southeast }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table>
+         <thead>
+            <tr>
+                <th>Western Conference</th>
+            </tr>
+            <tr>
+                <th>Northwest Division</th>
+            </tr>
+         </thead>
+        <tbody>
+            {% for northwest in northwest %}
+            <tr>
+                <td>{{ northwest }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <thead>
+            <tr>
+                <th>Pacific Division</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pacific in pacific %}
+            <tr>
+                <td>{{ pacific }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <thead>
+            <tr>
+                <th>Southwest Division</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for southwest in southwest %}
+            <tr>
+                <td>{{ southwest }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}
