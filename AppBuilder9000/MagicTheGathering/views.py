@@ -114,12 +114,22 @@ def How_Too(request):
             ptagt3 = ptag3.text
             ptag4= defa[4]
             ptagt4 = ptag4.text
+            ptag5 = defa[5]
+            ptagt5 = ptag5.text
+            ptag6 = defa[6]
+            ptagt6 = ptag6.text
+            ptag7 = defa[7]
+            ptagt7 = ptag7.text
             about1 = ptagt1
             about2 = ptagt2
             about3 = ptagt3
             about4 = ptagt4
-        print(about1, about2, about3, about4)
-        context = {'about1':about1, 'about2':about2, 'about3':about3, 'about4':about4}
+            about5 = ptagt5
+            about6 = ptagt6
+            about7 = ptagt7
+        print(about1, about2, about3, about4, about5, about6, about7)
+        context = {'about1':about1, 'about2':about2, 'about3':about3, 'about4':about4, 'about'
+                   'about5':about5, 'about6':about6, 'about7':about7}
         return render(request, "MagicTheGathering/About.html", context)
     else:
         return render(request, 'MagicTheGathering/About.html')

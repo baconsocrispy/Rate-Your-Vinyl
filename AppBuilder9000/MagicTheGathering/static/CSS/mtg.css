@@ -168,6 +168,28 @@ input, select{
     text-align: center;
 }
 
+.info_container{
+    box-sizing: content-box;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15 px;
+    margin-top: 15 px;
+    margin-right: 500px;
+    margin-left: 500px;
+    margin-bottom: 50px;
+    border: 3px  solid black;
+    width:300 px;
+    height:300 px;
+    font-weight: Bold;
+    text-align: justify;
+    background: grey;
+}
+
+#inputbtn{
+    text-align: center;
+    align-self: center;
+}
+
 /* General Table Styling */
 th{
 	border: 3px solid black;
