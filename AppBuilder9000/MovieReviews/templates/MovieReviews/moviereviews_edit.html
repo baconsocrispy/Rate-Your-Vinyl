@@ -1,0 +1,32 @@
+{% extends "MovieReviews/moviereviews_base.html" %}
+
+
+{% block title %} Edit Review {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="admin_panel">
+
+    <form name="MovieForm" method="POST" action="../moviereviews_edit/">
+        <table>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}
+        </table>
+
+        <div class="frmBtn_container">
+            <input type="submit" value="Submit" class="btn">
+            <div class="frmBtn_container">
+                <a href="../{{ form.pk }}moviereviews_delete/"><button type="button" class="btn btn-light">DELETE</button></a>
+                <a href="{% url 'moviereviews_display' %}" ><button type="button" class="btn btn-light">CANCEL</button></a>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+
+{% endblock %}
