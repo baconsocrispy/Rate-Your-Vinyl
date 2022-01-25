@@ -237,3 +237,7 @@ def ball_dont_lie(request):
         'northwest_logos': northwest_logos, 'pacific_logos': pacific_logos, 'southwest_logos': southwest_logos
     }
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
+
+
+def save_favorites(request):
+    return render(request, 'BasketballStats/BasketballStats_save_api.html')
