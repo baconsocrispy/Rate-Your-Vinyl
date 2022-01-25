@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.homepage, name="moviereviews_home"),
     path('moviereviews_create/', views.moviereviews_create, name="moviereviews_create"),
     path('moviereviews_display/', views.moviereviews_display, name="moviereviews_display"),
+    path('<int:pk>/moviereviews_details/', views.moviereviews_details, name="moviereviews_details"),
 ]
 
 

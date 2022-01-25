@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Collection, Card
 from .forms import CardForm, CollectionForm
 from django.contrib import messages
+from bs4 import BeautifulSoup
 
 
 
@@ -97,7 +98,41 @@ def MagicTheGathering_API(request):
         return render(request, "MagicTheGathering/Magic_API.html")
 
 
-
+def How_Too(request):
+    if request.method == 'POST':
+        page = requests.get("https://en.wikipedia.org/wiki/Magic:_The_Gathering")
+        soup = BeautifulSoup(page.content, 'html.parser')
+        refined = soup.find_all('div', class_='vector-body')
+        for t in refined:
+            defa = t.find_all('p')
+            ptag1 = defa[1]
+            ptagt1 = ptag1.text
+            ptag2= defa[2]
+            ptagt2 = ptag2.text
+            defa = t.find_all('p')
+            ptag3 = defa[3]
+            ptagt3 = ptag3.text
+            ptag4= defa[4]
+            ptagt4 = ptag4.text
+            ptag5 = defa[5]
+            ptagt5 = ptag5.text
+            ptag6 = defa[6]
+            ptagt6 = ptag6.text
+            ptag7 = defa[7]
+            ptagt7 = ptag7.text
+            about1 = ptagt1
+            about2 = ptagt2
+            about3 = ptagt3
+            about4 = ptagt4
+            about5 = ptagt5
+            about6 = ptagt6
+            about7 = ptagt7
+        print(about1, about2, about3, about4, about5, about6, about7)
+        context = {'about1':about1, 'about2':about2, 'about3':about3, 'about4':about4, 'about'
+                   'about5':about5, 'about6':about6, 'about7':about7}
+        return render(request, "MagicTheGathering/About.html", context)
+    else:
+        return render(request, 'MagicTheGathering/About.html')
 
 
 
