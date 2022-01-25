@@ -240,4 +240,8 @@ def ball_dont_lie(request):
 
 
 def save_favorites(request):
+    url = "https://www.balldontlie.io/api/v1/teams"
+    response = requests.request("GET", url)
+    teams = json.loads(response.text)
+    print(teams)
     return render(request, 'BasketballStats/BasketballStats_save_api.html')
