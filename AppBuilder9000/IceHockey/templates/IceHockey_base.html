@@ -1,0 +1,25 @@
+        {% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title%}{% endblock %}</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/static/CSS/IceHockey.css">
+    </head>
+<body>
+    <ul class="topnav">
+                <li><a href="{% url 'IceHockey_home' %}">Home</a></li>
+                <li><a href="">Top Players</a></li>
+                <li><a href="">Top Teams</a></li>
+                <li><a href="">My Team</a></li>
+    </ul>
+        {% block content %}{% endblock %}
+        <section id="block-footer">
+            <p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
+            <p id="footer-left">&copy;2022 - Taylor Peters Digital Solutions</p>
+        </section>
+</body>
+
+</html>
