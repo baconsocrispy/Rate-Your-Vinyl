@@ -224,5 +224,5 @@ def nutritionix_nutrients_api(request):
 We are accessing nutritionix's API: a database of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
 and their corresponding nutritional information (e.g. calories, saturated fat, vitamin C, etc.)
 
-
+!
 """
