@@ -160,13 +160,14 @@ API Guide: https://docs.google.com/document/d/1_q-K-ObMTZvO0qUEAxROrN3bwMujwAN25
 """
 
 def nutritionix_nutrients_api(request):
-    user_query = request.GET['user_query']
-    if request.method == 'POST':
+    #user_query is the name value of the input element where a user enters a query
+    # we are saying if a user has entered a query
+    if 'user_query' in request.GET:
         api_version = 'v2'
         api_base_url = f'https://trackapi.nutritionix.com/{api_version}'
         endpoint_path = f'/natural/nutrients'
         endpoint = f'{api_base_url}{endpoint_path}'
-        query = user_query
+        query = request.GET['user_query']
         # requests.post accepts 'headers' as an argument.
         # we provide api credentials, as specified in the API documentation, in 'headers'
         headers = {
@@ -197,8 +198,11 @@ def nutritionix_nutrients_api(request):
         print(request.status_code)
 
         # calls our pprint function, imported from pprint, printing JSON neatly in terminal for legibility
-
+        #the purpose is to show ALL the data the API sends us, in contrast to what we end up with through filtering
         pprint.pprint(request.json())
+
+        #the below function filters JSON response data to include only nutritional info
+        #all nutritional info in JSON response starts with 'nf_', hence we targeted only KVPs with 'nf_'' in the key
         if request.status_code in range(200, 299):
             data = request.json()
             results = data['foods']
@@ -213,8 +217,9 @@ def nutritionix_nutrients_api(request):
                         out[k] = v
             for k, v in out.items():
                 print(k, v)
-    else:
-        return render(request, 'Nutrition/Nutrition_API.html')
+        #go to home page after printing in terminal
+        return redirect('Nutrition_home')
+    return render(request, 'Nutrition/Nutrition_API.html')
 """
 We are accessing nutritionix's API: a database of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
 and their corresponding nutritional information (e.g. calories, saturated fat, vitamin C, etc.)
