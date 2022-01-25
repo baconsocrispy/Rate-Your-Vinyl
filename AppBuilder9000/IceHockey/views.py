@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
 
-def home(request):
-    render(request, 'IceHockey_home.html')
+def IceHockey_home(request):
+    return render(request, 'IceHockey/IceHockey_home.html')
 
