@@ -14,22 +14,22 @@
                         <tr>
                                 <th scope="col">Title</th>
                                 <th scope="col">Genre</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Rating</th>
                                 <th scope="col">Director</th>
                                 <th scope="col">Actor</th>
                                 <th scope="col">Stars</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
                         </tr>
                         <tbody>
                         {% for movies in movies %}
                         <tr>
                                 <td><a href="{% url 'moviereviews_details' movies.id %}">{{ movies.title}}</a></td>
                                 <td>{{ movies.genre}}</td>
-                                <td>{{ movies.description }}</td>
-                                <td>{{ movies.rating }}</td>
                                 <td>{{ movies.director }}</td>
                                 <td>{{ movies.actor }}</td>
                                 <td>{{ movies.stars }}</td>
+                                <td><a href="{% url 'moviereviews_edit' movies.id %}"><button class="btn" type="button">EDIT</button></a></td>
+                                <td><a href="{% url 'moviereviews_delete' movies.id %}"><button class="btn" type="button">DELETE</button></a></td>
                         </tr>
                         {% endfor %}
                         </tbody>
