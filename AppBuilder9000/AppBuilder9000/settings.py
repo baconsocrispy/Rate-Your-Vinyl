@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'MovieReviews',
     'MagicTheGathering',
     'HotSprings',
+    'Turtles',
 ]
 
 MIDDLEWARE = [
