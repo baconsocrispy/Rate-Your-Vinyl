@@ -1,0 +1,18 @@
+{% extends 'Nutrition/Nutrition_base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Nutritionix API</h2>
+<br>
+<h3>Please type any food item you wish to explore nutritional information for</h3>
+<br>
+<h4>Examples: 'Big Mac', 'Large Apple', 'Small egg', 'lettuce', 'Cheetos' ... </h4>
+<form method="GET" action="">
+{% csrf_token %}
+<input type="text" name="user_query">
+
+<button type="submit">Search</button>
+</form>
+
+
+{% endblock %}
