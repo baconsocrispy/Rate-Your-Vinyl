@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title%}{% endblock %}</title>
+</head>
+<header>
+
+</header>
+<body id="body">
+{% block content %}{% endblock %}
+
+<section id="block-footer">
+    <p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
+    <p id="footer-left">&copy;2022 - Taylor Peters Digital Solutions</p>
+</section>
+</body>
+</html>
