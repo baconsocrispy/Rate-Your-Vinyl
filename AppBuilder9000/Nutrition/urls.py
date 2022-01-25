@@ -21,8 +21,7 @@ urlpatterns = [
     path('<int:pk>/edit_account/', views.edit_account, name="edit_account"),
     path('<int:pk>/edit_nutrition/', views.edit_nutrition, name="edit_nutrition"),
     path('scraper/', views.scraper, name="scraper"),
-
-
+    path('nutritionix_nutrients_api', 'views.nutritionix_nutrients_api', name="nutritionix_nutrients_api"),
 
 ]
     #when it sees name="nutrition_home" it knows to go to the views.createRecord method and
