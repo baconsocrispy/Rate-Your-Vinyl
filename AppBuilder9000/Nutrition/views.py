@@ -157,6 +157,7 @@ It scrapes teaster-text and prints it in terminal window when template 'scrape' 
 API Name: nutritionix has a dB of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
 and their corresponding nutritional information (e.g. calories, saturated fat, vitamin C, etc.)
 API Guide: https://docs.google.com/document/d/1_q-K-ObMTZvO0qUEAxROrN3bwMujwAN25sLHwJzliK0/edit#heading=h.73n49tgew66c
+API Endpoint: we are focusing on the basic nutritional information endpoint, as opposed to the micronutrient data
 """
 
 def nutritionix_nutrients_api(request):
@@ -183,28 +184,23 @@ def nutritionix_nutrients_api(request):
         # can accept (requests.post can only accept certain arguments per its documentation)
         data = {
             "query": query,
-
         }
 
         # api stated this endpoint requires a POST request.
         # the 'endpoint' argument stores the precise URL endpoint
         # the 'headers' argument stores API credentials (keys)
         # the 'data' argument is what stores the actual query itself
-        request = requests.post(endpoint, headers=headers, data=data)
-
-
+        a_request = requests.post(endpoint, headers=headers, data=data)
 
         # prints a status code to verify our request was successful
-        print(request.status_code)
-
-        # calls our pprint function, imported from pprint, printing JSON neatly in terminal for legibility
-        #the purpose is to show ALL the data the API sends us, in contrast to what we end up with through filtering
-        pprint.pprint(request.json())
+        print(a_request.status_code)
 
         #the below function filters JSON response data to include only nutritional info
         #all nutritional info in JSON response starts with 'nf_', hence we targeted only KVPs with 'nf_'' in the key
-        if request.status_code in range(200, 299):
-            data = request.json()
+        #error codes between 200 and 300 are failures, so we want to execute only if it succeeded
+
+        if a_request.status_code in range(200, 299):
+            data = a_request.json()
             results = data['foods']
             search_key = 'nf_'
             out = {}
@@ -215,14 +211,17 @@ def nutritionix_nutrients_api(request):
 
                     if search_key in k:
                         out[k] = v
-            for k, v in out.items():
-                print(k, v)
-        #go to home page after printing in terminal
-        return redirect('Nutrition_home')
+            nutrients_dict = out
+            print(nutrients_dict)
+
+
+
+            #take user to template and display results
+            return render(request, 'Nutrition/Nutrition_API_results.html', {'nutrients_dict': nutrients_dict}, {'query': query})
     return render(request, 'Nutrition/Nutrition_API.html')
 """
 We are accessing nutritionix's API: a database of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
-and their corresponding nutritional information (e.g. calories, saturated fat, vitamin C, etc.)
+and their corresponding nutritional information (e.g. calories, saturated fat, protein, etc.)
 
 !
 """

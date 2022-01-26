@@ -23,6 +23,7 @@ urlpatterns = [
     path('scraper/', views.scraper, name="scraper"),
     path('nutritionix_nutrients_api/', views.nutritionix_nutrients_api, name="nutritionix_nutrients_api"),
 
+
 ]
     #when it sees name="nutrition_home" it knows to go to the views.createRecord method and
     #change the name of the URL to include nutrition_home
