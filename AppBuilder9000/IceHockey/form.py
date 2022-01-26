@@ -1,14 +1,10 @@
 from django.forms import ModelForm
-from .models import User, CreateAPlayer
+from .models import Profile
 
 
 class UserForm(ModelForm):
     class Meta:
-        model = User
+        model = Profile
         fields = '__all__'
 
 
-class CreateAPlayerForm(ModelForm):
-    class Meta:
-        model = CreateAPlayer
-        fields = '__all__'
