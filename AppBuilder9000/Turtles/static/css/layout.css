@@ -1,6 +1,6 @@
 .bg_img {
     background-color: lightgreen;
-    background-image: url('AppBuilder9000/Turtles/static/images/Turtle1.jpg');
+    background-image: url('../images/Turtle1.jpg');
     background-size: cover;
     background-attachment:fixed;
     background-position: center;
