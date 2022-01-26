@@ -1,9 +1,8 @@
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
 # Create your models here.
-class User(models.Model):
+class Profile(models.Model):
     TEAM_OPTIONS = (
         ('AN', 'Anaheim Ducks'),
         ('AZ', 'Arizona Coyotes'),
@@ -40,32 +39,27 @@ class User(models.Model):
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    favorite_player = models.CharField(max_length=80)
     favorite_team = models.CharField(max_length=2, choices=TEAM_OPTIONS)
 
-    User = models.Manager()
+    Profile = models.Manager()
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
 
-class CreateAPlayer(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    jersey_number = models.DecimalField(
-        max_digits=2,
-        decimal_places= 0,
-        default=1,
-        validators=[MaxValueValidator(99), MinValueValidator(1)]
-     )
-    height_feet = models.DecimalField(
-        max_digits=1,
-        default=5,
-        decimal_places=0,
-        validators=[MaxValueValidator(6), MinValueValidator(4)]
-     )
-    height_inches = models.DecimalField(
-        max_digits=2,
-        default=0,
-        decimal_places=0,
-        validators=[MaxValueValidator(11), MinValueValidator(0)]
-    )
+class FavTeam(models.Model):
+    my_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    current_points = models.DecimalField(max_digits=3, decimal_places=0)
+    current_wins = models.DecimalField(max_digits=2, decimal_places=0)
+    current_losses = models.DecimalField(max_digits=2, decimal_places=0)
+    current_otls = models.DecimalField(max_digits=2, decimal_places=0)
+    current_sols = models.DecimalField(max_digits=2, decimal_places=0)
+
+
+class FavPlayer(models.Model):
+    my_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    current_points = models.DecimalField(max_digits=3, decimal_places=0)
+    current_goals = models.DecimalField(max_digits=2, decimal_places=0)
+    current_assists = models.DecimalField(max_digits=2, decimal_places=0)
+    current_pims = models.DecimalField(max_digits=2, decimal_places=0)
+    allstar_appearances = models.DecimalField(max_digits=2, decimal_places=0)

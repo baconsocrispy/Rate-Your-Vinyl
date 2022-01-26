@@ -1,0 +1,21 @@
+{% extends 'IceHockey_base.html' %}
+{% block title %}Create New User{% endblock %}
+{% block content %}
+
+<h3>My Profile</h3>
+
+    <ul class="bg-info">
+        {% for profiles in profile_list %}
+        <div class="media bg-warning">
+            <div class="media-body">
+             <h5 class="mt-0"><strong>{{ profiles.first_name }} {{ profiles.last_name }}</strong></h5>
+              <li><p>Favorite Team: {{ profiles.favorite_team }}</p></li>
+            </div>
+        </div>
+   {% endfor %}
+    </ul>
+
+
+
+
+{% endblock %}

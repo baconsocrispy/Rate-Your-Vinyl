@@ -1,12 +1,12 @@
 {% extends 'IceHockey_base.html' %}
 {% block title %}Create New User{% endblock %}
 {% block content %}
-<h3>CREATE NEW ACCOUNT</h3>
+<h3>Create New Profile</h3>
     <div id="account-form">
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}<!-- Replace this with the Django Form -->
-            <button id="new-account-button" type="submit" name="Save_Account">Create User</button>
+            <button id="new-account-button" type="submit" name="Save_Account">Create Profile</button>
         </form>
     </div>
 {% endblock %}
