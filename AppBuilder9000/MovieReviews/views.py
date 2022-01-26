@@ -38,4 +38,32 @@ def moviereviews_details(request, pk):
     return render(request, 'MovieReviews/moviereviews_details.html', context)
 
 
+def moviereviews_edit(request, pk):
+     movie_item = get_object_or_404(Movies, pk=pk)
+     form = MovieForm(data=request.POST or None, instance=movie_item)
+     if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('moviereviews_display')
+        else:
+            print(form.errors)
+     else:
+        return render(request, 'MovieReviews/moviereviews_edit.html', {'form': form, 'movie_item': movie_item})
+
+
+def moviereviews_delete(request, pk):
+    movie_item = get_object_or_404(Movies, pk=pk)
+    if request.method == 'POST':
+        movie_item.delete()
+        return redirect('moviereviews_display')
+    context = {'movie_item': movie_item}
+    return render(request, 'MovieReviews/moviereviews_delete.html', context)
+
+
+
+
+
+
+
 

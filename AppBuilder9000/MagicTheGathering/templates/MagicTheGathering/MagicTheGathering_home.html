@@ -22,9 +22,10 @@
     <div>
         <h2> ADD A CARD TO THE DATA BASE</h2>
         <div class="add_container">
-            Here is where you will add a card to your collection!
+            <img class="picturecontainer" src="../static/Images/rhysticstudy.jpg" style="float:left;width:30%;height:30%">
+            Here is where you will add a card to your collection! The first step you want to do is make a collection!
+            Then you will add cards to the specific collection! After you add some cards to your collection you can go to your collection to look at all your cards!
             <form method="POST">
-                <label>Card Info:</label>
                 <div>
                     <button type="submit" class="button" id="button"><a href="{% url 'add' %}">ADD CARD</a></button>
                     <button type="submit" class="button" id="button3"><a href="{% url 'create' %}">Make Collection</a></button>
@@ -53,7 +54,7 @@
     <div>
 
         <div class="add_container">
-            <h3>Search a Card</h3>
+            <h3>Search a Card you want for your data base!</h3>
             <form method="post" action="{% url 'MagicTheGathering_API' %}">
                 {% csrf_token %}
                 <input type="text" name="mtg" placeholder="Enter Card name">
