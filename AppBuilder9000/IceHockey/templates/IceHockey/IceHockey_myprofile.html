@@ -2,14 +2,15 @@
 {% block title %}Create New User{% endblock %}
 {% block content %}
 
-<h3>My Profile</h3>
+<h3>All Profiles</h3>
 
     <ul class="bg-info">
-        {% for profiles in profile_list %}
+        {% for profiles in profile_list reversed %}
         <div class="media bg-warning">
             <div class="media-body">
              <h5 class="mt-0"><strong>{{ profiles.first_name }} {{ profiles.last_name }}</strong></h5>
-              <li><p>Favorite Team: {{ profiles.favorite_team }}</p></li>
+              <li>Favorite Team: {{ profiles.favorite_team }}</li>
+              <li>Favorite Player: {{ profiles.favorite_player }}</li>
             </div>
         </div>
    {% endfor %}
