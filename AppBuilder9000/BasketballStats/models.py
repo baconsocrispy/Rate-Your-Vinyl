@@ -12,3 +12,14 @@ class Players(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Teams(models.Model):
+    team_name = models.CharField(max_length=50)
+    conference = models.CharField(max_length=10)
+    division = models.CharField(max_length=15)
+
+    Team = models.Manager()
+
+    def __str__(self):
+        return self.team_name
