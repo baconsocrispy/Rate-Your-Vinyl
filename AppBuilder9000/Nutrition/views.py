@@ -211,7 +211,9 @@ def nutritionix_nutrients_api(request):
 
                     if search_key in k:
                         out[k] = v
+
             nutrients_dict = out
+            del nutrients_dict['nf_p'] #nf_p is extraneous so we delete it
             print(nutrients_dict)
 
 

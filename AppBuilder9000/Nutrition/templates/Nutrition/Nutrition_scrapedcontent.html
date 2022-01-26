@@ -2,6 +2,13 @@
 {% load static %}
 
 {% block content %}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Explore the Latest Nutrition and Supplement News</h4>
+  <p>We tap straight into some of the biggest sites for the latest Nutrition and Supplement content, with any ads
+  or distractions.</p>
+  <hr>
+  <p class="mb-0">We are currently tapping into:  </p>
+</div>
 <form name="productForm" method="POST" action="../scraper/">
     {% csrf_token %}
     <input type="submit" value="Scrape Some Pages!">

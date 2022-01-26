@@ -6,8 +6,8 @@
 
 {% block content %}
 
+<!--RENDERS SCRAPED NUTRITION DATA IF REQUESTED BY USER ON Nutrition_scrapedcontent.html PAGE-->
 {% if nutrition_data %}
-
 
 <h2>Scraped Data</h2>
 		<div class="tablescrollscraped">
@@ -33,18 +33,13 @@
 			</table>
 		</div>
 {% endif %}
+<!--END SCRAPED CONTENT RENDERING-->
+
+
+
+
+
+
+
 {% endblock %}
 
-{% comment %}
-The below code worked to render scraped data
-
-{% if nutrition_data %}
-        {% for i in nutrition_data.values %}
-        <h3> {{ i }} </h3>
-
-
-        {% endfor %}
-
-{% endif %}
-
-{% endcomment %}

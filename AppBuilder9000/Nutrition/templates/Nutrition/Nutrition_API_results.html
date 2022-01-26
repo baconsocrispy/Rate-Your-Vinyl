@@ -2,6 +2,127 @@
 {% load static %}
 
 {% block content %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="">
+          <tr class="">
+        <th class="">Nutrients</th>
+          </tr>
+        <tr class="">
+            <td>Calories (kcal)</td>
+        </tr>
+        <tr class="">
+            <td>Total Fat (grams)</td>
+        </tr>
+        <tr class="">
+            <td>Saturated Fat (grams)</td>
+        </tr>
+        <tr class="">
+            <td>Cholesterol (milligrams)</td>
+        </tr>
+        <tr class="">
+            <td>Sodium (milligrams)</td>
+        </tr>
+        <tr class="">
+            <td>Total Carbohydrates (grams)</td>
+        </tr>
+        <tr class="">
+            <td>Dietary Fiber (grams)</td>
+        </tr>
+        <tr class="">
+            <td>Sugars (grams)</td>
+        </tr>
+        <tr class="">
+            <td>Protein (grams)</td>
+        </tr>
+        <tr class="">
+            <td>Potassium (milligrams)</td>
+        </tr>
+
+	  </table>
+    </div>
+    <div class="col">
+      <table class="">
+      <tr class="">
+        <th class="">Values</th>
+      </tr>
+        {% for key, value in nutrients_dict.items %}
+            <tr>
+                <td>{{ value }}</td>
+            </tr>
+
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+ <!-- <div class="table-responsive col-md-6">
+    <table class="">
+        <tr class="">
+            <td>Calories</td>
+        </tr>
+        <tr class="">
+            <td>Total Fat</td>
+        </tr>
+        <tr class="">
+            <td>Saturated Fat</td>
+        </tr>
+        <tr class="">
+            <td>Cholesterol</td>
+        </tr>
+        <tr class="">
+            <td>Sodium</td>
+        </tr>
+        <tr class="">
+            <td>Total Carbohydrates</td>
+        </tr>
+        <tr class="">
+            <td>Dietary Fiber</td>
+        </tr>
+        <tr class="">
+            <td>Sugars</td>
+        </tr>
+        <tr class="">
+            <td>Protein</td>
+        </tr>
+        <tr class="">
+            <td>Potassium</td>
+        </tr>
+        <tr class="">
+            <td>P</td>
+        </tr>
+    </table>
+  </div>
+
+  <div class="table-responsive col-md-6">
+    <table class="">
+      <tr class="">
+        <th class="">Values</th>
+      </tr>
+        {% for key, value in nutrition_dict.items %}
+
+        <tr class="">
+            <td class="">{{ value }}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+{% comment %}
+
+
 <div class="tablescrollscraped">
     <table class="table table-responsive" id ="transactions-table">
 
@@ -27,67 +148,6 @@
         {% endfor %}
 
     </table>
-</div>
-
-
-
-{% endblock %}
-
-
-{% comment %}
-<div class="wrow">
-  <div class="wcolumn">
-    <table class="wtable">
-        <tr class="wtr">
-            <td>Calories</td>
-        </tr>
-        <tr class="wtr">
-            <td>Total Fat</td>
-        </tr>
-        <tr class="wtr">
-            <td>Saturated Fat</td>
-        </tr>
-        <tr class="wtr">
-            <td>Cholesterol</td>
-        </tr>
-        <tr class="wtr">
-            <td>Sodium</td>
-        </tr>
-        <tr class="wtr">
-            <td>Total Carbohydrates</td>
-        </tr>
-        <tr class="wtr">
-            <td>Dietary Fiber</td>
-        </tr>
-        <tr class="wtr">
-            <td>Sugars</td>
-        </tr>
-        <tr class="wtr">
-            <td>Protein</td>
-        </tr>
-        <tr class="wtr">
-            <td>Potassium</td>
-        </tr>
-        <tr class="wtr">
-            <td>P</td>
-        </tr>
-    </table>
-  </div>
-
-  <div class="wcolumn">
-    <table class="wtable">
-      <tr class="wtr">
-        <th class="wth">Values</th>
-      </tr>
-        {% for key, value in nutrition_dict.items %}
-
-        <tr class="wtr">
-            <td class="wtd">{{ value }}</td>
-        </tr>
-
-        {% endfor %}
-    </table>
-  </div>
 </div>
 {% endcomment %}
 
@@ -155,5 +215,5 @@
 
     {% endfor %}
 </table>
-{% endcomment %}
+{% endcomment %}-->
 
