@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayersForm
-from .models import Players
+from .models import Players, Teams
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -239,21 +239,16 @@ def ball_dont_lie(request):
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
 
 
-def save_favorites(request):
-    teams = []
-    conferences = []
-    divisions = []
+def save_favorites(request, team):
+    team_id = team
     url = "https://www.balldontlie.io/api/v1/teams"
     response = requests.request("GET", url)
     data = json.loads(response.text)
     team_list = data['data']
-    for i in team_list:
-        team_name = i['full_name']
-        conference = i['conference']
-        division = i['division']
-        teams.append(team_name)
-        conferences.append(conference)
-        divisions.append(division)
-    team_info = zip(teams, conferences, divisions)
-    print(team_info)
+
+    new_team = Teams.Team.create(team_name=team_list['full_name'],
+                                 conference=team_list['conference'],
+                                 division=team_list['division']
+                                 )
+    new_team.save()
     return render(request, 'BasketballStats/BasketballStats_save_api.html')
