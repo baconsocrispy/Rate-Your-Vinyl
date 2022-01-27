@@ -2,11 +2,25 @@
 
 {% block title %}Nutrition for Immunity{% endblock %}
 
-{% block header %}Welcome to Nutrition for Immunity!{% endblock %}
+{% block header %}{% endblock %}
+
 
 {% block content %}
 
+<div class="jumbotron alert-success">
+  <h1 class="display-4">Welcome to The NutritionApp!</h1>
+  <p class="lead">Our app strives to make health and nutrition take front and center stage in your life.</p>
+  <hr class="my-4">
+  <p>We help you create your own Nutrition Path, look at nutrition details for any food, and
+	  stay up-to-date with the latest nutritional supplement news.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'create_account' %}" role="button">Get Started Today!</a>
+  </p>
+</div>
+
 <!--RENDERS SCRAPED NUTRITION DATA IF REQUESTED BY USER ON Nutrition_scrapedcontent.html PAGE-->
+{% comment %}
+<!--Currently the below functionality pertaining to the old scraped function in views is commented out-->
 {% if nutrition_data %}
 
 <h2>Scraped Data</h2>
@@ -33,6 +47,7 @@
 			</table>
 		</div>
 {% endif %}
+{% endcomment %}
 <!--END SCRAPED CONTENT RENDERING-->
 
 
