@@ -27,6 +27,28 @@ h2{
     text-align: center;
 }
 
+img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+    height: 300px:
+    object-fit: fit;
+}
+
+table{
+    box-sizing: border-box;
+    width: 150px;
+}
+
+tr{
+    background-color: grey;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* General Form Field Styling */
 label {
 	width: 125px;
@@ -150,7 +172,7 @@ input, select{
     margin-left: 500px;
     border: 3px  solid black;
     width:300 px;
-    height:300 px;
+    height:400 px;
     font-weight: Bold;
     text-align: center;
 }
@@ -172,7 +194,7 @@ input, select{
     box-sizing: content-box;
     padding-right: 15px;
     padding-left: 15px;
-    padding-top: 15 px;
+    padding-top: 10 px;
     margin-top: 15 px;
     margin-right: 500px;
     margin-left: 500px;
@@ -183,6 +205,46 @@ input, select{
     font-weight: Bold;
     text-align: justify;
     background: grey;
+}
+
+.tablestyling{
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15 px;
+    margin-top: 15 px;
+    margin-right: 500px;
+    margin-left: 650px;
+    margin-bottom: 50px;
+}
+
+.cardaddstyling{
+    box-sizing: content-box;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 10 px;
+    margin-top: 15 px;
+    margin-right: 500px;
+    margin-left: 500px;
+    margin-bottom: 50px;
+    border: 3px  solid black;
+    width:300 px;
+    height:300 px;
+    font-weight: Bold;
+    text-align: justify;
+    background: grey;
+}
+
+.formObject{
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15 px;
+    margin-top: 15 px;
+    margin-right: 500px;
+    margin-left: 400px;
+    margin-bottom: 50px;
+
 }
 
 #inputbtn{
@@ -273,4 +335,18 @@ tr td{
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+#transactions-table{
+    position: center:
+}
+
+.table table-responsive{
+    margin-left: auto;
+    margin-right: auto;
+    position: center;
+    background-color: grey;
+}
+
+#id{
+    width: 500px;
+}
 

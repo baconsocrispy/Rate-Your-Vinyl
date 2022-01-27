@@ -391,3 +391,41 @@ tr td{
 	float: center;
 	position: relative;
 }
+
+
+/*styling for Nutrition_API_results.html tables*/
+
+#api-table {
+	background-color:white;
+	width: 50%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 5px;
+	border: 2px solid gray;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: fixed;
+	float: left;
+	position: relative;
+}
+
+#api-table2 {
+	background-color:white;
+	width: 50%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 5px;
+	border: 2px solid gray;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: fixed;
+	float: right;
+	position: relative;
+}
+
+#api-headerRow {
+    color: darkslateblue;
+    text-align: center;
+}

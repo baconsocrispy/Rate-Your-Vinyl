@@ -1,0 +1,29 @@
+{% extends "IceHockey_base.html" %}
+{% load static %}
+{% block title %}Ice Hockey Details{% endblock %}
+
+{% block header %}Item Details{% endblock %}
+
+{% block content %}
+<div id="container" class="table-responsive w-80 mx-auto">
+    <table id="table" class="table table-info table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col" data-field="first_name" class="w-25">First Name</th>
+                <th scope="col" data-field="last_name" class="w-25">Last Name</th>
+                <th scope="col" data-field="favorite_team" class="w-25">Favorite Team</th>
+                <th scope="col" data-field="favorite_player" class="w-25">Favorite Player</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ details.first_name }}</td>
+                <td>{{ details.last_name }}</td>
+                <td>{{ details.favorite_team }}</td>
+                <td>{{ details.favorite_player }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
