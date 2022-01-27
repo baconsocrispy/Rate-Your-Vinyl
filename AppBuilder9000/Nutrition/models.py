@@ -58,3 +58,18 @@ class PersonalizedNutrition(models.Model):
     def __str__(self):
         return self.area_of_health + ' | ' + self.supplement_type
 
+#Below is a model representing the capture of API responses from the Nutritionix API, storing user search query and Nutrition Info
+class NutritionixInfoReceived(models.Model):
+    calories = models.FloatField()
+    total_Fat = models.FloatField()
+    saturated_fat = models.FloatField()
+    cholesterol = models.FloatField()
+    sodium = models.FloatField()
+    total_carbohydrate = models.FloatField()
+    dietary_fiber = models.FloatField()
+    sugars = models.FloatField()
+    protein = models.FloatField()
+    potassium = models.FloatField()
+    search_query = models.CharField(max_length=250)
+
+    NutritionInfo = models.Manager()

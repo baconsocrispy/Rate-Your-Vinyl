@@ -2,10 +2,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
-from .models import Account, PersonalizedNutrition
+from .models import Account, PersonalizedNutrition, NutritionixInfoReceived
 from .forms import AccountForm, NutritionalQuery
 import requests
 import json
+from django.template.defaulttags import register
 from bs4 import BeautifulSoup
 import pprint
 # Create your views here.
@@ -168,8 +169,79 @@ and their corresponding nutritional information (e.g. calories, saturated fat, v
 API Guide: https://docs.google.com/document/d/1_q-K-ObMTZvO0qUEAxROrN3bwMujwAN25sLHwJzliK0/edit#heading=h.73n49tgew66c
 API Endpoint: we are focusing on the basic nutritional information endpoint, as opposed to the micronutrient data
 """
+@register.filter
+def get_value(dictionary, key):
+    return dictionary.get(key)
 
 def nutritionix_nutrients_api(request):
+    #user_query is the name value of the input element where a user enters a query
+    # we are saying if a user has entered a query
+    if 'user_query' in request.GET:
+        api_version = 'v2'
+        api_base_url = f'https://trackapi.nutritionix.com/{api_version}'
+        endpoint_path = f'/natural/nutrients'
+        endpoint = f'{api_base_url}{endpoint_path}'
+        query = request.GET['user_query']
+        # requests.post accepts 'headers' as an argument.
+        # we provide api credentials, as specified in the API documentation, in 'headers'
+        headers = {
+            'x-app-id': '212b5e6c',
+            'x-app-key': 'bcfd3f08c16996662783976a3b37793a',
+            # remote-user-id is used for billing purposes, but this isn't relevant so
+            # api told us to use '0' as a value to disregard.
+            'x-remote-user-id': '0'
+        }
+
+        # the API specified that we need to provide 'query' and 'timezone' key/value pairs.
+        # this is stored as a dictionary in variable 'data', an argument that requests.post
+        # can accept (requests.post can only accept certain arguments per its documentation)
+        data = {
+            "query": query,
+        }
+        user_query = data
+        # api stated this endpoint requires a POST request.
+        # the 'endpoint' argument stores the precise URL endpoint
+        # the 'headers' argument stores API credentials (keys)
+        # the 'data' argument is what stores the actual query itself
+        a_request = requests.post(endpoint, headers=headers, data=data)
+
+        # prints a status code to verify our request was successful
+        print(a_request.status_code)
+
+        #the below function filters JSON response data to include only nutritional info
+        #all nutritional info in JSON response starts with 'nf_', hence we targeted only KVPs with 'nf_'' in the key
+        #error codes between 200 and 300 are failures, so we want to execute only if it succeeded
+
+        if a_request.status_code in range(200, 299):
+            data = a_request.json()
+            results = data['foods']
+            search_key = 'nf_'
+            out = {}
+            for i in results:
+                if not isinstance(i, dict):
+                    continue
+                for k, v in i.items():
+
+                    if search_key in k:
+                        out[k] = v
+
+            nutrients_dict = out
+            del nutrients_dict['nf_p'] #nf_p is extraneous so we delete it
+            print(nutrients_dict)#verifies dictionary integrity in console (we can see if it looks good)
+            print(user_query)
+            #take user to template and display results
+            return render(request, 'Nutrition/Nutrition_API_results.html', {'nutrients_dict': nutrients_dict},
+                          {'user_query': user_query})
+    return render(request, 'Nutrition/Nutrition_API.html')
+"""
+We are accessing nutritionix's API: a database of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
+and their corresponding nutritional information (e.g. calories, saturated fat, protein, etc.)
+
+!
+"""
+"""
+#below is a version of the above function, but it allows a user to send another query and SAVE it
+def save_nutritionix_nutrients_api(request):
     #user_query is the name value of the input element where a user enters a query
     # we are saying if a user has entered a query
     if 'user_query' in request.GET:
@@ -223,16 +295,34 @@ def nutritionix_nutrients_api(request):
 
             nutrients_dict = out
             del nutrients_dict['nf_p'] #nf_p is extraneous so we delete it
-            print(nutrients_dict)
+            print(nutrients_dict)#verifies dictionary integrity in console (we can see if it looks good)
+            #experimental logic to attempt saving to dB
+            if request.method == 'POST':
+                nutrients_dict2 = nutrients_dict
+                nutrients_dict2.update({'search_query': query})
+                print(nutrients_dict2)
+                for i in nutrients_dict2:
+                    nutrition_data = NutritionixInfoReceived(
+                    calories=i['nf_calories'],
+                    total_fat=i['nf_total_fat'],
+                    saturdated_fat=i['nf_saturated_fat'],
+                    cholesterol=i['nf_cholesterol'],
+                    sodium=i['nf_sodium'],
+                    total_carbohydrate = i['nf_total_carbohydrate'],
+                    dietary_fiber = i['nf_dietary_fiber'],
+                    sugars = i['nf_sugars'],
+                    protein = i['nf_protein'],
+                    potassium = i['nf_potassium'],
+                    search_query=i['search_query']
+                    )
+                    nutrition_data.save()
+
+            return HttpResponse(f"OKAY, got and saved your nutrition item info! {name}")
+            #end experimental logic
 
 
 
             #take user to template and display results
             return render(request, 'Nutrition/Nutrition_API_results.html', {'nutrients_dict': nutrients_dict}, {'query': query})
     return render(request, 'Nutrition/Nutrition_API.html')
-"""
-We are accessing nutritionix's API: a database of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
-and their corresponding nutritional information (e.g. calories, saturated fat, protein, etc.)
-
-!
 """

@@ -2,9 +2,14 @@
 {% load static %}
 
 {% block content %}
+{% for item in user_query.items %}
 <div class="alert alert-success" role="alert">
-  Success! We found the info you were looking for below . . .
+
+    Success! We found the info on <strong>{{ user_query|get_value:item.NAME }}</strong>you were looking for below . . .
+
+
 </div>
+{% endfor %}
 <!--Future idea: show the user what it was they searched within the alert-success text above-->
 
 <div class="container">
@@ -63,6 +68,13 @@
   </div>
 </div>
 
+<button type="button" class="btn btn-primary">Save Result</button>
+{% if HttpResponse == True %}
+<div class="alert alert-success" role="alert">
+
+    {{ HttpResponse }}
 
 
+</div>
+{% endif %}
 {% endblock %}
