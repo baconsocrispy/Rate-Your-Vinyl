@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="" rel="">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
+        {% block styles %}
+        {% endblock %}
     </head>
     <body>
         <div class="page_container">
@@ -18,6 +19,9 @@
                 <li><a href="{% url 'make_query' %}">Personalize your Nutrition</a></li>
                 <li><a href="{% url 'display_db' %}">Show Accounts</a></li>
                 <li><a href="{% url 'scraper' %}">Web Scraper</a></li>
+                <li><a href="{% url 'nutritionix_nutrients_api' %}">Nutrition API</a></li>
+
+
 
             </ul>
             <header class="header-title">

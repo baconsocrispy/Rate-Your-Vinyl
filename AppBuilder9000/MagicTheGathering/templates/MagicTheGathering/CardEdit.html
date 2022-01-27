@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="admin_panel">
+<div class="cardaddstyling">
     {% if form %}
     <form name="productForm" method="POST" action="../editCardInfo/"><!--go back one directory (..) and say details-->
 
@@ -15,7 +15,7 @@
             {{ form.non_field_errors }}
             {{ form.as_table }}
         </table>
-        <div class="frmBtn_container">
+        <div class="frmBtn_container" style="center">
             <input type="submit" value="Submit">
             <div class="frmBtn_container">
                 <a href="../{{ form.pk }}delete_card/" class="btn" id="button5">DELETE</a>

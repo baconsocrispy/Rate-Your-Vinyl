@@ -1,0 +1,159 @@
+{% extends 'Nutrition/Nutrition_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="tablescrollscraped">
+    <table class="table table-responsive" id ="transactions-table">
+
+        <tr id="headerRow">
+            <td>Nutrients</td>
+            <td>Nutrient Values</td>
+
+
+
+        </tr>
+        {% for key, value in nutrients_dict.items %}
+
+        <tr>
+
+
+            <td class="center">{{ key }}</td>
+            <td class="center">{{ value }}</td>
+
+
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+
+
+
+{% endblock %}
+
+
+{% comment %}
+<div class="wrow">
+  <div class="wcolumn">
+    <table class="wtable">
+        <tr class="wtr">
+            <td>Calories</td>
+        </tr>
+        <tr class="wtr">
+            <td>Total Fat</td>
+        </tr>
+        <tr class="wtr">
+            <td>Saturated Fat</td>
+        </tr>
+        <tr class="wtr">
+            <td>Cholesterol</td>
+        </tr>
+        <tr class="wtr">
+            <td>Sodium</td>
+        </tr>
+        <tr class="wtr">
+            <td>Total Carbohydrates</td>
+        </tr>
+        <tr class="wtr">
+            <td>Dietary Fiber</td>
+        </tr>
+        <tr class="wtr">
+            <td>Sugars</td>
+        </tr>
+        <tr class="wtr">
+            <td>Protein</td>
+        </tr>
+        <tr class="wtr">
+            <td>Potassium</td>
+        </tr>
+        <tr class="wtr">
+            <td>P</td>
+        </tr>
+    </table>
+  </div>
+
+  <div class="wcolumn">
+    <table class="wtable">
+      <tr class="wtr">
+        <th class="wth">Values</th>
+      </tr>
+        {% for key, value in nutrition_dict.items %}
+
+        <tr class="wtr">
+            <td class="wtd">{{ value }}</td>
+        </tr>
+
+        {% endfor %}
+    </table>
+  </div>
+</div>
+{% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+<table class="table table-responsive" id="api-table">
+
+    <tr>
+        <th id="api-headerRow">Nutrient</th>
+    </tr>
+    <tr>
+        <td>Calories</td>
+    </tr>
+    <tr>
+        <td>Total Fat</td>
+    </tr>
+    <tr>
+        <td>Saturated Fat</td>
+    </tr>
+    <tr>
+        <td>Cholesterol</td>
+    </tr>
+    <tr>
+        <td>Sodium</td>
+    </tr>
+    <tr>
+        <td>Total Carbohydrates</td>
+    </tr>
+    <tr>
+        <td>Dietary Fiber</td>
+    </tr>
+    <tr>
+        <td>Sugars</td>
+    </tr>
+    <tr>
+        <td>Protein</td>
+    </tr>
+    <tr>
+        <td>Potassium</td>
+    </tr>
+    <tr>
+        <td>P</td>
+    </tr>
+
+</table>
+<table class="table table-responsive" id="api-table2">
+
+    <tr>
+        <th>Value</th>
+    </tr>
+    {% for key, value in nutrients_dict.items %}
+    <tr>
+        <td>{{ value }}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endcomment %}
+

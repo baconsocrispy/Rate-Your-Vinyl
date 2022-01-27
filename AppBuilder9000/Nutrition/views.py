@@ -5,7 +5,9 @@ from django.http import HttpResponse
 from .models import Account, PersonalizedNutrition
 from .forms import AccountForm, NutritionalQuery
 import requests
+import json
 from bs4 import BeautifulSoup
+import pprint
 # Create your views here.
 
 
@@ -126,7 +128,7 @@ def edit_nutrition(request, pk):
     passed on to the render and will be rendered within the present_product page"""
 
 
-#_________________TESTING CODE BELOW - UNFINISHED CODE BELOW - TEST CODE BELOW_______________________________
+#_________________BELOW CODE REPRESENTS THE WEB SCRAPER FUNCTIONALITY OF THE APPLICATION_______________________________
 
 
 def scraper(request):
@@ -136,12 +138,6 @@ def scraper(request):
         nutrition_data = dict()
         refined = soup.find_all('div', class_='Teaser-text')
         nutrition_data['values'] = [pt.get_text() for pt in refined]
-
-
-
-
-
-
         return render(request, 'Nutrition/Nutrition_home.html',{'nutrition_data': nutrition_data})
     else:
         return render(request, 'Nutrition/Nutrition_scrapedcontent.html')
@@ -150,7 +146,82 @@ def scraper(request):
 
 """The above function scrapes https://www.nutraingredients-usa.com/ ... specifically, it looks at the 
 two bottom HTML elements within this path: <article class='teaser'> --> <div class='teaser-text'> --> 
-<h3 class='teaser-title'> ... SCRAPING THIS 
+
 <p class='teaser-intro'> ... SCRAPING THIS TOO 
 
-It scrapes headlines and teaster-text and prints it in terminal window when template 'scrape' button is clicked."""
+It scrapes teaster-text and prints it in terminal window when template 'scrape' button is clicked."""
+
+
+#_________________BELOW CODE REPRESENTS THE API ACCESS FUNCTIONALITY OF THE APPLICATION_______________________________
+"""
+API Name: nutritionix has a dB of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
+and their corresponding nutritional information (e.g. calories, saturated fat, vitamin C, etc.)
+API Guide: https://docs.google.com/document/d/1_q-K-ObMTZvO0qUEAxROrN3bwMujwAN25sLHwJzliK0/edit#heading=h.73n49tgew66c
+API Endpoint: we are focusing on the basic nutritional information endpoint, as opposed to the micronutrient data
+"""
+
+def nutritionix_nutrients_api(request):
+    #user_query is the name value of the input element where a user enters a query
+    # we are saying if a user has entered a query
+    if 'user_query' in request.GET:
+        api_version = 'v2'
+        api_base_url = f'https://trackapi.nutritionix.com/{api_version}'
+        endpoint_path = f'/natural/nutrients'
+        endpoint = f'{api_base_url}{endpoint_path}'
+        query = request.GET['user_query']
+        # requests.post accepts 'headers' as an argument.
+        # we provide api credentials, as specified in the API documentation, in 'headers'
+        headers = {
+            'x-app-id': '212b5e6c',
+            'x-app-key': 'bcfd3f08c16996662783976a3b37793a',
+            # remote-user-id is used for billing purposes, but this isn't relevant so
+            # api told us to use '0' as a value to disregard.
+            'x-remote-user-id': '0'
+        }
+
+        # the API specified that we need to provide 'query' and 'timezone' key/value pairs.
+        # this is stored as a dictionary in variable 'data', an argument that requests.post
+        # can accept (requests.post can only accept certain arguments per its documentation)
+        data = {
+            "query": query,
+        }
+
+        # api stated this endpoint requires a POST request.
+        # the 'endpoint' argument stores the precise URL endpoint
+        # the 'headers' argument stores API credentials (keys)
+        # the 'data' argument is what stores the actual query itself
+        a_request = requests.post(endpoint, headers=headers, data=data)
+
+        # prints a status code to verify our request was successful
+        print(a_request.status_code)
+
+        #the below function filters JSON response data to include only nutritional info
+        #all nutritional info in JSON response starts with 'nf_', hence we targeted only KVPs with 'nf_'' in the key
+        #error codes between 200 and 300 are failures, so we want to execute only if it succeeded
+
+        if a_request.status_code in range(200, 299):
+            data = a_request.json()
+            results = data['foods']
+            search_key = 'nf_'
+            out = {}
+            for i in results:
+                if not isinstance(i, dict):
+                    continue
+                for k, v in i.items():
+
+                    if search_key in k:
+                        out[k] = v
+            nutrients_dict = out
+            print(nutrients_dict)
+
+
+
+            #take user to template and display results
+            return render(request, 'Nutrition/Nutrition_API_results.html', {'nutrients_dict': nutrients_dict}, {'query': query})
+    return render(request, 'Nutrition/Nutrition_API.html')
+"""
+We are accessing nutritionix's API: a database of ~600,000 real food items (e.g. BigMac, Cheetos, large apple, etc.)
+and their corresponding nutritional information (e.g. calories, saturated fat, protein, etc.)
+
+!
+"""

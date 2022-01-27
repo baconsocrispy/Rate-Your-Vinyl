@@ -15,9 +15,7 @@
             {% include "MovieReviews/moviereviews_navbar.html" %}
             <header class="header-title">
                 <h1>{% block header %} {% endblock %}</h1>
-                <p>If you love movies you're in the right place!<br>
-                    You can see all our reviewed movies and even<br>
-                    create your own reviews too!</p>
+
             </header>
 
 
@@ -25,7 +23,9 @@
 
 
         <div>
-            {% block content %}{% endblock %}
+            {% block content %}
+
+            {% endblock %}
 
         </div>
 
