@@ -2,6 +2,19 @@
 
 {% block title %}Nutrition for Immunity{% endblock %}
 
+{% block scripts %}
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").fadeIn();
+    $("#div2").fadeIn("slow");
+    $("#div3").fadeIn(3000);
+  });
+});
+</script>
+
+{% endblock %}
+
 {% block header %}{% endblock %}
 
 
@@ -18,6 +31,50 @@
   </p>
 </div>
 
+
+
+<button class="btn btn-large btn-warning">What can NutritionApp do for you?</button><br><br>
+
+<div id="div1" class="alert alert-success" role="alert" style="display:none;">
+  <h2 class="alert-heading">Create your own Path to Nutritional Wellness</h2>
+
+  <hr>
+  <p class="mb-0">We offer you some innovative tools and options to create a path to wellness.</p>
+</div>
+
+<div id="div2" class="alert alert-success" role="alert" style="display:none;">
+   <h2 class="alert-heading">Discover the Latest in Nutrition</h2>
+
+  <hr>
+  <p class="mb-0">We scour the web in search of the biggest, most innovative nutrition news catered just for you.</p>
+</div>
+
+<div id="div3" class="alert alert-success" role="alert" style="display:none;">
+   <h2 class="alert-heading">Find the Truth about Your Foods</h2>
+
+  <hr>
+  <p class="mb-0">Search any food you can imagine and get up-to-date nutrition information to inform your health choices.</p>
+</div>
+
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;">
+	<p>This</p>
+</div><br>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;">
+	<p>This</p>
+</div><br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;">
+	<p>This</p>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").fadeIn();
+    $("#div2").fadeIn("slow");
+    $("#div3").fadeIn(3000);
+  });
+});
+</script>
 <!--RENDERS SCRAPED NUTRITION DATA IF REQUESTED BY USER ON Nutrition_scrapedcontent.html PAGE-->
 {% comment %}
 <!--Currently the below functionality pertaining to the old scraped function in views is commented out-->
