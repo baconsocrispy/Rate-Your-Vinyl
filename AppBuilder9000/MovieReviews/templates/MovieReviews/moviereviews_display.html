@@ -8,9 +8,9 @@
 {% block content %}
 
 <h1> Reviewed Movies </h1>
-<div id="table_container"></div>
-        <table class="table display table-bordered table-light table-hover table-striped">
-                <thread class="thread-light">
+<div id="table_container" class="table-responsive w-75 mx-auto">
+        <table id="table" class="table table-dark table-bordered text-center" data-toggle="table">
+            <thread>
                         <tr>
                                 <th scope="col">Title</th>
                                 <th scope="col">Genre</th>
@@ -28,8 +28,8 @@
                                 <td>{{ movies.director }}</td>
                                 <td>{{ movies.actor }}</td>
                                 <td>{{ movies.stars }}</td>
-                                <td><a href="{% url 'moviereviews_edit' movies.id %}"><button class="btn" type="button">EDIT</button></a></td>
-                                <td><a href="{% url 'moviereviews_delete' movies.id %}"><button class="btn" type="button">DELETE</button></a></td>
+                                <td><a href="{% url 'moviereviews_edit' movies.id %}"><button class="btn btn-secondary btn-light" type="button">EDIT</button></a></td>
+                                <td><a href="{% url 'moviereviews_delete' movies.id %}"><button class="btn btn-secondary btn-light" type="button">DELETE</button></a></td>
                         </tr>
                         {% endfor %}
                         </tbody>
