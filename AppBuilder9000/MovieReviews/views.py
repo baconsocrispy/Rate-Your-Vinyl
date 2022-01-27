@@ -5,7 +5,7 @@ from .forms import MovieForm
 from .models import Movies
 import requests
 from bs4 import BeautifulSoup
-
+import json
 
 # Create your views here.
 def homepage(request):
@@ -84,6 +84,27 @@ def moviereviews_scraping(request):
     movie_info = zip(movie_list, rating_list)
     context = {'movie_info': movie_info}
     return render(request, 'MovieReviews/moviereviews_scraping.html', context)
+
+# API to fetch Movie Title, Year and ID when user inputs a movie title
+def moviereviews_api(request):
+    full_list = []
+    url = "https://movies-tvshows-data-imdb.p.rapidapi.com/"
+    querystring = {"type": "get-movies-by-title", "title": "dune"}
+    headers = {
+        'x-rapidapi-host': "movies-tvshows-data-imdb.p.rapidapi.com",
+        'x-rapidapi-key': "25eef8ba99msh15727dc40c123aep11ab94jsn4d74c8cd384d"
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    movie = json.loads(response.text)
+    print(movie)
+
+    return render(request, 'MovieReviews/moviereviews_api.html')
+
+
+
+
+
+
 
 
 
