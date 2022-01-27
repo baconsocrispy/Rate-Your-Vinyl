@@ -22,11 +22,10 @@ def IceHockey_myprofile(request):
     return render(request, 'IceHockey/IceHockey_myprofile.html', {'profile_list': profile_list})
 
 
-    #
-    # pk = Profile.object.get(pk=pk)
-    # profile = get_object_or_404(Profile, pk=pk)
-    # name = profile.first_name
-    # team = profile.favorite_team
-    # content = {'name': name, 'team': team}
-    # return render(request, 'IceHockey/IceHockey_myprofile.html', content)
+def IceHockey_details(request, pk):
+    details = get_object_or_404(Profile, pk=pk)
+    context = {'details': details}
+    return render(request, 'IceHockey/IceHockey_details.html', context)
+
+
 
