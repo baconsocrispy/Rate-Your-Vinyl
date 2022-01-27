@@ -2,18 +2,6 @@
 
 {% block title %}Nutrition for Immunity{% endblock %}
 
-{% block scripts %}
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $("#div1").fadeIn();
-    $("#div2").fadeIn("slow");
-    $("#div3").fadeIn(3000);
-  });
-});
-</script>
-
-{% endblock %}
 
 {% block header %}{% endblock %}
 
@@ -55,61 +43,6 @@ $(document).ready(function(){
   <hr>
   <p class="mb-0">Search any food you can imagine and get up-to-date nutrition information to inform your health choices.</p>
 </div>
-
-<div id="div1" style="width:80px;height:80px;display:none;background-color:red;">
-	<p>This</p>
-</div><br>
-<div id="div2" style="width:80px;height:80px;display:none;background-color:green;">
-	<p>This</p>
-</div><br>
-<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;">
-	<p>This</p>
-</div>
-
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $("#div1").fadeIn();
-    $("#div2").fadeIn("slow");
-    $("#div3").fadeIn(3000);
-  });
-});
-</script>
-<!--RENDERS SCRAPED NUTRITION DATA IF REQUESTED BY USER ON Nutrition_scrapedcontent.html PAGE-->
-{% comment %}
-<!--Currently the below functionality pertaining to the old scraped function in views is commented out-->
-{% if nutrition_data %}
-
-<h2>Scraped Data</h2>
-		<div class="tablescrollscraped">
-			<table class="table table-responsive" id ="transactions-table">
-
-				<tr id="headerRow">
-					<td>Nutritional Supplement News</td>
-
-
-				</tr>
-				{% for i in nutrition_data.values %}
-
-				<tr>
-
-
-					<td class="center">{{ i }}</td>
-
-
-
-				</tr>
-				{% endfor %}
-
-			</table>
-		</div>
-{% endif %}
-{% endcomment %}
-<!--END SCRAPED CONTENT RENDERING-->
-
-
-
-
 
 
 
