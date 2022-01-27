@@ -130,7 +130,21 @@ def edit_nutrition(request, pk):
 
 #_________________BELOW CODE REPRESENTS THE WEB SCRAPER FUNCTIONALITY OF THE APPLICATION_______________________________
 
+def scraper(request):
+    page = requests.get('https://www.nutraingredients-usa.com/')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    nutrition_data = dict()
+    refined = soup.find_all('div', class_='Teaser-text')
+    nutrition_data['values'] = [pt.get_text() for pt in refined]
+    return render(request, 'Nutrition/Nutrition_scrapedcontent.html',{'nutrition_data': nutrition_data})
 
+"""The above function scrapes https://www.nutraingredients-usa.com/ ... specifically, it looks at the 
+two bottom HTML elements within this path: <article class='teaser'> --> <div class='teaser-text'> --> 
+
+"""
+
+#the below is the logic for a button-triggered scrape that takes you to, and displays results in, home page
+"""  
 def scraper(request):
     if request.method == 'POST':
         page = requests.get('https://www.nutraingredients-usa.com/')
@@ -142,14 +156,9 @@ def scraper(request):
     else:
         return render(request, 'Nutrition/Nutrition_scrapedcontent.html')
 
+"""
 
 
-"""The above function scrapes https://www.nutraingredients-usa.com/ ... specifically, it looks at the 
-two bottom HTML elements within this path: <article class='teaser'> --> <div class='teaser-text'> --> 
-
-<p class='teaser-intro'> ... SCRAPING THIS TOO 
-
-It scrapes teaster-text and prints it in terminal window when template 'scrape' button is clicked."""
 
 
 #_________________BELOW CODE REPRESENTS THE API ACCESS FUNCTIONALITY OF THE APPLICATION_______________________________
@@ -211,7 +220,9 @@ def nutritionix_nutrients_api(request):
 
                     if search_key in k:
                         out[k] = v
+
             nutrients_dict = out
+            del nutrients_dict['nf_p'] #nf_p is extraneous so we delete it
             print(nutrients_dict)
 
 
