@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang='en'>
+
+    <head>
+        <meta charset='UTF-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+        <link rel="stylesheet" href="{% static 'KB_css/KB_style.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <!-- Nav bar  -->
+        <ul class="navbar">
+            <li class="nbli"><a href='{% url "KB_home" %}'>Home</a></li>
+            <li class="nbli"><a href='#'>Sizes</a></li>
+            <li class="nbli"><a href='#'>Exercises</a></li>
+            <li class="nbli"><a href='#'>Resources</a></li>
+        </ul>
+        <!-- End nav bar -->
+
+        <header>
+            <h1>{% block header %}{% endblock %}</h1>
+        </header>
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- Footer -->
+        <section id="footer">
+            <p style="color: rgba(240, 182, 67);">Alex Coy |  2022</p>
+            <p>It's not what it's cracked up to be, it's what you make it.</p>
+        </section>
+        <!-- End Footer -->
+    </body>
+</html>

@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def home(request):
-    return render(request, 'templates/home.html')
+def kettleBells(request):
+    return render(request, 'kettleBells_home.html')
