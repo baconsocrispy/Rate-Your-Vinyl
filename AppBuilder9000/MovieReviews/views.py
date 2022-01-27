@@ -81,7 +81,9 @@ def moviereviews_scraping(request):
         rating_list.append(rating)
     print(rating_list)
     print(movie_list)
-    return render(request, 'MovieReviews/moviereviews_scraping.html')
+    movie_info = zip(movie_list, rating_list)
+    context = {'movie_info': movie_info}
+    return render(request, 'MovieReviews/moviereviews_scraping.html', context)
 
 
 

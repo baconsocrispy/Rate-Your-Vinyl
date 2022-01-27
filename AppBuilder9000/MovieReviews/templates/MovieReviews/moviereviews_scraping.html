@@ -2,25 +2,25 @@
 
 {% load static %}
 
-{% block title %}Scrape Top Movies{% endblock %}
+{% block title %}Top 25 Movies{% endblock %}
 
 {% block content %}
-<h1>Top 25 Movies</h1>
-<div id="table_container">
-    <table class="table display table-bordered table-light table-hover table-striped">
-            <thread class="thread-light">
+<h1>Top 25 Movies of all Time</h1>
+<div id="table_container" class="table-responsive w-75 mx-auto">
+    <table id="table" class="table table-dark table-bordered table-striped text-center" data-toggle="table">
+            <thread class="thread-dark">
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Rating</th>
-
                 </tr>
             </thread>
             <tbody>
+            {% for title, rating in movie_info %}
                 <tr>
-                    <th></th>
-                    <td></td>
-
+                    <td>{{ title }}</td>
+                    <td>{{ rating }}</td>
                 </tr>
+            {% endfor %}
             </tbody>
 
         </table>

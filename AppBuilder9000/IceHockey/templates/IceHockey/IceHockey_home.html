@@ -2,5 +2,9 @@
 {% load static %}
 {% block title %}Ice Hockey{% endblock %}
 {% block content %}
+
+    {% csrf_token %}
+    {{ form.as_p }}
     <h3>For All Your Hockey Interests</h3>
+
 {% endblock %}
