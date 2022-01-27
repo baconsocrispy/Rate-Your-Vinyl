@@ -87,16 +87,24 @@ def moviereviews_scraping(request):
 
 # API to fetch Movie Title, Year and ID when user inputs a movie title
 def moviereviews_api(request):
-    full_list = []
+    title_list = []
+    year_list = []
+
     url = "https://movies-tvshows-data-imdb.p.rapidapi.com/"
-    querystring = {"type": "get-movies-by-title", "title": "dune"}
+    querystring = {"type": "get-movies-by-title", "title": "matrix"}
     headers = {
         'x-rapidapi-host': "movies-tvshows-data-imdb.p.rapidapi.com",
         'x-rapidapi-key': "25eef8ba99msh15727dc40c123aep11ab94jsn4d74c8cd384d"
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
     movie = json.loads(response.text)
-    print(movie)
+    movie_results =movie['movie_results']
+    for movies in movie_results:
+        titles = movies['title']
+        title_list.append(titles)
+        year = movies['year']
+        year_list.append(year)
+    print(title_list, year_list)
 
     return render(request, 'MovieReviews/moviereviews_api.html')
 
