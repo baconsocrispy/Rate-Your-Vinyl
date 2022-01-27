@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'MagicTheGathering',
     'HotSprings',
     'IceHockey',
+    'kettleBells',
 ]
 
 MIDDLEWARE = [
