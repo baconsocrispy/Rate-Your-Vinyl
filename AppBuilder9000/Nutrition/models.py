@@ -72,4 +72,7 @@ class NutritionixInfoReceived(models.Model):
     potassium = models.FloatField()
     search_query = models.CharField(max_length=250)
 
-    NutritionInfo = models.Manager()
+    Queries = models.Manager()
+
+    def __str__(self):
+        return self.search_query

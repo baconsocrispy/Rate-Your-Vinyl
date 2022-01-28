@@ -22,6 +22,7 @@ urlpatterns = [
     path('<int:pk>/edit_nutrition/', views.edit_nutrition, name="edit_nutrition"),
     path('scraper/', views.scraper, name="scraper"),
     path('nutritionix_nutrients_api/', views.nutritionix_nutrients_api, name="nutritionix_nutrients_api"),
+    path('save_nutritionix_nutrients_api', views.save_nutritionix_nutrients_api, name="save_nutritionix_nutrients_api"),
 
 
 ]

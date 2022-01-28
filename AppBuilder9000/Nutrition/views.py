@@ -239,7 +239,7 @@ and their corresponding nutritional information (e.g. calories, saturated fat, p
 
 !
 """
-"""
+
 #below is a version of the above function, but it allows a user to send another query and SAVE it
 def save_nutritionix_nutrients_api(request):
     #user_query is the name value of the input element where a user enters a query
@@ -297,32 +297,34 @@ def save_nutritionix_nutrients_api(request):
             del nutrients_dict['nf_p'] #nf_p is extraneous so we delete it
             print(nutrients_dict)#verifies dictionary integrity in console (we can see if it looks good)
             #experimental logic to attempt saving to dB
-            if request.method == 'POST':
-                nutrients_dict2 = nutrients_dict
-                nutrients_dict2.update({'search_query': query})
-                print(nutrients_dict2)
-                for i in nutrients_dict2:
-                    nutrition_data = NutritionixInfoReceived(
-                    calories=i['nf_calories'],
-                    total_fat=i['nf_total_fat'],
-                    saturdated_fat=i['nf_saturated_fat'],
-                    cholesterol=i['nf_cholesterol'],
-                    sodium=i['nf_sodium'],
-                    total_carbohydrate = i['nf_total_carbohydrate'],
-                    dietary_fiber = i['nf_dietary_fiber'],
-                    sugars = i['nf_sugars'],
-                    protein = i['nf_protein'],
-                    potassium = i['nf_potassium'],
-                    search_query=i['search_query']
-                    )
-                    nutrition_data.save()
 
-            return HttpResponse(f"OKAY, got and saved your nutrition item info! {name}")
-            #end experimental logic
+            nutrients_dict2 = nutrients_dict
+            nutrients_dict2.update({'search_query': query})
+            nutrient_list = list(nutrients_dict2.values())
+            print(nutrient_list)
+
+
+
+            nutrition_data = NutritionixInfoReceived(
+            calories=nutrient_list[0],
+            total_Fat=nutrient_list[1],
+            saturated_fat=nutrient_list[2],
+            cholesterol=nutrient_list[3],
+            sodium=nutrient_list[4],
+            total_carbohydrate = nutrient_list[5],
+            dietary_fiber = nutrient_list[6],
+            sugars = nutrient_list[7],
+            protein = nutrient_list[8],
+            potassium = nutrient_list[9],
+            search_query= nutrient_list[10]
+            )
+            nutrition_data.save()
+
+
+        #end experimental logic
 
 
 
             #take user to template and display results
             return render(request, 'Nutrition/Nutrition_API_results.html', {'nutrients_dict': nutrients_dict}, {'query': query})
-    return render(request, 'Nutrition/Nutrition_API.html')
-"""
+    return render(request, 'Nutrition/Nutrition_saveAPI.html')
