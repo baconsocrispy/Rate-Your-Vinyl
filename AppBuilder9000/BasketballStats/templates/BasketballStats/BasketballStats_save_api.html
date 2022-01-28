@@ -9,16 +9,16 @@
 {% block content %}
 <div class="container">
     <h2 class="text-center">Select Your Favorite Teams!</h2>
-    <form method="POST">
+    <form method="POST" action="{% url 'basketball_stats_save_favorites' %}">
         {% csrf_token %}
         <label for="Teams">Choose a Team:</label>
-        <select id="Teams">
+        <select id="Teams" name="value">
             <option value="#">-----------</option>
-            {% for team in all_teams %}
-            <option value="1">{{ team }}</option>
+            {% for team in team_names %}
+            <option value="{{ team }}">{{ team }}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="Submit">
+        <input type="submit" name="new_team">
     </form>
 </div>
 {% endblock %}
