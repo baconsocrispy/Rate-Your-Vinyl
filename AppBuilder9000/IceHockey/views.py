@@ -86,7 +86,7 @@ def IceHockey_scrapeddata(request, pk):
         player_assists.append(assist)
 
     zipped_list = zip(player_years, player_teams, player_leagues, player_goals, player_assists)
-    context = {'zipped_list': zipped_list}
+    context = {'zipped_list': zipped_list, 'details': details}
     return render(request, 'IceHockey/IceHockey_scrapeddata.html', context)
 
 
