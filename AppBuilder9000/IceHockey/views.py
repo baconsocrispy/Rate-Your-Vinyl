@@ -61,6 +61,22 @@ def IceHockey_scrapeddata(request, pk):
     new_result = requests.get(soup2)
     soup = BeautifulSoup(new_result.text, "html.parser")
 
+    for seasons in soup.find_all('span', class_="season"):
+        season = seasons.string
+        player_years.append(season)
+
+    for teams in soup.find_all("td", class_="team"):
+        for spans in teams.find_all('span'):
+            for links in spans.find_all('a'):
+                team = links.string
+                player_teams.append(team)
+                break
+
+    for leagues in soup.find_all("td", class_="league"):
+        for links in leagues.find_all('a'):
+            league = links.string
+            player_leagues.append(league)
+
     for goals in soup.find_all("td", class_="regular g"):
         goal = goals.string
         player_goals.append(goal)
@@ -69,7 +85,8 @@ def IceHockey_scrapeddata(request, pk):
         assist = assists.string
         player_assists.append(assist)
 
-    context = {'fav_name': fav_name, 'player_goals': player_goals, 'player_assists': player_assists, 'details': details}
+    zipped_list = zip(player_years, player_teams, player_leagues, player_goals, player_assists)
+    context = {'zipped_list': zipped_list}
     return render(request, 'IceHockey/IceHockey_scrapeddata.html', context)
 
 
@@ -91,7 +108,3 @@ def IceHockey_delete(request, pk):
         item.delete()
         return redirect('IceHockey_myprofile')
     return render(request, 'IceHockey/IceHockey_delete.html', {'item': item, 'form': form})
-
-
-
-
