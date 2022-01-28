@@ -94,7 +94,7 @@ def moviereviews_api(request):
 
     if request.method == 'POST':
         userinput = request.POST['userinput']
-        if userinput == '':
+        if 'userinput' == '':
             messages.info(request, 'Please put in info')
         else:
 
