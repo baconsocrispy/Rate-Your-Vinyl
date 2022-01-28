@@ -241,23 +241,26 @@ def ball_dont_lie(request):
 
 def save_favorites(request):
     all_teams = {}
-    url = "https://www.balldontlie.io/api/v1/teams/"
+    team_names = []
+    url = "https://www.balldontlie.io/api/v1/teams"
     response = requests.request("GET", url)
     data = json.loads(response.text)
     team_list = data['data']
     for x in team_list:
-        team_id = x['id']
         team_name = x['full_name']
+        team_names.append(team_name)
     if request.method == 'POST':
-        value = request.POST['id']
+        value = request.POST['value']
+        print(value)
         for i in team_list:
-            if value == i['id']:
+            if value == i['full_name']:
                 new_team = Teams.Team.create(team_name=i['full_name'],
                                              conference=i['conference'],
                                              division=i['division']
                                              )
                 new_team.save()
-                all_teams = new_team.objects.all().order_by('id')
-            return render(request, 'BasketballStats/BasketballStats_save_api.html', {'all_teams': all_teams})
+
+            return render(request, 'BasketballStats/BasketballStats_save_api.html', {'all_teams': all_teams,
+                                                                                     'team_names': team_names})
     else:
-        return render(request, 'BasketballStats/BasketballStats_save_api.html')
+        return render(request, 'BasketballStats/BasketballStats_save_api.html', {'team_names': team_names})
