@@ -1,7 +1,6 @@
 
 
 .bg_img {
-    background-color: lightgreen;
     background-image: url('../images/Turtle1.jpg');
     background-size: cover;
     background-attachment:fixed;
