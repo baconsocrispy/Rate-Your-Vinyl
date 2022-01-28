@@ -9,15 +9,16 @@
   <hr>
   <p class="mb-0">Examples: 'Big Mac', '2 large apples', 'small egg', 'lettuce', '3 Cheetos' ... </p>
 </div>
-
+<p class="text-warning">Here, you can type in a search and have the results saved for future reference automatically!</p>
 <p class="h1 text-center my-5"></p>
 <form method="GET" action="">
 {% csrf_token %}
 <input type="text" class="form-control" name="user_query" placeholder="type in any food!">
 <br>
-<button class="btn btn-primary btn-lg btn-block btn-outline-success" type="submit">Search</button>
+<button class="btn btn-warning btn-lg btn-block" type="submit">Search and Save</button>
 
-</form>
+
+
 
 
 
