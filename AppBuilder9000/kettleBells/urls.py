@@ -5,5 +5,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.kettleBells, name='KB_home')
+    path('', views.kettleBells, name='KB_home'),
+    path('kettleBells_exercises', views.moves, name='KB_moves'),
+    path('kettleBells_create', views.add_exercise, name='KB_add'),
 ]
