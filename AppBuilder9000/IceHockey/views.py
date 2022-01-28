@@ -29,15 +29,18 @@ def IceHockey_details(request, pk):
     context = {'details': details}
     return render(request, 'IceHockey/IceHockey_details.html', context)
 
-def IceHockey_scrapedata(request):
+
+def IceHockey_scrapeddata(request, pk):
     player_years = []
     player_teams = []
     player_leagues = []
     player_goals = []
-    player_assist = []
+    player_assists = []
+
+    details = get_object_or_404(Profile, pk=pk)
 
     base_url = "https://www.eliteprospects.com/search/player?q="
-    fav_name = Profile.favorite_player
+    fav_name = str(details.favorite_player)
     split_name = fav_name.split()
     new_name = split_name[0] + '+' + split_name[1]
     url = base_url + new_name
@@ -64,11 +67,9 @@ def IceHockey_scrapedata(request):
 
     for assists in soup.find_all("td", class_="regular a"):
         assist = assists.string
-        player_assist.append(assist)
+        player_assists.append(assist)
 
-
-
-
+    context = {'fav_name': fav_name, 'player_goals': player_goals, 'player_assists': player_assists, 'details': details}
     return render(request, 'IceHockey/IceHockey_details.html', context)
 
 

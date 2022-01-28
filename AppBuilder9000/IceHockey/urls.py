@@ -7,5 +7,5 @@ urlpatterns = [
     path('newprofile', views.IceHockey_newprofile, name='IceHockey_newprofile'),
     path('myprofile', views.IceHockey_myprofile, name='IceHockey_myprofile'),
     path('<int:pk>/details/', views.IceHockey_details, name='IceHockey_details'),
-
+    path('<int:pk>/scrapeddata/', views.IceHockey_scrapeddata, name='IceHockey_scrapeddata'),
 ]
