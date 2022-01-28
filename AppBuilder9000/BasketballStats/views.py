@@ -239,9 +239,22 @@ def ball_dont_lie(request):
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
 
 
-def save_favorites(request, team):
-    team_id = team
+def get_team_names():
+    team_name = {}
     url = "https://www.balldontlie.io/api/v1/teams"
+    response = requests.request("GET", url)
+    team_names = json.loads(response.text)
+    for teams in team_names['data']:
+        team_name[teams['id']] = teams['full_name']
+    return team_name
+
+
+def save_favorites(request):
+    team = ' '
+    if 'team' in request.POST:
+        team_name_dict = get_team_names()
+        season = request.POST['season']
+    url = "https://www.balldontlie.io/api/v1/teams/" + team
     response = requests.request("GET", url)
     data = json.loads(response.text)
     team_list = data['data']
