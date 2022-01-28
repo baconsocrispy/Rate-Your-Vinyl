@@ -9,5 +9,5 @@ urlpatterns = [
     path('<int:pk>/details/', views.IceHockey_details, name='IceHockey_details'),
     path('<int:pk>/edit/', views.IceHockey_edit, name='IceHockey_edit'),
     path('<int:pk>/delete/', views.IceHockey_delete, name='IceHockey_delete'),
-
+    path('<int:pk>/scrapeddata/', views.IceHockey_scrapeddata, name='IceHockey_scrapeddata'),
 ]

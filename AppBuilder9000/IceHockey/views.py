@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .form import UserForm
 from .models import Profile
+import requests
+from bs4 import BeautifulSoup
 
 
 def IceHockey_home(request):
@@ -68,7 +70,7 @@ def IceHockey_scrapeddata(request, pk):
         player_assists.append(assist)
 
     context = {'fav_name': fav_name, 'player_goals': player_goals, 'player_assists': player_assists, 'details': details}
-    return render(request, 'IceHockey/IceHockey_details.html', context)
+    return render(request, 'IceHockey/IceHockey_scrapeddata.html', context)
 
 
 def IceHockey_edit(request, pk):
