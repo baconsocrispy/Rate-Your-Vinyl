@@ -85,11 +85,61 @@ div {
     height: 200px;
 }
 
+/* Box styling for add exercise form */
+
+.adminBox {
+    margin: 0 auto;
+    width: 50%;
+    height: 75%;
+    background-color: rgba(128, 105, 56, 0.726);
+    color: rgb(188, 230, 50);
+    border-radius: 30px;
+}
+
+.frmContainer {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Button styles */
+
+.btnBox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.btn {
+    flex-grow:2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    max-width: 50px;
+    margin: 2% 2% 2% 2%;
+    color: rgb(240, 182, 67);
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: rgb(128, 121, 107);
+}
+
+.btn:hover {
+    background-color: black;
+    color: rgb(188, 230, 50);
+}
+
+/* End Box styling for add exercise form */
+
 /* Footer */
 
 #footer {
-    background-color: rgb(128, 121, 107)
-    color: rgb(128, 121, 107,)
+    background-color: rgb(128, 121, 107);
     text-align: center;
     position: fixed;
     display: flex;
@@ -97,10 +147,19 @@ div {
     bottom: 0;
     height: 40px;
     margin: auto;
+    padding 50px;
+    padding-left: 25px;
 }
 
-#footer:hover {
+#footer p {
+    color: rgb(128, 121, 107);
+    text-align: center;
+    padding-left: 25px;
+}
+
+#footer p:hover {
     color: rgb(188, 230, 50);
+    transition: 0.6s ease-in;
 }
 
 /* End Footer */
