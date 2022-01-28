@@ -93,30 +93,32 @@ def moviereviews_api(request):
     year_list = []
 
     if request.method == 'POST':
-        userinput = request.POST['title']
+        userinput = request.POST['userinput']
         if userinput == '':
             messages.info(request, 'Please put in info')
-        url = "https://movies-tvshows-data-imdb.p.rapidapi.com/"
-        querystring = {"type": "get-movies-by-title", "title": userinput}
-        headers = {
-                'x-rapidapi-host': "movies-tvshows-data-imdb.p.rapidapi.com",
-                'x-rapidapi-key': "25eef8ba99msh15727dc40c123aep11ab94jsn4d74c8cd384d"
-            }
+        else:
 
-        response = requests.request("GET", url, headers=headers, params=querystring)
-        movie = json.loads(response.text)
-        movie_results = movie['movie_results']
-        if request.method == 'POST':
-            for movies in movie_results:
-                titles = movies['title']
-                title_list.append(titles)
-                year = movies['year']
-                year_list.append(year)
-        print(title_list)
-        print(year_list)
-        context = {'title_list': title_list, 'year_list': year_list}
+            url = "https://movies-tvshows-data-imdb.p.rapidapi.com/"
+            querystring = {"type": "get-movies-by-title", "title": userinput}
+            headers = {
+                    'x-rapidapi-host': "movies-tvshows-data-imdb.p.rapidapi.com",
+                    'x-rapidapi-key': "25eef8ba99msh15727dc40c123aep11ab94jsn4d74c8cd384d"
+                }
 
-        return render(request, 'MovieReviews/moviereviews_api.html', context)
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            movie = json.loads(response.text)
+            movie_results = movie['movie_results']
+            if request.method == 'POST':
+                for movies in movie_results:
+                    titles = movies['title']
+                    title_list.append(titles)
+                    year = movies['year']
+                    year_list.append(year)
+            print(title_list)
+            print(year_list)
+            context = {'title_list': title_list, 'year_list': year_list}
+
+            return render(request, 'MovieReviews/moviereviews_api.html', context)
     else:
         return render(request, 'MovieReviews/moviereviews_api.html')
 
