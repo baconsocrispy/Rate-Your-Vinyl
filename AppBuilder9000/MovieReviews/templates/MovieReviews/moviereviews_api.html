@@ -1,0 +1,23 @@
+
+{% extends "MovieReviews/moviereviews_base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Search by Movie Title {% endblock %}
+
+{% block content %}
+<h1>Search by Movie Title</h1>
+<div id="form-container" class="table-responsive w-50 mx-auto">
+    <form method="POST" action="{% url 'moviereviews_api' %}">
+        {% csrf_token %}
+        <table id="table" class="table table-dark table-bordered table-hover text-center">
+            {{ form.as_table }}
+        </table>
+
+            <button type="submit" class="btn btn-light btn-sm btn-block w-100 mx-auto">Search Movie Titles</button>
+    </form>
+</div>
+
+{% endblock %}

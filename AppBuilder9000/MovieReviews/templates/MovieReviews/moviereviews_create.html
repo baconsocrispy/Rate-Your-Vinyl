@@ -1,21 +1,21 @@
 {% extends "MovieReviews/moviereviews_base.html" %}
 
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %} Submit Your Reviews {% endblock %}
 
-{% load static %}
 
 {% block content %}
 <h1>Submit Your Movie Reviews</h1>
-<div class = "admin_panel">
-    <form method="POST">
-        <div class="frmObject_container">
-            {% csrf_token %}
-            {{ form.as_p }}
-        </div>
-        <div class="frmBtn_container">
-            <input type="submit" class="btn" value="Create a Movie Review" name="Save_Item">
-        </div>
+<div id="form-container" class="table-responsive w-50 mx-auto">
+    <form method="POST" action="{% url 'moviereviews_create' %}">
+        {% csrf_token %}
+        <table id="table" class="table table-dark table-bordered table-hover text-center">
+            {{ form.as_table }}
+        </table>
+
+            <button type="submit" class="btn btn-light btn-sm btn-block w-100 mx-auto">Create Review</button>
     </form>
 </div>
 
