@@ -6,7 +6,7 @@
 
     <ul class="bg-info">
         {% for profiles in profile_list reversed %}
-        <div class="media bg-warning">
+        <div class="media bg-info">
             <div class="media-body">
              <h5 class="mt-0"><strong>{{ profiles.first_name }} {{ profiles.last_name }}</strong></h5>
               <li><a href="{% url 'IceHockey_details' profiles.pk %}"> Test Link </a></li>

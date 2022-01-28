@@ -6,6 +6,7 @@ from .models import Movies
 import requests
 from bs4 import BeautifulSoup
 import json
+from django.contrib import messages
 
 # Create your views here.
 def homepage(request):
@@ -85,28 +86,41 @@ def moviereviews_scraping(request):
     context = {'movie_info': movie_info}
     return render(request, 'MovieReviews/moviereviews_scraping.html', context)
 
-# API to fetch Movie Title, Year and ID when user inputs a movie title
+
+# API to fetch Movie Title and Year when user inputs a movie title
 def moviereviews_api(request):
     title_list = []
     year_list = []
 
-    url = "https://movies-tvshows-data-imdb.p.rapidapi.com/"
-    querystring = {"type": "get-movies-by-title", "title": "matrix"}
-    headers = {
-        'x-rapidapi-host': "movies-tvshows-data-imdb.p.rapidapi.com",
-        'x-rapidapi-key': "25eef8ba99msh15727dc40c123aep11ab94jsn4d74c8cd384d"
-    }
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    movie = json.loads(response.text)
-    movie_results =movie['movie_results']
-    for movies in movie_results:
-        titles = movies['title']
-        title_list.append(titles)
-        year = movies['year']
-        year_list.append(year)
-    print(title_list, year_list)
+    if request.method == 'POST':
+        userinput = request.POST['userinput']
+        if 'userinput' == '':
+            messages.info(request, 'Please put in info')
+        else:
 
-    return render(request, 'MovieReviews/moviereviews_api.html')
+            url = "https://movies-tvshows-data-imdb.p.rapidapi.com/"
+            querystring = {"type": "get-movies-by-title", "title": userinput}
+            headers = {
+                    'x-rapidapi-host': "movies-tvshows-data-imdb.p.rapidapi.com",
+                    'x-rapidapi-key': "25eef8ba99msh15727dc40c123aep11ab94jsn4d74c8cd384d"
+                }
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            movie = json.loads(response.text)
+            movie_results = movie['movie_results']
+            if request.method == 'POST':
+                for movies in movie_results:
+                    titles = movies['title']
+                    title_list.append(titles)
+                    year = movies['year']
+                    year_list.append(year)
+            print(title_list)
+            print(year_list)
+            context = {'title_list': title_list, 'year_list': year_list}
+
+            return render(request, 'MovieReviews/moviereviews_api.html', context)
+    else:
+        return render(request, 'MovieReviews/moviereviews_api.html')
 
 
 
