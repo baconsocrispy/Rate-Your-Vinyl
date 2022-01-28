@@ -239,29 +239,25 @@ def ball_dont_lie(request):
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
 
 
-def get_team_names():
-    team_name = {}
-    url = "https://www.balldontlie.io/api/v1/teams"
-    response = requests.request("GET", url)
-    team_names = json.loads(response.text)
-    for teams in team_names['data']:
-        team_name[teams['id']] = teams['full_name']
-    return team_name
-
-
 def save_favorites(request):
-    team = ' '
-    if 'team' in request.POST:
-        team_name_dict = get_team_names()
-        season = request.POST['season']
-    url = "https://www.balldontlie.io/api/v1/teams/" + team
+    all_teams = {}
+    url = "https://www.balldontlie.io/api/v1/teams/"
     response = requests.request("GET", url)
     data = json.loads(response.text)
     team_list = data['data']
-
-    new_team = Teams.Team.create(team_name=team_list['full_name'],
-                                 conference=team_list['conference'],
-                                 division=team_list['division']
-                                 )
-    new_team.save()
-    return render(request, 'BasketballStats/BasketballStats_save_api.html')
+    for x in team_list:
+        team_id = x['id']
+        team_name = x['full_name']
+    if request.method == 'POST':
+        value = request.POST['id']
+        for i in team_list:
+            if value == i['id']:
+                new_team = Teams.Team.create(team_name=i['full_name'],
+                                             conference=i['conference'],
+                                             division=i['division']
+                                             )
+                new_team.save()
+                all_teams = new_team.objects.all().order_by('id')
+            return render(request, 'BasketballStats/BasketballStats_save_api.html', {'all_teams': all_teams})
+    else:
+        return render(request, 'BasketballStats/BasketballStats_save_api.html')
