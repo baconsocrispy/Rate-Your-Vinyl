@@ -94,8 +94,8 @@ def moviereviews_api(request):
 
     if request.method == 'POST':
         userinput = request.POST['userinput']
-        if userinput == '':
-            messages.info(request, 'Please input movie title ')
+        if 'userinput' == '':
+            messages.info(request, 'Please put in info')
         else:
 
             url = "https://movies-tvshows-data-imdb.p.rapidapi.com/"
