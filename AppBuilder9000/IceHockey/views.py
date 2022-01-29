@@ -163,6 +163,12 @@ def IceHockey_samplescrape(request):
         assist = assists.string
         player_assists.append(assist)
 
+    print(player_years)
+    print(player_teams)
+    print(player_leagues)
+    print(player_goals)
+    print(player_assists)
+
     # condenses all data arrays into single variable
     zipped_list = zip(player_years, player_teams, player_leagues, player_goals, player_assists)
     context = {'zipped_list': zipped_list}
@@ -229,6 +235,10 @@ def IceHockey_api_page(request, pk):
         position_list.append(item3)
         item4 = item3['code']
         position_code.append(item4)
+
+    print(roster)
+    print(position_code)
+    print(number_list)
 
     zipped_list = zip(roster, position_code, number_list)
     context = {'zipped_list': zipped_list, 'urlname': urlname, 'urlid': urlid, 'user': user}

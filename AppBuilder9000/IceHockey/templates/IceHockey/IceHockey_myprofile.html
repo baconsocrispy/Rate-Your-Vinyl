@@ -4,13 +4,12 @@
 
 <h3>All Profiles</h3>
 
-    <ul class="bg-info">
+    <ul class="bg-light">
         {% for profiles in profile_list reversed %}
-        <div class="media bg-info">
+        <div class="media bg-light">
             <div class="media-body">
              <h5 class="mt-0"><strong>{{ profiles.first_name }} {{ profiles.last_name }}</strong></h5>
-              <li><a href="{% url 'IceHockey_details' profiles.pk %}"> Test Link </a></li>
-              <li>Primary Key: {{ profiles.pk }}</li>
+              <li><a href="{% url 'IceHockey_details' profiles.pk %}">See Profile Details</a></li>
               <li>Favorite Team: {{ profiles.favorite_team }}</li>
               <li>Favorite Player: {{ profiles.favorite_player }}</li>
             </div>
