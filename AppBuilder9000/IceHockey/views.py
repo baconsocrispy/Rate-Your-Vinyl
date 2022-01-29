@@ -3,6 +3,7 @@ from .form import UserForm
 from .models import Profile
 import requests
 from bs4 import BeautifulSoup
+import json
 
 
 def IceHockey_home(request):
@@ -162,11 +163,16 @@ def IceHockey_samplescrape(request):
         assist = assists.string
         player_assists.append(assist)
 
+    print(player_years)
+    print(player_teams)
+    print(player_leagues)
+    print(player_goals)
+    print(player_assists)
+
     # condenses all data arrays into single variable
     zipped_list = zip(player_years, player_teams, player_leagues, player_goals, player_assists)
     context = {'zipped_list': zipped_list}
     return render(request, 'IceHockey/IceHockey_samplescrape.html', context)
-
 
 
 def IceHockey_edit(request, pk):
@@ -187,3 +193,54 @@ def IceHockey_delete(request, pk):
         item.delete()
         return redirect('IceHockey_myprofile')
     return render(request, 'IceHockey/IceHockey_delete.html', {'item': item, 'form': form})
+
+
+def IceHockey_api_page(request, pk):
+    user = get_object_or_404(Profile, pk=pk)
+    roster = []
+    player_list = []
+    number_list = []
+    position_list = []
+    position_code = []
+
+    # finds list of all teams from api
+    response = requests.get('https://statsapi.web.nhl.com/api/v1/teams')
+    teams_info = json.loads(response.text)
+    team_list = teams_info['teams']
+    for team in team_list:
+        teamname = team['name']
+        teamid = team['id']
+
+        # matches user's favorite team with response
+        if teamname == user.favorite_team:
+            urlid = teamid
+            urlname = teamname
+
+    # updates url with user's team id to find roster info
+    roster_response = requests.get('https://statsapi.web.nhl.com/api/v1/teams' + '/' + str(urlid) + '/roster')
+    roster_info = json.loads(roster_response.text)
+    roster_list = roster_info['roster']
+
+    # retrieves player's name, jersey number, and position code.
+    for player in roster_list:
+        item = player['person']
+        player_list.append(item)
+        playername = item['fullName']
+        roster.append(playername)
+
+        item2 = player['jerseyNumber']
+        number_list.append(item2)
+
+        item3 = player['position']
+        position_list.append(item3)
+        item4 = item3['code']
+        position_code.append(item4)
+
+    print(roster)
+    print(position_code)
+    print(number_list)
+
+    zipped_list = zip(roster, position_code, number_list)
+    context = {'zipped_list': zipped_list, 'urlname': urlname, 'urlid': urlid, 'user': user}
+
+    return render(request, 'IceHockey/IceHockey_api_page.html', context)
