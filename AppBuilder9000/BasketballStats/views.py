@@ -240,7 +240,6 @@ def ball_dont_lie(request):
 
 
 def save_favorites(request):
-    all_teams = {}
     team_names = []
     url = "https://www.balldontlie.io/api/v1/teams"
     response = requests.request("GET", url)
@@ -260,7 +259,7 @@ def save_favorites(request):
                                              division=i['division']
                                              )
                 new_team.save()
-        return render(request, 'BasketballStats/BasketballStats_save_api.html', {'all_teams': all_teams})
+        return render(request, 'BasketballStats/BasketballStats_save_api.html')
     else:
         return render(request, 'BasketballStats/BasketballStats_save_api.html', {'team_names': team_names})
 
