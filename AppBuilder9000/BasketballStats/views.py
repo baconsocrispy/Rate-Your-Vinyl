@@ -263,3 +263,9 @@ def save_favorites(request):
         return render(request, 'BasketballStats/BasketballStats_save_api.html', {'all_teams': all_teams})
     else:
         return render(request, 'BasketballStats/BasketballStats_save_api.html', {'team_names': team_names})
+
+
+def view_favorites(request):
+    team_list = Teams.Team.all()
+    context = {'team_list': team_list}
+    return render(request, 'BasketballStats/BasketballStats_favorite_teams.html', context)
