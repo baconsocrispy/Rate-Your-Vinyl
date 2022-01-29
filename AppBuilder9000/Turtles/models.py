@@ -15,7 +15,7 @@ LOCALITY_CHOICES = (
 )
 
 
-class Turtles(models.Model):
+class Create(models.Model):
     name = models.CharField(max_length=30)
     species = models.CharField(max_length=15, choices=TYPE_CHOICES)
     description = models.TextField(max_length=150)

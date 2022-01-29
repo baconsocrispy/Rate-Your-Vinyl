@@ -1,0 +1,9 @@
+{% extends 'turtles_base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div id="account-form">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+        </form>
+    </div>
