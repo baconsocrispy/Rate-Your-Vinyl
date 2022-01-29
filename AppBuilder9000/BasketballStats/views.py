@@ -253,14 +253,13 @@ def save_favorites(request):
         value = request.POST['value']
         print(value)
         for i in team_list:
-            if value == i['full_name']:
+            names = i['full_name']
+            if value == names:
                 new_team = Teams.Team.create(team_name=i['full_name'],
                                              conference=i['conference'],
                                              division=i['division']
                                              )
                 new_team.save()
-
-            return render(request, 'BasketballStats/BasketballStats_save_api.html', {'all_teams': all_teams,
-                                                                                     'team_names': team_names})
+        return render(request, 'BasketballStats/BasketballStats_save_api.html', {'all_teams': all_teams})
     else:
         return render(request, 'BasketballStats/BasketballStats_save_api.html', {'team_names': team_names})
