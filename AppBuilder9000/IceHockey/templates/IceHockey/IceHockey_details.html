@@ -5,8 +5,8 @@
 {% block header %}Item Details{% endblock %}
 
 {% block content %}
-<div id="container" class="table-responsive w-80 mx-auto">
-    <table id="table" class="table table-info table-bordered text-center">
+<div class="table-striped w-80 mx-auto">
+    <table class="table table-info table-bordered text-center">
         <thead>
             <tr>
                 <th scope="col" data-field="first_name" class="w-25">First Name</th>
@@ -24,6 +24,8 @@
             </tr>
         </tbody>
     </table>
+    <a href="{% url 'IceHockey_edit' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-25 mx-auto">Edit</button></a>
+    <a href="{% url 'IceHockey_delete' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-25 mx-auto">Delete</button></a>
 
 </div>
 {% endblock %}
