@@ -14,4 +14,5 @@ urlpatterns = [
     path('bball_ref/', views.web_scraping, name='basketball_stats_web_scraping'),
     path('balldontlie/', views.ball_dont_lie, name='basketball_stats_bdl_api'),
     path('save_favorites/', views.save_favorites, name='basketball_stats_save_favorites'),
+    path('favorite_teams/', views.view_favorites, name='basketball_stats_favorites'),
 ]
