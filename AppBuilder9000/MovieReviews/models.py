@@ -10,6 +10,8 @@ TYPE_CHOICES = [
     ('5 stars', '5 stars'),
 ]
 
+# The models for the entries in the database
+
 
 class Movies(models.Model):
     genre = models.CharField(max_length=100, default="", blank=True)

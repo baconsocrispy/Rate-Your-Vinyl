@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayersForm
-from .models import Players
+from .models import Players, Teams
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -237,3 +237,34 @@ def ball_dont_lie(request):
         'northwest_logos': northwest_logos, 'pacific_logos': pacific_logos, 'southwest_logos': southwest_logos
     }
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
+
+
+def save_favorites(request):
+    team_names = []
+    url = "https://www.balldontlie.io/api/v1/teams"
+    response = requests.request("GET", url)
+    data = json.loads(response.text)
+    team_list = data['data']
+    for x in team_list:
+        team_name = x['full_name']
+        team_names.append(team_name)
+    if request.method == 'POST':
+        value = request.POST['value']
+        print(value)
+        for i in team_list:
+            names = i['full_name']
+            if value == names:
+                new_team = Teams.Team.create(team_name=i['full_name'],
+                                             conference=i['conference'],
+                                             division=i['division']
+                                             )
+                new_team.save()
+        return render(request, 'BasketballStats/BasketballStats_save_api.html')
+    else:
+        return render(request, 'BasketballStats/BasketballStats_save_api.html', {'team_names': team_names})
+
+
+def view_favorites(request):
+    team_list = Teams.Team.all()
+    context = {'team_list': team_list}
+    return render(request, 'BasketballStats/BasketballStats_favorite_teams.html', context)

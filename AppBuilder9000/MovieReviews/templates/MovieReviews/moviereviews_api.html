@@ -6,7 +6,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %} Search by Movie Title {% endblock %}
-
+<!-----This is the api.html page for the user to input data and receive that data back in a table  ----->
 {% block content %}
 <h1>Search by Movie Title</h1>
 <div id="form-container" class="table-responsive w-50 mx-auto">
@@ -26,7 +26,7 @@
             </thread>
             <tbody>
             {% for title in title_list %}{% for year in year_list %}
-                {% if forloop.counter == forloop.parentloop.counter %}
+                {% if forloop.counter == forloop.parentloop.counter %} <!---this insures that the loop does not continue more than once-->
                 <tr>
                     <td>{{ title }}</td>
                     <td>{{ year }}</td>

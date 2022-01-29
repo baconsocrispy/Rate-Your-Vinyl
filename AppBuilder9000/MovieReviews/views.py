@@ -8,11 +8,11 @@ from bs4 import BeautifulSoup
 import json
 from django.contrib import messages
 
-# Create your views here.
+# This renders the homepage of the Movie Reviews App.
 def homepage(request):
     return render(request, 'MovieReviews/moviereviews_home.html')
 
-
+# This adds new Movie Reviews to the database.
 def moviereviews_create(request):
     form = MovieForm(data=request.POST or None)
     if request.method == 'POST':
@@ -25,7 +25,7 @@ def moviereviews_create(request):
     }
     return render(request, 'MovieReviews/moviereviews_create.html', context)
 
-
+# This displays movies in the database
 def moviereviews_display(request):
     movies = Movies.Movies.all()
     context = {
@@ -33,14 +33,14 @@ def moviereviews_display(request):
     }
     return render(request, 'MovieReviews/moviereviews_display.html', context)
 
-
+# This shows the details of the movies in the database.
 def moviereviews_details(request, pk):
     movie_item = get_object_or_404(Movies, pk=pk)
     context = {'movie_item': movie_item
     }
     return render(request, 'MovieReviews/moviereviews_details.html', context)
 
-
+# This allows the user to edit a specific movie in the database
 def moviereviews_edit(request, pk):
      movie_item = get_object_or_404(Movies, pk=pk)
      form = MovieForm(data=request.POST or None, instance=movie_item)
@@ -54,7 +54,7 @@ def moviereviews_edit(request, pk):
      else:
         return render(request, 'MovieReviews/moviereviews_edit.html', {'form': form, 'movie_item': movie_item})
 
-
+# This allows the user to delete an item in the database
 def moviereviews_delete(request, pk):
     movie_item = get_object_or_404(Movies, pk=pk)
     if request.method == 'POST':
@@ -63,7 +63,7 @@ def moviereviews_delete(request, pk):
     context = {'movie_item': movie_item}
     return render(request, 'MovieReviews/moviereviews_delete.html', context)
 
-# Use Beautiful Soup to scrape movie data
+# This uses Beautiful Soup to scrape movie data from a website
 def moviereviews_scraping(request):
     movie_list = []
     rating_list = []
@@ -87,7 +87,7 @@ def moviereviews_scraping(request):
     return render(request, 'MovieReviews/moviereviews_scraping.html', context)
 
 
-# API to fetch Movie Title and Year when user inputs a movie title
+# This allows the user to search a movie by title and display results using API
 def moviereviews_api(request):
     title_list = []
     year_list = []
