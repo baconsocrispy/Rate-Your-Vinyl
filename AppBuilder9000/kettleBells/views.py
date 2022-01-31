@@ -8,11 +8,9 @@ def kettleBells(request):
     return render(request, 'kettleBells/kettleBells_home.html')
 
 
-def moves(request):
+def get_moves(request):
     moves_list = Moves.objects.all()
-    return render(request, 'kettleBell_exercises.html', {'moves_list': moves_list})
-
-
+    return render(request, 'kettleBells/kettleBells_exercises.html', {'moves_list': moves_list})
 
 
 def add_exercise(request):

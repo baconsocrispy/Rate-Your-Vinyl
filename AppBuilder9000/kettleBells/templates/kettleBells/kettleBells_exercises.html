@@ -6,6 +6,14 @@
 
 {% block content %}
 
-{{ moves_list }}
+<section>
+    <div class="adminBox">
+        <ul>
+        {% for moves in moves_list %}
+            <li class="kbli">{{ moves.name }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</section>
 
 {% endblock %}
