@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,get_object_or_404, redirect
+from django.views import generic
 from .models import Moves
 from .forms import MovesForm
 
@@ -7,8 +8,9 @@ def kettleBells(request):
     return render(request, 'kettleBells/kettleBells_home.html')
 
 
-def moves(request):
-    return render(request, 'exercises.html')
+def get_moves(request):
+    moves_list = Moves.objects.all()
+    return render(request, 'kettleBells/kettleBells_exercises.html', {'moves_list': moves_list})
 
 
 def add_exercise(request):

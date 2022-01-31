@@ -6,6 +6,6 @@ from . import views
 
 urlpatterns = [
     path('', views.kettleBells, name='KB_home'),
-    path('kettleBells_exercises', views.moves, name='KB_moves'),
+    path('get_moves', views.get_moves, name='KB_moves'),
     path('kettleBells_create', views.add_exercise, name='KB_add'),
 ]
