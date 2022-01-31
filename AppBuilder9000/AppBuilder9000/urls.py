@@ -27,7 +27,7 @@ urlpatterns = [
     path('CampingSupplies/', include('CampingSupplies.urls')),
     path('Gardening/', include('Gardening.urls')),
     path('BitcoinAnalytics', include('BitcoinAnalytics.urls')),
-    path('BasketballStats', include('BasketballStats.urls')),
+    path('BasketballStats/', include('BasketballStats.urls')),
     path('Stocks/', include('Stocks.urls')),
     path('DNDCharacters', include('DNDCharacters.urls')),
     path('Practicing_Yoga/', include('Practicing_Yoga.urls')),
