@@ -85,6 +85,14 @@ div {
     height: 200px;
 }
 
+.kbli {
+    padding: 25px;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(188, 230, 50);
+    text-shadow: 2px 4px rgba(66, 65, 64, 0.75);
+}
+
 /* Box styling for add exercise form */
 
 .adminBox {
@@ -127,6 +135,7 @@ div {
     cursor: pointer;
     border-radius: 30px;
     background-color: rgb(128, 121, 107);
+    box-shadow: rgba(46, 52, 54, 0.075);
 }
 
 .btn:hover {
