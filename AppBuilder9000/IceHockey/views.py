@@ -31,6 +31,11 @@ def IceHockey_details(request, pk):
     return render(request, 'IceHockey/IceHockey_details.html', context)
 
 
+def IceHockey_error(request, pk):
+    details = get_object_or_404(Profile, pk=pk)
+    return render(request, 'IceHockey/IceHockey_error.html', details)
+
+
 def IceHockey_scrapeddata(request, pk):
     player_years = []
     player_teams = []
@@ -39,6 +44,7 @@ def IceHockey_scrapeddata(request, pk):
     player_assists = []
 
     details = get_object_or_404(Profile, pk=pk)
+    det_dict = {'details': details}
 
     # loads search page for elite prospects, a popular hockey database
     base_url = "https://www.eliteprospects.com/search/player?q="
@@ -46,6 +52,9 @@ def IceHockey_scrapeddata(request, pk):
     # grabs user's favorite player's name, modifies it for use in new url
     fav_name = str(details.favorite_player)
     split_name = fav_name.split()
+    print(len(split_name))
+    if len(split_name) < 2:
+        return render(request, 'IceHockey/IceHockey_error.html', det_dict)
     new_name = split_name[0] + '+' + split_name[1]
     url = base_url + new_name
     result = requests.get(url)
@@ -244,3 +253,53 @@ def IceHockey_api_page(request, pk):
     context = {'zipped_list': zipped_list, 'urlname': urlname, 'urlid': urlid, 'user': user}
 
     return render(request, 'IceHockey/IceHockey_api_page.html', context)
+
+
+def IceHockey_sampleapi(request):
+    roster = []
+    player_list = []
+    number_list = []
+    position_list = []
+    position_code = []
+
+    # finds list of all teams from api
+    response = requests.get('https://statsapi.web.nhl.com/api/v1/teams')
+    teams_info = json.loads(response.text)
+    team_list = teams_info['teams']
+    for team in team_list:
+        teamname = team['name']
+        teamid = team['id']
+
+        # matches user's favorite team with response
+        if teamname == 'Vancouver Canucks':
+            urlid = teamid
+            urlname = teamname
+
+    # updates url with user's team id to find roster info
+    roster_response = requests.get('https://statsapi.web.nhl.com/api/v1/teams' + '/' + str(urlid) + '/roster')
+    roster_info = json.loads(roster_response.text)
+    roster_list = roster_info['roster']
+
+    # retrieves player's name, jersey number, and position code.
+    for player in roster_list:
+        item = player['person']
+        player_list.append(item)
+        playername = item['fullName']
+        roster.append(playername)
+
+        item2 = player['jerseyNumber']
+        number_list.append(item2)
+
+        item3 = player['position']
+        position_list.append(item3)
+        item4 = item3['code']
+        position_code.append(item4)
+
+    print(roster)
+    print(position_code)
+    print(number_list)
+
+    zipped_list = zip(roster, position_code, number_list)
+    context = {'zipped_list': zipped_list, 'urlname': urlname, 'urlid': urlid}
+
+    return render(request, 'IceHockey/IceHockey_sampleapi.html', context)
