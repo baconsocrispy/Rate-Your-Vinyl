@@ -1,18 +1,18 @@
 from django.db import models
 
 # Defining a new tuple object(species of turtles)
-TYPE_CHOICES = (
+TYPE_CHOICES = [
     ('Turtle', 'Turtle'),
     ('Tortoise', 'Tortoise'),
     ('Terrapin', 'Terrapin')
-)
+]
 
 # Defining a new tuple object(native region of turtles)
-LOCALITY_CHOICES = (
+LOCALITY_CHOICES = [
     ('Americas', 'Americas'),
     ('Europe', 'Europe'),
     ('Asia', 'Asia')
-)
+]
 
 
 # Creating my model

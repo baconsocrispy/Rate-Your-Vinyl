@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from .models import Create
+from .models import Turtles
 
 
 class CreateForm(ModelForm):
     class meta:
-        model = Create
+        model = Turtles
         fields = '__all__'
