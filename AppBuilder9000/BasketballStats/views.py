@@ -268,3 +268,9 @@ def view_favorites(request):
     team_list = Teams.Team.all()
     context = {'team_list': team_list}
     return render(request, 'BasketballStats/BasketballStats_favorite_teams.html', context)
+
+
+def favorite_team_details(request, pk):
+    details = get_object_or_404(Teams, pk=pk)
+    context = {'details': details}
+    return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
