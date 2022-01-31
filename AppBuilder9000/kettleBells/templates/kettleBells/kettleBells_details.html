@@ -1,0 +1,16 @@
+{% extends 'kettleBells_base.html' %}
+
+{% block title %}KettleBells{% endblock %}
+
+{% block header %}{{ details.name }}{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="adminBox">
+            <p class="kbli">{{ details.type }}</p>
+            <p class="kbli">{{ details.description }}</p>
+    </div>
+</section>
+
+{% endblock %}
