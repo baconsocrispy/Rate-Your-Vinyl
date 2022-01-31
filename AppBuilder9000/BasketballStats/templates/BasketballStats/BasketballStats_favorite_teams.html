@@ -18,7 +18,7 @@
         <tbody>
             {% for team in team_list %}
             <tr>
-                <td><a href="#">{{ team.team_name }}</a></td>
+                <td><a href="{% url 'basketball_stats_favorite_details' team.id %}">{{ team.team_name }}</a></td>
                 <td>{{ team.conference }}</td>
                 <td>{{ team.division }}</td>
             </tr>
