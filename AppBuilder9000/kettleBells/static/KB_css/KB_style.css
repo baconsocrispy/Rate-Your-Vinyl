@@ -91,6 +91,16 @@ div {
     text-align: center;
     color: rgb(188, 230, 50);
     text-shadow: 2px 4px rgba(66, 65, 64, 0.75);
+    text-decoration: none;
+}
+
+.kbli a {
+    color: rgb(188, 230, 50);
+    text-decoration: none;
+}
+
+.kbli a:hover {
+    color: rgb(240, 182, 67);
 }
 
 /* Box styling for add exercise form */
