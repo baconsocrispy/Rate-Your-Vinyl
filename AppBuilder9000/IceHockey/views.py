@@ -42,6 +42,7 @@ def IceHockey_scrapeddata(request, pk):
     player_leagues = []
     player_goals = []
     player_assists = []
+    test = []
 
     details = get_object_or_404(Profile, pk=pk)
     det_dict = {'details': details}
@@ -69,47 +70,49 @@ def IceHockey_scrapeddata(request, pk):
             # assumes that first instance of match is correct, returns single result
             break
 
-    # creates player page url out of the id number (index 4), and the player name (index 5)
-    player_id = test[4]
-    player_name = test[5]
-    soup2 = "https://www.eliteprospects.com/player/" + player_id + "/" + player_name
-    new_result = requests.get(soup2)
-    soup = BeautifulSoup(new_result.text, "html.parser")
+    if test:
+        # creates player page url out of the id number (index 4), and the player name (index 5)
+        player_id = test[4]
+        player_name = test[5]
+        soup2 = "https://www.eliteprospects.com/player/" + player_id + "/" + player_name
+        new_result = requests.get(soup2)
+        soup = BeautifulSoup(new_result.text, "html.parser")
 
-    # finds all player's season years
-    for seasons in soup.find_all('span', class_="season"):
-        season = seasons.string
-        player_years.append(season)
+        # finds all player's season years
+        for seasons in soup.find_all('span', class_="season"):
+            season = seasons.string
+            player_years.append(season)
 
-    # finds all player's team's names
-    for teams in soup.find_all("td", class_="team"):
-        for spans in teams.find_all('span'):
-            for links in spans.find_all('a'):
-                team = links.string
-                player_teams.append(team)
-                break
+        # finds all player's team's names
+        for teams in soup.find_all("td", class_="team"):
+            for spans in teams.find_all('span'):
+                for links in spans.find_all('a'):
+                    team = links.string
+                    player_teams.append(team)
+                    break
 
-    # finds all player's league names
-    for leagues in soup.find_all("td", class_="league"):
-        for links in leagues.find_all('a'):
-            league = links.string
-            player_leagues.append(league)
+        # finds all player's league names
+        for leagues in soup.find_all("td", class_="league"):
+            for links in leagues.find_all('a'):
+                league = links.string
+                player_leagues.append(league)
 
-    # finds all player's goal totals
-    for goals in soup.find_all("td", class_="regular g"):
-        goal = goals.string
-        player_goals.append(goal)
+        # finds all player's goal totals
+        for goals in soup.find_all("td", class_="regular g"):
+            goal = goals.string
+            player_goals.append(goal)
 
-    # finds all player's assist totals
-    for assists in soup.find_all("td", class_="regular a"):
-        assist = assists.string
-        player_assists.append(assist)
+        # finds all player's assist totals
+        for assists in soup.find_all("td", class_="regular a"):
+            assist = assists.string
+            player_assists.append(assist)
 
-    # condenses all data arrays into single variable
-    zipped_list = zip(player_years, player_teams, player_leagues, player_goals, player_assists)
-    context = {'zipped_list': zipped_list, 'details': details}
-    return render(request, 'IceHockey/IceHockey_scrapeddata.html', context)
-
+        # condenses all data arrays into single variable
+        zipped_list = zip(player_years, player_teams, player_leagues, player_goals, player_assists)
+        context = {'zipped_list': zipped_list, 'details': details}
+        return render(request, 'IceHockey/IceHockey_scrapeddata.html', context)
+    else:
+        return render(request, 'IceHockey/IceHockey_error.html', det_dict)
 
 def IceHockey_samplescrape(request):
     player_years = []
