@@ -11,8 +11,8 @@
             <tr>
                 <th scope="col" data-field="first_name" class="w-25">First Name</th>
                 <th scope="col" data-field="last_name" class="w-25">Last Name</th>
-                <th scope="col" data-field="favorite_team" class="w-25">Favorite Team</th>
-                <th scope="col" data-field="favorite_player" class="w-25">Favorite Player</th>
+                <th scope="col" data-field="favorite_team" class="w-25">Favorite NHL Team</th>
+                <th scope="col" data-field="favorite_player" class="w-25">Favorite NHL Player</th>
             </tr>
         </thead>
         <tbody>
@@ -24,8 +24,9 @@
             </tr>
         </tbody>
     </table>
-    <a href="{% url 'IceHockey_edit' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-25 mx-auto">Edit</button></a>
-    <a href="{% url 'IceHockey_delete' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-25 mx-auto">Delete</button></a>
-
+    <a href="{% url 'IceHockey_edit' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-20 mx-auto">Edit</button></a>
+    <a href="{% url 'IceHockey_delete' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-20 mx-auto">Delete</button></a>
+    <a href="{% url 'IceHockey_scrapeddata' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-20 mx-auto">Scrape Web for Data</button></a>
+    <a href="{% url 'IceHockey_api_page' details.pk %}"><button type="button" class="btn btn-primary btn-lg w-20 mx-auto">API Team Roster Data</button></a>
 </div>
 {% endblock %}

@@ -6,5 +6,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <h3>For All Your Hockey Interests</h3>
+    <a href="{% url 'IceHockey_samplescrape' %}"><button type="button" class="btn btn-primary md w-15 mx-auto">Sample Scrape</button></a>
+
 
 {% endblock %}
