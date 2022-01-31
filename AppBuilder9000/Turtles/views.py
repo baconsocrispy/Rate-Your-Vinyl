@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
-from .forms import CreateForm
+
+from .models import Turtles
+
 
 def turtles_home(request):
+    form = Turtles.objects.all()
     return render(request, "Turtles/turtles_home.html")
 
 
-
-
-
 def turtles_create(request):
-    form = CreateForm(data=request.POST or None)
+    form = Turtles(data=request.POST or None)
     if request.method == "POST":
         if form.is_valid():
             form.save()
