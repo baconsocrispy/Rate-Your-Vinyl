@@ -15,4 +15,5 @@ urlpatterns = [
     path('balldontlie/', views.ball_dont_lie, name='basketball_stats_bdl_api'),
     path('save_favorites/', views.save_favorites, name='basketball_stats_save_favorites'),
     path('favorite_teams/', views.view_favorites, name='basketball_stats_favorites'),
+    path('<int:pk>/favorite_details/', views.favorite_team_details, name='basketball_stats_favorite_details'),
 ]
