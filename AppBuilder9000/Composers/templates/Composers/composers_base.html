@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylsheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
         <link rel="stylsheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/composers_css.css' %}">
 
@@ -14,18 +15,21 @@
     </head>
     <header>
         <!--NavBar-->
-        <ul class="Nav nav-pills nav-justified">
-            <li><a href="{% url 'composers_home' %}">Home</a>
-            <li><a href="#">Add New Composer</a></li>
-            </li><a href="#">List of Composers</a></li>
-        </ul>
+       <nav class="navbar navbar-dark bg-dark">
+           <div class="container">
+            <a class="nav-item nav-link" href="{% url 'composers_home' %}"> Home</a>
+            <a class="nav-item nav-link" href="#">Add New Composer</a>
+            <a class="nav-item nav-link" href="#">List of Composers</a>
+           </div>
+       </nav>
+        <!--End NavBar-->
     </header>
+
     <body id="body">
         <div class="composer-content">
             {% block content %} {% endblock %}
         </div>
     <section id="block-footer">
-        <p id="footer-right"><a href="www.learncodinganywhere.com">theTechAcademy</a></p>
         <p  id="footer-left">&copy 2022 -- Micah K. Gooden</p>
     </section>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

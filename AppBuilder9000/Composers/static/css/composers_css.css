@@ -1,9 +1,15 @@
 body {
     font-family:Montserrat ;
     text-align: center;
-    background-image: url('../images/composer_background.jpg');
+    background-color: lightblue;
     background-size: cover;
     overflow: scroll;
     background-repeat: no-repeat;
 }
+
+.h1 {
+    font-family:San Serif;
+    text-color: red;
+    text-size: 2 em;
+   }
 
