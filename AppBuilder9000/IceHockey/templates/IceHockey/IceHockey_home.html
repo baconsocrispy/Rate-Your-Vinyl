@@ -2,11 +2,33 @@
 {% load static %}
 {% block title %}Ice Hockey{% endblock %}
 {% block content %}
+<div class="container-fluid mx-auto" style="width: 90%">
+    <div id="jtron" class="jumbotron jumbotron-fluid text-info bg-light mt-5">
+        <div class="container m-5">
+            <h1>Welcome to the Ice Hockey App</h1>
+            <h5 class="lead text-info">Keep track of your favorite teams and players!</h5>
+            <hr class="text-light">
+            <a class="btn btn-info btn-lg" href="#" role="button">New to the Game?</a>
+        </div>
+    </div>
+    <div class="row" id="homerow">
+        <div class="col-sm p-3 bg-light text-center">
 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <h3>For All Your Hockey Interests</h3>
-    <a href="{% url 'IceHockey_samplescrape' %}"><button type="button" class="btn btn-primary md w-15 mx-auto">Sample Scrape</button></a>
+            <h1 class="text-info pb-3">Hockey News</h1>
+            {% for news_titles, news_links, news_dates in zipped_list %}
+            <p class="text-dark text-left ml-3 pb-0 mb-0">{{ news_dates }}</p>
+            <h4 class="text-info text-left ml-3 mb-5 bt-0 mt-0"><a class='text-info' href={{ news_links }}>{{ news_titles }}</a></h4>
+            {% endfor %}
+
+        </div>
+        <div class="col-sm p-3 bg-light text-center">
+            <h2 class="text-info">Top Players</h2>
 
 
+        </div>
+        <div class="col-sm p-3 bg-light text-center">
+            <h2 class="text-info">NHL Standings</h2>
+        </div>
+    </div>
+</div>
 {% endblock %}

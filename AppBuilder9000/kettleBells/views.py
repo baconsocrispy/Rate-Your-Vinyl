@@ -25,3 +25,31 @@ def add_exercise(request):
         'form': form,
     }
     return render(request, 'kettleBells/kettleBells_add.html', context)
+
+def show_moves(request, pk):
+    details = get_object_or_404(Moves, pk=pk)
+    return render(request, 'kettleBells/kettleBells_details.html', {'details': details})
+
+
+def delete_move(request, pk):
+    item = get_object_or_404(Moves, pk=pk)
+    form = MovesForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('KB_moves')
+    context = {"item": item, 'form': form}
+    return render(request, "kettleBells/kettleBells_delete.html", context)
+
+
+def kettleBells_edit(request, pk):
+    item = get_object_or_404(Moves, pk=pk)
+    form = MovesForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('KB_moves')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'kettleBells/kettleBells_edit.html', {'form': form})

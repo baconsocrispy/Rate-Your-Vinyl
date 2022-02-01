@@ -11,5 +11,8 @@ urlpatterns = [
     path('<int:pk>/delete/', views.IceHockey_delete, name='IceHockey_delete'),
     path('<int:pk>/scrapeddata/', views.IceHockey_scrapeddata, name='IceHockey_scrapeddata'),
     path('samplescrape', views.IceHockey_samplescrape, name='IceHockey_samplescrape'),
+    path('sampleapi', views.IceHockey_sampleapi, name='IceHockey_sampleapi'),
     path('<int:pk>/api_page', views.IceHockey_api_page, name='IceHockey_api_page'),
+    path('<int:pk>/error', views.IceHockey_error, name='IceHockey_error'),
+
 ]
