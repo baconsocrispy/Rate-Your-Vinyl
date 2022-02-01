@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'kettleBells',
     'Turtles',
     'Composers',
+    'ATVTrails',
 ]
 
 MIDDLEWARE = [
