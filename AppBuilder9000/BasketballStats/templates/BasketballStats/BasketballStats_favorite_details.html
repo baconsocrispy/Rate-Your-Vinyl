@@ -22,7 +22,6 @@
             </tr>
         </tbody>
     </table>
-    <a href="#"><button type="button" class="btn btn-dark btn-lg w-25 mx-auto">Edit</button></a>
-    <a href="#"><button type="button" class="btn btn-dark btn-lg w-25 mx-auto">Delete</button></a>
+    <a href="{% url 'basketball_stats_delete_favorites' details.id %}"><button type="button" class="btn btn-dark btn-lg w-25 mx-auto">Remove Team From Favorites</button></a>
 </div>
 {% endblock %}
