@@ -3,6 +3,6 @@ from .models import Turtles
 
 
 class CreateForm(ModelForm):
-    class meta:
+    class Meta:
         model = Turtles
         fields = '__all__'
