@@ -136,14 +136,14 @@ div {
     justify-content: center;
     text-align: center;
     display: inline-block;
-    max-width: 50px;
+    max-width: 100px;
     margin: 2% 2% 2% 2%;
     color: rgb(240, 182, 67);
     padding: 10px 0px;
     text-decoration: none;
     font-size: 14px;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: 10px;
     background-color: rgb(128, 121, 107);
     box-shadow: rgba(46, 52, 54, 0.075);
 }

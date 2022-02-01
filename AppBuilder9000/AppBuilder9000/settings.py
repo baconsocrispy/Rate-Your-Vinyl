@@ -62,6 +62,9 @@ INSTALLED_APPS = [
     'IceHockey',
     'kettleBells',
     'Turtles',
+    'Composers',
+    'ATVTrails',
+    'Motorcycling',
     'FootballStats',
 ]
 
