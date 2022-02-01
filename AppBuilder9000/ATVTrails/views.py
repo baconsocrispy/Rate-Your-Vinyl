@@ -20,3 +20,10 @@ def add_trail(request):
         form = Trails_Form
         context = {'form': form}
     return render(request, 'AtvTrails_create.html', context)
+
+
+def list_trails(request):
+    trails = AtvTrails.objects.all()
+    return render(request, 'AtvTrails_list.html', {'trails': trails})
+
+
