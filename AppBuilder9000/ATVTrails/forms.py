@@ -1,6 +1,5 @@
-from typing import Type
-
 from django.forms import ModelForm
+
 from .models import AtvTrails
 
 
