@@ -10,17 +10,17 @@
 
 
 <div class="admin-panel" xmlns="http://www.w3.org/1999/html">
-    <form name="createForm" method="POST">
+    <form type="button" class="btn btn-success" name="createForm" method="POST">
         <table>
             {% csrf_token %}
             {{ form.non_field_errors }}
             {{ form.as_table }}
         </table>
         <div class="frmBtn_container">
-            <input type="submit">
-            <div id="frmBtn_container">
-                <button class="btn"><a href="#">DELETE</a></button>
-                <button class="btn"><a href="#">CANCEL</a></button>
+            <input class="btn" type="submit">
+            <div class="frmBtn_container" >
+                <button class="btn p-3 mb-2 bg-success text-danger"><a href="#">DELETE</a></button>
+                <button class="btn p-3 mb-2 bg-success text-danger"><a href="#">CANCEL</a></button>
             </div>
         </div>
     </form>

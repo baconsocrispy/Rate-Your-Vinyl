@@ -10,8 +10,6 @@ def turtles_create(request):
     form = CreateForm(data=request.POST or None)
     # If POST request, process form data.
     if request.method == 'POST':
-        # Create form instance and populate with data from the request.
-        form = CreateForm(request.POST)
         # Checks whether it is valid.
         if form.is_valid():
             form.save()
