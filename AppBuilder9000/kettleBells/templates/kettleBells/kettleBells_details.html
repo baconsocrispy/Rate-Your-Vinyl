@@ -8,8 +8,10 @@
 
 <section>
     <div class="adminBox">
-            <p class="kbli">{{ details.type }}</p>
-            <p class="kbli">{{ details.description }}</p>
+        <p class="kbli">Type: {{ details.type }}</p>
+        <p class="kbli">{{ details.description }}</p>
+        <button class="btn"><a href="{% url 'KB_edit' details.pk %}">Edit</a></button>
+        <button class="btn"><a href="{% url 'KB_delete' details.pk %}">Delete</a></button>
     </div>
 </section>
 
