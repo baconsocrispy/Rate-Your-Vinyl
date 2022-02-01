@@ -14,7 +14,7 @@ def add_trail(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-        return redirect('AtvTrails_home.html')
+        return redirect('Atv_home')
     else:
         print(form.errors)
         form = Trails_Form
