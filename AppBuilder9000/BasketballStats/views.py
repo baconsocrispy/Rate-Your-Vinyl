@@ -11,6 +11,13 @@ def home(request):
     return render(request, 'BasketballStats/BasketballStats_home.html')
 
 
+"""
+=========================================================================================================
+    CRUD SECTION - MODEL: PLAYERS 
+=========================================================================================================
+"""
+
+
 def create_player(request):
     form = PlayersForm(data=request.POST or None)
     if request.method == 'POST':
@@ -51,6 +58,41 @@ def player_delete(request, pk):
         item.delete()
         return redirect('basketball_stats_players')
     return render(request, 'BasketballStats/BasketballStats_delete.html', {'item': item, 'form': form})
+
+
+"""
+=========================================================================================================
+    CRUD SECTION - MODEL: TEAMS
+=========================================================================================================
+"""
+
+
+def view_favorites(request):
+    team_list = Teams.Team.all()
+    context = {'team_list': team_list}
+    return render(request, 'BasketballStats/BasketballStats_favorite_teams.html', context)
+
+
+def favorite_team_details(request, pk):
+    details = get_object_or_404(Teams, pk=pk)
+    context = {'details': details}
+    return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
+
+
+def team_delete(request, pk):
+    item = get_object_or_404(Teams, pk=pk)
+    form = PlayersForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('basketball_stats_favorites')
+    return render(request, 'BasketballStats/BasketballStats_delete_favorites.html', {'item': item, 'form': form})
+
+
+"""
+=========================================================================================================
+    API SECTION 
+=========================================================================================================
+"""
 
 
 def fetch_team_name():
@@ -94,79 +136,6 @@ def standings_page(request):
             east_team.sort(key=lambda a: int(a[0]))
     context = {'west_team': west_team, 'east_team': east_team, 'season': season}
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
-
-
-# This grabs a table of NBA Champions
-def history_scraping(request):
-    champion_list = []
-    page = requests.get("https://www.dunkest.com/en/nba/news/58063/nba-champions-winners-1947-2021")
-    soup = BeautifulSoup(page.content, 'html.parser')
-    previous_champions = soup.find('section', class_='post__content text-article')
-    champions = previous_champions.find_all('tr')[1:]
-    for tr in champions:
-        td = tr.find_all('td')
-        row = [i.text for i in td]
-        cells = row
-        champion_list.append(cells)
-    context = {'champion_list': champion_list}
-    return render(request, 'BasketballStats/BasketballStats_history.html', context)
-
-
-def web_scraping(request):
-    player_numbers = []
-    roster = []
-    position = []
-    height = []
-    weight = []
-    birthday = []
-    years_experience = []
-    college = []
-    page = requests.get("https://www.basketball-reference.com/teams/POR/2022.html")
-    soup = BeautifulSoup(page.content, 'html.parser')
-    table = soup.find('table', id='roster')
-    one = table.find('tbody')
-    two = one.find_all('th')
-    for i in two:
-        three = i.text
-        player_numbers.append(three)
-
-    four = one.find_all('tr')
-    for tds in four:
-        td_list = tds.find_all('td')
-
-        name_list = td_list[0]
-        names = name_list.text
-        roster.append(names)
-
-        pos_list = td_list[1]
-        pos = pos_list.text
-        position.append(pos)
-
-        height_list = td_list[2]
-        heights = height_list.text
-        height.append(heights)
-
-        weight_list = td_list[3]
-        weights = weight_list.text
-        weight.append(weights)
-
-        bday_list = td_list[4]
-        bdays = bday_list.text
-        birthday.append(bdays)
-
-        experience_list = td_list[6]
-        exp = experience_list.text
-        years_experience.append(exp)
-
-        college_list = td_list[7]
-        colleges = college_list.text
-        college.append(colleges)
-
-    zipped_list = zip(player_numbers, roster, position, height, weight, birthday, years_experience, college)
-    context = {
-        'zipped_list': zipped_list
-    }
-    return render(request, 'BasketballStats/BasketballStats_web_scraping.html', context)
 
 
 def ball_dont_lie(request):
@@ -264,22 +233,93 @@ def save_favorites(request):
         return render(request, 'BasketballStats/BasketballStats_save_api.html', {'team_names': team_names})
 
 
-def view_favorites(request):
-    team_list = Teams.Team.all()
-    context = {'team_list': team_list}
-    return render(request, 'BasketballStats/BasketballStats_favorite_teams.html', context)
+"""
+=========================================================================================================
+    BEAUTIFULSOUP SECTION 
+=========================================================================================================
+"""
 
 
-def favorite_team_details(request, pk):
-    details = get_object_or_404(Teams, pk=pk)
-    context = {'details': details}
-    return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
+# This grabs a table of NBA Champions
+def history_scraping(request):
+    champion_list = []
+    page = requests.get("https://www.dunkest.com/en/nba/news/58063/nba-champions-winners-1947-2021")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    previous_champions = soup.find('section', class_='post__content text-article')
+    champions = previous_champions.find_all('tr')[1:]
+    for tr in champions:
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        cells = row
+        champion_list.append(cells)
+    context = {'champion_list': champion_list}
+    return render(request, 'BasketballStats/BasketballStats_history.html', context)
 
 
-def team_delete(request, pk):
-    item = get_object_or_404(Teams, pk=pk)
-    form = PlayersForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        item.delete()
-        return redirect('basketball_stats_favorites')
-    return render(request, 'BasketballStats/BasketballStats_delete_favorites.html', {'item': item, 'form': form})
+# Gets Portland Trail Blazer Roster from basketball-reference.com
+def web_scraping(request):
+    player_numbers = []
+    roster = []
+    position = []
+    height = []
+    weight = []
+    birthday = []
+    years_experience = []
+    college = []
+    page = requests.get("https://www.basketball-reference.com/teams/POR/2022.html")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    table = soup.find('table', id='roster')
+    tbody = table.find('tbody')
+    th = tbody.find_all('th')
+
+    # Get Player numbers
+    for i in th:
+        numbers = i.text
+        player_numbers.append(numbers)
+
+    # Get all tds to append lists
+    tr = tbody.find_all('tr')
+    for tds in tr:
+        td_list = tds.find_all('td')
+
+        # Get Player names
+        name_list = td_list[0]
+        names = name_list.text
+        roster.append(names)
+
+        # Get Player positions
+        pos_list = td_list[1]
+        pos = pos_list.text
+        position.append(pos)
+
+        # Get Player heights
+        height_list = td_list[2]
+        heights = height_list.text
+        height.append(heights)
+
+        # Get Player weights
+        weight_list = td_list[3]
+        weights = weight_list.text
+        weight.append(weights)
+
+        # Get Player birthdays
+        bday_list = td_list[4]
+        bdays = bday_list.text
+        birthday.append(bdays)
+
+        # Get Player years experience
+        experience_list = td_list[6]
+        exp = experience_list.text
+        years_experience.append(exp)
+
+        # Get Player colleges
+        college_list = td_list[7]
+        colleges = college_list.text
+        college.append(colleges)
+
+    # Zip lists together to easily display all data
+    zipped_list = zip(player_numbers, roster, position, height, weight, birthday, years_experience, college)
+    context = {
+        'zipped_list': zipped_list
+    }
+    return render(request, 'BasketballStats/BasketballStats_web_scraping.html', context)
