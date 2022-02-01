@@ -47,6 +47,7 @@ urlpatterns = [
     path('IceHockey/', include('IceHockey.urls')),
     path('kettleBells/', include('kettleBells.urls')),
     path('Turtles/', include('Turtles.urls')),
+    path('Composers/', include('Composers.urls')),
     path('ATVTrails/', include('ATVTrails.urls'))
 ]
 

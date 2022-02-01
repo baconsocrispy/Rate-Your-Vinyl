@@ -1,0 +1,15 @@
+body {
+    font-family:Montserrat ;
+    text-align: center;
+    background-color: lightblue;
+    background-size: cover;
+    overflow: scroll;
+    background-repeat: no-repeat;
+}
+
+.h1 {
+    font-family:San Serif;
+    text-color: red;
+    text-size: 2 em;
+   }
+
