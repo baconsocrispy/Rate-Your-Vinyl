@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import PlayersForm
+from .forms import PlayersForm, TeamsForm
 from .models import Players, Teams
 import requests
 import json
@@ -274,3 +274,12 @@ def favorite_team_details(request, pk):
     details = get_object_or_404(Teams, pk=pk)
     context = {'details': details}
     return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
+
+
+def team_delete(request, pk):
+    item = get_object_or_404(Teams, pk=pk)
+    form = PlayersForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('basketball_stats_favorites')
+    return render(request, 'BasketballStats/BasketballStats_delete_favorites.html', {'item': item, 'form': form})
