@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Turtles
+from .models import AtvTrails
 
-admin.site.register(Turtles)
+admin.site.register(AtvTrails)
