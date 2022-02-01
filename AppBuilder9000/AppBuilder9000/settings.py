@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'IceHockey',
     'kettleBells',
     'Turtles',
+    'FootballStats',
 ]
 
 MIDDLEWARE = [
