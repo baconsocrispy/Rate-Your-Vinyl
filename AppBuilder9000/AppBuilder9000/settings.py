@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'Composers',
     'ATVTrails',
     'Motorcycling',
+    'FootballStats',
 ]
 
 MIDDLEWARE = [
