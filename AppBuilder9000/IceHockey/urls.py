@@ -14,5 +14,5 @@ urlpatterns = [
     path('sampleapi', views.IceHockey_sampleapi, name='IceHockey_sampleapi'),
     path('<int:pk>/api_page', views.IceHockey_api_page, name='IceHockey_api_page'),
     path('<int:pk>/error', views.IceHockey_error, name='IceHockey_error'),
-
+    path('<int:pk>/fav_add', views.IceHockey_fav_add, name='IceHockey_fav_add'),
 ]

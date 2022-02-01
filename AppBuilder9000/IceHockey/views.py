@@ -1,9 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .form import UserForm
-from .models import Profile
+from .models import Profile, FavPlayer
 import requests
 from bs4 import BeautifulSoup
 import json
+
+
+def IceHockey_fav_add(request, pk):
+    user = get_object_or_404(Profile, pk=pk)
+    if request.method == 'POST':
+        number = request.POST['number']
+        position = request.POST.get('position')
+        name = request.POST['name']
+
+        print(number)
+        print(name)
+
+        context = {'number': number, 'position': position, 'name': name, 'user': user}
+        return render(request, 'IceHockey/IceHockey_fav_add.html', context)
 
 
 def IceHockey_home(request):
