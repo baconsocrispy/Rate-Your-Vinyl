@@ -7,7 +7,26 @@ import json
 
 
 def IceHockey_home(request):
-    return render(request, 'IceHockey/IceHockey_home.html')
+    news_titles = []
+    news_links = []
+    news_dates = []
+
+    response = requests.get('https://newsdata.io/api/1/news?apikey=pub_419404de6e248af4abb353fdc5168853dd51&q=ice%20hockey&country=ca,us&language=en')
+    news = json.loads(response.text)
+    results = news['results']
+    for story in results:
+        title = story['title']
+        link = story['link']
+        date = story['pubDate']
+
+        news_links.append(link)
+        news_titles.append(title)
+        news_dates.append(date)
+
+    zipped_list = zip(news_titles, news_links, news_dates)
+    context = {'zipped_list': zipped_list}
+
+    return render(request, 'IceHockey/IceHockey_home.html', context)
 
 
 def IceHockey_newprofile(request):
