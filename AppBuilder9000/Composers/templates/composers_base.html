@@ -1,0 +1,35 @@
+{% load static %}
+<!---This is the basic template outline for my website.-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylsheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylsheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/composers_css.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <title> Composers R US</title>
+    </head>
+    <header>
+        <div class="NavBar">
+            <div class="menu">
+                <a href="{% url 'composers_home' %}" class="dropdown-item">Home</a>
+                <a href="{% url 'composers_create' %}" class="dropdown-item">Add New Composer</a>
+                <a href="{% url 'composers_records' %}" class="dropdown-item">List of Composers</a>
+            </div>
+        </div>
+    </header>
+    <body id="body">
+        <div class="composer-content">
+            <p> Here is the Body</p>
+        </div>
+    <section id="block-footer">
+        <p id="footer-right"><a href="www.learncodinganywhere.com">theTechAcademy</a></p>
+        <p  id="footer-left">&copy 2022 -- Micah K. Gooden</p>
+    </section>
+    </body>
+</html>
