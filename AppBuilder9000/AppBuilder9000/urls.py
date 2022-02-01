@@ -48,7 +48,8 @@ urlpatterns = [
     path('kettleBells/', include('kettleBells.urls')),
     path('Turtles/', include('Turtles.urls')),
     path('Composers/', include('Composers.urls')),
-    path('ATVTrails/', include('ATVTrails.urls'))
+    path('ATVTrails/', include('ATVTrails.urls')),
+    path('Motorcycling/', include('Motorcycling.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
