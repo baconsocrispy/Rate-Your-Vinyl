@@ -25,3 +25,7 @@ def add_exercise(request):
         'form': form,
     }
     return render(request, 'kettleBells/kettleBells_add.html', context)
+
+def show_moves(request, pk):
+    details = get_object_or_404(Moves, pk=pk)
+    return render(request, 'kettleBells/kettleBells_details.html', {'details': details})

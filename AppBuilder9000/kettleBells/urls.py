@@ -8,4 +8,5 @@ urlpatterns = [
     path('', views.kettleBells, name='KB_home'),
     path('get_moves', views.get_moves, name='KB_moves'),
     path('kettleBells_create', views.add_exercise, name='KB_add'),
+    path('show_moves/<int:pk>', views.show_moves, name='KB_details'),
 ]

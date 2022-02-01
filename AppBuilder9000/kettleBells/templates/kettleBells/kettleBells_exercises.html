@@ -10,7 +10,7 @@
     <div class="adminBox">
         <ul>
         {% for moves in moves_list %}
-            <li class="kbli">{{ moves.name }}</li>
+            <li class="kbli"><a href="{% url 'KB_details'  %}"{{ moves.name }}</li>
         {% endfor %}
         </ul>
     </div>
