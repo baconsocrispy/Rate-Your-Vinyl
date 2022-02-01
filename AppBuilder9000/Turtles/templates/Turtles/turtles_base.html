@@ -21,12 +21,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="{% url 'turtles_home' %}">Home<span class="sr-only">Home</span></a>
                     <a class="nav-item nav-link active" href="{% url 'turtles_create' %}">Adopt</a>
                     <a class="nav-item nav-link" href="#">About</a>
                 </div>
             </div>
         </nav>
+
         {% block content %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
