@@ -17,8 +17,8 @@ p {
     color: white;
 }
 
-#jtron {
-    background-color: rgba(255, 255, 255, .85)
+#cardbody {
+    cursor: pointer;
 }
 
 #homerow {
