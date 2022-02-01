@@ -9,42 +9,39 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Ice Hockey</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'IceHockey_home' %}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">News</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">New to Hockey</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'IceHockey_newprofile' %}">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'IceHockey_myprofile' %}">All Profiles</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand text-info" href="{% url 'IceHockey_home' %}">Ice Hockey App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'IceHockey_home' %}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'IceHockey_newprofile' %}">Make A Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'IceHockey_myprofile' %}">All Profiles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'IceHockey_samplescrape' %}">Sample Scrape</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'IceHockey_sampleapi' %}">Sample API</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
 
         {% block content %}{% endblock %}
-        <section id="block-footer">
-            <p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
-            <p id="footer-left">&copy;2022 - Taylor Peters Digital Solutions</p>
-        </section>
+        <footer class="fixed-bottom">
+            <p class="text-center text-info">&copy;2022 - Taylor Peters Digital Solutions</p>
+        </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

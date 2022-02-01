@@ -11,7 +11,7 @@
 	{% if item %}
 
 <br><br>
-			<h2>ACCOUNT DETAILS</h2>
+			<h3>ACCOUNT DETAILS</h3>
 
 			<table class="table table-responsive" id ="transactions-table">
 
@@ -35,11 +35,12 @@
 
 
 			</table>
-<a href="{% url 'edit_account' item.id %}" class="btn">Click to Edit</a>
+
+<a href="{% url 'edit_account' item.id %}" class="btn btn-warning">Click to Edit</a>
 
 	{% elif nutrition_item %}
-
-			<h2>NUTRITION PATH DETAILS</h2>
+<br><br>
+			<h3>NUTRITION PATH DETAILS</h3>
 
 			<table class="table table-responsive" id ="transactions-table2">
 
@@ -64,7 +65,7 @@
 
 
 			</table>
-<a href="{% url 'edit_nutrition' nutrition_item.id %}" class="btn">Click to Edit</a>
+<a href="{% url 'edit_nutrition' nutrition_item.id %}" class="btn btn-warning">Click to Edit</a>
 	{% endif %}
 
 {% endblock %}

@@ -1,6 +1,7 @@
 
-.bg_img{
-    background-image: url('./images/Turtle1.jpg');
+
+.bg_img {
+    background-image: url('../images/Turtle1.jpg');
     background-size: cover;
     background-attachment:fixed;
     background-position: center;
