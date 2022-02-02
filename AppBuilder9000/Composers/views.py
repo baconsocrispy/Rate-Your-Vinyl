@@ -23,11 +23,9 @@ def create_composer(request):
     return render(request, 'Composers/composers_create.html', content)
 
 def composers_list(request):
-    composer_list=Composer.Composers.all()
-    context={'composer_list':composer_list}
+    composer_list = Composer.Composers.all()
+    context={'composer_list': composer_list}
     return render(request,'Composers/composers_list.html', context)
-
-
 
 
 def composers_details(request,pk):
