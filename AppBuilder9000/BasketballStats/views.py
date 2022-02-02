@@ -28,6 +28,7 @@ def create_player(request):
     return render(request, 'BasketballStats/BasketballStats_create.html', context)
 
 
+# Display all Players created
 def player_stats(request):
     player_list = Players.Player.all()
     context = {'player_list': player_list}
@@ -138,7 +139,7 @@ def standings_page(request):
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
 
 
-def ball_dont_lie(request):
+def conference_division(request):
     atlantic = []
     central = []
     southeast = []
