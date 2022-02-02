@@ -5,7 +5,7 @@
 {% block header %}Welcome to my Basketball App{% endblock %}
 
 {% block content %}
-    <div class="jumbotron">
+    <div class="jumbotron w-75 mx-auto">
         <div class="container">
             <h1 class="display-3">Basketball Stats!</h1>
             <p>
@@ -17,8 +17,20 @@
                 and who won the Finals MVP.
             </p>
             <p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Button!</a>
+                <a class="btn btn-primary btn-lg" href="#" role="button" onclick="return confirm('BOO!! This does nothing. For now...')">Button!</a>
             </p>
+        </div>
+    </div>
+    <div class="card w-25 mx-auto">
+        <div class="card-header">
+            <h4 class="card-title text-center">Basketball-Reference</h4>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Basketball-Reference is the go-to website for stat junkies. </p>
+            <a href="https://www.basketball-reference.com/" class="card-link">Basketball-Reference</a>
+        </div>
+        <div class="card-footer">
+            <h4 class="text-center">Footer</h4>
         </div>
     </div>
 {% endblock %}
