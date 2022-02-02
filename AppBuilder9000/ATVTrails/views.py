@@ -27,3 +27,8 @@ def list_trails(request):
     return render(request, 'AtvTrails_list.html', {'trails': trails})
 
 
+# This generates a page of details for each trail in the database
+def trail_details(request, pk):
+    details = get_object_or_404(AtvTrails, pk=pk)
+    context = {'details': details}
+    return render(request, "AtvTrails_details.html", context)

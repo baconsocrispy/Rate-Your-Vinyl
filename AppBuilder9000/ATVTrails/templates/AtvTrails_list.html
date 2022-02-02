@@ -6,7 +6,15 @@
 {% block content %}
 
 <div class="admin_panel">
-    <form name="Trails_Form" method="POST" action="">
+    <div class="formObject">
+        {% csrf_token %}
+        <label for="menu_id"></label>
+        <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+            {% for trails in trails %}
+            <option value="../{{ trails.pk }}/trail_details/">{{ trails.trail_name }}</option>
+            {% endfor %}
+        </select>
+        <div class="fromBtn_container">
             <div>
                 <a href="{% url 'add_trail' %}"><button type="button" class="btn">Add a New Trail</button></a>
                 <a href="{% url 'Atv_home' %}"><button type="button" class="btn">Home</button></a>
@@ -14,18 +22,16 @@
             </div>
 
         </div>
-    </form>
+    </div>
 </div>
 
-
-
-<div class="main">
+<div class="container">
 
 	{% for trails in trails %}
 
-	<a href = "../{{ trails.pk }}/AtvTrails_details/">{{ trails.trail_name }}<br/></a>
+	<a href="">{{ trails.trail_name }}<br/></a>
         {{ trails.trail_description}}<br/>
-	<hr/>
+    <hr>
 
 	{% endfor %}
 
