@@ -10,7 +10,7 @@ from .models import Composer
 
 # Create your views here.
 def composers(request):
-    return render(request, 'composers/composers_home.html')
+    return render(request, 'Composers/composers_home.html')
 
 
 def create_composer(request):
@@ -20,7 +20,15 @@ def create_composer(request):
             form.save()
             return redirect('composers_home')
     content = {'form': form}
-    return render(request, 'composers/composers_create.html', content)
+    return render(request, 'Composers/composers_create.html', content)
+
+def composers_list(request):
+    composer_list=Composer.Composers.all()
+    context={'composer_list':composer_list}
+    return render(request,'Composers/composers_list.html', context)
+
+
+
 
 def composers_details(request,pk):
     details = get_object_or_404(Composer, pk=pk)
