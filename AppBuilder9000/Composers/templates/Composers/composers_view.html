@@ -9,7 +9,7 @@
 <div id="table-container" class="table-responsive mx-auto">
     <table class="table table-hover">
         <thead>
-            <tr>
+            <tr> <!--Headings for table-->
                 <th scope="col">Era</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
@@ -19,9 +19,8 @@
                 <th scope="col">Description</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody> <!--table information with first letter capitalized-->
             <tr>
-                {% value|capfirst %}
                 <td>{{item.type | capfirst}}</td>
                 <td>{{item.first_name | capfirst}}</td>
                 <td>{{item.last_name | capfirst}}</td>
@@ -29,7 +28,6 @@
                 <td>{{item.death_year | capfirst}}</td>
                 <td>{{item.nationality | capfirst}}</td>
                 <td>{{item.description | capfirst}}</td>
-                {% endblock %}
             </tr>
         </tbody>
     </table>

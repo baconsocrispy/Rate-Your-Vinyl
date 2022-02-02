@@ -24,6 +24,7 @@ def create_composer(request):
 
 def composer_details(request, pk):
     item=get_object_or_404(composers, pk=pk)
-    return render(request,'composers_view.html',{'item':item})
+    return render(request,'composers_view.html' , {'item' :  item})
+
 
 
