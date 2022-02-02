@@ -21,3 +21,9 @@ def create_composer(request):
             return redirect('composers_home')
     content = {'form': form}
     return render(request, 'composers/composers_create.html', content)
+
+def composer_details(request, pk):
+    item=get_object_or_404(composers, pk=pk)
+    return render(request,'composers_view.html',{'item':item})
+
+
