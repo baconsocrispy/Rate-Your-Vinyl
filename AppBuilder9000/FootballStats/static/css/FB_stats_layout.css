@@ -123,7 +123,7 @@ ul.topnav li.icon {
     margin-right: auto;
 }
 /* This controls the form size and contents */
-.admin_panel {
+.add_player_stats {
     margin: 0 auto;
     width: 50%;
     height: 80%;
@@ -134,7 +134,7 @@ ul.topnav li.icon {
 	border-radius: 10px;
     transition: 0.3s;
 }
-.admin_panel:hover {
+.add_player_stats:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
 }
