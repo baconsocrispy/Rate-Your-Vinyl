@@ -106,12 +106,21 @@ caption {
     max-height: 90%;
     max-width: 90%;
     overflow: hidden;
+    width: auto;
+    height: auto;
+    position: absolute;
+    vertical-align: middle;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 5%;
 }
 
 .card-nba-image {
     max-height: 90%;
-    max-width: 50%;
+    max-width: 40%;
     overflow: hidden;
+    margin-top: 5%;
 }
 
 #card-container {
