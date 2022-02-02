@@ -95,6 +95,7 @@ caption {
     margin-left: 25px;
     margin-right: 25px;
 }
+
 .card-images-container {
     width: 100%;
     height: 15vw;
@@ -102,6 +103,12 @@ caption {
 }
 
 .card-image {
+    max-height: 90%;
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.card-nba-image {
     max-height: 90%;
     max-width: 50%;
     overflow: hidden;
