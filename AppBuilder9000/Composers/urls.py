@@ -7,4 +7,5 @@ from . import views
 
 urlpatterns = [
     path('', views.composers, name='composers_home'),
+    path('composers_create', views.create_composer, name='composers_create'),
 ]
