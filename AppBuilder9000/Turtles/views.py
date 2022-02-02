@@ -23,4 +23,4 @@ def turtles_display(request):
     turtles_info = Turtles.Turtles.all()
     content = {'turtles_info': turtles_info}
 
-    return render(request, 'Turtles/turtles_details.html', content)
+    return render(request, 'Turtles/turtles_display.html', content)
