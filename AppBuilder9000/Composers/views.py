@@ -22,9 +22,10 @@ def create_composer(request):
     content = {'form': form}
     return render(request, 'composers/composers_create.html', content)
 
-def composer_details(request, pk):
-    item=get_object_or_404(composers, pk=pk)
-    return render(request,'composers_view.html' , {'item' :  item})
+def composers_list(request):
+    composer_list=Composer.Composers.all()
+    context={'composer_list':composer_list}
+    return render(request,'composers_list.html', context)
 
 
 

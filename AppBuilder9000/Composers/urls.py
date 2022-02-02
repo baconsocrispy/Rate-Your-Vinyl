@@ -8,4 +8,5 @@ from . import views
 urlpatterns = [
     path('', views.composers, name='composers_home'),
     path('composers_create', views.create_composer, name='composers_create'),
+    path('composers_list', views.composers_list, name='composers_list'),
 ]
