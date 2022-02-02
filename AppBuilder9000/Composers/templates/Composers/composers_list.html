@@ -1,4 +1,4 @@
-% extends 'Composers/composers_base.html' %}
+{% extends 'Composers/composers_base.html' %}
 {% load static %}
 
 {% block title%}Composers List{% endblock %}
@@ -10,25 +10,29 @@
     <table class="table table-hover">
         <thead>
             <tr> <!--Headings for table-->
-                <th scope="col">Era</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Birth Year</th>
-                <th scope="col">Death Year</th>
-                <th scope="col">Nationality</th>
-                <th scope="col">Description</th>
+                <th scope="col" data-field='Era' data-sortable="True">Era</th>
+                <th scope="col" data-field='First_Name' data-sortable="True">First Name</th>
+                <th scope="col" data-field='Last_Name' data-sortable="True">Last Name</th>
+                <th scope="col" data-field='Birth_Year' data-sortable="True">Birth Year</th>
+                <th scope="col" data-field='Death_Year' data-sortable="True">Death Year</th>
+                <th scope="col" data-field='Nationality' data-sortable="True">Nationality</th>
+                <th scope="col" data-field='Description' data-sortable="True">Description</th>
             </tr>
         </thead>
         <tbody> <!--table information with first letter capitalized-->
+        {% for item in composer_list %}
+
             <tr>
-                <td>{{item.type | capfirst}}</td>
-                <td>{{item.first_name | capfirst}}</td>
-                <td>{{item.last_name | capfirst}}</td>
-                <td>{{item.birth_year | capfirst}}</td>
-                <td>{{item.death_year | capfirst}}</td>
-                <td>{{item.nationality | capfirst}}</td>
-                <td>{{item.description | capfirst}}</td>
+                <td>{{ item.type | capfirst }}</td>
+                <td>{{ item.first_name | capfirst }}</td>
+                <td>{{ item.last_name | capfirst }}</td>
+                <td>{{ item.birth_year | capfirst }}</td>
+                <td>{{ item.death_year | capfirst }}</td>
+                <td>{{ item.nationality | capfirst }}</td>
+                <td>{{ item.description | capfirst }}</td>
             </tr>
+
+        {% endfor %}
         </tbody>
     </table>
 </div>
