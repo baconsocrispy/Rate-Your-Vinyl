@@ -1,0 +1,24 @@
+{% extends 'Composers/composers_base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% block header %} Create New Composer {% endblock %}
+        <title>{% block title %} Create Composer {% endblock %}</title>
+    </head>
+        <body>
+            {% block content %}
+            <div id="form-container" class="form-group">
+                <form method="POST">
+                    {% csrf_token %}
+                        <table id="table" class='table table-dark table-bordered table-centered'>
+                        {{ form.as_table }}
+                        </table>
+                        <button type="submit" class="btn btn-primary">Add Composer</button>
+                </form>
+            </div>
+            {% endblock %}
+        </body>
+    </html>
