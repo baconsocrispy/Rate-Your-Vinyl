@@ -2,6 +2,8 @@ from django.db import models
 
 
 # Create your models here.
+
+
 class Profile(models.Model):
     TEAM_OPTIONS = (
         ('Anaheim Ducks', 'Anaheim Ducks'),
@@ -41,6 +43,9 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=50)
     favorite_team = models.CharField(max_length=30, choices=TEAM_OPTIONS)
     favorite_player = models.CharField(max_length=50)
+    favorite_player_list = models.ManyToManyField(
+        'FavPlayer', related_name='favorite', default=None, blank=True
+    )
 
     Profile = models.Manager()
 
@@ -48,19 +53,16 @@ class Profile(models.Model):
         return self.first_name + ' ' + self.last_name
 
 
-class FavTeam(models.Model):
-    my_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    current_points = models.DecimalField(max_digits=3, decimal_places=0)
-    current_wins = models.DecimalField(max_digits=2, decimal_places=0)
-    current_losses = models.DecimalField(max_digits=2, decimal_places=0)
-    current_otls = models.DecimalField(max_digits=2, decimal_places=0)
-    current_sols = models.DecimalField(max_digits=2, decimal_places=0)
-
-
 class FavPlayer(models.Model):
     my_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    current_points = models.DecimalField(max_digits=3, decimal_places=0)
-    current_goals = models.DecimalField(max_digits=2, decimal_places=0)
-    current_assists = models.DecimalField(max_digits=2, decimal_places=0)
-    current_pims = models.DecimalField(max_digits=2, decimal_places=0)
-    allstar_appearances = models.DecimalField(max_digits=2, decimal_places=0)
+    name = models.CharField(max_length=50, default='')
+    number = models.PositiveSmallIntegerField(default=1)
+    position = models.CharField(max_length=2)
+
+    FavPlayer = models.Manager()
+
+    class Meta:
+        unique_together = ('my_profile', 'name')
+
+    def __str__(self):
+        return self.name
