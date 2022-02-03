@@ -35,14 +35,24 @@ def composers_details(request,pk):
     return render(request, 'Composers/composers_details.html', context)
 
 """List of the top 25 composers according to this site"""
-def composer_scraping(request):
+def composer_scraping2(request):
     top20composers=[]
     page = requests.get('https://www.thetoptens.com/greatest-classical-composers/')
     soup = BeautifulSoup(page.content, 'html.parser')
     composers_soup = soup.find_all('b')
     for i in composers_soup:
-        if i != 'data-user':
-            print(i)
+        if i != 'hublink':
+            composers=i.text
+            top20composers.append(composers)
+            print(composers)
     return render(request, 'Composers/top20_composers.html')
 
 
+def composer_scraping(request):
+    top20composers=[]
+    page=requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
+    soup=BeautifulSoup(page.content, 'html.parser')
+    composers_soup=soup.find_all('div',attrs={'class':'list'})
+    for i in composers_soup:
+        print(i)
+    return render(request, 'Composers/top20_composers.html')
