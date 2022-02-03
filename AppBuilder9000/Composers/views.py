@@ -39,9 +39,10 @@ def composer_scraping(request):
     top20composers=[]
     page = requests.get('https://www.thetoptens.com/greatest-classical-composers/')
     soup = BeautifulSoup(page.content, 'html.parser')
-    composers_soup = soup.find_all("b", attrs={'id':'lc'})
-    print(composers_soup)
-
+    composers_soup = soup.find_all('b')
+    for i in composers_soup:
+        if i != 'data-user':
+            print(i)
     return render(request, 'Composers/top20_composers.html')
 
 
