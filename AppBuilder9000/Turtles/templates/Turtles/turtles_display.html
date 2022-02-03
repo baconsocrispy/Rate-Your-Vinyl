@@ -1,0 +1,21 @@
+{% extends "Turtles/turtles_base.html" %}
+
+{% load static %}
+
+{% block title %}Turtles Rescue{% endblock %}
+
+{% block header %}Create Details:{% endblock %}
+
+{% block content %}
+
+{% for key, Turtle in turtles_info.items %}
+<tr>
+    <td class="center">{{ key.name }}</td>
+    <td class="center">{{ key.species }}</td>
+    <td class="center">{{ key.description }}</td>
+    <td class="center">{{ key.rescue_cost }}</td>
+    <td class="center">{{ key.locality }}</td>
+</tr>
+{% endfor %}
+
+{% endblock %}
