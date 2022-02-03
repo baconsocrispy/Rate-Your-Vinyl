@@ -6,12 +6,13 @@ from django.urls import path
 
 from .forms import ComposerForm
 from .models import Composer
+import requests
+from bs4 import BeautifulSoup
 
 
 # Create your views here.
 def composers(request):
     return render(request, 'Composers/composers_home.html')
-
 
 def create_composer(request):
     form = ComposerForm(request.POST or None)
@@ -32,3 +33,15 @@ def composers_details(request,pk):
     details = get_object_or_404(Composer, pk=pk)
     context = {'details': details}
     return render(request, 'Composers/composers_details.html', context)
+
+"""List of the top 25 composers according to this site"""
+def composer_scraping(request):
+    top20composers=[]
+    page = requests.get('https://www.thetoptens.com/greatest-classical-composers/')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    composers_soup = soup.find_all("b", attrs={'id':'lc'})
+    print(composers_soup)
+
+    return render(request, 'Composers/top20_composers.html')
+
+

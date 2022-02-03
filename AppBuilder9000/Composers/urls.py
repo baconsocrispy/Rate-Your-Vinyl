@@ -10,4 +10,5 @@ urlpatterns = [
     path('composers_create', views.create_composer, name='composers_create'),
     path('composers_list', views.composers_list, name='composers_list'),
     path('<int:pk>/composers_details', views.composers_details, name='composers_details'),
+    path('top20_composers', views.composer_scraping, name='top20_composers')
 ]
