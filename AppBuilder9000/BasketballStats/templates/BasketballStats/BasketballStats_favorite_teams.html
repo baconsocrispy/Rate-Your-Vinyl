@@ -5,22 +5,18 @@
 {% block header %}Favorite Teams{% endblock %}
 
 {% block content %}
-<div id="container" class="table-responsive w-50 mx-auto">
+<div id="container" class="table-responsive w-25 mx-auto">
     <table id="table" class="table table-dark table-bordered table-hover text-center" data-toggle="table">
         <caption>Click on a team's name to view their details</caption>
         <thead>
             <tr>
                 <th scope="col" class="w-25">Team</th>
-                <th scope="col" class="w-25">Conference</th>
-                <th scope="col" class="w-25">Division</th>
             </tr>
         </thead>
         <tbody>
             {% for team in team_list %}
             <tr>
                 <td><a href="{% url 'basketball_stats_favorite_details' team.id %}">{{ team.team_name }}</a></td>
-                <td>{{ team.conference }}</td>
-                <td>{{ team.division }}</td>
             </tr>
             {% endfor %}
         </tbody>
