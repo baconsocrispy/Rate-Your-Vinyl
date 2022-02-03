@@ -45,14 +45,13 @@ def composer_scraping2(request):
             composers=i.text
             top20composers.append(composers)
             print(composers)
-    return render(request, 'Composers/top20_composers.html')
+    return render(request, 'Composers/top100_composers.html')
 
 
 def composer_scraping(request):
-    top20composers=[]
     page=requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
     soup=BeautifulSoup(page.content, 'html.parser')
     composers_soup=soup.find_all('div',attrs={'class':'list'})
     for i in composers_soup:
         print(i)
-    return render(request, 'Composers/top20_composers.html')
+    return render(request, 'Composers/top100_composers.html')

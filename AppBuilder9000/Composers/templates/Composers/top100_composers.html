@@ -1,13 +1,13 @@
 {% extends 'Composers/composers_base.html' %}
 {% load static %}
 
-{% block head %} Top 20 Composers {% endblock %}
-{% block title %} Top 20 Classic Composers {% endblock %}
+{% block head %} Top 100 Composers {% endblock %}
+{% block title %} Top 100 Classic Composers {% endblock %}
 
 {% block content %}
 
 <div id="container">
-    <h2>List of top 20 composers of time</h2>
+    <h2>List of top 100 composers of time</h2>
     {% for list in composers_soup %}
         {{ list.0 }}
         {{ list.1 }}
