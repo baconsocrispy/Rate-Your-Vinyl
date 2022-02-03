@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import CreateForm
+from .models import Turtles
 
 
 def turtles_home(request):
@@ -16,3 +17,10 @@ def turtles_create(request):
             return redirect('turtles_home')
     content = {'form': form}
     return render(request, 'Turtles/turtles_create.html', content)
+
+
+def turtles_display(request):
+    item = Turtles.Turtles.all()
+    context = {'item': item}
+
+    return render(request, 'Turtles/turtles_display.html', context)
