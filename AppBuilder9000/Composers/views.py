@@ -3,7 +3,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
-
 from .forms import ComposerForm
 from .models import Composer
 
@@ -22,13 +21,33 @@ def create_composer(request):
     content = {'form': form}
     return render(request, 'Composers/composers_create.html', content)
 
+
 def composers_list(request):
     composer_list = Composer.Composers.all()
-    context={'composer_list': composer_list}
-    return render(request,'Composers/composers_list.html', context)
+    context = {'composer_list': composer_list}
+    return render(request, 'Composers/composers_list.html', context)
 
 
-def composers_details(request,pk):
+def composers_details(request, pk):
     details = get_object_or_404(Composer, pk=pk)
     context = {'details': details}
     return render(request, 'Composers/composers_details.html', context)
+
+
+def composers_edit(request, pk):
+    item = get_object_or_404(Composer, pk=pk)
+    form = ComposerForm(request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('composers_list')
+    context = {'form': form}
+    return render(request, 'Composers/composers_edit.html', context)
+
+def composers_delete(request, pk):
+    item = get_object_or_404(Composer, pk=pk)
+    form = ComposerForm(request.POST or None, instance=item)
+    if request.method == 'POST':
+            item.delete()
+            return redirect('composers_list')
+    return render(request, 'Composers/composers_delete.html', {'item': item, 'form': form})
