@@ -26,8 +26,9 @@ def turtles_display(request):
     return render(request, 'Turtles/turtles_display.html', context)
 
 
+# Query database for all data on a certain 'key' from the 'Turtles' class.
 def turtles_details(request, pk):
-    # Query database for all data on a certain 'key' from the 'Turtles' class.
-    item = get_object_or_404(Turtles, pk=pk)
+    details = get_object_or_404(Turtles, pk=pk)
+    context = {'details': details}
 
-    return render(request, 'Turtles/turtles_details.html', {'item': item})
+    return render(request, 'Turtles/turtles_details.html', context)
