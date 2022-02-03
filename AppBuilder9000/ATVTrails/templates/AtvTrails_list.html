@@ -5,21 +5,8 @@
 
 {% block content %}
 
-<div class="admin_panel">
-    <form name="Trails_Form" method="POST" action="">
-            <div>
-                <a href="{% url 'add_trail' %}"><button type="button" class="btn">Add a New Trail</button></a>
-                <a href="{% url 'Atv_home' %}"><button type="button" class="btn">Home</button></a>
 
-            </div>
-
-        </div>
-    </form>
-</div>
-
-
-
-<div class="main">
+<div class="trails_main">
 
 	{% for trails in trails %}
 

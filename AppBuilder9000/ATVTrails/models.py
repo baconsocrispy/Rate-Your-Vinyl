@@ -19,12 +19,12 @@ trail_type = [
 
 class AtvTrails(models.Model):
     trail_name = models.CharField(max_length=50, default="", blank=True)
-    vehicle_type = models.CharField(max_length=60, choices=type_choices)
-    trail_distance = models.DecimalField(max_digits=4, decimal_places=2, default="", blank=True)
-    trail_terrain = models.CharField(max_length=60, default="", choices=trail_type)
-    trail_description = models.TextField(max_length=500, default="", blank=True)
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
+    vehicle_type = models.CharField(max_length=50, choices=type_choices)
+    trail_distance = models.DecimalField(max_digits=4, decimal_places=0, default="")
+    trail_terrain = models.CharField(max_length=50, choices=trail_type)
+    trail_description = models.TextField(max_length=500, default="")
+    city = models.CharField(max_length=50, default="")
+    state = models.CharField(max_length=50, default="")
 
     objects = models.Manager()
 

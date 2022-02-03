@@ -10,4 +10,25 @@ body {
     background-size: cover;
 }
 /* New color for TopNav */
-.top
+.topnav {
+    background-color: green;
+}
+
+.trails_main {
+    text-align: center;
+    background-color: green;
+
+}
+.trails_head {
+    border: 1px solid black;
+    width: 100%;
+    background-color: green;
+    font-color: black;
+    align-text: center;
+}
+.trails_body {
+    border: 1px solid black;
+    width: 100%;
+    background-color: green;
+    font-color: black;
+}
