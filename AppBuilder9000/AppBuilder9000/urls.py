@@ -23,10 +23,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('Campsites/', include('Campsites.urls')),
-    path('CampingSupplies/', include('CampingSupplies.urls')),
-    path('Gardening/', include('Gardening.urls')),
-    path('BitcoinAnalytics', include('BitcoinAnalytics.urls')),
     path('BasketballStats', include('BasketballStats.urls')),
     path('Stocks/', include('Stocks.urls')),
     path('DNDCharacters', include('DNDCharacters.urls')),
