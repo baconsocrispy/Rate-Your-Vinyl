@@ -1,6 +1,6 @@
 {% extends "IceHockey_base.html" %}
 {% load static %}
-{% block title %}Ice Hockey{% endblock %}
+{% block title %}Ice Hockey App{% endblock %}
 {% block content %}
 <div class="container-fluid mx-auto" style="width: 90%">
     <div id="jtron" class="jumbotron jumbotron-fluid text-info bg-light mt-5">
@@ -11,7 +11,7 @@
             <a class="btn btn-info btn-lg" href="#" role="button">New to the Game?</a>
         </div>
     </div>
-    <div class="row" id="homerow">
+    <div class="row mx-auto mt-5" id="homerow" style="width: 80%;">
         <div class="col-sm p-3 bg-light text-center">
 
             <h1 class="text-info pb-3">Hockey News</h1>
@@ -21,14 +21,7 @@
             {% endfor %}
 
         </div>
-        <div class="col-sm p-3 bg-light text-center">
-            <h2 class="text-info">Top Players</h2>
 
-
-        </div>
-        <div class="col-sm p-3 bg-light text-center">
-            <h2 class="text-info">NHL Standings</h2>
-        </div>
     </div>
 </div>
 {% endblock %}

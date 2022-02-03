@@ -1,9 +1,58 @@
+from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
-from .form import UserForm
-from .models import Profile
+from .form import UserForm, PlayerForm
+from .models import Profile, FavPlayer
 import requests
 from bs4 import BeautifulSoup
 import json
+
+
+def IceHockey_fav_add(request, pk):
+    # keeps user data at hand for the final step in the saving process in the confirm add view.
+    user = get_object_or_404(Profile, pk=pk)
+    """
+    When the user clicks the 'Add Fav' button from the api page, the form data is retrieved with 
+    the code below, which is then passed along to the confirm add page in the same fashion.
+    """
+    if request.method == 'POST':
+        name = request.POST['player_name']
+        num = request.POST['player_num']
+        pos = request.POST['player_pos']
+        print(name)
+        print(num)
+        print(pos)
+    return render(request, 'IceHockey/IceHockey_fav_add.html', {'name': name, 'num': num, 'pos': pos, 'user': user})
+
+
+def IceHockey_show_favorites(request, pk):
+    user = get_object_or_404(Profile, pk=pk)
+    player_list = FavPlayer.FavPlayer.filter(my_profile__exact=int(pk))
+    return render(request, 'IceHockey/IceHockey_show_favorites.html', {'player_list': player_list, 'user': user})
+
+
+def IceHockey_confirm_add(request, pk):
+    user = get_object_or_404(Profile, pk=pk)
+    """
+    We once again retrieve the relevant data from the form, passing it into variables
+    that we can then input into the creation of a new favorite player object.  To combat the creation
+    of duplicate entries, an if statement checks if the name being entered already exists 
+    within the database.  
+    """
+    if request.method == 'POST':
+        name = request.POST['player_name']
+        num = request.POST['player_num']
+        pos = request.POST['player_pos']
+
+        if FavPlayer.FavPlayer.filter(name=name).exists():
+            return render(request, 'IceHockey/IceHockey_confirm_add.html', {'user': user})
+        else:
+            new_player = user.favorite_player_list.create(
+                my_profile=user,
+                name=name,
+                number=num,
+                position=pos,
+            )
+            return render(request, 'IceHockey/IceHockey_confirm_add.html', {'user': user})
 
 
 def IceHockey_home(request):
@@ -11,7 +60,8 @@ def IceHockey_home(request):
     news_links = []
     news_dates = []
 
-    response = requests.get('https://newsdata.io/api/1/news?apikey=pub_419404de6e248af4abb353fdc5168853dd51&q=ice%20hockey&country=ca,us&language=en')
+    response = requests.get(
+        'https://newsdata.io/api/1/news?apikey=pub_419404de6e248af4abb353fdc5168853dd51&q=ice%20hockey&country=ca,us&language=en')
     news = json.loads(response.text)
     results = news['results']
     for story in results:
@@ -132,6 +182,7 @@ def IceHockey_scrapeddata(request, pk):
         return render(request, 'IceHockey/IceHockey_scrapeddata.html', context)
     else:
         return render(request, 'IceHockey/IceHockey_error.html', det_dict)
+
 
 def IceHockey_samplescrape(request):
     player_years = []

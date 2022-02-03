@@ -1,0 +1,13 @@
+{% extends 'IceHockey_base.html' %}
+{% load static %}
+{% block title %}Save Favorite{% endblock %}
+
+{% block header %}Save Favorite{% endblock %}
+{% block content %}
+
+<h1 class="text-light">Player Added to {{user.first_name}}'s profile </h1>
+
+<button><a href="{% url 'IceHockey_show_favorites' user.pk %}">Show Favorites</a></button>
+
+
+{% endblock %}
