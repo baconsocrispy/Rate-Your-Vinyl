@@ -238,7 +238,7 @@ def save_favorites(request):
                                              division=i['division']
                                              )
                 new_team.save()
-        return render(request, 'BasketballStats/BasketballStats_save_api.html')
+        return redirect('basketball_stats_favorites')
     else:
         return render(request, 'BasketballStats/BasketballStats_save_api.html', {'team_names': team_names})
 
