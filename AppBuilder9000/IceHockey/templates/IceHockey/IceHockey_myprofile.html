@@ -13,11 +13,14 @@
         <div class="row mx-auto">
         {% for profiles in profile_list reversed %}
              <div class="card mr-4 ml-4 mb-4" onclick="location.href='{% url 'IceHockey_details' profiles.pk %}'" style="width: 20rem; border-radius: 10px">
-                 <div id='cardbody' class="border border-info card-body" onclick="findDetails()">
+                 <div id='cardbody' class="card-body" onclick="findDetails()">
                      <h5 class="card-title">{{ profiles.first_name }} {{ profiles.last_name }}</h5>
                      <h6 class="card-text text-info">Favorite Team: {{ profiles.favorite_team }}</h6>
                      <h6 class="card-text text-info">Favorite Player: {{ profiles.favorite_player }}</h6>
-                     <a href="{% url 'IceHockey_details' profiles.pk %}">See Profile Details</a>
+                     <div class="container mt-3">
+                         <a href="{% url 'IceHockey_details' profiles.pk %}">See Profile Details</a><br>
+                         <a href="{% url 'IceHockey_show_favorites' profiles.pk %}">See Favorite Players</a>
+                     </div>
                  </div>
              </div>
        {% endfor %}

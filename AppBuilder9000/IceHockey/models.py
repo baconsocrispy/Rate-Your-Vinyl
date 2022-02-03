@@ -56,6 +56,13 @@ class Profile(models.Model):
 class FavPlayer(models.Model):
     my_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, default='')
+    number = models.PositiveSmallIntegerField(default=1)
+    position = models.CharField(max_length=2)
+
+    FavPlayer = models.Manager()
+
+    class Meta:
+        unique_together = ('my_profile', 'name')
 
     def __str__(self):
         return self.name

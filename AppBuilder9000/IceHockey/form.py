@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from .models import Profile
+from django import forms
+from .models import Profile, FavPlayer
 
 
 class UserForm(ModelForm):
@@ -14,3 +15,7 @@ class UserForm(ModelForm):
         }
 
 
+class PlayerForm(forms.Form):
+    player_name = forms.CharField(max_length=50)
+    player_number = forms.IntegerField(max_value=99, min_value=1)
+    player_position = forms.CharField(max_length=1)

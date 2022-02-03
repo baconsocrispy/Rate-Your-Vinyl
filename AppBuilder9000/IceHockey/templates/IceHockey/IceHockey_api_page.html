@@ -16,18 +16,21 @@
        </tr>
     </thead>
        <tbody>
-          {% for number_list, position_code, roster in zipped_list%}
+          {% for roster, position_code, number_list in zipped_list%}
              <tr>
-                <td class="align-middle">{{ number_list }}</td>
-                <td class="align-middle">{{ position_code }}</td>
                 <td class="align-middle">{{ roster }}</td>
+                <td class="align-middle">{{ position_code }}</td>
+                <td class="align-middle">{{ number_list }}</td>
                 <td class="align-middle">
-                    <form method='POST' action="{% url 'IceHockey_fav_add' user.pk %}">
+                    <form method='POST' action="{% url 'IceHockey_fav_add' user.pk %}" id="PlayerForm">
                        {% csrf_token %}
-                       <input type='hidden' name='number' value="{{ number_list }}">
-                       <input type='hidden' name='position' value="{{ position_code }}">
-                       <input type='hidden' name='name' value="{{ roster }}">
-                       <button type='submit'>Add Fav</button>
+                       <input type="hidden" name="player_name" value="{{ roster }}">
+                       <input type="hidden" name="player_pos" value="{{ position_code }}">
+                       <input type="hidden" name="player_num" value="{{ number_list }}">
+                       <input type='submit' value="Add Fav">
+                       <!-- for loop similtaneously populates cells and 'hidden' form values to be passed
+                       from template to view -->
+
                    </form>
                 </td>
              </tr>
