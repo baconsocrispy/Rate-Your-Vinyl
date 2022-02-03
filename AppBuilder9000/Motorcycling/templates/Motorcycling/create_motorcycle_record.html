@@ -1,0 +1,32 @@
+{% extends "Motorcycling/motorcycling_base.html" %}
+{% load static %}
+{{ motorcycles }}
+
+<ul>
+    {% for motorcycle in motorcycles%}
+    <li><a href="/create_motorcycle_record.html">{{motorcycle}}</a> {{motorcycle}}</li>
+    {% endfor &}
+</ul>
+
+{% block content %}
+
+    <div class="create_panel">
+         <form method="POST" action="{% url 'createMotoRecord' %}">
+             <div class="frmObject_container">
+                 <!-- Adding Cross Site Request Forgery Token for protection -->
+                 {% csrf_token %}
+                 {{ form.non_field_errors }}
+                 {{ form.as_p }}
+             </div>
+             <div class="frmBTN_container">
+                 <input type="submit" class="btn" value="Create New Item" name="Save_Item">
+                 <a href="{% url 'rate_motorcycle' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+             </div>
+         </form>
+    </div>
+
+{% endblock %}
+
+
+
+
