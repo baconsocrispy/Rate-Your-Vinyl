@@ -8,21 +8,22 @@
     <h2 class="d-inline p-1 my-1 text-success">{{trails.trail_name}} Details</h2>
     <hr>
 <!--    <div class="spacer"></div>-->
-    <table class="table display table-light table-hover table-striped" style="text-align:center; color:#ff5200;">
+    <table>
 <!--        This is the header row of the table-->
-        <thead class="thread-light">
+        <thead class="trails_head">
         <tr>
           <th scope="col">Trail Name</th>
           <th scope="col">Vehicle Type</th>
           <th scope="col">Distance</th>
           <th scope="col">Terrain</th>
+          <th scope="col">Description</th>
           <th scope="col">City</th>
           <th scope="col">State</th>
         </tr>
       </thead>
 <!--        This is the content added to the table from the database-->
       <body>
-        <tr>
+        <tr class="trails_body">
           <th scope="row">{{details.trail_name}}</th>
           <td>{{details.vehicle_type}}</td>
           <td>{{details.trail_distance}}</td>
@@ -35,3 +36,5 @@
     </table>
 
 </div>
+
+{% endblock %}

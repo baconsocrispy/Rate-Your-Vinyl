@@ -24,20 +24,10 @@ body {
     width: 100%;
     background-color: green;
     font-color: black;
-    align-text: center;
 }
 .trails_body {
     border: 1px solid black;
     width: 100%;
     background-color: green;
     font-color: black;
-}
-.container {
-    border: 1px solid white center;
-    background-color: green;
-    font-size: 25px;
-    line-height: 45px;
-    font-weight: bold;
-    font-color: black;
-    text-align: center;
 }
