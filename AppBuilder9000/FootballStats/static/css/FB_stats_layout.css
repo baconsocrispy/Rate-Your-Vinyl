@@ -8,7 +8,6 @@ html {
 
 body {
 	position: relative;
-	overflow: hidden;
 	background-image: url('../images/fb_stats_home_pic.jpeg');
 	background-size: cover;
     background-attachment:fixed;

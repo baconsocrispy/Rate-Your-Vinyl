@@ -20,7 +20,7 @@ def add_player_stats(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('football_stats_players')
+            return redirect('football_stats_home')
     context = {'form': form}
     return render(request, 'FootballStats/football_stats_create.html', context)
 
