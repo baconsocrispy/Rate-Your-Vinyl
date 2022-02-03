@@ -96,6 +96,8 @@ def team_delete(request, pk):
 """
 
 
+# This function matches team names with the team IDs from the API. It returns a key-value pair dictionary
+# with the ID being the key, and the value being the team's full name
 def fetch_team_name():
     full_name = {}
     url = "https://api-nba-v1.p.rapidapi.com/teams/league/standard"
@@ -111,6 +113,9 @@ def fetch_team_name():
     return full_name
 
 
+# This function gets all NBA teams, then puts them into lists representing each conference in the league
+# Once in the list has all the teams they are sorted by their rank in the conference. The user selects
+# which season to view the standings for
 def standings_page(request):
     west_team = []
     east_team = []
@@ -139,6 +144,8 @@ def standings_page(request):
     return render(request, 'BasketballStats/BasketballStats_team_standings.html', context)
 
 
+# This function puts each team in a list that represents their division within the league. It also
+# grabs the logo for each team. The divisions are then zipped into eastern and western conferences
 def conference_division(request):
     atlantic = []
     central = []
@@ -209,6 +216,8 @@ def conference_division(request):
     return render(request, 'BasketballStats/BasketballStats_bdl_api.html', context)
 
 
+# This function allows users to select their favorite NBA team from a dropdown menu. When the user
+# clicks on submit the selected team is then saved to the database a favorite team
 def save_favorites(request):
     team_names = []
     url = "https://www.balldontlie.io/api/v1/teams"
