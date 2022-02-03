@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateForm
 from .models import Turtles
 
@@ -24,3 +24,10 @@ def turtles_display(request):
     context = {'item': item}
 
     return render(request, 'Turtles/turtles_display.html', context)
+
+
+def turtles_details(request, pk):
+    # Query database for all data on a certain 'key' from the 'Turtles' class.
+    item = get_object_or_404(Turtles, pk=pk)
+
+    return render(request, 'Turtles/turtles_details.html', {'item': item})
