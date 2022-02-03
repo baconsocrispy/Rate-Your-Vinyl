@@ -20,7 +20,7 @@ def turtles_create(request):
 
 
 def turtles_display(request):
-    turtles_info = Turtles.Turtles.all()
-    content = {'turtles_info': turtles_info}
+    item = Turtles.Turtles.all()
+    context = {'item': item}
 
-    return render(request, 'Turtles/turtles_display.html', content)
+    return render(request, 'Turtles/turtles_display.html', context)
