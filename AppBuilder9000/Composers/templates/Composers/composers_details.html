@@ -30,8 +30,8 @@
                 <td>{{ details.description | capfirst }}</td>
         </tr>
     </table>
-        <a href="#"><button>Edit</button></a>
-        <a href="#"><button>Delete</button></a>
+        <a href="{% url 'composers_edit' details.pk %}"><button>Edit</button></a>
+        <a href="{% url 'composers_delete' details.pk %}"><button>Delete</button></a>
     </div>
 </html>
 {% endblock %}
