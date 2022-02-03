@@ -6,10 +6,10 @@
 
 {% block content %}
         <h3>Edit Composer Information</h3>
-            <div id="form-container" class="form-group">
+            <div id="form-container" class="table-responsive">
                 <form method="POST">
                     {% csrf_token %}
-                        <table id="table" class='table table-dark table-bordered table-centered w-50 '>
+                        <table id="table" class='table table-dark table-centered w-50 table-bordered  '>
                         {{ form.as_table }}
                         </table>
                         <button type="submit" class="btn btn-primary">Edit Composer</button>
