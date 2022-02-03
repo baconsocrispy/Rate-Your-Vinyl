@@ -18,7 +18,7 @@
         <tbody> <!--table information with first letter capitalized-->
         {% for item in composer_list %}
             <tr>
-                <td><a href="{% url 'composers_details' item.id %}">{{item}}</td>
+                <td><a href="{% url 'composers_details' item.id %}">{{item.first_name |  capfirst}}</td>
                 <td>{{ item.last_name | capfirst }}</td>
             </tr>
 

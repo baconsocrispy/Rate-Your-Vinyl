@@ -1,7 +1,7 @@
 {% extends "ATVTrails_base.html" %}
 
 {% load static %}
-
+{% include "AtvTrails_navbar.html" %}
 {% block content %}
 <!--This table displays all items in the database-->
 <div id="table_container" class="container mx-auto">
@@ -34,6 +34,8 @@
         </tr>
       </body>
     </table>
+    <a href="{% url 'trail_edit' details.pk %}"><button type="button" class="btn">Edit/Delete</button></a>
+
 
 </div>
 
