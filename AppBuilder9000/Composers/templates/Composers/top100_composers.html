@@ -7,19 +7,13 @@
 {% block content %}
 
 <div id="container">
-    <h2>List of top 100 composers of time</h2>
+    <h2>Top 100 composers of time</h2>
+    <ul>
+        {% for comp in top100composers %}
+       <li>{{ comp }}</li>
+        {% endfor %}
+    </ul>
 
-    {% for comp in top100composers %}
-    {{ comp.0 }}
-    {{ comp.1 }}
-    {{ comp.2 }}
-    {{ comp.3 }}
-    {{ comp.4 }}
-    {{ comp.5 }}
-    {{ comp.6 }}
-    {{ comp.7 }}
-
-    {% endfor %}
 </div>
 
 
