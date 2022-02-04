@@ -1,12 +1,14 @@
+{% load static %}
 
 body {
-background-color: grey;
-
+  background-image: url("../images/motorcycle_main.jpg");
+  background-size: cover;
 }
+
 
 h1 {
 font-family: Helvetica, sans-serif;
-color: white;
+color: black;
 text-align: center;
 font-size: 40px;
 }
@@ -14,12 +16,20 @@ font-size: 40px;
 .navbar {
 font-family: monospace, arial;
 font-size: 20px;
-color: white;
+font-weight: bold;
+color: #b8860b;
 }
 
-title {
-color: yellow;
-text-align: center;
+.cards {
+position: centered;
+padding: 20px;
+color: red;
 }
+
+.card {
+display: grid;
+align: right;
+}
+
 
 
