@@ -54,6 +54,8 @@ def composers_delete(request, pk):
             item.delete()
             return redirect('composers_list')
     return render(request, 'Composers/composers_delete.html', {'item': item, 'form': form})
+
+
 """List of the top 25 composers according to this site"""
 def composer_scraping2(request):
     top20composers=[]
@@ -62,16 +64,19 @@ def composer_scraping2(request):
     composers_soup = soup.find_all('b')
     for i in composers_soup:
         if i != 'hublink':
-            composers=i.text
+            composers = i.text
             top20composers.append(composers)
             print(composers)
     return render(request, 'Composers/top100_composers.html')
 
 
 def composer_scraping(request):
+    top100composers=[]
     page=requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
     soup=BeautifulSoup(page.content, 'html.parser')
     composers_soup=soup.find_all('div',attrs={'class':'list'})
     for i in composers_soup:
-        print(i)
+        composers = i.text
+        top100composers.append(composers)
+        print(composers)
     return render(request, 'Composers/top100_composers.html')
