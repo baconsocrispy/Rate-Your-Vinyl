@@ -74,12 +74,24 @@ def view_favorites(request):
     return render(request, 'BasketballStats/BasketballStats_favorite_teams.html', context)
 
 
+def abbreviate_name():
+    team_list = Teams.Team.all()
+    abbrev = {}
+    for team in team_list:
+        if team.team_name == 'Atlanta Hawks':
+            abbrev[team.team_name] = 'ATL'
+        elif team.team_name == 'Boston Celtics':
+            abbrev[team.team_name] = 'BOS'
+    return abbrev
+
+
 def favorite_team_details(request, pk):
     details = get_object_or_404(Teams, pk=pk)
 
     if details.team_name == 'Atlanta Hawks':
         atl = []
-        page = requests.get("https://www.basketball-reference.com/teams/ATL/2022.html")
+        abbrev = abbreviate_name()
+        page = requests.get("https://www.basketball-reference.com/teams/{abbrev}/2022.html")
         soup = BeautifulSoup(page.content, 'html.parser')
         meta = soup.find('div', id='meta')
         ptags = meta.find_all('p')[2:]
