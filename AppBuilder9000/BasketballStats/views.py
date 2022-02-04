@@ -76,8 +76,12 @@ def view_favorites(request):
 
 def favorite_team_details(request, pk):
     details = get_object_or_404(Teams, pk=pk)
-    context = {'details': details}
-    return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
+    if details.team_name == 'Atlanta Hawks':
+        page = requests.get("https://www.basketball-reference.com/teams/ATL/2022.html")
+        soup = BeautifulSoup(page.content, 'html.parser')
+    else:
+        context = {'details': details}
+        return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
 
 
 def team_delete(request, pk):
