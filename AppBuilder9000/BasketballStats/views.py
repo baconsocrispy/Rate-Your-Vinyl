@@ -106,15 +106,18 @@ def favorite_team_details(request, pk):
     for team in team_list:
         abbrev = abbreviate_name()
         abr_name = abbrev[team.team_name]
-        page = requests.get("https://www.basketball-reference.com/teams/" + str(abr_name) + "/2022.html")
-        soup = BeautifulSoup(page.content, 'html.parser')
-        meta = soup.find('div', id='meta')
-        ptags = meta.find_all('p')[2:]
-        for i in ptags:
-            text = i.text.strip()
-            atl.append(text)
-        return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details,
-                                                                                         'atl': atl})
+        if details.team_name == abbrev[team.team_name]:
+            page = requests.get("https://www.basketball-reference.com/teams/" + str(abr_name) + "/2022.html")
+            soup = BeautifulSoup(page.content, 'html.parser')
+            meta = soup.find('div', id='meta')
+            ptags = meta.find_all('p')[2:]
+            for i in ptags:
+                text = i.text.strip()
+                atl.append(text)
+            return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details,
+                                                                                             'atl': atl})
+        else:
+            return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details})
 
 
 def team_delete(request, pk):
