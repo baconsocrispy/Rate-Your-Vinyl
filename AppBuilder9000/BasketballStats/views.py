@@ -82,16 +82,31 @@ def abbreviate_name():
             abbrev[team.team_name] = 'ATL'
         elif team.team_name == 'Boston Celtics':
             abbrev[team.team_name] = 'BOS'
+        elif team.team_name == 'Portland Trail Blazers':
+            abbrev[team.team_name] = 'POR'
+        elif team.team_name == 'Chicago Bulls':
+            abbrev[team.team_name] = 'CHI'
+        elif team.team_name == 'Brooklyn Nets':
+            abbrev[team.team_name] = 'BRK'
+        elif team.team_name == 'Los Angeles Lakers':
+            abbrev[team.team_name] = 'LAL'
+        elif team.team_name == 'Charlotte Hornets':
+            abbrev[team.team_name] = 'CHA'
+        elif team.team_name == 'Cleveland Cavaliers':
+            abbrev[team.team_name] = 'CLE'
+        elif team.team_name == 'Dallas Mavericks':
+            abbrev[team.team_name] = 'DAL'
     return abbrev
 
 
 def favorite_team_details(request, pk):
     details = get_object_or_404(Teams, pk=pk)
-
-    if details.team_name == 'Atlanta Hawks':
-        atl = []
+    team_list = Teams.Team.all()
+    atl = []
+    for team in team_list:
         abbrev = abbreviate_name()
-        page = requests.get("https://www.basketball-reference.com/teams/" + str(abbrev.values()) + "/2022.html")
+        abr_name = abbrev[team.team_name]
+        page = requests.get("https://www.basketball-reference.com/teams/" + str(abr_name) + "/2022.html")
         soup = BeautifulSoup(page.content, 'html.parser')
         meta = soup.find('div', id='meta')
         ptags = meta.find_all('p')[2:]
@@ -100,20 +115,6 @@ def favorite_team_details(request, pk):
             atl.append(text)
         return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details,
                                                                                          'atl': atl})
-    elif details.team_name == 'Boston Celtics':
-        bos = []
-        page = requests.get("https://www.basketball-reference.com/teams/BOS/2022.html")
-        soup = BeautifulSoup(page.content, 'html.parser')
-        meta = soup.find('div', id='meta')
-        ptags = meta.find_all('p')[2:]
-        for i in ptags:
-            text = i.text.strip()
-            bos.append(text)
-        return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details,
-                                                                                         'bos': bos})
-    else:
-        context = {'details': details}
-        return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
 
 
 def team_delete(request, pk):
