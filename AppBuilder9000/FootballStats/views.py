@@ -30,8 +30,16 @@ def add_player_stats(request):
 def stats(request):
     player_list = Players.Player.all()
     context = {'player_list': player_list}
-    return render(request, 'FootballStats/FootballStats_players.html', context)
+    return render(request, 'FootballStats/Football_Stats_stats.html', context)
 
+
+
+
+
+#Search function to be completed later
+#def search(request):
+    #player_list = Players.Player.all()
+    #context = {'player_list': player_list}
 
 
 
