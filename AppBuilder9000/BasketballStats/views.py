@@ -76,8 +76,9 @@ def view_favorites(request):
 
 def favorite_team_details(request, pk):
     details = get_object_or_404(Teams, pk=pk)
-    atl = []
+
     if details.team_name == 'Atlanta Hawks':
+        atl = []
         page = requests.get("https://www.basketball-reference.com/teams/ATL/2022.html")
         soup = BeautifulSoup(page.content, 'html.parser')
         meta = soup.find('div', id='meta')
@@ -85,9 +86,19 @@ def favorite_team_details(request, pk):
         for i in ptags:
             text = i.text.strip()
             atl.append(text)
-        print(atl)
         return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details,
                                                                                          'atl': atl})
+    elif details.team_name == 'Boston Celtics':
+        bos = []
+        page = requests.get("https://www.basketball-reference.com/teams/BOS/2022.html")
+        soup = BeautifulSoup(page.content, 'html.parser')
+        meta = soup.find('div', id='meta')
+        ptags = meta.find_all('p')[2:]
+        for i in ptags:
+            text = i.text.strip()
+            bos.append(text)
+        return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details,
+                                                                                         'bos': bos})
     else:
         context = {'details': details}
         return render(request, 'BasketballStats/BasketballStats_favorite_details.html', context)
