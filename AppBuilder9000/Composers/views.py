@@ -72,12 +72,14 @@ def composers_delete(request, pk):
 
 def composer_scraping(request):
     top100composers=[]
-    page=requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
-    soup=BeautifulSoup(page.content, 'html.parser')
-    composers_soup = soup.find_all('div',attrs={'class':'list'})
-    for i in composers_soup:
-        composers = i.get_text()
-        top100composers.append(composers)
+    page = requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    composers_soup = soup.find('div', class_='list')
+    composer=composers_soup.find_all('span')
+    for i in composer:
+        names = i.text
+        top100composers.append(names)
     print(top100composers)
     context = {'top100composers': top100composers}
     return render(request, 'Composers/top100_composers.html', context)
+

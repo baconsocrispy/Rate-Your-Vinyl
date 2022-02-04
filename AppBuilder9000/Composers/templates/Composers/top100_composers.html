@@ -6,11 +6,11 @@
 
 {% block content %}
 
-<div id="container">
+<div class="card bg-secondary align-items-center">
     <h2>Top 100 composers of time</h2>
-    <ul>
+    <ul class="list-group-item bg-primary w-50 list-group-flush">
         {% for comp in top100composers %}
-       <li>{{ comp }}</li>
+        <ul class="list-group-item">{{ forloop.counter }} {{ comp }}</ul>
         {% endfor %}
     </ul>
 
