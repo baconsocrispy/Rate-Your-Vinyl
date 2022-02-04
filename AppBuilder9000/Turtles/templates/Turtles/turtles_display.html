@@ -21,7 +21,7 @@
         <tbody>
         {% for i in item %}
             <tr>
-                <td>{{ i.name }}</td>
+                <td><a href="{% url 'turtles_details' i.pk %}">{{ i.name }}</a></td>
                 <td>{{ i.species }}</td>
                 <td>{{ i.locality }}</td>
             </tr>
