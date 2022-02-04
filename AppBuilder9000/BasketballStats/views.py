@@ -91,7 +91,7 @@ def favorite_team_details(request, pk):
     if details.team_name == 'Atlanta Hawks':
         atl = []
         abbrev = abbreviate_name()
-        page = requests.get("https://www.basketball-reference.com/teams/{abbrev}/2022.html")
+        page = requests.get("https://www.basketball-reference.com/teams/" + abbrev + "/2022.html")
         soup = BeautifulSoup(page.content, 'html.parser')
         meta = soup.find('div', id='meta')
         ptags = meta.find_all('p')[2:]
