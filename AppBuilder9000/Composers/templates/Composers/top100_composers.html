@@ -6,15 +6,14 @@
 
 {% block content %}
 
-<div id="container">
-    <h2>List of top 100 composers of time</h2>
-    {% for list in composers_soup %}
-        {{ list.0 }}
-        {{ list.1 }}
-        {{ list.2 }}
-        {{ list.3 }}
-        {{ list.4 }}
-    {% endfor %}
+<div class="card bg-secondary align-items-center">
+    <h2>Top 100 composers of time</h2>
+    <ul class="list-group-item bg-primary w-50 list-group-flush">
+        {% for comp in top100composers %}
+        <ul class="list-group-item  font-weight-bold">{{ forloop.counter }} {{ comp }}</ul>
+        {% endfor %}
+    </ul>
+
 </div>
 
 

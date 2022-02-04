@@ -57,7 +57,7 @@ def composers_delete(request, pk):
 
 
 """List of the top 25 composers according to this site"""
-def composer_scraping2(request):
+'''def composer_scraping2(request):
     top20composers=[]
     page = requests.get('https://www.thetoptens.com/greatest-classical-composers/')
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -67,16 +67,19 @@ def composer_scraping2(request):
             composers = i.text
             top20composers.append(composers)
             print(composers)
-    return render(request, 'Composers/top100_composers.html')
+    return render(request, 'Composers/top100_composers.html')'''
 
 
 def composer_scraping(request):
     top100composers=[]
-    page=requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
-    soup=BeautifulSoup(page.content, 'html.parser')
-    composers_soup=soup.find_all('div',attrs={'class':'list'})
-    for i in composers_soup:
-        composers = i.text
-        top100composers.append(composers)
-        print(composers)
-    return render(request, 'Composers/top100_composers.html')
+    page = requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    composers_soup = soup.find('div', class_='list')
+    composer=composers_soup.find_all('span')
+    for i in composer:
+        names = i.text
+        top100composers.append(names)
+    print(top100composers)
+    context = {'top100composers': top100composers}
+    return render(request, 'Composers/top100_composers.html', context)
+
