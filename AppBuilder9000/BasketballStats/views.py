@@ -74,6 +74,24 @@ def view_favorites(request):
     return render(request, 'BasketballStats/BasketballStats_favorite_teams.html', context)
 
 
+def team_delete(request, pk):
+    item = get_object_or_404(Teams, pk=pk)
+    form = PlayersForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('basketball_stats_favorites')
+    return render(request, 'BasketballStats/BasketballStats_delete_favorites.html', {'item': item, 'form': form})
+
+
+"""
+=========================================================================================================
+    FAVORITE TEAM DETAILS SECTION
+=========================================================================================================
+"""
+
+
+# This function creates a dictionary for each team name and each team's abbreviated name
+# The abbreviated name will be used in the favorite_team_details function
 def abbreviate_name():
     team_list = Teams.Team.all()
     abbrev = {}
@@ -85,7 +103,7 @@ def abbreviate_name():
         elif team.team_name == 'Brooklyn Nets':
             abbrev[team.team_name] = 'BRK'
         elif team.team_name == 'Charlotte Hornets':
-            abbrev[team.team_name] = 'CHA'
+            abbrev[team.team_name] = 'CHO'
         elif team.team_name == 'Chicago Bulls':
             abbrev[team.team_name] = 'CHI'
         elif team.team_name == 'Cleveland Cavaliers':
@@ -141,17 +159,18 @@ def abbreviate_name():
     return abbrev
 
 
+# This function iterates through all of the favorite teams to assign the abbreviated names to them
+# It then checks if the team selected for the details page is equal to a name in the favorite team list
+# Once an equal name has been found it passes the abbreviated name of the selected favorite team into the url
+# for BeautifulSoup. Then it appends an empty list so that list can be passed to the favorite team details template
 def favorite_team_details(request, pk):
     details = get_object_or_404(Teams, pk=pk)
     team_list = Teams.Team.all()
-    atl = []
+    info = []
     for team in team_list:
         name = team.team_name
         abbrev = abbreviate_name()
         abr_name = abbrev[team.team_name]
-        print(details.team_name)
-        print(name)
-        print(abr_name)
         if details.team_name == name:
             page = requests.get("https://www.basketball-reference.com/teams/" + str(abr_name) + "/2022.html")
             soup = BeautifulSoup(page.content, 'html.parser')
@@ -159,18 +178,9 @@ def favorite_team_details(request, pk):
             ptags = meta.find_all('p')[2:]
             for i in ptags:
                 text = i.text.strip()
-                atl.append(text)
+                info.append(text)
     return render(request, 'BasketballStats/BasketballStats_favorite_details.html', {'details': details,
-                                                                                     'atl': atl})
-
-
-def team_delete(request, pk):
-    item = get_object_or_404(Teams, pk=pk)
-    form = PlayersForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        item.delete()
-        return redirect('basketball_stats_favorites')
-    return render(request, 'BasketballStats/BasketballStats_delete_favorites.html', {'item': item, 'form': form})
+                                                                                     'info': info})
 
 
 """
