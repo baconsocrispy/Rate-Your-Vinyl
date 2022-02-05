@@ -7,4 +7,6 @@ urlpatterns = [
     path('create/', views.turtles_create, name='turtles_create'),  # Path to 'turtles_create.html'
     path('display/', views.turtles_display, name='turtles_display'),  # Path to 'turtles_display.html'
     path('<int:pk>/turtles_details/', views.turtles_details, name='turtles_details'),  # Path to 'turtles_details.html'
+    path('<int:pk>/turtles_edit/', views.turtles_edit, name='turtles_edit'),
+    path('<int:pk>/turtles_delete/', views.turtles_delete, name='turtles_delete'),
 ]
