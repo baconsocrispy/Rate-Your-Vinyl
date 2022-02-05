@@ -1,0 +1,34 @@
+{% extends "Turtles/turtles_base.html" %}
+
+{% load static %}
+
+{% block title %}Turtles Rescue{% endblock %}
+
+{% block header %}Create Details:{% endblock %}
+
+# Creates a container(table) to display the info requested.
+# Uses a for loop, to iterate through the database and pull the data requested
+{% block content %}
+<div class="table">
+    <table class="p-3 mb-2 bg-secondary text-white">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Locality</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in item %}
+            <tr>
+                <td><a href="{% url 'turtles_details' i.pk %}">{{ i.name }}</a></td>
+                <td>{{ i.species }}</td>
+                <td>{{ i.locality }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

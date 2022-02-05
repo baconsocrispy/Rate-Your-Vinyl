@@ -38,10 +38,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'Campsites',
-    'CampingSupplies',
-    'Gardening',
-    'BitcoinAnalytics',
     'BasketballStats',
     'Stocks',
     'StudyApp',
@@ -62,6 +58,10 @@ INSTALLED_APPS = [
     'IceHockey',
     'kettleBells',
     'Turtles',
+    'Composers',
+    'ATVTrails',
+    'Motorcycling',
+    'FootballStats',
 ]
 
 MIDDLEWARE = [

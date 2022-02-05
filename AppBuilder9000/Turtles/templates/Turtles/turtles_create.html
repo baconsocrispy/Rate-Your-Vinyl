@@ -1,0 +1,29 @@
+{% extends "Turtles/turtles_base.html" %}
+
+{% load static %}
+
+{% block title %}Turtles Rescue{% endblock %}
+
+{% block header %}Create Details:{% endblock %}
+
+{% block content %}
+
+
+<div class="admin-panel" xmlns="http://www.w3.org/1999/html">
+    <form type="button" class="btn btn-success" name="createForm" method="POST">
+        <table>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_table }}
+        </table>
+        <div class="frmBtn_container">
+            <input class="btn btn-primary" type="submit">
+            <div class="frmBtn_container" >
+                <button class="btn p-3 mb-2 bg-success text-primary"><a href="#">DELETE</a></button>
+                <button class="btn p-3 mb-2 bg-success text-primary"><a href="#">CANCEL</a></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

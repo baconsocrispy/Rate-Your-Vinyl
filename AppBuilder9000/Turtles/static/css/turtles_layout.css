@@ -1,6 +1,6 @@
 
 
-.bg_img {
+body {
     background-image: url('../images/Turtle1.jpg');
     background-size: cover;
     background-attachment:fixed;
@@ -11,3 +11,23 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+.table {
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+th {
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
