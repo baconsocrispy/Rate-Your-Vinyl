@@ -11,7 +11,8 @@
          <form method="POST">
              {% csrf_token %}
              <table id="table" class="table table-dark table-bordered table-hover text-center">
-                 {{ form.as_table }}
+                 {{ form.as_table }} <!-- This method creates all the HTML needed to render
+            the form data in a table format for us and so saves us a lot of coding. -->
              </table>
              <button type="submit" class="btn btn-dark btn-lg btn-block w-50 mx-auto">Edit</button>
          </form>

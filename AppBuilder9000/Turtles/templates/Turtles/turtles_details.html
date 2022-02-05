@@ -9,6 +9,7 @@
 <div class="container">
     <table class="table table-hover table-dark">
         <thead>
+        <!-- This is the data to be displayed in the table header -->
             <tr>
               <th scope="col" data-field="name">Name</th>
               <th scope="col" data-field="species">Species</th>
@@ -19,6 +20,7 @@
           </thead>
           <tbody>
             <tr>
+                <!-- Calls all data for specific rescue in the database. -->
               <td>{{ details.name }}</td>
               <td>{{ details.species }}</td>
               <td>{{ details.description }}</td>

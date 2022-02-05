@@ -34,7 +34,7 @@ def turtles_display(request):
     return render(request, 'Turtles/turtles_display.html', context)
 
 
-# Query database for all data on a certain 'key' from the 'Turtles' class.
+# Query database for all data for the primary key, from the 'Turtles' class.
 def turtles_details(request, pk):
     details = get_object_or_404(Turtles, pk=pk)
     context = {'details': details}
@@ -42,6 +42,7 @@ def turtles_details(request, pk):
     return render(request, 'Turtles/turtles_details.html', context)
 
 
+# Function to edit selected entries from the database, and save the edited data.
 def turtles_edit(request, pk):
     item = get_object_or_404(Turtles, pk=pk)
     form = CreateForm(data=request.POST or None, instance=item)
@@ -53,6 +54,7 @@ def turtles_edit(request, pk):
     return render(request, 'Turtles/turtles_edit.html', context)
 
 
+# Function to delete selected entries from the database. Also makes sure you want to delete entry.
 def turtles_delete(request, pk):
     item = get_object_or_404(Turtles, pk=pk)
     form = CreateForm(data=request.POST or None, instance=item)

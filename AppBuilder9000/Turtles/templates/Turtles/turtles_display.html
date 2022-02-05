@@ -21,6 +21,8 @@
             </tr>
         </thead>
         <tbody>
+
+        <!-- Using a for loop to iterate through the database for a specific key (name) -->
         {% for i in item %}
             <tr>
                 <td><a href="{% url 'turtles_details' i.pk %}">{{ i.name }}</a></td>
