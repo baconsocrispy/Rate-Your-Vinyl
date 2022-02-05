@@ -82,20 +82,62 @@ def abbreviate_name():
             abbrev[team.team_name] = 'ATL'
         elif team.team_name == 'Boston Celtics':
             abbrev[team.team_name] = 'BOS'
-        elif team.team_name == 'Portland Trail Blazers':
-            abbrev[team.team_name] = 'POR'
-        elif team.team_name == 'Chicago Bulls':
-            abbrev[team.team_name] = 'CHI'
         elif team.team_name == 'Brooklyn Nets':
             abbrev[team.team_name] = 'BRK'
-        elif team.team_name == 'Los Angeles Lakers':
-            abbrev[team.team_name] = 'LAL'
         elif team.team_name == 'Charlotte Hornets':
             abbrev[team.team_name] = 'CHA'
+        elif team.team_name == 'Chicago Bulls':
+            abbrev[team.team_name] = 'CHI'
         elif team.team_name == 'Cleveland Cavaliers':
             abbrev[team.team_name] = 'CLE'
         elif team.team_name == 'Dallas Mavericks':
             abbrev[team.team_name] = 'DAL'
+        elif team.team_name == 'Denver Nuggets':
+            abbrev[team.team_name] = 'DEN'
+        elif team.team_name == 'Detroit Pistons':
+            abbrev[team.team_name] = 'DET'
+        elif team.team_name == 'Golden State Warriors':
+            abbrev[team.team_name] = 'GSW'
+        elif team.team_name == 'Houston Rockets':
+            abbrev[team.team_name] = 'HOU'
+        elif team.team_name == 'Indiana Pacers':
+            abbrev[team.team_name] = 'IND'
+        elif team.team_name == 'Los Angeles Clippers':
+            abbrev[team.team_name] = 'LAC'
+        elif team.team_name == 'Los Angeles Lakers':
+            abbrev[team.team_name] = 'LAL'
+        elif team.team_name == 'Memphis Grizzlies':
+            abbrev[team.team_name] = 'MEM'
+        elif team.team_name == 'Miami Heat':
+            abbrev[team.team_name] = 'MIA'
+        elif team.team_name == 'Milwaukee Bucks':
+            abbrev[team.team_name] = 'MIL'
+        elif team.team_name == 'Minnesota Timberwolves':
+            abbrev[team.team_name] = 'MIN'
+        elif team.team_name == 'New Orleans Pelicans':
+            abbrev[team.team_name] = 'NOP'
+        elif team.team_name == 'New York Knicks':
+            abbrev[team.team_name] = 'NYK'
+        elif team.team_name == 'Oklahoma City Thunder':
+            abbrev[team.team_name] = 'OKC'
+        elif team.team_name == 'Orlando Magic':
+            abbrev[team.team_name] = 'ORL'
+        elif team.team_name == 'Philadelphia 76ers':
+            abbrev[team.team_name] = 'PHI'
+        elif team.team_name == 'Phoenix Suns':
+            abbrev[team.team_name] = 'PHO'
+        elif team.team_name == 'Portland Trail Blazers':
+            abbrev[team.team_name] = 'POR'
+        elif team.team_name == 'Sacramento Kings':
+            abbrev[team.team_name] = 'SAC'
+        elif team.team_name == 'San Antonio Spurs':
+            abbrev[team.team_name] = 'SAS'
+        elif team.team_name == 'Toronto Raptors':
+            abbrev[team.team_name] = 'TOR'
+        elif team.team_name == 'Utah Jazz':
+            abbrev[team.team_name] = 'UTA'
+        elif team.team_name == 'Washington Wizards':
+            abbrev[team.team_name] = 'WAS'
     return abbrev
 
 
