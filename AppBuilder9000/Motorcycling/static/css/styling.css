@@ -13,23 +13,19 @@ text-align: center;
 font-size: 40px;
 }
 
-.navbar {
-font-family: monospace, arial;
-font-size: 20px;
-font-weight: bold;
-color: #b8860b;
-}
-
-.cards {
-position: centered;
-padding: 20px;
+h3 {
 color: red;
 }
 
 .card {
-display: grid;
-align: right;
+height: 300px;
+width: auto;
+align: center;
 }
 
-
-
+.p {
+background-color: black;
+color: white;
+text: bold;
+font-family: sans-serif;
+}

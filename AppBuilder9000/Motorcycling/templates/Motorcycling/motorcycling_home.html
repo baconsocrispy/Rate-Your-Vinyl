@@ -12,22 +12,6 @@
 <!-- Created two dropdown buttons for users input, with links to the other rating sites-->
 <!-- first card -->
 {% block content%}
-<div class="cards">
-  <div class="card" style="width: 18rem;">
-    <img src="../images/rater.jpg" class="card-img-top" alt="picture of a motorcycle">
-    <div class="card-body">
-      <p class="card-text">Rate your motorcycle</p>
-      <a href="{% url 'rate_motorcycle' %}">HERE!</a>
-    </div>
-  </div>
+<h1>Welcome to the Motorcycling page</h1>
 
-  <!-- second card -->
-  <div class="card" style="width: 18rem;">
-    <img src="../images/road.jpg" class="card-img-top" alt="picture of a road">
-    <div class="card-body">
-      <p class="card-text">Rate your latest motorcycle route</p>
-      <a href="{% url 'rate_route' %}">HERE</a>
-    </div>
-  </div>
-</div>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Motorcycle
+from .models import Motorcycle, Route
 from .forms import MotorcycleForm, RouteForm
+from django.http import HttpResponseRedirect  #Might not need this
 import requests
 
 
@@ -28,7 +29,6 @@ def create_motorcycle(request):
     return render(request, 'Motorcycling/rate_motorcycle.html', context)
 
 
-
 def create_route(request):
     form = RouteForm(data=request.POST or None)
     if request.method == 'POST':
@@ -42,6 +42,21 @@ def create_route(request):
     return render(request, 'Motorcycling/rate_route.html', context)
 
 
-def motorcycle_list(request):
-    motorcycles = Motorcycle.objects.all()
-    return render(request, 'Motorcycling/create_motorcycle_record.html', {'motorcycles': motorcycles})
+def all_motorcycles(request):
+    motorcycle_list = Motorcycle.objects.all()
+    return render(request, 'Motorcycling/list_motorcycles.html', {'motorcycle_list': motorcycle_list})
+
+
+# This allows the user to delete an item in the database
+def motorcycle_delete(request, pk):
+    item = get_object_or_404(Motorcycle, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('list_motorcycles.html')
+    context = {'Motorcycle': Motorcycle}
+    return render(request, 'Motorcycling/list_motorcycles.html', context)
+
+
+def all_routes(request):
+    route_list = Route.objects.all()
+    return render(request, 'Motorcycling/list_routes.html', {'route_list': route_list})
