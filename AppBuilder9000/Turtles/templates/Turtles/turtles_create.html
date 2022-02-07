@@ -11,7 +11,8 @@
 # Creates a form to enter data to the database
 
 {% block content %}
-<div class="admin-panel" xmlns="http://www.w3.org/1999/html">
+<div , class="d-flex justify-content-center align-items-center container", class="admin-panel"
+     xmlns="http://www.w3.org/1999/html">
     <form class="btn btn-success" name="createForm" method="POST">
         <table>
             {% csrf_token %}

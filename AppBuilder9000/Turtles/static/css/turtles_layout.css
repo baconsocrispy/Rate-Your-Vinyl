@@ -32,17 +32,3 @@ td {
     padding: 10px;
 }
 
-.header_d {
-    padding: 50px;
-    margin: 30px;
-    position: relative;
-}
-
-.welcome {
-    position: center;
-    padding: 50px;
-    margin: 50px;
-    font-color: white;
-    background: black;
-}
-
