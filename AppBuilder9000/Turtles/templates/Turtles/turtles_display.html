@@ -9,16 +9,20 @@
 # Creates a container(table) to display the info requested.
 # Uses a for loop, to iterate through the database and pull the data requested
 {% block content %}
-<div class="table">
-    <table class="p-3 mb-2 bg-secondary text-white">
+
+<h1 class="header_d"><b>Here are some of our friends!</b></h1>
+<div class="container">
+    <table class="table table-hover table-dark", class="table table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Species</th>
-                <th>Locality</th>
+                <th scope="col">Name</th>
+                <th scope="col">Species</th>
+                <th scope="col">Locality</th>
             </tr>
         </thead>
         <tbody>
+
+        <!-- Using a for loop to iterate through the database for a specific key (name) -->
         {% for i in item %}
             <tr>
                 <td><a href="{% url 'turtles_details' i.pk %}">{{ i.name }}</a></td>
