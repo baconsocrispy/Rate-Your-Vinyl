@@ -38,3 +38,11 @@ td {
     position: relative;
 }
 
+.welcome {
+    position: center;
+    padding: 50px;
+    margin: 50px;
+    font-color: white;
+    background: black;
+}
+
