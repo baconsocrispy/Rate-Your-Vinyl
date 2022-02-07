@@ -8,6 +8,7 @@ from .forms import ComposerForm
 from .models import Composer
 import requests
 from bs4 import BeautifulSoup
+import json
 
 
 # Create your views here.
@@ -83,3 +84,9 @@ def composer_scraping(request):
     context = {'top100composers': top100composers}
     return render(request, 'Composers/top100_composers.html', context)
 
+'''Adding a source to a api that has pictures, 21st Century Composers'''
+def composers_api(request ):
+    URL='https://api.openopus.org/composer/list/epoch/21st Century.json'
+    response=requests.get(URL)
+    print(response.json())
+    return render(request, 'Composers/composers_api.html')
