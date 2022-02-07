@@ -15,12 +15,34 @@
         <div class="container">
             <a class="navbar=brand" href="{% url 'basketball_stats_home' %}">HOME</a>
             <a class="nav-item nav-link" href="{% url 'basketball_stats_create' %}">ADD PLAYERS</a>
-            <a class="nav-item nav-link" href="{% url 'basketball_stats_players' %}">STATS</a>
-            <a class="nav-item nav-link" href="{% url 'basketball_stats_standings' %}">STANDINGS</a>
-            <a class="nav-item nav-link" href="{% url 'basketball_stats_history' %}">HISTORY</a>
-            <a class="nav-item nav-link" href="{% url 'basketball_stats_web_scraping' %}">BASKETBALL-REFERENCE</a>
-            <a class="nav-item nav-link" href="{% url 'basketball_stats_bdl_api' %}">BALL DON'T LIE</a>
-            <a class="nav-item nav-link" href="{% url 'basketball_stats_save_favorites' %}">FAVORITES</a>
+            <a class="nav-item nav-link" href="{% url 'basketball_stats_players' %}">PLAYERS ADDED</a>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  API
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                  <a class="dropdown-item" href="{% url 'basketball_stats_standings' %}">Standings</a>
+                  <a class="dropdown-item" href="{% url 'basketball_stats_bdl_api' %}">Conferences & Divisions</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  BEAUTIFUL SOUP/WEB SCRAPING
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                  <a class="dropdown-item" href="{% url 'basketball_stats_history' %}">NBA History</a>
+                  <a class="dropdown-item" href="{% url 'basketball_stats_web_scraping' %}">Portland Trail Blazers Roster</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  FAVORITES
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'basketball_stats_save_favorites' %}">Add Favorites</a>
+                  <a class="dropdown-item" href="{% url 'basketball_stats_favorites' %}">Favorite Teams</a>
+                </div>
+            </div>
         </div>
     </nav>
     <!--END NAVBAR-->

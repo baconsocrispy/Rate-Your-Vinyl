@@ -9,12 +9,25 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-.container {
-    border: 1px solid white center;
+/* New color for TopNav */
+.topnav {
     background-color: green;
-    font-size: 25px;
-    line-height: 45px;
-    font-weight: bold;
-    font-color: black;
+}
+
+.trails_main {
     text-align: center;
+    background-color: green;
+
+}
+.trails_head {
+    border: 1px solid black;
+    width: 100%;
+    background-color: green;
+    font-color: black;
+}
+.trails_body {
+    border: 1px solid black;
+    width: 100%;
+    background-color: green;
+    font-color: black;
 }

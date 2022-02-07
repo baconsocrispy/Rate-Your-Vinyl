@@ -3,23 +3,31 @@
 
 {% block title %}Motorcycling{% endblock %}
 
-{% block header %}Welcome to Motorcycling{% endblock %}
-
-<!-- Created navbar block, still don't have the font color the way i like yet -->
-{% block navbar %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Reviews</a>
-        <a class="nav-link" href="#">Routes/Rides</a>
-      </div>
-    </div>
-  </div>
-</nav>
+{% block header %}
+<h1>Welcome to Motorcycling</h1>
 {% endblock %}
 
-{% block content %}
-<h1>Welcome to my motorcycling page!</h1>
+
+
+<!-- Created two dropdown buttons for users input, with links to the other rating sites-->
+<!-- first card -->
+{% block content%}
+<div class="cards">
+  <div class="card" style="width: 18rem;">
+    <img src="../images/rater.jpg" class="card-img-top" alt="picture of a motorcycle">
+    <div class="card-body">
+      <p class="card-text">Rate your motorcycle</p>
+      <a href="{% url 'rate_motorcycle' %}">HERE!</a>
+    </div>
+  </div>
+
+  <!-- second card -->
+  <div class="card" style="width: 18rem;">
+    <img src="../images/road.jpg" class="card-img-top" alt="picture of a road">
+    <div class="card-body">
+      <p class="card-text">Rate your latest motorcycle route</p>
+      <a href="{% url 'rate_route' %}">HERE</a>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -7,11 +7,16 @@ body {
     background-repeat: no-repeat;
 }
 
-.h1 {
+h1 {
     font-family:San Serif;
     text-color: red;
     text-size: 2 em;
    }
 
-
+h2 {
+   font-family: San Serif;
+   text-color: white;
+   text-size: 2 em;
+   text-width: bold;
+   }
 
