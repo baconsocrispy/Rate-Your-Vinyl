@@ -17,7 +17,7 @@
     <tbody>
         {% for player in player_list %}
         <tr>
-            <td>{{ player.name }}</td>
+            <td><a href="{% url 'football_stats_details' player.id %}">{{ player }}</a></td>
             <td>{{ player.team }}</td>
             <td>{{ player.position }}</td>
         </tr>
