@@ -1,10 +1,65 @@
+from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 from django.db.models import Count
 from django.shortcuts import render, redirect, get_object_or_404
-from .form import UserForm, PlayerForm
+from .form import UserForm, PlayerForm, NewUserForm, TeamForm
 from .models import Profile, FavPlayer
 import requests
 from bs4 import BeautifulSoup
 import json
+
+
+def IceHockey_logout_request(request):
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect("IceHockey_home")
+
+
+def IceHockey_login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}.")
+                return redirect("IceHockey_home")
+            else:
+                messages.error(request, "Invalid username or password.")
+        else:
+            messages.error(request, "Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request, "IceHockey/IceHockey_login.html", {"login_form": form})
+
+
+def IceHockey_register(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful.")
+            first_name = request.POST['first_name']
+            last_name = request.POST['last_name']
+            favorite_team = request.POST['favorite_team']
+            favorite_player = request.POST['favorite_player']
+
+            new_profile = Profile.Profile.create(
+
+                first_name=first_name,
+                last_name=last_name,
+                favorite_team=favorite_team,
+                favorite_player=favorite_player,
+            )
+
+            return redirect("IceHockey_home")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render(request, "IceHockey/IceHockey_register.html", {"register_form": form})
 
 
 def IceHockey_fav_add(request, pk):
@@ -89,8 +144,13 @@ def IceHockey_newprofile(request):
     return render(request, 'IceHockey/IceHockey_newprofile.html', context)
 
 
-def IceHockey_myprofile(request):
+def IceHockey_allprofiles(request, pk):
     profile_list = Profile.Profile.all()
+    return render(request, 'IceHockey/IceHockey_allprofiles.html', {'profile_list': profile_list})
+
+
+def IceHockey_myprofile(request, pk):
+    profile_list = Profile.Profile.filter(id__exact=pk)
     return render(request, 'IceHockey/IceHockey_myprofile.html', {'profile_list': profile_list})
 
 
@@ -245,12 +305,6 @@ def IceHockey_samplescrape(request):
         assist = assists.string
         player_assists.append(assist)
 
-    print(player_years)
-    print(player_teams)
-    print(player_leagues)
-    print(player_goals)
-    print(player_assists)
-
     # condenses all data arrays into single variable
     zipped_list = zip(player_years, player_teams, player_leagues, player_goals, player_assists)
     context = {'zipped_list': zipped_list}
@@ -263,7 +317,7 @@ def IceHockey_edit(request, pk):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('IceHockey_myprofile')
+            return redirect('IceHockey_myprofile', pk)
     context = {'form': form}
     return render(request, 'IceHockey/IceHockey_edit.html', context)
 
@@ -277,8 +331,64 @@ def IceHockey_delete(request, pk):
     return render(request, 'IceHockey/IceHockey_delete.html', {'item': item, 'form': form})
 
 
+def IceHockey_api_choice(request, pk):
+    user = get_object_or_404(Profile, pk=pk)
+    form = TeamForm()
+
+    if request.method == 'POST':
+        team_choice = request.POST['team_choice']
+        roster = []
+        player_list = []
+        number_list = []
+        position_list = []
+        position_code = []
+
+        # finds list of all teams from api
+        response = requests.get('https://statsapi.web.nhl.com/api/v1/teams')
+        teams_info = json.loads(response.text)
+        team_list = teams_info['teams']
+        for team in team_list:
+            teamname = team['name']
+            teamid = team['id']
+
+            # matches user's favorite team with response
+            if teamname == team_choice:
+                urlid = teamid
+                urlname = teamname
+
+        # updates url with user's team id to find roster info
+        roster_response = requests.get('https://statsapi.web.nhl.com/api/v1/teams' + '/' + str(urlid) + '/roster')
+        roster_info = json.loads(roster_response.text)
+        roster_list = roster_info['roster']
+
+        # retrieves player's name, jersey number, and position code.
+        for player in roster_list:
+            item = player['person']
+            player_list.append(item)
+            playername = item['fullName']
+            roster.append(playername)
+
+            item2 = player['jerseyNumber']
+            number_list.append(item2)
+
+            item3 = player['position']
+            position_list.append(item3)
+            item4 = item3['code']
+            position_code.append(item4)
+
+        print(roster)
+        print(position_code)
+        print(number_list)
+
+        zipped_list = zip(roster, position_code, number_list)
+        context = {'zipped_list': zipped_list, 'urlname': urlname, 'urlid': urlid, 'user': user, 'form': form}
+
+        return render(request, 'IceHockey/IceHockey_api_choice.html', context)
+
+
 def IceHockey_api_page(request, pk):
     user = get_object_or_404(Profile, pk=pk)
+    form = TeamForm()
     roster = []
     player_list = []
     number_list = []
@@ -323,8 +433,7 @@ def IceHockey_api_page(request, pk):
     print(number_list)
 
     zipped_list = zip(roster, position_code, number_list)
-    context = {'zipped_list': zipped_list, 'urlname': urlname, 'urlid': urlid, 'user': user}
-
+    context = {'zipped_list': zipped_list, 'urlname': urlname, 'urlid': urlid, 'user': user, 'form': form}
     return render(request, 'IceHockey/IceHockey_api_page.html', context)
 
 

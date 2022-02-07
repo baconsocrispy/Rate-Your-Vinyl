@@ -1,12 +1,12 @@
 {% extends "Motorcycling/motorcycling_base.html" %}
 {% load static %}
 
-{% block title %} Submit and rate your motorcycle {% endblock %}
 
 <!-- This creates the form for the user to create, rate, and submit their motorcycle -->
 {% block content %}
 
-<h1>Rate your Ride!</h1>
+<center>
+<h1>Rate your Motorcycle!</h1>
 <div id="form-container" class="table-responsive w-50 mx-auto">
     <form method="POST" action="{% url 'rate_motorcycle' %}">
         {% csrf_token %}
@@ -14,8 +14,8 @@
             {{ form.as_table }}
         </table>
 
-            <button type="submit" class="btn btn-light btn-sm btn-block w-100 mx-auto">Create Review</button>
+            <button type="submit" class="btn btn-dark btn-sm btn-block w-20 mx-auto">Submit Review</button>
     </form>
 </div>
-
+</center>
 {% endblock %}

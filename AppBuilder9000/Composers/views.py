@@ -84,9 +84,11 @@ def composer_scraping(request):
     context = {'top100composers': top100composers}
     return render(request, 'Composers/top100_composers.html', context)
 
-'''Adding a source to a api that has pictures, 21st Century Composers'''
+'''Adding a source to a api fpr, 21st Century Composers that gets name and birth'''
 def composers_api(request ):
-    URL='https://api.openopus.org/composer/list/epoch/20th Century.json'
-    response=requests.get(URL)
-    print(response.json())
+    URL='https://api.openopus.org/composer/list/epoch/21st Century.json'
+    response=requests.request('GET', URL)
+    composer_name=json.loads(response.text)
+    for composers in composer_name ['composers']:
+        print(composers["complete_name"],composers["birth"])
     return render(request, 'Composers/composers_api.html')

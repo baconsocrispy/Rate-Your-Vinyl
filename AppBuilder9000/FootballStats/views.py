@@ -33,6 +33,12 @@ def stats(request):
     return render(request, 'FootballStats/Football_Stats_stats.html', context)
 
 
+def player_details(request, pk):
+    details = get_object_or_404(Players, pk=pk)
+    context = {'details': details}
+    return render(request, 'FootballStats/Football_Stats_details.html', context)
+
+
 
 
 
