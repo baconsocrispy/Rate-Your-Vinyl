@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create motorcycle types
 TYPE_MOTORCYCLE = (
     ('Sport', 'Sport'),
@@ -31,7 +32,7 @@ Rating_CHOICES = (
     (5, 'Excellent')
 )
 
-# Creating the route class
+
 class Route(models.Model):
     START_DESTINATION = models.CharField(max_length=50, default='')
     END_DESTINATION = models.CharField(max_length=50, default='')
@@ -44,7 +45,8 @@ class Route(models.Model):
 
 
 
-# Creating a motorcycle class
+
+
 class Motorcycle(models.Model):
     TYPE_MOTORCYCLE = models.CharField(max_length=20, default='', blank=True, null=False, choices=TYPE_MOTORCYCLE)
     BRAND_MOTORCYCLE = models.CharField(max_length=20, default='', blank=True, null=False, choices=BRAND_MOTORCYCLE)
@@ -53,8 +55,9 @@ class Motorcycle(models.Model):
     RATING = models.IntegerField(choices=Rating_CHOICES, default=1)
 
     def __str__(self):
-        return self.TYPE_MOTORCYCLE
+        return self.MODEL_TYPE
 
     objects = models.Manager()
+
 
 
