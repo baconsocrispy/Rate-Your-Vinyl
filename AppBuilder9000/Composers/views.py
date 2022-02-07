@@ -86,7 +86,7 @@ def composer_scraping(request):
 
 '''Adding a source to a api that has pictures, 21st Century Composers'''
 def composers_api(request ):
-    URL='https://api.openopus.org/composer/list/epoch/21st Century.json'
+    URL='https://api.openopus.org/composer/list/epoch/20th Century.json'
     response=requests.get(URL)
     print(response.json())
     return render(request, 'Composers/composers_api.html')
