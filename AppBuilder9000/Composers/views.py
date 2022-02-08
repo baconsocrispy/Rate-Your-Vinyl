@@ -32,7 +32,7 @@ def composers_list(request):
     return render(request, 'Composers/composers_list.html', context)
 
 
-def composers_details(request,pk):
+def composers_details(request, pk):
     details = get_object_or_404(Composer, pk=pk)
     context = {'details': details}
     return render(request, 'Composers/composers_details.html', context)
@@ -48,12 +48,13 @@ def composers_edit(request, pk):
     context = {'form': form}
     return render(request, 'Composers/composers_edit.html', context)
 
+
 def composers_delete(request, pk):
     item = get_object_or_404(Composer, pk=pk)
     form = ComposerForm(request.POST or None, instance=item)
     if request.method == 'POST':
-            item.delete()
-            return redirect('composers_list')
+        item.delete()
+        return redirect('composers_list')
     return render(request, 'Composers/composers_delete.html', {'item': item, 'form': form})
 
 
@@ -72,11 +73,11 @@ def composers_delete(request, pk):
 
 
 def composer_scraping(request):
-    top100composers=[]
+    top100composers = []
     page = requests.get('https://digitaldreamdoor.com/pages/best-classic-comp.html')
     soup = BeautifulSoup(page.content, 'html.parser')
     composers_soup = soup.find('div', class_='list')
-    composer=composers_soup.find_all('span')
+    composer = composers_soup.find_all('span')
     for i in composer:
         names = i.text
         top100composers.append(names)
@@ -84,11 +85,27 @@ def composer_scraping(request):
     context = {'top100composers': top100composers}
     return render(request, 'Composers/top100_composers.html', context)
 
+
 '''Adding a source to a api fpr, 21st Century Composers that gets name and birth'''
-def composers_api(request ):
-    URL='https://api.openopus.org/composer/list/epoch/21st Century.json'
-    response=requests.request('GET', URL)
-    composer_name=json.loads(response.text)
-    for composers in composer_name ['composers']:
-        print(composers["complete_name"],composers["birth"])
+
+
+
+def composer_search(request):
+    composers_fname={}
+    if 'complete_name' in request.GET:
+        complete_name=request.GET('complete_name')
+        URL='https://api.openopus.org/composer/list/search/' + complete_name """% will be replaced with composer name to search"""
+        response=requests.get(URL)
+        composers_fname=response.json()
+        return render (request, 'Composers/composers_api.html', {'composers_fname':composers_fname})
+
+def composers_api(request):
+    URL = 'https://api.openopus.org/composer/list/epoch/21st Century.json'
+    response = requests.request('GET', URL)
+    composer_name = json.loads(response.text)
+    for composers in composer_name['composers']:
+        complete_name = composers["complete_name"]
+        composer_birth = composers["birth"]
+        composer_group=complete_name, composer_birth
+        print(composer_group)
     return render(request, 'Composers/composers_api.html')
