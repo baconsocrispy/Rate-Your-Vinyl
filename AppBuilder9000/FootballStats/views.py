@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayersForm
-from .models import Players, Stats
+from .models import Players
+from bs4 import BeautifulSoup
 
 # Create your views here.
 
@@ -52,6 +53,28 @@ def player_delete(request, pk):
         item.delete()
         return redirect('football_stats')
     return render(request, 'FootballStats/Football_Stats_delete.html', {'item': item, 'form': form})
+
+"""
+==============================================================================================
+BEAUTIFUL SOUP SECTION
+==============================================================================================
+"""
+
+
+def superbowl_history_scraping(request):
+    winner_list = []
+    page = request.get("https://i80sportsblog.com/list-of-super-bowl-winners-and-losers/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    previous_winners = soup.find('table')
+    winners = previous_winners.find_all('tr')
+    for tr in winners:
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        cells = row
+        winner_list.append(cells)
+        print(winner_list)
+    context = {'winner_list': winner_list}
+    return render(request, 'FootballStats/Football_Stats_SuperBowl_History.html', context)
 
 
 
