@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Motorcycle, Route
 from .forms import MotorcycleForm, RouteForm
-from django.http import HttpResponseRedirect  #Might not need this
+from django.http import HttpResponseRedirect
 import requests
 
 
@@ -60,3 +60,14 @@ def motorcycle_delete(request, pk):
 def all_routes(request):
     route_list = Route.objects.all()
     return render(request, 'Motorcycling/list_routes.html', {'route_list': route_list})
+
+
+# This function will query the database and return a result per the user's request.
+def motorcycle_details(request, pk):
+    motorcycle_detail = get_object_or_404(Motorcycle, pk=pk)
+    return render(request, 'Motorcycling/motorcycle_details.html', {'motorcycle_detail': motorcycle_detail})
+
+
+def route_details(request, pk):
+    route_detail = get_object_or_404(Route, pk=pk)
+    return render(request, 'Motorcycling/route_details.html', {'route_detail': route_detail})
