@@ -1,7 +1,13 @@
 from django.shortcuts import get_object_or_404, redirect, render
-
+from bs4 import BeautifulSoup
+import requests
+import attrs
 from .forms import Trails_Form
 from .models import AtvTrails
+from django.http import JsonResponse
+import requests
+import json
+from bs4 import BeautifulSoup
 
 
 # this will return to the home page
@@ -36,7 +42,7 @@ def trail_details(request, pk):
 def trail_edit(request, pk):
     show_trail = get_object_or_404(AtvTrails, pk=pk)
     form = Trails_Form(data=request.POST or None,
-                       instance=show_trail)  # this instance makes it show the info that was already entered in about the pokemon you are editing
+                       instance=show_trail)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -52,3 +58,12 @@ def trail_delete(request, pk):
         show_trail.delete()
         return redirect('list_trails')
     return render(request, 'AtvTrails_delete.html', {'show_trail': show_trail, 'form': form})
+
+
+# Starting Beautiful Soup Section here
+def trail_scrape(request):
+    page = requests.get("https://www.alltrails.com/?ref=header")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    trail_soup = soup.find_all('div', class_="styles-module__title___kLkaF")
+    print(trail_soup)
+    return render(request, "AtvTrails_bs.html")

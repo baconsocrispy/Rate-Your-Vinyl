@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/AtvTrails_details/', views.trail_details, name='trail_details'),
     path('<int:pk>/AtvTrails_edit/', views.trail_edit, name='trail_edit'),
     path('<int:pk>/AtvTrails_delete/', views.trail_delete, name='trail_delete'),
+    path('AtvTrails_bs/', views.trail_scrape, name='scrape'),
 ]
