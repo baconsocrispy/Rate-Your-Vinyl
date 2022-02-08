@@ -6,5 +6,7 @@ urlpatterns = [
     path('football_create/', views.add_player_stats, name='football_create'),
     path('football_stats/', views.stats, name='football_stats'),
     path('<int:pk>/details/', views.player_details, name='football_stats_details'),
+    path('<int:pk>/edit/', views.player_edit, name='football_stats_edit'),
+    path('<int:pk>/delete', views.player_delete, name='football_stats_delete'),
 #    path('football_search/', views.search, name='football_search'),
     ]
