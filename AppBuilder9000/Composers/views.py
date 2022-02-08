@@ -3,6 +3,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
+from django.contrib import messages
 
 from .forms import ComposerForm
 from .models import Composer
@@ -89,13 +90,13 @@ def composer_scraping(request):
 '''Adding a source to a api fpr, 21st Century Composers that gets name and birth'''
 
 
-
+'''
 def composer_search(request):
-    composers_fname={}
+    composers_fname = {}
     if 'complete_name' in request.GET:
         complete_name=request.GET('complete_name')
-        URL='https://api.openopus.org/composer/list/search/' + complete_name """% will be replaced with composer name to search"""
-        response=requests.get(URL)
+        URL='https://api.openopus.org/composer/list/search/{complete_name}.json' """"% will be replaced with composer name to search"""
+        response = requests.get(URL)
         composers_fname=response.json()
         return render (request, 'Composers/composers_api.html', {'composers_fname':composers_fname})
 
@@ -108,4 +109,23 @@ def composers_api(request):
         composer_birth = composers["birth"]
         composer_group=complete_name, composer_birth
         print(composer_group)
-    return render(request, 'Composers/composers_api.html')
+    return render(request, 'Composers/composers_api.html')'''
+
+
+def composer_search(request):
+    composers_fname = []
+    if request.method == 'POST':
+        value = request.POST['complete_name'].lower()
+        URL='https://api.openopus.org/composer/list/search' + str(value) + '.json'
+        if value=="":
+            messages.info(request, 'Please enter a composers name')
+        else:
+            response=requests.get(URL)
+            print(response.status_code)
+            composers_name = response.json()
+            names = composers_name['composers']
+            composers_fname.append(names)
+            print(composers_fname)
+        return render(request, 'Composers/composers_api.html',{'composers_fname':composers_fname})
+    else:
+        return render(request, 'Composers/composers_api.html')
