@@ -1,0 +1,30 @@
+{% extends "Motorcycling/motorcycling_base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Motorcycle-Type</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Engine-Size</th>
+      <th scope="col">Model</th>
+      <th scope="col">Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{motorcycle_detail.TYPE_MOTORCYCLE}}</td>
+      <td>{{motorcycle_detail.BRAND_MOTORCYCLE}}</td>
+      <td>{{motorcycle_detail.ENGINE_SIZE}}</td>
+      <td>{{motorcycle_detail.MODEL_TYPE}}</td>
+      <td>{{motorcycle_detail.RATING}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+{% endblock %}
+
