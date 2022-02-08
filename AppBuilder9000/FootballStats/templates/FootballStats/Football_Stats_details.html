@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Football Stats{% endblock %}
 
-{% block header %}{% endblock %}
+{% block header %}<h1 class="heading text-center text-black">Edit/Delete Player Stat</h1>{% endblock %}
 
 {% block content %}
 
@@ -37,7 +37,15 @@
             </tr>
         </tbody>
     </table>
-
+</div>
+<div class="container text-center">
+    <a href="{% url 'football_stats_edit' details.pk %}"><button type="button" class="btn btn-primary" value="Edit">Edit Player Stat</button></a>
+    <a href="{% url 'football_stats_home' %}"><button type="button" class="btn btn-primary" value="Cancel">Cancel</button></a>
+    <br>
+    <br>
+    <div class="container text-center">
+    <a href="{% url 'football_stats_delete' details.pk %}"><button type="button" class="btn btn-primary" value="Delete">Delete</button></a>
+    </div>
 </div>
 
 
