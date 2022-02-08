@@ -1,12 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from bs4 import BeautifulSoup
-import requests
-import attrs
+
 from .forms import Trails_Form
 from .models import AtvTrails
-from django.http import JsonResponse
 import requests
-import json
 from bs4 import BeautifulSoup
 
 
@@ -64,6 +60,9 @@ def trail_delete(request, pk):
 def trail_scrape(request):
     page = requests.get("https://www.alltrails.com/?ref=header")
     soup = BeautifulSoup(page.content, 'html.parser')
-    trail_soup = soup.find_all('div', class_="styles-module__title___kLkaF")
-    print(trail_soup)
-    return render(request, "AtvTrails_bs.html")
+    trail_soup = soup.find('div', class_="styles-module__container___bxZSF")
+    trending_trails = trail_soup.find_all(class_="styles-module__title___kLkaF")
+    for i in trending_trails:
+        trails = i.text
+        print(trails)
+    return render(request, 'AtvTrails_bs.html')
