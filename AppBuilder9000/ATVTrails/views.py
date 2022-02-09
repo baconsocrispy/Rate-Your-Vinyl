@@ -58,11 +58,23 @@ def trail_delete(request, pk):
 
 # Starting Beautiful Soup Section here
 def trail_scrape(request):
+    trails = []
+    distances = []
     page = requests.get("https://www.alltrails.com/?ref=header")
     soup = BeautifulSoup(page.content, 'html.parser')
     trail_soup = soup.find('div', class_="styles-module__container___bxZSF")
-    trending_trails = trail_soup.find_all(class_="styles-module__title___kLkaF")
+    trending_trails = trail_soup.find_all('div', class_="styles-module__title___kLkaF")
+    trending_trails_distance = trail_soup.find_all('div', class_="styles-module__subtext___OvvLt")
+
     for i in trending_trails:
-        trails = i.text
-        print(trails)
-    return render(request, 'AtvTrails_bs.html')
+        trail = i.text
+        trails.append(trail)
+
+    for x in trending_trails_distance:
+        distance = x.text
+        distances.append(distance)
+    print(trails)
+    print(distances)
+    zipped_list = zip(trails, distances)
+    context = {'zipped_list': zipped_list}
+    return render(request, 'AtvTrails_bs.html', context)
