@@ -32,6 +32,12 @@
         <section id="Home">
             <h1>Add a current Champion!</h1>
             <p>Be sure to fill in all fields!</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
         </section>
 
 

@@ -15,3 +15,7 @@ p {
     font-family: Trebuchet MS;
     letter-spacing: 2px;
 }
+
+form {
+   text-align:center;
+}
