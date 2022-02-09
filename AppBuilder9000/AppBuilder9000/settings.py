@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'Motorcycling',
     'FootballStats',
     'GameStats',
+    'MoveState',
 ]
 
 MIDDLEWARE = [
