@@ -112,7 +112,7 @@ def composers_api(request):
     return render(request, 'Composers/composers_api.html')'''
 
 
-def composer_search(request):
+'''def composer_search(request):
     composers_fname = []
     if request.method == 'POST':
         value = request.POST['complete_name'].lower()
@@ -127,5 +127,30 @@ def composer_search(request):
             composers_fname.append(names)
             print(composers_fname)
         return render(request, 'Composers/composers_api.html',{'composers_fname':composers_fname})
+    else:
+        return render(request, 'Composers/composers_api.html')'''
+
+'''Try #3 using a new API, the Oxford Dictionary, to get words that people do not understand'''
+
+def oxford_api(request):
+    app_id=	'7fcc67f3'
+    app_key='4789fb95bb5e7ca65c438b8d8e1630af'
+    language='en-us'
+    fields = 'definitions'
+    strictMatch = 'false'
+    whole_definition=[]
+    if request.method=='POST':
+        value=request.POST['word_id'].lower()
+        if value=="":
+            messages.info(request, 'Please enter a search term')
+        else:
+            url = 'https://od-api.oxforddictionaries.com:443/api/v2/entries/' + language + '/' + value + '?fields=' + fields + '&strictMatch=' + strictMatch;
+            info=requests.get(url,headers={'app_id':app_id, 'app_key':app_key})
+            oxford_info=info.json()
+            whole_definition.append(oxford_info)
+            print('code {}\n'.format(info.status_code))
+            print('text \n' + info.text)
+        context={'whole_definition':whole_definition}
+        return render(request, 'Composers/composers_api.html', context)
     else:
         return render(request, 'Composers/composers_api.html')
