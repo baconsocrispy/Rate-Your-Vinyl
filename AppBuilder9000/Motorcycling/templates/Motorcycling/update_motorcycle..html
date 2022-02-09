@@ -1,0 +1,32 @@
+{% extends "Motorcycling/motorcycling_base.html" %}
+{% load static %}
+
+{% block header %}
+<center></center>
+<h2>Edit Motorcycle</h2>
+</center>
+{% endblock %}
+
+    {{ edit_moto }}
+
+{% block content %}
+
+
+<div class="form-container">
+    <form name="MotorcycleForm" method="POST" action=" {% url 'edit_motorcycle' %}">
+        {% csrf_token %}
+         <table id="table" class="table table-striped table-bordered table-hover">
+             {{ form.as_table }}
+         </table>
+         <button type="submit" class="btn btn-light btn-lg btn-block w-100 mx-auto">EDIT</button>
+            <div id="form_container" class="table-responsive w-50 mx-auto">
+                <a href="../{{ form.pk }}delete_motorcycle/"><button type="button" class="btn btn-light me-md-4">DELETE</button></a>
+                <a href="{% url 'list_motorcycles' %}" ><button type="button" class="btn btn-light me-md-4">CANCEL</button></a>
+            </div>
+
+    </form>
+
+</div>
+
+
+{% endblock %}

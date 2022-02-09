@@ -48,7 +48,7 @@ def all_motorcycles(request):
 
 
 # This allows the user to delete an item in the database
-def motorcycle_delete(request, pk):
+def delete_motorcycle_admin(request, pk):
     item = get_object_or_404(Motorcycle, pk=pk)
     if request.method == 'POST':
         item.delete()
@@ -56,7 +56,7 @@ def motorcycle_delete(request, pk):
     context = {'Motorcycle': Motorcycle}
     return render(request, 'Motorcycling/list_motorcycles.html', context)
 
-
+# This function will list all the saved routes
 def all_routes(request):
     route_list = Route.objects.all()
     return render(request, 'Motorcycling/list_routes.html', {'route_list': route_list})
@@ -68,6 +68,47 @@ def motorcycle_details(request, pk):
     return render(request, 'Motorcycling/motorcycle_details.html', {'motorcycle_detail': motorcycle_detail})
 
 
+# This function shows specific route data to the user
 def route_details(request, pk):
     route_detail = get_object_or_404(Route, pk=pk)
     return render(request, 'Motorcycling/route_details.html', {'route_detail': route_detail})
+
+
+# This function will let a user edit their data on the motorcycle
+def update_motorcycle(request, pk):
+    edit_motorcycle = get_object_or_404(Motorcycle, pk=pk)
+    form = MotorcycleForm(data=request.POST or None, instance=edit_motorcycle)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('list_motorcycles')
+    return render(request, 'Motorcycling/update_motorcycle.html', {'edit_motorcycle': edit_motorcycle, 'form': form})
+
+
+# This function allows the user to delete the item in the database
+def delete_motorcycle(request, pk):
+    delete_user_motorcycle = get_object_or_404(Motorcycle, pk=pk)
+    form = RouteForm(data=request.POST or None, instance=delete_user_motorcycle)
+    if request.method == 'POST':
+        delete_user_motorcycle.delete()
+        return redirect('list_motorcycles')
+    return render(request, 'Motorcycling/delete_motorcycle.html', {'delete_user_motorcycle': delete_user_motorcycle, 'form': form})
+
+
+def update_route(request, pk):
+    route = get_object_or_404(Route, pk=pk)
+    form = RouteForm(data=request.POST or None, instance=route)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('list_routes')
+    return render(request, 'Motorcycling/update_route.html', {'route': route, 'form': form})
+
+
+def delete_route(request, pk):
+    delete_user_route = get_object_or_404(Route, pk=pk)
+    form = RouteForm(data=request.POST or None, instance=delete_user_route)
+    if request.method == 'POST':
+        delete_user_route.delete()
+        return redirect('list_routes')
+    return render(request, 'Motorcycling/update_route.html', {'delete_user_route': delete_user_route, 'form': form})
