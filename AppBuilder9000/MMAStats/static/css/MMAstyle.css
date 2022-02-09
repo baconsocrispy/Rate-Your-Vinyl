@@ -1,0 +1,18 @@
+body {
+    background-color: #17191b;
+}
+
+h1 {
+    color: yellow;
+    text-align: center;
+    font-family: Impact;
+    letter-spacing: 5px;
+}
+
+p {
+    color: yellow;
+    text-align: center;
+    font-family: Trebuchet MS;
+    letter-spacing: 2px;
+}
+/* ********************** */
