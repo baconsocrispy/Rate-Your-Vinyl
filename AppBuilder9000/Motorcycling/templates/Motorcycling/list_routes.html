@@ -4,15 +4,15 @@
 
 {% block content %}
 
-    <h1>Routes Ratings</h1>
+    <h1>Rated Routes</h1>
 
 {% for Route in route_list %}
     <center>
     <h3 style="color:red;"><strong>{{ Route }}</strong></h3>
     </center>
     <ul>
-    <li class="list-group-item list-group-item-warning"><a class="" href="{% url 'route_details' Route.id %}">Starting Point: {{ Route.START_DESTINATION }}</a></li>
-    <li class="list-group-item list-group-item-warning">Ending Point: {{ Route.END_DESTINATION }}</li>
+    <li class="list-group-item list-group-item-dark"><a class="" href="{% url 'route_detail' Route.id %}">Starting Point: {{ Route.START_DESTINATION }}</a></li>
+    <li class="list-group-item list-group-item-secondary">Ending Point: {{ Route.END_DESTINATION }}</li>
     <li class="list-group-item list-group-item-warning">Rating: {{ Route.RATING }}</li>
     </ul>
 
