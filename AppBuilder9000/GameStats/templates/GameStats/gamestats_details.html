@@ -16,6 +16,8 @@
   <hr class="my-4 text-white">
   <p class="text-white">{{ details.review }}</p>
   {% endif %}
+  <a href="{% url 'gamestats_edit' details.id %}" class="btn btn-secondary">Edit</a>
+  <a href="{% url 'gamestats_delete' details.id %}" class="btn btn-secondary">Delete</a>
 </div>
 
 

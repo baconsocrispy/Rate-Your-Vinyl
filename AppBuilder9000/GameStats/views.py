@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 from .forms import GamesForm, PublishersForm
@@ -56,3 +56,23 @@ def game_details(request, pk):
     details = get_object_or_404(Games, pk=pk)
     context = {'details': details}
     return render(request, 'GameStats/gamestats_details.html', context)
+
+def game_edit(request, pk):
+    details = get_object_or_404(Games, pk=pk)
+    form = GamesForm(data=request.POST or None, instance=details)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('gamestats_viewall')
+    context = {'form': form}
+    return render(request, 'GameStats/gamestats_edit.html', context)
+
+
+def game_delete(request, pk):
+    details = get_object_or_404(Games, pk=pk)
+    form = GamesForm(data=request.POST or None, instance=details)
+    if request.method == 'POST':
+        details.delete()
+        return redirect('gamestats_viewall')
+    context = { 'details': details, 'form': form }
+    return render(request, 'GameStats/gamestats_delete.html', context)
