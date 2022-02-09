@@ -32,8 +32,75 @@ footer p{
     margin-left: 1rem;
 }
 
+.header_container {
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0
+}
+
 .myForm {
     margin-top: 7rem;
 }
 
+.dbSearch {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white;
+}
 
+.queryBox {
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: black;
+    background-color: black;
+    color: white;
+}
+
+#selectBox {
+    background-color: black;
+    color: white;
+    padding-bottom: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+#selectBox option {
+    background-color: black;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+#container  {
+    margin-bottom: 5rem;
+}
+
+.searchContainer {
+    text-align: center;
+}
+
+.searchContainer > * {
+    display: inline-block;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.pagination {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pagination li{
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.deleteButton{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
