@@ -147,9 +147,12 @@ def oxford_api(request):
             url = 'https://od-api.oxforddictionaries.com:443/api/v2/entries/' + language + '/' + value + '?fields=' + fields + '&strictMatch=' + strictMatch;
             info=requests.get(url,headers={'app_id':app_id, 'app_key':app_key})
             oxford_info=info.json()
+            result=oxford_info['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
+            print(result)
+
+
             whole_definition.append(oxford_info)
             print('code {}\n'.format(info.status_code))
-            print('text \n' + info.text)
         context={'whole_definition':whole_definition}
         return render(request, 'Composers/composers_api.html', context)
     else:
