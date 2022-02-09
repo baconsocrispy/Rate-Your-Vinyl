@@ -9,19 +9,9 @@
 
 
 {% block content %}
-    <div class="form-container">
-        <form name="MotorcycleForm" method="POST" action="">
-            {% csrf_token %}
-             <table id="table" class="table table-dark table-bordered table-hover text-center">
-                 {{ form.as_table }}
-             </table>
-             <button type="submit" class="btn btn-light btn-lg btn-block w-100 mx-auto">EDIT</button>
-                <div id="form_container" class="table-responsive w-50 mx-auto">
-                    <a href="{% url 'delete_motorcycle' %}"><button type="button" class="btn btn-light me-md-4">DELETE</button></a>
-                    <a href="{% url 'list_motorcycles' %}" ><button type="button" class="btn btn-light me-md-4">CANCEL</button></a>
-                </div>
-
-        </form>
-
-    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <h3>Are you sure you want to delete this?</h3>
+        <button type="submit" onclick="return confirm('Last chance!!')">Delete</button>
+    </form>
 {% endblock %}

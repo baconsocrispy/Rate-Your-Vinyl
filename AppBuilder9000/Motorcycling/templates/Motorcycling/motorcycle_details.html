@@ -3,7 +3,7 @@
 
 
 {% block content %}
-<div id="container" class="table-responsive w-75 mx-auto">
+<div id="container" class="table-striped w-75 mx-auto">
   <table class="table table-dark table-bordered table-hover text-center">
     <thead>
       <tr>
@@ -22,9 +22,8 @@
         <td>{{motorcycle_detail.MODEL_TYPE}}</td>
         <td>{{motorcycle_detail.RATING}}</td>
         <td><a href="{% url 'update_motorcycle' motorcycle_detail.id %}">EDIT</a></td>
-        <td><a href="{% url 'delete_motorcycle' motorcycle_detail.id %}">>DELETE</a></td>
+        <td><a href="{% url 'delete_motorcycle' motorcycle_detail.id %}">DELETE</a></td>
       </tr>
-
     </tbody>
   </table>
 

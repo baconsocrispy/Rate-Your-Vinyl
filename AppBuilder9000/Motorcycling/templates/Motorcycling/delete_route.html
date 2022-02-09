@@ -1,22 +1,15 @@
 {% extends "Motorcycling/motorcycling_base.html" %}
 {% load static %}
 
-{% block content %}
-    <h1>Delete Route</h1>
-
-{% for Route in route_list %}
+  {% for Route in route_list %}
     <center>
-    <h3 style="color:red;"><strong>{{ Route }}</strong></h3>
+    <h3 style="color:red;"><strong>{{ delete_user_route }}</strong></h3>
     </center>
-    <ul>
-    <li class="list-group-item list-group-item-warning">Starting Point: {{ Route.START_DESTINATION }}</li>
-    <li class="list-group-item list-group-item-warning">Ending Point: {{ Route.END_DESTINATION }}</li>
-    <li class="list-group-item list-group-item-warning">Rating: {{ Route.RATING }}</li>
-    </ul>
-    <form method="POST" action="">
+  {% endfor %}
+{% block content %}
+<form method="POST">
         {% csrf_token %}
-        <input type="submit" value="Delete" class="btn">
-        <a href="{% url 'route_details' %}">Delete<button class="btn" type="button">Cancel</button> </a>
+        <h3>Are you sure you want to delete this?</h3>
+        <button type="submit" onclick="return confirm('Last chance!!')">Delete</button>
     </form>
-
 {% endblock %}
