@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'GameStats',
     'MoveState',
     'MMAStats',
-    ]
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
