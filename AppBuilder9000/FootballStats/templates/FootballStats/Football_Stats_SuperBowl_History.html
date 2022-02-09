@@ -2,19 +2,25 @@
 {% load static %}
 {% block title %}Football Stats{% endblock %}
 
-{% block header %} Previous Super Bowl Winners {% endblock %}
+{% block header %}<h1 class="heading text-center text-primary">Previous Super Bowl Winners{% endblock %}
 
 {% block content %}
 <div id="container" class="table-responsive w-75 mx-auto">
     <table id="table" class="table table-dark table-hover table-bordered border-white w-50 mx-auto text-center" data-toggle="table">
-        <caption>The SuperBowl was first played in 1967.</caption>
+        <caption class="text-light">The SuperBowl was first played in 1967.</caption>
         <thead>
             <tr>
+                <th>Super Bowl</th>
+                <th>Super Bowl Number</th>
+                <th>Date</th>
                 <th>Winner</th>
+                <th>Score</th>
+                <th>Loser</th>
+                <th>Location</th>
             </tr>
         </thead>
         <tbody>
-        <!--{% for winner in winner_list %}
+        {% for winner in winner_list %}
             <tr>
                 <td>{{ winner.0 }}</td>
                 <td>{{ winner.1 }}</td>
@@ -24,7 +30,7 @@
                 <td>{{ winner.5 }}</td>
                 <td>{{ winner.6 }}</td>
             </tr>
-        {% endfor %}-->
+        {% endfor %}
         </tbody>
     </table>
 </div>
