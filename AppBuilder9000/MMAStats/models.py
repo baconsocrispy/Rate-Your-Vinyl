@@ -6,3 +6,4 @@ class Champion(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     defenses = models.IntegerField(default=0)
+    
