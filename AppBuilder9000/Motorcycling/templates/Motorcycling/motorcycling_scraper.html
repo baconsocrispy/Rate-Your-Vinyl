@@ -2,13 +2,19 @@
 {% extends "Motorcycling/motorcycling_base.html" %}
 {% load static %}
 
-{% block title &}
-<h1>Best Motorcycle of 2021</h1>
-{% endblock %}
+{% block header %}Best Motorcycle of 2021{% endblock %}
 
 {% block content %}
+<div class="container">
+    {{best_bike}}
+    {{i}}
 
-    {% for best_bike in motorcycle_list %}
+
+
+    {% for i in best_bike %}
         <h3>{{ best_bike }}</h3>
+        <h3>{{motorcycle_name}}</h3>
+    {% endfor %}
+</div>
 
 {% endblock %}

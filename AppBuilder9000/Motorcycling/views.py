@@ -120,21 +120,23 @@ def delete_route(request, pk):
 
 # This uses BeautifulSoup to scrape a website for data about motorcycles
 def BS_scraper(request):
+    cycle = []
     # Load in the webpage
-    page = requests.get("https://ridermagazine.com/2021/09/21/riders-2021-motorcycle-of-the-year/")
+    page = requests.get("https://hiconsumption.com/best-motorcycles-of-all-time/")
     # Convert to a BeautifulSoup object
     soup = BeautifulSoup(page.content, 'html.parser')
-    motorcycle_list = []
     # Search for specific elements in the website, narrowing down, one by one
     body = soup.find('body')
-    classes = body.find_all('div', class_='td-ss-main-content')
-    tag = classes.find('h3')
-    best_bike = tag.find_all('h3', string=re.compile("winner"))
+    main = body.find('div')
+    div = main.find(class_='wp-content')
+    results = div.find('a')
+    best_bike = results.find_all('h3')
     for i in best_bike:
-        name = i.find('winner')
-        motorcycle_list = name.text
-    print(motorcycle_list)
-    return render(request, 'Motorcycling/motorcycling_scraper.html', {'motorcycle_list': motorcycle_list})
+        name = i.find(string='BMW')
+        motorcycle_name = name.text
+        cycle.append(motorcycle_name)
+    print(cycle)
+    return render(request, 'Motorcycling/motorcycling_scraper.html', {'best_bike': best_bike})
 
 
 
