@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'ATVTrails',
     'Motorcycling',
     'FootballStats',
+    'GameStats',
     'MoveState',
 ]
 
