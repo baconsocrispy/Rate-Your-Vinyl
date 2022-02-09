@@ -148,12 +148,8 @@ def oxford_api(request):
             info=requests.get(url,headers={'app_id':app_id, 'app_key':app_key})
             oxford_info=info.json()
             result=oxford_info['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
-            print(result)
-
-
-            whole_definition.append(oxford_info)
-            print('code {}\n'.format(info.status_code))
-        context={'whole_definition':whole_definition}
+            whole_definition.append(result)
+        context={'value':value,'whole_definition':whole_definition}
         return render(request, 'Composers/composers_api.html', context)
     else:
         return render(request, 'Composers/composers_api.html')
