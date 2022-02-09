@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from .forms import GamesForm, PublishersForm
@@ -51,3 +51,8 @@ def view_games(request):
     context = { 'game_list': game_list }
     return render(request, 'GameStats/gamestats_all.html', context)
 
+
+def game_details(request, pk):
+    details = get_object_or_404(Games, pk=pk)
+    context = {'details': details}
+    return render(request, 'GameStats/gamestats_details.html', context)
