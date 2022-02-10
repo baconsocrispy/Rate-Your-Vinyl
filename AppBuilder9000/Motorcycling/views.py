@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Motorcycle, Route
 from .forms import MotorcycleForm, RouteForm
 from django.http import HttpResponseRedirect
+from bs4 import BeautifulSoup
 import requests
+import re
 
 
 # Create your views here.
@@ -115,3 +117,26 @@ def delete_route(request, pk):
         delete_user_route.delete()
         return redirect('list_routes')
     return render(request, 'Motorcycling/delete_route.html', {'delete_user_route': delete_user_route, 'form': form})
+
+# This uses BeautifulSoup to scrape a website for data about motorcycles
+def BS_scraper(request):
+    cycle = []
+    # Load in the webpage
+    page = requests.get("https://hiconsumption.com/best-motorcycles-of-all-time/")
+    # Convert to a BeautifulSoup object
+    soup = BeautifulSoup(page.content, 'html.parser')
+    # Search for specific elements in the website, narrowed to its parent class
+    div = soup.find('div', class_='wp-content')
+    best_bike = div.find_all('h3')
+    # iterate through the results to get the list of motorcycles
+    for i in best_bike:
+        name = i.text
+    # Grabbing just the names of the resulting motorcycles
+        cycle.append(name)
+    print(cycle)
+    return render(request, 'Motorcycling/motorcycling_scraper.html', {'cycle': cycle})
+
+
+
+
+
