@@ -13,5 +13,5 @@ urlpatterns = [
     path('<int:pk>/composers_edit', views.composers_edit, name='composers_edit'),
     path('<int:pk>/composers_delete', views.composers_delete, name='composers_delete'),
     path('top100_composers', views.composer_scraping, name='top100_composers'),
-    path('composers_api', views.composers_api, name='composers_api'),
+    path('composers_api', views.oxford_api, name='composers_api'),
 ]

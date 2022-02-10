@@ -1,11 +1,20 @@
 {% extends 'Composers/composers_base.html' %}
 {% load static %}
 
-{% block title %} Composer API {% endblock %}
-{% block header %} Composer Lists {% endblock %}
+{% block title %} Search API {% endblock %}
+{% block header %} Search {% endblock %}
 
 
 {% block content %}
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="word_id" placeholder="Search Oxford Dictionary">
+        <input type="submit" value="Search">
+    </form>
 
+    <h1 font-weight=900 text-decoration="underline" font-style="italics">{{ value }} <br> </h1>
+        <br>
+        <h2>{{ whole_definition }}</h2>
 
 {% endblock %}

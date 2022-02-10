@@ -10,24 +10,24 @@
 
 <div class="searchContainer">
 
-<div id="form-container" class="dbSearch">
-    <form id="searchform"  method="get" action="" accept-charset="utf-8">
+<div class="dbSearch">
+    <form method="get" action="" accept-charset="utf-8">
       Search by Rating:
-      <input id="searchbox" class="queryBox" name="search_res" type="text" placeholder="Search">
+      <input class="queryBox" name="search_res" type="text" placeholder="Search">
       <input class="btn btn-dark" type="submit" value="OK">
     </form>
 </div>
 
-<div id="form-container" class="dbSearch">
-    <form id="searchform"  method="get" action="" accept-charset="utf-8">
+<div class="dbSearch">
+    <form method="get" action="" accept-charset="utf-8">
       Search by Release Year:
-      <input id="searchbox" class="queryBox" name="release_year" type="text" placeholder="Search">
+      <input class="queryBox" name="release_year" type="text" placeholder="Search">
       <input class="btn btn-dark" type="submit" value="OK">
     </form>
 </div>
 
-<div id="form-container" class="dbSearch">
-    <form id="searchform"  method="get" action="" accept-charset="utf-8">
+<div class="dbSearch">
+    <form method="get" action="" accept-charset="utf-8">
       Search by Genre:
         <select id="selectBox" name="genre">
             <option class="selectOption" value="action">action</option>
@@ -42,10 +42,10 @@
     </form>
 </div>
 
-<div id="form-container" class="dbSearch">
-    <form id="searchform"  method="get" action="" accept-charset="utf-8">
+<div class="dbSearch">
+    <form  method="get" action="" accept-charset="utf-8">
       Search by Name:
-      <input id="searchbox" class="queryBox" name="name" type="text" placeholder="Search">
+      <input class="queryBox" name="name" type="text" placeholder="Search">
       <input class="btn btn-dark" type="submit" value="OK">
     </form>
 </div>
@@ -83,8 +83,8 @@
         <tbody>
             {% for Game in game_list %}
             <tr>
-                <td>{{ Game }}</td>
-                <td>{{ Game.rating }}</td>
+                <td><a href="{% url 'gamestats_one' Game.id %}">{{ Game }}</a></td>
+                <td>{{ Game.rating }}/100</td>
                 <td>{{ Game.release_year }}</td>
                 <td>{{ Game.genre }}</td>
             </tr>

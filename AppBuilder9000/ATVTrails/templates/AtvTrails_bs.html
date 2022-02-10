@@ -5,7 +5,18 @@
 {% block header %}Trending Trails{% endblock %}
 
 {% block content %}
+<table class="trail_table_trend">
+    <tr>
+        <th>Trending Trails</th>
+        <th>Distance</th>
+        {% for trails, distances in zipped_list %}
 
+ <tr>
+            <td>{{ trails }}</td>
+            <td>{{ distances }}</td>
+        </tr>
 
+        {% endfor %}
+</table>
 
 {% endblock %}
