@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.MMAHome, name='MMA_Home'),
+    path('create', views.MMACreate, name='MMA_Create')
 ]
 
 if settings.DEBUG:

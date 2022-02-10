@@ -16,29 +16,22 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                       <div class="navbar-nav">
-                          <a class="nav-link active text-warning" aria-current="page" href="#">Home</a>
+                          <a class="nav-link active text-warning" aria-current="page" href="{% url 'MMA_Home' %}">Home</a>
                           <a class="nav-link text-warning" href="#">Stats</a>
-                          <a class="nav-link text-warning" href="#">Contact</a>
+                          <a class="nav-link text-warning" href="{% url 'MMA_Create' %}">Create Entry</a>
                       </div>
                   </div>
               </div>
         </nav>
 
-
-
-
-        </nav>
         <!--END NAVBAR-->
 
         <!--***********************-->
 
         <!--BODY CONTENT-->
-        <section id="Home">
-            <h1>MMA Stats</h1>
-            <p>MMA stats from your favorite promotions!</p>
-        </section>
+        {% block content %}
 
-
+        {% endblock %}
         <!--END BODY CONTENT-->
 
         <!--***********************-->
