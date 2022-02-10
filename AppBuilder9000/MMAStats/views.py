@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ChampForm
+from .models import Champions
 
 def MMAHome(request):
     return render(request, 'MMAStats/MMA_home.html')
@@ -15,3 +16,13 @@ def MMACreate(request):
 
     context = {'form': form}
     return render(request, "MMAStats/MMA_create.html", context)
+
+def MMAStats(request):
+    return render(request, 'MMAStats/MMA_stats.html')
+
+def DisplayStats(request):
+    champion_stats = Champions.objects.all().order_by("p4p_rank")
+    context = {'champion_stats': champion_stats}
+    return render(request, 'MMAStats/MMA_stats.html', context)
+
+
