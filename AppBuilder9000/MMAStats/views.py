@@ -7,10 +7,11 @@ def MMAHome(request):
 def MMACreate(request):
     form = ChampForm (data=request.POST or None)
     # if form data is valid
-    if form.is_valid():
-        # save form data to our model
-        form.save()
-        return redirect('MMA_Create')
+    if request.method=='POST':
+        if form.is_valid():
+            # save form data to our model
+            form.save()
+            return redirect('MMA_Create')
 
     context = {'form': form}
     return render(request, "MMAStats/MMA_create.html", context)
