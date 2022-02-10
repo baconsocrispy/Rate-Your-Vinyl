@@ -125,18 +125,16 @@ def BS_scraper(request):
     page = requests.get("https://hiconsumption.com/best-motorcycles-of-all-time/")
     # Convert to a BeautifulSoup object
     soup = BeautifulSoup(page.content, 'html.parser')
-    # Search for specific elements in the website, narrowing down, one by one
-    body = soup.find('body')
-    main = body.find('div')
-    div = main.find(class_='wp-content')
-    results = div.find('a')
-    best_bike = results.find_all('h3')
+    # Search for specific elements in the website, narrowed to its parent class
+    div = soup.find('div', class_='wp-content')
+    best_bike = div.find_all('h3')
+    # iterate through the results to get the list of motorcycles
     for i in best_bike:
-        name = i.find(string='BMW')
-        motorcycle_name = name.text
-        cycle.append(motorcycle_name)
+        name = i.text
+    # Grabbing just the names of the resulting motorcycles
+        cycle.append(name)
     print(cycle)
-    return render(request, 'Motorcycling/motorcycling_scraper.html', {'best_bike': best_bike})
+    return render(request, 'Motorcycling/motorcycling_scraper.html', {'cycle': cycle})
 
 
 
