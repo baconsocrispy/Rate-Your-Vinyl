@@ -1,9 +1,10 @@
-{% include "MMAStats/MMA_base.html" %}
+{% extends "MMAStats/MMA_base.html" %}
 {% load static %}
 
 {% block content %}
 <section id="Home">
     <h1>MMA Stats</h1>
     <p>MMA stats from your favorite promotions!</p>
+    <p>Create a new entry in the <a href="{% url 'MMA_Create' %}">create</a> page.</p>
 </section>
 {% endblock %}
