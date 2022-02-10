@@ -1,0 +1,17 @@
+{% extends "MMAStats/MMA_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section id="Home">
+    <h1>Add a current Champion!</h1>
+    <p>Be sure to fill in all fields!</p>
+<!--create form-->
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</section>
+
+{% endblock %}
