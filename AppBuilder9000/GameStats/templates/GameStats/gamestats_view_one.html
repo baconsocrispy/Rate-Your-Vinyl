@@ -1,0 +1,22 @@
+{% extends "gamestats_base.html" %}
+
+{% load static %}
+
+{% block title %} Game Reviews {% endblock %}
+
+{% block header %} Welcome to Shadow Game Reviews {% endblock %}
+<!--- Paragraph on the home page of the app -->
+{% block content %}
+
+<div class="container-lg bg-dark p-5">
+  <img class="scrapeTop" src="{{ image }}" alt="image">
+  <h2 class="display-4 text-white scrapeTop">{{ name }}</h2>
+  <p class="lead text-white">This game released on {{ date }} and scored a {{ rating }}/100 on Metacritic.</p>
+  {% if summary %}
+  <hr class="my-4 text-white">
+  <h3 class="display-6 text-white">About</h3>
+  <p class="text-white">{{ summary }}</p>
+  {% endif %}
+</div>
+
+{% endblock %}
