@@ -60,7 +60,7 @@ vehicle_type = [
 class Movestate(models.Model):
     State = models.CharField(max_length=50)
     Sity = models.CharField(max_length=60)
-    Mounth = models.CharField(max_length=60, choices=mounth_choices)
+    Month = models.CharField(max_length=60, choices=mounth_choices)
     Day = models.CharField(max_length=60, default="", choices=day_choices)
     description = models.TextField(max_length=500, default="", blank=True)
     Movers = models.Manager()
