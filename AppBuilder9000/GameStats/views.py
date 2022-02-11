@@ -4,6 +4,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 from .forms import GamesForm, PublishersForm
 from .models import Games
+import requests
+from bs4 import BeautifulSoup
 
 
 def homepage(request):
@@ -76,3 +78,41 @@ def game_delete(request, pk):
         return redirect('gamestats_viewall')
     context = { 'details': details, 'form': form }
     return render(request, 'GameStats/gamestats_delete.html', context)
+
+
+def top_games(request):
+    url = 'https://www.metacritic.com/game'
+    user_agent = {'User-agent': 'Mozilla/5.0'}
+    response = requests.get(url, headers=user_agent)
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    review_dict = {'name': [], 'date': [], 'rating': []}
+    context = { 'review_dict': review_dict, 'passed': False }
+    for review in soup.find_all('tr'):
+        if review.find("div", class_='clamp-score-wrap'):
+            # had to strip everything down because websites add lots of spaces.
+            # title
+            review_dict['name'].append(review.find("h3").text.strip())
+            # score
+            review_dict['rating'].append(review.find("div", class_='clamp-score-wrap').text.strip())
+            # release date
+            a = review.find_all(class_="clamp-details")
+            for element in a:
+                try:
+                    # print(element.find("span").text.strip())
+                    # in the event we come up with something other than a normal string, .text.strip() won't work
+                    # thus cleaning invalid inputs, and we just don't add to the dict if they are invalid
+                    review_dict['date'].append(element.find("span").text.strip())
+                except AttributeError:
+                    pass
+
+            # Testing, if passed, will display
+            # context['passed'] = True
+
+    # the spaces before the rating and release weren't initially intended but I like them, so I'll leave them there
+    for i in range(len(review_dict['name'])):
+        # this line is big and scary, but not super complex
+        # we use the length of one of the lists from the dict to determine how many iterations to go through
+        # then we iterate through that and use the index to pull the associated name, rating, and release date
+        print("Game: {}\n Rating: {}/100\n Release Date:{}\n".format(review_dict['name'][i], review_dict['rating'][i], review_dict['date'][i]))
+    return render(request, 'GameStats/gamestats_topgames.html', context)
