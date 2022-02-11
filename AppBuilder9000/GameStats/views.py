@@ -81,13 +81,33 @@ def game_delete(request, pk):
 
 
 def top_games(request):
+    review_dict = scrape_site()
+
+    name = review_dict['name']
+    date = review_dict['date']
+    rating = review_dict['rating']
+    gameId = review_dict['id']
+    test = zip(name, date, rating, gameId)
+    context = {'data': test, 'passed': False}
+    return render(request, 'GameStats/gamestats_topgames.html', context)
+
+
+def top_game_one(request, id):
+    review_dict = scrape_site()
+
+    context = {'name': review_dict['name'][id], 'date': review_dict['date'][id], 'rating': review_dict['rating'][id],
+               'image': review_dict['image'][id], 'summary': review_dict['summary'][id] }
+    return render(request, 'GameStats/gamestats_view_one.html', context)
+
+def scrape_site():
     url = 'https://www.metacritic.com/game'
     user_agent = {'User-agent': 'Mozilla/5.0'}
     response = requests.get(url, headers=user_agent)
 
     soup = BeautifulSoup(response.text, 'html.parser')
-    review_dict = {'name': [], 'date': [], 'rating': []}
-    context = { 'review_dict': review_dict, 'passed': False }
+    review_dict = {'name': [], 'date': [], 'rating': [], 'image': [], 'summary': [], 'id': []}
+
+    tempID = 0
     for review in soup.find_all('tr'):
         if review.find("div", class_='clamp-score-wrap'):
             # had to strip everything down because websites add lots of spaces.
@@ -95,6 +115,11 @@ def top_games(request):
             review_dict['name'].append(review.find("h3").text.strip())
             # score
             review_dict['rating'].append(review.find("div", class_='clamp-score-wrap').text.strip())
+            # image URL
+            review_dict['image'].append(review.find("img")["src"])
+            # summary
+            review_dict['summary'].append(review.find(class_="summary").text.strip())
+
             # release date
             a = review.find_all(class_="clamp-details")
             for element in a:
@@ -105,14 +130,6 @@ def top_games(request):
                     review_dict['date'].append(element.find("span").text.strip())
                 except AttributeError:
                     pass
-
-            # Testing, if passed, will display
-            # context['passed'] = True
-
-    # the spaces before the rating and release weren't initially intended but I like them, so I'll leave them there
-    for i in range(len(review_dict['name'])):
-        # this line is big and scary, but not super complex
-        # we use the length of one of the lists from the dict to determine how many iterations to go through
-        # then we iterate through that and use the index to pull the associated name, rating, and release date
-        print("Game: {}\n Rating: {}/100\n Release Date:{}\n".format(review_dict['name'][i], review_dict['rating'][i], review_dict['date'][i]))
-    return render(request, 'GameStats/gamestats_topgames.html', context)
+            review_dict['id'].append(tempID)
+            tempID += 1
+    return review_dict
