@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlayersForm
 from .models import Players
 from bs4 import BeautifulSoup
+import json
 import requests
 
 # Create your views here.
@@ -77,6 +78,43 @@ def superbowl_history_scraping(request):
     context = {'winner_list': winner_list}
     return render(request, 'FootballStats/Football_Stats_SuperBowl_History.html', context)
 
+
+"""
+==============================================================================================
+API SECTION
+==============================================================================================
+"""
+
+
+
+def stats_page(request):
+    team_names = []
+    team_passing_yards = []
+    team_tds = []
+    url = "https://nfl-team-stats.p.rapidapi.com/v1/nfl-stats/teams/passing-stats/offense/2021"
+
+    headers = {
+        'x-rapidapi-host': "nfl-team-stats.p.rapidapi.com",
+        'x-rapidapi-key': "97875e5a14mshc10839041a1bef6p1b85f4jsnc165a9e70c87"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    teams = json.loads(response.text)
+    for i in teams:
+        names = i['name']
+        team_names.append(names)
+    for a in teams:
+        passing_yards = a['passYards']
+        team_passing_yards.append(passing_yards)
+    for x in teams:
+        passing_tds = x['touchdowns']
+        team_tds.append(passing_tds)
+
+    print(team_names)
+    print(team_passing_yards)
+    print(team_tds)
+
+    return render(request, 'FootballStats/Football_Stats_team_stats.html')
 
 
 
