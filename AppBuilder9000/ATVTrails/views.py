@@ -73,8 +73,8 @@ def trail_scrape(request):
     for x in trending_trails_distance:
         distance = x.text
         distances.append(distance)
-    print(trails)
-    print(distances)
     zipped_list = zip(trails, distances)
     context = {'zipped_list': zipped_list}
     return render(request, 'AtvTrails_bs.html', context)
+
+

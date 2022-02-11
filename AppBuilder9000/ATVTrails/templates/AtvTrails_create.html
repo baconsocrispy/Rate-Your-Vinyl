@@ -6,7 +6,7 @@
 {% block content %}
 <h1 class="heading text-center">Add a New Trail:</h1>
     <div class="container">
-       <form method="POST" action="{% url 'add_trail' %}">
+       <form method="POST" action="{% url 'add_trail' %}" class="form-items">
             {% csrf_token %}
             {{ form.as_p }}
             <div class="frmBtn_container">
