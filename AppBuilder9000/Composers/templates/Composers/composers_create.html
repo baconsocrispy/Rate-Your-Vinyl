@@ -10,10 +10,13 @@
     </head>
         <body>
             {% block content %}
-            <div id="form-container" class="form-group">
+            <div class="jumbotron jumbotron-fluid w-100 display1">
+                <h2 class="display-4">Create a New Composer</h2>
+            </div>
+            <div id="form-container" class="form-group form-centered w-50 mx-auto">
                 <form method="POST">
                     {% csrf_token %}
-                        <table id="table" class='table table-dark table-bordered table-centered'>
+                        <table id="table" class='table table-info  table-hover table-bordered table-centered'>
                         {{ form.as_table }}
                         </table>
                         <button type="submit" class="btn btn-primary">Add Composer</button>
