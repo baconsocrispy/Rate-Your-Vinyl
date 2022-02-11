@@ -1,5 +1,5 @@
 body {
-    font-family:Montserrat ;
+    font-family:San Serif ;
     text-align: center;
     background-color: lightblue;
     background-size: cover;
@@ -8,15 +8,28 @@ body {
 }
 
 h1 {
+    font-weight=900;
+    text-decoration:underline;
+    font-style:italics;
     font-family:San Serif;
-    text-color: red;
+    text-color: #8b0000;
     text-size: 2 em;
    }
 
 h2 {
-   font-family: San Serif;
-   text-color: white;
+   font-family: Arial Bold;
+   text-color: #0f0f0f;
    text-size: 2 em;
    text-width: bold;
    }
 
+a {
+    font-family:Arial;
+    text-width: 900;
+    text-color: green;
+    }
+
+td {
+    font-family: Arial;
+    text-width: bold;
+    text-color: black;

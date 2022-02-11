@@ -5,11 +5,12 @@
 {% block header%}Edit Composer{% endblock %}
 
 {% block content %}
-        <h3>Edit Composer Information</h3>
-            <div id="form-container" class="table-responsive">
+
+            <div id="form-container" class="table-responsive w-50 mx-auto ">
+
                 <form method="POST">
                     {% csrf_token %}
-                        <table id="table" class='table table-dark table-centered w-50 table-bordered  '>
+                        <table id="table" class='  table-centered table table-striped table-hover table-bordered  '>
                         {{ form.as_table }}
                         </table>
                         <button type="submit" class="btn btn-primary">Edit Composer</button>
