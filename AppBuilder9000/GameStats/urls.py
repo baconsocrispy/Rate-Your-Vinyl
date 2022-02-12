@@ -8,4 +8,6 @@ urlpatterns = [
     path('<int:pk>/details/', views.game_details, name="gamestats_one"),
     path('<int:pk>/edit/', views.game_edit, name="gamestats_edit"),
     path('<int:pk>/delete/', views.game_delete, name="gamestats_delete"),
+    path('topgames', views.top_games, name="gamestats_topgames"),
+    path('topgames/<int:id>/', views.top_game_one, name="gamestats_topgame_one"),
 ]

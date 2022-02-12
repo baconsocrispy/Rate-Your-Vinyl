@@ -4,6 +4,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 from .forms import GamesForm, PublishersForm
 from .models import Games
+import requests
+from bs4 import BeautifulSoup
 
 
 def homepage(request):
@@ -76,3 +78,58 @@ def game_delete(request, pk):
         return redirect('gamestats_viewall')
     context = { 'details': details, 'form': form }
     return render(request, 'GameStats/gamestats_delete.html', context)
+
+
+def top_games(request):
+    review_dict = scrape_site()
+
+    name = review_dict['name']
+    date = review_dict['date']
+    rating = review_dict['rating']
+    gameId = review_dict['id']
+    test = zip(name, date, rating, gameId)
+    context = {'data': test, 'passed': False}
+    return render(request, 'GameStats/gamestats_topgames.html', context)
+
+
+def top_game_one(request, id):
+    review_dict = scrape_site()
+
+    context = {'name': review_dict['name'][id], 'date': review_dict['date'][id], 'rating': review_dict['rating'][id],
+               'image': review_dict['image'][id], 'summary': review_dict['summary'][id] }
+    return render(request, 'GameStats/gamestats_view_one.html', context)
+
+def scrape_site():
+    url = 'https://www.metacritic.com/game'
+    user_agent = {'User-agent': 'Mozilla/5.0'}
+    response = requests.get(url, headers=user_agent)
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    review_dict = {'name': [], 'date': [], 'rating': [], 'image': [], 'summary': [], 'id': []}
+
+    tempID = 0
+    for review in soup.find_all('tr'):
+        if review.find("div", class_='clamp-score-wrap'):
+            # had to strip everything down because websites add lots of spaces.
+            # title
+            review_dict['name'].append(review.find("h3").text.strip())
+            # score
+            review_dict['rating'].append(review.find("div", class_='clamp-score-wrap').text.strip())
+            # image URL
+            review_dict['image'].append(review.find("img")["src"])
+            # summary
+            review_dict['summary'].append(review.find(class_="summary").text.strip())
+
+            # release date
+            a = review.find_all(class_="clamp-details")
+            for element in a:
+                try:
+                    # print(element.find("span").text.strip())
+                    # in the event we come up with something other than a normal string, .text.strip() won't work
+                    # thus cleaning invalid inputs, and we just don't add to the dict if they are invalid
+                    review_dict['date'].append(element.find("span").text.strip())
+                except AttributeError:
+                    pass
+            review_dict['id'].append(tempID)
+            tempID += 1
+    return review_dict

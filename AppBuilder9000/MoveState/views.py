@@ -25,3 +25,9 @@ def add_state(request):
 def list_state(request):
     list = Movestate.Movers.all()
     return render(request, 'MoveState/list_state.html', {'list': list})
+
+
+def movestate_details(request, pk):
+    details = get_object_or_404(Movestate, pk=pk)
+    context = {'details': details}
+    return render(request, 'MoveState/movestate_details.html', context)
