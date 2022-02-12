@@ -20,8 +20,8 @@
         <div class="adminBox">
             <p class="list">Type: {{ details.type }}</p>
             <p class="list">{{ details.description }}</p>
-            <button class="btn"><a href="{% url 'movestate_edit' movestate.pk %}">Edit</a></button>
-            <button class="btn"><a href="{% url 'movestate_delete' movestate.pk %}">Delete</a></button>
+            <button class="btn"><a href="{% url 'movestate_edit' details.pk %}">Edit</a></button>
+            <button class="btn"><a href="{% url 'movestate_delete' details.pk %}">Delete</a></button>
         </div>
     </section>
 
