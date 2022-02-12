@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/delete/', views.game_delete, name="gamestats_delete"),
     path('topgames', views.top_games, name="gamestats_topgames"),
     path('topgames/<int:id>/', views.top_game_one, name="gamestats_topgame_one"),
+    path('apilist', views.api_game_view, name="gamestats_explore"),
 ]
