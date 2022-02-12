@@ -11,6 +11,7 @@
                 {% csrf_token %}
                 <label for="menu_id">Select state:</label>
                 <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                    <option class="dropdown-item" value="#"> </option>
                 {% for movestate in list %}
                     <option value="{% url 'movestate_details' movestate.pk %}">{{ movestate.State }}</option>
                 {% endfor %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from MoveState.form import movestateForm
-from MoveState.models import Movestate
+from .form import movestateForm
+from .models import Movestate
 
 
 def movestate_home(request):
@@ -31,3 +31,31 @@ def movestate_details(request, pk):
     details = get_object_or_404(Movestate, pk=pk)
     context = {'details': details}
     return render(request, 'MoveState/movestate_details.html', context)
+
+
+def movestate_delete(request, pk):
+    item = get_object_or_404(Movestate, pk=pk)
+    form = movestateForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('list_state')
+    context = {"item": item, 'form': form}
+    return render(request, "MoveState/movestate_delete.html", context)
+
+
+def movestate(data, instance):
+    pass
+
+
+def movestate_edit(request, pk):
+    item = get_object_or_404(Movestate, pk=pk)
+    form = movestateForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('list_state')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'MoveState/movestate_edit.html', {'form': form})
