@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from form import movestateForm
-from models import Movestate
+from .form import movestateForm
+from .models import Movestate
 
 
 def movestate_home(request):
