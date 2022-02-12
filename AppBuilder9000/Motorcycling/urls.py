@@ -1,5 +1,8 @@
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import path
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path, include
 from django.conf.urls import include
 from . import views
 
@@ -18,5 +21,6 @@ urlpatterns = [
     path('<int:pk>/update_route/', views.update_route, name="update_route"),
     path('<int:pk>/delete_route/', views.delete_route, name="delete_route"),
     path('motorcycling_scraper/', views.BS_scraper, name="BS_scraper"),
+    path('motorcycling_API/', views.motorcycling_API, name="motorcycling_API"),
 ]
 

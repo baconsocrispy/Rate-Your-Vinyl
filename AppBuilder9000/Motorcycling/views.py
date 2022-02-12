@@ -1,10 +1,12 @@
+import json
+
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Motorcycle, Route
 from .forms import MotorcycleForm, RouteForm
 from django.http import HttpResponseRedirect
 from bs4 import BeautifulSoup
 import requests
-import re
+
 
 
 # Create your views here.
@@ -137,6 +139,41 @@ def BS_scraper(request):
     return render(request, 'Motorcycling/motorcycling_scraper.html', {'cycle': cycle})
 
 
+# This is an API that generates a random city near the user they can ride to "think Magic-8 Ball"
+def motorcycling_API(request):
+    info = []
+    distance = []
+    population = []
 
 
 
+    url = "https://wft-geo-db.p.rapidapi.com/v1/geo/locations/40.7608-111.8910/nearbyCities"
+
+    querystring = {"radius": "100"}
+
+    headers = {
+        'x-rapidapi-host': "wft-geo-db.p.rapidapi.com",
+        'x-rapidapi-key': "bfa3041daemsh311c181100b3f88p1405fbjsn18f663313ac1"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    random_city = json.loads(response.text)
+
+    destination_city = random_city['data']
+    for i in destination_city:
+        city_name = i['city']
+        info.append(city_name)
+    for j in destination_city:
+        city_distance = j['distance']
+        distance.append(city_distance)
+    for k in destination_city:
+        city_population = k['population']
+        population.append(city_population)
+
+
+    print(info, distance, population)
+
+
+    return render(request, 'Motorcycling/motorcycling_API.html',
+                  {'info': info, 'distance': distance, 'population': population})
