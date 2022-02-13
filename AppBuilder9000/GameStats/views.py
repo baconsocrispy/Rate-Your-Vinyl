@@ -152,7 +152,7 @@ def api_game_view(request):
 
     # for item in filtered_responses['genres']:
     #     item = str(item).strip("[]")
-    print(filtered_responses['name'])
+    # print(filtered_responses['name'])
     for i in range(len(filtered_responses['genres'])):
         filtered_responses['genres'][i] = str(filtered_responses['genres'][i]).strip("[]").replace("'", "")
 
@@ -170,7 +170,7 @@ def api_query(options=None):
     # set to 10 for main integration
     filters = "&limit=10&format=json"
     filters += options
-    print(req_url + filters)
+    # print(req_url + filters)
     req = requests.get(req_url + filters, headers=user_agent)
     filtered_responses = {'name': [], 'genres': [], 'release_date': []}
     # print(test)
@@ -204,7 +204,8 @@ def api_query(options=None):
                 # limitation of the api data.
                 filtered_responses['release_date'].append(response_obj['results'][i]['original_release_date'])
             except:
-                filtered_responses['release_date'].append("None found")
+                # print(response_obj['results'][i]['expected_release_year'])
+                filtered_responses['release_date'].append(response_obj['results'][i]['expected_release_year'])
     except Exception as e:
         # not a necessary print, sometimes there is a json error though for bad data
         print(e)
