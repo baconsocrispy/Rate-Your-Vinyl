@@ -65,8 +65,11 @@ def game_edit(request, pk):
     form = GamesForm(data=request.POST or None, instance=details)
     if request.method == 'POST':
         if form.is_valid():
+            print('valid')
             form.save()
             return redirect('gamestats_viewall')
+        else:
+            print('valid')
     context = {'form': form}
     return render(request, 'GameStats/gamestats_edit.html', context)
 

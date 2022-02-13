@@ -22,11 +22,39 @@ footer p{
 }
 
 .card-container {
-    margin-top: 5rem;
-    width: 60rem;
+    margin-top: 7rem;
+    width: 70rem;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5rem;
+    box-shadow: rgb(0,0,0) 5px 5px 15rem, rgb(0,0,0) -5px -5px 15rem;
 }
+
+.bottom {
+    bottom: 0.5rem;
+    right: 2rem;
+    position: absolute;
+
+}
+
+.neu-button {
+    box-shadow: inset rgb(0,0,0) 0 0 1rem, inset rgb(0,0,0) 0 0 1rem;
+}
+
+.neu {
+    border-radius: 3rem;
+    height: 27rem;
+    box-shadow: inset rgb(0,0,0) 0 0 10rem;
+}
+
+.neu-top-left {
+    border-top-left-radius: 3rem;
+}
+
+.neu-top-right {
+    border-top-right-radius: 3rem;
+}
+
 
 .header_container ul li{
     margin-left: 1rem;
@@ -40,7 +68,8 @@ footer p{
 }
 
 .myForm {
-    margin-top: 7rem;
+    margin-top: 1rem;
+    padding-top: 2rem;
 }
 
 .dbSearch {
@@ -110,3 +139,70 @@ footer p{
     margin-bottom: 3rem;
 }
 
+.neu-table-left {
+    border-radius: 5rem 0rem 0rem 5rem;
+}
+
+.neu-table-right {
+    border-radius: 0rem 5rem 5rem 0rem;
+}
+
+.table-spacer {
+    display: table;
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.remove-border {
+    border: none;
+}
+
+.add-spacing {
+    border-collapse: separate;
+    border-spacing: 0 1px;
+}
+
+.table-search-bg {
+    background-color: rgba(10,10,10,.5);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: inset rgb(0,0,0) 0 0 15rem;
+    border-radius: 3rem;
+}
+
+a:link {
+  color: #ACACAC;
+  background-color: transparent;
+}
+a:visited {
+  color: #ACACAC;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #636161;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active {
+  color: #7A7575;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.neu-jumbo {
+    border-radius: 3rem;
+    box-shadow: inset rgb(0,0,0) 0 0 15rem;
+    margin-top: 4rem;
+}
+
+.edit-table-bg {
+    background-color: rgba(10,10,10,.5);
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: inset rgb(0,0,0) 0 0 15rem;
+    border-radius: 3rem;
+    height: 39rem;
+}
