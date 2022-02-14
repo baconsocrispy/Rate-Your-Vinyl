@@ -6,6 +6,7 @@ from .forms import GamesForm, PublishersForm
 from .models import Games
 import requests
 from bs4 import BeautifulSoup
+import json
 
 
 def homepage(request):
@@ -69,7 +70,6 @@ def game_edit(request, pk):
     context = {'form': form}
     return render(request, 'GameStats/gamestats_edit.html', context)
 
-
 def game_delete(request, pk):
     details = get_object_or_404(Games, pk=pk)
     form = GamesForm(data=request.POST or None, instance=details)
@@ -78,7 +78,6 @@ def game_delete(request, pk):
         return redirect('gamestats_viewall')
     context = { 'details': details, 'form': form }
     return render(request, 'GameStats/gamestats_delete.html', context)
-
 
 def top_games(request):
     review_dict = scrape_site()
@@ -90,7 +89,6 @@ def top_games(request):
     test = zip(name, date, rating, gameId)
     context = {'data': test, 'passed': False}
     return render(request, 'GameStats/gamestats_topgames.html', context)
-
 
 def top_game_one(request, id):
     review_dict = scrape_site()
@@ -133,3 +131,69 @@ def scrape_site():
             review_dict['id'].append(tempID)
             tempID += 1
     return review_dict
+
+def api_game_view(request):
+    """
+    Tried a few different apis for this, they are awful
+    This was the most consistent that had decent documentation
+    I'm still relatively limited but I can make do with it
+    My initial goal was to search by genre, or do a release date search
+    but that doesn't work, instead we're just gonna do an explore page
+    """
+
+    # very important, otherwise I get forbidden response
+    user_agent = {'User-agent': 'Mozilla/5.0'}
+
+    req_url = "https://www.giantbomb.com/api/games/?api_key=8c2a3059218223501315304c270747790b292c62"
+
+    # limit 5 for testing purposes.
+    filters = "&limit=5&format=json"
+    req = requests.get(req_url + filters, headers=user_agent)
+    filtered_responses = {'name': [], 'genres': []}
+    # print(test)
+    try:
+        # load json object
+        # .json() wasn't working, so load it in from text
+        response_obj = json.loads(req.text)
+        # the amount of data and the way they sort it is ridiculous
+        for i in range(len(response_obj['results'][0])):
+            filtered_responses['name'].append(response_obj['results'][i]['name'])
+            filtered_responses['genres'].append(get_api_genres(i, response_obj))
+    except Exception as e:
+        # not a necessary print, sometimes there is a json error though for bad data
+        print(e)
+
+
+    for i in range(len(filtered_responses['name'])):
+        print(filtered_responses['name'][i])
+        try:
+            # sometimes the returned data isn't very good, and we get an error
+            print(*filtered_responses['genres'][i], sep=", ")
+        except:
+            pass
+        print('\n')
+
+    return render(request, 'GameStats/gamestats_explore.html')
+
+def get_api_genres(id, obj):
+    """
+    I don't like having to make this many api requests at once, but the api doesn't give me a choice
+    I can't pull multiple items and get their genre, I have to get all the items and use their id to do a specific
+    search to get their genre. 1 request turns into a request for each game on top of the initial request.
+    """
+    # still important
+    user_agent = {'User-agent': 'Mozilla/5.0'}
+    # region Genres
+    get_genre_url_settings = "&format=json"
+    get_genre_url = "https://www.giantbomb.com/api/game/{}/?api_key=8c2a3059218223501315304c270747790b292c62".format(
+        obj['results'][id]['guid'])
+    get_genre = requests.get(get_genre_url + get_genre_url_settings, headers=user_agent)
+    genre_obj = json.loads(get_genre.text)
+    tempGenresList = []
+    # create a list of genre names to add to the dictionary
+    for i in range(len(genre_obj['results']['genres'])):
+        tempGenresList.append(genre_obj['results']['genres'][i]['name'])
+        # print(genre_obj['results']['genres'][i]['name'])
+    return tempGenresList
+
+    # endregion
