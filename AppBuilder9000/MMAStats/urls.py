@@ -8,6 +8,8 @@ urlpatterns = [
     path('', views.MMAHome, name='MMA_Home'),
     path('create/', views.MMACreate, name='MMA_Create'),
     path('stats/', views.DisplayStats, name='MMA_Stats'),
+    path('details/<int:pk>/', views.DisplayDetails, name='MMA_Details'),
+    # <int:pk> says that we should expect a pk(primary key) in the url bar
 ]
 
 if settings.DEBUG:

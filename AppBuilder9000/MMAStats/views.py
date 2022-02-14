@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ChampForm
 from .models import Champions
 
@@ -25,4 +25,7 @@ def DisplayStats(request):
     context = {'champion_stats': champion_stats}
     return render(request, 'MMAStats/MMA_stats.html', context)
 
-
+def DisplayDetails(request, pk):
+    stat = get_object_or_404(Champions, pk=pk)
+    context = {'stat': stat}
+    return render(request, 'MMAStats/MMA_details.html', context)
