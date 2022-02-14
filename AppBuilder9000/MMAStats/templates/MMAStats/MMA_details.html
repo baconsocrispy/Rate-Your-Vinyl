@@ -1,0 +1,29 @@
+{% extends "MMAStats/MMA_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>Fighter Details</h1>
+<table border="1", width="600">
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Defenses</td>
+                <td>Pound For Pound Rank</td>
+                <td>Record</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ stat.first_name }}</td>
+                <td>{{ stat.last_name }}</td>
+                <td>{{ stat.defenses }}</td>
+                <td>{{ stat.p4p_rank }}</td>
+                <td>{{ stat.record }}</td>
+            </tr>
+        </tbody>
+
+
+{% endblock %}

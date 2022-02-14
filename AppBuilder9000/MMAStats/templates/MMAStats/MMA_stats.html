@@ -19,7 +19,7 @@
         <tbody>
             {% for champion in champion_stats %}
                 <tr>
-                    <td>{{ champion.first_name }}</td>
+                    <td><a href="{% url 'MMA_Details' champion.id %}">{{ champion.first_name }}</a></td>
                     <td>{{ champion.last_name }}</td>
                     <td>{{ champion.defenses }}</td>
                     <td>{{ champion.p4p_rank }}</td>
