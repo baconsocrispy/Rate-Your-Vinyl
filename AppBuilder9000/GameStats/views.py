@@ -140,40 +140,77 @@ def api_game_view(request):
     My initial goal was to search by genre, or do a release date search
     but that doesn't work, instead we're just gonna do an explore page
     """
+    query = request.GET
+    # for some reason .all() doesn't work here, instead we will do filter and not include anything *yet*
+    # get all and return with no filtering
+    query_options = ""
+    if query and request.method == 'GET':
+        if query.get('name', None):
+            query_options = '&query={}'.format(query.get('name', None))
 
-    # very important, otherwise I get forbidden response
+    filtered_responses = api_query(query_options)
+
+    # for item in filtered_responses['genres']:
+    #     item = str(item).strip("[]")
+    # print(filtered_responses['name'])
+    for i in range(len(filtered_responses['genres'])):
+        filtered_responses['genres'][i] = str(filtered_responses['genres'][i]).strip("[]").replace("'", "")
+
+    dataList = zip(filtered_responses['name'], filtered_responses['genres'], filtered_responses['release_date'])
+    context = {'data': dataList}
+
+    return render(request, 'GameStats/gamestats_explore.html', context)
+
+def api_query(options=None):
     user_agent = {'User-agent': 'Mozilla/5.0'}
-
     req_url = "https://www.giantbomb.com/api/games/?api_key=8c2a3059218223501315304c270747790b292c62"
-
+    if options:
+        req_url = "http://www.giantbomb.com/api/search?api_key=8c2a3059218223501315304c270747790b292c62"
     # limit 5 for testing purposes.
-    filters = "&limit=5&format=json"
+    # set to 10 for main integration
+    filters = "&limit=10&format=json"
+    filters += options
+    # print(req_url + filters)
     req = requests.get(req_url + filters, headers=user_agent)
-    filtered_responses = {'name': [], 'genres': []}
+    filtered_responses = {'name': [], 'genres': [], 'release_date': []}
     # print(test)
     try:
         # load json object
         # .json() wasn't working, so load it in from text
         response_obj = json.loads(req.text)
+        # generally works but doesn't always have an actual release date
+        # print(response_obj['results'][0]['original_release_date'])
+        # print(response_obj['results'][0]['name'])
+
         # the amount of data and the way they sort it is ridiculous
-        for i in range(len(response_obj['results'][0])):
-            filtered_responses['name'].append(response_obj['results'][i]['name'])
-            filtered_responses['genres'].append(get_api_genres(i, response_obj))
+        for i in range(len(response_obj['results'])):
+            # print(response_obj['results'][i]['name'])
+            # each specific piece of data has its potential for an expection
+            try:
+                # if this tosses an exception we don't want to add any other data
+                # otherwise it will misalign names with incorrect data
+                # so skip it and the rest of this loop, on to the next iteration
+                filtered_responses['name'].append(response_obj['results'][i]['name'])
+            except:
+                continue
+            try:
+                # if this one errors, none were found and we just need to list that
+                # limitation of the api data.
+                filtered_responses['genres'].append(get_api_genres(i, response_obj))
+            except:
+                filtered_responses['genres'].append("None found")
+            try:
+                # if this one errors, none were found and we just need to list that
+                # limitation of the api data.
+                filtered_responses['release_date'].append(response_obj['results'][i]['original_release_date'])
+            except:
+                # print(response_obj['results'][i]['expected_release_year'])
+                filtered_responses['release_date'].append(response_obj['results'][i]['expected_release_year'])
     except Exception as e:
         # not a necessary print, sometimes there is a json error though for bad data
         print(e)
 
-
-    for i in range(len(filtered_responses['name'])):
-        print(filtered_responses['name'][i])
-        try:
-            # sometimes the returned data isn't very good, and we get an error
-            print(*filtered_responses['genres'][i], sep=", ")
-        except:
-            pass
-        print('\n')
-
-    return render(request, 'GameStats/gamestats_explore.html')
+    return filtered_responses
 
 def get_api_genres(id, obj):
     """
