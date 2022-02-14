@@ -9,7 +9,7 @@ import requests
 
 
 
-# Create your views here.
+# This creates the function for the admin console.
 def admin_console(request):
     motorcycles = Motorcycle.objects.all()
     return render(request, 'products/products_page.html', {'motorcycles': Motorcycle})
@@ -19,7 +19,7 @@ def admin_console(request):
 def motorcycling_home(request):
     return render(request, 'Motorcycling/motorcycling_home.html')
 
-
+# This is the function that lets the user create a motorcycle that is saved to the database.
 def create_motorcycle(request):
     form = MotorcycleForm(data=request.POST or None)
     if request.method == 'POST':
@@ -32,7 +32,7 @@ def create_motorcycle(request):
     context = {'form': form}
     return render(request, 'Motorcycling/rate_motorcycle.html', context)
 
-
+# This is the function that lets the user create a simple route that is saved to the database.
 def create_route(request):
     form = RouteForm(data=request.POST or None)
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def create_route(request):
     context = {'form': form}
     return render(request, 'Motorcycling/rate_route.html', context)
 
-
+# This function calls all the motorcycles in the database and displays them to html page
 def all_motorcycles(request):
     motorcycle_list = Motorcycle.objects.all()
     return render(request, 'Motorcycling/list_motorcycles.html', {'motorcycle_list': motorcycle_list})
