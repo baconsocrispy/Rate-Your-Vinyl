@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<div class="container-lg bg-dark p-5">
+<div class="container-lg bg-dark p-5 neu-jumbo">
   <h2 class="display-4 text-white">{{ details.name }}</h2>
     <p class="lead text-white">Genre: {{ details.genre }}</p>
   <p class="lead text-white">This game released in {{ details.release_year }} and scored a {{ details.rating }}/100.</p>
@@ -16,8 +16,8 @@
   <hr class="my-4 text-white">
   <p class="text-white">{{ details.review }}</p>
   {% endif %}
-  <a href="{% url 'gamestats_edit' details.id %}" class="btn btn-secondary">Edit</a>
-  <a href="{% url 'gamestats_delete' details.id %}" class="btn btn-secondary">Delete</a>
+  <a href="{% url 'gamestats_edit' details.id %}" class="btn btn-secondary neu-button">Edit</a>
+  <a href="{% url 'gamestats_delete' details.id %}" class="btn btn-secondary neu-button">Delete</a>
 </div>
 
 

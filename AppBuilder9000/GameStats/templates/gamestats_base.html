@@ -6,36 +6,45 @@
         <meta charset="UTF-8">
         <title>{% block title %} {% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'css/gamestats.css' %}">
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Black+Ops+One" />
     </head>
 
     <body>
+<script>
+     $(document).ready(function(){
+        $('.dropdown-toggle').dropdown()
+    });
+</script>
 
-        <div class="header_container">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark headerNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="btn btn-outline-secondary nav-link" href="{% url 'gamestats_home' %}">Home</a>
-                    </li>
-<!--                    Changing the name of these later, but I figured I'd keep them generic for now-->
-<!--                    They're most likely going to become drop downs anyways.-->
-                    <li class="nav-item">
-                        <a class="btn btn-outline-secondary nav-link" href="{% url 'gamestats_form' %}">Review Game</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-secondary nav-link" href="{% url 'gamestats_viewall' %}">Reviewed Games</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-secondary nav-link" href="{% url 'gamestats_topgames' %}">Top Games</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-secondary nav-link" href="{% url 'gamestats_explore' %}">Explore</a>
-                    </li>
-                </ul>
-            </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark neu-button">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'gamestats_home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'gamestats_explore' %}">Explore</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Game reviews
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item bg-dark text-light" href="{% url 'gamestats_form' %}">Review a game</a>
+          <a class="dropdown-item bg-dark text-light" href="{% url 'gamestats_viewall' %}">Look at reviews</a>
+          <a class="dropdown-item bg-dark text-light" href="{% url 'gamestats_topgames' %}">Top Games</a>
         </div>
+      </li>
+  </div>
+</nav>
+
         <header>
             <h1>{% block header %} {% endblock %}</h1>
         </header>
