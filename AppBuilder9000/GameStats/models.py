@@ -30,7 +30,7 @@ class Games(models.Model):
     rating = models.IntegerField(validators=[
         MinValueValidator(1),
         MaxValueValidator(100)
-    ])
+    ], default=50)
     genre = models.CharField(max_length=50, choices=GENRES, default=GENRES[0])
     publisher_name = models.CharField(max_length=50)
     publisher = models.ForeignKey(Publishers, on_delete=models.CASCADE, default='', blank=True, null=True)
@@ -42,3 +42,17 @@ class Games(models.Model):
     def __str__(self):
         return self.name
 
+
+class FavoriteGame(models.Model):
+    name = models.CharField(max_length=50)
+    rating = models.IntegerField(validators=[
+        MinValueValidator(1),
+        MaxValueValidator(100)
+    ])
+    # this should be a charfield and not a datefield due to how the data is collected
+    release_date = models.CharField(max_length=50)
+
+    Favorites = models.Manager()
+
+    def __str__(self):
+        return self.name

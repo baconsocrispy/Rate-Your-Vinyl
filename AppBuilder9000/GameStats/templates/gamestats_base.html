@@ -42,6 +42,15 @@
           <a class="dropdown-item bg-dark text-light" href="{% url 'gamestats_topgames' %}">Top Games</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Favorites
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item bg-dark text-light" href="{% url 'gamestats_add_favorite' %}">Add favorites</a>
+          <a class="dropdown-item bg-dark text-light" href="{% url 'gamestats_view_favorites' %}">View favorites</a>
+        </div>
+      </li>
   </div>
 </nav>
 

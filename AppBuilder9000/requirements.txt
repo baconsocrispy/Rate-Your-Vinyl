@@ -1,4 +1,4 @@
-Django==2.2.5
+myvenvDjango==2.2.5
 djangorestframework==3.11.0
 django-bootstrap4==1.1.1
 django-crispy-forms==1.7.2

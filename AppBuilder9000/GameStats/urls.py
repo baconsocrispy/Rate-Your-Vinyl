@@ -11,4 +11,7 @@ urlpatterns = [
     path('topgames', views.top_games, name="gamestats_topgames"),
     path('topgames/<int:id>/', views.top_game_one, name="gamestats_topgame_one"),
     path('apilist', views.api_game_view, name="gamestats_explore"),
+    path('add_favorite', views.add_favorite_page, name="gamestats_add_favorite"),
+    path('favorites', views.view_favorites, name="gamestats_view_favorites"),
+    path('deletefavorite/', views.favorite_delete, name="gamestats_delete_favorite"),
 ]
