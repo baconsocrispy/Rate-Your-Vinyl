@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'MoveState',
     'MMAStats',
     'ChessOpenings',
+    'EFT_Items',
 ]
 
 MIDDLEWARE = [
