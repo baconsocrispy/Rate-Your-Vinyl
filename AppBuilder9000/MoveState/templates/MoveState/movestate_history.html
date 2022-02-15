@@ -13,7 +13,16 @@
             </tr>
         </thead>
 
-        {{ movestate_list }}
+        <tbody>
+        {% for move in movestate_list %}
+            <tr>
+                <td>{{ move.0 }}</td>
+                <td>{{ move.1 }}</td>
+                <td>{{ move.2 }}</td>
+                <td>{{ move.3 }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
     </table>
 </div>
 {% endblock %}
