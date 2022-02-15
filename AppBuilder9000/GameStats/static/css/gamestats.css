@@ -206,3 +206,16 @@ a:active {
     border-radius: 3rem;
     height: 39rem;
 }
+
+#favoriteButton {
+    display: inline;
+    margin-bottom: 5rem;
+}
+
+#favorite {
+    display: inline;
+}
+
+.topFavorite {
+    margin-bottom: 1rem;
+}

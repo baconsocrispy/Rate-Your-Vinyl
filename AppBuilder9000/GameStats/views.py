@@ -1,9 +1,10 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 from .forms import GamesForm, PublishersForm
-from .models import Games
+from .models import Games, FavoriteGame
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -54,7 +55,6 @@ def view_games(request):
     context = { 'game_list': game_list }
     return render(request, 'GameStats/gamestats_all.html', context)
 
-
 def game_details(request, pk):
     details = get_object_or_404(Games, pk=pk)
     context = {'details': details}
@@ -82,6 +82,9 @@ def game_delete(request, pk):
     context = { 'details': details, 'form': form }
     return render(request, 'GameStats/gamestats_delete.html', context)
 
+def favorite_delete(pk):
+    FavoriteGame.Favorites.filter(id=pk).delete()
+
 def top_games(request):
     review_dict = scrape_site()
 
@@ -95,9 +98,16 @@ def top_games(request):
 
 def top_game_one(request, id):
     review_dict = scrape_site()
-
+    favorited = check_fav_duplicate(review_dict['name'][id])
+    pk = get_fav_id(review_dict['name'][id])
+    if request.method == 'POST':
+        if favorited:
+            favorite_delete(pk)
+        else:
+            try_add_favorite(review_dict['name'][id], review_dict['rating'][id], review_dict['date'][id])
+        favorited = not favorited
     context = {'name': review_dict['name'][id], 'date': review_dict['date'][id], 'rating': review_dict['rating'][id],
-               'image': review_dict['image'][id], 'summary': review_dict['summary'][id] }
+               'image': review_dict['image'][id], 'summary': review_dict['summary'][id], 'status': favorited, 'id': pk }
     return render(request, 'GameStats/gamestats_view_one.html', context)
 
 def scrape_site():
@@ -237,3 +247,62 @@ def get_api_genres(id, obj):
     return tempGenresList
 
     # endregion
+
+def add_favorite_page(request):
+    # we get name, rating, release date
+    data = scrape_site()
+    context = { 'names': data['name'] }
+    query = request.GET
+    if query and request.method == 'GET':
+        if query.get('value', None):
+            index = 0
+            for i in range(len(data['name'])):
+                if data['name'][i] == query.get('value', None):
+                    index = i
+                    break
+
+            fav = try_add_favorite(data['name'][index], data['rating'][index], data['date'][index])
+            if not fav:
+                return redirect('gamestats_view_favorites')
+            else:
+                context['alert'] = True
+    return render(request, 'GameStats/gamestats_add_favorite.html', context)
+
+def try_add_favorite(name, rating, release):
+    duplicate = check_fav_duplicate(name)
+
+    if not duplicate:
+        added_game = FavoriteGame.Favorites.create(name=name, release_date=release, rating=rating)
+        added_game.save()
+
+    return duplicate
+
+def check_fav_duplicate(name):
+    favorites_list = FavoriteGame.Favorites.filter()
+    duplicate = False
+    for item in favorites_list:
+        if name == item.name:
+            duplicate = True
+            break
+    return duplicate
+
+def get_fav_id(name):
+    # although name TECHNICALLY doesn't have to be unique
+    # it also does since 2 of the same name won't be allowed in the same favorites list
+    favorites_list = FavoriteGame.Favorites.all()
+    for item in favorites_list:
+        if item.name == name:
+            return item.pk
+
+def view_favorites(request):
+    favorites_list = FavoriteGame.Favorites.all()
+
+    if request.method == 'POST':
+        for item in favorites_list:
+            if item.name in request.POST:
+                favorite_delete(get_fav_id(item.name))
+
+    favorites_list = FavoriteGame.Favorites.all()
+    context = { 'favorites': favorites_list }
+    return render(request, 'GameStats/gamestats_view_favorites.html', context)
+
