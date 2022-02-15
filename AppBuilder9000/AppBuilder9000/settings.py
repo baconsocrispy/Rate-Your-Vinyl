@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'GameStats',
     'MoveState',
     'MMAStats',
+    'ChessOpenings',
     'EFT_Items',
 ]
 

@@ -45,7 +45,8 @@ urlpatterns = [
     path('GameReviews/', include('GameStats.urls')),
     path('MoveState/', include('MoveState.urls')),
     path('MMAStats/', include('MMAStats.urls')),
-    path('EFT_Items/', include('EFT_Items.urls')),
+    path('ChessOpenings/', include('ChessOpenings.urls')),
+    path('EFT_Items', include('EFT_Items.urls'))
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
