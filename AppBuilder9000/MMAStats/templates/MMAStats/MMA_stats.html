@@ -5,7 +5,10 @@
 <section id="Stats">
     <h1>MMA Stats</h1>
     <p>Current Champions</p>
-
+    <center>
+        <a href="{% url 'MMA_Create' %}" class="btn btn-outline-warning">Create Entry</a>
+    </center>
+    <br>
     <table border="1", width="600">
         <thead>
             <tr>
@@ -24,6 +27,12 @@
                     <td>{{ champion.defenses }}</td>
                     <td>{{ champion.p4p_rank }}</td>
                     <td>{{ champion.record }}</td>
+                    <td>
+                        <div class="btns">
+                            <a href="{% url 'MMA_Update' champion.id %}" class="btn btn-outline-success">Edit</a>
+                            <a href="{% url 'MMA_Delete' champion.id %}" class="btn btn-outline-danger">Delete</a>
+                        </div>
+                    </td>
             {% endfor %}
                 </tr>
         </tbody>
