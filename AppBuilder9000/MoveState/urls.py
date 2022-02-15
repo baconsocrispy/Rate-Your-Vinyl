@@ -9,6 +9,6 @@ urlpatterns = [
     path('movestate_details/<int:pk>', views.movestate_details, name="movestate_details"),
     path('movestate_delete/<int:pk>', views.movestate_delete, name='movestate_delete'),
     path('movestate_edit/<int:pk>', views.movestate_edit, name='movestate_edit'),
-    path('movestate_history/<int:pk>', views.movestate_history, name='movestate_history'),
+    path('movestate_history', views.movestate_history, name='movestate_history'),
     # path('admin_console/', views.admin_console, name="admin_console"),
 ]

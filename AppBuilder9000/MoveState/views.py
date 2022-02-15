@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from .form import movestateForm
 from .models import Movestate
+import requests
+import json
+from bs4 import BeautifulSoup
 
 
 def movestate_home(request):
@@ -62,15 +65,15 @@ def movestate_edit(request, pk):
 
 
 def movestate_history(request):
-    champion_list = []
+    movestate_list = []
     page = requests.get("https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_net_migration")
     soup = BeautifulSoup(page.content, 'html.parser')
     previous_state = soup.find('section', class_='post__content text-article')
-    champions = previous_state.find_all('tr')[1:]
+    movestate = list_state.find_all('tr')[1:]
     for tr in movestate:
         td = tr.find_all('td')
         row = [i.text for i in td]
         cells = row
-        champion_list.append(cells)
-    context = {'movestate_list': champion_list}
+        movestate_list.append(cells)
+    context = {'movestate_list': movestate_list}
     return render(request, 'MoveState/movestate_history.html', context)
