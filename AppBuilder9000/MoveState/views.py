@@ -68,8 +68,9 @@ def movestate_history(request):
     movestate_list = []
     page = requests.get("https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_net_migration")
     soup = BeautifulSoup(page.content, 'html.parser')
-    previous_state = soup.find('table', class_='wiktable sortable jquery-tablesorter')
-    movestate = previous_state.find_all('tr')[1:]
+    previous_state = soup.find('div', class_='mw-parser-output')
+    tbody = previous_state.find('tbody')
+    movestate = tbody.find_all('tr')
     for tr in movestate:
         td = tr.find_all('td')
         row = [i.text for i in td]
