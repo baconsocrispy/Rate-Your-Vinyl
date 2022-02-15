@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'EFT_Items/css/eft_styling.css' %}">
+    </head>
+<body>
+    <div class="EFTNavbar">
+        <li><a href="{% url 'eft_items_home' %}">Home</a></li>
+        <li><a href="#">Items</a></li>
+        <li><a href="#">Add Item</a></li>
+    </div>
+
+    <div>
+        <header class="EFTHeader">
+            <h1>{% block header %}{% endblock %}</h1>
+        </header>
+    </div>
+</body>
+</html>
