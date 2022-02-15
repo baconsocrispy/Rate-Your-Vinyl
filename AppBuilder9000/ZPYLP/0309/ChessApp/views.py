@@ -11,7 +11,7 @@ from .helpers import json_to_game, chess_game_stats, render_final_position
 
 # Create your views here.
 def index(request):
-    return render(request, "ChessApp/chess_index.html")
+    return render(request, "ChessApp/index.html")
 
 
 def group_stats(request):
@@ -114,14 +114,14 @@ def load_data(request):
             month = form['month'].value()
             lookup_string = "https://api.chess.com/pub/player/{}/games/{}/{}".format(username, year, month)
             json_request = requests.get(lookup_string)
-            # if we find a user on ChessOpenings.com
+            # if we find a user on chess.com
             if json_request.status_code == requests.codes.ok:
                 json_games = json_request.json()
                 for game in json_games['games']:
                     json_to_game(game).save()
                 load_status = "Loaded {} games.".format(len(json_games['games']))
                 context.update({"load_status": load_status})
-            # if no user found on ChessOpenings.com
+            # if no user found on chess.com
             else:
                 load_status = "Username not found."
                 context.update({"load_status": load_status})
