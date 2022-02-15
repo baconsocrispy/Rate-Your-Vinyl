@@ -7,7 +7,7 @@ class Games(models.Model):
     title = models.CharField(max_length=50)
     playerWhite = models.CharField(max_length=50)
     playerBlack = models.CharField(max_length=50)
-    yearPlayed = models.IntegerField(max_length=4)
+    yearPlayed = models.IntegerField()
     fen_string = models.CharField(max_length=150)
     winner = models.CharField(max_length=10)
 

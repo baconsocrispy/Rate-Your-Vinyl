@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import GamesForm
+from .models import Games
 
 
 def homepage(request):
@@ -12,8 +13,8 @@ def add_game(request):
 
     if request.method == 'POST':
         if form.is_valid():
-            temp = form.cleaned_data.get("GamesForm.__all__")
-            form.save(temp)
+            test = form.save()
+            print(test.title)
             return redirect(homepage)
     return render(request, "ChessOpenings/add_game.html", context)
 
