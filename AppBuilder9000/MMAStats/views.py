@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from .forms import ChampForm
 from .models import Champions
+import requests
+from bs4 import BeautifulSoup
 
 def MMAHome(request):
     return render(request, 'MMAStats/MMA_home.html')
@@ -49,3 +51,19 @@ def UpdateStat(request, pk):
 
     context = {'stat': stat, 'form': form}
     return render(request, 'MMAStats/MMA_update.html', context)
+
+
+def EventScrape(request):
+    r = requests.get("http://ufcstats.com/statistics/events/completed")
+    event_list = []
+    bs = BeautifulSoup(r.content, 'html.parser')
+    upcoming_events = bs.find('div', class_='b-statistics__sub-entry')
+    events = upcoming_events.find_all('tr')[2:]# only grab starting from index 2
+    for tr in events:
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        field = row
+        event_list.append(field)
+    print(event_list)
+    context = {'event_list': event_list}
+    return render(request, 'MMAStats/MMA_events.html', context)
