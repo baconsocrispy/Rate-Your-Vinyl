@@ -3,7 +3,7 @@ from .forms import GamesForm
 from .models import Games
 
 
-def homepage(request):
+def homepage(request, pk=0):
     return render(request, 'ChessOpenings/chess_index.html')
 
 
@@ -22,6 +22,7 @@ def add_game(request):
 # Create your views here.
 def search_games(request):
     all_entries = Games.Game.all()
+    print(all_entries)
     context = {'games': all_entries}
     return render(request, "ChessOpenings/chess_search.html", context)
 
