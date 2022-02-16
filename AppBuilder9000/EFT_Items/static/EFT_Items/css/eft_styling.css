@@ -2,13 +2,32 @@ body {
     margin: 0;
 }
 
+.EFTHeader {
+    text-align: center;
+    color: #CFCFCF;
+}
+
+.EFTInfo {
+    color: #CFCFCF;
+    border: 1px solid;
+    background-color: #333439;
+    margin: 10em auto;
+    padding-bottom: 2em; /* adds padding to the bottom of the EFTInfo div to make form look better */
+    opacity: .9;
+    width: 75%;
+}
+
+.EFTExplained {
+    text-align: center;
+}
+
 /* Styling for background image */
 .bg_img {
     background-image: url('/static/EFT_Items/images/EFT.jpg');
     background-position: center;
     background-size: cover;
     position: relative;
-    background-color: gray;
+    background-color: #333439;
     background-repeat: no-repeat;
     height: 100%;
     -webkit-background-size: cover;
@@ -23,10 +42,8 @@ body {
     overflow: hidden;
     background-color: black;
 }
-.EFTNavbar li {
+.EFTNavbar a {
     float: left;
-}
-.EFTNavbar li a {
     list-style-type: none;
     display: inline-block;
     text-align: center;
@@ -36,6 +53,21 @@ body {
     cursor: pointer;
     color: white;
 }
-.EFTNavbar li a:hover {
+.EFTNavbar a:hover {
     background-color: gray;
+}
+
+/* Styling for form */
+.EFTContainer {
+    margin: 0 auto;
+    width: 25%;
+    height: 50%;
+    background-color: #333439;
+    border: 1px solid;
+    opacity: .9;
+}
+.EFTForm {
+    padding-left: 1.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
