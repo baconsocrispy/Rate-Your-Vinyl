@@ -1,0 +1,25 @@
+{% extends "MoveState/movestate_base.html" %}
+{% load static %}
+
+{% block content %}
+<div id="container" class="table-responsive w-75 mx-auto">
+    <table id="table" class="table table-dark table-bordered table-hover text-center" data-toggle="table">
+
+        <thead>
+            <tr>
+                <th scope="col" data-field="name" data-sortable="true" class="w-25">Move IN</th>
+                <th scope="col" data-field="name" data-sortable="true" class="w-25">Move Out</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for move in movestate_list %}
+            <tr>
+                <td><a href="{% url 'movestate_details' State.id %}">{{ State }}</a></td>
+                <td>{{ Move.in }}</td>
+                 <td>{{ Move.out }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

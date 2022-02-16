@@ -63,7 +63,7 @@ def movestate_edit(request, pk):
     else:
         return render(request, 'MoveState/movestate_edit.html', {'form': form})
 
-
+# bs section
 def movestate_history(request):
     movestate_list = []
     page = requests.get("https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_net_migration")
@@ -80,3 +80,31 @@ def movestate_history(request):
     context = {'movestate_list': movestate_list}
 
     return render(request, 'MoveState/movestate_history.html', context)
+
+# api section
+def movestate_api(request):
+    Moving_In = []
+    Moving_out = []
+    state = ' '
+    if 'state' in request.POST:
+        full_name_dict = state_name()
+        state = request.POST['state']
+        url = 'https://www.wate.com/news/these-are-the-top-10-states-people-moved-to-and-left-in-2021-study-finds' +
+        state = {
+             'x-wate-host': "#",
+             'x-wateapi-key': "#"
+        }
+        response = requests.request("GET", url, )
+        state = json.loads(response.text)
+        for state in state['api']['standings']:
+            state_name = full_name_dict[state['stateId']]
+            ranking = state['conference']['rank']
+            state_move = (ranking, state_name)
+            if state['conference']['name'] == 'move_in':
+                Moving_In.append(state)
+            else:
+                Moving_out.append(state)
+            Moving_In.sort(key=lambda a: int(a[0]))
+            Moving_out.sort(key=lambda a: int(a[0]))
+    context = {'Moving_In': Moving_In, 'Moving_out': Moving_out, 'state': state}
+    return render(request, 'MoveState/movestate_api.html', context)
