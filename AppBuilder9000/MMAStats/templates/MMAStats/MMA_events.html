@@ -1,0 +1,33 @@
+{% extends "MMAStats/MMA_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>Upcoming and Past UFC Events</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>place1</th>
+            <th>place2</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% comment %}
+    {% for event in events_list %}
+        <tr>
+            <td>{{ event.0 }}</td>
+            <td>{{ event.1 }}</td>
+            <td>{{ event.2 }}</td>
+            <td>{{ event.3 }}</td>
+            <td>{{ event.4 }}</td>
+            <td>{{ event.5 }}</td>
+        </tr>
+    {% endfor %}
+    {% endcomment %}
+    </tbody>
+</table>
+
+
+{% endblock %}
