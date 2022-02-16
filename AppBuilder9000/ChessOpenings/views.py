@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import GamesForm
 from .models import Games
 
@@ -26,4 +26,9 @@ def search_games(request):
     context = {'games': all_entries}
     return render(request, "ChessOpenings/chess_search.html", context)
 
+
 # Create your views here.
+def game_details(request, pk):
+    details = get_object_or_404(Games, pk=pk)
+    context = {'game': details}
+    return render(request, "ChessOpenings/game_details.html", context)
