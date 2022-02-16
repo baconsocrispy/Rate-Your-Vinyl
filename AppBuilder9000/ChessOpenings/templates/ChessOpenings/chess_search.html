@@ -1,0 +1,10 @@
+{% extends "chess_base.html" %}
+{% block content %}
+    {% for item in all_entries %}
+            <tr>
+
+                <td>{{ item.title }}</td>
+            </tr>
+
+    {% endfor %}
+{% endblock %}

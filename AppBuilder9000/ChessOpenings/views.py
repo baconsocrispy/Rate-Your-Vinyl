@@ -18,7 +18,11 @@ def add_game(request):
             return redirect(homepage)
     return render(request, "ChessOpenings/add_game.html", context)
 
-# Create your views here.
 
+# Create your views here.
+def search_games(request):
+    all_entries = Games.Game.all()
+    context = {'games': all_entries}
+    return render(request, "ChessOpenings/chess_search.html", context)
 
 # Create your views here.
