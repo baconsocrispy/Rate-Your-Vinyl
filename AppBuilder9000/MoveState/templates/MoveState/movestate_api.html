@@ -15,8 +15,8 @@
         {% for move in movestate_list %}
             <tr>
                 <td><a href="{% url 'movestate_details' State.id %}">{{ State }}</a></td>
-                <td>{{ Move.in }}</td>
-                 <td>{{ Move.out }}</td>
+                <td>{{ city_name }}</td>
+                 <td>{{ population }}</td>
             </tr>
         {% endfor %}
         </tbody>

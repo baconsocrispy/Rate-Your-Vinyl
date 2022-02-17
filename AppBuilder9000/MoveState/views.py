@@ -83,12 +83,12 @@ def movestate_history(request):
 
 # api section
 def movestate_api(request):
-    Moving_In = []
-    Moving_out = []
+    city_name = []
+    population = []
 
     url = "https://countries-cities.p.rapidapi.com/location/country/US/city/list"
 
-    querystring = {"page": "1", "per_page": "20", "population": "1501"}
+    querystring = {"page": "1", "per_page": "20", "population": "601000"}
 
     headers = {
         'x-rapidapi-host': "countries-cities.p.rapidapi.com",
@@ -97,8 +97,14 @@ def movestate_api(request):
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     api_response = json.loads(response.text)
-    find_cities = api_response["total_cities"]
-    cities = find_cities["cities"]
-    print(cities)
-    #context = {'Moving_In': Moving_In, 'Moving_out': Moving_out, 'state': state}
-    return render(request, 'MoveState/movestate_api.html')
+    cities = api_response['cities']
+    for i in cities:
+        name = i["name"]
+        city_name.append(name)
+    for y in cities:
+        pop = y['population']
+        population.append(pop)
+    print(city_name)
+    print(population)
+    context = {'movestate_api': movestate_api}
+    return render(request, 'MoveState/movestate_api.html', context)
