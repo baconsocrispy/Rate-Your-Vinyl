@@ -85,26 +85,20 @@ def movestate_history(request):
 def movestate_api(request):
     Moving_In = []
     Moving_out = []
-    state = ' '
-    if 'state' in request.POST:
-        full_name_dict = state_name()
-        state = request.POST['state']
-        url = 'https://www.wate.com/news/these-are-the-top-10-states-people-moved-to-and-left-in-2021-study-finds' +
-        state = {
-             'x-wate-host': "#",
-             'x-wateapi-key': "#"
-        }
-        response = requests.request("GET", url, )
-        state = json.loads(response.text)
-        for state in state['api']['standings']:
-            state_name = full_name_dict[state['stateId']]
-            ranking = state['conference']['rank']
-            state_move = (ranking, state_name)
-            if state['conference']['name'] == 'move_in':
-                Moving_In.append(state)
-            else:
-                Moving_out.append(state)
-            Moving_In.sort(key=lambda a: int(a[0]))
-            Moving_out.sort(key=lambda a: int(a[0]))
-    context = {'Moving_In': Moving_In, 'Moving_out': Moving_out, 'state': state}
-    return render(request, 'MoveState/movestate_api.html', context)
+
+    url = "https://countries-cities.p.rapidapi.com/location/country/US/city/list"
+
+    querystring = {"page": "1", "per_page": "20", "population": "1501"}
+
+    headers = {
+        'x-rapidapi-host': "countries-cities.p.rapidapi.com",
+        'x-rapidapi-key': "72da559dc6msha2b6fe581591e33p11e66cjsn7a377520e5e4"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    api_response = json.loads(response.text)
+    find_cities = api_response["total_cities"]
+    cities = find_cities["cities"]
+    print(cities)
+    #context = {'Moving_In': Moving_In, 'Moving_out': Moving_out, 'state': state}
+    return render(request, 'MoveState/movestate_api.html')
