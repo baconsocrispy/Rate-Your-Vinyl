@@ -10,5 +10,6 @@ urlpatterns = [
     path('chess_search', views.search_games, name="chess_search"),
     path('add_game/', views.add_game, name="add_game"),
     path('<int:pk>/details/', views.game_details, name="game_details"),
+    path('<int:pk>/edit/', views.game_edit, name="game_edit"),
 ]
 urlpatterns += staticfiles_urlpatterns()

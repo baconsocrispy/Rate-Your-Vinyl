@@ -32,3 +32,10 @@ def game_details(request, pk):
     details = get_object_or_404(Games, pk=pk)
     context = {'game': details}
     return render(request, "ChessOpenings/game_details.html", context)
+
+def game_edit(request, pk):
+    details = get_object_or_404(Games, pk=pk)
+    context = {'game': details}
+    return render(request, "ChessOpenings/edit", context)
+
+
