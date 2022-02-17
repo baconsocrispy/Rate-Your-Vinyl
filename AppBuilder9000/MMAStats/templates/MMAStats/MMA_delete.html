@@ -2,9 +2,14 @@
 {% load static %}
 
 {% block content %}
+{% comment %}
+    this page is simply a confirmation screen to delete an entry
+{% endcomment %}
 
 <h1>Are you sure you want to delete this entry?</h1>
 <p>You will not be able to get it back.</p>
+
+
 
 <form method="POST">
     {% csrf_token %}
