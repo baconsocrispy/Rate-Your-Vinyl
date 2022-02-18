@@ -26,11 +26,11 @@
         <tbody>
             {% for champion in champion_stats %}
                 <tr>
-                    <td><a href="{% url 'MMA_Details' champion.id %}">{{ champion.first_name }}</a></td>
-                    <td>{{ champion.last_name }}</td>
-                    <td>{{ champion.defenses }}</td>
-                    <td>{{ champion.p4p_rank }}</td>
-                    <td>{{ champion.record }}</td>
+                    <td class="dataEntries"><a href="{% url 'MMA_Details' champion.id %}">{{ champion.first_name }}</a></td>
+                    <td class="dataEntries">{{ champion.last_name }}</td>
+                    <td class="dataEntries">{{ champion.defenses }}</td>
+                    <td class="dataEntries">{{ champion.p4p_rank }}</td>
+                    <td class="dataEntries">{{ champion.record }}</td>
                     <td>
                         <div class="btns">
                             <a href="{% url 'MMA_Update' champion.id %}" class="btn btn-outline-success">Edit</a>
@@ -43,4 +43,9 @@
     </table>
 
 </section>
+
+<footer>
+    <p>-note that if the fighter is not P4P ranked, their rank will show as 0.</p>
+    <p>OR if a fighter is not currently a champion, their "defenses" will show as 0.</p>
+</footer>
 {% endblock %}
