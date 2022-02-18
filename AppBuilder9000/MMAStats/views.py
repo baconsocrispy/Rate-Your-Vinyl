@@ -4,6 +4,10 @@ from .models import Champions
 import requests
 from bs4 import BeautifulSoup
 
+"""
+*********** HOME, CREATE, STATS, AND SPECIFIC DETAIL PAGES ***********
+"""
+
 def MMAHome(request):
     return render(request, 'MMAStats/MMA_home.html')
 
@@ -19,9 +23,6 @@ def MMACreate(request):
     context = {'form': form}
     return render(request, "MMAStats/MMA_create.html", context)
 
-def MMAStats(request):
-    return render(request, 'MMAStats/MMA_stats.html')
-
 def DisplayStats(request):
     champion_stats = Champions.objects.all().order_by("p4p_rank")
     context = {'champion_stats': champion_stats}
@@ -31,6 +32,10 @@ def DisplayDetails(request, pk):
     stat = get_object_or_404(Champions, pk=pk)
     context = {'stat': stat}
     return render(request, 'MMAStats/MMA_details.html', context)
+
+"""
+*********** DELETE AND UPDATE FUNCTIONS ***********
+"""
 
 def DeleteStat(request, pk):
     context = {}
@@ -52,18 +57,21 @@ def UpdateStat(request, pk):
     context = {'stat': stat, 'form': form}
     return render(request, 'MMAStats/MMA_update.html', context)
 
+"""
+*********** BEAUTIFULSOUP WEB SCRAPE SECTION ***********
+"""
 
 def EventScrape(request):
     r = requests.get("http://ufcstats.com/statistics/events/completed")
     event_list = []
     bs = BeautifulSoup(r.content, 'html.parser')
     upcoming_events = bs.find('div', class_='b-statistics__sub-entry')
-    events = upcoming_events.find_all('tr')[2:]# only grab starting from index 2
+    events = upcoming_events.find_all('tr')[2:] # only grab starting from index 2
     for tr in events:
         td = tr.find_all('td')
         row = [i.text for i in td]
         field = row
         event_list.append(field)
-    print(event_list)
+
     context = {'event_list': event_list}
     return render(request, 'MMAStats/MMA_events.html', context)

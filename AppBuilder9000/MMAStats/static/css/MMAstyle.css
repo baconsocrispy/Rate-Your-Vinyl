@@ -1,13 +1,17 @@
+
+/* basic styling for webpage */
 body {
     background-color: #17191b;
 }
 
+/* basic styling for my tables */
 table {
     margin-left: auto;
     margin-right: auto;
     color: white;
 }
 
+/* fonts and general text styling */
 h1 {
     color: yellow;
     text-align: center;

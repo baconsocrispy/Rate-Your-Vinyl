@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import GamesForm
 from .models import Games
+from django.contrib import messages
 
 
 def homepage(request, pk=0):
@@ -32,3 +33,32 @@ def game_details(request, pk):
     details = get_object_or_404(Games, pk=pk)
     context = {'game': details}
     return render(request, "ChessOpenings/game_details.html", context)
+
+
+def game_edit(request, pk):
+    details = Games.Game.get(id=pk)
+    form = GamesForm(request.POST or None, instance=details)
+
+    context = {'form': form,
+               'game': details}
+
+    if form.is_valid():
+        test = form.save()
+        test.save()
+        messages.success(request, "You successfully updated the post")
+
+        context = {'form': form,
+                   'game': details}
+
+        return render(request, "ChessOpenings/edit.html", context)
+
+    return render(request, "ChessOpenings/edit.html", context)
+
+
+def delete(request, pk):
+    item = get_object_or_404(Games, pk=pk)
+    print(item)
+    form = GamesForm(request.POST or None, instance=item)
+
+    item.delete()
+    return redirect('chess_search')

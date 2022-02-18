@@ -63,7 +63,7 @@ def movestate_edit(request, pk):
     else:
         return render(request, 'MoveState/movestate_edit.html', {'form': form})
 
-
+# bs section
 def movestate_history(request):
     movestate_list = []
     page = requests.get("https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_net_migration")
@@ -80,3 +80,31 @@ def movestate_history(request):
     context = {'movestate_list': movestate_list}
 
     return render(request, 'MoveState/movestate_history.html', context)
+
+# api section
+def movestate_api(request):
+    city_name = []
+    population = []
+
+    url = "https://countries-cities.p.rapidapi.com/location/country/US/city/list"
+
+    querystring = {"page": "1", "per_page": "20", "population": "601000"}
+
+    headers = {
+        'x-rapidapi-host': "countries-cities.p.rapidapi.com",
+        'x-rapidapi-key': "72da559dc6msha2b6fe581591e33p11e66cjsn7a377520e5e4"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    api_response = json.loads(response.text)
+    cities = api_response['cities']
+    for i in cities:
+        name = i["name"]
+        city_name.append(name)
+    for y in cities:
+        pop = y['population']
+        population.append(pop)
+    print(city_name)
+    print(population)
+    context = {'city_name': city_name, 'population': population}
+    return render(request, 'MoveState/movestate_api.html', context)

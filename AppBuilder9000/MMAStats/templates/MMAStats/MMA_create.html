@@ -2,12 +2,19 @@
 {% load static %}
 
 {% block content %}
+{% comment %}
+    this page displays a form to add an entry
+{% endcomment %}
 
 <section id="Home">
     <h1>Add a current Champion!</h1>
     <p>Be sure to fill in all fields!</p>
-<!--create form-->
-    <form method="POST">
+
+{% comment %}
+    this is to utilize my form to create an entry
+{% endcomment %}
+
+   <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit">
