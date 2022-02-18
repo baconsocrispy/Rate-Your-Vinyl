@@ -58,7 +58,6 @@ def game_edit(request, pk):
 def delete(request, pk):
     item = get_object_or_404(Games, pk=pk)
     print(item)
-    form = GamesForm(request.POST or None, instance=item)
 
     item.delete()
     return redirect('chess_search')
