@@ -4,10 +4,10 @@ from django.db import models
 # Create your models here.
 class Games(models.Model):
 
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, blank=True)
     playerWhite = models.CharField(max_length=50)
     playerBlack = models.CharField(max_length=50)
-    yearPlayed = models.IntegerField()
+    yearPlayed = models.IntegerField(blank=True)
     PGN = models.TextField(max_length=500)
     winner = models.CharField(max_length=10)
 
