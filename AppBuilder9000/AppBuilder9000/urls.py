@@ -46,7 +46,7 @@ urlpatterns = [
     path('MoveState/', include('MoveState.urls')),
     path('MMAStats/', include('MMAStats.urls')),
     path('ChessOpenings/', include('ChessOpenings.urls')),
-    path('EFT_Items', include('EFT_Items.urls')),
+    path('EFT_Items/', include('EFT_Items.urls')),
     path('Vehicles', include('Vehicles.urls'))
 ]
 
