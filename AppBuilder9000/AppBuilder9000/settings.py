@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'MMAStats',
     'ChessOpenings',
     'EFT_Items',
+    'Vehicles',
 ]
 
 MIDDLEWARE = [
