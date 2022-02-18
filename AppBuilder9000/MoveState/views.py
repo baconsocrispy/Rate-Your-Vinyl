@@ -106,5 +106,5 @@ def movestate_api(request):
         population.append(pop)
     print(city_name)
     print(population)
-    context = {'movestate_api': movestate_api}
+    context = {'city_name': city_name, 'population': population}
     return render(request, 'MoveState/movestate_api.html', context)
