@@ -1,6 +1,4 @@
 from django.db import models
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
 
 # Create your models here.
 ITEM_TYPE_CHOICES = (
@@ -21,10 +19,10 @@ FOUND_IN_RAID_CHOICES = (
 
 class EFTItems(models.Model):
     type = models.CharField(max_length=30, choices=ITEM_TYPE_CHOICES)
-    name = models.CharField(max_length=50)
-    amount_required = models.IntegerField(blank=True)
-    hideout = models.CharField(max_length=50, blank=True)
-    quest = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=100)
+    amount_required = models.IntegerField(blank=True, null=True)
+    hideout = models.CharField(max_length=100, blank=True)
+    quest = models.CharField(max_length=100, blank=True)
     found_in_raid = models.CharField(max_length=5, default="", blank=True, choices=FOUND_IN_RAID_CHOICES)
 
     # Create objects manager to access database

@@ -1,0 +1,55 @@
+{% extends "EFT_Items/EFT_Items_base.html" %}
+
+{% block title %}Escape From Tarkov{% endblock %}
+
+{% block header %}Items Being Tracked:{% endblock %}
+
+{% block content %}
+
+<div>
+    <table class="display" id="TableStyle">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Amount Required</th>
+                <th>Hideout</th>
+                <th>Quest</th>
+                <th>Found In Raid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for item in items %}
+                <td>{{ item.type }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.amount_required|default_if_none:'' }}</td> <!-- default_if_none hides "None" from being displayed on table -->
+                <td>{{ item.hideout }}</td>
+                <td>{{ item.quest }}</td>
+                <td>{{ item.found_in_raid }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="loading" style="display: none;">
+    Loading...
+    </div>
+
+    {% if page_obj.has_next %}
+        <a class="infinite-more-link" href="?page={{ articles.next_page_number }}">More</a>
+    {% endif %}
+
+    <script>
+        var infinite = new Waypoint.Infinite({
+          element: $('.infinite-container')[0],
+          onBeforePageLoad: function () {
+            $('.loading').show();
+          },
+          onAfterPageLoad: function ($items) {
+            $('.loading').hide();
+          }
+        });
+    </script>
+</div>
+
+{% endblock %}

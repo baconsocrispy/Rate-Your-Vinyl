@@ -71,3 +71,24 @@ body {
     padding-top: 1em;
     padding-bottom: 1em;
 }
+
+/* Styling for table */
+#TableStyle th, td {
+    border: 1px solid #CFCFCF;
+    padding: 8px;
+    background-color: #3F3F3F;
+}
+#TableStyle th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1E1E1E;
+}
+table.dataTable {
+    width: 95% !important;
+}
+.dataTables_wrapper .dataTables_filter {
+    margin-right: 2.25em;
+    color:#CFCFCF !important;
+    padding-bottom: .5em;
+}
