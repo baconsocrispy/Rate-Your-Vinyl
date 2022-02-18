@@ -12,5 +12,6 @@ urlpatterns = [
     path('<int:pk>/details/', views.game_details, name="game_details"),
     path('<int:pk>/edit/', views.game_edit, name="game_edit"),
     path('<int:pk>/delete/', views.delete, name="game_delete"),
+    path('search_api', views.api_search, name="search_api"),
 ]
 urlpatterns += staticfiles_urlpatterns()
