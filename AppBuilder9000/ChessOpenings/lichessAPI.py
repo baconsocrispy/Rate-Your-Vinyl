@@ -1,5 +1,6 @@
 import requests
 import json
+from itertools import chain
 import os
 import webbrowser
 
@@ -17,6 +18,7 @@ def request_lichess(fen):
         'https://explorer.lichess.ovh/masters',
         params={
             'fen': fen,
+            'topGames': 5,
 
         },
         headers={
@@ -25,7 +27,7 @@ def request_lichess(fen):
     )
 
     # Parse application/x-ndjson into list of JSON objects
-    print(resp)
+
     resp_json = []
     ndjson = resp.content.decode().split('\n')
 
@@ -34,7 +36,29 @@ def request_lichess(fen):
             resp_json.append(json.loads(json_obj))
 
     # Get first (most recently completed) puzzle in resp
-    master_games = resp_json[0]
-
+    games_obj = resp_json[0]
+    top_games = games_obj['topGames']
     # Open puzzle in web browser
-    print(master_games)
+    games_list = []
+    for obj in top_games:
+        game_resp = requests.get(
+            'https://lichess.org/game/export/{}'.format(obj['id']),
+            params={
+                'pgnInJson': True,
+                'clocks': False,
+                'evals': False,
+
+            },
+            headers={
+                'Authorization': f'Bearer {api_key}'  # Need this or you will get a 401: Not Authorized response
+            }
+
+        )
+
+        games_list.append(game_resp.content.decode())
+    return games_list
+
+
+
+
+

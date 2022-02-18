@@ -65,6 +65,8 @@ def delete(pk):
 
 
 def api_search(request):
+    context = {}
     if request.GET.get('mybtn'):
-        request_lichess(request.GET.get('mytextbox'))
-    return render(request, "ChessOpenings/search_api.html")
+        games = request_lichess(request.GET.get('mytextbox'))
+        context = {'games': games}
+    return render(request, "ChessOpenings/search_api.html", context)
