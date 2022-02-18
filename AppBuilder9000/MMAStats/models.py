@@ -1,7 +1,7 @@
 from django.db import models
 
-# creating initial model, this will allow us to input information in our
-# database about
+# creating initial model, this
+# holds our details for the fighters.
 
 class Champions(models.Model):
     first_name = models.CharField(max_length=50)
