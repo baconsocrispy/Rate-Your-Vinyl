@@ -30,7 +30,7 @@ def request_lichess(fen):
 
     resp_json = []
     ndjson = resp.content.decode().split('\n')
-
+    print(resp.headers["content-type"])
     for json_obj in ndjson:
         if json_obj:
             resp_json.append(json.loads(json_obj))
@@ -40,25 +40,58 @@ def request_lichess(fen):
     top_games = games_obj['topGames']
     # Open puzzle in web browser
     games_list = []
+
     for obj in top_games:
         game_resp = requests.get(
             'https://lichess.org/game/export/{}'.format(obj['id']),
             params={
-                'pgnInJson': True,
+
                 'clocks': False,
                 'evals': False,
 
             },
-            headers={
-                'Authorization': f'Bearer {api_key}'  # Need this or you will get a 401: Not Authorized response
-            }
+            headers={"accept": "application/json"} # Need this or you will get a 401: Not Authorized response
 
         )
 
-        games_list.append(game_resp.content.decode())
+        # game_string = game_resp.content
+        # game_info = json.loads(game_resp.text)
+        # games_list.append(game_info)
+        # print(game_resp.text)
+        #print(game_resp.headers["content-type"])
+        resp_json = []
+        ndjson = game_resp.content.decode().split('\n')
+        #print(resp.headers["content-type"])
+        for json_obj in ndjson:
+            if json_obj:
+                resp_json.append(json.loads(json_obj))
+        games_list.append(resp_json)
+
+
     return games_list
 
 
 
+def parse_response(fen):
+    model_format = {}
+    lst = request_lichess(fen)
+    count = 0
+    for item in lst:
+        model_format[count] = {"playerWhite": item[0]['players']['white']['name'],
+                               "playerBlack": item[0]['players']['black']['name'],
+
+                               "opening": item[0]['opening']['name'],
+                               "PGN": item[0]['moves']}
+        if item[0]['status'] == 'draw':
+            model_format[count]['winner'] = 'draw'
+        else:
+            model_format[count]['winner'] = item[0]['winner']
+        count += 1
+
+    return model_format
 
 
+
+
+if __name__ == "__main__":
+    print(request_lichess(startFen))

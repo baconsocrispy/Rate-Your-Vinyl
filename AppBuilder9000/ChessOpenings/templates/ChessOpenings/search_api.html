@@ -12,11 +12,14 @@
                     <th>Top 5 master games matching position</th>
 
                 </tr>
-    {% for item in games %}
+        {% for key,value in games.items %}
                 <tr class="test" >
-                    <td>{{item}}</td>
+                    <td>{{value.playerWhite}}, {{value.playerBlack}}</td>
+                    <td>winner: {{value.winner}} </td>
+                    <td>opening: {{value.opening}}</td>
                 </tr>
-    {% endfor %}
+
+        {% endfor %}
             </table>
 
 
