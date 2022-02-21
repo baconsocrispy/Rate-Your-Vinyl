@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import GamesForm
 from .models import Games
 from django.contrib import messages
+from .lichessAPI import parse_response
+from .web_scrape import web_scrape
 
 
-def homepage(request, pk=0):
+def homepage(request, pk=0, search=False):
     return render(request, 'ChessOpenings/chess_index.html')
 
 
@@ -55,10 +57,23 @@ def game_edit(request, pk):
     return render(request, "ChessOpenings/edit.html", context)
 
 
-def delete(request, pk):
+def delete(pk):
     item = get_object_or_404(Games, pk=pk)
     print(item)
-    form = GamesForm(request.POST or None, instance=item)
 
     item.delete()
     return redirect('chess_search')
+
+
+def api_search(request):
+    context = {}
+    if request.GET.get('mybtn'):
+        games = parse_response(request.GET.get('mytextbox'))
+        context = {'games': games}
+    return render(request, "ChessOpenings/search_api.html", context)
+
+def opening_scrape(request):
+    context = {}
+    content = {'info': web_scrape()}
+    context['content'] = content
+    return render(request, "ChessOpenings/chess_info.html", context)
