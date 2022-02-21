@@ -89,6 +89,12 @@ table.dataTable {
 }
 .dataTables_wrapper .dataTables_filter {
     margin-right: 2.25em;
-    color:#CFCFCF !important;
+    color: #CFCFCF !important;
     padding-bottom: .5em;
+}
+#TableStyle a {
+    color: #CFCFCF;
+}
+#TableStyle tr:hover td {
+    background-color: #282828;
 }
