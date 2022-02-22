@@ -7,5 +7,5 @@ urlpatterns = [
     path('display_items/', views.eft_all_items, name="eft_all_items"),
     path('details/<int:pk>', views.eft_details, name="eft_item_details"),
     path('edit/<int:pk>', views.eft_edit, name="eft_edit_item"),
-    path('delete/', views.eft_delete, name="eft_delete_item"),
+    path('delete/<int:pk>', views.eft_delete, name="eft_delete_item"),
 ]

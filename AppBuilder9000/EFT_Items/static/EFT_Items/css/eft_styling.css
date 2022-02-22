@@ -29,6 +29,7 @@ body {
     position: relative;
     background-color: #333439;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -41,6 +42,10 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: black;
+    position: -webkit-sticky; /* Sticks navbar to the top */
+	position: sticky;
+	top: 0;
+	z-index: 1; /* Sets navbar to always be on top */
 }
 .EFTNavbar a {
     float: left;
@@ -93,7 +98,7 @@ table.dataTable {
     padding-bottom: .5em;
 }
 #TableStyle a {
-    color: #1E2062;
+    color: #07073D;
 }
 #TableStyle tr:hover td {
     background-color: #282828;

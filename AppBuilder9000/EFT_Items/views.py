@@ -51,4 +51,4 @@ def eft_edit(request, pk):
 def eft_delete(request, pk):
     item = EFTItems.objects.get(pk=pk)
     item.delete()
-    return redirect(request, 'eft_all_items')
+    return redirect('eft_all_items')
