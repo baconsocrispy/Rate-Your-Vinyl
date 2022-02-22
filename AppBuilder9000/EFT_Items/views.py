@@ -12,7 +12,7 @@ def eft_create_record(request):
     form = EFTForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('eft_create_record')
+        return redirect('eft_all_items')
     else:
         print(form.errors)
         form = EFTForm()
@@ -34,3 +34,21 @@ def eft_details(request, pk):
         'details': details,
     }
     return render(request, 'EFT_Items/EFT_Items_details.html', context)
+
+
+def eft_edit(request, pk):
+    items = EFTItems.objects.get(pk=pk)
+    form = EFTForm(request.POST or None, instance=items)
+    if form.is_valid():
+        form.save()
+        return redirect('eft_all_items')
+    context = {
+        'items': items, 'form': form
+    }
+    return render(request, 'EFT_Items/EFT_Items_edit.html', context)
+
+
+def eft_delete(request, pk):
+    item = EFTItems.objects.get(pk=pk)
+    item.delete()
+    return redirect(request, 'eft_all_items')

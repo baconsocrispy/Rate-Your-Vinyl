@@ -16,6 +16,8 @@
                 <th>Hideout</th>
                 <th>Quest</th>
                 <th>Found In Raid</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +28,8 @@
                 <td>{{ details.hideout }}</td>
                 <td>{{ details.quest }}</td>
                 <td>{{ details.found_in_raid }}</td>
+                <td><a href="{% url 'eft_edit_item' details.pk %}">Edit</a></td>
+                <td><a href="{% url 'eft_delete_item' item.pk %}">Delete</a></td>
             </tr>
         </tbody>
     </table>
