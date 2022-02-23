@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+/* background image */
+body {
+    background-image: url("../images/recipelink.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* page title */
+.title {
+    font-size: 100px;
+    text-shadow: 2px 2px 2px #B3B3B3;
+	padding: 10px 10px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+/* content text */
+.content {
+    font-size: 15px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+/* top navbar */
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(55,100,5,.5);
+}
+
+/*list items side by side */
+ul.navbar li {
+    float: left;
+    text-decoration: none;
+}
+
+/* style the links*/
+ul.navbar li a {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    padding: 15px 18px;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+}
