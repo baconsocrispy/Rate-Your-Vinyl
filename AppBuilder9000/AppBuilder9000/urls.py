@@ -48,6 +48,8 @@ urlpatterns = [
     path('ChessOpenings/', include('ChessOpenings.urls')),
     path('EFT_Items/', include('EFT_Items.urls')),
     path('Vehicles', include('Vehicles.urls')),
+    path('Recipes/', include('Recipes.urls')),
+    path('Vehicles', include('Vehicles.urls')),
     path('Desserts/', include('Desserts.urls')),
 ]
 

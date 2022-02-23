@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'ChessOpenings',
     'EFT_Items',
     'Vehicles',
+    'Recipes',
     'Desserts',
 ]
 
