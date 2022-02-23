@@ -1,35 +1,34 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="background">
     <head>
         <!-- required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+        <!--custom CSS -->
+        <link rel="stylesheet" href="{% static '/css/desserts_styles.css' %}">
         <title>{% block title %}{% endblock %}</title>
     </head>
 
-    <header>
-        <!-- Navbar -->
-        <div class="JavaScriptDropdown">
-			<div class="btn-group">
-				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Menu</button>
-				<div class="dropdown-menu"><!-- Add in links based on your registered URLs -->
-					<a href="" class="dropdown-item">Home</a>
-					<a href="" class="dropdown-item">Recipes</a>
-					<a href="" class="dropdown-item">Add Dessert</a>
-				</div>
-			</div>
-		</div>
-        <!-- end Navbar -->
-    </header>
-
     <body class="container">
-
+        <!-- Navbar section -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#"> Desserts</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active text-info" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-info" href="#">Recipes</a>
+                  <a class="nav-link text-info" href="#">Add New Recipe</a>
+                </div>
+              </div>
+        </nav>
+        <!-- end Navbar section -->
         <!-- page content -->
         <div class="container">
             {% block content %} {% endblock %}
