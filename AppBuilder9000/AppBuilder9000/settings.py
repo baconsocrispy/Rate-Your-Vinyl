@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'EFT_Items',
     'Vehicles',
     'Recipes',
+    'Desserts',
 ]
 
 MIDDLEWARE = [
