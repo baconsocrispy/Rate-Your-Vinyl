@@ -1,0 +1,18 @@
+{% extends "recipesbase.html" %}
+{% load static %}
+
+{% block title %}New Recipe{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div id="form-container">
+    <form method="POST">
+        {% csrf_token %}
+            <table id="table">
+                {{ form.as_table }}
+            </table>
+        <button type="submit">Add Recipe</button>
+    </form>
+</div>
+{% endblock %}
