@@ -3,13 +3,13 @@
 
 {% block title %}New Recipe{% endblock %}
 
-{% block header %}{% endblock %}
+{% block header %}Create New Recipe{% endblock %}
 
 {% block content %}
-<div id="form-container">
+<div>
     <form method="POST">
         {% csrf_token %}
-            <table id="table">
+            <table class="recipe_input">
                 {{ form.as_table }}
             </table>
         <button type="submit">Add Recipe</button>
