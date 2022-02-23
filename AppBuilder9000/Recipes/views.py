@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RecipesForm
+from .models import Recipes
 
 
 def recipes_home(request):
@@ -16,3 +17,11 @@ def recipes_create(request):
         'form': form,
     }
     return render(request, 'Recipes/recipescreate.html', context)
+
+
+def recipes_display(request):
+    recipes_list = Recipes.Recipe.all()
+    context = {
+        'recipes_list': recipes_list
+    }
+    return render(request, 'Recipes/recipesdisplay.html', context)
