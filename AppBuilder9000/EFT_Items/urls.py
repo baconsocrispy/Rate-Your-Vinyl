@@ -8,4 +8,5 @@ urlpatterns = [
     path('details/<int:pk>', views.eft_details, name="eft_item_details"),
     path('edit/<int:pk>', views.eft_edit, name="eft_edit_item"),
     path('delete/<int:pk>', views.eft_delete, name="eft_delete_item"),
+    path('EFT_API/', views.eft_api, name="eft_connect_api"),
 ]
