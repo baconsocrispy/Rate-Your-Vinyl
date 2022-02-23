@@ -1,0 +1,21 @@
+<!-- This page is to add a new recipe to the Desserts App -->
+
+{% extends "Desserts/desserts_base.html" %}
+{% load static %}
+
+{% block title %}Add New Recipe {% endblock %}
+
+{% block header %} Add New Recipe to Database {% endblock %}
+
+{% block content %}
+    <div id="form-container" class="form-group form-centered w-50 mx-auto">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+
+            <button type="submit" class="btn btn-info">Add Recipe</button>
+        </form>
+    </div>
+
+
+{% endblock %}
