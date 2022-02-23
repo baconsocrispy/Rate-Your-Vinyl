@@ -1,0 +1,29 @@
+{% extends "vehicles/Vehicles_base.html" %}
+{% load static %}
+{% block title %}Vehicles{% endblock %}
+
+{% block header %}<h1>Your Vehicles</h1>{% endblock %}
+
+{% block content %}
+<div id="container" class="table-responsive w-75 mx-auto">
+    <table id="table" class="table table-dark table-bordered table-hover text-center" data-toggle="table">
+        <caption>Click on Vehicle to show more!</caption>
+        <thead>
+            <tr>
+                <th scope="col" data-field="year" data-sortable="true" class="w-25">Year</th>
+                <th scope="col" data-field="vehicle_make" data-sortable="true" class="w-25">Make</th>
+                <th scope="col" data-field="vehicle_model" data-sortable="true" class="w-25">Model</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for Vehicles in show_vehicles %}
+            <tr>
+                <td>{{ vehicles.year }}></td>
+                <td>{{ vehicles.vehicle_make }}</td>
+                <td>{{ vehicles.vehicle_model }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

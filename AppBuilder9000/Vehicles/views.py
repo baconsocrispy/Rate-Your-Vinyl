@@ -12,7 +12,7 @@ def addVehicles(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('vehiclesHome')
+            return redirect('Vehicles_home')
     content = { 'form': form }
     return render(request, 'vehicles/Vehicles_add.html', content)
 
