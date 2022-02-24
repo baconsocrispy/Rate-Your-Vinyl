@@ -8,12 +8,12 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/recipes.css' %}">
     </head>
     <body>
-        <div>
+        <div class="nav">
             {% include "Recipes/recipesnav.html" %}
-            <h1 class="title">{% block header %}{% endblock %}</h1>
         </div>
         <div class="content">
-        {% block content %}{% endblock %}
+            <p class="header">{% block header %}{% endblock %}</p>
+            {% block content %}{% endblock %}
         </div>
     </body>
 </html>
