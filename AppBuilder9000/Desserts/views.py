@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import RecipeForm
+from .models import Recipe
 
 
 # render home page
@@ -16,3 +17,10 @@ def add_recipe(request):
             return redirect('desserts_home')
     content = {'form': form}
     return render(request, 'Desserts/desserts_add_recipe.html', content)
+
+
+# render display_Db page, display all recipes in database
+def display_recipe_items(request):
+    recipe_db = Recipe.Recipes.all()
+    content = {'recipe_db': recipe_db}
+    return render(request, 'Desserts/desserts_displayDb.html', content)
