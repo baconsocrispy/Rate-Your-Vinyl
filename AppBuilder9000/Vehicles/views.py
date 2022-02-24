@@ -12,8 +12,13 @@ def addVehicles(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('Vehicles_home')
+            return redirect('Vehicles_view')
     content = { 'form': form }
     return render(request, 'vehicles/Vehicles_add.html', content)
+
+def vehicles_view(request):
+    vehicles_list = Vehicles.object.all()
+    context = {'vehicles_list': vehicles_list}
+    return render(request, 'vehicles/Vehicles_view.html', context)
 
 
