@@ -1,3 +1,8 @@
 .background {
     background-color: #E5EBED;
 }
+
+.cardImg {
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
