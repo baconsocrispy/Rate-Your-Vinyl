@@ -2,17 +2,34 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 /* background image */
 body {
+    height: 92vh;
+    width: 100vw;
     background-image: url("../images/recipelink.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 
+/* content text */
+.content {
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    background: rgb(50,50,5,.25);
+}
+
+
 /* page title */
 .header {
-    font-size: 100px;
+    font-size: 75px;
     color: white;
     text-shadow: 5px 5px 5px black;
 	text-align: center;
@@ -24,16 +41,23 @@ body {
     font-size: 50px;
 }
 
-/* content text */
-.content {
-    color: white;
-    text-shadow: 2px 2px 2px black;
-    background: rgb(0,0,0,.25);
+#create-recipe {
+    position: absolute;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    background: rgb(50,50,5,.25);
+}
+
+#delete {
     margin: auto;
 }
+
+
 /*========================================================
     begin NAVBAR
 ========================================================*/
+
 /* top navbar */
 ul.navbar {
     list-style-type: none;
@@ -76,7 +100,7 @@ ul.navbar li a {
     margin-left: auto;
     margin-right: auto;
     border-spacing: 50px;
-    background: rgb(0,0,0,.25);
+    background: rgb(0,0,0,.75);
     border: 2px solid black;
 }
 
