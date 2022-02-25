@@ -21,4 +21,9 @@ def vehicles_view(request):
     context = {'vehicles_list': vehicles_list}
     return render(request, 'vehicles/Vehicles_view.html', context)
 
+def vehicle_details(request, pk):
+    details = get_object_or_404(Vehicles, pk=pk)
+    context = {'details': details}
+    return render(request, 'vehicles/Vehicles_details.html', context)
+
 
