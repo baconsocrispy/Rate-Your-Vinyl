@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import EFTItems
 from .forms import EFTForm
+import requests
 
 
 # Create your views here.
@@ -52,3 +53,29 @@ def eft_delete(request, pk):
     item = EFTItems.objects.get(pk=pk)
     item.delete()
     return redirect('eft_all_items')
+
+
+def eft_api(request):
+    def run_query(query):
+        response = requests.post('https://tarkov-tools.com/graphql', json={'query': query})
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise Exception("Query failed to run by returning code of {}. {}".format(response.status_code, query))
+
+    mutant = """
+    {
+        itemsByName(name: "mutant") {
+            name
+            shortName
+        }
+    }
+    """
+
+    result = run_query(mutant)
+    filtered = result['data']['itemsByName']
+    name = filtered[0]['name']
+    shortname = filtered[0]['shortName']
+    print(name)
+    print(shortname)
+    return render(request, 'EFT_Items/EFT_Items_api.html')
