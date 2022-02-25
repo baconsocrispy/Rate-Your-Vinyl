@@ -66,7 +66,6 @@ def eft_api(request):
     mutant = """
     {
         itemsByName(name: "mutant") {
-            id
             name
             shortName
         }
@@ -74,5 +73,9 @@ def eft_api(request):
     """
 
     result = run_query(mutant)
-    print(result)
-    return render(request, 'EFT_Items/EFT_Items_api.html', {'result': result})
+    filtered = result['data']['itemsByName']
+    name = filtered[0]['name']
+    shortname = filtered[0]['shortName']
+    print(name)
+    print(shortname)
+    return render(request, 'EFT_Items/EFT_Items_api.html')
