@@ -2,7 +2,7 @@
     background-color: #E5EBED;
 }
 
-.cardImg {
-    border-radius: 8px;
-    margin-bottom: 20px;
+/* formatting to adjust vertical line space for textfields */
+.vertSpace {
+    line-height: 200%;
 }
