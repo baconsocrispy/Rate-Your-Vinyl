@@ -28,6 +28,9 @@
             <ul class="list-group my-3">
                 <li class="list-group-item border-info vertSpace">{{ details.method|linebreaks }}</li>
             </ul>
+            <a href="{% url 'desserts_edit' details.pk %}">
+                <button type="submit" class="btn btn-info px-3 my-4">Edit Recipe</button>
+            </a>
       </div>
 </div>
 
