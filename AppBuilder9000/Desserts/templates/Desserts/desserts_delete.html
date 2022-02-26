@@ -1,0 +1,60 @@
+<!-- This page is to delete a recipe from the database -->
+
+{% extends "Desserts/desserts_base.html" %}
+{% load static %}
+
+{% comment %}
+    This page is to delete a recipe from the database
+    When the user clicks the delete button from the Details page they are brought to a delete page
+    where they must confirm if they want to delete the recipe from the database
+{% endcomment %}
+
+{% block title %}Delete Recipe {% endblock %}
+
+
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Delete Recipe</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+      Delete Recipe
+    </button>
+  </div>
+</div>
+
+
+        <form method="POST">
+            {% csrf_token %}
+                    {{ item.as_p }}
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                       <p>Warning, you are about to delete the recipe from the database!</p>
+                       <p>Would you like to continue?</p>
+                  </div>
+                  <div class="modal-footer">
+                      <!-- Option 1: cancel, return to View Recipes -->
+                    <a href="{% url 'desserts_displayDb' %}">
+                        <button type="button" class="btn btn-secondary" >Cancel</button>
+                    </a>
+                    <!-- Option 2: Save changes, delete from recipes -->
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+{% endblock %}
