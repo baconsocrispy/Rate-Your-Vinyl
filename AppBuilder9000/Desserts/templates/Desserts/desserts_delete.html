@@ -11,50 +11,51 @@
 
 {% block title %}Delete Recipe {% endblock %}
 
-
-
 {% block content %}
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Delete Recipe</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
-      Delete Recipe
-    </button>
-  </div>
-</div>
+<div class="jumbotron jumbotron-fluid bg-white text-info">
+    <div class="container">
+        <h1 class="display-4">Delete Recipe</h1>
+        <p class="lead">Click button to delete recipe.</p>
 
+        <!-- Button to trigger Delete Confirmation modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#confirmDeleteModal">
+            Delete
+        </button>
+    </div> <!-- end container -->
 
-        <form method="POST">
-            {% csrf_token %}
-                    {{ item.as_p }}
+    <form method="POST">
+        {% csrf_token %}
+        {{ item.as_p }}
 
+        <!-- Modal -->
+        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm Delete </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div> <!-- end modal-header container -->
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Confirm Delete </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                       <p>Warning, you are about to delete the recipe from the database!</p>
-                       <p>Would you like to continue?</p>
-                  </div>
-                  <div class="modal-footer">
-                      <!-- Option 1: cancel, return to View Recipes -->
-                    <a href="{% url 'desserts_displayDb' %}">
-                        <button type="button" class="btn btn-secondary" >Cancel</button>
-                    </a>
-                    <!-- Option 2: Save changes, delete from recipes -->
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </form>
+                <!-- Delete Confirmation Modal body Content -->
+              <div class="modal-body">
+                  <p>Warning, you are about to delete the recipe from the database!</p>
+                  <p>Would you like to continue?</p>
+              </div> <!-- end modal-body content -->
+
+              <div class="modal-footer"> <!-- modal-footer -->
+                  <!-- Option 1: cancel, return to View Recipes -->
+                  <a href="{% url 'desserts_displayDb' %}">
+                      <button type="button" class="btn btn-secondary" >Cancel</button>
+                  </a>
+                  <!-- Option 2: Save changes, delete from recipes -->
+                  <button type="submit" class="btn btn-info">Delete Recipe</button>
+              </div> <!-- end modal-footer -->
+            </div> <!-- end modal-content container -->
+          </div> <!-- end modal-dialog container -->
+        </div><!-- end modal-fade container -->
+    </form> <!-- end form -->
+</div> <!-- end jumbotron container -->
+
 {% endblock %}
