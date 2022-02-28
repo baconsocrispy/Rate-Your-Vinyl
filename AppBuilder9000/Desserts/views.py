@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RecipeForm
 from .models import Recipe
+from bs4 import BeautifulSoup
+import requests
 
 
 # render home page
@@ -60,3 +62,27 @@ def delete_recipe(request, pk):
         'form': form,
     }
     return render(request, 'Desserts/desserts_delete.html', content)
+
+
+def scrape_desserts(request):
+    names = []  # recipe name list
+    descriptions = []  # recipe description list
+    url = 'https://www.spoonforkbacon.com/category/dessert-recipes/'  # page to scrape data from
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    dessert_soup = soup.find('article', class_="category-dessert-recipes")
+    dessert_name = dessert_soup.find_all('h2', class_="entry-title")  # get dessert name
+    dessert_description = dessert_soup.find_all('div', class_="entry-content")  # get dessert description
+
+    for i in dessert_name:
+        name = i.text
+        names.append(name)
+
+    for j in dessert_description:
+        description = j.text
+        descriptions.append(description)
+
+    zipped_list = zip(names, descriptions)
+    context = {'zipped_list': zipped_list}
+
+    return render(request, 'Desserts/desserts_bs.html', context)
