@@ -32,3 +32,31 @@ def recipe_details(request, pk):
     content = {'details': details}
     return render(request, 'Desserts/desserts_details.html', content)
 
+
+# render desserts_edit page, save modifications back to database
+def edit_recipe(request, pk):
+    item = get_object_or_404(Recipe, pk=int(pk))  # the recipe we want to modify
+    form = RecipeForm(data=request.POST or None, instance=item)  # create form instance and bind data to it
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('desserts_displayDb')  # return to database list
+        else:
+            print(form.errors)
+    content = {'form': form}
+    return render(request, 'Desserts/desserts_edit.html', content)
+
+
+# render desserts_delete page, save to database
+def delete_recipe(request, pk):
+    item = get_object_or_404(Recipe, pk=int(pk))  # the recipe we want to delete
+    form = RecipeForm(data=request.POST or None, instance=item) # create form instance and bind data to it
+    if request.method == 'POST':
+        item.delete()
+        return redirect('desserts_displayDb')  # return to database list
+    content = {
+        'item': item,
+        'form': form,
+    }
+    return render(request, 'Desserts/desserts_delete.html', content)
