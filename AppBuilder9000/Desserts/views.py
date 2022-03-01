@@ -70,19 +70,18 @@ def scrape_desserts(request):
     url = 'https://www.spoonforkbacon.com/category/dessert-recipes/'  # page to scrape data from
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
-    dessert_soup = soup.find('article', class_="category-dessert-recipes")
-    dessert_name = dessert_soup.find_all('h2', class_="entry-title")  # get dessert name
-    dessert_description = dessert_soup.find_all('div', class_="entry-content")  # get dessert description
+    parental_soup = soup.find_all('article', class_="category-dessert-recipes")  # parent to search
 
-    for i in dessert_name:
-        name = i.text
-        names.append(name)
+    for i in parental_soup:  # iterate through parental_soup through each article tag
+        name = i.h2.a.text  # extract text from h2 hyperlink text as recipe name
+        description = i.div.p.text  # extract text from first paragraph tag in the div inside parental soup
+        names.append(name)  # append name to names list
+        descriptions.append(description)  # append description to descriptions list
 
-    for j in dessert_description:
-        description = j.text
-        descriptions.append(description)
+    # save for part 2
+    # zipped_list = zip(names, descriptions)
+    # context = {'zipped_list': zipped_list}
 
-    zipped_list = zip(names, descriptions)
-    context = {'zipped_list': zipped_list}
-
-    return render(request, 'Desserts/desserts_bs.html', context)
+    print(names)  # output to console
+    print(descriptions)  # output to console
+    return render(request, 'Desserts/desserts_bs.html')
