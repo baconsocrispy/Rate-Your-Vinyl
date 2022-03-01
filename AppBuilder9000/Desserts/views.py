@@ -1,3 +1,5 @@
+import re
+
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RecipeForm
 from .models import Recipe
@@ -64,9 +66,11 @@ def delete_recipe(request, pk):
     return render(request, 'Desserts/desserts_delete.html', content)
 
 
+# scrape recipe data from external recipe page, package up and send to template to be rendered
 def scrape_desserts(request):
     names = []  # recipe name list
     descriptions = []  # recipe description list
+    recipe_urls = []  # recipe_url list
     url = 'https://www.spoonforkbacon.com/category/dessert-recipes/'  # page to scrape data from
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -75,13 +79,15 @@ def scrape_desserts(request):
     for i in parental_soup:  # iterate through parental_soup through each article tag
         name = i.h2.a.text  # extract text from h2 hyperlink text as recipe name
         description = i.div.p.text  # extract text from first paragraph tag in the div inside parental soup
+        recipe_url = i.find('a')['href']  # extract recipe urls
         names.append(name)  # append name to names list
         descriptions.append(description)  # append description to descriptions list
+        recipe_urls.append(recipe_url)  # append recipe urls to recipe_urls list
 
-    # save for part 2
-    # zipped_list = zip(names, descriptions)
-    # context = {'zipped_list': zipped_list}
+    zipped_list = zip(names, descriptions, recipe_urls) # zip all extracted lists together
+    context = {'zipped_list': zipped_list} # bind zipped_list dictionary to context
 
     print(names)  # output to console
     print(descriptions)  # output to console
-    return render(request, 'Desserts/desserts_bs.html')
+    print(recipe_urls) # output to console
+    return render(request, 'Desserts/desserts_bs.html', context)
