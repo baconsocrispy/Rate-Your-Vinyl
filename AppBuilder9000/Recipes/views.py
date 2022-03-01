@@ -79,7 +79,11 @@ def recipes_delete(request, pk):
 # hard-coded allrecipes.com page - prints to the console and renders the HOME page
 # Called by clicking the "Import" nav item
 def recipes_import(request):
-    page = requests.get('https://www.allrecipes.com/recipe/99480/enhanced-spaghetti/')
+    page = requests.get('https://www.allrecipes.com/recipe/8144/mardi-gras-king-cake/')
     soup = BeautifulSoup(page.content, 'html.parser')
-    print(soup.find_all("div", {"class": "paragraph"}))
+    section = soup.find("ul", {"class": "instructions-section"})
+    steps = section.find_all("div", {"class": "paragraph"})
+    for i in steps:
+        print(i.text.strip())
+
     return render(request, 'Recipes/recipeshome.html')
