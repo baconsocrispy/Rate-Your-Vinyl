@@ -7,7 +7,6 @@
 {% block title %}Spoon Fork Bacon{% endblock %}
 
 {% block content %}
-
 <div class="card mb-3">
   <div class="card-body">
     <h1 class="card-title text-info">Spoon Fork Bacon Desserts</h1>
@@ -19,12 +18,18 @@
             </tr>
         </thead>
         <tbody> <!-- table rows -->
-
+        {% for names, descriptions, recipe_urls in zipped_list %}
+            <tr>
+                <td><a href="{{ recipe_urls }}"> {{ names }}</a></td>
+                <td> {{ descriptions }} <a href="{{ recipe_urls }}">Read More </a> </td>
+            </tr>
+        {% endfor %}
 
         </tbody>
     </table>
   </div>
 </div>
-<img src ="/static/images/dessert2.jpg" class="img-fluid cardImg" alt="mini fruit tarts">
+<img src ="/static/images/dessert1.jpg" class="img-fluid cardImg" alt="muffin pan with raw batter">
+
 
 {% endblock %}
