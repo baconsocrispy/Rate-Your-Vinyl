@@ -8,28 +8,28 @@
 
 {% block content %}
 <div class="card mb-3">
+  <img src="/static/images/dessert1.jpg" class="img-fluid card-img-top" alt="muffin pan with raw batter">
   <div class="card-body">
-    <h1 class="card-title text-info">Spoon Fork Bacon Desserts</h1>
-    <table class="table">
+    <h5 class="card-text text-muted font-italic">Visit <a class="text-info" href="https://www.spoonforkbacon.com/">Spoon Fork Bacon</a> for more excellent recipes!</h5>
+    <table class="table my-4">
         <thead> <!-- table headings -->
-            <tr>
+            <tr class="text-muted font-italic">
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
             </tr>
         </thead>
-        <tbody> <!-- table rows -->
+        <tbody> <!-- table rows, display data from zipped_list -->
         {% for names, descriptions, recipe_urls in zipped_list %}
             <tr>
-                <td><a href="{{ recipe_urls }}"> {{ names }}</a></td>
-                <td> {{ descriptions }} <a href="{{ recipe_urls }}">Read More </a> </td>
+                <td><a class="text-info font-weight-bold" href="{{ recipe_urls }}"> {{ names }}</a></td>
+                <td> {{ descriptions }} <a class="text-info font-weight-lighter" href="{{ recipe_urls }}">Read More </a> </td>
             </tr>
         {% endfor %}
-
         </tbody>
     </table>
   </div>
 </div>
-<img src ="/static/images/dessert1.jpg" class="img-fluid cardImg" alt="muffin pan with raw batter">
+
 
 
 {% endblock %}
