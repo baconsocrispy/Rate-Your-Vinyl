@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'Vehicles',
     'Recipes',
     'Desserts',
-    'starwatch',
+    'StarWatch',
 ]
 
 MIDDLEWARE = [
