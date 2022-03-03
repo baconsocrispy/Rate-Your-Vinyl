@@ -5,6 +5,7 @@ from .forms import RecipeForm
 from .models import Recipe
 from bs4 import BeautifulSoup
 import requests
+import json
 
 
 # render home page
@@ -91,3 +92,29 @@ def scrape_desserts(request):
     print(descriptions)  # output to console
     print(recipe_urls) # output to console
     return render(request, 'Desserts/desserts_bs.html', context)
+
+
+# recipe_search function returns all recipes found at the source site
+#   API Source: https://rapidapi.com/masterfahim-8ILF-zz7IG3/api/cooking-recipe2/
+def recipe_search(request):
+    url = "https://cooking-recipe2.p.rapidapi.com/"  # api source url
+
+    headers = {  # required headers
+        'x-rapidapi-host': "cooking-recipe2.p.rapidapi.com",
+        'x-rapidapi-key': "08bef4aa77msh6b7038e100877f0p112618jsn4fa53277c30a"
+    }
+
+    response = requests.request("GET", url, headers=headers)  # get the data
+    recipe_parsed = json.loads(response.text)  # parse the data
+
+    for recipe in recipe_parsed:  # iterate through parsed data, pull out the pieces we want
+        results = {
+            'name': recipe['title'], # get recipe name
+            'category': recipe['category'],  # get recipe category
+            'recipe_url': recipe['url']  # get source url
+        }
+        print(results)  # print retrieved data pieces to console
+
+    # print(response.text)  # all available data
+    return render(request, 'Desserts/desserts_search.html')
+
