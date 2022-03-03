@@ -1,12 +1,12 @@
 
-/*  Background css  */
+/*  Background CSS  */
 body{
     background-image: url( "../images/publicmarket.png");
     background-repeat:no-repeat;
     background-size: cover;
     margin: 54px;
 }
-/*  END Background css  */
+/*  END Background CSS  */
 
 /*  Home.html input form styling    */
 #home-row1, #home-r1c1 {
