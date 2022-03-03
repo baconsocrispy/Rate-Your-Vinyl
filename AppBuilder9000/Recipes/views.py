@@ -81,31 +81,9 @@ def recipes_delete(request, pk):
 def recipes_import(request):
     page = requests.get('https://www.allrecipes.com/recipe/8144/mardi-gras-king-cake/')
     soup = BeautifulSoup(page.content, 'html.parser')
+    section = soup.find("ul", {"class": "instructions-section"})
+    steps = section.find_all("div", {"class": "paragraph"})
+    for i in steps:
+        print(i.text.strip())
 
-    # get the name of the recipe
-    title_text = soup.find("h1", {"class": "headline heading-content elementFont__display"})
-    title = title_text.text.strip()
-
-    # get the description of the recipe
-    description_section = soup.find("div", {"class": "recipe-summary elementFont__dek--paragraphWithin elementFont__dek--linkWithin"})
-    description_text = description_section.find("p")
-    description = description_text.text.strip()
-
-    # get the ingredients of the recipe
-    ingredients_section = soup.find("ul", {"class": "ingredients-section"})
-    ingredients_text = ingredients_section.find_all("span", {"class": "ingredients-item-name elementFont__body"})
-    ingredients = ''
-    for i in ingredients_text:
-        ingredients += i.text.strip() + ", "
-
-    # get the instructions
-    instructions_section = soup.find("ul", {"class": "instructions-section"})
-    instructions_text = instructions_section.find_all("div", {"class": "paragraph"})
-    instructions = ''
-    for i in instructions_text:
-        instructions += i.text.strip() + " "
-
-    recipe = [title, description, ingredients, instructions]
-    context = {'recipe': recipe}
-
-    return render(request, 'Recipes/recipesimport.html', context)
+    return render(request, 'Recipes/recipeshome.html')
