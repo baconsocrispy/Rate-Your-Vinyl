@@ -60,6 +60,8 @@ INSTALLED_APPS = [
     'Vehicles',
     'Recipes',
     'Desserts',
+    'WorkoutEquipment',
+    'StarWatch',
     'StockTracker',
 ]
 
