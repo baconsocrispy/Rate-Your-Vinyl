@@ -68,7 +68,7 @@ opacity: .75;
 
 
   /* Navbar container */
-.navbar {
+.navigation {
   overflow: hidden;
   background-color: #333;
   font-family: Arial;
@@ -107,3 +107,8 @@ opacity: .75;
   .box_content{
       margin-left: 3em;
   }
+td {
+    font-family: Arial;
+    text-width: bold;
+    text-color: black;
+    }
