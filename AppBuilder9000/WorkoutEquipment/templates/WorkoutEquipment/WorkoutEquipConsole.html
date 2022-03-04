@@ -1,0 +1,35 @@
+<!-- This widget is used to Add workout equipment to track by user, it contains a dropdown item list
+    with all previously input items-->
+
+<!-- inherits elements and styling from WorkoutBase.html-->
+
+{% extends "WorkoutEquipment/WorkoutEquipBase.html" %}
+
+{% block title %} Track your Equipment {% endblock %}
+
+{% block header %} Add an Equipment type {% endblock %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid container">
+    <form name="workoutEquipmentForm" method="POST" action="">
+        <div class = "container">
+            {% csrf_token %}
+            <label for="menu_id">Select some equipment from the list to edit:</label>    <!--javascript when list item clicked it will take them to that item-->
+            <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                {% for i in WorkoutEquipment %}
+                <!-- This js will create url starting with../ then workout equipment id/ then details at end of url-->
+                <!-- When user clicks on item name it will open details page for the equipment details -->
+                    <option value="../{{ i.pk }}/workout_equip_details/">{{ WorkoutEquipment.name }} </option>
+                {% endfor %}
+            </select>
+            <div class="container">
+                <a href="{% url 'workout_equip_create' %}"><button type = "button" class="btn">Add Your Exercise Equipment</button></a>
+                 <a href="{% url 'WorkoutEquipHome' %}"><button type = "button" class="btn">Logout</button></a>
+            </div>
+         </div>
+    </form>
+</div>
+
+
+{% endblock %}
