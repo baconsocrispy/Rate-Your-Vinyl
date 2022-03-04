@@ -86,15 +86,16 @@ def scrape_desserts(request):
     zipped_list = zip(names, descriptions, recipe_urls) # zip all extracted lists together
     context = {'zipped_list': zipped_list} # bind zipped_list dictionary to context
 
-    print(names)  # output to console
-    print(descriptions)  # output to console
-    print(recipe_urls) # output to console
+    # print(names)  # output to console
+    # print(descriptions)  # output to console
+    # print(recipe_urls) # output to console
     return render(request, 'Desserts/desserts_bs.html', context)
 
 
 # recipe_search function returns all recipes found at the source site
 #   API Source: https://rapidapi.com/masterfahim-8ILF-zz7IG3/api/cooking-recipe2/
 def recipe_search(request):
+    recipe_list = []  # list where recipe details will be stored
     url = "https://cooking-recipe2.p.rapidapi.com/"  # api source url
 
     headers = {  # required headers
@@ -106,13 +107,16 @@ def recipe_search(request):
     recipe_parsed = json.loads(response.text)  # parse the data
 
     for recipe in recipe_parsed:  # iterate through parsed data, pull out the pieces we want
-        results = {
-            'name': recipe['title'], # get recipe name
-            'category': recipe['category'],  # get recipe category
-            'recipe_url': recipe['url']  # get source url
-        }
-        print(results)  # print retrieved data pieces to console
+        if recipe['category'] == 'Indian High Tea Recipe': # only keep recipes that match category
+            results = {
+                'name': recipe['title'], # get recipe name
+                'category': recipe['category'],  # get recipe category
+                'recipe_url': recipe['url'],  # get source url
+                'image': recipe['img']
+            }
+            recipe_list.append(results)  # append results to list
 
-    # print(response.text)  # all available data
-    return render(request, 'Desserts/desserts_search.html')
+    context = {'recipe_list': recipe_list}
+    # print(response.text)  # all available data, console testing
+    return render(request, 'Desserts/desserts_search.html', context)
 
