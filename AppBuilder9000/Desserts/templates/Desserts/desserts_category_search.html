@@ -1,0 +1,39 @@
+<!-- This page is to add a new recipe to the Desserts App -->
+
+{% extends "Desserts/desserts_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Category Search{% endblock %}
+
+{% block content %}
+    <div class="card bg-transparent mb-3">
+        <img src="/static/images/dessert3.jpeg" class="card-img" alt="tea time cakes and cookies">
+        <h1 class="card-title text-info text-center">Recipe Search</h1>
+        <h4 class="card-title text-info text-center">Please choose from the available categories: </h4>
+
+        <div id="form-container" class="form-group form-centered w-50 mx-auto">
+            <form method="GET">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-info px-3 my-4">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row row-cols-3">
+        {% for item in results_list %} <!-- iterate through database, output results to card -->
+            <div class="card my-2"  style="width: 18rem" >
+                <img src="{{ item.image }}" class="card-img-top" alt="{{ item.name }} image">
+                <div class="card-body">
+                    <p class="card-text">
+                        <a class="text-info" href="{{ item.recipe_url }}">{{ item.name }}</a>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+{% endblock %}

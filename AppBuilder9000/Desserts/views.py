@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RecipeForm
+from .forms import RecipeForm, SearchForm
 from .models import Recipe
 from bs4 import BeautifulSoup
 import requests
@@ -120,3 +120,44 @@ def recipe_search(request):
     # print(response.text)  # all available data, console testing
     return render(request, 'Desserts/desserts_search.html', context)
 
+
+# render add_recipe page
+# def category_search(request):
+#     form = SearchForm(data=request.POST or None)
+#     if request.method == 'POST':
+#         if form.is_valid():
+#             form.save()
+#             return redirect('desserts_category_search')
+#     content = {'form': form}
+#     return render(request, 'Desserts/desserts_category_search.html', content)
+
+
+def category_search(request):
+    results_list = [] # store results in list
+    context = {}
+    form = SearchForm()
+    context['form'] = form
+    if request.GET:
+        temp = request.GET['category_type']  # get category type from template form, store in temp variable
+        category = temp.replace(' ', '%20')  # prepare category string for url, replace space with url encoded space '%20'
+        url = "https://cooking-recipe2.p.rapidapi.com/getbycat/{}".format(category)  # api url
+
+        headers = {  # required API headers
+            'x-rapidapi-host': "cooking-recipe2.p.rapidapi.com",
+            'x-rapidapi-key': "08bef4aa77msh6b7038e100877f0p112618jsn4fa53277c30a"
+        }
+
+        response = requests.request("GET", url, headers=headers)  # request API response
+        parsed_results = json.loads(response.text)  # parse the results
+
+        for recipe in parsed_results:  # iterate through parsed data, pull out the pieces we want
+            results = {
+                'name': recipe['title'],  # get recipe name
+                'category': recipe['category'],  # get recipe category
+                'recipe_url': recipe['url'],  # get source url
+                'image': recipe['img']  # get image url
+            }
+            results_list.append(results)  # append results to list
+        #  print(results_list)
+        context = {'results_list': results_list}  # prepare to send to template
+    return render(request, 'Desserts/desserts_category_search.html', context)
