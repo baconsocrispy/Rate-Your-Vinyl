@@ -1,0 +1,38 @@
+{% extends "WorkoutEquipment/WorkoutEquipBase.html" %}
+{% load static %}
+{% block title %} Workout Equipment {% endblock %}
+
+{% block header %} Product Details: {% endblock %}
+
+{% block content %}
+
+    <div class="admin_panel">
+            <div class ='formObject_container'>
+                <table class="">
+                    <thead>
+                    <tr class="table">
+                        <th scope="col" data-field="id" data-sortable="true" class="w-25">Id</th>
+                        <th scope="col" data-field="type" data-sortable="true" class="w-25">Type</th>
+                        <th scope="col" data-field="description" data-sortable="true" class="w-25">Description</th>
+                        <th scope="col" data-field="image" data-sortable="true" class="w-25">price</th>
+                        <th scope="col" data-field="image" data-sortable="true" class="w-25">image</th>
+                    </tr>
+                    </thead>
+                        <tbody>
+
+                        <tr class="table">
+                            <td>{{ details.id }}</td> <!--block tags representing db table values-->
+                            <td>{{ details.type }}</td>
+                            <td>{{ details.description }}</td>
+                            <td>{{ details.price }}</td>
+                            <td>{{ details.image }}</td>
+                        </tr>
+
+                        </tbody>
+                </table>
+            </div>
+
+    </div>
+
+
+{% endblock %}

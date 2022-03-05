@@ -1,7 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import WorkoutEquipment
 from django.shortcuts import render
+from django.http import HttpResponse
+from .models import WorkoutEquipment
 from .forms import WorkoutEquipmentForm
 
 
@@ -50,21 +50,12 @@ def workout_equip_display(request):
 # I realize now this is not proper work practice so will make sure to hold off on additional functions that don't relate
 # to the current user story
 
-"""
+
 def workout_equip_details(request, pk):
-    pk = int(pk)
-    item = get_object_or_404(WorkoutEquipment, pk=pk)
-    form = WorkoutEquipmentForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('WorkoutEquipConsole')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'WorkoutEquipment/PresentWorkoutEquip.html', {'form': form})
-"""
+    details = get_object_or_404(WorkoutEquipment, pk=pk)
+    content = {'details': details}
+    return render(request, 'WorkoutEquipment/WorkoutEquipDetails.html', content)
+
 
 
 
