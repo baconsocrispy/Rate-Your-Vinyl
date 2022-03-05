@@ -38,12 +38,19 @@ def workout_equip_create(request):
     }
     return render(request, 'WorkoutEquipment/WorkoutEquipCreate.html', context)
 
+
+def workout_equip_display(request):
+    display_items = WorkoutEquipment.objects.all()
+    content = {'display_items': display_items}
+    return render(request, 'WorkoutEquipment/WorkoutEquipDisplay.html', content)
+
+
 # Accidentally jumped the gun on this details view function,  it isn't functional yet but will be when that user
 # story comes up.
 # I realize now this is not proper work practice so will make sure to hold off on additional functions that don't relate
 # to the current user story
 
-
+"""
 def workout_equip_details(request, pk):
     pk = int(pk)
     item = get_object_or_404(WorkoutEquipment, pk=pk)
@@ -57,7 +64,7 @@ def workout_equip_details(request, pk):
             print(form.errors)
     else:
         return render(request, 'WorkoutEquipment/PresentWorkoutEquip.html', {'form': form})
-
+"""
 
 
 
