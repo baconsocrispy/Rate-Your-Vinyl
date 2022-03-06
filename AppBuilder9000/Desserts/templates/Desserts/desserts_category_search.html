@@ -6,24 +6,33 @@
 {% block title %}Category Search{% endblock %}
 
 {% block content %}
-    <div class="card bg-transparent mb-3">
-        <img src="/static/images/dessert3.jpeg" class="card-img" alt="tea time cakes and cookies">
-        <h1 class="card-title text-info text-center">Recipe Search</h1>
-        <h4 class="card-title text-info text-center">Please choose from the available categories: </h4>
-
-        <div id="form-container" class="form-group form-centered w-50 mx-auto">
-            <form method="GET">
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit" class="btn btn-info px-3 my-4">Search</button>
-            </form>
-        </div>
+    <div class="card bg-transparent mb-3 dessert_card_outer">
+            <div class="jumbotron jumbotron-fluid outer_search_container">
+                <div class="photo-container">
+                    <div class="photo">
+                        <img src="/static/images/dessert3.jpeg" class="" alt="tea time cakes and cookies">
+                        <div class="searchPg_photo_overlay">
+                             <h3 class="searchPg_overlay_title">Welcome to the Kitchen Sink!</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <h3 class="dessert_h3">Looking for something else? Check out the categories below!</h3>
+                    <div class="form-group mx-auto search_form">
+                        <form method="GET">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-info px-3 my-4 search_button">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
     </div>
 
     <div class="container">
-      <div class="row row-cols-3">
+      <div class="row search_row">
         {% for item in results_list %} <!-- iterate through database, output results to card -->
-            <div class="card my-2"  style="width: 18rem" >
+            <div class="card my-2 search_card">
                 <img src="{{ item.image }}" class="card-img-top" alt="{{ item.name }} image">
                 <div class="card-body">
                     <p class="card-text">
