@@ -79,6 +79,12 @@
     font-weight: 700 !important;
 }
 
+.card_heading a {
+      text-decoration: none !important;
+      color: #C6DE41 !important;
+      font-weight: 600 !important;
+}
+
 /* formatting to adjust vertical line space for textfields */
 .vertSpace {
     line-height: 200%;
