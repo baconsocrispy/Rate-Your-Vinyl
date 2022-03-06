@@ -121,17 +121,7 @@ def recipe_search(request):
     return render(request, 'Desserts/desserts_search.html', context)
 
 
-# render add_recipe page
-# def category_search(request):
-#     form = SearchForm(data=request.POST or None)
-#     if request.method == 'POST':
-#         if form.is_valid():
-#             form.save()
-#             return redirect('desserts_category_search')
-#     content = {'form': form}
-#     return render(request, 'Desserts/desserts_category_search.html', content)
-
-
+# search recipes by category using API
 def category_search(request):
     results_list = [] # store results in list
     context = {}
@@ -139,8 +129,8 @@ def category_search(request):
     context['form'] = form
     if request.GET:
         temp = request.GET['category_type']  # get category type from template form, store in temp variable
-        category = temp.replace(' ', '%20')  # prepare category string for url, replace space with url encoded space '%20'
-        url = "https://cooking-recipe2.p.rapidapi.com/getbycat/{}".format(category)  # api url
+        category = temp.replace(' ', '%20')  # prepare string for url, replace space with url encoded space '%20'
+        url = "https://cooking-recipe2.p.rapidapi.com/getbycat/{}".format(category)  # api url, append category
 
         headers = {  # required API headers
             'x-rapidapi-host': "cooking-recipe2.p.rapidapi.com",
@@ -158,6 +148,5 @@ def category_search(request):
                 'image': recipe['img']  # get image url
             }
             results_list.append(results)  # append results to list
-        #  print(results_list)
-        context = {'results_list': results_list}  # prepare to send to template
+        context = {'form': form, 'results_list': results_list}  # package form and results_list in context
     return render(request, 'Desserts/desserts_category_search.html', context)
