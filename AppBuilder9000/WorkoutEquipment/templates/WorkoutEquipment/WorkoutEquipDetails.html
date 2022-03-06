@@ -7,11 +7,12 @@
 {% block content %}
 
     <div class="admin_panel">
-            <div class ='formObject_container'>
-                <table class="">
+            <div class="table">
+                <table>
                     <thead>
                     <tr class="table">
                         <th scope="col" data-field="id" data-sortable="true" class="w-25">Id</th>
+                        <th scope="col" data-field="id" data-sortable="true" class="w-25">Name</th>
                         <th scope="col" data-field="type" data-sortable="true" class="w-25">Type</th>
                         <th scope="col" data-field="description" data-sortable="true" class="w-25">Description</th>
                         <th scope="col" data-field="image" data-sortable="true" class="w-25">price</th>
@@ -22,6 +23,7 @@
 
                         <tr class="table">
                             <td>{{ details.id }}</td> <!--block tags representing db table values-->
+                            <td>{{ details.name }}</td>
                             <td>{{ details.type }}</td>
                             <td>{{ details.description }}</td>
                             <td>{{ details.price }}</td>
@@ -40,12 +42,9 @@
                                         <button class="btn"><a href="../{{ form.pk }}workout_equip_delete/">DELETE</a></button>
                                         <button class="btn"><a href="{% url 'WorkoutEquipHome' %}">CANCEL</a></button>
                                     </div>
-                                </div>a
+                                </div>
                             </form>
                         </div>
-
-
-
                         </tbody>
                 </table>
             </div>

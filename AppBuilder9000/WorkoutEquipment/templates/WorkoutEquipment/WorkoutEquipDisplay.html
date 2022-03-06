@@ -11,30 +11,33 @@
 
     <div class="admin_panel">
         <form method="POST" action="{% url 'workout_equip_create' %}">
-            <div class ='formObject_container'>
-                <table class="">
-                    <thead>
-                    <tr class="table">
-                        <th data-field="id">Id</th>
-                        <th data-field="type">Type</th>
-                        <th data-field="description">Description</th>
-                        <th data-field="price">price</th>
-                        <th data-field="image">image</th>
-                    </tr>
-                    </thead>
-                        <tbody>
-                        {% for equipment in display_items %}
+            <div class="jumbotron-fluid">
+                <div class ='formObject_container'>
+                    <table class="">
+                        <thead>
                         <tr class="table">
-                            <td>{{ equipment.id }}</td> <!--block tags representing db table values-->
-                            <td><a href="{% url 'workout_equip_details' equipment.id %}">{{ equipment.type }}</a></td>
-                            <td>{{ equipment.description }}</td>
-                            <td>{{ equipment.price }}</td>
-                            <td>{{ equipment.image }}</td>
+                            <th data-field="id">Id</th>
+                            <th data-field="type">Type</th>
+                            <th data-field="description">Description</th>
+                            <th data-field="price">price</th>
+                            <th data-field="image">image</th>
                         </tr>
-                        {% endfor %}
+                        </thead>
+                        <tbody>
+                            {% for equipment in display_items %}
+                            <tr class="table">
+                                <td>{{ equipment.id }}</td> <!--block tags representing db table values-->
+                                <td><a href="{% url 'workout_equip_details' equipment.id %}">{{ equipment.type }}</a></td>
+                                <td>{{ equipment.description }}</td>
+                                <td>{{ equipment.price }}</td>
+                                <td>{{ equipment.image }}</td>
+                            </tr>
+                            {% endfor %}
 
                         </tbody>
-                </table>
+                    </table>
+                </div>
+            </div>
          </form>
     </div>
 
