@@ -21,7 +21,7 @@
                     </thead>
                         <tbody>
 
-                        <tr class="table">
+                        <tr class="table">   <!-- details is dictionary object accessed through primary key this displays a single record in Db all fields-->
                             <td>{{ details.id }}</td> <!--block tags representing db table values-->
                             <td>{{ details.name }}</td>
                             <td>{{ details.type }}</td>
@@ -29,14 +29,15 @@
                             <td>{{ details.price }}</td>
                             <td>{{ details.image }}</td>
                         </tr>
-                        <div class="admin_panel">
+                        <div>
                             <form method="POST" action="../workout_equip_details/">
                                 <table>
                                     {% csrf_token %}
                                     {{ form.non_field_errors }}
                                     {{ form.as_table }}
                                 </table>
-                                <div class="frmBtn_container">
+                                <div class="frmBtn_container">  <!-- this form binds form instance and (below) takes pk
+                                                                     data parameter in to edit of delete based off which button is clicked-->
                                     <div class ="frmBtn_container">
                                         <button class="btn"><a href="../{{ form.pk }}workout_equip_edit/">EDIT</a></button>
                                         <button class="btn"><a href="../{{ form.pk }}workout_equip_delete/">DELETE</a></button>
