@@ -27,6 +27,24 @@
                             <td>{{ details.price }}</td>
                             <td>{{ details.image }}</td>
                         </tr>
+                        <div class="admin_panel">
+                            <form method="POST" action="../workout_equip_details/">
+                                <table>
+                                    {% csrf_token %}
+                                    {{ form.non_field_errors }}
+                                    {{ form.as_table }}
+                                </table>
+                                <div class="frmBtn_container">
+                                    <div class ="frmBtn_container">
+                                        <button class="btn"><a href="../{{ form.pk }}workout_equip_edit/">EDIT</a></button>
+                                        <button class="btn"><a href="../{{ form.pk }}workout_equip_delete/">DELETE</a></button>
+                                        <button class="btn"><a href="{% url 'WorkoutEquipHome' %}">CANCEL</a></button>
+                                    </div>
+                                </div>a
+                            </form>
+                        </div>
+
+
 
                         </tbody>
                 </table>
