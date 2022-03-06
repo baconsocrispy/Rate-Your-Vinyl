@@ -7,22 +7,31 @@
 {% block title %}Spoon Fork Bacon{% endblock %}
 
 {% block content %}
-<div class="card mb-3">
-  <img src="/static/images/dessert1.jpg" class="img-fluid card-img-top" alt="muffin pan with raw batter">
+<div class="card mb-3 dessert_card_outer">
+     <div class="photo-container">
+            <div class="photo">
+                <img src="/static/images/dessert1.jpg" class="card-img" alt="tea time cakes and cookies">
+                <div class="photo-overlay">
+                     <h3 class="photo_overlay_title">Spoon Fork Bacon Recipes</h3>
+                </div>
+            </div>
+        </div>
+
+
   <div class="card-body">
-    <h5 class="card-text text-muted font-italic">Visit <a class="text-info" href="https://www.spoonforkbacon.com/">Spoon Fork Bacon</a> for more excellent recipes!</h5>
+    <h5 class="card-text">Visit <a class="text-info" href="https://www.spoonforkbacon.com/">Spoon Fork Bacon</a> for more excellent recipes!</h5>
     <table class="table my-4">
-        <thead> <!-- table headings -->
-            <tr class="text-muted font-italic">
+        <thead class="table_headings"> <!-- table headings -->
+            <tr class="text-muted">
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
             </tr>
         </thead>
-        <tbody> <!-- table rows, display data from zipped_list -->
+        <tbody class="table_body"> <!-- table rows, display data from zipped_list -->
         {% for names, descriptions, recipe_urls in zipped_list %}
             <tr>
-                <td><a class="text-info font-weight-bold" href="{{ recipe_urls }}"> {{ names }}</a></td>
-                <td> {{ descriptions }} <a class="text-info font-weight-lighter" href="{{ recipe_urls }}">Read More </a> </td>
+                <td><a class="text-info table_hyperlink" href="{{ recipe_urls }}"> {{ names }}</a></td>
+                <td> {{ descriptions }} <a class="text-info table_hyperlink" href="{{ recipe_urls }}">Read More </a> </td>
             </tr>
         {% endfor %}
         </tbody>
