@@ -1,0 +1,32 @@
+{% extends "Drones/Drones_base.html" %}
+
+{% block title %}Drones{% endblock %}
+
+{% block header %}Drone Details:{% endblock %}
+
+{% block content %}
+
+<div>
+    <table class="display" id="TableStyle">
+        <thead>
+            <tr>
+                <th>drone_name</th>
+                <th>rotors</th>
+                <th>battery</th>
+                <th>prop</th>
+                <th>flight_time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ details.drone_name }}</td>
+                <td>{{ details.rotors }}</td>
+                <td>{{ details.battery}}</td>
+                <td>{{ details.prop }}</td>
+                <td>{{ details.flight_time }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
