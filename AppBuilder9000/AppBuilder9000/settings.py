@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'WorkoutEquipment',
     'StarWatch',
     'StockTracker',
+    'Drones',
 ]
 
 MIDDLEWARE = [
