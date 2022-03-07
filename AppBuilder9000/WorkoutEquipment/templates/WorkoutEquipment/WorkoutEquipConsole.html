@@ -11,7 +11,7 @@
 
 {% block content %}
 
-<div class="jumbotron jumbotron-fluid container">
+<div class="jumbotron">
     <form name="workoutEquipmentForm" method="POST" action="">
         <div class = "container">
             {% csrf_token %}
@@ -23,7 +23,7 @@
                     <option value="../{{ i.pk }}/workout_equip_details/">{{ WorkoutEquipment.name }} </option>
                 {% endfor %}
             </select>
-            <div class="container">
+            <div class="jumbotron-fluid">
                 <a href="{% url 'workout_equip_create' %}"><button type = "button" class="btn">Add Your Exercise Equipment</button></a>
                  <a href="{% url 'WorkoutEquipHome' %}"><button type = "button" class="btn">Logout</button></a>
             </div>

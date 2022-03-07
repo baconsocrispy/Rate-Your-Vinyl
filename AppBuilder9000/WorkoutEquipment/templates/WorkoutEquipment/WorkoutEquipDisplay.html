@@ -1,0 +1,41 @@
+{% extends "WorkoutEquipment/WorkoutEquipBase.html" %}
+{% load static %}
+
+{% block title %} Equipment List {% endblock %}
+
+{% block header %} {% endblock %}
+                                         <!--using for loop to iterate through
+                                   display_items dictionary object in view
+                                    function that displays all db items-->
+{% block content %}
+
+    <div class="admin_panel">
+        <form method="POST" action="{% url 'workout_equip_create' %}">
+            <div class ='formObject_container'>
+                <table class="">
+                    <thead>
+                    <tr class="table">
+                        <th scope="col" data-field="id" data-sortable="true" class="w-25">Id</th>
+                        <th scope="col" data-field="type" data-sortable="true" class="w-25">Type</th>
+                        <th scope="col" data-field="description" data-sortable="true" class="w-25">Description</th>
+                        <th scope="col" data-field="image" data-sortable="true" class="w-25">price</th>
+                        <th scope="col" data-field="image" data-sortable="true" class="w-25">image</th>
+                    </tr>
+                    </thead>
+                        <tbody>
+                        {% for equipment in display_items %}
+                        <tr class="table">
+                            <td>{{ equipment.id }}</td> <!--block tags representing db table values-->
+                            <td>{{ equipment.type }}</td>
+                            <td>{{ equipment.description }}</td>
+                            <td>{{ equipment.price }}</td>
+                            <td>{{ equipment.image }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                </table>
+         </form>
+    </div>
+
+
+{% endblock %}
