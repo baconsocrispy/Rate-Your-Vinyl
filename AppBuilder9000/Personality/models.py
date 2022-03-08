@@ -17,7 +17,7 @@ class Person(models.Model):
     a_average_score = models.FloatField(max_length=5)
     n_average_score = models.FloatField(max_length=5)
 
-    objects = models.Manager()
+    Persons = models.Manager()
 
     def __str__(self):
         return self.name
@@ -31,7 +31,7 @@ class ComparedPerson(models.Model):
     a_percentile = models.IntegerField(null=True, blank=True)
     n_percentile = models.IntegerField(null=True, blank=True)
 
-    objects = models.Manager()
+    ComparedPersons = models.Manager()
 
     def __str__(self):
         return self.person.name
