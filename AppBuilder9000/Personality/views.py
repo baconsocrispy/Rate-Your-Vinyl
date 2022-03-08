@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-def Personality_home(request):
-    return render(request, 'Personality/Personality_home.html')
+
+def personality_home(request):
+    return render(request, 'Personality/personality_home.html')
