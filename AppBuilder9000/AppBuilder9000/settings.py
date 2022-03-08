@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'StarWatch',
     'StockTracker',
     'Drones',
+    'Personality',
 ]
 
 MIDDLEWARE = [

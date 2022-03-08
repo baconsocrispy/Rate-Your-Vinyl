@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RecipeForm
+from .forms import RecipeForm, SearchForm
 from .models import Recipe
 from bs4 import BeautifulSoup
 import requests
@@ -86,15 +86,16 @@ def scrape_desserts(request):
     zipped_list = zip(names, descriptions, recipe_urls) # zip all extracted lists together
     context = {'zipped_list': zipped_list} # bind zipped_list dictionary to context
 
-    print(names)  # output to console
-    print(descriptions)  # output to console
-    print(recipe_urls) # output to console
+    # print(names)  # output to console
+    # print(descriptions)  # output to console
+    # print(recipe_urls) # output to console
     return render(request, 'Desserts/desserts_bs.html', context)
 
 
 # recipe_search function returns all recipes found at the source site
 #   API Source: https://rapidapi.com/masterfahim-8ILF-zz7IG3/api/cooking-recipe2/
 def recipe_search(request):
+    recipe_list = []  # list where recipe details will be stored
     url = "https://cooking-recipe2.p.rapidapi.com/"  # api source url
 
     headers = {  # required headers
@@ -106,13 +107,46 @@ def recipe_search(request):
     recipe_parsed = json.loads(response.text)  # parse the data
 
     for recipe in recipe_parsed:  # iterate through parsed data, pull out the pieces we want
-        results = {
-            'name': recipe['title'], # get recipe name
-            'category': recipe['category'],  # get recipe category
-            'recipe_url': recipe['url']  # get source url
+        if recipe['category'] == 'Indian High Tea Recipe': # only keep recipes that match category
+            results = {
+                'name': recipe['title'], # get recipe name
+                'category': recipe['category'],  # get recipe category
+                'recipe_url': recipe['url'],  # get source url
+                'image': recipe['img']
+            }
+            recipe_list.append(results)  # append results to list
+
+    context = {'recipe_list': recipe_list}
+    # print(response.text)  # all available data, console testing
+    return render(request, 'Desserts/desserts_search.html', context)
+
+
+# search recipes by category using API
+def category_search(request):
+    results_list = [] # store results in list
+    context = {}
+    form = SearchForm()
+    context['form'] = form
+    if request.GET:
+        temp = request.GET['category_type']  # get category type from template form, store in temp variable
+        category = temp.replace(' ', '%20')  # prepare string for url, replace space with url encoded space '%20'
+        url = "https://cooking-recipe2.p.rapidapi.com/getbycat/{}".format(category)  # api url, append category
+
+        headers = {  # required API headers
+            'x-rapidapi-host': "cooking-recipe2.p.rapidapi.com",
+            'x-rapidapi-key': "08bef4aa77msh6b7038e100877f0p112618jsn4fa53277c30a"
         }
-        print(results)  # print retrieved data pieces to console
 
-    # print(response.text)  # all available data
-    return render(request, 'Desserts/desserts_search.html')
+        response = requests.request("GET", url, headers=headers)  # request API response
+        parsed_results = json.loads(response.text)  # parse the results
 
+        for recipe in parsed_results:  # iterate through parsed data, pull out the pieces we want
+            results = {
+                'name': recipe['title'],  # get recipe name
+                'category': recipe['category'],  # get recipe category
+                'recipe_url': recipe['url'],  # get source url
+                'image': recipe['img']  # get image url
+            }
+            results_list.append(results)  # append results to list
+        context = {'form': form, 'results_list': results_list}  # package form and results_list in context
+    return render(request, 'Desserts/desserts_category_search.html', context)
