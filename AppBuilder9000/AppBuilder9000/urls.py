@@ -49,6 +49,7 @@ urlpatterns = [
     path('WorkoutEquipment/', include('WorkoutEquipment.urls')),
     path('StarWatch/', include('StarWatch.urls')),
     path('Drones/', include('Drones.urls')),
+    path('Personality/', include('Personality.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
