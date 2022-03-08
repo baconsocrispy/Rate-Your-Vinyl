@@ -1,6 +1,15 @@
 /*========================
 General Styling
 ========================*/
+p {
+	padding: 2px 16px;
+	color: black;
+	font-weight:bold;
+	text-shadow: 0 0 4px white;
+	border:black;
+
+}
+
 
 body {
     background-image: url('../img/workoutequipment8.jpeg');
@@ -116,6 +125,12 @@ ul.topnav li.icon {
 	border-radius: 10px;
     transition: 0.3s;
 }
+a {
+color: #57BAF5;
+text-decoration: underline;
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 .btn {
 	flex-grow: 2;
     justify-content: center;
@@ -123,7 +138,8 @@ ul.topnav li.icon {
     display: inline-block;
     width: 150px; /* button size */
     margin: 2% 2% 2% 2%;
-    color: black;
+    color: white;
+    background-color:#696969;
     padding: 10px 0px;
     text-decoration: none;
     font-size: 14px;
@@ -132,6 +148,16 @@ ul.topnav li.icon {
     cursor: pointer;
     border: 2px solid silver;
     border-radius: 5px;
+    font-weight:bold;
+}
+
+.btn:hover {
+    background-color: #355664;
+    color: white;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+
 }
 /* This controls the form size and contents */
 .admin_panel {
@@ -156,6 +182,7 @@ ul.topnav li.icon {
     padding: 0;
     text-align: center;
     padding-top: 5%;
+    background-color: #c757d;
 }
 .table_text {
     font-family:'PT Sans', Arial, Helvetica, sans-serif;
