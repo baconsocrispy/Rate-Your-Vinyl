@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'BasketballStats',
-    'PetAdoption',
-    'BestCities',
-    'WeatherBall',
+
+
+
     'Nutrition',
     'MagicTheGathering',
-    'HotSprings',
+
     'IceHockey',
     'kettleBells',
     'Turtles',
@@ -55,10 +55,10 @@ INSTALLED_APPS = [
     'GameStats',
     'MoveState',
     'MMAStats',
-    'ChessOpenings',
+
     'EFT_Items',
     'Vehicles',
-    'Recipes',
+
     'Desserts',
     'WorkoutEquipment',
     'StarWatch',
