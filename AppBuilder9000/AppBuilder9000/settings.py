@@ -39,12 +39,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'BasketballStats',
-
-
-
     'Nutrition',
     'MagicTheGathering',
-
     'IceHockey',
     'kettleBells',
     'Turtles',
@@ -55,10 +51,8 @@ INSTALLED_APPS = [
     'GameStats',
     'MoveState',
     'MMAStats',
-
     'EFT_Items',
     'Vehicles',
-
     'Desserts',
     'WorkoutEquipment',
     'StarWatch',
