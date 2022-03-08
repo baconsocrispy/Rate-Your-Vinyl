@@ -5,3 +5,6 @@ def GrandmasRecipes_home(request):
     # render method takes the request object and template name as arguments
     # returns httpResponse object with rendered text.
     return render(request, 'GrandmasRecipes/GrandmasRecipes_home.html')
+
+#def GrandmasRecipes_library(request)
+
