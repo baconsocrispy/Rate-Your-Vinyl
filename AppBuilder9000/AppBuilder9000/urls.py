@@ -24,12 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('BasketballStats/', include('BasketballStats.urls')),
-    path('PetAdoption/', include('PetAdoption.urls')),
-    path('BestCities/', include('BestCities.urls')),
-    path('WeatherBall/', include('WeatherBall.urls')),
     path('Nutrition/', include('Nutrition.urls')),
     path('MagicTheGathering/', include('MagicTheGathering.urls')),
-    path('HotSprings/', include('HotSprings.urls')),
     path('IceHockey/', include('IceHockey.urls')),
     path('kettleBells/', include('kettleBells.urls')),
     path('Turtles/', include('Turtles.urls')),
@@ -40,15 +36,16 @@ urlpatterns = [
     path('GameReviews/', include('GameStats.urls')),
     path('MoveState/', include('MoveState.urls')),
     path('MMAStats/', include('MMAStats.urls')),
-    path('ChessOpenings/', include('ChessOpenings.urls')),
     path('EFT_Items/', include('EFT_Items.urls')),
     path('Vehicles/', include('Vehicles.urls')),
-    path('Recipes/', include('Recipes.urls')),
     path('Desserts/', include('Desserts.urls')),
     path('StockTracker/', include('StockTracker.urls')),
     path('WorkoutEquipment/', include('WorkoutEquipment.urls')),
     path('StarWatch/', include('StarWatch.urls')),
     path('Drones/', include('Drones.urls')),
+    path('Personality/', include('Personality.urls')),
+    path('GrandmasRecipes/', include('GrandmasRecipes.urls')),
+
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

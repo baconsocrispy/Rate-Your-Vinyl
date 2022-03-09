@@ -1,8 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,  get_object_or_404
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import include
 from .forms import form_addObject
-from .models import celestialObject
+from .models import celestialObjects
+import requests
+
+
+
+
+
 
 # Create your views here.
 from django.http import HttpResponse
@@ -10,6 +16,8 @@ from django.http import HttpResponse
 
 def StarWatch_home(request):
     return render(request, 'StarWatch/StarWatch_home.html')
+
+
 
 
 def add_object(request):
@@ -22,19 +30,37 @@ def add_object(request):
     return render(request, 'StarWatch/StarWatch_addObject.html', content)
 
 
-def MMACreate(request):
-    form = ChampForm(data=request.POST or None)
-    # if form data is valid
-    if request.method=='POST':
-        if form.is_valid():
-            # save form data to our model
-            form.save()
-            return redirect('MMA_Create')
-
-    context = {'form': form}
-    return render(request, "MMAStats/MMA_create.html", context)
+def list_objects(request):
+    object_list = celestialObjects.object.all()
+    context = {'object_list': object_list}
+    return render(request, 'StarWatch/StarWatch_listObjects.html', context)
 
 
+
+def object_details(request, pk):
+    details = get_object_or_404(celestialObjects, pk=pk)
+    context = {'details': details}
+    return render(request, 'StarWatch/StarWatch_objectDetails.html', context)
+
+def list_planets(request):
+    planets = celestialObjects.object.all().filter(object_type='Planet')
+    context = {'planets': planets}
+    return render(request, 'StarWatch/StarWatch_filterPlanets.html', context)
+
+def list_stars(request):
+    stars = celestialObjects.object.all().filter(object_type='Star')
+    context = {'stars': stars}
+    return render(request, 'StarWatch/StarWatch_filterStars.html', context)
+
+def list_moons(request):
+    moons = celestialObjects.object.all().filter(object_type='Moon')
+    context = {'moons': moons}
+    return render(request, 'StarWatch/StarWatch_filterMoons.html', context)
+
+def list_other(request):
+    others = celestialObjects.object.all().filter(object_type='Other')
+    context = {'others': others}
+    return render(request, 'StarWatch/StarWatch_filterOther.html', context)
 
 
 
