@@ -1,10 +1,5 @@
-* {
-    margin: 0;
-}
 
-html {
-    background-color: lightblue;
-}
+
 
 body {
 	position: relative;
@@ -26,10 +21,23 @@ h1 {
     font-family: 'Lobster';
     text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
     margin:0 auto;
+    background-color: DarkGrey;
+    text-align: center;
 }
 h2 {
     color: #0404B4;
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+}
+header {
+    color: #0404B4;
+    font-family: 'Lobster';
+    text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
+    margin:0 auto;
+    background-color: DarkGrey;
+    font-size: 40px;
+    text-align: center;
+    padding-left: 20px;
+    display: flex;
 }
