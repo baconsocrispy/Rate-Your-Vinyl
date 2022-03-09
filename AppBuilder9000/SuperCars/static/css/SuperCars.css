@@ -16,8 +16,7 @@ html, body {
 	padding: 0;
 }
 h1 {
-    color: lightgray;
-    text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
+    color: lightblue;
     margin:0 auto;
 }
 
@@ -55,11 +54,15 @@ ul.topnav li a:hover {
 ul.topnav li.icon {
 	display: none;
 }
-#block-header {
+
+
+
+.header-title {
 	padding: 2px 16px;
 	text-align: center;
-	text-color: lightblue;
+	color: lightblue;
 }
+
 
 
 #block-footer {
