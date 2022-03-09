@@ -10,7 +10,7 @@ def personality_home(request):
     form = PersonForm(data=request.POST or None)
     if request.method == 'POST':
         pk = request.POST['person']
-        #return balance(request, pk)
+        return personality_compare(request, pk)
     content = {'form': form}
     return render(request, 'Personality/personality_home.html', content)
 
@@ -28,5 +28,12 @@ def personality_create(request):
     return render(request, 'Personality/personality_create.html', content)
 
 
+#def personality_compare(request):
+#    return render(request, 'Personality/personality_compare.html')
+
 def personality_compare(request):
-    return render(request, 'Personality/personality_compare.html')
+    data = Person.Persons.all()
+    pers = {"person": data}
+
+#    content = {'person': person}
+    return render(request, 'Personality/personality_compare.html', pers)
