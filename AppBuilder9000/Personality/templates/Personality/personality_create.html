@@ -1,0 +1,19 @@
+{% extends "Personality_base.html" %}
+
+{% block title %}Personality{% endblock %}
+
+{% block header %}Take the test or die!{% endblock %}
+
+{% block content %}
+
+<h3>CREATE NEW ACCOUNT</h3>
+	<div id="account-form">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button id="new-account-button" type="submit" name="Save_Account">Create Account</button>
+		</form>
+		<br>
+	</div>
+
+{% endblock %}
