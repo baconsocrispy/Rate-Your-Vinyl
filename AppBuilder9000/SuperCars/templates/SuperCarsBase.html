@@ -8,13 +8,12 @@
 	</head>
     <body>
         <div class="page_container">
-            {% include "SuperCarsNavbar.html" %}
+            {% include "SuperCars/SuperCarsNavbar.html" %}
             <header class="header-title">
                 <h1>{% block header %}{% endblock %}</h1>
 		    </header>
-            {% block content %}{% endblock %}
         </div>
 
-        {% include "SuperCarsFooter.html" %}
+        {% include "SuperCars/SuperCarsFooter.html" %}
     </body>
 </html>
