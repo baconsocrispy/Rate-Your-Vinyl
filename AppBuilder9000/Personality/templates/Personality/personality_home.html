@@ -13,7 +13,7 @@
         <form method="POST">
             <label id="index-label">Choose Account:</label>
             {% csrf_token %}
-            {{ form.person }}
+            {{ form.name }}
             <button type="submit">Go to Account</button>
         </form>
     </div>

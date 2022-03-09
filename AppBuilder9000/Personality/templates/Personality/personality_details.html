@@ -1,0 +1,28 @@
+{% extends "Personality_base.html" %}
+
+{% block title %}Personality{% endblock %}
+
+{% block header %}Take the test or die!{% endblock %}
+
+{% block content %}
+
+<h3>Account Details</h3>
+	<div id="account-form">
+		<table class="table table-responsive" id ="transactions-table">
+    <tr id="headerRow">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Sex</th>
+
+    </tr>
+    <tr>
+        <td class="center">{{ person.name }}</td>
+        <td class="center">{{ person.age }}</td>
+        <td class="left">{{ person.sex }}</td>
+    </tr>
+</table>
+        <button href="">Edit Account</button>
+		<br>
+	</div>
+
+{% endblock %}
