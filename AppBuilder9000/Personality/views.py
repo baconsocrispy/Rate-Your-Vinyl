@@ -31,10 +31,9 @@ def personality_create(request):
 #def personality_compare(request):
 #    return render(request, 'Personality/personality_compare.html')
 
-def personality_compare(request, pk):
-    person = get_object_or_404(Person, pk=pk)
-    #current_total = person.initial_deposit
-    #table_contents = {}
+def personality_compare(request):
+    data = Person.Persons.all()
+    pers = {"person": data}
 
-    content = {'person': person}
-    return render(request, 'Personality/personality_compare.html', content)
+#    content = {'person': person}
+    return render(request, 'Personality/personality_compare.html', pers)
