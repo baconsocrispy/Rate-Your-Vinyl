@@ -60,13 +60,22 @@ def personality_details(request, pk):
 
 def personality_edit(request, pk):
     person = get_object_or_404(Person, pk=pk)
+
+    def deleteAccount():
+        print("hey there")
+        person.delete
+
+    deleteMe = deleteAccount
+
     form = PersonForm(initial={'name': person.name, 'age': person.age, 'sex': person.sex,
                                'o_average_score': person.o_average_score, 'c_average_score': person.c_average_score,
                                'e_average_score': person.e_average_score, 'a_average_score': person.a_average_score,
                                'n_average_score': person.n_average_score})
     if request.method == 'POST':
+        print("yep")
         if form.is_valid():
+            print("form saved")
             form.save()
             return redirect('/Personality/')
-    content = {'form': form}
+    content = {'form': form, 'deleteMe': deleteMe}
     return render(request, 'Personality/personality_edit.html', content)
