@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import StockForm
 
+
 def stock_home_page(request):
     return render(request, 'StockTracker/StockTrackerHome.html')
 
@@ -10,7 +11,8 @@ def stock_add_page(request):
     if request.method == 'POST':
         form = StockForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('StockTracker/StockAddPage.html')
+            form.save()
+            return render(request, 'StockTracker/StockAddPage.html')
     else:
         form = StockForm()
 

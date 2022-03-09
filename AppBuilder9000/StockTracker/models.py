@@ -29,8 +29,9 @@ class StockData(models.Model):
     StockTicker = models.CharField(max_length=20)
     StockPrice = models.FloatField()
     StockAmount = models.FloatField()
-    StockHolderName = models.ForeignKey(StockUser, default=None, on_delete=models.CASCADE)
-    StockCompanyName = models.ForeignKey(StockHolderCompany, default=None, on_delete=models.CASCADE)
+
+    # StockHolderName = models.ForeignKey(StockUser, default=None, on_delete=models.CASCADE)
+    # StockUserCompanyName = models.ForeignKey(StockHolderCompany, default=None, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.StockTicker
