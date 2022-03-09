@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class Drone(models.Model):
     ROTORS = (
@@ -20,10 +19,10 @@ class Drone(models.Model):
     drone_name = models.CharField(max_length=50)
     rotors = models.CharField(max_length=10,choices=ROTORS)
     battery = models.CharField(max_length=10, choices=BATTERY)
-    prop = models.IntegerField(max_length=10)
-    flight_time = models.IntegerField(max_length=10)
+    prop_length= models.IntegerField(max_length=10)
+    flight_time_in_minutes = models.IntegerField(max_length=10)
 
     Drone = models.Manager()
 
     def __str__(self):
-        return self.name
+        return self.Drone

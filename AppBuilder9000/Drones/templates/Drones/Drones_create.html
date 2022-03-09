@@ -1,12 +1,19 @@
 {% extends "Drones/Drones_base.html" %}
 
-{% load crispy_forms_tags %}
-
 {% block title %}Drone{% endblock %}
 
 {% block header %}ADD DRONE:{% endblock %}
 
 {% block content %}
+
+
+    <form action = '' method = "get">
+        <table>
+            {% csrf_token %}
+            {{ form.Drone }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
 
 
     <div class="container text-center text-white">
