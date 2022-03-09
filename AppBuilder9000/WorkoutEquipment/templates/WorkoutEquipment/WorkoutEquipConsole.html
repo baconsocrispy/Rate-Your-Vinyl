@@ -1,0 +1,26 @@
+<!-- This widget is used to Add workout equipment to track by user, it contains a dropdown item list
+    with all previously input items-->
+
+<!-- inherits elements and styling from WorkoutBase.html-->
+
+{% extends "WorkoutEquipment/WorkoutEquipBase.html" %}
+
+{% block title %} Track your Equipment {% endblock %}
+
+{% block header %} Add an Equipment type {% endblock %}
+
+{% block content %}
+
+<div class="admin_panel">
+    <form name="workoutEquipmentForm" method="POST" action="">
+        <div class = "formObject">
+            <div class="fromBtn_container">
+                <a href="{% url 'workout_equip_create' %}"><button type = "button" class="btn">Add Your Exercise Equipment</button></a>
+                <a href="{% url 'WorkoutEquipHome' %}"><button type = "button" class="btn">Logout</button></a>
+            </div>
+         </div>
+    </form>
+</div>
+
+
+{% endblock %}
