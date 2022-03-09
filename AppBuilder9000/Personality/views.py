@@ -60,7 +60,10 @@ def personality_details(request, pk):
 
 def personality_edit(request, pk):
     person = get_object_or_404(Person, pk=pk)
-    form = PersonForm(initial={'name': person.name, 'age': person.age, 'sex': person.sex, 'Openness': person.o_average_score, 'Conscientiousness': person.c_average_score, 'Extroversion': person.e_average_score, 'Agreeableness': person.a_average_score, 'Neuroticism': person.n_average_score})
+    form = PersonForm(initial={'name': person.name, 'age': person.age, 'sex': person.sex,
+                               'o_average_score': person.o_average_score, 'c_average_score': person.c_average_score,
+                               'e_average_score': person.e_average_score, 'a_average_score': person.a_average_score,
+                               'n_average_score': person.n_average_score})
     if request.method == 'POST':
         if form.is_valid():
             form.save()
