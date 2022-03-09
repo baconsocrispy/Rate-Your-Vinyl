@@ -1,0 +1,41 @@
+{% extends 'StarWatch_base.html' %}
+{% load static %}
+
+{% block title %}Objects{% endblock %}
+
+{% block header %}
+    <div class=" m-4 jumbotron jumbotron-fluid w-80 display1">
+        {{ details.object_name}}
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <div id="object-details" class="box">
+        <p id="object-description">{{ details.object_description }}</p><br>
+        <table id="details-table">
+            <tr>
+                <td class="details-cell">Nickname:</td>
+                <td class="details-cell">{{ details.object_nickName }}</td>
+            </tr>
+            <tr>
+                <td class="details-cell">Type of Object:</td>
+                <td class="details-cell">{{ details.object_type }}</td>
+            </tr>
+            <tr>
+                <td class="details-cell">Brightness:</td>
+                <td class="details-cell">{{ details.object_brightness }}</td>
+            </tr>
+            <tr>
+                <td class="details-cell">Type of Object:</td>
+                <td class="details-cell">{{ details.object_latitude }}</td>
+            </tr>
+            <tr>
+                <td class="details-cell">Direction:</td>
+                <td class="details-cell">{{ details.object_direction }}</td>
+            </tr>
+
+
+        </table>
+    </div>
+{% endblock %}

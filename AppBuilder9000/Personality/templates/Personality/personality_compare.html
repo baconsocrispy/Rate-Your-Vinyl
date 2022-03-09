@@ -1,0 +1,37 @@
+{% extends "Personality_base.html" %}
+
+{% block title %}Personality{% endblock %}
+
+{% block header %}Take the test or die!{% endblock %}
+
+{% block content %}
+<table class="table table-responsive" id ="transactions-table">
+    <tr id="headerRow">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Sex</th>
+        <th>Openness</th>
+        <th>Conscientiousness</th>
+        <th>Extroversion</th>
+        <th>Agreeableness</th>
+        <th>Neuroticism</th>
+    </tr>
+    {% for key in person %}
+    <tr>
+        <td class="center">{{ key.name }}</td>
+        <td class="center">{{ key.age }}</td>
+        <td class="left">{{ key.sex }}</td>
+        <td class="right">{{ key.o_average_score }}</td>
+        <td class="right">{{ key.c_average_score }}</td>
+        <td class="right">{{ key.e_average_score }}</td>
+        <td class="right">{{ key.a_average_score }}</td>
+        <td class="right">{{ key.n_average_score }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+ o_average_score = models.FloatField(max_length=5)
+    c_average_score = models.FloatField(max_length=5)
+    e_average_score = models.FloatField(max_length=5)
+    a_average_score = models.FloatField(max_length=5)
+    n_average_score
