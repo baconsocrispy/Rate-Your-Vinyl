@@ -35,3 +35,7 @@ class ComparedPerson(models.Model):
 
     def __str__(self):
         return self.person.name
+
+
+class SelectPerson(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)

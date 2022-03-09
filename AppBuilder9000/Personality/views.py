@@ -1,16 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Person, ComparedPerson
-from .forms import PersonForm
+from .models import Person, ComparedPerson, SelectPerson
+from .forms import PersonForm, SelectPersonForm
+from django.views import generic
+from django.http import HttpResponse
 
 
 #def personality_home(request):
 #    return render(request, 'Personality/personality_home.html')
 
 def personality_home(request):
-    form = PersonForm(data=request.POST or None)
+    form = SelectPersonForm(data=request.POST or None)
+    print("I'm home")
+    print(form)
     if request.method == 'POST':
+        print("sent")
         pk = request.POST['person']
-        return personality_compare(request, pk)
+        print("This is pk:")
+        print(pk)
+        return
     content = {'form': form}
     return render(request, 'Personality/personality_home.html', content)
 
@@ -37,3 +44,26 @@ def personality_compare(request):
 
 #    content = {'person': person}
     return render(request, 'Personality/personality_compare.html', pers)
+
+
+#class PersonalityDetailView(generic.DetailView):
+#    print("details")
+#    pers = Person.Persons.all()
+#    form = PersonForm(data=pers or None)
+#    model = Person
+#    template_name = 'Personality/personality_details.html'
+
+def personality_details(request, pk):
+    person = get_object_or_404(Person, pk=pk)
+    return render(request, 'Personality/personality_details.html', {'person': person})
+
+
+def personality_edit(request, pk):
+    person = get_object_or_404(Person, pk=pk)
+    form = PersonForm(initial={'name': person.name, 'age': person.age, 'sex': person.sex, 'Openness': person.o_average_score, 'Conscientiousness': person.c_average_score, 'Extroversion': person.e_average_score, 'Agreeableness': person.a_average_score, 'Neuroticism': person.n_average_score})
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('/Personality/')
+    content = {'form': form}
+    return render(request, 'Personality/personality_edit.html', content)
