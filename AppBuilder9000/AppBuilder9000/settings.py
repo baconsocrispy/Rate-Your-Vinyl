@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'StockTracker',
     'Drones',
     'Personality',
+    'GrandmasRecipes',
 ]
 
 MIDDLEWARE = [
