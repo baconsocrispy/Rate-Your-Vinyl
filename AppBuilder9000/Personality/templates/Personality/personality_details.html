@@ -13,15 +13,25 @@
         <th>Name</th>
         <th>Age</th>
         <th>Sex</th>
-
+        <th>Openness</th>
+        <th>Conscientiousness</th>
+        <th>Extroversion</th>
+        <th>Agreeableness</th>
+        <th>Neuroticism</th>
     </tr>
     <tr>
         <td class="center">{{ person.name }}</td>
         <td class="center">{{ person.age }}</td>
         <td class="left">{{ person.sex }}</td>
+        <td class="center">{{ person.o_average_score }}</td>
+        <td class="center">{{ person.c_average_score }}</td>
+        <td class="center">{{ person.e_average_score }}</td>
+        <td class="right">{{ person.a_average_score }}</td>
+        <td class="right">{{ person.n_average_score }}</td>
     </tr>
 </table>
-        <button href="">Edit Account</button>
+        <!--<button href="{% url 'personality_edit' person.id%}">Edit Account</button>-->
+        <button type="submit"><a href="{% url 'personality_edit' person.id %}">Edit Account</a></button>
 		<br>
 	</div>
 

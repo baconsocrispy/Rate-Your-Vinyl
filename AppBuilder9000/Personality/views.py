@@ -57,6 +57,13 @@ def personality_details(request, pk):
     person = get_object_or_404(Person, pk=pk)
     return render(request, 'Personality/personality_details.html', {'person': person})
 
+
 def personality_edit(request, pk):
     person = get_object_or_404(Person, pk=pk)
-    return render(request, 'Personality/personality_details.html', {'person': person})
+    form = PersonForm(initial={'name': person.name, 'age': person.age, 'sex': person.sex, 'Openness': person.o_average_score, 'Conscientiousness': person.c_average_score, 'Extroversion': person.e_average_score, 'Agreeableness': person.a_average_score, 'Neuroticism': person.n_average_score})
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('/Personality/')
+    content = {'form': form}
+    return render(request, 'Personality/personality_edit.html', content)
