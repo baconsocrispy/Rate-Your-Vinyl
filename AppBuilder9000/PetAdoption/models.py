@@ -11,7 +11,7 @@ SEX_CHOICES = (
 SPECIES_CHOICES = (
     ('Dog', 'Dog'),
     ('Cat', 'Cat'),
-    ('Other', 'Other')
+    ('Other', 'Other'),
 )
 
 

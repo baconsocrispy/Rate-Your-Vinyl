@@ -50,10 +50,10 @@ ul {
 
 
 
-.box
-{background-color: #0b5ed7;
-background-blend-mode: difference;
-opacity: .75;
+.box {
+    background-color: #0b5ed7;
+    background-blend-mode: difference;
+    opacity: .75;
 
 }
 
@@ -92,7 +92,6 @@ opacity: .75;
     margin-right: 3em;
 }
   #footer{
-
     text-align: center;
     background-color: #111;
     color: aliceblue;
@@ -107,8 +106,26 @@ opacity: .75;
   .box_content{
       margin-left: 3em;
   }
+
 td {
     font-family: Arial;
     text-width: bold;
-    text-color: black;
+    text-color: white;
     }
+
+.filter{
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    text-color: red;
+}
+
+th, td {
+  border: 1px solid black;
+      width: 25%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
