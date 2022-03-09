@@ -2,14 +2,22 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'CSS/GrandmaCss' %}">
-    <title>{% block title%}Grandmas Recipes{% endblock %}</title>
-</head>
-<body>
-
-</body>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static '/CSS/GrandmaCss.css' %}">
+        <title>{% block title%}Grandmas Recipes{% endblock %}</title>
+    </head>
+    <body>
+        <div class="content">
+            <div class="nav">
+            {% include "GrandmasRecipes/GrandmasRecipes_home.html" %}
+            </div>
+            <div class="content">
+            <p class="header">{% block header %}{% endblock %}</p>
+            {% block content %}{% endblock %}
+            </div>
+        </div>
+    </body>
 </html>
