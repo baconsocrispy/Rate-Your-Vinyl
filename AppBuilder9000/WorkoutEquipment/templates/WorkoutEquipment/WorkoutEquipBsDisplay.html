@@ -2,16 +2,20 @@
 
 {% block title %} Equipment Information {% endblock %}
 
-{% block header %} Equipment Information {% endblock %}
+{% block header %} Your Home Gym Blog {% endblock %}
 
 {% block content %}
 <!-- This page will display useful information sourced from beautiful soup webscraping function-->
-<div class="admin_panel">
-    <!-- I will display the blog title and paragraph information-->
-    <!--will also supply a link to the website below-->
-    <!-- I may scrape multiple pages to have more than one blog post-->
-    <button class="btn"><a href="#">Beautiful Soup Web Scraper pg</a></button>
+
+<div class="jumbotron">
+    <h1 class = 'bs-title'>{{ title }}</h1>
+        <h5 class = 'bs-text'>{{ blogP }}</h5>
+            <a class = 'bs-text' href="https://www.usedfitnesssales.com">https://www.usedfitnesssales.com</a>
+            <a class = 'bs-text' href="https://www.usedfitnesssales.com/chooschoosing-your-best-new-home-gym-fitness-equipment-for-the-new-yearing-your-best-new-home-gym-fitness-equipment-for-the-new-year/">
+                Blog source:Choose your new home gym equipment</a>
+            <a class = 'bs-text' href="{% url 'WorkoutEquipHome' %}">Back to home</a>
 </div>
+
 
 
 

@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
+
 # function to render Homepage
 def workout_equipment_home(request):
     products = WorkoutEquipment.objects.all()
@@ -98,15 +99,14 @@ def confirmed(request):
         return redirect('workout_equip_console')
 
 
-def workout_equip_bs_display(request):   # scraping website usedfitness sales with blog info using beautiful soup
+def workout_equip_bs_display(request):   # scraping website used fitness sales with blog info using beautiful soup
     bsinfo = requests.get("https://www.usedfitnesssales.com/chooschoosing-your-best-new-home-gym-fitness-equipment-for-the-new-yearing-your-best-new-home-gym-fitness-equipment-for-the-new-year/")
     c = BeautifulSoup(bsinfo.content, 'html.parser')
     title = c.find(class_='entry-title fusion-post-title').get_text()
     blogP = c.find(class_='post-content').get_text()
-    print(title)
-    print(blogP)
-    content = {'bsinfo': bsinfo, 'c': c,}
+    content = {'bsinfo': bsinfo, 'title': title, 'blogP':blogP }
     return render(request, 'WorkoutEquipment/WorkoutEquipBsDisplay.html', content)
+
 
 
 
