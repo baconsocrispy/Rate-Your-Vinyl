@@ -17,16 +17,10 @@ html, body {
 }
 h1 {
     color: lightgray;
-    font-family: 'Lobster';
     text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
     margin:0 auto;
 }
-h2 {
-    color: lightgray;
-    font-weight: 900;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-}
+
 ul.topnav {
     list-style-type: none;
     margin: 0;
@@ -61,19 +55,11 @@ ul.topnav li a:hover {
 ul.topnav li.icon {
 	display: none;
 }
-header-title {
+#block-header {
 	padding: 2px 16px;
 	text-align: center;
-	color: lightgray;
+	text-color: lightblue;
 }
-
-
-#block-header {
-    text-align: center;
-    text-color: lightblue;
-}
-
-
 
 
 #block-footer {
