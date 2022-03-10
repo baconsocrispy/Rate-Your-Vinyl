@@ -19,5 +19,12 @@ def Drones_create(request):
 
 
 def Drones_list(request):
-    drones_list = Drone.Drone.all()
+    drones_list = Drone.Drones.all()
+    print('drones_list')
     return render(request, 'Drones/Drones_list.html', {'drones_list': drones_list })
+
+
+def Drones_details(request):
+    drone_details = get_object_or_404(Drone.Drones)
+    context = {'drone_details': drone_details}
+    return render(request, 'Drones/Drones_details.html', context)
