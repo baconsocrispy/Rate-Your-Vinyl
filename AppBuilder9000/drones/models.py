@@ -22,7 +22,8 @@ class Drone(models.Model):
     prop_length= models.IntegerField(max_length=10)
     flight_time_in_minutes = models.IntegerField(max_length=10)
 
-    Drone = models.Manager()
+
+    Drones = models.Manager()
 
     def __str__(self):
-        return self.Drone
+        return self.drone_name

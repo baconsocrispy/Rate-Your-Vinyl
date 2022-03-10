@@ -7,15 +7,6 @@
 {% block content %}
 
 
-    <form action = '' method = "get">
-        <table>
-            {% csrf_token %}
-            {{ form.Drone }}
-        </table>
-        <input type="submit" value="Submit">
-    </form>
-
-
     <div class="container text-center text-white">
         <form method="POST" class="control-label col-xs-1">
             {% csrf_token %}

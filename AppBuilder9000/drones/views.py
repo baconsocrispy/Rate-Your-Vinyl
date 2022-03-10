@@ -19,5 +19,6 @@ def Drones_create(request):
 
 
 def Drones_list(request):
-    drones_list = Drone.Drone.all()
+    drones_list = Drone.Drones.all()
+    print('drones_list')
     return render(request, 'Drones/Drones_list.html', {'drones_list': drones_list })

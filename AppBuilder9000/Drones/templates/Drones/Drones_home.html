@@ -2,15 +2,14 @@
 {% block title %}Drones{% endblock %}
 {% block content %}
     <h1>Drones</h1>
-    <hr>
     <div class="text-center">
         <h3>Manage your existing Drone!</h3>
-        <form method="POST">
+        <div>
             <label id="index-label">Choose Drone:</label>
             {% csrf_token %}
-            {{ form.Drone }}
-            <button type="submit">Go to Drone</button>
-        </form>
+            {{ Drones_list }}
+            <button type="submit"><a href="{% url 'Drones_list' %}">Go to Drone</a></button>
+        </div>
     </div>
     <br>
     <div class="text-center">
