@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import StockForm
+from .models import StockData
 
 
 def stock_home_page(request):
@@ -17,3 +18,9 @@ def stock_add_page(request):
         form = StockForm()
 
     return render(request, 'StockTracker/StockAddPage.html', {'form': form})
+
+
+def stock_display_database_page(request):
+    stock_list = StockData.objects.all()
+    return render(request, 'StockTracker/StockDisplayDatabase.html', {'stock_list': stock_list})
+

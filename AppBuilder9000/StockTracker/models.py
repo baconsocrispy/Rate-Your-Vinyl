@@ -24,6 +24,7 @@ class StockHolderCompany(models.Model):
     def __str__(self):
         return self.StockCompanyName
 
+
 class StockData(models.Model):
     StockCompanyName = models.CharField(max_length=30)
     StockTicker = models.CharField(max_length=20)
@@ -32,6 +33,8 @@ class StockData(models.Model):
 
     # StockHolderName = models.ForeignKey(StockUser, default=None, on_delete=models.CASCADE)
     # StockUserCompanyName = models.ForeignKey(StockHolderCompany, default=None, on_delete=models.CASCADE)
+
+
 
     def __str__(self):
         return self.StockTicker
