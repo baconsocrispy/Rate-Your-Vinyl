@@ -9,17 +9,7 @@ from django.http import HttpResponse
 #    return render(request, 'Personality/personality_home.html')
 
 def personality_home(request):
-    form = SelectPersonForm(data=request.POST or None)
-    print("I'm home")
-    print(form)
-    if request.method == 'POST':
-        print("sent")
-        pk = request.POST['person']
-        print("This is pk:")
-        print(pk)
-        return
-    content = {'form': form}
-    return render(request, 'Personality/personality_home.html', content)
+    return render(request, 'Personality/personality_home.html')
 
 
 #def personality_create(request):
@@ -30,7 +20,7 @@ def personality_create(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('/Personality/')
+            return redirect('../compare')
     content = {'form': form}
     return render(request, 'Personality/personality_create.html', content)
 
@@ -60,10 +50,20 @@ def personality_details(request, pk):
 
 def personality_edit(request, pk):
     person = get_object_or_404(Person, pk=pk)
-    form = PersonForm(initial={'name': person.name, 'age': person.age, 'sex': person.sex, 'Openness': person.o_average_score, 'Conscientiousness': person.c_average_score, 'Extroversion': person.e_average_score, 'Agreeableness': person.a_average_score, 'Neuroticism': person.n_average_score})
+    form = PersonForm(data=request.POST or None, instance=person)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('/Personality/')
-    content = {'form': form}
+            return redirect('../../compare')
+    content = {'person': person, 'form': form}
     return render(request, 'Personality/personality_edit.html', content)
+
+
+def personality_delete(request, pk):
+    person = get_object_or_404(Person, pk=pk)
+    form = PersonForm(data=request.POST or None, instance=person)
+    if request.method == 'POST':
+        person.delete()
+        return redirect('../../compare')
+    content = {'person': person, 'form': form}
+    return render(request, 'Personality/personality_delete.html', content)

@@ -6,14 +6,15 @@
 
 {% block content %}
 
-<h3>Account Details</h3>
+<h3>Edit Account</h3>
 	<div id="account-form">
-		<form action="" method="POST">
+		<form method="POST">
 			{% csrf_token %}
-			{{ form }}
+			{{ form.as_p }}
 			<button id="new-account-button" type="submit" name="Save_Account">Save Changes</button>
 		</form>
 		<br>
+		<button type="submit" class="new-account-button"><a href="{% url 'personality_delete' person.id %}">Delete</a></button>
 	</div>
 
 {% endblock %}
