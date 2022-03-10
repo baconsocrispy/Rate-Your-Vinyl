@@ -4,16 +4,20 @@
     <head>
     <meta charset="UTF-8">
     <title>Drones</title>
+        {% block title %}{% endblock %}
+        {% block header %}{% endblock %}
 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'Drones/CSS/Drones.css' %}">
         <p><h1><strong>DRONES DRONES DRONES DRONES DRONES DRONES DRONES DRONES</strong></h1></p>
 
 <!-- Styles -->
         <style>
-        body {
-          background-image: url("../../static/drone1.bmp");
-          background-size: cover ;
-          background-repeat: no-repeat;
-        }
+            body {
+            background-image: url("../../static/drone1.bmp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            }
         </style>
     </head>
 
@@ -26,17 +30,24 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'drones_home' %}">Home <span class="sr-only"></span></a>
-                  </li>
-
-                </ul>
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'Drones_home' %}">Home <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'Drones_create' %}">Add Drone <span class="sr-only"></span></a>
+                     </li>
+                      <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'Drones_list' %}">List Of Drones <span class="sr-only"></span></a>
+                     </li>
+                  </ul>
               </div>
         </nav>
         <br>
         <br>
-        <br>
+
+        {% block content %} {% endblock %}
+
     </body>
 
 
