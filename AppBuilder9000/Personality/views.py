@@ -20,7 +20,7 @@ def personality_create(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('/Personality/')
+            return redirect('../compare')
     content = {'form': form}
     return render(request, 'Personality/personality_create.html', content)
 
@@ -54,17 +54,16 @@ def personality_edit(request, pk):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('/Personality/')
+            return redirect('../../compare')
     content = {'person': person, 'form': form}
     return render(request, 'Personality/personality_edit.html', content)
 
 
-# This function allows the user to delete the item in the database
 def personality_delete(request, pk):
     person = get_object_or_404(Person, pk=pk)
     form = PersonForm(data=request.POST or None, instance=person)
     if request.method == 'POST':
         person.delete()
-        return redirect('/Personality/')
+        return redirect('../../compare')
     content = {'person': person, 'form': form}
     return render(request, 'Personality/personality_delete.html', content)
