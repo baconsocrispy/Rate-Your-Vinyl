@@ -1,4 +1,4 @@
-{% extends "GrandmasRecipes_base.html" %}
+{% extends "GrandmasRecipes/GrandmasRecipes_base.html" %}
 {% load static %}
 
 {% block title %}Create a New Recipe {% endblock %}
@@ -6,6 +6,14 @@
 {% block header %}Create a New Recipe and Memory{% endblock %}
 
 {% block content %}
-
+    <div id="create-grandmas-recipe">
+        <form method="POST">
+            {% csrf_token %}
+                <table class="recipe_input">
+                    {{ form.as_table }}
+                </table>
+            <button type="submit">Add Recipe</button>
+        </form>
+    </div>
 
 {% endblock %}

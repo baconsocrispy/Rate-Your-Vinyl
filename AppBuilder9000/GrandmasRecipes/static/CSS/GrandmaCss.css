@@ -3,7 +3,7 @@
 
 body {
 	position: relative;
-	overflow: hidden;
+	overflow: scroll; /* Show scrollbars */
 }
 html, body {
     height: 100%;
