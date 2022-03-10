@@ -1,0 +1,15 @@
+{% extends "Drones/Drones_base.html" %}
+{% load static %}
+
+{% block title %}Drones{% endblock %}
+
+{% block header %}Drones{% endblock %}
+
+{% block content %}
+
+{% for drones in drones_list %}
+<ul>
+    <li>{{ drones }}</li>
+</ul>
+{% endfor %}
+{% endblock %}
