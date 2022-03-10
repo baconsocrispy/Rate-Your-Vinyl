@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static '/css/personality_layout.css' %}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<title>{% block title%}{% endblock %}</title>
+	</head>
+	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="btn btn-outline-primary" role="button" href="{% url 'personality_home' %}">Home<span class="sr-only">Home</span></a>
+                    <a class="btn btn-outline-primary" role="button" href="{% url 'personality_create' %}">Take Test</a>
+                    <a class="btn btn-outline-primary" role="button" href="{% url 'personality_compare' %}">Compare Results</a>
+                </div>
+            </div>
+        </nav>
+	<body id="body">
+		<div class="checkbook-container">
+			{% block content %}{% endblock %}
+			<br><br>
+		</div>
+		<section class="bg-dark" id="block-footer">
+			<p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
+			<p id="footer-left">&copy;2022 - Carson Cook</p>
+		</section>
+	</body>
+</html>

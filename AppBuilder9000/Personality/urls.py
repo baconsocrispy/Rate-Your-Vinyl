@@ -1,0 +1,15 @@
+from django.urls import path
+from . import views
+
+from . import views
+
+
+#app_name = 'Personality'
+urlpatterns = [
+    path('', views.personality_home, name='personality_home'),
+    path('create/', views.personality_create, name='personality_create'),
+    path('compare/', views.personality_compare, name='personality_compare'),
+    #path('<int:pk>/', views.PersonalityDetailView.as_view(), name='personality_details'),
+    path('<int:pk>/', views.personality_details, name='personality_details'),
+    path('<int:pk>/edit/', views.personality_edit, name='personality_edit'),
+]
