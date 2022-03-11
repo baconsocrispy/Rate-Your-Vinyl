@@ -10,6 +10,7 @@ Choice_DropDown = [
 ]
 
 # Recipe class model
+# This is the basic model for the database.#
 
 
 class Recipes(models.Model):
