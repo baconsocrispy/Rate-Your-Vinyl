@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import StockForm
 from .models import StockData
@@ -23,4 +23,9 @@ def stock_add_page(request):
 def stock_display_database_page(request):
     stock_list = StockData.objects.all()
     return render(request, 'StockTracker/StockDisplayDatabase.html', {'stock_list': stock_list})
+
+
+def stock_details(request, pk):
+    indiv_stock = get_object_or_404(StockData, pk=pk)
+    return render(request, 'StockTracker/StockDetailsPage.html', {'indiv_stock': indiv_stock})
 
