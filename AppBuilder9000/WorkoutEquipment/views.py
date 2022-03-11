@@ -4,7 +4,9 @@ from django.http import HttpResponse
 from .models import WorkoutEquipment
 from .forms import WorkoutEquipmentForm
 from bs4 import BeautifulSoup
+import json
 import requests
+
 
 
 
@@ -108,6 +110,20 @@ def workout_equip_bs_display(request):   # scraping website used fitness sales w
     return render(request, 'WorkoutEquipment/WorkoutEquipBsDisplay.html', content)
 
 
+def workout_equip_display_api(request):
+
+    url = "https://exercisedb.p.rapidapi.com/exercises"
+
+    headers = {
+        'x-rapidapi-host': "exercisedb.p.rapidapi.com",
+        'x-rapidapi-key': "748396d4admsh94a5c03979cf998p1b51c9jsn2ffa0b95942a"
+    }
+    response = requests.request("GET", url, headers=headers)
+    workout_info = json.loads(response.content)
+    pr = json.dumps(workout_info, indent=1)
+    print(pr)
+
+    return render(request, 'WorkoutEquipment/WorkoutEquipDisplayAPI.html')
 
 
     '''print(c.find_all('h2', class_='entry-title fusion-post-title')[0].get_text())'''
@@ -116,6 +132,14 @@ def workout_equip_bs_display(request):   # scraping website used fitness sales w
     """print(c.find_all('h2', class_='entry-title fusion-post-title'))"""
      ''''''print(c.find_all('div', class_='post-content')) '''
 
+
+
+
+    '''json.dumps() — Takes in a Python object, and converts(dumps) it
+    to
+    a
+    string.
+    json.loads() — Takes a JSON string, and converts (loads) it to a Python object.'''
 
 
 

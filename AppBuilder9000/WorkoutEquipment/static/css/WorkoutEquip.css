@@ -82,9 +82,9 @@ ul.topnav li.icon {
 	-moz-box-sizing: border-box;
     margin: 0 auto;
     background-color: #6c757d;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    height: 40px;
+    height: 60px;
 }
 #block-footer a, #block-footer p {
     flex: 1;
