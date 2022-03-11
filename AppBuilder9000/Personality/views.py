@@ -3,6 +3,8 @@ from .models import Person, ComparedPerson, SelectPerson
 from .forms import PersonForm, SelectPersonForm
 from django.views import generic
 from django.http import HttpResponse
+import requests
+import json
 
 
 #def personality_home(request):
@@ -67,3 +69,6 @@ def personality_delete(request, pk):
         return redirect('../../compare')
     content = {'person': person, 'form': form}
     return render(request, 'Personality/personality_delete.html', content)
+
+
+
