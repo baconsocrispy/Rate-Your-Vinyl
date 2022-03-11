@@ -10,4 +10,8 @@ urlpatterns = [
     path('StarWatch_filterStars/', views.list_stars, name='StarWatch_filterStars'),
     path('StarWatch_filterMoons/', views.list_moons, name='StarWatch_filterMoons'),
     path('StarWatch_filterOther/', views.list_other, name='StarWatch_filterOther'),
+    path('<int:pk>/StarWatch_editObject/', views.edit_object, name='StarWatch_editObject'),
+
+    path('<int:pk>/StarWatch_deleteObject/', views.delete_object, name="StarWatch_deleteObject"),
 ]
+
