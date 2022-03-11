@@ -1,13 +1,13 @@
 from django.db import models
 
 '''Adding choices for a drop down menu controlling user what to edit'''
-TYPE_CHOICES = {
+TYPE_CHOICES = (
     ('benches', 'benches'),
     ('treadmills', 'treadmills'),
     ('stationary bikes', 'stationary bikes'),
     ('Free weights', 'Free weights'),
 
-}
+)
 '''mapping our db model'''
 
 

@@ -8,6 +8,4 @@ from . import views
 
 urlpatterns = [
     path('', views.grandmas_home, name='GrandmasRecipes_home'),
-    path('library', views.grandmas_library, name='GrandmasRecipes_library'),
-    path('AddNew', views.grandmas_addnew, name='GrandmasRecipes_addnew'),
 ]
