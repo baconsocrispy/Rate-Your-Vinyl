@@ -4,8 +4,12 @@ body {
 }*/
 
 html, body {
-	height: cover;
-	width: cover;
+	/*height: cover;
+	width: cover;*/
+	overflow: auto !important;
+}
+
+html {
 }
 
 body {
@@ -19,7 +23,7 @@ body {
 	overflow: scroll;
 	background-repeat: no-repeat;
 
-	overflow: hidden;
+
 }
 
 h1{
