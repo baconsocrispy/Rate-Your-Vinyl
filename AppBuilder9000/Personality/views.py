@@ -10,8 +10,32 @@ import json
 #def personality_home(request):
 #    return render(request, 'Personality/personality_home.html')
 
+
+def jprint(obj):
+    # create a formatted string of the Python JSON object
+    text = json.dumps(obj, sort_keys=True, indent=4)
+    print(text)
+
+#I am going to get job title, type, salary, description, and location
+def print_jobs():
+    url = "https://indeed12.p.rapidapi.com/job/b762b8d1132bd276"
+    headers = {
+        'x-rapidapi-host': "indeed12.p.rapidapi.com",
+        'x-rapidapi-key': "9afece8438msh5f25fff510a60bbp1954d2jsn7f98f53b6d37"
+    }
+    response = requests.request("GET", url, headers=headers)
+    jprint(response.json())
+
+def personality_job_api(request):
+    print_jobs()
+    return render(request, 'Personality/personality_job_api.html')
+
+
 def personality_home(request):
     return render(request, 'Personality/personality_home.html')
+
+
+
 
 
 #def personality_create(request):
