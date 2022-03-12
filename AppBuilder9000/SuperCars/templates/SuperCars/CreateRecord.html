@@ -4,12 +4,11 @@
 
 {% block content %}
 
-    <div>
+    <div class="admin_panel">
         <form method="POST" action="{% url 'CreateRecord' %}">
             <div class="frmObject_container">
                 <!-- Cross Site Request Forgery (csrf_token) protection -->
                 {% csrf_token %}
-                {{ form.non_field_errors }}
                 {{ form.as_p }}
             </div>
             <div class="frmBtn_container">

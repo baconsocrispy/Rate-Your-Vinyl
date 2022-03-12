@@ -12,7 +12,7 @@ def SuperCarsHome(request):
 
 def CreateRecord(request):
     form = SuperCarsForm(data=request.POST or None)
-    if request.method=='POST':
+    if request.method =='POST':
         if form.is_valid():
             form.save()
             return redirect('SuperCars_Home')
