@@ -2,10 +2,10 @@ from django.db import models
 
 
 Car_CHOICES = {
-    ('',''),
-    ('',''),
-    ('',''),
-    ('',''),
+    ('Bugatti','Bugatti'),
+    ('Ferrari','Ferrari'),
+    ('McClaren','McClaren'),
+    ('Lambo','Lambo'),
 }
 
 class SuperCars(models.Model):
