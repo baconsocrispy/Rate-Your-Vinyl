@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import SuperCarsForm
 from .models import SuperCars
 
-# Create your views here.
+
 
 def SuperCarsHome(request):
     return render(request, 'SuperCars/SuperCarsHome.html')
