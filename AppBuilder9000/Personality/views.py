@@ -3,10 +3,31 @@ from .models import Person
 from .forms import PersonForm, JobSearchForm
 import requests
 import json
+from bs4 import BeautifulSoup
 
 
 def personality_job_api(request):
     return render(request, 'Personality/personality_job_api.html')
+
+
+def personality_trait_info(request):
+    page = requests.get("https://en.wikipedia.org/wiki/Big_Five_personality_traits")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    # Scraping general information about the traits
+    info = soup.find_all('p')[0].get_text() + soup.find_all('p')[2].get_text()
+    openness = soup.find_all('p')[7].get_text()
+    conscientiousness = soup.find_all('p')[9].get_text()
+    extraversion = soup.find_all('p')[10].get_text() + soup.find_all('p')[11].get_text() + soup.find_all('p')[12].get_text()
+    agreeableness = soup.find_all('p')[13].get_text() + soup.find_all('p')[14].get_text() + soup.find_all('p')[15].get_text() + soup.find_all('p')[16].get_text()
+    neuroticism = soup.find_all('p')[17].get_text() + soup.find_all('p')[18].get_text() + soup.find_all('p')[19].get_text()
+    print(info)
+    print(openness)
+    print(conscientiousness)
+    print(extraversion)
+    print(agreeableness)
+    print(neuroticism)
+    content = {'info': info, 'openness': openness, 'conscientiousness': conscientiousness, 'extraversion': extraversion, 'agreeableness': agreeableness, 'neuroticism': neuroticism}
+    return render(request, 'Personality/personality_trait_info.html', content)
 
 
 def personality_home(request):
@@ -48,10 +69,11 @@ def personality_details(request, pk):
             }
             response = requests.request("GET", url, headers=headers, params=parameters)
             job_info = json.loads(response.text)
+            job_url = job_info['indeed_final_url']
             job_list = []
             for job in job_info['hits']:
                 job_list.append([job['title'], job['company_name'], job['location']])
-            content = {'job_list': job_list}
+            content = {'job_list': job_list, 'job_url': job_url}
             return render(request, 'Personality/personality_job_api.html', content)
     content = {'person': person, 'form': form}
     return render(request, 'Personality/personality_details.html', content)
