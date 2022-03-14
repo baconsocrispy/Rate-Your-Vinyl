@@ -67,7 +67,7 @@ header {
     background-color: DarkGrey;
 }
 
-.cookbook{
+li {
     color: #0404B4;
     font-family: 'Lobster';
     text-align: left;
