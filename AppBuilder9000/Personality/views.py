@@ -48,10 +48,11 @@ def personality_details(request, pk):
             }
             response = requests.request("GET", url, headers=headers, params=parameters)
             job_info = json.loads(response.text)
+            job_url = job_info['indeed_final_url']
             job_list = []
             for job in job_info['hits']:
                 job_list.append([job['title'], job['company_name'], job['location']])
-            content = {'job_list': job_list}
+            content = {'job_list': job_list, 'job_url': job_url}
             return render(request, 'Personality/personality_job_api.html', content)
     content = {'person': person, 'form': form}
     return render(request, 'Personality/personality_details.html', content)
