@@ -13,7 +13,9 @@
                 <h1>{% block header %}{% endblock %}</h1>
 		    </header>
         </div>
-
-        {% include "SuperCars/SuperCarsFooter.html" %}
+         <div>
+             {% block content %}{% endblock %}
+        </div>
+             {% include "SuperCars/SuperCarsFooter.html" %}
     </body>
 </html>

@@ -6,6 +6,8 @@ TYPE_CHOICES = (
     ('treadmills', 'treadmills'),
     ('stationary bikes', 'stationary bikes'),
     ('Free weights', 'Free weights'),
+    ('Mechanical weight set', 'Mechanical weight set'),
+    ('Racks', 'Racks'),
 
 )
 '''mapping our db model'''
@@ -22,7 +24,6 @@ class WorkoutEquipment(models.Model):
 
 
 '''This puts the name as the title of the the field'''
-
 
 def __str__(self):
     return self.name
