@@ -19,7 +19,7 @@ def grandmas_create(request):
 
 def grandmas_cookbook(request):
     # recipe = Database name: Recipes, model manager: Recipe get all
-    recipe = Recipes.Recipe.all()
-    context = {'recipe': recipe}
+    recipes = Recipes.Recipes.all()
+    context = {'recipes': recipes}
 
     return render(request, 'GrandmasRecipes/GrandmasRecipes_cookbook.html', context)

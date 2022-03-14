@@ -21,10 +21,13 @@ class Recipes(models.Model):
     ingredients = models.TextField(default='list, ingredients, separated, by, commas')
     instructions = models.TextField(default='Remember How Grandma Used to Do it? Tell about it!')
 
+    class Meta:
+        db_table = 'Recipes'
+
     def __str__(self):
         return self.name
 
-    Recipe = models.Manager()
+    Recipes = models.Manager()
 
 
 

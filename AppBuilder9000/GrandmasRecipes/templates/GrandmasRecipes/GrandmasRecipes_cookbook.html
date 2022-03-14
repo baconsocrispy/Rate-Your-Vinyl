@@ -8,8 +8,11 @@
 {% block content %}
     <div id="cookbook">
         <ul>
-            {% for recipes in Recipes %}
-            <li>{{ Recipe }}</li> <!-- iterate through database, output results to list -->
+            {% for Recipes in Recipes %}
+                <li>
+                {{ Recipes.name }}
+                {{ Recipes.ingredients }}  <!-- iterate through database, output results to list -->
+                </li>
             {% endfor %}
         </ul>
     </div>
