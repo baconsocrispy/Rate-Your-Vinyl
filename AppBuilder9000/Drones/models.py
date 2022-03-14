@@ -23,6 +23,8 @@ class Drone(models.Model):
     flight_time_in_minutes = models.IntegerField(max_length=10)
 
 
+
+
     Drones = models.Manager()
 
     def __str__(self):

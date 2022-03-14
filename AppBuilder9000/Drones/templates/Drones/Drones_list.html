@@ -6,10 +6,22 @@
 {% block header %}Drones{% endblock %}
 
 {% block content %}
+<div id="container" class="table-responsive w-75 mx-auto">
+    <table id="table" class="table table-dark table-bordered table-hover text-center" data-toggle="table">
+        <caption>Click on a Drone for details</caption>
+        <thead>
+            <tr>
+                <th scope="col" data-field="name" data-sortable="true" class="w-25">Drone</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for Drones in  drones_list %}
+            <tr>
+                <td><a href="{% url 'Drones_details' Drone.id %}">{{ Drone }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 
-{% for drones in drones_list %}
-<ul>
-    <li>{{ drones }}</li>
-</ul>
-{% endfor %}
 {% endblock %}
