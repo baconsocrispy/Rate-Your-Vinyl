@@ -40,17 +40,18 @@
                       <li class="nav-item active">
                         <a class="nav-link" href="{% url 'Drones_list' %}">List Of Drones <span class="sr-only"></span></a>
                      </li>
-                       <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'Drones_details' %}">Drones Details <span class="sr-only"></span></a>
-                     </li>
+                      <!-- NATHAN: Remove lines 44-46 and this comment. -->
+                      <!-- <li class="nav-item active">
+                        <a class="nav-link" href="">Drones Details <span class="sr-only"></span></a>
+                     </li>-->
                   </ul>
               </div>
         </nav>
         <br>
         <br>
-
-        {% block content %} {% endblock %}
-
+        <div>
+            {% block content %} {% endblock %}
+        </div>
     </body>
 
 
