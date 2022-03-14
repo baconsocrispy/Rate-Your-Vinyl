@@ -9,7 +9,7 @@ html, body {
 	overflow: auto !important;
 }
 
-html {
+button {
 }
 
 body {
@@ -120,9 +120,8 @@ tr td{
 
 .checkbook-container h3{
 	font-size: 24px;
-	text-decoration: underline;
 	text-align: center;
-	color:darkslateblue;
+	color:black;
 	font-weight: bold;
 	margin-left: 25px;
 	margin-top: 15px;
