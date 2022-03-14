@@ -21,7 +21,7 @@ def Drones_create(request):
 
 def Drones_list(request):
     drones_list = Drone.Drones.all()
-    context = {'drones_list': drones_list}
+    context = {'Drones_list': drones_list}
     return render(request, 'Drones/Drones_list.html', context)
 
 

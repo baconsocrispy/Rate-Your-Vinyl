@@ -17,8 +17,7 @@
         <tbody>
         {% for Drones in  drones_list %}
             <tr>
-                <!-- <td><a href="{% url 'Drones_details' Drones.id %}">{{ Drones }}</a></td> -->
-                <td><a href="{% url 'Drones_details' Drone.id %}">{{ Drone }}</a></td>
+                <td><a href="{% url 'Drones_details' Drones.id %}">{{ Drones }}</a></td>
             </tr>
         {% endfor %}
         </tbody>
