@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from.forms import RecipesForm
-from.models import Recipes
+from .forms import RecipesForm
+from .models import Recipes
 
 
 def grandmas_home(request):
@@ -20,4 +20,6 @@ def grandmas_create(request):
 def grandmas_cookbook(request):
     # recipe = Database name: Recipes, model manager: Recipe get all
     recipe = Recipes.Recipe.all()
-    return render(request, 'GrandmasRecipes/GrandmasRecipes_cookbook.html', {'recipe': recipe})
+    context = {'recipe': recipe}
+
+    return render(request, 'GrandmasRecipes/GrandmasRecipes_cookbook.html', context)
