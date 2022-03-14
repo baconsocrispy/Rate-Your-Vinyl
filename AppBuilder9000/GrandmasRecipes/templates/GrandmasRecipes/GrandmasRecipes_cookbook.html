@@ -6,13 +6,22 @@
 {% block header %}<h3>The Cookbook</h3>{% endblock %}
 
 {% block content %}
-    <div id="cookbook">
-        <ul>
-            {% for Recipes in recipes %}
+    <table id="cookbook">
+        <thead class="table_header"> <!--tbl headers-->
+            <tr>
+                <td scope="col"> Name </td>
+                <td scope="col"> Category </td>
+            </tr>
+        </thead>
+        <tbody class="tbl_body"> <!--rows-->
+            {% for Recipes in recipes %} <!-- iterate through database, output results to list -->
+                <tr>
+                    <td> {{ Recipes }}</td>
+                </tr>
 
-            <li> <a href="">{{ Recipes }}</a></li><!-- iterate through database, output results to list -->
+
 
             {% endfor %}
-        </ul>
-    </div>
+        </tbody>
+    </table>
 {% endblock %}
