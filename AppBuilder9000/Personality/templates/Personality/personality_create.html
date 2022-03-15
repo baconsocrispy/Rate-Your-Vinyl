@@ -6,14 +6,19 @@
 
 {% block content %}
 
-<h3>CREATE NEW ACCOUNT</h3>
+<h3>Who are you?</h3>
 	<div id="account-form">
 		<form method="POST">
 			{% csrf_token %}
 			{{form.as_p}}
+			<br>
+			<h3>25-item Personality Questionnaire</h3>
+			<br>
+			<table border="1">
+			{{test}}
+			</table>
 			<button id="new-account-button" type="submit" name="Save_Account">Create Account</button>
 		</form>
-		<br>
 	</div>
 
 {% endblock %}

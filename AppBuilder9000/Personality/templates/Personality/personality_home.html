@@ -6,16 +6,15 @@
 
 {% block content %}
 
-<h3>Big 5 Personality Test</h3>
-    <hr>
+<h3>Big 5 Personality Score Manager</h3>
     <hr>
     <div class="text-center">
         <h5></h5>
         <!-- Add a template to the href so the button works-->
 
-        <button type="submit" class="new-account-button"><a href="{% url 'personality_create' %}">Create Account</a></button>
+        <button type="submit" class="new-account-button"><a href="{% url 'personality_create' %}">Discover your Personality</a></button>
         <br>
-        <button type="submit" class="new-account-button"><a href="{% url 'personality_compare' %}">View Existing Accounts</a></button>
+        <button type="submit" class="new-account-button"><a href="{% url 'personality_compare' %}">View Existing Scores</a></button>
         <br>
         <button type="submit" class="new-account-button"><a href="{% url 'personality_trait_info' %}">Learn More</a></button>
     </div>

@@ -6,7 +6,10 @@
 
 {% block content %}
 
-<h3>Account Details</h3>
+<h3>{{person.name}}'s Profile</h3>
+
+<img id="chart" src={{url}} alt="Static Chart"/>
+
 	<div id="account-form">
 		<table class="table table-responsive" id ="transactions-table">
     <tr id="headerRow">
@@ -23,16 +26,17 @@
         <td class="center">{{ person.name }}</td>
         <td class="center">{{ person.age }}</td>
         <td class="left">{{ person.sex }}</td>
-        <td class="center">{{ person.o_average_score }}</td>
-        <td class="center">{{ person.c_average_score }}</td>
-        <td class="center">{{ person.e_average_score }}</td>
-        <td class="right">{{ person.a_average_score }}</td>
-        <td class="right">{{ person.n_average_score }}</td>
+        <td class="center">{{ person.o_average_score }}%</td>
+        <td class="center">{{ person.c_average_score }}%</td>
+        <td class="center">{{ person.e_average_score }}%</td>
+        <td class="right">{{ person.a_average_score }}%</td>
+        <td class="right">{{ person.n_average_score }}%</td>
     </tr>
 </table>
         <!--<button href="{% url 'personality_edit' person.id%}">Edit Account</button>-->
         <button type="submit"><a href="{% url 'personality_edit' person.id %}">Edit Account</a></button>
 		<br>
+        <button type="submit"><a href="{% url 'personality_compare' %}">Compare Traits</a></button>
         <br>
 
         <h3>Find a career that matches your personality:</h3>

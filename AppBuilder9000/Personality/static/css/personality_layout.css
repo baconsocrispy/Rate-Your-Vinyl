@@ -2,7 +2,17 @@
 body {
     background-image: url('../images/faces.jpg');
 }*/
-
+body {
+    background-image: url('../images/faces.jpg');
+	font-family: Lucida Sans Unicode;
+	text-align: center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	overflow: scroll;
+	background-repeat: no-repeat;
+}
 html, body {
 	/*height: cover;
 	width: cover;*/
@@ -12,19 +22,14 @@ html, body {
 button {
 }
 
-body {
-	font-family: Lucida Sans Unicode;
-	text-align: center;
-	background-image: url('../images/faces.jpg');
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-	overflow: scroll;
-	background-repeat: no-repeat;
-
-
+#chart {
+    opacity: 1;
+    border-radius: 15px;
+    margin: 20px 200px 20px 200px;
+    text-align: center;
 }
+
+
 
 h1{
 	color: black;
@@ -48,12 +53,12 @@ label {
 input, select{
 	width: 500px;
 	border-radius: 5px;
-	box-shadow: 4px 2px darkslateblue;
+/*	box-shadow: 4px 2px darkslateblue;*/
 }
 
 /* General Table Styling */
 th{
-	border: 3px solid black;
+	border: 2px solid black;
 }
 
 tr td{
@@ -65,13 +70,13 @@ tr td{
 }
 
 #headerRow {
-	color: darkslateblue;
+/*	color: darkslateblue;*/
 	text-align: center;
 }
 
 .center {
 	text-align: center;
-	width: 15%;
+/*	width: 15%;*/
 }
 
 .left{
@@ -95,13 +100,13 @@ tr td{
 
 /*Container Styling */
 .checkbook-container{
-	opacity: 0.8;
+	opacity: 1;
 	position: relative;
 	width: 1200px;
 	height: auto;
 	border-radius: 8px;
 	border: 2px solid gray;
-	box-shadow: 4px 3px darkslateblue;
+/*	box-shadow: 4px 3px darkslateblue;*/
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10em;
@@ -134,6 +139,12 @@ form{
 }
 
 /* All Transactions Form and Table Styling */
+.table td, .table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 2px solid black !important;
+}
+
 #all-transactions-form {
 	position: relative;
 }
@@ -163,10 +174,12 @@ form{
 	height: auto;
 	margin-right: auto;
 	margin-left: auto;
-	padding: 10px;
+/*	padding: 10px;*/
+/*
 	border: 2px solid gray;
+*/
 	border-collapse: collapse;
-	border-radius: 8px;
+/*	border-radius: 8px;*/
 	table-layout: auto;
 	float: center;
 	position: relative;
@@ -182,7 +195,13 @@ form{
 }
 
 /* Button styling */
+ul{
+list-style: none;
+}
+
 .checkbook-container button, .new-account-button{
+    padding: 5px;
+    border-radius: 3px;
 	background-color: darkgray;
 	display: block;
 	margin-left: auto;
