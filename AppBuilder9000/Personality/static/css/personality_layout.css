@@ -2,7 +2,9 @@
 body {
     background-image: url('../images/faces.jpg');
 }*/
-
+h5 {
+    margin: 0px 50px 0px 50px !important;
+}
 
 
 .test {
@@ -46,6 +48,7 @@ html, body {
 	/*height: cover;
 	width: cover;*/
 	overflow: auto !important;
+	font-family: 'Hind Siliguri', sans-serif !important;
 }
 
 button {
@@ -206,6 +209,9 @@ tr td{
 }
 h3 {
     padding: 20px 20px 20px 20px;
+    color: #0073e6 !important;
+    font-family: 'Hind Siliguri', sans-serif;
+/*    text-shadow: -1px 0 #1a8cff, 0 1px #1a8cff, 1px 0 #1a8cff, 0 -1px #1a8cff;*/
 }
 
 form{
@@ -283,6 +289,7 @@ list-style: none;
     z-index: 15;
     height: 50px;
     background-color: black;
+
 }
 
 
@@ -303,11 +310,29 @@ list-style: none;
 button a, button a:hover{
     text-decoration: none;
 	text-align: center;
-	color: white;
+	color: white !important;
+	border: none;
+}
+
+a {
+    color: white !important;
+}
+
+.blue {
+    color: #0073e6 !important;
+}
+
+table a {
+    color: #0073e6 !important;
+}
+
+a:hover {
+    color: #99ccff !important;
+    text-decoration: none !important;
 }
 
 .checkbook-container button:hover, .new-account-button:hover{
-	background-color: #66b3ff;
+	background-color: #5c6670;
 	color: black;
 	box-shadow: 2px 2px 2px #888888;
 }
@@ -315,6 +340,10 @@ button a, button a:hover{
 .navbar-fixed-top {
     top: 0;
     border-width: 0 0 1px;
+}
+
+.navbar-nav {
+    padding-left: 28% !important;
 }
 
 /* Footer styling */
@@ -328,6 +357,7 @@ button a, button a:hover{
     position: fixed;
     bottom: 0;
     height: 40px;
+    opacity: 0;
 }
 #block-footer a, #block-footer p {
     flex: 1;
@@ -341,6 +371,12 @@ button a, button a:hover{
     width: 40%;
     text-align: right;
 }
+
+#footer-center {
+    width: 40%;
+    text-align: center;
+}
+
 #block-footer{
 	float:left;
 	clear:both;

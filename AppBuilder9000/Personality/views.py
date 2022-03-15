@@ -47,36 +47,59 @@ def personality_create(request):
             if test.is_valid():
                 print("4")
                 person_instance = form.save(commit=False)
-                o_score = 4
-                c_score = 4
-                e_score = 4
-                a_score = 4
-                n_score = 4
+                o_score = 10
+                c_score = 10
+                e_score = 10
+                a_score = 10
+                n_score = 10
+
                 o1 = int(test.cleaned_data["questionO1"])
                 o2 = int(test.cleaned_data["questionO2"])
+                o3 = int(test.cleaned_data["questionO3"])
+                o4 = int(test.cleaned_data["questionO4"])
+                o5 = int(test.cleaned_data["questionO5"])
+
                 c1 = int(test.cleaned_data["questionC1"])
                 c2 = int(test.cleaned_data["questionC2"])
+                c3 = int(test.cleaned_data["questionC3"])
+                c4 = int(test.cleaned_data["questionC4"])
+                c5 = int(test.cleaned_data["questionC5"])
+
                 e1 = int(test.cleaned_data["questionE1"])
                 e2 = int(test.cleaned_data["questionE2"])
+                e3 = int(test.cleaned_data["questionE3"])
+                e4 = int(test.cleaned_data["questionE4"])
+                e5 = int(test.cleaned_data["questionE5"])
+
                 a1 = int(test.cleaned_data["questionA1"])
                 a2 = int(test.cleaned_data["questionA2"])
+                a3 = int(test.cleaned_data["questionA3"])
+                a4 = int(test.cleaned_data["questionA4"])
+                a5 = int(test.cleaned_data["questionA5"])
+
                 n1 = int(test.cleaned_data["questionN1"])
                 n2 = int(test.cleaned_data["questionN2"])
-                o_score += o1 + o2
-                c_score += c1 + c2
-                e_score += e1 + e2
-                a_score += a1 + a2
-                n_score += n1 + n2
+                n3 = int(test.cleaned_data["questionN3"])
+                n4 = int(test.cleaned_data["questionN4"])
+                n5 = int(test.cleaned_data["questionN5"])
+
+                o_score += o1 + o2 + o3 + o4 + o5
+                c_score += c1 + c2 + c3 + c4 + c5
+                e_score += e1 + e2 + e3 + e4 + e5
+                a_score += a1 + a2 + a3 + a4 + a5
+                n_score += n1 + n2 + n3 + n4 + n5
+
                 print('o_score: ' + str(o_score))
                 print('c_score: ' + str(c_score))
                 print('e_score: ' + str(e_score))
                 print('a_score: ' + str(a_score))
                 print('n_score: ' + str(n_score))
-                o_average = (o_score/8) * 100
-                c_average = (c_score / 8) * 100
-                e_average = (e_score / 8) * 100
-                a_average = (a_score / 8) * 100
-                n_average = (n_score / 8) * 100
+
+                o_average = (o_score / 20) * 100
+                c_average = (c_score / 20) * 100
+                e_average = (e_score / 20) * 100
+                a_average = (a_score / 20) * 100
+                n_average = (n_score / 20) * 100
                 print(o_average)
                 print(c_average)
                 print(e_average)
@@ -134,7 +157,7 @@ def personality_details(request, pk):
             job_list = []
             for job in job_info['hits']:
                 job_list.append([job['title'], job['company_name'], job['location']])
-            content = {'job_list': job_list, 'job_url': job_url}
+            content = {'job_list': job_list, 'job_url': job_url, 'person': person}
             return render(request, 'Personality/personality_job_api.html', content)
 
     url = "https://image-charts.com/chart?chan=1200%2CeaseInSine&chbr=5&chco=3366FF&chd=t%3A"\
