@@ -11,13 +11,15 @@
             <tr>
                 <td scope="col"> Name </td>
                 <td scope="col"> Category </td>
-                <td scope="col">  </td>
+                <td scope="col"> Prep Time </td>
             </tr>
         </thead>
         <tbody class="tbl_body"> <!--rows-->
             {% for Recipes in recipes %} <!-- iterate through database, output results to list -->
                 <tr>
                     <td> {{ Recipes }}</td>
+                    <td> {{ Recipes.category }}</td>
+                    <td> {{ Recipes.prep_time }}</td>
                 </tr>
             {% endfor %}
         </tbody>
