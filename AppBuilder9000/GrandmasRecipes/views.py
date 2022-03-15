@@ -23,3 +23,10 @@ def grandmas_cookbook(request):
     context = {'recipes': recipes}
 
     return render(request, 'GrandmasRecipes/GrandmasRecipes_cookbook.html', context)
+
+
+# render GrandmasRecipes_details page, display any recipe in the database
+def grandmas_details(request, pk):
+    details = get_object_or_404(Recipes, pk=pk)
+    content = {'details': details}
+    return render(request, 'GrandmasRecipes/GrandmasRecipes_details.html', content)

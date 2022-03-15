@@ -1,0 +1,28 @@
+{% extends "GrandmasRecipes/GrandmasRecipes_base.html" %}
+{% load static %}
+<!-- This page should render individual recipes based on
+user clicking the link in the cookbook-->
+
+{% block title %}Grandmas Recipe Collection{% endblock %}
+
+{% block header %}<h4>Recipe</h4>{% endblock %}
+
+{% block content %}
+<div class="recipe-card">
+      <div class="recipe-heading ">
+           <h5 class="recipe-title">{{ details.name }}</h5> <!-- recipe name -->
+           <p class="recipe-text">Category: {{ details.category }}</p>
+	   <p class="recipe-text">Prep Time: {{ details.prep_time }}</p>
+      </div>
+
+      <div class="card-body ">
+            <h6 class="font-weight-bold"> Ingredients: </h6>
+            <p class="recipe-text"> {{ details.ingredients|linebreaks }}</p>
+            <h6> Method: </h6>
+            <ul>
+                <li>{{ details.instructions|linebreaks }}</li>
+            </ul>
+
+      </div>
+</div>
+{% endblock %}

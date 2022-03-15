@@ -17,9 +17,9 @@
         <tbody class="tbl_body"> <!--rows-->
             {% for Recipes in recipes %} <!-- iterate through database, output results to list -->
                 <tr>
-                    <td> {{ Recipes }}</td>
-                    <td> {{ Recipes.category }}</td>
-                    <td> {{ Recipes.prep_time }}</td>
+                    <td><a class= "recipe_hyperlink" href="{% url 'GrandmasRecipes_details' %}"> {{ Recipes }}</a></td>
+                    <td>{{ Recipes.category }}</td>
+                    <td>{{ Recipes.prep_time }}</td>
                 </tr>
             {% endfor %}
         </tbody>
