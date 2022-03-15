@@ -9,7 +9,9 @@
 <h3>{{person.name}}'s Profile</h3>
 
 <img id="chart" src={{url}} alt="Static Chart"/>
-
+    <br>
+    <br>
+    <br>
 	<div id="account-form">
 		<table class="table table-responsive" id ="transactions-table">
     <tr id="headerRow">
@@ -35,14 +37,15 @@
 </table>
         <!--<button href="{% url 'personality_edit' person.id%}">Edit Account</button>-->
         <button type="submit"><a href="{% url 'personality_edit' person.id %}">Edit Account</a></button>
-		<br>
         <button type="submit"><a href="{% url 'personality_compare' %}">Compare Traits</a></button>
         <br>
-
+        <br>
         <h3>Find a career that matches your personality:</h3>
         <form method="POST">
 			{% csrf_token %}
-			{{ form.as_p }}
+            <table class="edit">
+			{{ form }}
+            </table>
 			<button id="new-account-button" type="submit" name="Save_Account">View Jobs</button>
 		</form>
 

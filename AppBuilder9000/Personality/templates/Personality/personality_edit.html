@@ -10,7 +10,9 @@
 	<div id="account-form">
 		<form method="POST">
 			{% csrf_token %}
-			{{ form.as_p }}
+			<table class="edit">
+			{{ form }}
+			</table>
 			<button id="new-account-button" type="submit" name="Save_Account">Save Changes</button>
 		</form>
 		<br>
