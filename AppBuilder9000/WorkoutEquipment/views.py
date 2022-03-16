@@ -4,7 +4,9 @@ from django.http import HttpResponse
 from .models import WorkoutEquipment
 from .forms import WorkoutEquipmentForm
 from bs4 import BeautifulSoup
+import json
 import requests
+
 
 
 
@@ -98,23 +100,37 @@ def confirmed(request):
     else:
         return redirect('workout_equip_console')
 
+# This function uses beautiful soup methods to isolate data on a webpage and takes that content
+# for display on bsdisplay template page
+
 
 def workout_equip_bs_display(request):   # scraping website used fitness sales with blog info using beautiful soup
     bsinfo = requests.get("https://www.usedfitnesssales.com/chooschoosing-your-best-new-home-gym-fitness-equipment-for-the-new-yearing-your-best-new-home-gym-fitness-equipment-for-the-new-year/")
     c = BeautifulSoup(bsinfo.content, 'html.parser')
     title = c.find(class_='entry-title fusion-post-title').get_text()
     blogP = c.find(class_='post-content').get_text()
-    content = {'bsinfo': bsinfo, 'title': title, 'blogP':blogP }
+    content = {'bsinfo': bsinfo, 'title': title, 'blogP': blogP}
     return render(request, 'WorkoutEquipment/WorkoutEquipBsDisplay.html', content)
 
+# function to display api results on template page
+# *** going to fix with assistance in the future to parse isolated sections of data
+def workout_equip_display_api(request):
 
+    url = "https://exercisedb.p.rapidapi.com/exercises"
 
+    headers = {
+        'x-rapidapi-host': "exercisedb.p.rapidapi.com",
+        'x-rapidapi-key': "748396d4admsh94a5c03979cf998p1b51c9jsn2ffa0b95942a"
+    }
+    response = requests.request("GET", url, headers=headers)
+    workout_info = json.loads(response.text)
+    pr = json.dumps(workout_info, indent=4)
+    print(pr)
+    context = {
+        'pr': pr
+    }
+    return render(request, 'WorkoutEquipment/WorkoutEquipDisplayAPI.html', context)
 
-    '''print(c.find_all('h2', class_='entry-title fusion-post-title')[0].get_text())'''
-
-    '''content = {'bsinfo': bsinfo, 'c': c,}
-    """print(c.find_all('h2', class_='entry-title fusion-post-title'))"""
-     ''''''print(c.find_all('div', class_='post-content')) '''
 
 
 

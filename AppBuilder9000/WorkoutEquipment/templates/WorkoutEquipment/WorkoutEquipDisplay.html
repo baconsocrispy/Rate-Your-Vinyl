@@ -3,7 +3,7 @@
 
 {% block title %} Equipment List {% endblock %}
 
-{% block header %} {% endblock %}
+{% block header %} Equipment List {% endblock %}
                                          <!--using for loop to iterate through
                                    display_items dictionary object in view
                                     function that displays all db items-->
@@ -29,7 +29,7 @@
                             <tr class="table">
                                 <td>{{ equipment.id }}</td> <!--block tags representing db table values-->
                                 <td>{{ equipment.name }}</td> <!-- link of equipment.type to individual details pg-->
-                                <td><a href="{% url 'workout_equip_details' equipment.id %}">{{ equipment.type }}</a></td>
+                                <td><a class="details" href="{% url 'workout_equip_details' equipment.id %}">{{ equipment.type }}</a></td>
                                 <td>{{ equipment.description }}</td>
                                 <td>{{ equipment.price }}</td>
                                 <td>{{ equipment.image }}</td>

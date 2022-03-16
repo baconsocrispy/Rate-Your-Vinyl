@@ -13,7 +13,7 @@
     {# Filter Categories #}
     <div class="box m-5 ">
         <div class="centered_container">
-            <table id="table" class=' text-center box table table-info  table-hover table-bordered table-centered'>
+            <table id="main_list" class=' text-center box table table-info  table-hover table-bordered table-centered'>
                 <tr>
                     <th class="filter"><a href="{% url 'StarWatch_filterPlanets' %}">Planets</a></th>
                     <th class="filter"><a href="{% url 'StarWatch_filterStars' %}">Stars</a></th>
@@ -24,6 +24,7 @@
         </div>
     </div>
 
+{% block catalog %}
     <div class="box m-4 ">
         <div class="centered_container">
             <table id="table" class='text-center box table table-info  table-hover table-bordered table-centered'>
@@ -50,5 +51,7 @@
             </table>
         </div>
     </div>
+{% endblock %}
+
 {% endblock %}
 

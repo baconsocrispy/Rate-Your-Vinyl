@@ -36,14 +36,14 @@ ul {
 #title {
     text-align: center;
     font-size: 5em;
-    -webkit-text-stroke-width: .1px;
-    -webkit-text-stroke-color: 0b5ed7;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
     text-shadow: 0 0 10px lightblue;
 }
 #slogan{
     text-align: center;
     font-size: 2em;
-    -webkit-text-stroke-width: .05px;
+    -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: blue;
     text-shadow: 0 0 5px lightblue;
   }
@@ -71,7 +71,7 @@ ul {
 .navigation {
   overflow: hidden;
   background-color: #333;
-  font-family: Arial;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Links inside the navbar */
@@ -108,24 +108,17 @@ ul {
   }
 
 td {
-    font-family: Arial;
-    text-width: bold;
-    text-color: white;
+    font-family: Arial, Helvetica, sans-serif;
     }
 
 .filter{
     text-align: center;
     margin: auto;
     justify-content: center;
-    text-color: red;
+
 }
 
-th, td {
-  border: 1px solid black;
-      width: 25%;
+#main_list{
+      border: 5px solid #ccc;
+  padding:10px;
 }
-
-table {
-  border-collapse: collapse;
-}
-

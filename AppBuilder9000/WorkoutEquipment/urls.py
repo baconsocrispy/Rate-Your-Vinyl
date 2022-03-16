@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:pk>/workout_equip_edit/', views.workout_equip_edit, name='workout_equip_edit'),
     path('<int:pk>/workout_equip_delete/', views.workout_equip_delete, name='workout_equip_delete'),
     path('WorkoutEquipBsDisplay', views.workout_equip_bs_display, name='workout_equip_bs_display'),
+    path('WorkoutEquipDisplayAPI', views.workout_equip_display_api, name='workout_equip_display_api'),
     ]

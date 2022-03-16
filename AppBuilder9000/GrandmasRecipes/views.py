@@ -1,10 +1,32 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from .forms import RecipesForm
+from .models import Recipes
 
 
-
-def GrandmasRecipes_home(request):
-    # render method takes the request object and template name as arguments
-    # returns httpResponse object with rendered text.
+def grandmas_home(request):
     return render(request, 'GrandmasRecipes/GrandmasRecipes_home.html')
 
 
+def grandmas_create(request):
+    form = RecipesForm(data=request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('GrandmasRecipes_home')
+    content = {'form': form}
+    return render(request, 'GrandmasRecipes/GrandmasRecipes_create.html', content)
+
+
+def grandmas_cookbook(request):
+    # recipe = Database name: Recipes, model manager: Recipe get all
+    recipes = Recipes.Recipes.all()
+    context = {'recipes': recipes}
+
+    return render(request, 'GrandmasRecipes/GrandmasRecipes_cookbook.html', context)
+
+
+# render GrandmasRecipes_details page, display any recipe in the database
+def grandmas_details(request, pk):
+    details = get_object_or_404(Recipes, pk=int(pk))
+    content = {'details': details}
+    return render(request, 'GrandmasRecipes/GrandmasRecipes_details.html', content)

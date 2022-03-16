@@ -3,7 +3,9 @@
 
 body {
 	position: relative;
-	overflow: hidden;
+	overflow: scroll; /* Show scrollbars */
+	background: LightGray url("") no-repeat;
+
 }
 html, body {
     height: 100%;
@@ -14,14 +16,14 @@ p {
 	padding: 2px 16px;
 	font-size: 15px;
 	font-family: 'Lato', Georgia, sans-serif;
-	color: #666666;
+	color: #0404B4;
 }
 h1 {
     color: #0404B4;
     font-family: 'Lobster';
     text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
     margin:0 auto;
-    background-color: DarkGrey;
+    background-color: DarkGray;
     text-align: center;
 }
 h2 {
@@ -30,14 +32,61 @@ h2 {
     font-family: 'Roboto', sans-serif;
     text-align: center;
 }
+
+h6 {
+    color: #0404B4;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
 header {
     color: #0404B4;
     font-family: 'Lobster';
     text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
     margin:0 auto;
     background-color: DarkGrey;
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
-    padding-left: 20px;
-    display: flex;
+}
+
+.form-container{
+    position: relative;
+    padding: 20px;
+    background-color: DarkGray;
+    color: #0404B4;
+    font-family: 'Lobster';
+}
+
+.nav {
+    color: #0404B4;
+    font-family: 'Lobster';
+    text-align: left;
+    font-size: 20px;
+    background-color: DarkGrey;
+}
+
+li {
+    color: #0404B4;
+    font-family: 'Lobster';
+    text-align: left;
+    font-size: 20px;
+    background-color: DarkGrey;
+}
+
+table,td,tr {
+    color: DarkBlue;
+    font-color: DarkGrey;
+    border-style: 20px solid DarkBlue;
+    border-spacing: 2px;
+    padding-left: 70px;
+    padding-top:25px;
+    padding-right: 70px;
+}
+
+thead {
+    background-color: DarkBlue;
+    text-align:center
+
 }
