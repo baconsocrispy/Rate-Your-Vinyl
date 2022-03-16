@@ -25,7 +25,7 @@ user clicking the link in the cookbook-->
             <p class="recipe-text"> {{ details.grandma_story|linebreaks }}</p>
       </div>
       <div id="edit_button">
-            <a href="{% url 'GrandmasRecipes_edit' Recipes.id %}">
+            <a href="{% url 'GrandmasRecipes_edit' details.id %}">
                 <button type="submit">Edit Recipe</button>
             </a>
             <a href="">

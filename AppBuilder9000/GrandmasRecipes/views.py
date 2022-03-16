@@ -27,7 +27,7 @@ def grandmas_cookbook(request):
 
 # render GrandmasRecipes_details page, display any recipe in the database
 def grandmas_details(request, pk):
-    details = get_object_or_404(Recipes, pk=int(pk))
+    details = get_object_or_404(Recipes, pk=int(pk))  # recipe we want to modify
     content = {'details': details}
     return render(request, 'GrandmasRecipes/GrandmasRecipes_details.html', content)
 
