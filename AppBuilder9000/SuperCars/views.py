@@ -24,6 +24,7 @@ def details(request, pk):
             print(form.errors)
     else:
         return render(request, 'SuperCars/PresentRecord.html', {'form': form})
+#adding comment
 
 def CreateRecord(request):
     form = SuperCarsForm(data=request.POST or None)
