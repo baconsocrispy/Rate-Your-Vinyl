@@ -16,9 +16,9 @@ def chefknives_view(request):
 
 
 def chefknives_create(request):
-    form = KnifeForm(data=requests.POST or None)
+    form = KnifeForm(data=request.POST or None)
     if request.method == 'POST':
-        if form.is_vaild():
+        if form.is_valid():
             form.save()
             return redirect('ChefKnives_Create')
         else:
