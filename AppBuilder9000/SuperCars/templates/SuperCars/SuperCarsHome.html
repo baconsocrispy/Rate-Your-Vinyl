@@ -4,6 +4,20 @@
 
 {% block header %}Welcome to the worlds most sought after rides!{% endblock %}
 
+{% block content %}
+
+
+{% for product in products %}
+    <ul>
+        {% if product == "Lambo" %}
+        <li>#{{ product }}</li>
+        {% else %}
+        <li>{{ product }}</li>
+        {% endif %}
+    </ul>
+{% endfor %}
+
+{% endblock %}
 
 
 
