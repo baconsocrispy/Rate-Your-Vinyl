@@ -1,0 +1,17 @@
+{% extends 'ChefKnives/ChefKnives_Base.html' %}
+
+{% block title %} Chef Knives {% endblock %}
+
+{% block header %} Chef Knives {% endblock %}
+
+{% block content %}
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="create_knife_button" type="submit" name="Save_Knife">Create</button>
+    </form>
+</div>
+
+{% endblock content %}
