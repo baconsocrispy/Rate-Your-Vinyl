@@ -11,11 +11,11 @@ class Person(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField()
     sex = models.CharField(max_length=60, choices=SEX_CHOICES)
-    o_average_score = models.FloatField(max_length=5)
-    c_average_score = models.FloatField(max_length=5)
-    e_average_score = models.FloatField(max_length=5)
-    a_average_score = models.FloatField(max_length=5)
-    n_average_score = models.FloatField(max_length=5)
+    o_average_score = models.FloatField(max_length=5, default=0)
+    c_average_score = models.FloatField(max_length=5, default=0)
+    e_average_score = models.FloatField(max_length=5, default=0)
+    a_average_score = models.FloatField(max_length=5, default=0)
+    n_average_score = models.FloatField(max_length=5, default=0)
 
     Persons = models.Manager()
 
