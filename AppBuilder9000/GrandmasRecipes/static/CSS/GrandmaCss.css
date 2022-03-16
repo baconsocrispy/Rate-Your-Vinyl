@@ -4,7 +4,7 @@
 body {
 	position: relative;
 	overflow: scroll; /* Show scrollbars */
-	background: DarkGray url("") no-repeat;
+	background: LightGray url("") no-repeat;
 
 }
 html, body {
