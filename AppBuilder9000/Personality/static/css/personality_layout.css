@@ -2,29 +2,69 @@
 body {
     background-image: url('../images/faces.jpg');
 }*/
-
-html, body {
-	/*height: cover;
-	width: cover;*/
-	overflow: auto !important;
+h5 {
+    margin: 0px 50px 0px 50px !important;
 }
 
-button {
+
+.test {
+/*    line-height: .7;*/
+    margin: 0px 0px 0px 16.5vw;
+    width: 25vw;
+    justify-content: center;
+    text-align: center;
+    border: hidden;
+}
+
+.test label {
+    display: inline;
+}
+
+
+
+table input{
+text-align: left;
+
+}
+
+li {
+    text-align: left;
+    margin: 0px 0px 0px 7vw;
 }
 
 body {
+/*    background-image: url('../images/faces.jpg');*/
 	font-family: Lucida Sans Unicode;
 	text-align: center;
-	background-image: url('../images/faces.jpg');
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 	overflow: scroll;
 	background-repeat: no-repeat;
+	background-color: #66b3ff !important;
+}
+html, body {
+	/*height: cover;
+	width: cover;*/
+	overflow: auto !important;
+	font-family: 'Hind Siliguri', sans-serif !important;
+}
 
+button {
+}
+
+#chart {
+    opacity: 1;
+    border-radius: 15px;
+    margin: 10px 200px 50px 200px;
+    text-align: center;
+    border: solid 5px #66b3ff;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 
 }
+
+
 
 h1{
 	color: black;
@@ -34,9 +74,10 @@ h1{
 
 /* General Form Field Styling */
 label {
+    display: inline;
 	width: 125px;
-	margin-left: 50px;
-	font-weight: bold;
+/*	margin-left: 50px;*/
+/*	font-weight: bold;*/
 	opacity: initial;
 }
 
@@ -46,14 +87,45 @@ label {
 }
 
 input, select{
-	width: 500px;
+/*	width: 500px;*/
 	border-radius: 5px;
-	box-shadow: 4px 2px darkslateblue;
+/*	box-shadow: 4px 2px darkslateblue;*/
 }
 
 /* General Table Styling */
+.edit {
+    margin: auto;
+    border: hidden;
+}
+
+.edit th {
+    border: hidden;
+/*    padding: 0em 1em 0em 1em;*/
+}
+
+.edit td {
+    border: hidden;
+    text-align: left;
+}
+
+.edit input {
+    width: 225px;
+    margin: 0px 0em 10px 0px;
+}
+
+.edit label {
+    padding: 0px 10px 10px 10px;
+    display: auto;
+}
+
+
 th{
-	border: 3px solid black;
+	border: 2px solid black;
+}
+
+.test th{
+    padding: 1em;
+    border: hidden;
 }
 
 tr td{
@@ -65,13 +137,15 @@ tr td{
 }
 
 #headerRow {
-	color: darkslateblue;
-	text-align: center;
+/*	color: darkslateblue;*/
+    color: white;
+    text-align: center;
+    background: #66b3ff;
 }
 
 .center {
 	text-align: center;
-	width: 15%;
+/*	width: 15%;*/
 }
 
 .left{
@@ -95,19 +169,26 @@ tr td{
 
 /*Container Styling */
 .checkbook-container{
-	opacity: 0.8;
+	opacity: 1;
 	position: relative;
 	width: 1200px;
 	height: auto;
-	border-radius: 8px;
-	border: 2px solid gray;
-	box-shadow: 4px 3px darkslateblue;
+	border-radius: 20px;
+/*	border: 2px solid gray;*/
+/*	box-shadow: 4px 3px darkslateblue;*/
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10em;
+	margin-top: 5em;
 	margin-bottom: 10em;
-	background-color: lightsteelblue;
+	background-color: #f2f2f2;
 	padding: 3em 3em 3em 3em !important;
+
+	box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+}
+
+.home-div {
+	margin-top: 5em;
 }
 
 .checkbook-container h2{
@@ -126,6 +207,12 @@ tr td{
 	margin-left: 25px;
 	margin-top: 15px;
 }
+h3 {
+    padding: 20px 20px 20px 20px;
+    color: #0073e6 !important;
+    font-family: 'Hind Siliguri', sans-serif;
+/*    text-shadow: -1px 0 #1a8cff, 0 1px #1a8cff, 1px 0 #1a8cff, 0 -1px #1a8cff;*/
+}
 
 form{
     justify-content: center;
@@ -134,6 +221,12 @@ form{
 }
 
 /* All Transactions Form and Table Styling */
+.table td, .table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 2px solid black !important;
+}
+
 #all-transactions-form {
 	position: relative;
 }
@@ -163,10 +256,12 @@ form{
 	height: auto;
 	margin-right: auto;
 	margin-left: auto;
-	padding: 10px;
+/*	padding: 10px;*/
+/*
 	border: 2px solid gray;
+*/
 	border-collapse: collapse;
-	border-radius: 8px;
+/*	border-radius: 8px;*/
 	table-layout: auto;
 	float: center;
 	position: relative;
@@ -182,21 +277,73 @@ form{
 }
 
 /* Button styling */
+ul{
+list-style: none;
+}
+
+.my-nav {
+    position: fixed;
+    top: 0;
+    margin: 0px;
+    padding: 0px;
+    z-index: 15;
+    height: 50px;
+    background-color: black;
+
+}
+
+
 .checkbook-container button, .new-account-button{
-	background-color: darkgray;
+    padding: 5px 15px 5px 15px;
+    border-radius: 8px;
+	background-color: #343A40;
+
+	color: white;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 20px;
+
+/*	border: solid 1px #66b3ff;*/
 }
 
 button a, button a:hover{
     text-decoration: none;
 	text-align: center;
-	color:black;
+	color: white !important;
+	border: none;
+}
+
+a {
+    color: white !important;
+}
+
+.blue {
+    color: #0073e6 !important;
+}
+
+table a {
+    color: #0073e6 !important;
+}
+
+a:hover {
+    color: #99ccff !important;
+    text-decoration: none !important;
 }
 
 .checkbook-container button:hover, .new-account-button:hover{
-	background-color: lightgray;
+	background-color: #5c6670;
+	color: black;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+
+.navbar-nav {
+    padding-left: 28% !important;
 }
 
 /* Footer styling */
@@ -210,6 +357,7 @@ button a, button a:hover{
     position: fixed;
     bottom: 0;
     height: 40px;
+    opacity: 0;
 }
 #block-footer a, #block-footer p {
     flex: 1;
@@ -223,6 +371,12 @@ button a, button a:hover{
     width: 40%;
     text-align: right;
 }
+
+#footer-center {
+    width: 40%;
+    text-align: center;
+}
+
 #block-footer{
 	float:left;
 	clear:both;

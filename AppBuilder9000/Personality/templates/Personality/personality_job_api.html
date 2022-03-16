@@ -6,7 +6,7 @@
 
 {% block content %}
 <h3>Job Details</h3>
-<p><a href="{{ job_url }}">Visit Page on Indeed.</a></p>
+<p class="center"><a class="blue" href="{{ job_url }}">Visit Page on Indeed.</a></p>
 <div id="account-form">
 		<table class="table table-responsive" id ="transactions-table">
     <tr id="headerRow">
@@ -22,6 +22,6 @@
     </tr>
     {% endfor %}
 </table>
-
+    <button type="submit" class="new-account-button"><a href="{% url 'personality_details' person.id %}">Return</a></button>
 </div>
 {% endblock %}
