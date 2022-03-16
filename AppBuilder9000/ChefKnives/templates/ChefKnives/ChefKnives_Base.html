@@ -1,0 +1,31 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Chef Knives{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/ChefKnives.css' %}">
+</head>
+<body id="body">
+    <div class="navbar">
+        <a href="{% url 'ChefKnives_Home' %}">Home</a>
+    </div>
+    <header class="header-title">
+        <h1>{% block header %}Chef Knives{% endblock %}</h1>
+    </header>
+
+
+
+
+    {% block content %}{% endblock %}
+
+
+    <div class="footer">
+        <p> 2022 | Cody Harris </p>
+    </div>
+
+</body>
+</html>

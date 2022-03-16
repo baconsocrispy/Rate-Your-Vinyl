@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'Personality',
     'GrandmasRecipes',
     'SuperCars',
+    'ChefKnives',
 
 ]
 
