@@ -23,7 +23,7 @@ h1 {
     font-family: 'Lobster';
     text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
     margin:0 auto;
-    background-color: DarkGray;
+    background-color: LightGray;
     text-align: center;
 }
 h2 {
@@ -46,7 +46,7 @@ header {
     font-family: 'Lobster';
     text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
     margin:0 auto;
-    background-color: DarkGrey;
+    background-color: LightGrey;
     font-size: 25px;
     text-align: center;
 }
@@ -54,7 +54,7 @@ header {
 .form-container{
     position: relative;
     padding: 20px;
-    background-color: DarkGray;
+    background-color: LightGray;
     color: #0404B4;
     font-family: 'Lobster';
 }
@@ -64,7 +64,7 @@ header {
     font-family: 'Lobster';
     text-align: left;
     font-size: 20px;
-    background-color: DarkGrey;
+    background-color: LightGrey;
 }
 
 li {
@@ -72,7 +72,7 @@ li {
     font-family: 'Lobster';
     text-align: left;
     font-size: 20px;
-    background-color: DarkGrey;
+    background-color: LightGrey;
 }
 
 table,td,tr {

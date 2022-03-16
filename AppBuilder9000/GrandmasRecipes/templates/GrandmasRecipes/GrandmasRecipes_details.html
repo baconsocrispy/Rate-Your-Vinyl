@@ -24,5 +24,14 @@ user clicking the link in the cookbook-->
             </ul>
 
       </div>
+      <div id="edit_button">
+            <a href="{% url 'GrandmasRecipes_edit' Recipes.id %}">
+                <button type="submit">Edit Recipe</button>
+            </a>
+            <a href="">
+                <button type="submit">Delete Recipe</button>
+            </a>
+
+      </div>
 </div>
 {% endblock %}
