@@ -24,6 +24,7 @@
             <td> {{view.country_origin}}</td>
             <td> {{view.steal}}</td>
             <td> {{view.blade_style}}</td>
+            <td><a class="btn" href="{% url 'ChefKnives_Details' view.pk %}"> Details </a> </td>
         </tr>
         {% endfor %}
     </table>

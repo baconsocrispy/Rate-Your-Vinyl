@@ -5,6 +5,6 @@ urlpatterns = [
     path(r'^$', views.home, name="ChefKnives_Home"),
     path('ChefKnives_Create/', views.chefknives_create, name="ChefKnives_Create"),
     path('ChefKnives_View/', views.chefknives_view, name="ChefKnives_View"),
-
+    path('<int:pk>/ChefKnives_Details/', views.chefknives_details, name="ChefKnives_Details"),
 
 ]

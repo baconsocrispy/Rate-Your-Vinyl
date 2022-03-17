@@ -1,5 +1,5 @@
 import requests
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import KnifeForm
 from .models import ChefKnives
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -36,3 +36,9 @@ def chefknives_create(request):
             form = KnifeForm()
     context = {'form': form}
     return render(request, 'ChefKnives/ChefKnives_Create.html', context)
+
+
+def chefknives_details(request, pk):
+    details = get_object_or_404(ChefKnives, pk=pk)
+    context = {'details': details}
+    return render(request, "ChefKnives/ChefKnives_Details.html", context)
