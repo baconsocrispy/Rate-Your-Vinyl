@@ -16,7 +16,7 @@
             {% csrf_token %}
             <div class="row">
                 <div class="col">
-                    {{ form }}
+                    {{ form.as_p }}
                 </div>
             </div>
             <button type="submit">Save Recipe</button>

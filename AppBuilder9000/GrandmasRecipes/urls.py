@@ -13,5 +13,5 @@ urlpatterns = [
     path('cookbook', views.grandmas_cookbook, name='GrandmasRecipes_cookbook'),  # usable link to cookbook page
     path('<int:pk>/details', views.grandmas_details, name='GrandmasRecipes_details'),  # link 2detail page need:<int:pk>
     path('<int:pk>/edit', views.grandmas_edit, name='GrandmasRecipes_edit'),  # link 2edit page need:<int:pk>
-
+    path('<int:pk>/delete', views.grandma_delete, name='GrandmasRecipes_delete'),  # link 2delete page need:<int:pk>
 ]

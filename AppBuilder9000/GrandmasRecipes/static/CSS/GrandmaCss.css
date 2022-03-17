@@ -4,7 +4,7 @@
 body {
 	position: relative;
 	overflow: scroll; /* Show scrollbars */
-	background: LightGray url("") no-repeat;
+	background: url("![](../img/GrandmasKitchenPhoto.jpg)") no-repeat;
 
 }
 html, body {
@@ -75,18 +75,19 @@ li {
     background-color: LightGrey;
 }
 
-table,td,tr {
-    color: DarkBlue;
+ table,td {
     font-color: DarkGrey;
-    border-style: 20px solid DarkBlue;
-    border-spacing: 2px;
     padding-left: 70px;
     padding-top:25px;
     padding-right: 70px;
 }
 
 thead {
-    background-color: DarkBlue;
-    text-align:center
+    background-color: LightBlue;
+    text-align:center;
+}
+
+.recipe_hyperlink{
+    font-color: red;
 
 }

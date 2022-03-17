@@ -22,13 +22,14 @@ user clicking the link in the cookbook-->
             <ul>
                 <li>{{ details.instructions|linebreaks }}</li>
             </ul>
+            <h6>A Little Story about this recipe:</h6>
             <p class="recipe-text"> {{ details.grandma_story|linebreaks }}</p>
       </div>
-      <div id="edit_button">
+      <div id="edit_buttons">
             <a href="{% url 'GrandmasRecipes_edit' details.id %}">
                 <button type="submit">Edit Recipe</button>
             </a>
-            <a href="">
+            <a href="{% url 'GrandmasRecipes_delete' details.id %}">
                 <button type="submit">Delete Recipe</button>
             </a>
 
