@@ -19,9 +19,17 @@ user clicking the link in the cookbook-->
             <h6 class="font-weight-bold"> Ingredients: </h6>
             <p class="recipe-text"> {{ details.ingredients|linebreaks }}</p>
             <h6> Method: </h6>
-            <ul>
-                <li>{{ details.instructions|linebreaks }}</li>
-            </ul>
+                <p>{{ details.instructions|linebreaks }}</p>
+            <h6>A Little Story about this recipe:</h6>
+            <p class="recipe-text"> {{ details.grandma_story|linebreaks }}</p>
+      </div>
+      <div id="edit_buttons">
+            <a href="{% url 'GrandmasRecipes_edit' details.id %}">
+                <button type="submit">Edit Recipe</button>
+            </a>
+            <a href="{% url 'GrandmasRecipes_delete' details.id %}">
+                <button type="submit">Delete Recipe</button>
+            </a>
 
       </div>
 </div>
