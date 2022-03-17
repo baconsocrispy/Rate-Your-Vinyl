@@ -8,11 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %} Chef Knives{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'CSS/ChefKnives.css' %}">
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/infinite.min.js' %}"></script>
 </head>
 <body id="body">
     <div class="navbar">
         <a href="{% url 'ChefKnives_Home' %}">Home</a>
-        <a href="{% url 'ChefKnives_View' %}"></a>
+        <a href="{% url 'ChefKnives_View' %}">View</a>
         <a href="{% url 'ChefKnives_Create' %}">Chef Knives</a>
 
     </div>
