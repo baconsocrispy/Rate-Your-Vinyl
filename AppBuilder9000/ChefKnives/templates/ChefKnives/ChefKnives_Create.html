@@ -6,12 +6,17 @@
 
 {% block content %}
 
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button class="create_knife_button" type="submit" name="Save_Knife">Create</button>
-    </form>
-</div>
+
+
+<form action="" method="post">
+    <table>
+    {% csrf_token %}
+
+        <tr><td>{{ form.as_table }}</td></tr>
+
+
+    </table>
+    <input type="submit" value="Submit">
+</form>
 
 {% endblock content %}
