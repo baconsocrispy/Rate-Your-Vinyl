@@ -7,8 +7,14 @@
 {% block content %}
 
 
+{% for product in products %}
+
+    <ul>
+
+        <li><a href="{% url 'SuperCars_Details' product.id  %}">{{ product.name }}</a></li>
+
+
+    </ul>
+{% endfor %}
 
 {% endblock %}
-
-
-
