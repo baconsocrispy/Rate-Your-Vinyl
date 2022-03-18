@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.SuperCarsHome, name='SuperCars_Home'),
+    path('<int:pk>/details/', views.details, name="details"),
     path('CreateRecord/', views.CreateRecord, name='CreateRecord'),
 
 ]
