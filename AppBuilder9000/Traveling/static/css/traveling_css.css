@@ -57,58 +57,6 @@ img {
     margin-top: 4%;
 }
 
-/*
-.wrap {
-    top: 0;
-    left: 0;
-    height: auto;
-    width: 100%;
-}
-
-
-
-.menu {
-    font: bold 12px/18px sans-serif;
-    text-align: center;
-    display: inline;
-    margin:0;
-    padding:0;
-
-}
-
-.menu
-
-.menu li:hover  {
-    background-color: gray;
-    color: pink;
-}
-
-.menu li:hover ul{
-
-    opacity: 1;
-    visibility: visible;
-}
-
-.submenu {
-    padding:0;
-    left: 0;
-    position: absolute;
-    top:50px;
-
-    opacity: 0;
-    visibility: hidden;
-}
-
-.submenu li {
-    background-color: #000;
-    display:block;
-    color: #fff;
-}
-
-.submenu li:hover {
-    color: pink;
-    background-color: gray;
-}*/
 #Video {
     position:fixed;
     right:0;
@@ -129,6 +77,71 @@ video {
     min-width:100%;
     z-index : -1
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*create template stiling*/
+
+
+form {
+    position:relative;
+    margin-top: 20px;
+    margin-left:50px;
+    margin-right:auto;
+    width:700px;
+
+}
+.c_container{
+    margin-left:27%;
+    margin-top:1%;
+    background-color:#3990c6;
+    height: 300px;
+    width:600px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.bg_img_c{
+    background: url(../../static/images/create1.jfif) no-repeat 50% 50%;
+    z-index:-1;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    width:100%;
+    height:auto;
+    z-index:-1;
+    background-size:cover;
+    padding-top:200px;
+    padding-bottom:200px;
+}
+
+.btn {
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+
+}
+
+
+
+
+
 
 
 
