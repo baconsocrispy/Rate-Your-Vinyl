@@ -5,22 +5,24 @@
 {% block header %}Team Standings{% endblock %}
 
 {% block content %}
-<h3>Select a Year</h3>
-    <form method="POST" action="{% url 'basketball_stats_standings' %}">
-    {% csrf_token %}
-    <div class="my-menu">
-    <label for="season" style="color: white">Choose a season:</label>
-    <select name="season" id="season">
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-    </select>
-    </div>
-    <br>
-    <button type="submit" value="Submit" class="btn btn-dark btn-lg btn-block w-25 mx-auto">Submit</button>
-    </form>
-<h2 class="text-center" style="color: white">Standings for: {{ season }}</h2>
+<div class="jumbotron w-50 mx-auto bg-dark">
+    <h3>Select a Year</h3>
+        <form method="POST" action="{% url 'basketball_stats_standings' %}">
+        {% csrf_token %}
+        <div class="my-menu">
+        <label for="season" style="color: white">Choose a season:</label>
+        <select name="season" id="season">
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+        </select>
+        </div>
+        <br>
+        <button type="submit" value="Submit" class="btn btn-primary btn-lg btn-block w-25 mx-auto">Submit</button>
+        </form>
+    <h2 class="text-center" style="color: white">Standings for: {{ season }}</h2>
+</div>
 <div class="container" id="list-container">
     <div id="container" class="table-responsive w-75 mx-auto">
     <table id="table" class="table table-dark table-bordered table-hover text-center" data-toggle="table">
