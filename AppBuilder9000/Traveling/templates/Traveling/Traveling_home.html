@@ -9,6 +9,11 @@
 {% block header %}Everywhere in your hand{% endblock %}
 
 {% block content %}
+ <div id="Home">
+            <video  autoplay muted loop id="Video">
+                <source src="{% static 'images/video.mp4' %}">
+            </video>
+ </div>
 
     <h1><span style="color: pink;">Travel Agency</span></h1>
     <h2><span style="color: pink; ">Everything within your hand's reach!!</span></h2>
@@ -19,8 +24,8 @@
         Checkout our travel plans and package. You are one click away!</i>
           </p>
         <img src="{% static 'images/travel.jpg' %}">
-        <button type="button"><a href="" >Check Flights!</a></button>
-        <button type="button"><a href="">Sing Up!</a> </button>
+        <button class='btn' type="button"><a href="{% url 'Traveling_place' %}" >Book Flights!</a></button>
+        <button class='btn' type="button"><a href="{% url 'Traveling_create' %}">Sing Up!</a> </button>
 
     </div>
 
