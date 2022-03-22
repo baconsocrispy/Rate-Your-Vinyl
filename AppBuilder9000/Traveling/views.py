@@ -17,11 +17,27 @@ def Traveling_create(request):
     context = {'form':form}
     return render(request, 'Traveling/Traveling_create.html', context)
 
+
+
 def Traveling_place(request):
-    form = PlaceForm(data=request.POST or None)
-    if request.method=='POST':
-        if form.is_valid():
-            form.save()
-            return redirect('')
-    context = {"form":form}
-    return render(request, 'Traveling/Traveling_ml')
+    places = Place.places.all()
+    return render(request, 'Traveling/Traveling_place.html',{'places':places})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
