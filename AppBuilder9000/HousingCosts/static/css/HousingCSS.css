@@ -3,3 +3,11 @@ body {
 	background-size: auto;
 	background-repeat: no-repeat;
 }
+
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width:100%;
+    background: #ceff99;
+}
