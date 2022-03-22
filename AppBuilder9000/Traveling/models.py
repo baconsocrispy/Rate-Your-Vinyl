@@ -6,14 +6,14 @@ class Traveler(models.Model):
     email = models.EmailField(max_length = 254)
 
 
-    Travelers = models.Manager()
+    travelers = models.Manager()
 
 
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
-reason = [('Vacations','Vacations'), ('Business', 'Business')]
+
 
 
 class Place(models.Model):

@@ -20,8 +20,9 @@ def Traveling_create(request):
 
 
 def Traveling_place(request):
+    travelers = Traveler.travelers.all()
     places = Place.places.all()
-    return render(request, 'Traveling/Traveling_place.html',{'places':places})
+    return render(request, 'Traveling/Traveling_place.html', {'places': places, 'travelers': travelers})
 
 
 

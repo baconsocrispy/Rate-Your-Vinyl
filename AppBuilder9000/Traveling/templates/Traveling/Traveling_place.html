@@ -15,13 +15,21 @@
         <div class="p_container">
             {% csrf_token %}
             <br>
+
+            <label class="center" for="user">Account:</label>
+            <select name="user" id="user">
+                {% for traveler in travelers %}
+                <option value=" ">{{ traveler }}</option>
+
+                {% endfor %}
+            </select>
+
+            <br>
             <label for="locations">From:</label>
             <select name="locations" id="locations">
                 <option value=""></option>
                 <option value="Current Location" >Current Location</option>
             </select>
-
-
 
             <label for="place" class="right-side"> To:</label>
             <select name="place" id="place">
