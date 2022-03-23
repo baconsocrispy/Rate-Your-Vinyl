@@ -9,7 +9,11 @@ class House(models.Model):
     bathrooms = models.PositiveSmallIntegerField()
     squareFootage = models.PositiveIntegerField()
     price = models.CharField(max_length=15)
-    notes = models.TextField()
+    notes = models.TextField(blank=True)
 
+    # Add Model Manager
+    Homes = models.Manager()
+
+    # Use tagline to name each house rather than ID number
     def __str__(self):
         return self.tagline

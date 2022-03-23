@@ -1,0 +1,15 @@
+{% extends 'HousingCosts/HousingCosts_base.html' %}
+{% load static %}
+
+{% block title %}Housing Costs - Create{% endblock %}
+
+{% block header %}Input a new house{% endblock %}
+
+{% block content %}
+    <h3>You can use the form below to track a new house.</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+{% endblock %}
