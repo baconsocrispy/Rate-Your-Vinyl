@@ -1,0 +1,37 @@
+{% extends "Traveling/Traveling_base.html" %}
+
+{% load static from staticfiles %}
+
+
+
+{% block title %}View your account{% endblock %}
+
+{% block header %}Account Summary!{% endblock %}
+
+{% block content %}
+
+
+<form class="bg_img_c" method= "POST" action="../details_view/">
+    <div class="dcontainer">
+        <p class="size"><b>First Name:</b> {{ item.first_name }}</p>
+        <br>
+        <p class="size"><b>First Name:</b> {{ item.last_name }}</p>
+        <br>
+        <p class="size"><b>Email :</b> {{ item.email }}</p>
+    </div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
