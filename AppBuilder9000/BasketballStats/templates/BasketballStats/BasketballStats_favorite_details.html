@@ -25,7 +25,7 @@
     <a href="{% url 'basketball_stats_delete_favorites' details.id %}"><button type="button" class="btn btn-dark btn-lg w-25 mx-auto">Remove Team From Favorites</button></a>
     <a href="{% url 'basketball_stats_favorites' %}"><button type="button" class="btn btn-dark btn-lg w-25 mx-auto">Return To Favorites</button></a>
 </div>
-<div class="card w-25 mx-auto">
+<div class="card w-25 mx-auto" id="card-info">
     <div class="card-body">
         <ul>
             <li>{{ info.0 }}</li>

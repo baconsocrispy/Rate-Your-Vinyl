@@ -142,8 +142,68 @@ form {
 
 
 
+/*Place html file styling*/
+.bg_img_p{
+    background: url(../../static/images/plane.jpg) no-repeat 50% 50%;
+    z-index:-1;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    width:100%;
+    height:auto;
+    z-index:-1;
+    background-size:cover;
+    padding-top:200px;
+    padding-bottom:200px;
+}
+
+.p_container {
+    margin-left:auto;
+    margin-right:auto;
+    background-color:rgba(63,191,191,.3);
+    height: 300px;
+    width:700px;
+    border: 1px solid silver;
+    border-radius: 8px;
+}
 
 
+label{
+    margin-left: 20px;
+    color: #000;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.center {
+    margin-left: 200px;
+}
+
+
+
+.right-side {
+  margin-left: 200px;
+}
+
+.middle {
+    margin-left:85px;
+}
+.outmost {
+    margin-left: 150px;
+}
+
+.btn-center {
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 300px;
+
+}
 
 
 
