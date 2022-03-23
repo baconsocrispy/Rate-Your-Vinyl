@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'ChefKnives',
     'Traveling',
     'HousingCosts',
+    'HikingTrails',
 
 ]
 
