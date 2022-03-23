@@ -3,20 +3,14 @@
 
 
 /* Body Styling */
-body {
+.recordsbody {
     background-image: url("../images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-h1 {
-   color: white;
-   font-stretch: ultra-expanded;
-   font-variant-caps: small-caps;
-}
-
-.card {
+.recordscard {
     margin: auto;
     margin-top: 3%;
     font-size: 6rem;
@@ -27,7 +21,7 @@ h1 {
     background-color: rgba(0,0,0,.5);
 }
 
-.btn {
+.recordsbtn {
     margin: auto;
     background-color: rgba(0,0,0,1);
 }
