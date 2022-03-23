@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import KnifeForm
 from .models import ChefKnives
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from bs4 import BeautifulSoup
 
 
 # Create your views here.
@@ -56,3 +56,17 @@ def chefknives_delete(request, pk):
         "object": obj
     }
     return render(request, "ChefKnives/ChefKnives_Delete.html", context)
+
+
+def chefknives_soup(request):
+    knives = []
+    page = requests.get("http://www.cookingforengineers.com/article/39/Kitchen-Knives")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    knives_soup = soup.findAll('div', class_='larticles')
+
+    for i in knives_soup:
+        knives.append(knives)
+        zipped_list = zip(knives)
+        context = {'zipped_list': zipped_list}
+    return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
+

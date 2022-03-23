@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/ChefKnives_Details/', views.chefknives_details, name="ChefKnives_Details"),
     path('<int:pk>/ChefKnives_Edit/', views.chefknives_edit, name="ChefKnives_Edit"),
     path('<int:pk>/ChefKnives_Delete/', views.chefknives_delete, name="ChefKnives_Delete"),
+    path('ChefKnives_Soup/', views.chefknives_soup, name="ChefKnives_Soup"),
 ]
