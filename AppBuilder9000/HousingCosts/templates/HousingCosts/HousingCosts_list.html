@@ -3,15 +3,16 @@
 
 {% block title %}Housing Costs - List{% endblock %}
 
-{% block header %}All tracked Housing Costs{% endblock %}
+{% block header %}{% endblock %}
 
 {% block content %}
-    <table>
-        <thead>
+    <h2 class="text-center">All Tracked Homes</h2>
+    <table class="table table-striped">
+        <thead class="thead-light">
         <tr>
-            <th>Tagline</th>
-            <th>Location</th>
-            <th>Price</th>
+            <th scope="col">Tagline</th>
+            <th scope="col">Location</th>
+            <th scope="col">Price</th>
         </tr>
         </thead>
     {% for house in house_list %}
