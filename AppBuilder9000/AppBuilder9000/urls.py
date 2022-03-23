@@ -24,11 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('BasketballStats/', include('BasketballStats.urls')),
-    path('Nutrition/', include('Nutrition.urls')),
-    path('MagicTheGathering/', include('MagicTheGathering.urls')),
     path('IceHockey/', include('IceHockey.urls')),
-    path('kettleBells/', include('kettleBells.urls')),
-    path('Turtles/', include('Turtles.urls')),
     path('Composers/', include('Composers.urls')),
     path('ATVTrails/', include('ATVTrails.urls')),
     path('Motorcycling/', include('Motorcycling.urls')),
@@ -47,6 +43,8 @@ urlpatterns = [
     path('GrandmasRecipes/', include('GrandmasRecipes.urls')),
     path('SuperCars/', include('SuperCars.urls')),
     path('ChefKnives/', include('ChefKnives.urls')),
+    path('Traveling/', include('Traveling.urls')),
+    path('HousingCosts/', include('HousingCosts.urls')),
     path('HikingTrails/', include('HikingTrails.urls')),
 ]
 

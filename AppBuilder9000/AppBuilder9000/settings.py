@@ -39,11 +39,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'crispy_forms',
     'BasketballStats',
-    'Nutrition',
-    'MagicTheGathering',
     'IceHockey',
-    'kettleBells',
-    'Turtles',
     'Composers',
     'ATVTrails',
     'Motorcycling',
@@ -62,6 +58,8 @@ INSTALLED_APPS = [
     'GrandmasRecipes',
     'SuperCars',
     'ChefKnives',
+    'Traveling',
+    'HousingCosts',
     'HikingTrails',
 
 ]

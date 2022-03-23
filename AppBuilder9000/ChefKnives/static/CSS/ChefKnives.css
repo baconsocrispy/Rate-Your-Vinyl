@@ -18,6 +18,93 @@ body {
     text-decoration-color: rgb(63, 197, 240);
 }
 
+.add_button {
+    background-color: rgb(66, 222, 225);
+    width: 20%;
+    position: relative;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: rgb(66, 222, 225);
+    font-family: 'Courier New', Courier, monospace;
+    width: 20%;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+
+}
+
+
+
+.table {
+    position:relative;
+    width: 800px;
+	height: auto;
+	border-radius: 10px;
+	border: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+    background-color: rgb(238, 245, 178);
+}
+
+.choice {
+    font-size: 2vh;
+    border: 1px solid black;
+    padding: 4vh;
+}
+
+/*NAVBAR STYLING*/
+.navbar {
+    overflow: hidden;
+    background-color: rgb(238, 245, 178);
+}
+
+.navbar a {
+    font-weight: bold;
+    float: inline-start;
+    display: block;
+    color: rgb(63, 197, 240);
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/*Table Styling */
+th{
+    opacity: 0.9;
+	position: relative;
+	width: 500px;
+	height: auto;
+	border-radius: 10px;
+	border: 3px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	background-color: rgb(238, 245, 178);
+}
+
+
+
+tr td{
+    height: 25px;
+    width: auto;
+    text-align: center;
+
+}
+
+#head_row {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    text-decoration: underline;
+}
+
+
 /* Style the footer*/
 .footer {
     position: fixed;

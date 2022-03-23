@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,get_object_or_404, redirect
 from django.http import HttpResponse
 from .forms import SuperCarsForm
 from .models import SuperCars
@@ -6,9 +6,19 @@ from .models import SuperCars
 
 
 def SuperCarsHome(request):
+
     return render(request, 'SuperCars/SuperCarsHome.html')
 
+def SuperCarsDetails(request, pk):
 
+    products = get_object_or_404(SuperCars, pk=pk)
+    return render(request, 'SuperCars/SuperCarsDetails.html', {'products': products})
+
+def SuperCarsDisplay(request):
+    products = SuperCars.objects.all()
+    return render(request, 'SuperCars/SuperCarsDisplay.html', {'products': products})
+
+#adding comment
 
 def CreateRecord(request):
     form = SuperCarsForm(data=request.POST or None)
