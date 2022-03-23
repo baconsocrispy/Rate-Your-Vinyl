@@ -1,0 +1,41 @@
+{% extends "Traveling/Traveling_base.html" %}
+
+{% load static from staticfiles %}
+
+
+
+{% block title %}Edit your account{% endblock %}
+
+{% block header %}Edit!{% endblock %}
+
+{% block content %}
+
+<div>
+    <form name="TravelerForm" method="POST" action="../details/">
+
+        <table>
+            {% csrf_token %}
+            {{ form.as_p }}
+
+        </table>
+
+        <div>
+            <input type="submit" value="Update">
+            <div>
+                <button ><a href="" ></a></button>
+                <button ><a href="" ></a></button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

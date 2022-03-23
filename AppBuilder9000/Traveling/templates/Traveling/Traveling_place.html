@@ -17,14 +17,16 @@
             <br>
 
             <label class="center" for="user">Account:</label>
-            <select name="user" id="user">
+            <select name="user" id="user" onchange="top.location.href=this.options[this.selectedIndex].value;">
                 {% for traveler in travelers %}
-                <option value=" ">{{ traveler }}</option>
-
+                <option value="../{{traveler.pk }}/details/">{{ traveler }}</option>
                 {% endfor %}
             </select>
-
             <br>
+
+
+
+
             <label for="locations">From:</label>
             <select name="locations" id="locations">
                 <option value=""></option>
@@ -49,8 +51,8 @@
             <br>
             <label for="dtime"> Departing Time:</label>
             <input type="time" id="dtime" name="time" value="" min="06:00" max="20:00">
-            <label for="dtime" class="outmost"> Arrival Time:</label>
-            <input type="time" id="dtime" name="time" value="" min="08:00" max="22:00">
+            <label for="ctime" class="outmost"> Arrival Time:</label>
+            <input type="time" id="ctime" name="time" value="" min="08:00" max="22:00">
 
 
 
