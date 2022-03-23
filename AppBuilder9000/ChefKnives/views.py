@@ -62,11 +62,15 @@ def chefknives_soup(request):
     knives = []
     page = requests.get("http://www.cookingforengineers.com/article/39/Kitchen-Knives")
     soup = BeautifulSoup(page.content, 'html.parser')
-    knives_soup = soup.findAll('div', class_='larticles')
+    knives_soup = soup.find('div', class_='larticles')
 
     for i in knives_soup:
-        knives.append(knives)
-        zipped_list = zip(knives)
-        context = {'zipped_list': zipped_list}
-    return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
+        knife = i.find('b')
+        something = knife.text
+        knives.append(something)
 
+    print(knives)
+
+    zipped_list = zip(knives)
+    context = {'zipped_list': zipped_list}
+    return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
