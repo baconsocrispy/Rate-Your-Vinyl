@@ -6,8 +6,9 @@
 {% block header %}{% endblock %}
 
 {% block content %}
-    <h2 class="text-center">All Tracked Homes</h2>
-    <table class="table table-striped">
+    <h2 class="w-75 text-center">All Tracked Homes</h2>
+    <p class="w-75 text-center">*Click the Tagline for more info.</p>
+    <table class="w-75 table table-striped">
         <thead class="thead-light">
         <tr>
             <th scope="col">#</th>
@@ -19,9 +20,9 @@
     {% for house in house_list %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ house.tagline }}</td>
+            <td><a href="{% url 'housing_costs_details' house.id %}" class="alert-link text-dark">{{ house.tagline }}</a></td>
             <td>{{ house.city }}, {{ house.state }}</td>
-            <td>{{ house.price }}</td>
+            <td><strong>{{ house.price }}</strong></td>
         </tr>
     {% endfor %}
     </table>
