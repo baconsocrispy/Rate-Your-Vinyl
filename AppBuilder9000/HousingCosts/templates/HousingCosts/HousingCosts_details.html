@@ -37,4 +37,7 @@
                 <td>{{ details.notes }}</td>
             </tr>
     </table>
+    <a class="btn btn-sm btn-info" href="{% url 'housing_costs_edit' details.id %}">Edit</a>
+    <a class="btn btn-sm btn-danger" href="">Delete</a>
+    <a class="btn btn-sm btn-secondary" href="{% url 'housing_costs_list' %}">Back To List</a>
 {% endblock %}
