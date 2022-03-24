@@ -33,6 +33,7 @@ def detail_view(request, pk):
     item = get_object_or_404(Traveler, pk=pk)
     return render(request, 'Traveling/details_views.html', {'item': item})
 
+
 def Traveling_place(request):
     travelers = Traveler.travelers.all()
     places = Place.places.all()
