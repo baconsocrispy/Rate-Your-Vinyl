@@ -69,7 +69,7 @@ def chefknives_soup(request):
 
     for i in knife:
         knifes = i.find('p')
-        chef = knifes.text
+        chef = knifes.text.strip()
         knives.append(chef)
 
     print(knives)
