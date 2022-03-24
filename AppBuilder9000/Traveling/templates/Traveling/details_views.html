@@ -11,18 +11,25 @@
 {% block content %}
 
 
-<form class="bg_img_c" method= "POST" action="../Traveling_details_view/">
-    <div class="dcontainer">
-        <p class="size"><b>First Name:</b> {{ item.first_name }}</p>
-        <br>
-        <p class="size"><b>First Name:</b> {{ item.last_name }}</p>
-        <br>
-        <p class="size"><b>Email :</b> {{ item.email }}</p>
-    </div>
+<div class="bg_img_c"  href="../Traveling_details_view/">
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>{{ item.first_name }}</td>
+            <td>{{ item.last_name }}</td>
+            <td>{{ item.email }}</td>
+        </tr>
+    </table>
 
 
 
-</form>
+
+
+</div>
 
 
 

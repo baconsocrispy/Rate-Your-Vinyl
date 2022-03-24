@@ -221,14 +221,27 @@ label{
     border-radius: 8px;
 }
 
-.size {
+table {
+    height: 300px;
+    width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
     text-align: center;
     font-size: 25px;
     color: #000;
 }
+ tr td{
+     border: 1px solid black;
+    with: 100%;
+    background-color: #477fb8 ;
+ }
 
-
-
+tr th {
+    border: 1px solid black;
+    with: 100%;
+    background-color:#477fb8;
+}
 
 
 
