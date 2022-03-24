@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from .forms import KnifeForm
 from .models import ChefKnives
+import unicodedata
 
 
 # Create your views here.
@@ -58,39 +59,21 @@ def chefknives_delete(request, pk):
     return render(request, "ChefKnives/ChefKnives_Delete.html", context)
 
 
-# def chefknives_soup(request):
-#     res = requests.get("https://en.wikipedia.org/wiki/Chef%27s_knife")
-#     soup = BeautifulSoup(res.text, 'html.parser').select('body')[0]
-#     paragraphs = []
-#     images = []
-#     link = []
-#     heading = []
-#     remaining_content = []
-#
-#     for tag in soup.find_all():
-#         if tag.name=="p":
-#             paragraphs.append(tag.text)
-#         elif tag.name=="img":
-#             images.append(url+tag['src'])
-#         elif tag.name=="a":
-#             if "href" in str(tag)
-#                 if "https://en.wikipedia.org/wiki/Chef%27s_knife" not in str(tag['href'])
-#     print(knives)
-#
-#     context = {'knives': knives}
-#     return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
+def chefknives_soup(request):
+    knives = []
 
-    # knives = []
-    # page = requests.get("https://www.goodhousekeeping.com/cooking-tools/best-kitchen-knives/g646/best-kitchen-cutlery/")
-    # soup = BeautifulSoup(page.content, 'html.parser')
-    # knives_soup = soup.find('div', class_='listicle-body-content')
-    # knife = knives_soup.find('div', class_='slideshow-slide-dek')
-    #
-    # for i in knife:
-    #     knifes = i.text
-    #     knives.append(knifes)
-    #
-    # print(knives)
-    #
-    # context = {'knives': knives}
-    # return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
+    page = requests.get("https://www.cnet.com/home/kitchen-and-household/best-chef-knife-for-2022/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    knives_soup = soup.find('div', class_='col-7 article-main-body row')
+    knife = knives_soup.find_all('div', class_='shortcode listicle')
+
+    for i in knife:
+        knifes = i.find('p')
+        chef = knifes.text
+        knives.append(chef)
+
+    print(knives)
+
+    context = {'knives': knives}
+    return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
+
