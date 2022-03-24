@@ -1,0 +1,25 @@
+{% extends 'HikingTrails/HikingTrails_base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h2>Trails:</h2>
+
+			<table class="table table-responsive" id ="transactions-table"> <!-- Replace this with the Django populated transactions -->
+				<tr id="headerRow">
+					<th>Trail Name</th>
+					<th>Distance</th>
+					<th>State</th>
+				</tr>
+				{%  for trail in trails %}
+				<tr>
+					<td class="center">{{ trail.trail_name }}</td>
+					<td class="center">{{ trail.distance }}</td>
+					<td class="left">{{ trail.state }}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+
+{% endblock %}
