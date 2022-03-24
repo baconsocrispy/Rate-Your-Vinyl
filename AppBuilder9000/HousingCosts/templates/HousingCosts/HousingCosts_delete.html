@@ -6,5 +6,11 @@
 {% block header %}Confirm Delete{% endblock %}
 
 {% block content %}
-
+    <h3>Are you sure you want to delete the house:</h3>
+    <h4><strong>"{{ details.tagline }}"</strong>?</h4>
+    <form action="{% url 'housing_costs_delete' details.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete">
+        <a class="btn btn-sm btn-secondary" href="{% url 'housing_costs_home' %}">Cancel</a>
+    </form>
 {% endblock %}
