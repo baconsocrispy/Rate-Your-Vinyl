@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'Traveling',
     'HousingCosts',
     'HikingTrails',
+    'RecordCollection',
 
 ]
 

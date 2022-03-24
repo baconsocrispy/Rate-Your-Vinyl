@@ -2,4 +2,13 @@ body {
 	background: url("../images/HousingBG.jpg");
 	background-size: auto;
 	background-repeat: no-repeat;
+	margin-bottom: 100px; /* Need this so footer doesn't cover submit button on create page */
+}
+
+footer {
+    position: fixed; /* footer always visible at bottom */
+    left: 0px;
+    bottom: 0px;
+    width:100%;
+    background: #ceff99;
 }

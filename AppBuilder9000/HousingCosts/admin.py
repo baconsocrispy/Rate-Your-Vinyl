@@ -1,3 +1,4 @@
 from django.contrib import admin
-
-# Register your models here.
+# This is to add our model DB object to the admin page:
+from .models import House
+admin.site.register(House)
