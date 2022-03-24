@@ -1,8 +1,8 @@
-import requests
+from bs4 import BeautifulSoup
 from django.shortcuts import render, redirect, get_object_or_404
+import requests
 from .forms import KnifeForm
 from .models import ChefKnives
-from bs4 import BeautifulSoup
 
 
 # Create your views here.
@@ -58,19 +58,39 @@ def chefknives_delete(request, pk):
     return render(request, "ChefKnives/ChefKnives_Delete.html", context)
 
 
-def chefknives_soup(request):
-    knives = []
-    page = requests.get("http://www.cookingforengineers.com/article/39/Kitchen-Knives")
-    soup = BeautifulSoup(page.content, 'html.parser')
-    knives_soup = soup.find('div', class_='larticles')
+# def chefknives_soup(request):
+#     res = requests.get("https://en.wikipedia.org/wiki/Chef%27s_knife")
+#     soup = BeautifulSoup(res.text, 'html.parser').select('body')[0]
+#     paragraphs = []
+#     images = []
+#     link = []
+#     heading = []
+#     remaining_content = []
+#
+#     for tag in soup.find_all():
+#         if tag.name=="p":
+#             paragraphs.append(tag.text)
+#         elif tag.name=="img":
+#             images.append(url+tag['src'])
+#         elif tag.name=="a":
+#             if "href" in str(tag)
+#                 if "https://en.wikipedia.org/wiki/Chef%27s_knife" not in str(tag['href'])
+#     print(knives)
+#
+#     context = {'knives': knives}
+#     return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
 
-    for i in knives_soup:
-        knife = i.find('b')
-        something = knife.text
-        knives.append(something)
-
-    print(knives)
-
-    zipped_list = zip(knives)
-    context = {'zipped_list': zipped_list}
-    return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
+    # knives = []
+    # page = requests.get("https://www.goodhousekeeping.com/cooking-tools/best-kitchen-knives/g646/best-kitchen-cutlery/")
+    # soup = BeautifulSoup(page.content, 'html.parser')
+    # knives_soup = soup.find('div', class_='listicle-body-content')
+    # knife = knives_soup.find('div', class_='slideshow-slide-dek')
+    #
+    # for i in knife:
+    #     knifes = i.text
+    #     knives.append(knifes)
+    #
+    # print(knives)
+    #
+    # context = {'knives': knives}
+    # return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
