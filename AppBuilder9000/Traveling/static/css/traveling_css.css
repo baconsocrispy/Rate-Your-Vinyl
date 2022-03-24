@@ -206,6 +206,47 @@ label{
 }
 
 
+/*details page styling*/
+
+
+
+
+.dcontainer {
+    margin-left:auto;
+    margin-right:auto;
+    background-color:rgba(0,77,244,.3);
+    height: 300px;
+    width:700px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+table {
+    height: 300px;
+    width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 25px;
+    color: #000;
+}
+ tr td{
+     border: 1px solid black;
+    with: 100%;
+    background-color: #477fb8 ;
+ }
+
+tr th {
+    border: 1px solid black;
+    with: 100%;
+    background-color:#477fb8;
+}
+
+
+
+
+
 
 
 
