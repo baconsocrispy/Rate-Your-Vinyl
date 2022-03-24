@@ -17,28 +17,27 @@ def Traveling_create(request):
     context = {'form':form}
     return render(request, 'Traveling/Traveling_create.html', context)
 
+def details(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Traveler, pk=pk)
+    form = TravelerForm(data=request.POST or None, instance = item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('Traveling_place')
+    context = {"form": form}
+    return render(request, 'Traveling/Traveling_save.html', context)
+
+def detail_view(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Traveler, pk=pk)
+    return render(request, 'Traveling/details_views.html', {'item': item})
 
 
 def Traveling_place(request):
     travelers = Traveler.travelers.all()
     places = Place.places.all()
     return render(request, 'Traveling/Traveling_place.html', {'places': places, 'travelers': travelers})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
