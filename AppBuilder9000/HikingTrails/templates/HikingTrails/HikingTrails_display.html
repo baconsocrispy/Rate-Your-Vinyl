@@ -6,7 +6,8 @@
 
 <h2>Trails:</h2>
 
-			<table class="table table-responsive" id ="transactions-table"> <!-- Replace this with the Django populated transactions -->
+        <div id="form-container" class="table-responsive w-50 mx-auto">
+			<table id="table" class="table table-light table-bordered table-hover text-container">
 				<tr id="headerRow">
 					<th>Trail Name</th>
 					<th>Distance</th>
@@ -21,5 +22,6 @@
 				{% endfor %}
 
 			</table>
+        </div>
 
 {% endblock %}
