@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import RecordsForm
+from .models import Records
+
 
 
 #Home Page Req
@@ -11,7 +14,13 @@ def records_view(request):
 
 #Add to Collection Page Req
 def records_add(request):
-    return render(request, 'RecordCollection/RecordCollection_Add.html')
+    form = RecordsForm(data=request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('records_home')
+    content = {'form': form}
+    return render(request, 'RecordCollection/RecordCollection_Add.html', content)
 
 #View Collection Page Req
 def records_random(request):
