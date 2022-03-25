@@ -1,0 +1,30 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home Page</title>
+<link rel="stylesheet" type="text/css" href="{% static 'Prowrestlers/CSS/prowrestlers_layout.css' %}">
+</head>
+<body>
+
+<h1>Pro Wrestling</h1>
+<p>This website is dedicated to ProWrestling</p>
+
+<!-- Navigation Bar-->
+<div class="topnav">
+  <a class="active" href="{% url 'wrestlers_home' %}">Home</a>
+  <a href="#prowrestlers">Pro Wrestlers</a>
+  <a href="#photography">Photography</a>
+</div>
+<!--END NAVBAR-->
+
+<!--PAGE CONTENT-->
+<div id="content">
+  {% block content %}{% endblock %}
+</div>
+<!--END OF PAGE CONTENT-->
+
+
+
+</body>
+</html>
