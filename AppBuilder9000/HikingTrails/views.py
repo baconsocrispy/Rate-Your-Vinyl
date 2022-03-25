@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TrailsForm
 from .models import Trails
 
@@ -21,3 +21,9 @@ def HikingTrails_display(request):
     hiking_trails = Trails.Trail.all()
     content = {'trails': hiking_trails}
     return render(request, 'HikingTrails/HikingTrails_display.html', content)
+
+
+def HikingTrails_details(request, pk):
+    details = get_object_or_404(Trails, pk=pk)
+    content = {'details': details}
+    return render(request, 'HikingTrails/HikingTrails_details.html', content)
