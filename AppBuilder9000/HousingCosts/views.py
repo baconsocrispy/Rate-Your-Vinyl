@@ -75,12 +75,12 @@ def realty_api_display(request):
         'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com',
         'X-RapidAPI-Key': '1dda6feeefmsh95fcaa253de27e3p137c53jsn9f798d0c5753'
     }
-    # Only pulling 3 records for now (limit) so there is a small data set to work with
+    # limited to 10 Houses:
     payload = {
         'state_code': 'ME',
         'city': 'Portland',
         'offset': '0',
-        'limit': '3',
+        'limit': '10',
         'sort': 'relevance'
     }
     # response contains extra data. I only want listings dictionary items:
