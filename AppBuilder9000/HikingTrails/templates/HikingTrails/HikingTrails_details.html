@@ -13,13 +13,12 @@
 					<th>Distance</th>
 					<th>State</th>
 				</tr>
-				{%  for trail in trails %}
 				<tr>
-                    <td class="center"><a href="{% url 'HikingTrails_details' trail.id %}">{{ trail.trail_name }}</a></td>
-					<td class="center">{{ trail.distance }}</td>
-					<td class="left">{{ trail.state }}</td>
+					<td class="center">{{ details.trail_name }}</td>
+					<td class="center">{{ details.distance }}</td>
+					<td class="left">{{ details.state }}</td>
 				</tr>
-				{% endfor %}
+
 
 			</table>
         </div>
