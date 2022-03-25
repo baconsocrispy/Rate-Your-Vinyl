@@ -5,6 +5,8 @@ from django.shortcuts import (
 )
 from .models import House
 from .forms import HouseForm
+import requests
+import json
 
 
 def housing_costs_home(request):
@@ -64,3 +66,28 @@ def housing_costs_delete(request, pk):
         return redirect(housing_costs_list)
     context = {'details': house}
     return render(request, 'HousingCosts/HousingCosts_delete.html', context)
+
+
+def realty_api_display(request):
+    # API endpoint, headers, and required parameters. Python generates request url automagically from these:
+    url = 'https://realty-in-us.p.rapidapi.com/properties/list-for-sale'
+    headers = {
+        'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com',
+        'X-RapidAPI-Key': '1dda6feeefmsh95fcaa253de27e3p137c53jsn9f798d0c5753'
+    }
+    # Only pulling 3 records for now (limit) so there is a small data set to work with
+    payload = {
+        'state_code': 'ME',
+        'city': 'Portland',
+        'offset': '0',
+        'limit': '3',
+        'sort': 'relevance'
+    }
+    # response contains extra data. I only want listings dictionary items:
+    # 'address', 'beds', 'bath', 'sqft', 'price'
+    response = requests.get(url, headers=headers, params=payload).json()
+    # This grabs only ['listings'] data so I can use it in template. Not formatted:
+    listings = response['listings']
+    # print the entire response to the terminal:
+    print(response)
+    return render(request, 'HousingCosts/HousingCosts_api.html', {'listings': listings})

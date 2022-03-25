@@ -8,4 +8,5 @@ urlpatterns = [
     path('Details/<int:pk>/', views.housing_costs_details, name='housing_costs_details'),
     path('Edit/<int:pk>/', views.housing_costs_edit, name='housing_costs_edit'),
     path('Delete/<int:pk>/', views.housing_costs_delete, name='housing_costs_delete'),
+    path('ApiData/', views.realty_api_display, name='realty_api_display'),
 ]
