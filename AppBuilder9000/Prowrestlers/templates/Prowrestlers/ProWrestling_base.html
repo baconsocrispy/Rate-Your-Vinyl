@@ -1,8 +1,9 @@
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Home Page</title>
-
+<link rel="stylesheet" type="text/css" href="{% static 'Prowrestlers/CSS/prowrestlers_layout.css' %}">
 </head>
 <body>
 
@@ -11,7 +12,7 @@
 
 <!-- Navigation Bar-->
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
+  <a class="active" href="{% url 'wrestlers_home' %}">Home</a>
   <a href="#prowrestlers">Pro Wrestlers</a>
   <a href="#photography">Photography</a>
 </div>
@@ -23,11 +24,7 @@
 </div>
 <!--END OF PAGE CONTENT-->
 
-<!--Background Image-->
-<div id="background image">
-    <img src="{% static 'images/HomepageImages' %}" alt="backgroundimage.jpeg">
-</div>
-<!--END BACKGROUND IMAGE-->
+
 
 </body>
 </html>
