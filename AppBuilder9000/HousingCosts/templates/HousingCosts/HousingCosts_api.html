@@ -3,7 +3,7 @@
 
 {% block title %}Housing Costs - Realty API{% endblock %}
 
-{% block header %}Houses Listed in Portland, ME{% endblock %}
+{% block header %}Houses Listed in {{ payload.city }}, {{ payload.state_code }}{% endblock %}
 
 {% block content %}
     <p>Data acquired from 'Realty in US' API:</p>
@@ -29,4 +29,10 @@
         </tr>
     {% endfor %}
     </table>
+    <p>Or, you can Search Below:</p>
+    <form action="{% url 'realty_api_display' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
 {% endblock %}

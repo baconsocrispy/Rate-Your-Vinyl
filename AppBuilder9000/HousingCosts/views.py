@@ -4,9 +4,8 @@ from django.shortcuts import (
     get_object_or_404
 )
 from .models import House
-from .forms import HouseForm
+from .forms import HouseForm, ApiSearchForm
 import requests
-import json
 
 
 def housing_costs_home(request):
@@ -75,7 +74,7 @@ def realty_api_display(request):
         'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com',
         'X-RapidAPI-Key': '1dda6feeefmsh95fcaa253de27e3p137c53jsn9f798d0c5753'
     }
-    # limited to 10 Houses:
+    # limited to 10 Houses; These Search params are used by default on page load:
     payload = {
         'state_code': 'ME',
         'city': 'Portland',
@@ -89,5 +88,40 @@ def realty_api_display(request):
     # This grabs only ['listings'] data so I can use it in template. Not formatted:
     listings = response['listings']
     # print the entire response to the terminal:
-    print(response)
-    return render(request, 'HousingCosts/HousingCosts_api.html', {'listings': listings})
+    # print(response)
+    form = ApiSearchForm()
+    # Code below executes when the form is submitted, if it is valid
+    if request.method == 'POST':
+        # bind the form contents:
+        form = ApiSearchForm(request.POST)
+        # use for debugging: print(form.is_valid())
+        if form.is_valid():
+            state_code = form.cleaned_data['state']
+            city = form.cleaned_data['city']
+            beds_min = form.cleaned_data['beds']
+            baths_min = form.cleaned_data['baths']
+            price_max = form.cleaned_data['price']
+
+            # URL Payload is updated with form contents. Headers and endpoint stay the same:
+            payload = {
+                'state_code': state_code,
+                'city': city,
+                'beds_min': beds_min,
+                'baths_min': baths_min,
+                'price_max': price_max,
+                'offset': '0',
+                'limit': '10',
+                'sort': 'relevance'
+            }
+            response = requests.get(url, headers=headers, params=payload).json()
+
+            # This grabs only ['listings'] data so I can use it in template. Not formatted:
+            listings = response['listings']
+            # use for debugging: print(listings)
+            # update context and re-render template
+            context = {'listings': listings, 'form': form, 'payload': payload}
+            return render(request, 'HousingCosts/HousingCosts_api.html', context)
+
+    # This context is rendered by default if user has not filled out search form:
+    context = {'listings': listings, 'form': form, 'payload': payload}
+    return render(request, 'HousingCosts/HousingCosts_api.html', context)
