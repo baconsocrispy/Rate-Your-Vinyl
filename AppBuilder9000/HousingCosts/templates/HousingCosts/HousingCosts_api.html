@@ -6,5 +6,26 @@
 {% block header %}Houses Listed in Portland, ME{% endblock %}
 
 {% block content %}
-    <p>{{ listings }}</p>
+    <table class="w-75 table table-striped">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Address</th>
+            <th scope="col">Beds</th>
+            <th scope="col">Baths</th>
+            <th scope="col">SqFt</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+    {% for i in listings %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.address }}</td>
+            <td>{{ i.beds }}</td>
+            <td>{{ i.baths}}</td>
+            <td>{{ i.sqft }}</td>
+            <td><strong>{{ i.price }}</strong></td>
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}
