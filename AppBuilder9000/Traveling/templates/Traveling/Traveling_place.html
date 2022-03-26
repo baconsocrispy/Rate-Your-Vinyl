@@ -18,6 +18,7 @@
 
             <label class="center" for="user">Account:</label>
             <select name="user" id="user" onchange="top.location.href=this.options[this.selectedIndex].value;">
+                <option value="">--------</option>
                 {% for traveler in travelers %}
                 <option value="../{{traveler.pk }}/viewdetails/">{{ traveler }}</option>
                 {% endfor %}

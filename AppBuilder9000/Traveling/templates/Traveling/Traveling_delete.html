@@ -1,0 +1,25 @@
+{% extends "Traveling/Traveling_base.html" %}
+
+{% load static from staticfiles %}
+
+
+
+{% block title %}Travel Agency{% endblock %}
+
+{% block header %}Everywhere in your hand{% endblock %}
+
+{% block content %}
+
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h3>Confirm?</h3>
+
+
+    {{ item.as_p }}
+    <p> Are you sure want to delete the account, " {{ item.name }} " </p>
+    <input type="submit" value=" Yes, delete!" >
+    <a href="{% url 'Traveling_place' %}"><button type="button">Cancel</button> </a>
+
+</form>
+
+{% endblock %}

@@ -11,7 +11,7 @@
 {% block content %}
 
 <div>
-    <form name="TravelerForm" method="POST" action="../Traveling_details/">
+    <form name="TravelerForm" method="POST" action="">
 
 
         <table>
@@ -21,10 +21,10 @@
         </table>
 
         <div>
-            <input type="submit" value="Update">
+            <button type="submit">Confirm</button>
             <div>
-                <button ><a href="" ></a></button>
-                <button ><a href="" ></a></button>
+                <button ><a href="{% url 'Traveling_details_view' %}" >Delete</a></button>
+                <button ><a href="{% url 'Traveling_place' %}" >Cancel</a></button>
             </div>
         </div>
     </form>
