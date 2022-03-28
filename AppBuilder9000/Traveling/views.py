@@ -25,13 +25,23 @@ def details(request, pk):
         if form.is_valid():
             form.save()
             return redirect('Traveling_place')
-    context = {"form": form}
+    context = {"form": form, 'item': item}
     return render(request, 'Traveling/Traveling_save.html', context)
 
 def detail_view(request, pk):
     pk = int(pk)
     item = get_object_or_404(Traveler, pk=pk)
     return render(request, 'Traveling/details_views.html', {'item': item})
+
+def delete(request,pk):
+    item = get_object_or_404(Traveler, pk=pk)
+    form = TravelerForm(request.POST or None)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('Traveling_place')
+    return render(request, 'Traveling/Traveling_delete.html', {'item': item, 'form': form})
+
+
 
 
 def Traveling_place(request):

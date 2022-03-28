@@ -11,7 +11,8 @@
 {% block content %}
 
 
-<div class="bg_img_c"  href="../Traveling_details_view/">
+<div class="bg_img_c" >
+    <br>
     <table>
         <tr>
             <th>First Name</th>
@@ -24,9 +25,9 @@
             <td>{{ item.email }}</td>
         </tr>
     </table>
-
-
-
+    <br>
+    <a href="../details/"><button class="btn-centerview " type="button" >Edit</button></a>
+    <a href="{% url 'Traveling_place' %}"><button class="btn" type="button">Confirm</button></a>
 
 
 </div>
