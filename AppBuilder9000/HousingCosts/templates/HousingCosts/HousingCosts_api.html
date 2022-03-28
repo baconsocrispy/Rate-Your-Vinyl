@@ -28,9 +28,15 @@
             <td>{{ i.sqft }}</td>
             <td><strong>{{ i.price }}</strong></td>
         </tr>
+
     {% endfor %}
     </table>
+<!-- BUTTON FOR NEXT PAGE NOT WORKING
+    <button type="submit" class="btn btn-info col-md-12 w-75" method="get">NEXT 10 RESULTS</button>
+-->
+    <br><br>
     <p class="font-weight-bold text-light bg-dark w-75">Use the form below to search:</p>
+
     {% else %}
     </table>
     <p class="font-weight-bold text-danger bg-dark w-75">

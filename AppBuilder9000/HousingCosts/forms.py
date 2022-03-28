@@ -13,7 +13,7 @@ class HouseForm(ModelForm):
 # Form for API search parameters:
 class ApiSearchForm(forms.Form):
     city = forms.CharField(max_length=25)
-    state = forms.CharField(max_length=3)
+    state = forms.CharField(max_length=2)
     beds = forms.IntegerField()
     baths = forms.IntegerField()
     price = forms.IntegerField()
