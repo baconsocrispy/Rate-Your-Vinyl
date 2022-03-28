@@ -25,7 +25,7 @@ def details(request, pk):
         if form.is_valid():
             form.save()
             return redirect('Traveling_place')
-    context = {"form": form}
+    context = {"form": form, 'item': item}
     return render(request, 'Traveling/Traveling_save.html', context)
 
 def detail_view(request, pk):
