@@ -28,6 +28,13 @@ def records_add(request):
 def records_random(request):
     return render(request, 'RecordCollection/RecordCollection_Random.html')
 
+def records_details(request, pk):
+    details = get_object_or_404(Records, pk=int(pk))
+    content = { 'details': details }
+    return render(request, 'RecordCollection/RecordCollection_details.html', content)
+
+
+
 
 
 
