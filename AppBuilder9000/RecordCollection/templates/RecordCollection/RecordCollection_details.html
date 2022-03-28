@@ -21,11 +21,12 @@
         <div class="row recordsform">
             <div class="col">Notes: {{ details.comments }}</div>
         </div>
-    </div>
 
-
-    <a href="{% url 'records_home' %}" class="recordsbtn btn btn-dark">Home</a>
+    <a href="{% url 'records_edit' details.id %}" class="recordsbtn btn btn-dark">Edit Details</a>
+    <a href="{% url 'records_delete' details.id %}" class="recordsbtn btn btn-dark">Delete Album</a>
     <a href="{% url 'records_view' %}" class="recordsbtn btn btn-dark">Back to Collection</a>
+
+    </div>
 
 </div>
 {% endblock %}
