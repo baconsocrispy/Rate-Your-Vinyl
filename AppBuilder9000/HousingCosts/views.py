@@ -74,7 +74,7 @@ def realty_api_display(request):
         'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com',
         'X-RapidAPI-Key': '1dda6feeefmsh95fcaa253de27e3p137c53jsn9f798d0c5753'
     }
-    # limited to 10 Houses; These Search params are used by default on page load:
+    # limited to 10 Houses; these search params are used by default on page load:
     payload = {
         'state_code': 'ME',
         'city': 'Portland',
@@ -113,10 +113,12 @@ def realty_api_display(request):
                 'limit': '10',
                 'sort': 'relevance'
             }
+            # pulls the data per search terms and create JSON object
             response = requests.get(url, headers=headers, params=payload).json()
 
-            # This grabs only ['listings'] data so I can use it in template. Not formatted:
+            # This grabs only ['listings'] data so I can use it in template. [list]:
             listings = response['listings']
+
             # use for debugging: print(listings)
             # update context and re-render template
             context = {'listings': listings, 'form': form, 'payload': payload}
