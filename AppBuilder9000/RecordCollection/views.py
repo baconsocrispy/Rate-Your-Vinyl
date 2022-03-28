@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Records
 from .forms import RecordsForm
+from .models import Records
 
 
 
@@ -10,7 +10,9 @@ def home(request):
 
 #View Collection Page Req
 def records_view(request):
-    return render(request, 'RecordCollection/RecordCollection_View.html')
+    records_db = Records.Records.all()
+    content = {'records_db': records_db}
+    return render(request, 'RecordCollection/RecordCollection_View.html', content)
 
 #Add to Collection Page Req
 def records_add(request):
