@@ -31,9 +31,9 @@
 
     {% endfor %}
     </table>
-<!-- BUTTON FOR NEXT PAGE NOT WORKING
-    <button type="submit" class="btn btn-info col-md-12 w-75" method="get">NEXT 10 RESULTS</button>
--->
+
+    <button type="submit" class="btn btn-info col-md-12 w-75"><a href="{% url 'realty_api_display' 'offset' %}">NEXT 10 RESULTS</button>
+
     <br><br>
     <p class="font-weight-bold text-light bg-dark w-75">Use the form below to search:</p>
 

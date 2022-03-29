@@ -9,5 +9,6 @@ urlpatterns = [
     path('Edit/<int:pk>/', views.housing_costs_edit, name='housing_costs_edit'),
     path('Delete/<int:pk>/', views.housing_costs_delete, name='housing_costs_delete'),
     path('ApiData/', views.realty_api_display, name='realty_api_display'),
+    path('ApiData/<str:offset>', views.realty_api_display, name='realty_api_display'),
     path('ScrapedData/', views.realty_bs_display, name='realty_bs_display'),
 ]

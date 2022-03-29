@@ -6,6 +6,7 @@ from django.shortcuts import (
 from .models import House
 from .forms import HouseForm, ApiSearchForm
 import requests
+from bs4 import BeautifulSoup
 
 
 def housing_costs_home(request):
@@ -67,7 +68,7 @@ def housing_costs_delete(request, pk):
     return render(request, 'HousingCosts/HousingCosts_delete.html', context)
 
 
-def realty_api_display(request):
+def realty_api_display(request, offset=''):
     # API endpoint, headers, and required parameters. Python generates request url automagically from these:
     url = 'https://realty-in-us.p.rapidapi.com/properties/list-for-sale'
     headers = {
@@ -78,7 +79,7 @@ def realty_api_display(request):
     payload = {
         'state_code': 'ME',
         'city': 'Portland',
-        'offset': '0',
+        'offset': '-10',
         'limit': '10',
         'sort': 'relevance'
     }
@@ -113,6 +114,8 @@ def realty_api_display(request):
                 'limit': '10',
                 'sort': 'relevance'
             }
+            if offset:
+                payload['offset'] += 10
             # pulls the data per search terms and create JSON object
             response = requests.get(url, headers=headers, params=payload).json()
 
