@@ -4,6 +4,6 @@ from .models import Wrestler
 
 
 class wrestlerform(forms.ModelForm):
-    class meta:
+    class Meta:
         model = Wrestler
         fields = '__all__'
