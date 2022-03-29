@@ -68,7 +68,7 @@ def housing_costs_delete(request, pk):
     return render(request, 'HousingCosts/HousingCosts_delete.html', context)
 
 
-def realty_api_display(request, offset=''):
+def realty_api_display(request, offset=0):
     # API endpoint, headers, and required parameters. Python generates request url automagically from these:
     url = 'https://realty-in-us.p.rapidapi.com/properties/list-for-sale'
     headers = {
@@ -79,8 +79,8 @@ def realty_api_display(request, offset=''):
     payload = {
         'state_code': 'ME',
         'city': 'Portland',
-        'offset': '-10',
-        'limit': '10',
+        'offset': offset,
+        'limit': 10,
         'sort': 'relevance'
     }
     # response contains extra data. I only want listings dictionary items:
@@ -88,8 +88,7 @@ def realty_api_display(request, offset=''):
     response = requests.get(url, headers=headers, params=payload).json()
     # This grabs only ['listings'] data so I can use it in template. Not formatted:
     listings = response['listings']
-    # print the entire response to the terminal:
-    # print(response)
+
     form = ApiSearchForm()
     # Code below executes when the form is submitted, if it is valid
     if request.method == 'POST':
@@ -110,12 +109,10 @@ def realty_api_display(request, offset=''):
                 'beds_min': beds_min,
                 'baths_min': baths_min,
                 'price_max': price_max,
-                'offset': '0',
-                'limit': '10',
+                'offset': 0,
+                'limit': 10,
                 'sort': 'relevance'
             }
-            if offset:
-                payload['offset'] += 10
             # pulls the data per search terms and create JSON object
             response = requests.get(url, headers=headers, params=payload).json()
 
@@ -124,9 +121,11 @@ def realty_api_display(request, offset=''):
 
             # use for debugging: print(listings)
             # update context and re-render template
+            print(payload)
             context = {'listings': listings, 'form': form, 'payload': payload}
             return render(request, 'HousingCosts/HousingCosts_api.html', context)
 
+    print(payload)
     # This context is rendered by default if user has not filled out search form:
     context = {'listings': listings, 'form': form, 'payload': payload}
     return render(request, 'HousingCosts/HousingCosts_api.html', context)
