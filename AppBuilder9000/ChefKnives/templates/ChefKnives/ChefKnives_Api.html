@@ -9,11 +9,23 @@
 
 {% block content %}
 
-{% for i in list %}
-<ul>
-    <li>{{ i }}</li>
-</ul>
-{% endfor %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Stars</th>
+    </tr>
+  </thead>
+  {% for list, price, stars in reviews %}
+          <tr>
+            <td>{{ list }}</td>
+            <td>{{ price }}</td>
+            <td>{{ stars }}</td>
+        </tr>
+    {% endfor %}
+    </table>
 
 
 {% endblock %}
