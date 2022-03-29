@@ -68,7 +68,7 @@ def housing_costs_delete(request, pk):
     return render(request, 'HousingCosts/HousingCosts_delete.html', context)
 
 
-def realty_api_display(request, offset=0):
+def realty_api_display(request, offset=0, sess=False):
     # API endpoint, headers, and required parameters. Python generates request url automagically from these:
     url = 'https://realty-in-us.p.rapidapi.com/properties/list-for-sale'
     headers = {
@@ -76,13 +76,20 @@ def realty_api_display(request, offset=0):
         'X-RapidAPI-Key': '1dda6feeefmsh95fcaa253de27e3p137c53jsn9f798d0c5753'
     }
     # limited to 10 Houses; these search params are used by default on page load:
-    payload = {
-        'state_code': 'ME',
-        'city': 'Portland',
-        'offset': offset,
-        'limit': 10,
-        'sort': 'relevance'
-    }
+
+    try:
+        payload = request.session['payload']
+    except:
+        payload = {
+            'state_code': 'ME',
+            'city': 'Portland',
+            'offset': offset,
+            'limit': 10,
+            'sort': 'relevance'
+        }
+
+    payload['offset'] = offset
+
     # response contains extra data. I only want listings dictionary items:
     # 'address', 'beds', 'bath', 'sqft', 'price'
     response = requests.get(url, headers=headers, params=payload).json()
@@ -123,9 +130,11 @@ def realty_api_display(request, offset=0):
             # update context and re-render template
             print(payload)
             context = {'listings': listings, 'form': form, 'payload': payload}
+            request.session['payload'] = payload
             return render(request, 'HousingCosts/HousingCosts_api.html', context)
 
     print(payload)
+
     # This context is rendered by default if user has not filled out search form:
     context = {'listings': listings, 'form': form, 'payload': payload}
     return render(request, 'HousingCosts/HousingCosts_api.html', context)
