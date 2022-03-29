@@ -1,0 +1,14 @@
+{% extends 'Cartoons/Cartoons_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="jumbotron bg-primary text-light text-center">
+  <h1 class="display-4">What's your favorite Cartoon?</h1>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-danger btn-lg" href="{% url 'Cartoons_create' %}" role="button">Tell us all about your favorite Cartoon!</a>
+  </p>
+</div>
+
+{% endblock %}

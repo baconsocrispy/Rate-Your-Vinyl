@@ -1,0 +1,22 @@
+{% extends "Cartoons/Cartoons_base.html" %}
+{% load static %}
+
+{% block content %}
+{% comment %}
+    this page displays a form to create an entry
+{% endcomment %}
+
+<div class="jumbotron w-100 display1 bg-primary text-light text-center">
+        <h2 class="display-4">Tell us about your favorite Cartoon!</h2>
+</div>
+<div id="form-container" class="table-responsive w-50 mx-auto">
+    <form method="POST">
+        {% csrf_token %}
+            <table id="table" class='table bg-danger text-light table-hover table-centered table-striped table-bordered'>
+            {{ form.as_table }}
+            </table>
+            <button type="submit" class="btn btn-success w-100">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

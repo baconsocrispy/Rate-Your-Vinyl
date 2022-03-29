@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'HikingTrails',
     'RecordCollection',
     'Prowrestlers',
+    'Cartoons',
 
 ]
 
