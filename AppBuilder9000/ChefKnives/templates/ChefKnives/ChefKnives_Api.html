@@ -9,10 +9,10 @@
 
 {% block content %}
 
-{% for i in response %}
-{{i.type}}
-{{i.key1}}
-{{i.value}}
+{% for i in list %}
+<ul>
+    <li>{{ i }}</li>
+</ul>
 {% endfor %}
 
 

@@ -84,14 +84,31 @@ def chefknives_soup(request):
 
 
 def chefknives_api(request):
+    list = []
+    price = []
     url = "https://free-amazon-data-scraper.p.rapidapi.com/search/Chef%20Knives"
 
     querystring = {"api_key": "0fd5b0c1fffb09a1c70c1db4f0afe341"}
 
     headers = {
         "X-RapidAPI-Host": "free-amazon-data-scraper.p.rapidapi.com",
-        "X-RapidAPI-Key": "aa3d3af1d8mshe07b323c70b5c20p174de6jsn68e2b0bf2a3b"
+        "X-RapidAPI-Key": "143604b401mshd765f5d870ec324p1e3404jsn76662d978015"
     }
 
-    response = requests.request("GET", url, headers=headers, params=querystring).json()
-    return render(request, 'ChefKnives/ChefKnives_Soup.html', {'response': response})
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    item_results = json.loads(response.text)
+
+    test = item_results['ads']
+
+    for item in test:
+        x = item['name']
+        list.append(x)
+
+        y = item['price']
+        price.append(y)
+
+    print(list)
+    print(price)
+
+    context = {'list': list, 'price': price}
+    return render(request, 'ChefKnives/ChefKnives_Soup.html', context)
