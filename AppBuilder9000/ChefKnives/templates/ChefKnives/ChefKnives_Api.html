@@ -1,0 +1,19 @@
+{% extends 'ChefKnives/ChefKnives_Base.html' %}
+
+{% load static %}
+
+{% block title %} Chef Knives {% endblock %}
+
+
+{% block header %} <h1>Chef Knives</h1> {% endblock %}
+
+{% block content %}
+
+{% for i in response %}
+{{i.type}}
+{{i.key1}}
+{{i.value}}
+{% endfor %}
+
+
+{% endblock %}
