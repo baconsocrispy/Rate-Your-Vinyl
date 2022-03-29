@@ -127,3 +127,8 @@ def realty_api_display(request):
     # This context is rendered by default if user has not filled out search form:
     context = {'listings': listings, 'form': form, 'payload': payload}
     return render(request, 'HousingCosts/HousingCosts_api.html', context)
+
+
+def realty_bs_display(request):
+    context = {}
+    return render(request, 'HousingCosts/HousingCosts_BeautifulSoup.html', context)
