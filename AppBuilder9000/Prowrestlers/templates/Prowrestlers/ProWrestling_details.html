@@ -1,0 +1,30 @@
+{% extends "ProWrestling_base.html" %}
+
+{% block header %}ProWrestling Details:{% endblock %}
+
+{% block content %}
+
+
+<div class="admin_panel">
+    <table>
+       <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Number of Wins</th>
+        </tr>
+       </thead>
+        <tbody>
+            <tr>
+                <td>{{ prowrestler_detail.first_name }}</td>
+                <td>{{ prowrestler_detail.last_name }}</td>
+                <td>{{ prowrestler_detail.win_number }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+{% endblock %}
