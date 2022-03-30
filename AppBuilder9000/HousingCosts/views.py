@@ -77,6 +77,7 @@ def realty_api_display(request, offset=0, sess=False):
     }
     # limited to 10 Houses; these search params are used by default on page load:
 
+    # if the payload is saved as a cookie, use that. If there is no cookie, use default Portland params
     try:
         payload = request.session['payload']
     except:
@@ -130,6 +131,7 @@ def realty_api_display(request, offset=0, sess=False):
             # update context and re-render template
             print(payload)
             context = {'listings': listings, 'form': form, 'payload': payload}
+            # This creates a cookie that saves the search payload so that it will work with 'next page'
             request.session['payload'] = payload
             return render(request, 'HousingCosts/HousingCosts_api.html', context)
 
@@ -141,5 +143,11 @@ def realty_api_display(request, offset=0, sess=False):
 
 
 def realty_bs_display(request):
+    url = 'https://www.consumeraffairs.com/homeowners/fastest-growing-cities.html'
+    source = requests.get(url).text
+    soup = BeautifulSoup(source, 'html.parser')
+    city = soup.find('section', id='population-growth-by-percentage')
+    # Print results to terminal - only want to keep h3 city names and <p> with current population
+    print(city.prettify())
     context = {}
     return render(request, 'HousingCosts/HousingCosts_BeautifulSoup.html', context)
