@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CartoonForm
 from .models import Cartoon
 import requests
@@ -21,3 +21,8 @@ def DisplayCartoons(request):
     cartoon_list = Cartoon.Cartoons.all().order_by("premier_date")
     context = {'cartoon_list': cartoon_list}
     return render(request, 'Cartoons/Cartoons_list.html', context)
+
+def DisplayDetails(request, pk):
+    item = get_object_or_404(Cartoon, pk=pk)
+    context = {'item': item}
+    return render(request, 'Cartoons/Cartoons_details.html', context)
