@@ -6,6 +6,7 @@ from django.shortcuts import (
 from .models import House
 from .forms import HouseForm, ApiSearchForm
 import requests
+from bs4 import BeautifulSoup
 
 
 def housing_costs_home(request):
@@ -67,7 +68,7 @@ def housing_costs_delete(request, pk):
     return render(request, 'HousingCosts/HousingCosts_delete.html', context)
 
 
-def realty_api_display(request):
+def realty_api_display(request, offset=0, sess=False):
     # API endpoint, headers, and required parameters. Python generates request url automagically from these:
     url = 'https://realty-in-us.p.rapidapi.com/properties/list-for-sale'
     headers = {
@@ -75,20 +76,27 @@ def realty_api_display(request):
         'X-RapidAPI-Key': '1dda6feeefmsh95fcaa253de27e3p137c53jsn9f798d0c5753'
     }
     # limited to 10 Houses; these search params are used by default on page load:
-    payload = {
-        'state_code': 'ME',
-        'city': 'Portland',
-        'offset': '0',
-        'limit': '10',
-        'sort': 'relevance'
-    }
+
+    # if the payload is saved as a cookie, use that. If there is no cookie, use default Portland params
+    try:
+        payload = request.session['payload']
+    except:
+        payload = {
+            'state_code': 'ME',
+            'city': 'Portland',
+            'offset': offset,
+            'limit': 10,
+            'sort': 'relevance'
+        }
+
+    payload['offset'] = offset
+
     # response contains extra data. I only want listings dictionary items:
     # 'address', 'beds', 'bath', 'sqft', 'price'
     response = requests.get(url, headers=headers, params=payload).json()
     # This grabs only ['listings'] data so I can use it in template. Not formatted:
     listings = response['listings']
-    # print the entire response to the terminal:
-    # print(response)
+
     form = ApiSearchForm()
     # Code below executes when the form is submitted, if it is valid
     if request.method == 'POST':
@@ -109,8 +117,8 @@ def realty_api_display(request):
                 'beds_min': beds_min,
                 'baths_min': baths_min,
                 'price_max': price_max,
-                'offset': '0',
-                'limit': '10',
+                'offset': 0,
+                'limit': 10,
                 'sort': 'relevance'
             }
             # pulls the data per search terms and create JSON object
@@ -121,9 +129,25 @@ def realty_api_display(request):
 
             # use for debugging: print(listings)
             # update context and re-render template
+            print(payload)
             context = {'listings': listings, 'form': form, 'payload': payload}
+            # This creates a cookie that saves the search payload so that it will work with 'next page'
+            request.session['payload'] = payload
             return render(request, 'HousingCosts/HousingCosts_api.html', context)
+
+    print(payload)
 
     # This context is rendered by default if user has not filled out search form:
     context = {'listings': listings, 'form': form, 'payload': payload}
     return render(request, 'HousingCosts/HousingCosts_api.html', context)
+
+
+def realty_bs_display(request):
+    url = 'https://www.consumeraffairs.com/homeowners/fastest-growing-cities.html'
+    source = requests.get(url).text
+    soup = BeautifulSoup(source, 'html.parser')
+    city = soup.find('section', id='population-growth-by-percentage')
+    # Print results to terminal - only want to keep h3 city names and <p> with current population
+    print(city.prettify())
+    context = {}
+    return render(request, 'HousingCosts/HousingCosts_BeautifulSoup.html', context)
