@@ -7,7 +7,9 @@
 {% block content %}
 	<div class="container">
 		<form method="POST" class="choice">
+			<!-- Security token -->
 			{% csrf_token %}
+			<!-- form as table -->
 			{{form.as_table}}
 			<button class="add_button" type="submit" name="Edit"> Edit </button>
 		</form>

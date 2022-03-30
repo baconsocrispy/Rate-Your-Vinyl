@@ -1,0 +1,31 @@
+{% extends 'ChefKnives/ChefKnives_Base.html' %}
+
+{% load static %}
+
+{% block title %} Chef Knives {% endblock %}
+
+
+{% block header %} <h1>Chef Knives</h1> {% endblock %}
+
+{% block content %}
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Stars</th>
+    </tr>
+  </thead>
+  {% for list, price, stars in reviews %}
+          <tr>
+            <td>{{ list }}</td>
+            <td>{{ price }}</td>
+            <td>{{ stars }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
+{% endblock %}

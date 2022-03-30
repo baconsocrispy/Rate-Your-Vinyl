@@ -1,0 +1,14 @@
+{% extends 'HousingCosts/HousingCosts_base.html' %}
+{% load static %}
+
+{% block title %}Housing Costs - Scraped Data{% endblock %}
+
+{% block header %}Top 15 fastest growing cities according to ConsumerAffairs.com{% endblock %}
+
+{% block content %}
+    {% for i in info %}
+        <p class="font-weight-bold d-inline">{{ i.entry }} </p>
+        <p class="d-inline">{{ i.blurb }}</p>
+        <br>
+    {% endfor %}
+{% endblock %}
