@@ -3,12 +3,11 @@
 
 {% block content %}
 {% comment %}
-    this page displays a list of the information that was inputted on the create page
+    this page displays a single Cartoon selected from the list page.
 {% endcomment %}
 
 <div class="jumbotron jumbotron-fluid bg-primary text-light text-center">
-        <h2 class="display-4">List of Cartoons</h2>
-        <h5>Click a Cartoon for more details!</h5>
+        <h2 class="display-4">Cartoon Details</h2>
 </div>
 
 <div id="table-container" class="table-responsive mx-auto">
@@ -18,16 +17,20 @@
             <tr> <!--Headings for table-->
                 <th scope="col" data-field='title' data-sortable="True">Title</th>
                 <th scope="col" data-field='premier_date' data-sortable="True">Premier Date</th>
+                <th scope="col" data-field='network' data-sortable="True">Network</th>
+                <th scope="col" data-field='genre' data-sortable="True">Genre</th>
+                <th scope="col" data-field='brief_description' data-sortable="True">Description:</th>
             </tr>
         </thead>
         <tbody class="text-light"> <!--table information-->
-        {% for cartoon in cartoon_list %}
             <tr>
-                <td><a href="{% url 'Cartoons_details' cartoon.id %}">{{cartoon.title | capfirst}}</td>
-                <td>{{cartoon.premier_date | capfirst }}</td>
+                <td>{{item.title | capfirst}}</td>
+                <td>{{item.premier_date | capfirst }}</td>
+                <td>{{item.network | capfirst }}</td>
+                <td>{{item.genre | capfirst }}</td>
+                <td>{{item.brief_description | capfirst }}</td>
             </tr>
 
-        {% endfor %}
         </tbody>
     </table>
     <div class="text-center">
