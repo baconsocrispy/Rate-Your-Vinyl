@@ -14,10 +14,10 @@ Genre_Choices = (
 
 class Cartoon(models.Model):
     title = models.CharField(max_length=50)
+    genre = models.CharField(max_length=20, choices=Genre_Choices, default='Comedy')
     network = models.CharField(max_length=30)
     premier_date = models.DateField()
-    brief_description = models.CharField(max_length=100)
-    genre = models.CharField(max_length=20, choices=Genre_Choices, default='select one')
+    brief_description = models.TextField(max_length=1000, default="")
 
     Cartoons = models.Manager()
 
