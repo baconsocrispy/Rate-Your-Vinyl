@@ -10,8 +10,8 @@
 
 {% block content %}
 
-<div>
-    <form name="TravelerForm" method="POST" action="../Traveling_details/">
+<div class="bg_img_c">
+    <form name="TravelerForm" method="POST" action="" class="cs_container">
 
 
         <table>
@@ -20,15 +20,22 @@
 
         </table>
 
-        <div>
-            <input type="submit" value="Update">
-            <div>
-                <button ><a href="" ></a></button>
-                <button ><a href="" ></a></button>
+
+            <div >
+                <button class="btn-submit" type="submit">Confirm</button>
+                <div>
+                    <button class="btn-del"><a style="text-decoration:none; color:#fff;" href="{% url 'Traveling_delete' item.pk %}" >Delete</a></button>
+                    <a href="{% url 'Traveling_place' %}" ><button class="btn-can" >Cancel</button></a>
+                </div>
+
+
+
             </div>
-        </div>
+
+
     </form>
 </div>
+
 
 
 

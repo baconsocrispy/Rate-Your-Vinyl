@@ -53,7 +53,7 @@ li {
 .container{
     margin-top:6%;
     background-color:#d6b3a6;
-    height: 500px;
+    height: 550px;
     width:500px;
     border: 1px solid black;
     border-radius: 8px;
@@ -103,7 +103,7 @@ video {
 
 form {
     position:relative;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left:auto;
     margin-right:auto;
     width:700px;
@@ -132,13 +132,6 @@ form {
     padding-bottom:200px;
 }
 
-.btn {
-    text-align: center;
-    display: inline-block;
-    justify-content: center;
-    padding: 10px 0px;
-
-}
 
 
 
@@ -192,6 +185,31 @@ label{
     margin-left: 150px;
 }
 
+
+.btn {
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 20px;
+}
+
+.btn-two {
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 400px;
+}
+
 .btn-center {
     background-color: rgb(66, 61, 61);
     color: #fff;
@@ -222,28 +240,122 @@ label{
 }
 
 table {
-    height: 300px;
-    width:700px;
+    margin-top:35px;
+    height: 100px;
+    width:300px;
     margin-left:auto;
     margin-right:auto;
     border: 1px solid black;
     text-align: center;
     font-size: 25px;
-    color: #000;
+    color: #fff;
 }
  tr td{
-     border: 1px solid black;
-    with: 100%;
-    background-color: #477fb8 ;
+    height:50px;
+    border: 1px solid black;
+    width: 100%;
+    background-color: rgba(63,127,191,.3) ;
  }
 
 tr th {
+    height: 50px;
     border: 1px solid black;
-    with: 100%;
-    background-color:#477fb8;
+    width: 100%;
+    background-color:rgba(63,127,191,.3);
+}
+
+.btn-centerview{
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 600px;
 }
 
 
+
+.cs_container{
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#477fb8;
+    height: 400px;
+    width:600px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.btn-submit{
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:90px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 20px;
+}
+.btn-del {
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 350px;
+    text-decoration: none;
+}
+
+.btn-can{
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 5px;
+}
+
+.btn-sub {
+    background-color: rgb(66, 61, 61);
+    color: #fff;
+    height: 50px;
+    width:100px;
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    padding: 10px 0px;
+    margin-left: 450px;
+}
+
+.cd_container{
+    margin-left:500px;
+    margin-right:auto;
+    background-color:#477fb8;
+    height: 300px;
+    width:700px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.footer {
+    height:40px;
+    background-color:#000;
+}
+.footer-center{
+    font-size:20px;
+    color:#fff;
+    text-align:center;
+
+}
 
 
 

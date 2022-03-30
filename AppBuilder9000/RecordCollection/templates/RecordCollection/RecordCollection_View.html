@@ -6,7 +6,7 @@
 
 
 {% block content %}
-<div class="recordscard card text-white text-center" style="max-width: 69rem;">
+<div class="recordscard card-body card text-white text-center" style="max-width: 69rem;">
         <h1 class="addh1">View Collection</h1>
         <div class="recordsform table-responsive w-75 mx-auto">
 
@@ -22,7 +22,7 @@
                   {% for item in records_db %} <!-- iterate through database, output results to table -->
                     <tr>
                       <td> {{ item.artistFN }} {{ item.artistLN }}</td>
-                      <td> {{ item.title }}</td>
+                      <td> <a href="{% url 'records_details' item.id %}">{{ item.title }}</td>
                       <td> {{ item.rating }}</td>
                     </tr>
                   {% empty %}

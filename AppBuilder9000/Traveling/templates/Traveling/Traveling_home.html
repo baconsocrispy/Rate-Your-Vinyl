@@ -24,10 +24,13 @@
         Checkout our travel plans and package. You are one click away!</i>
           </p>
         <img src="{% static 'images/travel.jpg' %}">
-        <button class='btn' type="button"><a href="{% url 'Traveling_place' %}" >Book Flights!</a></button>
-        <button class='btn' type="button"><a href="{% url 'Traveling_create' %}">Sign Up!</a> </button>
+        <br>
+        <a href="{% url 'Traveling_place' %}" ><button class='btn-two' type="button">Book Flights!</button></a>
+        <a href="{% url 'Traveling_create' %}"><button class='btn' type="button">Sign Up!</button></a>
 
     </div>
+<br>
+<br>
 
 
 {% endblock %}
