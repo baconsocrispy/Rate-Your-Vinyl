@@ -7,4 +7,6 @@ urlpatterns = [
     path('create/', views.CreateCartoon, name='Cartoons_create'),
     path('list/', views.DisplayCartoons, name='Cartoons_list'),
     path('details/<int:pk>', views.DisplayDetails, name='Cartoons_details'),
+    path('delete/<int:pk>', views.DeleteItem, name="Cartoons_delete"),
+    path('up_date/<int:pk>', views.UpdateItem, name="Cartoons_up_date"),
 ]
