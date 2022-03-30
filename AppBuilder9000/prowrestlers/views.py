@@ -16,4 +16,16 @@ def add_prowrestler(request):
         print(form.errors)
         form = wrestlerform
         context = {'form': form}
+    return render(request, 'Prowrestlers/ProWrestling_createpage.html', context)
+
+def add_prowrestler(request):
+    form = wrestlerform(data=request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+        return redirect('wrestlers_home')
+    else:
+        print(form.errors)
+        form = wrestlerform
+        context = {'form': form}
     return render(request, 'Prowrestlers/ProWrestling_create.html', context)
