@@ -135,7 +135,7 @@ def realty_api_display(request, offset=0, sess=False):
             request.session['payload'] = payload
             return render(request, 'HousingCosts/HousingCosts_api.html', context)
 
-    print(payload)
+    print(listings)
 
     # This context is rendered by default if user has not filled out search form:
     context = {'listings': listings, 'form': form, 'payload': payload}
@@ -143,11 +143,30 @@ def realty_api_display(request, offset=0, sess=False):
 
 
 def realty_bs_display(request):
+    # setting up the soup
     url = 'https://www.consumeraffairs.com/homeowners/fastest-growing-cities.html'
     source = requests.get(url).text
     soup = BeautifulSoup(source, 'html.parser')
-    city = soup.find('section', id='population-growth-by-percentage')
-    # Print results to terminal - only want to keep h3 city names and <p> with current population
-    print(city.prettify())
-    context = {}
+    # Only want to focus on the section of the site with city info
+    cities = soup.find('section', id='population-growth-by-percentage')
+
+    # empty list will hold city names or headlines
+    city_list = []
+    for city in cities.find_all('h3'):
+        city_list.append(city.text)
+
+    # This list will hold the city taglines with growth data
+    summary_list = []
+    for summary in cities.find_all('strong'):
+        summary_list.append(summary.text)
+
+    # blurb and entry ar lists that establish keys for the above lists, then zip together in a dict
+    # that can be passed/used in the django template.
+    blurb = ['blurb' for i in range(len(summary_list))]
+    entry = ['entry' for i in range(len(summary_list))]
+
+    # define our dictionary based on the above lists, zip them together:
+    info = [{b: c, d: e} for (b, c, d, e) in zip(entry, city_list, blurb, summary_list)]
+
+    context = {'info': info}
     return render(request, 'HousingCosts/HousingCosts_BeautifulSoup.html', context)
