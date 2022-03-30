@@ -2,7 +2,42 @@
 {% load static %}
 
 {% block content %}
+{% comment %}
+    this page displays a list of the information that was inputted on the create page
+{% endcomment %}
 
+<div class="jumbotron jumbotron-fluid bg-primary text-light text-center">
+        <h2 class="display-4">List of Cartoons</h2>
+</div>
 
+<div id="table-container" class="table-responsive mx-auto">
+
+    <table class="table table-hover mx-auto w-50 bg-danger">
+        <thead class="text-light font-weight-bold">
+            <tr> <!--Headings for table-->
+                <th scope="col" data-field='First_Name' data-sortable="True">Title</th>
+                <th scope="col" data-field='Last_Name' data-sortable="True">Network</th>
+                <th scope="col" data-field='Last_Name' data-sortable="True">Premier Date</th>
+                <th scope="col" data-field='Last_Name' data-sortable="True">Genre</th>
+                <th scope="col" data-field='Last_Name' data-sortable="True">Description:</th>
+            </tr>
+        </thead>
+        <tbody class="text-light"> <!--table information-->
+        {% for cartoon in cartoon_list %}
+            <tr>
+                <td>{{cartoon.title | capfirst}}</td>
+                <td>{{cartoon.network | capfirst }}</td>
+                <td>{{cartoon.premier_date | capfirst }}</td>
+                <td>{{cartoon.genre | capfirst }}</td>
+                <td>{{cartoon.brief_description | capfirst }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+    <a class="btn btn-success text-light btn-md font-weight-bold w-50"  href="{% url 'Cartoons_create' %}" role="button">Add a Cartoon</a>
+    </div>
+</div>
 
 {% endblock %}
