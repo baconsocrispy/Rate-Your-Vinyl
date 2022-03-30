@@ -28,11 +28,18 @@
       <!-- END NAVBAR -->
     </header>
 
-    <body>
-
+    <body class="d-flex flex-column">
       <div class="content">
-        {% block content %}{% endblock %}
+          {% block content %}{% endblock %}
       </div>
+
+      <!-- FOOTER -->
+      <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-primary text-white-50">
+        <div class="container text-center text-light">
+            <small>Copyright &copy; Jeff Alvarez</small>
+        </div>
+      </footer>
+      <!-- END FOOTER -->
 
       <!-- Bootstrap JS -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
