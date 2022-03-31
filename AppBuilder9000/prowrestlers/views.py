@@ -22,8 +22,9 @@ def add_prowrestler(request):
 
 
 def prowrestler_details(request, pk):
-    prowrestler_detail = get_object_or_404(Wrestler, pk=pk)
-    return render(request, 'Prowrestlers/ProWrestling_details.html', {'prowrestler_detail': prowrestler_detail})
+    details = get_object_or_404(Wrestler, pk=pk)
+    context = {'details': details}
+    return render(request, 'Prowrestlers/ProWrestling_details.html', context)
 
 
 def prowrestler_views(request):
