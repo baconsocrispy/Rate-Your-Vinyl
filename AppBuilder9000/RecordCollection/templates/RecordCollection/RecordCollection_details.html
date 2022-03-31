@@ -22,6 +22,10 @@
             <div class="col">Notes: {{ details.comments }}</div>
         </div>
 
+        <h1 class="addh1"> {{ year }}</h1>
+
+        <img class="albumArt" src={{ cover }}>
+
     <a href="{% url 'records_edit' details.id %}" class="recordsbtn btn btn-dark">Edit Details</a>
     <a href="{% url 'records_delete' details.id %}" class="recordsbtn btn btn-dark">Delete Album</a>
     <a href="{% url 'records_view' %}" class="recordsbtn btn btn-dark">Back to Collection</a>

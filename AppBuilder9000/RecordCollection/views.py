@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import DeleteView
 from .forms import RecordsForm
 from .models import Records
+import requests
 
 
 
@@ -32,8 +33,42 @@ def records_random(request):
 #Album Details Page
 def records_details(request, pk):
     details = get_object_or_404(Records, pk=pk)
-    content = { 'details': details }
+    year, cover = getDiscogs(pk)
+    content = { 'details': details, 'year': year, 'cover': cover }
     return render(request, 'RecordCollection/RecordCollection_details.html', content)
+
+#API Call function
+def getDiscogs(pk):
+    details = get_object_or_404(Records, pk=pk)
+    fn = details.artistFN
+    ln = details.artistLN
+    album = details.title
+    key = "zFIXJeohuNqwGIoQEMNP"
+    secret = "ahKMBCZzjdDWsgHlivvuUSEPdBQWcoIC"
+
+    discogsCall = requests.get(
+        f'https://api.discogs.com/database/search?q={fn}+{ln}+{album}&key={key}&secret={secret}').json()
+
+    #Added to print to console JSON response from Discogs, shows avail labels and specific associated info
+    try:
+        for item, value in discogsCall['results'][0].items():
+            print(str(item) + ": " + str(value))
+    except IndexError:
+        print("No record found.")
+
+    #Pulls desired information from call and returns as variable
+    try:
+        year = discogsCall['results'][0]['year']
+        cover = discogsCall['results'][0]['cover_image']
+        return(year, cover)
+    except IndexError:
+        year = "No info"
+        cover = "https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"
+        return(year, cover)
+
+
+
+
 
 #Edit Details
 def records_edit(request, pk):
@@ -56,6 +91,9 @@ def records_delete(request, pk):
         item.delete()
         return redirect('records_view')
     return render(request, 'RecordCollection/RecordCollection_Delete.html', content)
+
+
+
 
 
 

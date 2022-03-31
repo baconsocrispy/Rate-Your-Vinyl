@@ -15,7 +15,7 @@
         <tbody>
         {% for view in view %}
             <tr>
-                <td>{{ view.first_name }}</td>
+                <td><a href="{% url 'wrestlers_details' view.id %}">{{ view.first_name }}</a></td>
                 <td>{{ view.last_name }}</td>
                 <td>{{ view.win_number }}</td>
             </tr>
