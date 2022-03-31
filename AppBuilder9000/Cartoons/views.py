@@ -3,6 +3,7 @@ from .forms import CartoonForm
 from .models import Cartoon
 import requests
 from bs4 import BeautifulSoup
+import json
 
 # Create your views here.
 """ HOME, CREATE, DISPLAY SECTION """
@@ -51,7 +52,7 @@ def UpdateItem(request, pk):
 
 """ BEAUTIFULSOUP SECTION """
 def RankingScrape(request):
-    # set up a blank list
+    # create empty list
     top_cartoons = []
     # set up BeautifulSoup
     source = requests.get("https://www.indiewire.com/feature/best-animated-series-all-time-cartoons-anime-tv-1202021835/5/")
@@ -68,3 +69,31 @@ def RankingScrape(request):
     print(top_cartoons)
     context = {'top_cartoons': top_cartoons}
     return render(request, 'Cartoons/Cartoons_rankings.html', context)
+
+""" API CONNECTION SECTION """
+def OxfordAPI(request):
+    # set up api connection
+    app_id='591386c7'
+    app_key='ea768fd0e3d3a96ec8b39d08533c1f36'
+    language='en-us'
+    fields ='definitions'
+    strictMatch ='false'
+    # create empty list
+    definition=[]
+    if request.method=='POST':
+        value=request.POST['word_id'].lower()
+        # if input is blank it will display this message
+        if value=="":
+            messages.info(request, 'Please enter a search term')
+        else:
+            url ='https://od-api.oxforddictionaries.com:443/api/v2/entries/' + language + '/' + value + '?fields=' + fields + '&strictMatch=' + strictMatch;
+            info=requests.get(url,headers={'app_id':app_id, 'app_key':app_key})
+            oxford_info=info.json()
+            result=oxford_info['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
+            definition.append(result)
+        context={'value':value,'definition':definition}
+        # if input is not blank then it will return the context
+        return render(request, 'Cartoons/Cartoons_api.html', context)
+    else:
+        return render(request, 'Cartoons/Cartoons_api.html')
+
