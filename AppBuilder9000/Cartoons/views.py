@@ -63,6 +63,8 @@ def RankingScrape(request):
     for i in reversed(rank):
         titles = i.text
         top_cartoons.append(titles)
-    print(*top_cartoons)
+    # delete indexes 8-9 which are irrelevant h3 tags
+    del top_cartoons[8:10]
+    print(top_cartoons)
     context = {'top_cartoons': top_cartoons}
     return render(request, 'Cartoons/Cartoons_rankings.html', context)
