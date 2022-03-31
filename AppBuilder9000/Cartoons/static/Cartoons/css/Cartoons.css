@@ -7,16 +7,20 @@ html body {
     font-family: Arial;
 }
 
-body {
-    height: 100%;
-}
-
 .content {
     background-color: rgba(255,255,255,0.3);
-    padding-bottom: 450px;
+    padding-bottom: 450px
 }
 
 nav {
     font-size: 20px;
+}
+
+footer {
+    position: fixed; /* footer always visible at bottom */
+    left: 0px;
+    bottom: 0px;
+    width:100%;
+    background: #fcdd60;
 }
 

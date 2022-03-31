@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CartoonForm
 from .models import Cartoon
 import requests
+from bs4 import BeautifulSoup
 
 # Create your views here.
 """ HOME, CREATE, DISPLAY SECTION """
@@ -28,7 +29,6 @@ def DisplayDetails(request, pk):
     return render(request, 'Cartoons/Cartoons_details.html', context)
 
 """ EDIT, DELETE SECTION """
-
 def DeleteItem(request, pk):
     context = {}
     item = get_object_or_404(Cartoon, pk=pk)
@@ -48,3 +48,23 @@ def UpdateItem(request, pk):
 
     context = {'item': item, 'form': form}
     return render(request, 'Cartoons/Cartoons_up_date.html', context)
+
+""" BEAUTIFULSOUP SECTION """
+def RankingScrape(request):
+    # set up a blank list
+    top_cartoons = []
+    # set up BeautifulSoup
+    source = requests.get("https://www.indiewire.com/feature/best-animated-series-all-time-cartoons-anime-tv-1202021835/5/")
+    bs = BeautifulSoup(source.content, 'html.parser')
+    # Get all the h3 tags under the div 'entry-content' from source site
+    rankings = bs.find('div', class_='entry-content')
+    rank = rankings.find_all('h3')
+    # for loop through the h3 tags but in reverse order (because they are displayed reversed on the source page)
+    for i in reversed(rank):
+        titles = i.text
+        top_cartoons.append(titles)
+    # delete indexes 8-9 which are irrelevant h3 tags
+    del top_cartoons[8:10]
+    print(top_cartoons)
+    context = {'top_cartoons': top_cartoons}
+    return render(request, 'Cartoons/Cartoons_rankings.html', context)
