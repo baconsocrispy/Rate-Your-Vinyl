@@ -1,7 +1,8 @@
 body {
-	background: url("../images/HousingBG.jpg");
-	background-size: auto;
+	background: url("../images/hero-background.jpg");
+	background-size: cover;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	margin-bottom: 100px; /* Need this so footer doesn't cover submit button on create page */
 }
 
@@ -10,5 +11,5 @@ footer {
     left: 0px;
     bottom: 0px;
     width:100%;
-    background: #ceff99;
+    background: #e6e6e6;
 }

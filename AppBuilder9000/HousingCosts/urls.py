@@ -11,4 +11,5 @@ urlpatterns = [
     path('ApiData/', views.realty_api_display, name='realty_api_display'),
     path('ApiData/<int:offset>', views.realty_api_display, name='realty_api_display'),
     path('ScrapedData/', views.realty_bs_display, name='realty_bs_display'),
+    path('APIError/', views.realty_api_error, name='realty_api_error'),
 ]

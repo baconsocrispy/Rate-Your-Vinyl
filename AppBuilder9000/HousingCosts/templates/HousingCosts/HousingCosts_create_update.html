@@ -8,8 +8,8 @@
 {% block header %}Enter House Details{% endblock %}
 
 {% block content %}
-    <h3>Use the form below to track a new house.</h3>
-    <div id="form-container" class="form-group w-50">
+    <h3 class="text-center">Use the form below to track a new house.</h3>
+    <div id="form-container" class="form-group w-50 mx-auto">
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}

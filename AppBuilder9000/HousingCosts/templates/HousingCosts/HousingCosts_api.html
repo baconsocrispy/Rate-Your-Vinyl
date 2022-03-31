@@ -6,8 +6,8 @@
 {% block header %}Houses Listed in {{ payload.city|title }}, {{ payload.state_code|upper }}{% endblock %}
 
 {% block content %}
-    <p>Data acquired from 'Realty in US' API:</p>
-    <table class="w-75 table table-striped">
+    <p class="text-center">Data acquired from 'Realty in US' API:</p>
+    <table class="w-75 table table-striped mx-auto">
         <thead class="thead-light">
         <tr>
             <th scope="col">#</th>
@@ -33,21 +33,22 @@
     </table>
 
     <a href="{% url 'realty_api_display' payload.offset|add:10 %}">
-        <button type="submit" class="btn btn-info col-md-12 w-75">NEXT 10 RESULTS</button>
+        <button type="submit" class="btn btn-info w-75 btn-block mx-auto">NEXT 10 RESULTS</button>
     </a>
 
     <br><br>
-    <p class="font-weight-bold text-light bg-dark w-75">Use the form below to search:</p>
+    <p class="font-weight-bold text-light bg-dark text-center d-flex justify-content-center">Use the form below to search:</p>
 
     {% else %}
     </table>
-    <p class="font-weight-bold text-danger bg-dark w-75">
+    <p class="font-weight-bold text-danger bg-dark d-flex justify-content-center text-center">
         This search returned no results. Please enter new search terms below:
     </p>
     {% endif %}
-    <form action="{% url 'realty_api_display' %}" method="post" class="form-inline">
+    <form action="{% url 'realty_api_display' %}" method="post" class="form-inline mx-auto">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-info">Submit</button>
+
+        <button type="submit" class="btn btn-info mx-auto">Submit</button>
     </form>
 {% endblock %}

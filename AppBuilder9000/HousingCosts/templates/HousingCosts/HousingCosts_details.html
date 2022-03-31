@@ -6,10 +6,10 @@
 {% block header %}Information About this House{% endblock %}
 
 {% block content %}
-    <table class="w-75 table table-striped">
+    <table class="w-75 table table-striped mx-auto">
         <thead class="thead-light">
             <tr>
-                <th scope="col" colspan="2">{{ details.tagline }}</th>
+                <th scope="col" colspan="2" class="text-center">{{ details.tagline }}</th>
             </tr>
         </thead>
             <tr>
@@ -36,8 +36,12 @@
                 <td><strong>Notes:</strong></td>
                 <td>{{ details.notes }}</td>
             </tr>
-    </table>
-    <a class="btn btn-sm btn-info" href="{% url 'housing_costs_edit' details.id %}">Edit</a>
-    <a class="btn btn-sm btn-danger" href="{% url 'housing_costs_delete' details.id %}">Delete</a>
-    <a class="btn btn-sm btn-secondary" href="{% url 'housing_costs_list' %}">Back To List</a>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-sm btn-info float-right mx-1" href="{% url 'housing_costs_edit' details.id %}">Edit</a>
+                    <a class="btn btn-sm btn-danger float-right mx-1" href="{% url 'housing_costs_delete' details.id %}">Delete</a>
+                    <a class="btn btn-sm btn-secondary float-right mx-1" href="{% url 'housing_costs_list' %}">Back To List</a>
+                </td>
+            </tr>
+        </table>
 {% endblock %}
