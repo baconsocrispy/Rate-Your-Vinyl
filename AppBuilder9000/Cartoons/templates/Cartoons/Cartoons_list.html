@@ -7,24 +7,24 @@
 {% endcomment %}
 
 <div class="jumbotron jumbotron-fluid bg-primary text-light text-center">
-        <h2 class="display-4">List of Cartoons</h2>
-        <h5>Click a Cartoon for more details!</h5>
+        <h2 class="display-4">Your favorite cartoons</h2>
+        <h4>Click on a title to learn more!</h4>
 </div>
 
 <div id="table-container" class="table-responsive mx-auto">
 
-    <table class="table table-hover mx-auto w-50 bg-danger">
+    <table class="table table-hover mx-auto w-50 bg-danger table-striped">
         <thead class="text-light font-weight-bold">
             <tr> <!--Headings for table-->
-                <th scope="col" data-field='title' data-sortable="True">Title</th>
-                <th scope="col" data-field='premier_date' data-sortable="True">Premier Date</th>
-                <th>Update/Delete</th>
+                <th scope="col" data-field='title' data-sortable="True">Title:</th>
+                <th scope="col" data-field='premier_date' data-sortable="True">Premier Date:</th>
+                <th>Update/Delete:</th>
             </tr>
         </thead>
         <tbody class="text-light"> <!--table information-->
         {% for cartoon in cartoon_list %}
             <tr>
-                <td><a href="{% url 'Cartoons_details' cartoon.id %}">{{cartoon.title | capfirst}}</a></td>
+                <td><a href="{% url 'Cartoons_details' cartoon.id %}" class="text-primary font-weight-bold">{{cartoon.title | capfirst}}</a></td>
                 <td>{{cartoon.premier_date | capfirst }}</td>
                 <td>
                     <div>

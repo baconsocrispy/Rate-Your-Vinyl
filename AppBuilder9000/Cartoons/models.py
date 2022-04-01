@@ -8,6 +8,7 @@ Genre_Choices = (
     ('horror','Horror'),
     ('sitcom', 'Sitcom'),
     ('musical', 'Musical'),
+    ('kids', 'Kids'),
     ('slice of life','Slice of LIfe'),
     ('early animation','Early Animation'),
 )

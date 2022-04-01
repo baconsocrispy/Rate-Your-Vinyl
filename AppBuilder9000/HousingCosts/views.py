@@ -171,13 +171,41 @@ def realty_bs_display(request):
     for summary in cities.find_all('strong'):
         summary_list.append(summary.text)
 
-    # blurb and entry ar lists that establish keys for the above lists, then zip together in a dict
+    # blurb and entry are lists that establish keys for the above lists, then zip together in a dict
     # that can be passed/used in the django template.
     blurb = ['blurb' for i in range(len(summary_list))]
     entry = ['entry' for i in range(len(summary_list))]
 
-    # define our dictionary based on the above lists, zip them together:
-    info = [{b: c, d: e} for (b, c, d, e) in zip(entry, city_list, blurb, summary_list)]
+    # generate the google maps search URL for each city in the list:
+    search_url = 'https://www.google.com/maps/place/'
 
+    # create empty list, split on the first space so we can discard #'1', '#2', etc
+    output = []
+    for i in city_list:
+        output.append(list(i.split(' ', 1)))
+    # print(output)
+
+    # append the 2nd element from each resulting list (index=1) to a new list search_terms:
+    search_terms = []
+    for i in output:
+        search_terms.append(i[1])
+    # print(search_terms)
+
+    # replace spaces with '+' for url format. enumerate returns the index and the value so we can update it:
+    for idx, i in enumerate(search_terms):
+        formatted = i.replace(' ', '+')
+        search_terms[idx] = search_url + formatted
+    # print(search_terms)
+
+    # I can do this with list comprehension, but it is harder to read..
+    # ln = [s.replace(' ', '+') for s in search_terms]
+    # print(ln)
+
+    # create keys for search link elements
+    link = ['link' for i in range(len(summary_list))]
+
+    # define our dictionary based on the above lists, zip them together:
+    info = [{b: c, d: e, f: g} for (b, c, d, e, f, g) in zip(entry, city_list, blurb, summary_list, link, search_terms)]
+    # print(info)
     context = {'info': info}
     return render(request, 'HousingCosts/HousingCosts_BeautifulSoup.html', context)
