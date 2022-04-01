@@ -9,6 +9,12 @@
 
 {% block content %}
 
+<form method="get">
+  {{ form.as_p }}
+  <button type="submit">search</button>
+</form>
+
+
 
 <table class="table">
   <thead class="thead-dark">
@@ -27,5 +33,6 @@
     {% endfor %}
     </table>
 
-
 {% endblock %}
+
+
