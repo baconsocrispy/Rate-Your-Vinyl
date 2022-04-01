@@ -9,6 +9,7 @@
         </a>{% endblock %}
 
 {% block content %}
+    <p class="text-center text-light bg-info">*Click the City name to visit Google Maps</p>
     <table class="w-75 table table-striped mx-auto">
         <tr>
             <th class="text-center thead-light">
@@ -21,7 +22,7 @@
     {% for i in info %}
         <tr>
             <td class="font-weight-bold">
-                {{ i.entry }}
+                <a href="{{ i.link }}" class="text-dark" target="_blank">{{ i.entry }}</a>
             </td>
             <td>
                 {{ i.blurb }}
