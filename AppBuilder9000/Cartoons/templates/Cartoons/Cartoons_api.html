@@ -7,7 +7,8 @@
 {% endcomment %}
 
 <div class="jumbotron jumbotron-fluid bg-primary text-light text-center">
-    <h2 class="display-4">Oxford Dictionary API</h2>
+    <h2 class="display-4">Oxford Dictionary</h2>
+    <br>
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
@@ -16,8 +17,8 @@
         </form>
     </div>
     <hr class="my-4">
-    <div class="card">
-        <div class="card-header bg-danger">
+    <div class="card w-50 mx-auto">
+        <div class="card-header bg-warning">
             <h2 class="card-text">{{ value.capitalize }}<br></h2>
         </div>
         <div class="card-body bg-success">
