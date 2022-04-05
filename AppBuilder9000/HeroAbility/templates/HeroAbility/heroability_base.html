@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="{% static '../HeroAbility/static/css/style.css' %}" />
     </head>
     <body id="body">
+        {% include "HeroAbility/heroability_nav.html" %}
         <h1>{% block headline %}{% endblock %}</h1>
         {% block content %}
 
