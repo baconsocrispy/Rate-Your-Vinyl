@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'FictionalCharacters/CSS/FictionalCharacters.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="FCNavbar">
+        <a href="{% url 'FictionalCharacters_Home' %}">Home</a>
+        <a href="#">Characters</a>
+        <a href="#">Add Character</a>
+    </div>
+
+    <div class="FCBox">
+        <header class="FCHeader">
+            <h1>{% block header %}{% endblock %}</h1>
+        </header>
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+<div class="FCFooter">
+    <p> 2022 | Fox Addams</p>
+</div>
+
+
+</html>
