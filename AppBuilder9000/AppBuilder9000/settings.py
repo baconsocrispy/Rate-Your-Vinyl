@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'RecordCollection',
     'Prowrestlers',
     'Cartoons',
+    'MTB_Trails',
 
 ]
 
