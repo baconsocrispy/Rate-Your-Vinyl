@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'RecordCollection',
     'Prowrestlers',
     'Cartoons',
-
+    'Formula1',
 ]
 
 MIDDLEWARE = [
