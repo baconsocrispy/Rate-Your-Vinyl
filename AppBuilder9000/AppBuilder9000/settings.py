@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'Prowrestlers',
     'Cartoons',
     'FictionalCharacters',
+    'HeroAbility',
 
 ]
 
