@@ -1,0 +1,15 @@
+body {
+    background-image: url("../images/heroability_bg.jpg");
+    background-color: black;
+    color: yellow;
+    text-align: center;
+}
+
+.navbar ul{
+    list-style: none;
+}
+
+li {
+    background-color: white;
+    padding: 3px;
+}
