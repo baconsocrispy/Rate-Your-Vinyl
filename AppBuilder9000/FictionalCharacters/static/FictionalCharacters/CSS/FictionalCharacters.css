@@ -22,7 +22,7 @@ a {
     border: 3px solid;
     border-color: white;
     color: white;
-    margin: 10em auto;
+    margin: 7em auto;
     opacity: .9;
     width: 50%;
 }
@@ -79,7 +79,31 @@ a {
     position: fixed;
     text-align: center;
     padding: 10px;
+    top: 10;
     bottom: 0;
     width: 100%;
 }
 /*=======GENERAL STYLE END=======*/
+
+
+/*=======FORM STYLE START=======*/
+
+.FCContainer {
+    margin: 0 auto;
+    background-color: black;
+    opacity: .9;
+    border: 2px solid red;
+}
+
+.FCForm {
+    padding-left: 17em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.FCAttn {
+    text-align: center;
+    color: red;
+}
+
+/*=======FORM STYLE END=======*/
