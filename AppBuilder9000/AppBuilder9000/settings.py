@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'FictionalCharacters',
     'HeroAbility',
     'MTB_Trails',
-
+    'Formula1',
 ]
 
 MIDDLEWARE = [

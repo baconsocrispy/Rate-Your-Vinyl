@@ -1,0 +1,13 @@
+.header-title {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.search-box {
+    margin: auto;
+    width: 60%;
+    align-content: center;
+}
