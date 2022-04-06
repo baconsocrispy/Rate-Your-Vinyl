@@ -1,0 +1,49 @@
+{# Custom CSS classes where Bootstrap is not preferred. #}
+
+{# Sticky footer setup. #}
+.footer-home--container
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: none;
+    color: gold;
+    text-align: center
+}
+
+{# Adding stroke to footer text. #}
+.footer-home--text
+{
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
+               -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+{# Background image will present unmoving in background, creating 3D effect. #}
+.html-home--bg
+{
+    background-image:url("../images/bike_and_lake.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+{# For the mtb_trails_base.html file, this will render following pages in the center of screen. #}
+.header-home--container
+{
+    height: 11em;
+    position: relative
+    margin: 0;
+    background: none;
+    color: #BA9D79;
+    font-family: "Lucida Handwriting",Helvetica;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -.1px -.1px 0 #FFD700, .1px -.1px 0 #FFD700,
+                 -.1px .1px 0 #FFD700, .1px .1px 0 #FFD700;
+}

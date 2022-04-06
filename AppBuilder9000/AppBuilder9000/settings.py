@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'Cartoons',
     'FictionalCharacters',
     'HeroAbility',
+    'MTB_Trails',
 
 ]
 
