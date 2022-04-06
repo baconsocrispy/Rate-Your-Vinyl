@@ -2,7 +2,7 @@
 
 {# mtb_trails_base contains elements that'll be shown on every page. #}
 <!DOCTYPE html>
-<html lang="en" class="html-home--bg">
+<html lang="en" class="html-base--bg">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,14 +14,18 @@
         <title>{% block title %} {% endblock %}</title>
     </head>
 
-    <body>
+    <body class="body-base--padding">
         <div>
             {% include "MTB_Trails/mtb_trails_navbar.html" %}
         </div>
 
-        <header class="header-home--container">
+        <header class="header-base--container">
             <h1>{% block header %} {% endblock %}</h1>
         </header>
+
+        <section class="section-content--container">
+            <h3>{% block content %} {% endblock %}</h3>
+        </section>
 
 
 
