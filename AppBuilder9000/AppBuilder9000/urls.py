@@ -44,6 +44,8 @@ urlpatterns = [
     path('RecordCollection/', include('RecordCollection.urls')),
     path('Prowrestlers/', include('Prowrestlers.urls')),
     path('Cartoons/', include('Cartoons.urls')),
+    path('FictionalCharacters/', include('FictionalCharacters.urls')),
+    path('HeroAbility/', include('HeroAbility.urls')),
     path('MTB_Trails/', include('MTB_Trails.urls')),
 ]
 

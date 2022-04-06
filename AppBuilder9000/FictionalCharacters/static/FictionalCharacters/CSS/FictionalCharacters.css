@@ -1,0 +1,85 @@
+/*=======GENERAL STYLE START=======*/
+
+html {
+    scroll-behavior: smooth;
+    background-color: black;
+}
+
+/*===BODY===*/
+
+body {
+    font-family: 'Courier New', monospace;
+    color: white;
+    overflow: hidden;
+}
+
+a {
+    color: white;
+}
+
+.FCBox {
+    background-color: grey;
+    border: 3px solid;
+    border-color: white;
+    color: white;
+    margin: 10em auto;
+    opacity: .9;
+    width: 50%;
+}
+
+.FCHeader {
+    text-align: center;
+    color: white;
+}
+
+/*=BACKGROUND IMAGE=*/
+.bg_img {
+    background-image: url('/static/FictionalCharacters/images/Characters_background.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/*=NAVBAR=*/
+.FCNavbar {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: -webkit-sticky; /* Keeps Navbar at top of page */
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Navbar is always on top */
+}
+
+.FCNavbar a {
+    font-weight: bold;
+    text-align: center;
+}
+
+.FCNavbar a:hover {
+    background-color: gray;
+}
+
+/*=HOME TEXT=*/
+.FCDef {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.FCHome {
+    text-align: center;
+}
+
+/*=FOOTER=*/
+.FCFooter {
+    position: fixed;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}
+/*=======GENERAL STYLE END=======*/
