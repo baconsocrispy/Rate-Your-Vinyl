@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CartoonForm
-from .models import Cartoon
+from .models import Cartoon, Definition
 import requests
 from bs4 import BeautifulSoup
 import json
 
 # Create your views here.
-""" HOME, CREATE, DISPLAY SECTION """
+""" HOME, CREATE, DISPLAY, UPDATE, DELETE CARTOON SECTION """
 def Cartoons(request):
     return render(request, 'Cartoons/Cartoons_home.html')
 
@@ -29,7 +29,6 @@ def DisplayDetails(request, pk):
     context = {'item': item}
     return render(request, 'Cartoons/Cartoons_details.html', context)
 
-""" EDIT, DELETE SECTION """
 def DeleteItem(request, pk):
     context = {}
     item = get_object_or_404(Cartoon, pk=pk)
@@ -43,6 +42,7 @@ def DeleteItem(request, pk):
 def UpdateItem(request, pk):
     item = Cartoon.Cartoons.get(pk=pk)
     form = CartoonForm(request.POST or None, instance=item)
+
     if form.is_valid():
         form.save()
         return redirect('Cartoons_list')
@@ -66,11 +66,13 @@ def RankingScrape(request):
         top_cartoons.append(titles)
     # delete indexes 8-9 which are irrelevant h3 tags
     del top_cartoons[8:10]
+    # console test
     print(top_cartoons)
+
     context = {'top_cartoons': top_cartoons}
     return render(request, 'Cartoons/Cartoons_rankings.html', context)
 
-""" API CONNECTION SECTION """
+""" OXFORD API SECTION """
 def OxfordAPI(request):
     # set up api connection
     app_id='591386c7'
@@ -91,9 +93,23 @@ def OxfordAPI(request):
             oxford_info=info.json()
             result=oxford_info['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'][0]
             definition.append(result)
+
+            save_definition = Definition.Definitions.create(
+                value=value,
+                definition=definition
+            )
+            save_definition.save()
+
         context={'value':value,'definition':definition}
         # if input is not blank then it will return the context
         return render(request, 'Cartoons/Cartoons_api.html', context)
     else:
         return render(request, 'Cartoons/Cartoons_api.html')
+
+
+def DisplayDefinitions(request):
+    definition_list = Definition.Definitions.all().order_by("value")
+    context = {'definition_list': definition_list}
+    return render(request, 'Cartoons/Cartoons_definitions.html', context)
+
 

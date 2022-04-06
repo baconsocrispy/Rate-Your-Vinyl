@@ -59,9 +59,10 @@ INSTALLED_APPS = [
     'RecordCollection',
     'Prowrestlers',
     'Cartoons',
-    'Formula1',
     'FictionalCharacters',
-
+    'HeroAbility',
+    'MTB_Trails',
+    'Formula1',
 ]
 
 MIDDLEWARE = [

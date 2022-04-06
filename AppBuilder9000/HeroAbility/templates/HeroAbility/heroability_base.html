@@ -1,0 +1,17 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <title>{% block title %}Batman's Black Book{% endblock %}</title>
+        <meta charset="UTF-8" />
+        <!-- Customer Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'HeroAbility/css/style.css' %}" />
+    </head>
+    <body id="body">
+        <!-- load the navbar -->
+        {% include "HeroAbility/heroability_nav.html" %}
+        <h1>{% block headline %}{% endblock %}</h1>
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>
