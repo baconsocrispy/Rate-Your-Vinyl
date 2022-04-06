@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="results_form">
+<div class="results-form">
     <form method="POST" action="{% url 'result_submit' %}">
         <div class="form-obj-container">
             {% csrf_token %}
@@ -14,8 +14,8 @@
             {{ form.as_p }}
         </div>
         <div class="form-btn-container">
-            <input type="submit" class="btn" value="Add Result" name="add_result">
-            <a href="{% url 'f1_home' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+            <a href="{% url 'f1_home' %}"><button type="button" class="btn-form" id="btn-cancel" value="Cancel">Cancel</button></a>
+            <input type="submit" class="btn-form" id="btn-submit" value="Add Result" name="add_result">
         </div>
     </form>
 </div>
