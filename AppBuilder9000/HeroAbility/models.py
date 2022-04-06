@@ -1,6 +1,6 @@
 from django.db import models
 
-THREAT = { #establish threat levels
+THREAT = {  # establish threat levels
     ('0', '0'),
     ('1', '1'),
     ('2', '2'),
@@ -9,16 +9,17 @@ THREAT = { #establish threat levels
     ('5', '5'),
 }
 
-#set up the Heroes class for the db.
+
+# set up the Heroes class for the db.
 class Heroes(models.Model):
     alias = models.CharField(max_length=30, default="", blank=False, null=False)
-    secretIdentity = models.CharField(max_length=50, default="", blank=True, null=False)
-    abilityName = models.CharField(max_length=25, default="", blank=False, null=False)
-    abilitySummary = models.CharField(max_length=100, default="", blank=False, null=False)
+    secret_Identity = models.CharField(max_length=50, default="", blank=True, null=False)
+    ability_Name = models.CharField(max_length=25, default="", blank=False, null=False)
+    ability_Summary = models.CharField(max_length=100, default="", blank=False, null=False)
     weakness = models.CharField(max_length=25, default="", blank=True, null=False)
-    threatLevel = models.CharField(max_length=2, default="", choices=THREAT)
+    threat_Level = models.CharField(max_length=2, default="0", choices=THREAT)
 
-    #assign a manager
+    # assign a manager
     heroes = models.Manager()
 
     def __str__(self):
