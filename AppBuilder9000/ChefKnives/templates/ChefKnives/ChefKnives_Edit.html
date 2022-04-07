@@ -5,14 +5,18 @@
 {% block header %}  {% endblock %}
 
 {% block content %}
-	<div class="container">
-		<form method="POST" class="choice">
-			<!-- Security token -->
-			{% csrf_token %}
-			<!-- form as table -->
-			{{form.as_table}}
-			<button class="add_button" type="submit" name="Edit"> Edit </button>
-		</form>
-	</div>
+<div class="jumbotron jumbotron-fluid bg-dark text-white text-center">
+    <h2 class="display-4">Edit Knife Details</h2>
+</div>
+
+<div id="form-container" class="table-responsive w-50 mx-auto table-striped">
+    <form method="POST">
+        {% csrf_token %}
+            <table id="table" class='table bg-info text-white table-hover table-centered table-striped table-bordered'>
+            {{ form.as_table }}
+            </table>
+            <button type="submit" class="btn btn-secondary btn-lg btn-block">Submit</button>
+    </form>
+</div>
 
 {% endblock %}
