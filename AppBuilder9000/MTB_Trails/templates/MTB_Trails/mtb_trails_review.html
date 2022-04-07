@@ -7,9 +7,11 @@
 {% block header %}review your ride{% endblock %}
 
 {% block content %}
+    <!-- Centering elements with custom CSS -->
     <div class="form-review--container">
-        <form action="" method="post" class="form-review--padding">
+        <form action="" method="post" class="bottom-page--padding">
             {% csrf_token %}
+                <!-- Crispy makes the Django form look nice -->
                 {{ form|crispy }}
             <input type="submit" class="btn btn-dark btn-block" input="submit">
         </form>

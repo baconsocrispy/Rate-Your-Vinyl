@@ -63,8 +63,33 @@
 }
 
 /* Adding space to bottom of forms and footer */
-.form-review--padding
+.bottom-page--padding
 {
     padding-bottom: 100px
 }
 
+.existing-reviews--container
+{
+    height: 11em;
+    /* margin: 0; */
+    color: white;
+    background: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-btn--container
+{
+    height: 11em;
+    /* margin: 0; */
+    color: white;
+    background: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
