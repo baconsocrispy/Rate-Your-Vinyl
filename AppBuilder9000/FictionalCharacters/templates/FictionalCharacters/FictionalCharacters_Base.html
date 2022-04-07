@@ -12,8 +12,10 @@
 <body>
     <div class="FCNavbar">
         <a href="{% url 'FictionalCharacters_Home' %}">Home</a>
+        <a href="#">Series</a>
         <a href="#">Characters</a>
-        <a href="#">Add Character</a>
+        <a href="{% url 'FictionalCharacters_CreateSeries' %}">Add A Series</a>
+        <a href="{% url 'FictionalCharacters_Create' %}">Add A Character</a>
     </div>
 
     <div class="FCBox">
