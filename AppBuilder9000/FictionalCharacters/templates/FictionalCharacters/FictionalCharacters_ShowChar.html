@@ -1,0 +1,19 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} {{ char }} {% endblock %}
+
+{% block content %}
+
+    <ul>
+        <li><b>AGE:</b> {{ char.age }}</li>
+        <li><b>GENDER:</b> {{ char.gender }}</li>
+        <li><b>SPECIES:</b> {{ char.species }}</li>
+        <li><b>SKILL:</b> {{ char.skill }}</li>
+        <li><b>ALIGNMENT:</b> {{ char.alignment|default_if_none:'?'}}</li> <!-- If no value is found, will display '?' -->
+        <li><b>SERIES:</b> {{ char.series }}</li>
+        <li><b>NOTES:</b> {{ char.notes }}</li>
+    </ul>
+
+{% endblock %}

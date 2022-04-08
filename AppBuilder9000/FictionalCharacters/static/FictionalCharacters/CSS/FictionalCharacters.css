@@ -22,7 +22,7 @@ a {
     border: 3px solid;
     border-color: white;
     color: white;
-    margin: 7em auto;
+    margin: 5em auto;
     opacity: .9;
     width: 50%;
 }
@@ -61,6 +61,18 @@ a {
 
 .FCNavbar a:hover {
     background-color: gray;
+}
+
+.FCSrc input[type=text] {
+    padding: 4px;
+    margin-top: 8px;
+    border: 1px solid white;
+}
+
+.FCSrc button {
+    padding: 4px 6px;
+    margin-top: 8px;
+    cursor: pointer
 }
 
 /*=HOME TEXT=*/
@@ -107,3 +119,17 @@ a {
 }
 
 /*=======FORM STYLE END=======*/
+
+/*=======VIEW STYLE START=======*/
+
+.FCView {
+    height: 450px;
+    overflow: auto;
+}
+
+.FCSearch {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/*=======VIEW STYLE END=======*/

@@ -10,18 +10,19 @@ GENDERS = (
 )
 
 ALIGNMENT = (
-    ('LG', 'Lawful Good'),
-    ('NG', 'Neutral Good'),
-    ('CG', 'Chaotic Good'),
-    ('LN', 'Lawful Neutral'),
-    ('TN', 'True Neutral'),
-    ('CN', 'Chaotic Neutral'),
-    ('LE', 'Lawful Evil'),
-    ('NE', 'Neutral Evil'),
-    ('CE', 'Chaotic Evil'),
+    ('Lawful Good', 'Lawful Good'),
+    ('Neutral Good', 'Neutral Good'),
+    ('Chaotic Good', 'Chaotic Good'),
+    ('Lawful Neutral', 'Lawful Neutral'),
+    ('True Neutral', 'True Neutral'),
+    ('Chaotic Neutral', 'Chaotic Neutral'),
+    ('Lawful Evil', 'Lawful Evil'),
+    ('Neutral Evil', 'Neutral Evil'),
+    ('Chaotic Evil', 'Chaotic Evil'),
 )
 
 TYPES = (
+    ('ANI', 'Anime'),
     ('BOOK', 'Book'),
     ('CMC', 'Comic'),
     ('FILM', 'Movie'),
