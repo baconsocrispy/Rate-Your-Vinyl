@@ -2,14 +2,11 @@
 
 {% block title %} Fictional Characters {% endblock %}
 
-{% block header %} CHARACTERS {% endblock %}
+{% block header %} {{ char }} {% endblock %}
 
 {% block content %}
 
-<div class="FCView">
-    {% for char in chars %}
     <ul>
-        <li><b>NAME:</b> {{ char.name }}</li>
         <li><b>AGE:</b> {{ char.age }}</li>
         <li><b>GENDER:</b> {{ char.gender }}</li>
         <li><b>SPECIES:</b> {{ char.species }}</li>
@@ -18,8 +15,5 @@
         <li><b>SERIES:</b> {{ char.series }}</li>
         <li><b>NOTES:</b> {{ char.notes }}</li>
     </ul>
-    <hr>
-    {% endfor %}
-</div>
 
 {% endblock %}

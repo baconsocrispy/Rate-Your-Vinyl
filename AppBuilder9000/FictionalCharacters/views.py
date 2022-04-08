@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import CharacterForm, SeriesForm
-from .models import Characters, Series
+from .models import Characters
 import requests
 
 # Create your views here.
@@ -46,11 +46,16 @@ def list_characters(request):
 # Create a function to list search results of Characters dB
 def search_characters(request):
     if request.method == "POST":
-        char_search = request.POST('FCsearch')
-        chars = Characters.objects.filter(name__contains=char_search)
+        searched = request.POST['searched']
+        chars = Characters.objects.filter(name__contains=searched)
         return render(request,
-        'FictionalCharacters/FictionalCharacters_Search.html', {'FCsearch': char_search, 'chars': chars})
+        'FictionalCharacters/FictionalCharacters_Search.html', {'searched': searched, 'chars': chars})
     else:
-
         return render(request,
         'FictionalCharacters/FictionalCharacters_Search.html', {})
+
+
+def show_char(request, char_id):
+    char = Characters.objects.get(pk=char_id)
+    return render(request,
+    'FictionalCharacters/FictionalCharacters_ShowChar.html', {'char': char})

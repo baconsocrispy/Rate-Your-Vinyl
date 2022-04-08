@@ -6,9 +6,17 @@
 
 {% block content %}
 
-{% for char in chars %}
+<div class="FCSearch">
+    {% if searched %}
+        {% for char in chars %}
 
-{% endfor %}
+           &curren; <a href="{% url 'FictionalCharacters_ShowChar' char.id%}">{{ char }}</a> <br/>
 
+        {% endfor %}
+
+    {% else %}
+    You forgot to search for a character!
+    {% endif %}
+</div>
 
 {% endblock %}

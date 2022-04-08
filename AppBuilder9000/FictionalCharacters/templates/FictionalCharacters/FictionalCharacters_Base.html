@@ -18,7 +18,7 @@
         <div class="FCSrc">
             <form method="POST" action="{% url 'FictionalCharacters_Search' %}">
                 {% csrf_token %}
-                <input type="search" placeholder="Search Characters..." name="FCsearch">
+                <input type="search" placeholder="Search Characters..." name="searched">
                 <button type="submit">Submit</button>
             </form>
         </div>
