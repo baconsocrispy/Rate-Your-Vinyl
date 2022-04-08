@@ -1,13 +1,15 @@
 from django.db import models
+from django import forms
+
 
 
 TRAIL_DIFFICULTY = [
-    ("1", "1 - Easy"),
-    ("2", "2 - Easy/Intermediate"),
-    ("3", "3 - Intermediate"),
-    ("4", "4 - Intermediate/Difficult"),
-    ("5", "5 - Difficult"),
-    ("6", "6 - Very Difficult"),
+    ("Easy", "1 - Easy"),
+    ("Easy/Intermediate", "2 - Easy/Intermediate"),
+    ("Intermediate", "3 - Intermediate"),
+    ("Intermediate/Difficult", "4 - Intermediate/Difficult"),
+    ("Difficult", "5 - Difficult"),
+    ("Very Difficult", "6 - Very Difficult"),
 ]
 
 US_STATES = [
@@ -27,26 +29,12 @@ US_STATES = [
 ]
 
 
+
 class ReviewTrail(models.Model):
     trail_name = models.CharField(max_length=60)
     nearest_city = models.CharField(max_length=60, blank=True)
     state = models.CharField(max_length=60, choices=US_STATES)
     review = models.TextField()
-    difficulty = models.CharField(max_length=60, choices=TRAIL_DIFFICULTY)
-
-    objects = models.Manager()
-
-    def __str__(self):
-        return self.trail_name
-
-
-class CreateTrail(models.Model):
-    trail_name = models.CharField(max_length=60)
-    nearest_city = models.CharField(max_length=60, blank=True)
-    state = models.CharField(max_length=60, choices=US_STATES)
-    directions = models.TextField(blank=True, default="How do we get there?")
-    need_to_know = models.TextField(blank=True, default="Sketchy sections, flooded areas. Whatever"
-                                                              " fellow bikers need to know.")
     difficulty = models.CharField(max_length=60, choices=TRAIL_DIFFICULTY)
 
     objects = models.Manager()
