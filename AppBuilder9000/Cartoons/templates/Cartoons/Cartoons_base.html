@@ -24,10 +24,11 @@
                       <a class="nav-link text-danger font-weight-bold" href="{% url 'Cartoons_create' %}">Add a Cartoon</a>
                       <a class="nav-link text-success font-weight-bold" href="{% url 'Cartoons_list' %}">List of Cartoons</a>
                       <a class="nav-link text-warning font-weight-bold" href="{% url 'Cartoons_rankings' %}">Top Ten Cartoons</a>
-                      <a class="nav-link text-primary font-weight-bold" href="{% url 'Cartoons_api' %}">Oxford Dictionary</a>
+                      <a class="nav-link text-primary font-weight-bold" href="{% url 'Cartoons_movies' %}">Top Animated Movies</a>
+                      <a class="nav-link text-danger font-weight-bold" href="{% url 'Cartoons_api' %}">Oxford Dictionary</a>
                   </div>
               </div>
-              <!-- Added input/button that utilizes the oxford dictionary API and will bring the user to the API page upon clicking submit !-->
+              <!-- Added input/button that utilizes the oxford dictionary API and will bring the user to the API page upon clicking submit. -->
               <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'Cartoons_api' %}">
                   {% csrf_token %}
                   <input class="form-control mr-sm-2" type="text" name="word_id" placeholder="Search Dictionary...">
@@ -43,6 +44,7 @@
         document.body.classList.add('fade');
       </script>
       <div class="content">
+          <!-- This is where all the content from other templates will display -->
           {% block content %}{% endblock %}
       </div>
 

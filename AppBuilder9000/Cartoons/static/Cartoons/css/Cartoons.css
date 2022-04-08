@@ -80,9 +80,9 @@ select {
 }
 
 /* FONT SECTION */
-
-h1 {
+h1, .h1 {
     transition: transform .5s ease-in-out;
+    font-size: 70px !important;
 }
 
 h1:hover {
@@ -102,6 +102,12 @@ h2:hover {
 .display-4 {
     font-family: "Patrick Hand SC", cursive;
 }
+
+.navbar-nav {
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 27px;
+}
+
 
 
 
