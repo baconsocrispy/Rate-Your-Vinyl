@@ -7,4 +7,5 @@ urlpatterns = [
     path('trails_review/', views.mtb_trails_review, name='mtb_trails_review'),
     path('submitted_review/', views.submitted_review, name='submitted_review'),
     path('existing_reviews/', views.existing_reviews, name='existing_reviews'),
+    path('review_details/<int:pk>/', views.review_details, name='review_details'),
 ]

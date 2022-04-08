@@ -32,3 +32,8 @@ def submitted_review(request):
 def existing_reviews(request):
     trails = ReviewTrail.objects.all()
     return render(request, "MTB_Trails/existing_reviews.html", {'trails': trails})
+
+# View for detailed review page
+def review_details(request, pk):
+    trail = ReviewTrail.objects.get(pk=pk)
+    return render(request, "MTB_Trails/review_details.html", {'trail':trail})
