@@ -12,6 +12,7 @@
     align-content: center;
 }
 
+/* ADD RESULT FORM STYLING */
 #bootstrap-override .form-obj-container {
     text-align: center;
     width: 30%;
@@ -28,6 +29,11 @@
     text-align: center;
     font-size: large;
     border-radius: 5px;
+}
+
+#bootstrap-override .form-radio {
+    list-style-type: none;
+    display: inline;
 }
 
 #bootstrap-override .small-form-dropdown {

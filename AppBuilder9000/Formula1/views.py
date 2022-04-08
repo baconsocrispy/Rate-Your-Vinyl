@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from django.db import IntegrityError
 from django.contrib import messages
 from .forms import ResultForm
-from .models import Team, Race, Driver, Result
+from .models import Result
 
-POINTS_PER_POSITION = {
+##ADDING IN ALL DATA NEEDED FOR POINT CALCULATIONS
+
+POINTS_PER_POSITION_FEATURE = {
     1: 25,
     2: 18,
     3: 15,
@@ -16,6 +18,17 @@ POINTS_PER_POSITION = {
     8: 4,
     9: 2,
     10: 1,
+}
+
+POINTS_PER_POSITION_SPRINT = {
+    1: 8,
+    2: 7,
+    3: 6,
+    4: 5,
+    5: 4,
+    6: 3,
+    7: 2,
+    8: 1,
 }
 
 # RENDERS HOME PAGE
@@ -34,29 +47,34 @@ def result_submit(request):
         if form.is_valid():
             result = form.save(commit=False)
             # GENERATE DRIVER_RACE_KEY AND ASSIGN IT
-            key = f"{result.Race} - {result.Driver_Name}"
+            key = f"{result.Race} - {result.Race_Type} - {result.Driver_Name}"
             result.Driver_Race_Key = key
-            # USE DRIVER DATA FROM USER TO ASSIGN THE CORRECT TEAM, USING DATA FROM DRIVER MODEL
-            team = Driver.drivers.filter(Driver_Name=result.Driver_Name).values('Current_Team').first()
-            result.Current_Team = team['Current_Team']
             # USE BUSINESS LOGIC TO CALCULATE POINT TOTAL
             if result.Finishing_Position == 'DNF':
                 result.Points_Earned = 0
             else:
                 pos = int(result.Finishing_Position)
-                if pos <= 10:
-                    points = POINTS_PER_POSITION[pos]
-                    if result.Fastest_Lap == True:
-                        points = points + 1
-                    result.Points_Earned = points
+                if result.Race_Type == 'Feature Race':
+                    if pos <= 10:
+                        points = POINTS_PER_POSITION_FEATURE[pos]
+                        if result.Fastest_Lap == True:
+                            points = points + 1
+                        result.Points_Earned = points
+                    else:
+                        result.Points_Earned = 0
                 else:
-                    result.Points_Earned = 0
+                    if pos <=8:
+                        points = POINTS_PER_POSITION_SPRINT[pos]
+                        result.Points_Earned = points
+                    else:
+                        result.Points_Earned = 0
+            ##SAVE ALL DATA TO RESULTS MODEL AND RETURN AN ERROR IF A RESULT HAS ALREADY BEEN RECORDED FOR THAT RACE+DRIVER COMBO
             try:
                 result.save()
                 messages.success(request, "Result was successfully saved.")
                 return redirect('add_result')
             except IntegrityError as e:
-                messages.error(request, f"{result.Driver_Name} already has a result recorded for {result.Race}")
+                messages.error(request, f"{result.Driver_Name} already has a result recorded for {result.Race} - {result.Race_Type}")
                 return redirect('add_result')
         else:
             print(form.errors)

@@ -1,17 +1,69 @@
 from django.db import models
 
+##ADDING IN ALL DATA NEEDED FOR RESULTS FORM DROPDOWNS
+DRIVER_CHOICES = [
+    ('', 'Select a Driver'),
+    ('Alex Albon', 'Alex Albon'),
+    ('Fernando Alonso', 'Fernando Alonso'),
+    ('Valterri Bottas', 'Valterri Bottas'),
+    ('Pierre Gasly', 'Pierre Gasly'),
+    ('Lewis Hamilton', 'Lewis Hamilton'),
+    ('Nicholas Latifi', 'Nicholas Latifi'),
+    ('Charles Leclerc', 'Charles Leclerc'),
+    ('Kevin Magnussen', 'Kevin Magnussen'),
+    ('Lando Norris', 'Lando Norris'),
+    ('Esteban Ocon', 'Esteban Ocon'),
+    ('Sergio Perez', 'Sergio Perez'),
+    ('Daniel Ricciardo', 'Daniel Ricciardo'),
+    ('George Russell', 'George Russell'),
+    ('Carlos Sainz', 'Carlos Sainz'),
+    ('Mick Schumacher', 'Mick Schumacher'),
+    ('Lance Stroll', 'Lance Stroll'),
+    ('Yuki Tsunoda', 'Yuki Tsunoda'),
+    ('Max Verstappen', 'Max Verstappen'),
+    ('Sebastian Vettel', 'Sebastian Vettel'),
+    ('Zhou Guanyu', 'Zhou Guanyu'),
+]
 
-ENGINE_CHOICES = {
+TEAM_CHOICES = [
+    ('', 'Select a Team'),
+    ('Alfa Romeo', 'Alfa Romeo'),
+    ('Alpha Tauri', 'Alpha Tauri'),
+    ('Alpine', 'Alpine'),
+    ('Aston Martin', 'Aston Martin'),
     ('Ferrari', 'Ferrari'),
+    ('Haas', 'Haas'),
+    ('McLaren', 'McLaren'),
     ('Mercedes', 'Mercedes'),
     ('Red Bull', 'Red Bull'),
-    ('Renault', 'Renault'),
-}
+    ('Williams', 'Williams'),
+]
 
-RACE_TYPE_CHOICES = {
-    ('Sprint', 'Sprint'),
-    ('Feature', 'Feature'),
-}
+RACE_CHOICES = [
+    ('', 'Select a Race'),
+    ('Bahrain', 'Bahrain'),
+    ('Saudi Arabia', 'Saudi Arabia'),
+    ('Australia', 'Australia'),
+    ('Emilia Romagna', 'Emilia Romagna'),
+    ('Miami', 'Miami'),
+    ('Barcelona', 'Barcelona'),
+    ('Monaco', 'Monaco'),
+    ('Azerbaijan', 'Azerbaijan'),
+    ('Canada', 'Canada'),
+    ('Silverstone', 'Silverstone'),
+    ('Austria', 'Austria'),
+    ('France', 'France'),
+    ('Hungary', 'Hungary'),
+    ('Spa-Francorchamps', 'Spa-Francorchamps'),
+    ('Zandvoort', 'Zandvoort'),
+    ('Monza', 'Monza'),
+    ('Singapore', 'Singapore'),
+    ('Japan', 'Japan'),
+    ('COTA', 'COTA'),
+    ('Mexico', 'Mexico'),
+    ('Brazil', 'Brazil'),
+    ('Abu Dhabi', 'Abu Dhabi'),
+]
 
 FINISH_POSITION_CHOICES = [
     ('1', '1'),
@@ -37,43 +89,18 @@ FINISH_POSITION_CHOICES = [
     ('DNF', 'DNF'),
 ]
 
-# Create your models here.
-class Team(models.Model):
-    Team_Name = models.CharField(max_length=30, default="", unique=True, blank=False, null=False)
-    Country = models.CharField(max_length=30, default="", blank=False, null=False)
-    Engine_Manufacturer = models.CharField(max_length=30, choices=ENGINE_CHOICES, default="", blank=False, null=False)
+RACE_TYPE_CHOICES = [
+    ('Sprint Race', 'Sprint Race'),
+    ('Feature Race', 'Feature Race'),
+]
 
-    teams = models.Manager()
-
-    def __str__(self):
-        return self.Team_Name
-
-class Race(models.Model):
-    Round_Number = models.DecimalField(max_digits=2, decimal_places=0, default="", blank=False, null=False)
-    Race_Location = models.CharField(max_length=30, default="", blank=False, null=False)
-    Race_Type = models.CharField(max_length=30, choices=RACE_TYPE_CHOICES, default="Feature", blank=False, null=False)
-
-    races = models.Manager()
-
-    def __str__(self):
-        return f"{self.Race_Location} - {self.Race_Type} Race"
-
-class Driver(models.Model):
-    Driver_Name = models.CharField(max_length=60, default="", unique=True, blank=False, null=False)
-    Current_Team = models.ForeignKey(Team, on_delete=models.CASCADE, to_field="Team_Name")
-    Age = models.DecimalField(max_digits=2, decimal_places=0, default="", blank=False, null=False)
-    Nationality = models.CharField(max_length=30, default="", blank=False, null=False)
-
-    drivers = models.Manager()
-
-    def __str__(self):
-        return self.Driver_Name
-
+## RESULTS MODEL SETUP
 class Result(models.Model):
     Driver_Race_Key = models.CharField(max_length=100, default="", blank=False, null=False, unique=True)
-    Driver_Name = models.ForeignKey(Driver, on_delete=models.CASCADE, to_field="Driver_Name")
-    Current_Team = models.CharField(max_length=30, default="", blank=False, null=False)
-    Race = models.ForeignKey(Race, on_delete=models.CASCADE)
+    Driver_Name = models.CharField(max_length=30, default="", blank=False, null=False, choices=DRIVER_CHOICES)
+    Current_Team = models.CharField(max_length=30, default="", blank=False, null=False, choices=TEAM_CHOICES)
+    Race = models.CharField(max_length=50, default="", blank=False, null=False, choices=RACE_CHOICES)
+    Race_Type = models.CharField(max_length=15, default="Feature Race", blank=False, null=False, choices=RACE_TYPE_CHOICES)
     Finishing_Position = models.CharField(max_length=5, default="", choices=FINISH_POSITION_CHOICES, blank=False, null=False)
     Fastest_Lap = models.BooleanField()
     Points_Earned = models.DecimalField(max_digits=2, decimal_places=0, default="", blank=False, null=False)
