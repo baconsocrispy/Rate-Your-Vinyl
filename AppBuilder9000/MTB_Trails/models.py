@@ -1,5 +1,5 @@
 from django.db import models
-from django import forms
+
 
 
 
@@ -28,12 +28,19 @@ US_STATES = [
     ("WI", "Wisconsin"), ("WY", "Wyoming"),
 ]
 
+WATER = [
+    ("Yes", "Yes"),
+    ("No", "No"),
+    ("Only with purifier", "Only with purifier"),
+]
 
 
 class ReviewTrail(models.Model):
     trail_name = models.CharField(max_length=60)
+    rider_name = models.CharField(max_length=60, blank=True)
     nearest_city = models.CharField(max_length=60, blank=True)
     state = models.CharField(max_length=60, choices=US_STATES)
+    water_available = models.CharField(max_length=20, choices=WATER, blank=True)
     review = models.TextField()
     difficulty = models.CharField(max_length=60, choices=TRAIL_DIFFICULTY)
 
