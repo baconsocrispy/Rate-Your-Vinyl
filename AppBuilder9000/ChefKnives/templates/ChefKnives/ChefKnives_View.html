@@ -30,9 +30,11 @@
             <td>{{view.blade_style}}</td>
             <td>
 
-              <a class="btn btn-outline-info" href="{% url 'ChefKnives_Details' view.pk %}" role="button">DETAILS</a>
-              <a class="btn btn-outline-info" href="{% url 'ChefKnives_Edit' view.pk %}" role="button">EDIT</a>
-                <a class="btn btn-outline-info" href="{% url 'ChefKnives_Delete' view.pk %}" role="button">DELETE</a>
+              <a class="btn btn-outline-info mr-1 font-weight-bold" href="{% url 'ChefKnives_Details' view.pk %}" role="button">Details</a>
+
+              <a class="btn btn-outline-info mr-1 font-weight-bold" href="{% url 'ChefKnives_Edit' view.pk %}" role="button">EDIT</a>
+
+              <a class="btn btn-outline-info mr-1 font-weight-bold" href="{% url 'ChefKnives_Delete' view.pk %}" role="button">DELETE</a>
             </td>
           </tr>
           {% endfor %}
