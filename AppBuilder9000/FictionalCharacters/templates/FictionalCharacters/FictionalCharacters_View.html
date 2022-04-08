@@ -1,0 +1,39 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} VIEW {% endblock %}
+
+{% block content %}
+
+<div>
+    <table class="display" id="TableStyle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Species</th>
+                <th>Skill</th>
+                <th>Alignment</th>
+                <th>Series</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for char in chars %}
+                <td>{{ char.name }}</td>
+                <td>{{ char.age }}</td>
+                <td>{{ char.gender }}</td>
+                <td>{{ char.species }}</td>
+                <td>{{ char.skill }}</td>
+                <td>{{ char.alignment|default_if_none:'?'}}</td> <!-- If no value is found, will display '?' -->
+                <td>{{ char.series }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
