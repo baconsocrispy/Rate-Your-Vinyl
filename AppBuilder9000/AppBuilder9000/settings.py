@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'FictionalCharacters',
     'HeroAbility',
     'MTB_Trails',
+    'MusicTaste',
 
 ]
 
