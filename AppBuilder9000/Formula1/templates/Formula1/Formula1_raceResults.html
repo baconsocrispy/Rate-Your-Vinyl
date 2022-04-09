@@ -1,0 +1,40 @@
+{% extends "Formula1/Formula1_base.html" %}
+
+{% block title %}Formula 1{% endblock %}
+
+{% block header %}Race Results{% endblock %}
+
+{% block content %}
+
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">Driver</th>
+                <th scope="col" class="text-center">Team</th>
+                <th scope="col" class="text-center">Race</th>
+                <th scope="col" class="text-center">Position</th>
+                <th scope="col" class="text-center">Fastest Lap</th>
+                <th scope="col" class="text-center">Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for result in data %}
+            <tr>
+                <td scope="row" class="text-center">{{ result.Driver_Name }}</td>
+                <td class="text-center">{{ result.Current_Team }}</td>
+                <td class="text-center">{{ result.Race }} - {{ result.Race_Type }}</td>
+                <td class="text-center">{{ result.Finishing_Position }}</td>
+                <td class="text-center">{% if result.Fastest_Lap %}
+                        &#10004
+                    {% else %}
+                        &#10060
+                    {% endif %}
+                </td>
+                <td class="text-center">{{ result.Points_Earned }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

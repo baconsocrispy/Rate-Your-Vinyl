@@ -35,6 +35,19 @@ POINTS_PER_POSITION_SPRINT = {
 def f1_home(request):
     return render(request, "Formula1/Formula1_home.html")
 
+# RENDERS DISPLAY RACE RESULTS PAGE
+def race_results(request):
+    data = Result.results.all().order_by('Race', 'Race_Type', '-Points_Earned')
+    return render(request, "Formula1/Formula1_raceResults.html", {'data': data})
+
+# RENDERS DISPLAY DRIVER RESULTS PAGE
+def driver_results(request):
+    return render(request, "Formula1/Formula1_driverResults.html")
+
+# RENDERS DISPLAY TEAM RESULTS PAGE
+def team_results(request):
+    return render(request, "Formula1/Formula1_teamResults.html")
+
 # RENDERS ADD RESULT PAGE
 def add_result(request):
     form = ResultForm()

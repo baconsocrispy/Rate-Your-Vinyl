@@ -10,3 +10,7 @@ class KnifeForm(forms.ModelForm):
         model = ChefKnives
         # specify fields to be used
         fields = '__all__'
+
+
+class SearchForm(forms.Form):
+    x = forms.CharField(max_length=100)
