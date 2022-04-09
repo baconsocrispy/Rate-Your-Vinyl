@@ -54,7 +54,7 @@ def search_characters(request):
         return render(request,
         'FictionalCharacters/FictionalCharacters_Search.html', {})
 
-
+# Create a function to return character info based on primary key ID
 def show_char(request, char_id):
     char = Characters.objects.get(pk=char_id)
     return render(request,
