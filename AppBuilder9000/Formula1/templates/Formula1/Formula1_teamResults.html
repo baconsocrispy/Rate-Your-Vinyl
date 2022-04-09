@@ -6,6 +6,25 @@
 
 {% block content %}
 
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center col-6">Team</th>
+                <th scope="col" class="text-center col-6">Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for key, value in teams_sorted.items %}
+
+            <tr>
+                <td scope="row" class="text-center">{{ key }}</td>
+                {% for key2, value2 in value.items %}
+                <td class="text-center">{{ value2 }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 
 

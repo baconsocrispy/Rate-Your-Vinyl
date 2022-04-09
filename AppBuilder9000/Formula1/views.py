@@ -40,13 +40,50 @@ def race_results(request):
     data = Result.results.all().order_by('Race', 'Race_Type', '-Points_Earned')
     return render(request, "Formula1/Formula1_raceResults.html", {'data': data})
 
-# RENDERS DISPLAY DRIVER RESULTS PAGE
 def driver_results(request):
-    return render(request, "Formula1/Formula1_driverResults.html")
+    data = Result.results.all()
+    total_points = 0
+    driver_tracker = {}
+    for result in data:
+        if result.Driver_Name not in driver_tracker:
+            driver_tracker[result.Driver_Name] = {'team': result.Current_Team, 'total': int(result.Points_Earned)}
+        else:
+            points = driver_tracker[result.Driver_Name]['total']
+            driver_tracker[result.Driver_Name]['total'] = int(result.Points_Earned) + points
+    drivers_sorted_list = sorted(driver_tracker.items(), key= lambda x: x[1]['total'], reverse=True)
+    drivers_sorted = {}
+    for item in drivers_sorted_list:
+        drivers_sorted[item[0]] = {list(item[1].keys())[0]:item[1]['team'], list(item[1].keys())[1]:item[1]['total']}
+
+    context = {
+        'drivers_sorted': drivers_sorted,
+        'total_points': total_points,
+        'data': data
+    }
+    return render(request, "Formula1/Formula1_driverResults.html", context)
 
 # RENDERS DISPLAY TEAM RESULTS PAGE
 def team_results(request):
-    return render(request, "Formula1/Formula1_teamResults.html")
+    data = Result.results.all()
+    total_points = 0
+    team_tracker = {}
+    for result in data:
+        if result.Current_Team not in team_tracker:
+            team_tracker[result.Current_Team] = {'total': int(result.Points_Earned)}
+        else:
+            points = team_tracker[result.Current_Team]['total']
+            team_tracker[result.Current_Team]['total'] = int(result.Points_Earned) + points
+    teams_sorted_list = sorted(team_tracker.items(), key= lambda x: x[1]['total'], reverse=True)
+    teams_sorted = {}
+    for item in teams_sorted_list:
+        teams_sorted[item[0]] = {list(item[1].keys())[0]:item[1]['total']}
+
+    context = {
+        'teams_sorted': teams_sorted,
+        'total_points': total_points,
+        'data': data
+    }
+    return render(request, "Formula1/Formula1_teamResults.html", context)
 
 # RENDERS ADD RESULT PAGE
 def add_result(request):
