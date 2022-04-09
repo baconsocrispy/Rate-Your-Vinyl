@@ -2,7 +2,7 @@
 
 {% block title %} Fictional Characters {% endblock %}
 
-{% block header %} Add A Series {% endblock %}
+{% block header %} EDIT {% endblock %}
 
 {% block content %}
 
@@ -12,8 +12,9 @@
             {% csrf_token %}
             <tr><td>{{form.as_p}}</td></tr>
         </table>
-        <input type="submit" value="Submit" class="FCSub">
+        <input type="submit" value="Update" class="FCSub">
     </form>
 </div>
+
 
 {% endblock %}
