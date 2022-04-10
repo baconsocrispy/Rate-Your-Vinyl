@@ -60,6 +60,7 @@ def show_char(request, char_id):
     return render(request,
     'FictionalCharacters/FictionalCharacters_ShowChar.html', {'char': char})
 
+# Create a function to allow and accept valid edits to the dB records
 def edit_char(request, char_id):
     char = Characters.objects.get(pk=char_id)
     form = CharacterForm(request.POST or None, instance=char)
@@ -69,7 +70,31 @@ def edit_char(request, char_id):
     return render(request,
     'FictionalCharacters/FictionalCharacters_Edit.html', {'char': char, 'form': form})
 
+# Create a function to delete records from dB
 def delete_char(request, char_id):
     char = Characters.objects.get(pk=char_id)
     char.delete()
     return redirect('FictionalCharacters_View')
+
+
+####### API CODE #######
+"""
+API will allow users to enter names of two characters they 'ship', and will return a
+calculation of how likely the relationship will succeed. Just for entertainment purposes.
+"""
+
+def fc_api(request):
+    url = "https://love-calculator.p.rapidapi.com/getPercentage"
+
+    querystring = {"sname": "Alice", "fname": "John"}
+
+    headers = {
+        "X-RapidAPI-Host": "love-calculator.p.rapidapi.com",
+        "X-RapidAPI-Key": "97d934559cmshcc7dd84616b2d90p107d36jsn5b9a1d832d36"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    print(response.text)
+
+    return render(request, 'FictionalCharacters/FictionalCharacters_API.html')

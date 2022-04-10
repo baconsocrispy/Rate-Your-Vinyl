@@ -10,4 +10,5 @@ urlpatterns = [
     path('FictionalCharacters_ShowChar/<char_id>', views.show_char, name="FictionalCharacters_ShowChar"),
     path('FictionalCharacters_Edit/<char_id>', views.edit_char, name="FictionalCharacters_Edit"),
     path('FictionalCharacters_Delete/<char_id>', views.delete_char, name="FictionalCharacters_Delete"),
+    path('FictionalCharacters_API', views.fc_api, name="FictionalCharacters_API"),
 ]
