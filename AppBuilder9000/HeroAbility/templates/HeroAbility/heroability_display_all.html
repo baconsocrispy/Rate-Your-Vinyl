@@ -16,10 +16,10 @@
             </thead>
             <tbody class="bg-light">
                 {% for hero in heroes %}
-                <tr {% if hero.threat_Level >= 4 %}class="bg-danger text-light"{% elif hero.threat_Level <= 1%}class="bg-success text-light"{% else %}class="bg-warning text-dark"{% endif %}>
+                <tr class="text-dark font-weight-bolder">
                     <td>{{ hero.alias }}</td>
-                    <td>{{ hero.ability_Name }}</td>
-                    <td>{{ hero.threat_Level }}</td>
+                    <td class="text-info">{{ hero.ability_Name }}</td>
+                    <td class="bg-danger text-light">{{ hero.threat_Level }}</td>
                 </tr>
                 {% endfor %}
         </table>
