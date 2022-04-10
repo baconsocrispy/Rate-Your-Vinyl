@@ -31,6 +31,29 @@ POINTS_PER_POSITION_SPRINT = {
     8: 1,
 }
 
+DRIVER_IMAGES = {
+    'Alex Albon': 'Alex Albon',
+    'Fernando Alonso': 'Fernando Alonso',
+    'Valterri Bottas': 'Valterri Bottas',
+    'Pierre Gasly': 'Pierre Gasly',
+    'Lewis Hamilton': 'Formula1/images/drivers/lewis.png',
+    'Nicholas Latifi': 'Nicholas Latifi',
+    'Charles Leclerc': 'Charles Leclerc',
+    'Kevin Magnussen': 'Kevin Magnussen',
+    'Lando Norris': 'Lando Norris',
+    'Esteban Ocon': 'Esteban Ocon',
+    'Sergio Perez': 'Sergio Perez',
+    'Daniel Ricciardo': 'Daniel Ricciardo',
+    'George Russell': 'George Russell',
+    'Carlos Sainz': 'Carlos Sainz',
+    'Mick Schumacher': 'Mick Schumacher',
+    'Lance Stroll': 'Lance Stroll',
+    'Yuki Tsunoda': 'Yuki Tsunoda',
+    'Max Verstappen': 'Max Verstappen',
+    'Sebastian Vettel': 'Sebastian Vettel',
+    'Zhou Guanyu': 'Zhou Guanyu'
+}
+
 # RENDERS HOME PAGE
 def f1_home(request):
     return render(request, "Formula1/Formula1_home.html")
@@ -85,6 +108,21 @@ def team_results(request):
         'data': data
     }
     return render(request, "Formula1/Formula1_teamResults.html", context)
+
+# RENDERS DETAILS PAGE
+def details(request, value):
+    data = Result.results.all().filter(Driver_Name=value)
+    team = data[0].Current_Team
+    total = 0
+    for result in data:
+        total += result.Points_Earned
+    img = DRIVER_IMAGES[value]
+    summary = [value, team, int(total), img]
+    context = {
+        'summary': summary,
+        'data': data
+    }
+    return render(request, "Formula1/Formula1_details.html", context)
 
 # RENDERS ADD RESULT PAGE
 def add_result(request):
