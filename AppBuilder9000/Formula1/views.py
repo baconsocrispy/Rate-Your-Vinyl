@@ -40,6 +40,7 @@ def race_results(request):
     data = Result.results.all().order_by('Race', 'Race_Type', '-Points_Earned')
     return render(request, "Formula1/Formula1_raceResults.html", {'data': data})
 
+# RENDERS DISPLAY DRIVER RESULTS PAGE
 def driver_results(request):
     data = Result.results.all()
     total_points = 0

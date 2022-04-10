@@ -9,16 +9,18 @@
     <table class="table table-light">
         <thead>
             <tr>
+                <th scope="col" class="text-center col-1">#</th>
                 <th scope="col" class="text-center col-4">Driver</th>
                 <th scope="col" class="text-center col-4">Team</th>
-                <th scope="col" class="text-center col-4">Points</th>
+                <th scope="col" class="text-center col-3">Points</th>
             </tr>
         </thead>
         <tbody>
             {%  for key, value in drivers_sorted.items %}
 
             <tr>
-                <td scope="row" class="text-center">{{ key }}</td>
+                <td scope="row" class="text-center">{{ forloop.counter }}</td>
+                <td class="text-center">{{ key }}</td>
                 {% for key2, value2 in value.items %}
                 <td class="text-center">{{ value2 }}</td>
                 {% endfor %}
