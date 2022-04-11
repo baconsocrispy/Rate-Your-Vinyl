@@ -15,6 +15,7 @@
         <a href="{% url 'FictionalCharacters_View' %}">View Characters</a>
         <a href="{% url 'FictionalCharacters_CreateSeries' %}">Add A Series</a>
         <a href="{% url 'FictionalCharacters_Create' %}">Add A Character</a>
+        <a href="{% url 'FictionalCharacters_API' %}">Ship Calculator</a>
         <div class="FCSrc">
             <form method="POST" action="{% url 'FictionalCharacters_Search' %}">
                 {% csrf_token %}
@@ -34,7 +35,7 @@
 </body>
 
 <div class="FCFooter">
-    <p> 2022 | Fox Addams</p>
+    <p> 2022 | <a href="https://mfluder24.github.io/">Fox Addams</a></p>
 </div>
 
 
