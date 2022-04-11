@@ -125,6 +125,7 @@ a {
 .FCView {
     height: 450px;
     overflow: auto;
+    text-align: center;
 }
 
 .FCSearch {
