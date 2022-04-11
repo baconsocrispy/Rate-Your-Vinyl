@@ -25,10 +25,9 @@
             <button type="button" class="btn btn-white text-dark" data-dismiss="modal">Close</button>
               <!-- When Delete button clicked, it should call delete_trail view and take us to delete_trail.html -->
               <!-- When action is entered in, NoReverseMatch exception is raise -->
-            <form action="" method="POST">
-                    {% csrf_token %}
-                    <button class="btn btn-danger">Delete</button>
-            </form>
+
+                    <a href="{% url 'delete_trail' trail.id %}"><button class="btn btn-danger">Delete</button></a>
+
           </div>
         </div>
       </div>
@@ -41,6 +40,7 @@
                 <!-- Crispy makes the Django form look nice -->
                 {{ form|crispy }}
             <div class="d-grid gap-2 btn-block">
+
                 <input type="submit" class="btn btn-dark btn-block" input="submit" value="Update">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">

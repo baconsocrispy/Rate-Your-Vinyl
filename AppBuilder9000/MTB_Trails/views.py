@@ -45,7 +45,7 @@ def review_details(request, pk):
 
 # View for updating or deleting review.
 def edit_or_delete(request, pk):
-    trail = ReviewTrail.objects.get(pk=pk)
+    trail = get_object_or_404(ReviewTrail, pk=pk)
     form = TrailReviewForm(instance=trail)
     if request.method == 'POST':
         form = TrailReviewForm(request.POST, instance=trail)
@@ -56,18 +56,19 @@ def edit_or_delete(request, pk):
             # Redirect to new URL
             return redirect("submitted_review")
         # Cindy, I don't know why, but changing dictionary to 'trail' won't load form in webpage.
-    context = {'form': form}
+    context = {'form': form,
+               'trail': trail}
     return render(request, "MTB_Trails/edit_or_delete.html", context)
 
 
 # View for delete.
 def delete_trail(request, pk):
-    trail = ReviewTrail.objects.get(pk=pk)
+    trail = get_object_or_404(ReviewTrail, pk=pk)
     context = {'trail': trail}
-    if request.method == "POST":
-        trail.delete()
-        return redirect("delete_trail")
-    return render(request, "MTB_Trails/edit_or_delete.html", context)
+
+    trail.delete()
+
+    return redirect('existing_reviews')
 
 
 
