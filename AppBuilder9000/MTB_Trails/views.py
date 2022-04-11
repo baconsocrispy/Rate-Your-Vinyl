@@ -61,13 +61,11 @@ def edit_or_delete(request, pk):
     return render(request, "MTB_Trails/edit_or_delete.html", context)
 
 
-# View for delete.
+# View for deleting a review.
 def delete_trail(request, pk):
     trail = get_object_or_404(ReviewTrail, pk=pk)
     context = {'trail': trail}
-
     trail.delete()
-
     return redirect('existing_reviews')
 
 
