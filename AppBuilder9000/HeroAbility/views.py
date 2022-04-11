@@ -15,7 +15,15 @@ def heroability_new_hero(request):
     else:
         print(form.errors)
         form = HeroForm()
-    context = {
+    content = {
         'form': form,
     }
-    return render(request, 'HeroAbility/heroability_new_hero.html', context)
+    return render(request, 'HeroAbility/heroability_new_hero.html', content)
+
+
+def heroability_display_all(request):
+    heroes = Heroes.heroes.all()
+    content = {
+        'heroes': heroes,
+    }
+    return render(request, 'HeroAbility/heroability_display_all.html', content)
