@@ -17,8 +17,8 @@
             <tbody class="bg-light">
                 {% for hero in heroes %}
                 <tr class="text-dark font-weight-bolder">
-                    <td>{{ hero.alias }}</td>
-                    <td class="text-info">{{ hero.ability_Name }}</td>
+                    <td><a href="../{{ hero.pk }}/details/">{{ hero.alias }}</a></td>
+                    <td>{{ hero.ability_Name }}</td>
                     <td class="bg-danger text-light">{{ hero.threat_Level }}</td>
                 </tr>
                 {% endfor %}
