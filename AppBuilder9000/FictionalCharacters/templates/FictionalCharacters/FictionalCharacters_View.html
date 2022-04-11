@@ -8,8 +8,8 @@
 
 <div class="FCView">
     {% for char in chars %}
-    &curren; <a href="{% url 'FictionalCharacters_ShowChar' char.id%}">{{ char.name }}</a> <br/>
-    <hr>
+    <img src="/static/FictionalCharacters/images/Characters_icon.png"> <a href="{% url 'FictionalCharacters_ShowChar' char.id%}">{{ char.name }}</a> <br/>
+    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_divider.png">
     {% endfor %}
 </div>
 

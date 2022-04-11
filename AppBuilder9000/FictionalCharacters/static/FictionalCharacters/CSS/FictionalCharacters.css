@@ -95,6 +95,14 @@ a {
     bottom: 0;
     width: 100%;
 }
+
+/*=GENERAL=*/
+.FCImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*=======GENERAL STYLE END=======*/
 
 
@@ -102,9 +110,8 @@ a {
 
 .FCContainer {
     margin: 0 auto;
-    background-color: black;
+    background-color: grey;
     opacity: .9;
-    border: 2px solid red;
 }
 
 .FCForm {
@@ -115,7 +122,7 @@ a {
 
 .FCAttn {
     text-align: center;
-    color: red;
+    color: white;
 }
 
 .FCSub {
@@ -170,3 +177,52 @@ a {
 }
 
 /*=======VIEW STYLE END=======*/
+
+/*=======API STYLE START=======*/
+
+.FCShip {
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+
+.FCInput {
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    border: none;
+}
+
+.FCCal {
+    padding: 1em;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.FCCal:hover {
+    background-color: pink;
+}
+
+.FCLink {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.FCTry {
+    padding: 6px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.FCTry:hover {
+    background-color: pink;
+}
+
+/*=======API STYLE END=======*/

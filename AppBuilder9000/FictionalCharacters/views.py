@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CharacterForm, SeriesForm
 from .models import Characters
 import requests
+import json
 
 # Create your views here.
 def home(request):
@@ -83,10 +84,27 @@ API will allow users to enter names of two characters they 'ship', and will retu
 calculation of how likely the relationship will succeed. Just for entertainment purposes.
 """
 
-def fc_api(request):
+def fc_calc(request):
+    try:
+        if request.method == 'POST':
+            f = request.POST.get('fname')
+            s = request.POST.get('sname')
+            res = fc_api(f,s)
+            context = {
+                'fname': res['fname'],
+                'sname': res['sname'],
+                'percent': int(res['percentage']),
+                'result': res['result'],
+            }
+            return render(request, 'FictionalCharacters/FictionalCharacters_Results.html',context={'data':context})
+        return render(request,'FictionalCharacters/FictionalCharacters_API.html')
+    except:
+        return render(request, 'FictionalCharacters/FictionalCharacters_Error.html')
+
+def fc_api(f, s):
     url = "https://love-calculator.p.rapidapi.com/getPercentage"
 
-    querystring = {"sname": "Alice", "fname": "John"}
+    querystring = {"sname": s, "fname": f}
 
     headers = {
         "X-RapidAPI-Host": "love-calculator.p.rapidapi.com",
@@ -94,7 +112,7 @@ def fc_api(request):
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-
+    test = json.loads(response.text)
     print(response.text)
 
-    return render(request, 'FictionalCharacters/FictionalCharacters_API.html')
+    return test
