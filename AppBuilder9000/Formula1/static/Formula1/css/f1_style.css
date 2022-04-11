@@ -99,6 +99,17 @@
     animation-fill-mode: forwards;
 }
 
+#bootstrap-override .driver-img {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+#bootstrap-override .race-name {
+    font-size: small;
+}
+
 @keyframes fadeOut {
     from {opacity: 1;}
     to {opacity: 0;}

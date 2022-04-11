@@ -8,7 +8,8 @@ urlpatterns = [
     path('race_results/', views.race_results, name="race_results"),
     path('driver_results/', views.driver_results, name="driver_results"),
     path('team_results/', views.team_results, name="team_results"),
-    path('details/<str:value>/', views.details, name="details"),
+    path('driver_details/<str:value>/', views.driver_details, name="driver_details"),
+    path('team_details/<str:value>/', views.team_details, name="team_details"),
     path('result_submit/', views.result_submit, name="result_submit"),
     path('admin/', admin.site.urls),
 ]

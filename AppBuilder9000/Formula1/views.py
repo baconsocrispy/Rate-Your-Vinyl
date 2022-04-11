@@ -32,26 +32,26 @@ POINTS_PER_POSITION_SPRINT = {
 }
 
 DRIVER_IMAGES = {
-    'Alex Albon': 'Alex Albon',
-    'Fernando Alonso': 'Fernando Alonso',
-    'Valterri Bottas': 'Valterri Bottas',
-    'Pierre Gasly': 'Pierre Gasly',
+    'Alex Albon': 'Formula1/images/drivers/alex.png',
+    'Fernando Alonso': 'Formula1/images/drivers/fernando.png',
+    'Valterri Bottas': 'Formula1/images/drivers/valtteri.png',
+    'Pierre Gasly': 'Formula1/images/drivers/pierre.png',
     'Lewis Hamilton': 'Formula1/images/drivers/lewis.png',
-    'Nicholas Latifi': 'Nicholas Latifi',
-    'Charles Leclerc': 'Charles Leclerc',
-    'Kevin Magnussen': 'Kevin Magnussen',
-    'Lando Norris': 'Lando Norris',
-    'Esteban Ocon': 'Esteban Ocon',
-    'Sergio Perez': 'Sergio Perez',
-    'Daniel Ricciardo': 'Daniel Ricciardo',
-    'George Russell': 'George Russell',
-    'Carlos Sainz': 'Carlos Sainz',
-    'Mick Schumacher': 'Mick Schumacher',
-    'Lance Stroll': 'Lance Stroll',
-    'Yuki Tsunoda': 'Yuki Tsunoda',
-    'Max Verstappen': 'Max Verstappen',
-    'Sebastian Vettel': 'Sebastian Vettel',
-    'Zhou Guanyu': 'Zhou Guanyu'
+    'Nicholas Latifi': 'Formula1/images/drivers/nicholas.png',
+    'Charles Leclerc': 'Formula1/images/drivers/charles.png',
+    'Kevin Magnussen': 'Formula1/images/drivers/kevin.png',
+    'Lando Norris': 'Formula1/images/drivers/lando.png',
+    'Esteban Ocon': 'Formula1/images/drivers/esteban.png',
+    'Sergio Perez': 'Formula1/images/drivers/sergio.png',
+    'Daniel Ricciardo': 'Formula1/images/drivers/daniel.png',
+    'George Russell': 'Formula1/images/drivers/george.png',
+    'Carlos Sainz': 'Formula1/images/drivers/carlos.png',
+    'Mick Schumacher': 'Formula1/images/drivers/mick.png',
+    'Lance Stroll': 'Formula1/images/drivers/lance.png',
+    'Yuki Tsunoda': 'Formula1/images/drivers/yuki.png',
+    'Max Verstappen': 'Formula1/images/drivers/max.png',
+    'Sebastian Vettel': 'Formula1/images/drivers/sebastian.png',
+    'Zhou Guanyu': 'Formula1/images/drivers/zhou.png'
 }
 
 # RENDERS HOME PAGE
@@ -109,8 +109,8 @@ def team_results(request):
     }
     return render(request, "Formula1/Formula1_teamResults.html", context)
 
-# RENDERS DETAILS PAGE
-def details(request, value):
+# RENDERS DRIVER DETAILS PAGE
+def driver_details(request, value):
     data = Result.results.all().filter(Driver_Name=value)
     team = data[0].Current_Team
     total = 0
@@ -122,7 +122,22 @@ def details(request, value):
         'summary': summary,
         'data': data
     }
-    return render(request, "Formula1/Formula1_details.html", context)
+    return render(request, "Formula1/Formula1_driverDetails.html", context)
+
+# RENDERS TEAM DETAILS PAGE
+def team_details(request, value):
+    data = Result.results.all().filter(Current_Team=value)
+    team = data[0].Current_Team
+    total = 0
+    for result in data:
+        total += result.Points_Earned
+    img = DRIVER_IMAGES[value]
+    summary = [value, team, int(total), img]
+    context = {
+        'summary': summary,
+        'data': data
+    }
+    return render(request, "Formula1/Formula1_driverDetails.html", context)
 
 # RENDERS ADD RESULT PAGE
 def add_result(request):
