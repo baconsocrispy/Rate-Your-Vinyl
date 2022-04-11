@@ -3,10 +3,12 @@ from .models import Heroes
 from .forms import HeroForm
 
 
-def heroability_home(request):  # calls the heroability home page when requested
+# calls the heroability home page when requested
+def heroability_home(request):
     return render(request, 'HeroAbility/heroability_home.html')
 
 
+# call template and accept the form inputs for adding to the db
 def heroability_new_hero(request):
     form = HeroForm(request.POST or None)
     if form.is_valid():
@@ -21,6 +23,7 @@ def heroability_new_hero(request):
     return render(request, 'HeroAbility/heroability_new_hero.html', content)
 
 
+# call all records and the display template
 def heroability_display_all(request):
     heroes = Heroes.heroes.all()
     content = {
@@ -29,6 +32,7 @@ def heroability_display_all(request):
     return render(request, 'HeroAbility/heroability_display_all.html', content)
 
 
+# call the details template
 def heroability_details(request, pk):
     pk = int(pk)
     hero = get_object_or_404(Heroes, pk=pk)
