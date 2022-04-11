@@ -1,0 +1,37 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} RESULTS {% endblock %}
+
+{% block content %}
+
+<div class="FCShip">
+    <h2>{{data.fname}} & {{data.sname}}</h2> <br/>
+
+    {% if data.percent <= 50 %}
+    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_bad.png"> <br/>
+
+    It's a {{data.percent}}% match... <br/>
+    {{data.result}}<br/>
+
+    {% elif data.percent <= 75 and data.percent > 50 %}
+    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_okay.png"> <br/>
+
+    It's a {{data.percent}}% match! <br/>
+    {{data.result}}<br/>
+
+    {% elif data.percent <= 100 and data.percent > 75 %}
+    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_best.png"> <br/>
+
+    It's a {{data.percent}}% match!!! <br/>
+    {{data.result}}!!!<br/>
+
+    {% endif %}
+</div>
+
+<div class="FCLink">
+    <a href="{% url 'FictionalCharacters_API' %}" class="FCTry">Try Again?</a>
+</div>
+
+{% endblock %}
