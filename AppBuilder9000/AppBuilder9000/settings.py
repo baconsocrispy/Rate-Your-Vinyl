@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     'HeroAbility',
     'MTB_Trails',
     'Formula1',
+    'MusicTaste',
+
 ]
 
 MIDDLEWARE = [
