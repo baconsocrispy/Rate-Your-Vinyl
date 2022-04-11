@@ -16,7 +16,7 @@ html body {
 /* FADE EFFECT ON SITE LOADING USING JAVASCRIPT */
 body {
     opacity: 1;
-    transition: .5s opacity;
+    transition: 1s opacity;
 }
 
 body.fade {
@@ -31,8 +31,8 @@ body.fade {
 
 nav {
     font-size: 20px;
-    -webkit-animation: moveNav 1s;
-    animation: moveNav 1s;
+    -webkit-animation: moveNav 2s;
+    animation: moveNav 2s;
 }
 
 @keyframes moveNav {
@@ -80,9 +80,9 @@ select {
 }
 
 /* FONT SECTION */
-
-h1 {
+h1, .h1 {
     transition: transform .5s ease-in-out;
+    font-size: 70px !important;
 }
 
 h1:hover {
@@ -102,6 +102,12 @@ h2:hover {
 .display-4 {
     font-family: "Patrick Hand SC", cursive;
 }
+
+.navbar-nav {
+    font-family: "Patrick Hand SC", cursive;
+    font-size: 27px;
+}
+
 
 
 

@@ -1,7 +1,9 @@
-{# Custom CSS classes where Bootstrap is not preferred. #}
+/* Custom CSS classes */
 
-{# Sticky footer setup. #}
-.footer-home--container
+
+
+/* Sticky footer setup */
+.footer-base--container
 {
     position: fixed;
     left: 0;
@@ -12,15 +14,15 @@
     text-align: center
 }
 
-{# Adding stroke to footer text. #}
+/* Adding stroke to footer text */
 .footer-home--text
 {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
                -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-{# Background image will present unmoving in background, creating 3D effect. #}
-.html-home--bg
+/* Background image will present unmoved in background, creating 3D effect */
+.html-base--bg
 {
     background-image:url("../images/bike_and_lake.jpg");
     min-height: 500px;
@@ -30,20 +32,64 @@
     background-size: cover;
 }
 
-{# For the mtb_trails_base.html file, this will render following pages in the center of screen. #}
-.header-home--container
+/* For the mtb_trails_base.html file, this will render following page titles in the center of screen */
+.header-base--container
 {
     height: 11em;
     position: relative
     margin: 0;
     background: none;
-    color: #BA9D79;
+    color: white;
     font-family: "Lucida Handwriting",Helvetica;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    text-shadow: -.1px -.1px 0 #FFD700, .1px -.1px 0 #FFD700,
-                 -.1px .1px 0 #FFD700, .1px .1px 0 #FFD700;
+}
+
+/* Setting review form to middle of page and below block header */
+.form-review--container
+{
+    height: 11em;
+    /* margin: 0; */
+    color: white;
+    background: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Adding space to bottom of forms and footer */
+.bottom-page--padding
+{
+    padding-bottom: 100px
+}
+
+.existing-reviews--container
+{
+    height: 11em;
+    /* margin: 0; */
+    color: white;
+    background: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-btn--container
+{
+    height: 11em;
+    /* margin: 0; */
+    color: white;
+    background: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }

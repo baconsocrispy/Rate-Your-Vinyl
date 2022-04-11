@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from django.shortcuts import render, redirect, get_object_or_404
 import requests
 from .forms import KnifeForm
+from .forms import SearchForm
 from .models import ChefKnives
 import json
 
@@ -118,3 +119,30 @@ def chefknives_api(request):
     reviews = zip(list, price, stars)
     context = {'reviews': reviews}
     return render(request, 'ChefKnives/ChefKnives_Api.html', context)
+
+
+# def chefknives_search(request):
+#     result = {}
+#     x = request.cleaned_data['x']
+#     url = "https://free-amazon-data-scraper.p.rapidapi.com/search/Chef%20Knives"
+#
+#     querystring = {"api_key": "0fd5b0c1fffb09a1c70c1db4f0afe341"}
+#
+#     headers = {
+#         "X-RapidAPI-Host": "free-amazon-data-scraper.p.rapidapi.com",
+#         "X-RapidAPI-Key": "143604b401mshd765f5d870ec324p1e3404jsn76662d978015"
+#     }
+#
+#     response = requests.request("GET", url, headers=headers, params=querystring)
+#     if response.status_code == 200:  # SUCCESS
+#         result = response.json()
+#         result['success'] = True
+#     else:
+#         result['success'] = False
+#         if response.status_code == 404:  # NOT FOUND
+#             result['message'] = 'No entry found for "%s"' % x
+#         else:
+#             result['message'] = 'The Amazon API is not available at the moment. Please try again later.'
+#
+#     return render(request, 'ChefKnives/ChefKnives_Api.html')
+

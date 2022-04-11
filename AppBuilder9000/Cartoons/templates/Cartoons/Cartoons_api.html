@@ -7,7 +7,7 @@
 {% endcomment %}
 
 <div class="jumbotron jumbotron-fluid bg-primary text-light text-center">
-    <h2 class="display-4">Oxford Dictionary</h2>
+    <h1 class="display-4">Oxford Dictionary</h1>
     <br>
     <div class="form-group">
         <form method="POST">
@@ -24,6 +24,10 @@
         <div class="card-body bg-success">
             <h3 class="card-text">{{ definition.0 }}</h3>
         </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <a class="btn btn-danger text-light btn-md font-weight-bold"  href="{% url 'Cartoons_definitions' %}" role="button">View previously searched words</a>
     </div>
 </div>
 

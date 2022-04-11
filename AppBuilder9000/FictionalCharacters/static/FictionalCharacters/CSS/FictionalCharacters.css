@@ -22,7 +22,7 @@ a {
     border: 3px solid;
     border-color: white;
     color: white;
-    margin: 10em auto;
+    margin: 5em auto;
     opacity: .9;
     width: 50%;
 }
@@ -63,6 +63,18 @@ a {
     background-color: gray;
 }
 
+.FCSrc input[type=text] {
+    padding: 4px;
+    margin-top: 8px;
+    border: 1px solid white;
+}
+
+.FCSrc button {
+    padding: 4px 6px;
+    margin-top: 8px;
+    cursor: pointer
+}
+
 /*=HOME TEXT=*/
 .FCDef {
     text-align: center;
@@ -79,7 +91,45 @@ a {
     position: fixed;
     text-align: center;
     padding: 10px;
+    top: 10;
     bottom: 0;
     width: 100%;
 }
 /*=======GENERAL STYLE END=======*/
+
+
+/*=======FORM STYLE START=======*/
+
+.FCContainer {
+    margin: 0 auto;
+    background-color: black;
+    opacity: .9;
+    border: 2px solid red;
+}
+
+.FCForm {
+    padding-left: 17em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.FCAttn {
+    text-align: center;
+    color: red;
+}
+
+/*=======FORM STYLE END=======*/
+
+/*=======VIEW STYLE START=======*/
+
+.FCView {
+    height: 450px;
+    overflow: auto;
+}
+
+.FCSearch {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/*=======VIEW STYLE END=======*/

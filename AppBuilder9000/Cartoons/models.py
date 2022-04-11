@@ -24,3 +24,13 @@ class Cartoon(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Definition(models.Model):
+    value = models.CharField(max_length=50)
+    definition = models.TextField(max_length=100)
+
+    Definitions = models.Manager()
+
+    def __str__(self):
+        return self.value

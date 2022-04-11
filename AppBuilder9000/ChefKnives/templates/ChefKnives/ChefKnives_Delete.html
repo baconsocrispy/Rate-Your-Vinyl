@@ -6,36 +6,42 @@
 
 
 {% block content %}
-	<div class="container">
-		<form action='.' method='POST'>
-			{% csrf_token %}
+<div class="container">
+	<form action='.' method='POST'>
+		{% csrf_token %}
+		{{ object.as_table }}
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Brands</th>
+            <th scope="col">Price</th>
+            <th scope="col">Country Of Origin</th>
+            <th scope="col">Steal</th>
+            <th scope="col">Blade</th>
 
-			{{ object.as_table }}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>{{object.brands}}</th>
+            <td>{{object.price}}</td>
+            <td>{{object.country_origin}}</td>
+            <td>{{object.steal}}</td>
+            <td>{{object.blade_style}}</td>
+            <td>
 
-			<table>
-			<tr id="head_row">
-			<th>Brands</th>
-        	<th>Price</th>
-        	<th>Country Of Origin</th>
-        	<th>Steal</th>
-            <th>Blade Style</th>
-			</tr>
+			<a class="btn btn-outline-info" href="{% url 'ChefKnives_View' %}" role="button">Cancel</a>
+			<button class="btn btn-outline-danger" type="submit">Delete</button>
 
-			<tr>
-			<td> {{object.brands}} </td>
-			<td> {{object.Price}}</td>
-			<td> {{object.country_origin}}</td>
-			<td> {{object.steal}}</td>
-            <td> {{object.blade_style}}</td>
+            </td>
+          </tr>
 
-		</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
-
-		</table>
-
-
-
-			<p><input type="submit" value="YES" /> <a href="{% url 'ChefKnives_View' %}">Cancel</a></p>
-		</form>
-	</div>
 {% endblock %}

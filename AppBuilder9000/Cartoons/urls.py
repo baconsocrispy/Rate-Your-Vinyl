@@ -9,6 +9,8 @@ urlpatterns = [
     path('details/<int:pk>', views.DisplayDetails, name='Cartoons_details'),
     path('delete/<int:pk>', views.DeleteItem, name="Cartoons_delete"),
     path('up_date/<int:pk>', views.UpdateItem, name="Cartoons_up_date"),
-    path('rankings/', views.RankingScrape, name='Cartoons_rankings'),
-    path('cartoons_api', views.OxfordAPI, name='Cartoons_api'),
+    path('rankings/', views.CartoonScrape, name='Cartoons_rankings'),
+    path('movies/', views.MovieScrape, name='Cartoons_movies'),
+    path('api', views.OxfordAPI, name='Cartoons_api'),
+    path('definitions', views.DisplayDefinitions, name='Cartoons_definitions'),
 ]
