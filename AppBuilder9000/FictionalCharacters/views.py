@@ -59,3 +59,17 @@ def show_char(request, char_id):
     char = Characters.objects.get(pk=char_id)
     return render(request,
     'FictionalCharacters/FictionalCharacters_ShowChar.html', {'char': char})
+
+def edit_char(request, char_id):
+    char = Characters.objects.get(pk=char_id)
+    form = CharacterForm(request.POST or None, instance=char)
+    if form.is_valid():
+        form.save()
+        return redirect('FictionalCharacters_View')
+    return render(request,
+    'FictionalCharacters/FictionalCharacters_Edit.html', {'char': char, 'form': form})
+
+def delete_char(request, char_id):
+    char = Characters.objects.get(pk=char_id)
+    char.delete()
+    return redirect('FictionalCharacters_View')

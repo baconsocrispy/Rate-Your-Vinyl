@@ -15,5 +15,11 @@
         <li><b>SERIES:</b> {{ char.series }}</li>
         <li><b>NOTES:</b> {{ char.notes }}</li>
     </ul>
+<hr>
+    <div class="FCButtons">
+        <a href="{% url 'FictionalCharacters_Edit' char.id%}" class="FCEdit">Edit Entry</a>
+
+        <a href="{% url 'FictionalCharacters_Delete' char.id%}"
+           onclick="return confirm('Are you sure you want to delete this character?')" class="FCDel">Delete Entry</a>
 
 {% endblock %}

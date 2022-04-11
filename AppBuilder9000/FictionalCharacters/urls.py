@@ -8,4 +8,6 @@ urlpatterns = [
     path('FictionalCharacters_View/', views.list_characters, name="FictionalCharacters_View"),
     path('FictionalCharacters_Search/', views.search_characters, name="FictionalCharacters_Search"),
     path('FictionalCharacters_ShowChar/<char_id>', views.show_char, name="FictionalCharacters_ShowChar"),
+    path('FictionalCharacters_Edit/<char_id>', views.edit_char, name="FictionalCharacters_Edit"),
+    path('FictionalCharacters_Delete/<char_id>', views.delete_char, name="FictionalCharacters_Delete"),
 ]
