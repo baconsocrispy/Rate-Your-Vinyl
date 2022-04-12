@@ -84,6 +84,8 @@ a {
 
 .FCHome {
     text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 /*=FOOTER=*/
@@ -142,6 +144,24 @@ a {
 .FCSearch {
     text-align: center;
     margin-bottom: 2em;
+}
+
+.FCInfo {
+    margin-left: 14em;
+    height: 250px;
+    width: 320px;
+    word-wrap: break-word;
+    overflow: auto;
+    -ms-overflow-style: none; /* Hides scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hides scrollbar for Firefox */
+}
+
+.FCInfo::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for Chrome, Safari, and Opera */
+}
+
+.FCList {
+    margin-bottom: 4px;
 }
 
 /*=EDIT AND DELETE BUTTONS=*/
@@ -226,3 +246,20 @@ a {
 }
 
 /*=======API STYLE END=======*/
+
+/*=======SOUP STYLE START=======*/
+
+.FCSoup {
+    text-align: center;
+    margin-bottom: 2px;
+    height: 350px;
+    overflow: auto;
+   -ms-overflow-style: none; /* Hides scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hides scrollbar for Firefox */
+}
+
+.FCSoup::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for Chrome, Safari, and Opera */
+}
+
+/*=======SOUP STYLE END=======*/

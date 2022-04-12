@@ -20,8 +20,8 @@
         <tbody>
             {%  for result in data %}
             <tr>
-                <td scope="row" class="text-center">{{ result.Driver_Name }}</td>
-                <td class="text-center">{{ result.Current_Team }}</td>
+                <td scope="row" class="text-center"><a href="{% url 'driver_details' value=result.Driver_Name %}">{{ result.Driver_Name }}</a></td>
+                <td class="text-center"><a href="{% url 'team_details' value=result.Current_Team %}">{{ result.Current_Team }}</a></td>
                 <td class="text-center">{{ result.Race }} - {{ result.Race_Type }}</td>
                 <td class="text-center">{{ result.Finishing_Position }}</td>
                 <td class="text-center">{% if result.Fastest_Lap %}
