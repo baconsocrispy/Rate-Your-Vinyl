@@ -9,7 +9,7 @@
 {% block content %}
     <!-- Centering elements with custom CSS -->
     <div class="form-review--container">
-        <form action="" method="post" class="bottom-page--padding">
+        <form action="" method="POST" class="bottom-page--padding">
             {% csrf_token %}
                 <!-- Crispy makes the Django form look nice -->
                 {{ form|crispy }}
