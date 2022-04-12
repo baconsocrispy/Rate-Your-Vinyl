@@ -1,0 +1,17 @@
+{% extends "Books/Books_Base.html" %}
+
+{% load static %}
+
+{% block title %} Add a Book{% endblock %}
+
+{% block content %}
+
+<h1> Add your favorite book!</h1>
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
+    <button type="submit">Submit</button>
+</div>
+{% endblock %}

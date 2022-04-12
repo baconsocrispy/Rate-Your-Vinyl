@@ -15,14 +15,11 @@
 <body>
 <div class="navbar">
     <ul>
-        <li><a href="#"><i class="fa fa-fw fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa-solid fa-book"></i> Add Book</a></li>
+        <li><a href="{% url 'books_home' %}"><i class="fa fa-fw fa-home"></i> Home</a></li>
+        <li><a href="{% url 'books_addbook' %}"><i class="fa-solid fa-book"></i> Add Book</a></li>
         <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
     </ul>
 </div>
-<h1>
-    Do you love reading? Share your favorite book with us!
-</h1>
 
 {% block content%}
 {% endblock %}
