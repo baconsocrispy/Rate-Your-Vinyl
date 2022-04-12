@@ -7,5 +7,6 @@ urlpatterns = [
     path('new_hero/', views.heroability_new_hero, name='heroability_new_hero'),
     path('records/', views.heroability_display_all, name='heroability_display_all'),
     path('<int:pk>/details/', views.heroability_details, name='heroability_details'),
+    path('confirm_delete/', views.heroability_confirm_delete, name='heroability_confirm_delete'),
 
 ]
