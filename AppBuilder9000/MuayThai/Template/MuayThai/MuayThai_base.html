@@ -1,18 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" class="bg_img">
+<html>
+
+    <!-- Head -->
     <head>
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Muay Thai Nation</title>
     </head>
-    <body>
-        <div class="page_container">
-            {% include "navbar.html" %}
-            <header class="header-title">
-                <h1>{% block header %}{% endblock %}</h1>
-            </header>
-            {% block content %} {% endblock %}
-        </div>
 
-        {% include "footer.html" %}
-    </body>
-</html>
+    <!-- Body -->
+    <body class="Background">
+
+        <!-- Navbar -->
+        <div class="Navbar">
+            <a class="active" href="#Home">Home</a>
+            <!-- New section added -->
+            <a href="#">Lumpini Champions</a>
+            <a href="#">History</a>
+            <a href="#">Fight Styles</a>
+        </div>
