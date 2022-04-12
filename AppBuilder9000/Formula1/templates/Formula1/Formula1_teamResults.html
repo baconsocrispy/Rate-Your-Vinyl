@@ -19,7 +19,7 @@
 
             <tr>
                 <td scope="row" class="text-center">{{ forloop.counter }}</td>
-                <td class="text-center">{{ key }}</td>
+                <td class="text-center"><a href="{% url 'team_details' value=key %}">{{ key }}</a></td>
                 {% for key2, value2 in value.items %}
                 <td class="text-center">{{ value2 }}</td>
                 {% endfor %}

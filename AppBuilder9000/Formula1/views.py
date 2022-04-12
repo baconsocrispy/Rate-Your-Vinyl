@@ -54,6 +54,19 @@ DRIVER_IMAGES = {
     'Zhou Guanyu': 'Formula1/images/drivers/zhou.png'
 }
 
+TEAM_IMAGES = {
+    'Alfa Romeo': 'Formula1/images/teams/alfaromeo-big.png',
+    'Alpha Tauri': 'Formula1/images/teams/alphatauri.jpg',
+    'Alpine': 'Formula1/images/teams/alpine.jpg',
+    'Aston Martin': 'Formula1/images/teams/astonmartin.jpg',
+    'Ferrari': 'Formula1/images/teams/ferrari.jpg',
+    'Haas': 'Formula1/images/teams/haas.jpg',
+    'McLaren': 'Formula1/images/teams/mclaren.jpg',
+    'Mercedes': 'Formula1/images/teams/mercedes.jpg',
+    'Red Bull': 'Formula1/images/teams/redbull.jpg',
+    'Williams': 'Formula1/images/teams/williams.jpg'
+}
+
 # RENDERS HOME PAGE
 def f1_home(request):
     return render(request, "Formula1/Formula1_home.html")
@@ -111,7 +124,7 @@ def team_results(request):
 
 # RENDERS DRIVER DETAILS PAGE
 def driver_details(request, value):
-    data = Result.results.all().filter(Driver_Name=value)
+    data = Result.results.all().filter(Driver_Name=value).order_by('Race', 'Race_Type')
     team = data[0].Current_Team
     total = 0
     for result in data:
@@ -126,18 +139,29 @@ def driver_details(request, value):
 
 # RENDERS TEAM DETAILS PAGE
 def team_details(request, value):
-    data = Result.results.all().filter(Current_Team=value)
-    team = data[0].Current_Team
+    data = Result.results.all().filter(Current_Team=value).order_by('Race', 'Race_Type')
+    drivers = []
+    races = {}
     total = 0
     for result in data:
         total += result.Points_Earned
-    img = DRIVER_IMAGES[value]
-    summary = [value, team, int(total), img]
+        if result.Driver_Name not in drivers:
+            drivers.append(result.Driver_Name)
+        race_details = [result.Race, result.Race_Type, int(result.Points_Earned)]
+        race_specific = "{} - {}".format(result.Race, result.Race_Type)
+        if race_specific not in races:
+            races[race_specific] = race_details
+        else:
+            races[race_specific][2] += int(result.Points_Earned)
+
+    img = TEAM_IMAGES[value]
+    summary = [value, drivers, int(total), img]
     context = {
         'summary': summary,
-        'data': data
+        'data': data,
+        'races': races
     }
-    return render(request, "Formula1/Formula1_driverDetails.html", context)
+    return render(request, "Formula1/Formula1_teamDetails.html", context)
 
 # RENDERS ADD RESULT PAGE
 def add_result(request):
