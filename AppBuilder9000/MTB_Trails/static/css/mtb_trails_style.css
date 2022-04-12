@@ -48,7 +48,7 @@
     transform: translate(-50%, -50%);
 }
 
-/* Setting review form to middle of page and below block header */
+/* Setting all other page content to middle of page and slightly below page titles */
 .form-review--container
 {
     height: 11em;
@@ -56,7 +56,7 @@
     color: white;
     background: none;
     position: absolute;
-    top: 65%;
+    top: 65%;   /* Sets the content slightly below title */
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
