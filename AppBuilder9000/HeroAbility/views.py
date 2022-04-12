@@ -50,3 +50,8 @@ def heroability_details(request, pk):
             'hero': hero,
         }
         return render(request, 'HeroAbility/heroability_details.html', content)
+
+
+# call template to confirm we are deleting from the db
+def heroability_confirm_delete(request, pk):
+    pass
