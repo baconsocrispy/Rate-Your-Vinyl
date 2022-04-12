@@ -44,7 +44,7 @@ RACE_CHOICES = [
     ('Bahrain', 'Bahrain'),
     ('Saudi Arabia', 'Saudi Arabia'),
     ('Australia', 'Australia'),
-    ('Emilia Romagna', 'Emilia Romagna'),
+    ('Imola', 'Imola'),
     ('Miami', 'Miami'),
     ('Barcelona', 'Barcelona'),
     ('Monaco', 'Monaco'),
