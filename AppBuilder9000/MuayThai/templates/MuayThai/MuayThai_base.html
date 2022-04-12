@@ -1,0 +1,30 @@
+{% load static %}
+<html lang="en">
+ <!-- Head -->
+    <head>
+        <title>{% block title %}Muay Thai Nation{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+    <body>
+        <!--NAVBAR-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+              <div class="container-fluid">
+                  <a class="navbar-brand text-white-50" href="{% url 'MuayThai_home' %}">Muay Thai Nation</a>
+                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                      <div class="navbar-nav">
+                          <a class="nav-link active text-warning" aria-current="page" href="{% url 'MuayThai_home' %}">Home</a>
+                          <a class="nav-link text-warning" href="#">History</a>
+                          <a class="nav-link text-warning" href="#">Lumpini Champions</a>
+                          <a class="nav-link text-warning" href="#">Legendary Fighters</a>
+                      </div>
+                  </div>
+              </div>
+        </nav>
+
+        <!--END NAVBAR-->
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>

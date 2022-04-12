@@ -1,0 +1,12 @@
+{% extends "MuayThai/MuayThai_base.html" %}
+{% load static %}
+
+<!-- Set Headline -->
+{% block content %}
+
+<section id="video">
+    <video muted autoplay loop id="homeMuayThaiVideo">
+      <source src="{% static 'videos/MuayThai.mp4' %}" type="video/mp4">
+    </video>
+
+{% endblock %}
