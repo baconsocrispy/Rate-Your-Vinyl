@@ -1,5 +1,10 @@
 /* Custom CSS classes */
 
+/* NOTICE that many classes are the same. While this is repetitive,
+    I decided to keep it this way after I lost formatting trying
+    to consolidate these repetitious classes. */
+
+
 
 
 /* Sticky footer setup */
@@ -32,7 +37,7 @@
     background-size: cover;
 }
 
-/* For the mtb_trails_base.html file, this will render following page titles in the center of screen */
+/* mtb_trails_base webpage container */
 .header-base--container
 {
     height: 11em;
@@ -48,7 +53,7 @@
     transform: translate(-50%, -50%);
 }
 
-/* Setting all other page content to middle of page and slightly below page titles */
+/* mtb_trails_review container */
 .form-review--container
 {
     height: 11em;
@@ -68,6 +73,7 @@
     padding-bottom: 100px
 }
 
+/* existing_reviews webpage container */
 .existing-reviews--container
 {
     height: 11em;
@@ -81,7 +87,22 @@
     transform: translate(-50%, -50%);
 }
 
+/* mtb_trails_home container for buttons */
 .home-btn--container
+{
+    height: 11em;
+    /* margin: 0; */
+    color: white;
+    background: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+/* scraped_data webpage container */
+.scraped-data--container
 {
     height: 11em;
     /* margin: 0; */
