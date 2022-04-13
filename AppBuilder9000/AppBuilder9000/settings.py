@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'MTB_Trails',
     'Formula1',
     'MusicTaste',
+    'Books',
+
     'MuayThai',
 ]
 

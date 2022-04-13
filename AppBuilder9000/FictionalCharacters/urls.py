@@ -13,4 +13,5 @@ urlpatterns = [
     path('FictionalCharacters_API', views.fc_calc, name="FictionalCharacters_API"),
     path('FictionalCharacters_Results', views.fc_calc, name="FictionalCharacters_Results"),
     path('FictionalCharacters_Error', views.fc_calc, name="FictionalCharacters_Error"),
+    path('FictionalCharacters_Soup', views.fc_soup, name="FictionalCharacters_Soup"),
 ]
