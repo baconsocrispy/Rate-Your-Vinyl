@@ -53,5 +53,24 @@ def heroability_details(request, pk):
 
 
 # call template to confirm we are deleting from the db
-def heroability_confirm_delete(request, pk):
-    pass
+def heroability_delete(request, pk):
+    pk = int(pk)
+    hero = get_object_or_404(Heroes, pk=pk)
+    if request.method == 'POST':
+        hero.delete()
+        return redirect('heroability_display_all')
+    content = {
+        "hero": hero,
+    }
+    return render(request, "HeroAbility/heroability_confirm_delete.html", content)
+
+
+# function used to confirm the delete action
+def heroability_confirm_delete(request):
+    if request.method == 'POST':
+        form = HeroForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('heroability_display_all')
+    else:
+        return redirect('heroability_display_all')
