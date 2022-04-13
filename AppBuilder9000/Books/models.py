@@ -12,6 +12,7 @@ BOOK_GENRE = [
 ]
 
 
+# instantiating my model
 class AddBook(models.Model):
     book_genre = models.CharField(max_length=100, choices=BOOK_GENRE)
     book_title = models.CharField(max_length=100, null=False)
