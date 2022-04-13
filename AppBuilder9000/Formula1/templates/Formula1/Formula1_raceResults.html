@@ -15,13 +15,15 @@
                 <th scope="col" class="text-center">Position</th>
                 <th scope="col" class="text-center">Fastest Lap</th>
                 <th scope="col" class="text-center">Points</th>
+                <th scope="col" class="text-center"></th>
+                <th scope="col" class="text-center"></th>
             </tr>
         </thead>
         <tbody>
             {%  for result in data %}
             <tr>
-                <td scope="row" class="text-center">{{ result.Driver_Name }}</td>
-                <td class="text-center">{{ result.Current_Team }}</td>
+                <td scope="row" class="text-center"><a href="{% url 'driver_details' value=result.Driver_Name %}">{{ result.Driver_Name }}</a></td>
+                <td class="text-center"><a href="{% url 'team_details' value=result.Current_Team %}">{{ result.Current_Team }}</a></td>
                 <td class="text-center">{{ result.Race }} - {{ result.Race_Type }}</td>
                 <td class="text-center">{{ result.Finishing_Position }}</td>
                 <td class="text-center">{% if result.Fastest_Lap %}
@@ -31,6 +33,8 @@
                     {% endif %}
                 </td>
                 <td class="text-center">{{ result.Points_Earned }}</td>
+                <td class="text-right"><a href="{% url 'edit_result' pk=result.id %}" style="text-decoration: none">&#9999;</a></td>
+                <td class="text-left"><a href="{% url 'delete_result' pk=result.id %}" style="text-decoration: none">&#128465;</a></td>
             </tr>
             {% endfor %}
         </tbody>
