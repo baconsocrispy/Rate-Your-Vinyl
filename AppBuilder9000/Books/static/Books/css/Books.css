@@ -1,7 +1,7 @@
 h1 {
 text-align: center;
 color: white;
-margin-top: 5%;
+margin-top: 1%;
 text-shadow: 2px 2px 5px black;
 font-size: 3em;
 }
@@ -17,7 +17,7 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
 }
 .navbar ul {
     text-align: center;
@@ -41,4 +41,19 @@ body {
     background-color: #B233;
     background-color: rgba(0,0,0,.5);
     border-radius: 15px;
+}
+.add-book-container {
+    width: 400px;
+    height: 550px;
+    background-color: rgba(0,0,0,0.6);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1% auto;
+    border: 2px solid white;
+}
+.add-book-form {
+    color: white;
+    font-size: 12px;
+    text-shadow: 3px 3px 5px black;
 }
