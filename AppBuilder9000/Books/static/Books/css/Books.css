@@ -10,7 +10,7 @@ font-size: 3em;
 body {
     background-image: url("../images/Reading.jpg");
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100%;
     background-size: cover;
     background-position: left;
 }
