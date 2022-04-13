@@ -3,6 +3,7 @@ from .forms import TrailReviewForm
 from .models import ReviewTrail
 from bs4 import BeautifulSoup
 import requests
+import json
 
 
 def mtb_trails_home(request):
@@ -76,6 +77,7 @@ def top_mtb(request):
     top_bikes = []
     # Empty list for use in for loop.
     bike_desc = []
+    # Empty list for use in last for loop. This loop concatenates the other two lists.
     full_bike_desc = []
     # URL to be scraped.
     page = requests.get('https://www.outdoorgearlab.com/topics/biking/best-mountain-bike')
@@ -108,28 +110,28 @@ def top_mtb(request):
         full_bike_desc.append(bike_model)
         z += 1
 
-
-
-
-
     context = {'full_bike_desc': full_bike_desc}
     return render(request, 'MTB_Trails/top_mtb.html', context)
 
 
-
-
-
-
-
-
-
-
-
 # View for MTB Project API
 def mtb_project_api(request):
-    #response = requests.get('#')
+    # API code from https://rapidapi.com/trailapi/api/trailapi/
+    url = "https://trailapi-trailapi.p.rapidapi.com/trails/explore/"
+    querystring = {"lat": "39.550053", "lon": "-105.782066"}
+    headers = {
+        "X-RapidAPI-Host": "trailapi-trailapi.p.rapidapi.com",
+        "X-RapidAPI-Key": "e3b28ce81fmshbcd98af11e9812dp1487c5jsnaf6f45c8d994"
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring)
 
-    #print(response.status_code)
+    # Per DataQuest tutorial, here we are formatting the API data to strings in dictionary format.
+    def jprint(obj):
+        # Create a formatted string of the Python JSON object.
+        text = json.dumps(obj, sort_keys=True, indent=4)
+        print(text)
+
+    jprint(response.json())
 
     return render(request, 'MTB_Trails/mtb_project_api.html')
 
