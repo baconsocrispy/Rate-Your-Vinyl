@@ -168,6 +168,73 @@ def add_result(request):
     form = ResultForm()
     return render(request, "Formula1/Formula1_addResult.html", {'form': form})
 
+
+def edit_result(request, pk):
+    obj = get_object_or_404(Result, id=pk)
+
+    form = ResultForm(request.POST or None, instance = obj)
+    context = {'form': form}
+
+    if request.method == 'POST':
+        if form.is_valid():
+            result = form.save(commit=False)
+
+            # GENERATE DRIVER_RACE_KEY AND ASSIGN IT
+            key = f"{result.Race} - {result.Race_Type} - {result.Driver_Name}"
+            result.Driver_Race_Key = key
+            # USE BUSINESS LOGIC TO CALCULATE POINT TOTAL
+            if result.Finishing_Position == 'DNF':
+                result.Points_Earned = 0
+            else:
+                pos = int(result.Finishing_Position)
+                if result.Race_Type == 'Feature Race':
+                    if pos <= 10:
+                        points = POINTS_PER_POSITION_FEATURE[pos]
+                        if result.Fastest_Lap == True:
+                            points = points + 1
+                        result.Points_Earned = points
+                    else:
+                        result.Points_Earned = 0
+                else:
+                    if pos <= 8:
+                        points = POINTS_PER_POSITION_SPRINT[pos]
+                        result.Points_Earned = points
+                    else:
+                        result.Points_Earned = 0
+            try:
+                result.save()
+                messages.success(request, "Successfully updated the race result.")
+                return redirect('race_results')
+            except IntegrityError as e:
+                messages.error(request, f"{result.Driver_Name} already has a result recorded for {result.Race} - {result.Race_Type}")
+                return redirect('edit_result', pk=pk)
+
+        else:
+            messages.error(request, "The race result was not updated successfully.")
+
+            context = {'form': form}
+
+            return render(request, "Formula1/Formula1_editResult.html", context)
+    else:
+        return render(request, "Formula1/Formula1_editResult.html", context)
+
+def delete_result(request, pk):
+    result = get_object_or_404(Result, id=pk)
+    form = ResultForm(request.POST or None, instance=result)
+
+    context = {'result': result}
+    if request.method == 'POST':
+        result.delete()
+
+        messages.success(request, "Successfully deleted the race result.")
+
+        return redirect('race_results')
+
+    else:
+        return render(request, "Formula1/Formula1_deleteResult.html", context)
+
+
+
 # HANDLES FORM DATA FROM ADD RESULT PAGE
 def result_submit(request):
     form = ResultForm(data=request.POST or None)

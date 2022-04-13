@@ -11,4 +11,5 @@ urlpatterns = [
     path('edit_or_delete/<int:pk>/', views.edit_or_delete, name='edit_or_delete'),
     path('delete_trail/<int:pk>/', views.delete_trail, name='delete_trail'),
     path('top_mtb/', views.top_mtb, name='top_mtb'),
+    path('mtb_project_api/', views.mtb_project_api, name='mtb_project_api'),
 ]

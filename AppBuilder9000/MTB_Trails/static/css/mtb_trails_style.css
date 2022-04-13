@@ -105,7 +105,21 @@
 .scraped-data--container
 {
     height: 11em;
-    /* margin: 0; */
+    margin: 0;
+    color: white;
+    background: none;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+/* mtb_project_api webpage container */
+.mtb-project--container
+{
+    height: 11em;
+    margin: 0;
     color: white;
     background: none;
     position: absolute;

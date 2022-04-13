@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'MusicTaste',
     'Books',
 
+    'MuayThai',
 ]
 
 MIDDLEWARE = [
