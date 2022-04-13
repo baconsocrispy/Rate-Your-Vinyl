@@ -53,7 +53,7 @@ def heroability_details(request, pk):
 
 
 # call template to confirm we are deleting from the db
-def heroability_delete(request, pk):
+def heroability_delete_hero(request, pk):
     pk = int(pk)
     hero = get_object_or_404(Heroes, pk=pk)
     if request.method == 'POST':
