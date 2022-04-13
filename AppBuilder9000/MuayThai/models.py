@@ -21,5 +21,3 @@ class Fighter(models.Model):
 
     def __str__(self):
         return self.first_name
-
-    Fighter = models.Manager()

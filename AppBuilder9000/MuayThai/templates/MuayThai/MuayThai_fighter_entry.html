@@ -1,0 +1,26 @@
+{% extends "MuayThai/MuayThai_base.html" %}
+{% load static %}
+
+{% block title %}Fighter{% endblock %}
+
+{% block headline %}Fighter Entry{% endblock%}
+
+{% block content %}
+
+<div class="form-container">
+    <form class="form" method="post" action="{% url 'MuayThai_fighter_entry' %}">
+        <div>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}
+        </div>
+        <div>
+            <input class="button" type="submit" value="Fighter Registration" name="save_item" />
+            <a href="{% url 'MuayThai_fighter_entry' %}"><button class="button" type="button" value="Cancel">Cancel</button></a>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}
