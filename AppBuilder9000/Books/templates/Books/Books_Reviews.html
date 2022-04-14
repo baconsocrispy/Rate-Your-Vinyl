@@ -1,0 +1,35 @@
+{% extends "Books/Books_Base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+{% block title %} Book Reviews{% endblock %}
+
+{% block content %}
+
+<h1>Welcome to Book Reviews!</h1>
+
+    <table class="book-tables">
+        <thead>
+            <tr>
+                <th>Genre</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for item in book_entries %}
+                <td>{{ item.book_genre }}</td>
+                <td>{{ item.book_title }}</td>
+                <td>{{ item.book_author}}</td>
+                <td>{{ item.book_description }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,7 +1,7 @@
 h1 {
 text-align: center;
 color: white;
-margin-top: 5%;
+margin-top: 1%;
 text-shadow: 2px 2px 5px black;
 font-size: 3em;
 }
@@ -10,14 +10,18 @@ font-size: 3em;
 body {
     background-image: url("../images/Reading.jpg");
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100%;
     background-size: cover;
     background-position: left;
 }
 
-.navbar {
+html {
+    min-height: 100%;
+    overflow-y: scroll;
+}
+.navbar { /*styling the navbar*/
     width: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
 }
 .navbar ul {
     text-align: center;
@@ -38,7 +42,47 @@ body {
     transition: all ease 0.5s;
 }
 .navbar ul li a:hover {
-    background-color: #B233;
-    background-color: rgba(0,0,0,.5);
-    border-radius: 15px;
+    text-decoration: underline;
+}
+.add-book-container { /* creating a container to hold my form*/
+    width: 400px;
+    height: 550px;
+    background-color: rgba(0,0,0,0.6);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1% auto;
+    border: 2px solid white;
+}
+.add-book-form {
+    color: white;
+    font-size: 12px;
+    text-shadow: 3px 3px 5px black;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.book-tables {  /*styling the table layout to render my form aesthetically */
+    color: white;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+.book-tables thead tr {
+    background-color: #2A48F5;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+.book-tables th,
+.book-tables td {
+    padding: 12px 15px;
+}
+.book-tables tbody tr {
+    border-bottom: 2px solid white;
+    background-color: rgba(0,0,0,0.8);
+
 }
