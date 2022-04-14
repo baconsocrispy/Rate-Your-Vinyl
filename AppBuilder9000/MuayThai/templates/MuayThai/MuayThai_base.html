@@ -1,29 +1,26 @@
 {% load static %}
+
 <html lang="en">
- <!-- Head -->
     <head>
-        <title>Muay Thai Nation</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Link to CSS styling  -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/MuayThai_style.css' %}">
+    <title>{% block title %}Muay Thai Nation{% endblock %}</title>
+        <div class="nav">
+                {% include "MuayThai/MuayThai_navbar.html" %}
+        </div>
+        <h1>Welcome Nak Muays</h1>
     </head>
+    <header>
+        <div class="content">
+            <p class="header">{% block header %}{% endblock %}</p><!--Space for individual page headers -->
+
+        </div>
+    </header>
     <body>
-        <h1>Muay Thai Nation</h1>
-        <!--NAVBAR-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-              <div class="container-fluid">
-                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                      <div class="navbar-nav">
-                          <a class="nav-link active text-warning" aria-current="page" href="{% url 'MuayThai_home' %}">Home</a>
-                          <a class="nav-link text-warning" href="">Fighter Entry</a>
-                          <a class="nav-link text-warning" href="#">Participating Gyms</a>
-                      </div>
-                  </div>
-              </div>
-        </nav>
-
-        <!--END NAVBAR-->
-        {% block content %}
-
-        {% endblock %}
+        <div>
+            {% block content %}{% endblock %}
+        </div>
     </body>
 </html>
