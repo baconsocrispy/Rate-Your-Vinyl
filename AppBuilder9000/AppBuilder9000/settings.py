@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'Formula1',
     'MusicTaste',
     'Books',
-
     'MuayThai',
 ]
 
