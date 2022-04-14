@@ -18,6 +18,6 @@ def MuayThai_fighter_entry(request):
 
 
 def DisplayFighters(request):
-    fighters = Fighter.objects.all()
+    fighters = Fighter.Fighter.all()
     context = {'fighters': fighters}
     return render(request, 'MuayThai/MuayThai_fighters.html', context)
