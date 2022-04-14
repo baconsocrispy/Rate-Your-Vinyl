@@ -15,3 +15,9 @@ def MuayThai_fighter_entry(request):
 
     context = {'form': form}
     return render(request, 'MuayThai/MuayThai_fighter_entry.html', context)
+
+
+def DisplayFighters(request):
+    fighters = Fighter.objects.all()
+    context = {'fighters': fighters}
+    return render(request, 'MuayThai/MuayThai_fighters.html', context)

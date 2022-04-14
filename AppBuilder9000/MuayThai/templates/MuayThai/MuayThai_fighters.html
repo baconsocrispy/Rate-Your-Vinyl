@@ -1,0 +1,41 @@
+{% extends "MuayThai/MuayThai_base.html" %}
+{% load static %}
+
+{% block content %}
+{% comment %}
+    displays list of fighters registered
+{% endcomment %}
+
+<h1>Registered Fighters</h1>
+<table border="1" width="600">
+    <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Country</td>
+            <td>Weight</td>
+            <td>Gym</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td class="dataEntries">{{ stat.first_name }}</td>
+            <td class="dataEntries">{{ stat.last_name }}</td>
+            <td class="dataEntries">{{ stat.country }}</td>
+            <td class="dataEntries">{{ stat.weight_in_pounds }}</td>
+            <td class="dataEntries">{{ stat.gym }}</td>
+        </tr>
+    </tbody>
+
+</table>
+
+
+
+
+
+
+
+
+
+{% endblock %}
