@@ -1,7 +1,10 @@
 {% extends "MuayThai/MuayThai_base.html" %}
 {% load static %}
 
-<!-- Set Headline -->
+{% block title %}Muay Thai Nation{% endblock %}
+
+{% block header %}Welcome Nak Muays! {% endblock %}
+
 {% block content %}
 
 <section id="video">
@@ -9,5 +12,6 @@
       <source src="{% static 'videos/MuayThai.mp4' %}" type="video/mp4">
     </video>
 </section>
+
 
 {% endblock %}
