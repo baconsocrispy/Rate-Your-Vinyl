@@ -1,14 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic.edit import DeleteView
-from django.urls import reverse_lazy
 from .forms import TrailReviewForm
 from .models import ReviewTrail
 from bs4 import BeautifulSoup
 import requests
+import json
 
 
 def mtb_trails_home(request):
-    return render(request, "MTB_Trails/mtb_trails_home.html")
+    return render(request, 'MTB_Trails/mtb_trails_home.html')
 
 
 # User data from form to be saved and then user redirected to submitted_review
@@ -21,31 +20,31 @@ def mtb_trails_review(request):
             form.save()
             # Process data in form.cleaned_data as required
             # Redirect to new URL
-            return redirect("submitted_review")
+            return redirect('submitted_review')
     else:
         form = TrailReviewForm()
     context = {'form': form}
-    return render(request, "MTB_Trails/mtb_trails_review.html", context)
+    return render(request, 'MTB_Trails/mtb_trails_review.html', context)
 
 
 # Simple rendering for success review submission
 def submitted_review(request):
-    return render(request, "MTB_Trails/submitted_review.html")
+    return render(request, 'MTB_Trails/submitted_review.html')
 
 
 # View for user-submitted reviews
 def existing_reviews(request):
     trails = ReviewTrail.objects.all()
-    return render(request, "MTB_Trails/existing_reviews.html", {'trails': trails})
+    return render(request, 'MTB_Trails/existing_reviews.html', {'trails': trails})
 
 
 # View for detailed review page
 def review_details(request, pk):
     trail = ReviewTrail.objects.get(pk=pk)
-    return render(request, "MTB_Trails/review_details.html", {'trail':trail})
+    return render(request, 'MTB_Trails/review_details.html', {'trail':trail})
 
 
-# View for updating or deleting review.
+# View for updating or deleting review (page has modal that'll link to the delete_trail view below).
 def edit_or_delete(request, pk):
     trail = get_object_or_404(ReviewTrail, pk=pk)
     form = TrailReviewForm(instance=trail)
@@ -56,11 +55,11 @@ def edit_or_delete(request, pk):
             form.save()
             # Process data in form.cleaned_data as required
             # Redirect to new URL
-            return redirect("submitted_review")
+            return redirect('submitted_review')
         # Cindy, I don't know why, but changing dictionary to 'trail' won't load form in webpage.
     context = {'form': form,
                'trail': trail}
-    return render(request, "MTB_Trails/edit_or_delete.html", context)
+    return render(request, 'MTB_Trails/edit_or_delete.html', context)
 
 
 # View for deleting a review.
@@ -78,6 +77,8 @@ def top_mtb(request):
     top_bikes = []
     # Empty list for use in for loop.
     bike_desc = []
+    # Empty list for use in last for loop. This loop concatenates the other two lists.
+    full_bike_desc = []
     # URL to be scraped.
     page = requests.get('https://www.outdoorgearlab.com/topics/biking/best-mountain-bike')
     # Setting soup object using the particular html parser.
@@ -98,65 +99,44 @@ def top_mtb(request):
         for x in bike:
             bike_txt = x.text
             top_bikes.append(bike_txt)
-    print(bike_desc)
-    print(top_bikes)
+    # New list containing only the elements we want from both lists.
+    new_desc_list = bike_desc[0:8]
+    new_top_bike_list = top_bikes[0:8]
+
+    # Joining together list elements since we have two separate lists above.
+    z = 0
+    for desc in new_desc_list:
+        bike_model = new_desc_list[0 + z] + ': ' + new_top_bike_list[0 + z]
+        full_bike_desc.append(bike_model)
+        z += 1
+
+    context = {'full_bike_desc': full_bike_desc}
+    return render(request, 'MTB_Trails/top_mtb.html', context)
+
+
+# View for MTB Project API
+def mtb_project_api(request):
+    # API code from https://rapidapi.com/trailapi/api/trailapi/
+    url = "https://trailapi-trailapi.p.rapidapi.com/trails/explore/"
+    querystring = {"lat": "39.550053", "lon": "-105.782066"}
+    headers = {
+        "X-RapidAPI-Host": "trailapi-trailapi.p.rapidapi.com",
+        "X-RapidAPI-Key": "e3b28ce81fmshbcd98af11e9812dp1487c5jsnaf6f45c8d994"
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    # Per DataQuest tutorial, here we are formatting the API data to strings in dictionary format.
+    def jprint(obj):
+        # Create a formatted string of the Python JSON object.
+        text = json.dumps(obj, sort_keys=True, indent=4)
+        print(text)
+
+    jprint(response.json())
+
+    return render(request, 'MTB_Trails/mtb_project_api.html')
 
 
 
-
-    #context = {'parent': parent}
-    return render(request, 'MTB_Trails/top_mtb.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# View for updating or deleting review.
-def edit_or_delete(request, pk):
-    trail = get_object_or_404(ReviewTrail, pk=pk)
-    form = TrailReviewForm(instance=trail)
-    if request.method == 'POST':
-        form = TrailReviewForm(request.POST, instance=trail)
-        # Check if data is valid:
-        if form.is_valid():
-            form.save()
-            # Process data in form.cleaned_data as required
-            # Redirect to new URL
-            return redirect("submitted_review")
-        # Cindy, I don't know why, but changing dictionary to 'trail' won't load form in webpage.
-    context = {'form': form,
-               'trail': trail}
-    return render(request, "MTB_Trails/edit_or_delete.html", context)
-
-
-# View for deleting a review.
-def delete_trail(request, pk):
-    trail = get_object_or_404(ReviewTrail, pk=pk)
-    context = {'trail': trail}
-    trail.delete()
-    return redirect('existing_reviews')
 
 
 

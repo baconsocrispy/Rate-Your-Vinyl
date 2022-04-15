@@ -10,19 +10,31 @@
     <h2>{{data.fname}} & {{data.sname}}</h2> <br/>
 
     {% if data.percent <= 50 %}
-    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_bad.png"> <br/>
+    <div class="FCContainer">
+      <div class="FCAvatar">
+          <img src="/static/FictionalCharacters/images/Characters_bad.png">
+      </div>
+    </div>
 
     It's a {{data.percent}}% match... <br/>
     {{data.result}}<br/>
 
     {% elif data.percent <= 75 and data.percent > 50 %}
-    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_okay.png"> <br/>
+    <div class="FCContainer">
+      <div class="FCAvatar">
+          <img src="/static/FictionalCharacters/images/Characters_okay.png">
+      </div>
+    </div>
 
     It's a {{data.percent}}% match! <br/>
     {{data.result}}<br/>
 
     {% elif data.percent <= 100 and data.percent > 75 %}
-    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_best.png"> <br/>
+    <div class="FCContainer">
+      <div class="FCAvatar">
+          <img src="/static/FictionalCharacters/images/Characters_best.png">
+      </div>
+    </div>
 
     It's a {{data.percent}}% match!!! <br/>
     {{data.result}}!!!<br/>

@@ -19,7 +19,7 @@ html {
     min-height: 100%;
     overflow-y: scroll;
 }
-.navbar {
+.navbar { /*styling the navbar*/
     width: 100%;
     background-color: rgba(0,0,0,0.6);
 }
@@ -44,15 +44,15 @@ html {
 .navbar ul li a:hover {
     text-decoration: underline;
 }
-.add-book-container {
+.add-book-container { /* creating a container to hold my form*/
     width: 400px;
-    height: 550px;
+    height: 500px;
     background-color: rgba(0,0,0,0.6);
     display:flex;
     justify-content: center;
     align-items: center;
     margin: 1% auto;
-    border: 2px solid white;
+    border: 1px solid white;
 }
 .add-book-form {
     color: white;
@@ -60,5 +60,35 @@ html {
     text-shadow: 3px 3px 5px black;
     text-align: center;
     text-transform: uppercase;
+    font-weight: bold;
+}
+.book-tables {  /*styling the table layout to render my form aesthetically */
+    color: white;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+.book-tables thead tr {
+    background-color: #2A48F5;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+.book-tables th,
+.book-tables td {
+    padding: 12px 15px;
+}
+.book-tables tbody tr {
+    border-bottom: 2px solid white;
+    background-color: rgba(0,0,0,0.8);
+    font-weight: bold;
+}
+.book-tables tbody tr:nth-of-type(odd) {
+    border-bottom: 2px solid white;
+    background-color: rgba(173, 165, 173, 0.9);
+    color: black;
     font-weight: bold;
 }
