@@ -1,5 +1,5 @@
-from django.urls import path
 from . import views
+from django.urls import path
 
 
 # the directory of . is our current directory
@@ -11,6 +11,6 @@ from . import views
 urlpatterns = [
     path('', views.Muay_Thai_Home, name='MuayThai_home'),  # usable link to home page
     path('FighterEntry/', views.MuayThai_fighter_entry, name='MuayThai_fighter_entry'),  # usable link to create page
-    path('Fighters/', views.DisplayFighters, name='MuayThai_Fighters'),
+    path('Fighters/', views.DisplayFighters, name='MuayThai_Fighters'),  # link to display fighter's names
 
 ]
