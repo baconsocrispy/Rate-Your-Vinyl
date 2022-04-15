@@ -1,87 +1,102 @@
+
 body {
-    background-color: #708090;
+    background-image: url("../images/thaiboxer.jpg");
+    background-color: black;
+    background-attachment: fixed;
+    background-position: center;
+    color: red;
+    text-align: center;
+    padding: 1% 0;
 }
 
-/* basic styling for my tables */
-table {
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-}
-
-/* fonts and general text styling */
 h1 {
-    color: black;
+    line-height: 50px;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
     text-align: center;
-    font-family: Impact, fantasy;
-    letter-spacing: 3px;
 }
 
-p {
-    color: black;
+.navbar {
+    height: 55px;
+    max-height: 340px;
+    margin: 0% auto;
+    display: block;
+    width: 100%;
+    z-index: 100;
+    padding: 0;
+}
+
+.menu {
+    color: #758885;
+    font: bold 12px/18px sans-serif;
     text-align: center;
-    font-family: Trebuchet MS;
-    letter-spacing: 2px;
+    display: inline;
+    margin: 0% auto;
+    padding: 0;
+    list-style: none;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0% auto;
+    position: relative;
+    padding: 15px 4%;
+}
+
+li {
+    background-color: white;
+    padding: 3px;
+}
+
+.form-container {
+    width: 60%;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0px auto;
+    background-color: rgba(227, 222, 222, .4);
+    box-shadow: -1px -1px 1px 0 rgba(0, 0, 0, .1), 1px 2px 10px 0 rgba(0, 0, 0, .5);
 }
 
 form {
-   text-align:center;
+    font-size: 15px;
+    outline: none;
+    font-weight: 600;
+    padding: 12px 12px;
+    width: 80%;
+    border: 1px solid #808080;
+    margin: 2% auto;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, .6);
+    box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, .3);
+    font-family: 'Raleway', sans-serif;
 }
 
-/* video background */
-#homeMuayThaiVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    z-index: -1;
-    object-fit: cover;
+form label{
+    display: block;
 }
 
-/* loading style and animation */
 
-.loading {
-    position: fixed;
-    z-index: 1001;
-    border: 16px solid lightgray;
-    border-top: 16px solid #FFCC00;
-    border-radius: 50%;
-    width: 140px;
-    height: 140px;
-    margin: auto;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    animation: loading 4s linear infinite;
-}
-
-@keyframes loading {
-    0% {
-    transform: rotate(0deg);
-    }
-    100% {
-    transform: rotate(360deg);
-    }
+.button, .button a {
+    color: rgb(225, 225, 225);
+    cursor: pointer;
+    border: none;
+    font-weight: 900;
+    outline: none;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    margin: 0px 3%;
+    padding: 7px 0px;
+    width: 25%;
+    font-size: 18px;
+    transition: border-color 0.3s color 0.3s background-color 0.3s;
+    border-radius: 7px;
+    background-color: #797a7b;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .3);
 }
 
-/* stats fly-in */
-.dataEntries {
-    height: 50px;
-    overflow: hidden;
-    position: relative;
-}
-.dataEntries {
-    text-align: left;
-    animation: fly-In 2s ease-out;
-}
-
-@keyframes fly-In {
-0%   {
-    transform: translateX(500%);
-}
-100% {
-    transform: translateX(0%);
-    }
+.button:hover, .button a:hover {
+    color: #000;
+    background-color: #8d8e8f;
+    box-shadow: inset 1px 2px 15px 0 rgba(0, 0, 0, .5);
 }
