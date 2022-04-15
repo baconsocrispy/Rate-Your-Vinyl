@@ -14,20 +14,17 @@
     <table class="book-tables">
         <thead>
             <tr>
-                <th>Genre</th>
-                <th>Title</th>
                 <th>Author</th>
-                <th>Description</th>
+                <th>Title</th>
+                <th>Details</th>
             </tr>
         </thead>
         <tbody>
             <tr>
             {% for item in book_entries %}
-                <td>{{ item.book_genre }}</td>
+                <td>{{ item.book_author }}</td>
                 <td>{{ item.book_title }}</td>
-                <td>{{ item.book_author}}</td>
-                <td>{{ item.book_description }}</td>
-
+                <td><a href="{% url 'books_details' item.id %}"><i class="fa-solid fa-angles-right"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>

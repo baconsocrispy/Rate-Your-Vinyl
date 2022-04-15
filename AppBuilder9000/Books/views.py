@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AddBookForm
 from .models import AddBook
 
@@ -24,3 +24,9 @@ def books_reviews(request):
     book_entries = AddBook.objects.all()
     content = {'book_entries': book_entries}
     return render(request, 'Books/Books_Reviews.html', content)
+
+
+def books_details(request, pk):
+    details = get_object_or_404(AddBook, pk=pk)
+    context = {'details': details}
+    return render(request, 'Books/Books_Details.html', context)
