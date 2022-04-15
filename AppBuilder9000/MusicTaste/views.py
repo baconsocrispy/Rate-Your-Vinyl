@@ -27,7 +27,7 @@ def registerform(request):
 def userdetails(request, pk):
     details = get_object_or_404(User, pk=pk)
     context = {'details': details}
-    return render(request, 'MusicTaste/details.html', context)
+    return render(request, 'MusicTaste/MusicTaste_details.html', context)
 
 
 def displayusers(request):
