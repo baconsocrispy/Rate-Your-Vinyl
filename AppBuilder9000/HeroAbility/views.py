@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Heroes
 from .forms import HeroForm
+import requests
+import json
 
 
 # calls the heroability home page when requested
@@ -74,3 +76,35 @@ def heroability_confirm_delete(request):
             return redirect('heroability_display_all')
     else:
         return redirect('heroability_display_all')
+
+
+# Using an API to call more heroes that could potentially be added
+def heroability_fetch_heroes():
+    random_hero_alias = {}
+    random_hero_name = {}
+    url = "https://superhero-search.p.rapidapi.com/api/heroes"
+
+    headers = {
+        "X-RapidAPI-Host": "superhero-search.p.rapidapi.com",
+        "X-RapidAPI-Key": "2345c7543fmshca4cdeb5e63abb6p10eacbjsna1f873331a65"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    new_heroes = json.loads(response.text)
+    for new_hero in new_heroes: # loop through the items provided in the API response ad add them to 2 sperate lists
+        random_hero_alias[new_hero['name']] = new_hero['name']
+        random_hero_name[new_hero['biography']['fullName']] = new_hero['biography']['fullName']
+    random_heroes = zip( # create a zip to consolidate the data that can be displayed more easily
+        random_hero_alias,
+        random_hero_name,
+    )
+    return random_heroes
+
+
+# call the template to display the api call
+def heroability_random_heroes(request):
+    random_heroes = heroability_fetch_heroes()
+    content = {
+        'random_heroes': random_heroes
+    }
+    return render(request, "HeroAbility/heroability_random_heroes.html", content)
