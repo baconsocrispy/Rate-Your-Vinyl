@@ -11,13 +11,22 @@ BOOK_GENRE = [
     ('Poetry', 'Poetry'),
 ]
 
+BOOK_RATING = [
+    ('1/5', '1/5'),
+    ('2/5', '2/5'),
+    ('3/5', '3/5'),
+    ('4/5', '4/5'),
+    ('5/5', '5/5'),
+]
+
 
 # instantiating my model
 class AddBook(models.Model):
-    book_genre = models.CharField(max_length=100, choices=BOOK_GENRE)
+    book_genre = models.CharField(max_length=20, choices=BOOK_GENRE)
     book_title = models.CharField(max_length=100, null=False)
     book_author = models.CharField(max_length=100, null=False)
-    book_description = models.TextField(max_length=500, null=False)
+    book_description = models.CharField(max_length=100, null=False)
+    book_rating = models.CharField(max_length=20, choices=BOOK_RATING)
 
     objects = models.Manager()
 
