@@ -92,3 +92,8 @@ html {
     color: black;
     font-weight: bold;
 }
+.delete-btn-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
