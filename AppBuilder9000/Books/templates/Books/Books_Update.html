@@ -4,18 +4,20 @@
 
 {% load static %}
 
-{% block title %} Add a Book{% endblock %}
 
+{% block title %}Update Form{% endblock %}
 
-{% block content %}
-<h1>Create Review</h1>
+{% block content%}
+
+<h1>Update Form</h1>
+
 <div class="add-book-container">
     <form method="POST" class="add-book-form">
         {% csrf_token %}
         {{ form|crispy }}
         <br>
-        <button type="submit" name="Save_Review">Create Review</button>
+        <button class="btn btn-success" type="submit" name="Update_Review">Update Review</button>
+        <a href="../Details/"><div class="btn btn-primary">Cancel</div></a>
     </form>
 </div>
-
 {% endblock %}
