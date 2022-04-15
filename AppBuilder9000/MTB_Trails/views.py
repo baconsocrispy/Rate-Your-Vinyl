@@ -121,8 +121,8 @@ def trail_api(request):
     # API code from https://rapidapi.com/trailapi/api/trailapi/
     url = "https://trailapi-trailapi.p.rapidapi.com/trails/explore/"
 
-    # Latitude and longitude required. per_page and radius optional.
-    parameters = {"lat": "39", "lon": "-106", "per_page": "50", "radius": "100"}
+    # Latitude and longitude required. 'per_page' and 'radius' optional.
+    parameters = {"lat": "39", "lon": "-106", "per_page": "300", "radius": "100"}
     headers = {
         "X-RapidAPI-Host": "trailapi-trailapi.p.rapidapi.com",
         "X-RapidAPI-Key": "e3b28ce81fmshbcd98af11e9812dp1487c5jsnaf6f45c8d994"
@@ -130,12 +130,11 @@ def trail_api(request):
     response = requests.request("GET", url, headers=headers, params=parameters)
     json_response = response.json()
 
-    # Empty lists to populate.
+    # Empty lists to populate with data we want to pull from the API.
     trail_name_list = []
     trail_desc_list = []
     trail_city_list = []
     trail_difficulty_list = []
-    trail_list = []
 
     # Populating all lists except 'trail_list'.
     for item in json_response['data']:
@@ -144,17 +143,11 @@ def trail_api(request):
         trail_city_list.append(item['city'])
         trail_difficulty_list.append(item['difficulty'])
 
-    counter = 0
-    featured_trails = trail_name_list + trail_desc_list + trail_city_list + trail_difficulty_list
-    for i in featured_trails:
-        while counter < 50:
-            single_trail = trail_name_list[0 + counter] + trail_desc_list[0 + counter] + trail_city_list[0 + counter] +\
-                           trail_difficulty_list[0 + counter]
-            trail_list.append(single_trail)
-            counter += 1
+    trail_list = zip(trail_name_list, trail_desc_list, trail_city_list, trail_difficulty_list)
 
     context = {'trail_list': trail_list}
     return render(request, 'MTB_Trails/trail_api.html', context)
+
 
 
 
