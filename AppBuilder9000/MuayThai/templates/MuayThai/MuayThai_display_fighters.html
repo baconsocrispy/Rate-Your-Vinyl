@@ -17,9 +17,9 @@
             <tbody class="bg-light">
                 {% for fighter in fighters %}
                 <tr class="text-dark font-weight-bolder">
-                    <td><a href="../{{ fighter.pk }}/details/">{{ fighter.name }}</a></td>
-                    <td>{{ fighter.country }}</td>
-                    <td class="bg-dark text-light">{{ fighter.gym }}</td>
+                <td><a href="../{{ fighter.pk }}/details/">{{ fighter.first.name }}</a></td>
+                <td>{{ fighter.country }}</td>
+                <td class="bg-dark text-light">{{ fighter.gym }}</td>
                 </tr>
                 {% endfor %}
         </table>

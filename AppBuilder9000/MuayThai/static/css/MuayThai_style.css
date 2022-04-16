@@ -4,12 +4,13 @@ body {
     background-color: black;
     background-attachment: fixed;
     background-position: center;
-    color: red;
+    color: rgb(192, 31, 13);
     text-align: center;
     padding: 1% 0;
 }
 
 h1 {
+    text-shadow: 2px 2px #ff0000;
     line-height: 50px;
     font-weight: 900;
     font-size: 30px;
@@ -69,7 +70,7 @@ form {
     border-radius: 7px;
     background-color: rgba(0, 0, 0, .6);
     box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, .3);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 form label{
@@ -84,7 +85,7 @@ form label{
     font-weight: 900;
     outline: none;
     text-decoration: none;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Kanit', sans-serif;
     margin: 0px 3%;
     padding: 7px 0px;
     width: 25%;
