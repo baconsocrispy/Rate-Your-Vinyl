@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AddBookForm
 from .models import AddBook
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+import requests
+import json
 from django.contrib import messages
 
 
@@ -53,3 +57,25 @@ def books_update(request, pk):
     return render(request, 'Books/Books_Update.html',
                   {'update_books': update_books,
                    'form': form})
+
+
+def books_api(request):
+    url = "https://bookshelves.p.rapidapi.com/books"
+
+    headers = {
+        "X-RapidAPI-Host": "bookshelves.p.rapidapi.com",
+        "X-RapidAPI-Key": "1aed881129msh0e4e702933d3b57p1d0a71jsnaba2c0d6b2f8"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+
+    print(response)
+    books_info = json.loads(response.text)
+    thebooks = json.dumps(books_info, indent=4)
+    print(thebooks)
+    context = {
+        'thebooks': thebooks
+    }
+    return render(request, 'Books/Books_API.html', context)
+    # I would like the title, imgUrl, review and description keys from this API and to render in a readable format in my template.
+
