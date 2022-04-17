@@ -47,7 +47,29 @@ def MuayThai_fighters_details(request, pk):
             'form': form,
             'fighter': fighter,
         }
-        return render(request, 'MuayThai_fighters_details.html', content)
+        return render(request, 'MuayThai/MuayThai_fighters_details.html', content)
 
 
+# call template to confirm we are deleting from the database
+def MuayThai_delete_fighter(request, pk, fighter=None):
+    pk = int(pk)
+    hero = get_object_or_404(Fighter, pk=pk)
+    if request.method == 'POST':
+        hero.delete()
+        return redirect('MuayThai_display_fighters')
+    content = {
+        "fighter": fighter,
+    }
+    return render(request, "MuayThai/MuayThai_delete.html", content)
+
+
+# function used to confirm the delete action
+def MuayThai_delete(request):
+    if request.method == 'POST':
+        form = FighterForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('MuayThai_display_fighters')
+    else:
+        return redirect('MuayThai_display_fighters')
 

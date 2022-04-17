@@ -12,5 +12,8 @@ urlpatterns = [
     path('', views.Muay_Thai_Home, name='MuayThai_home'),  # usable link to home page
     path('FighterEntry/', views.MuayThai_fighter_entry, name='MuayThai_fighter_entry'),  # usable link to create page
     path('Fighters/', views.MuayThai_display_fighters, name='MuayThai_Fighters'),  # link to display fighter's names
-    path('<int:pk>/details/', views.MuayThai_fighters_details, name='MuayThai_fighter_details'),
+    path('<int:pk>/details/', views.MuayThai_fighters_details, name='MuayThai_fighter_details'),  # link to detail
+    # of fighters
+    path('<int:pk>/delete_fighter/', views.MuayThai_delete_fighter, name='MuayThai_delete'),
+    path('confirm_delete/', views.MuayThai_delete, name='MuayThai_confirm_delete'),
 ]
