@@ -33,7 +33,7 @@ def MuayThai_display_fighters(request):
 # call the details template
 def MuayThai_fighters_details(request, pk):
     pk = int(pk)
-    hero = get_object_or_404(Fighter, pk=pk)
+    fighter = get_object_or_404(Fighter, pk=pk)
     form = FighterForm(data=request.POST or None, instance=hero)
     if request.method == 'POST':
         if form.is_valid():
@@ -42,20 +42,22 @@ def MuayThai_fighters_details(request, pk):
             return redirect('MuayThai_display_fighters')
         else:
             print(form.errors)
+
     else:
         content = {
             'form': form,
             'fighter': fighter,
         }
+
         return render(request, 'MuayThai/MuayThai_fighters_details.html', content)
 
 
 # call template to confirm we are deleting from the database
 def MuayThai_delete_fighter(request, pk, fighter=None):
     pk = int(pk)
-    hero = get_object_or_404(Fighter, pk=pk)
+    fighter = get_object_or_404(Fighter, pk=pk)
     if request.method == 'POST':
-        hero.delete()
+        fighter.delete()
         return redirect('MuayThai_display_fighters')
     content = {
         "fighter": fighter,
