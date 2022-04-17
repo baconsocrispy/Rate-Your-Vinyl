@@ -34,7 +34,7 @@ def MuayThai_display_fighters(request):
 def MuayThai_fighters_details(request, pk):
     pk = int(pk)
     fighter = get_object_or_404(Fighter, pk=pk)
-    form = FighterForm(data=request.POST or None, instance=hero)
+    form = FighterForm(data=request.POST or None, instance=fighter)
     if request.method == 'POST':
         if form.is_valid():
             form2 = form.save(commit=False)
@@ -48,7 +48,6 @@ def MuayThai_fighters_details(request, pk):
             'form': form,
             'fighter': fighter,
         }
-
         return render(request, 'MuayThai/MuayThai_fighters_details.html', content)
 
 
