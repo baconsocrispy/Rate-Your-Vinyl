@@ -9,5 +9,6 @@ urlpatterns = [
     path('<int:pk>/details/', views.heroability_details, name='heroability_details'),
     path('<int:pk>/delete_hero/', views.heroability_delete_hero, name='heroability_delete_hero'),
     path('confirm_delete/', views.heroability_confirm_delete, name='heroability_confirm_delete'),
+    path('random_heroes/', views.heroability_random_heroes, name='heroability_random_heroes'),
 
 ]

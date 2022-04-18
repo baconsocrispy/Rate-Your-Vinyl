@@ -1,3 +1,5 @@
+import pprint
+
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import TrailReviewForm
 from .models import ReviewTrail
@@ -115,25 +117,37 @@ def top_mtb(request):
 
 
 # View for MTB Project API
-def mtb_project_api(request):
+def trail_api(request):
     # API code from https://rapidapi.com/trailapi/api/trailapi/
     url = "https://trailapi-trailapi.p.rapidapi.com/trails/explore/"
-    querystring = {"lat": "39.550053", "lon": "-105.782066"}
+
+    # Latitude and longitude required. 'per_page' and 'radius' optional.
+    parameters = {"lat": "39", "lon": "-106", "per_page": "300", "radius": "100"}
     headers = {
         "X-RapidAPI-Host": "trailapi-trailapi.p.rapidapi.com",
         "X-RapidAPI-Key": "e3b28ce81fmshbcd98af11e9812dp1487c5jsnaf6f45c8d994"
     }
-    response = requests.request("GET", url, headers=headers, params=querystring)
+    response = requests.request("GET", url, headers=headers, params=parameters)
+    json_response = response.json()
 
-    # Per DataQuest tutorial, here we are formatting the API data to strings in dictionary format.
-    def jprint(obj):
-        # Create a formatted string of the Python JSON object.
-        text = json.dumps(obj, sort_keys=True, indent=4)
-        print(text)
+    # Empty lists to populate with data we want to pull from the API.
+    trail_name_list = []
+    trail_desc_list = []
+    trail_city_list = []
+    trail_difficulty_list = []
 
-    jprint(response.json())
+    # Populating all lists except 'trail_list'.
+    for item in json_response['data']:
+        trail_name_list.append(item['name'])
+        trail_desc_list.append(item['description'])
+        trail_city_list.append(item['city'])
+        trail_difficulty_list.append(item['difficulty'])
 
-    return render(request, 'MTB_Trails/mtb_project_api.html')
+    trail_list = zip(trail_name_list, trail_desc_list, trail_city_list, trail_difficulty_list)
+
+    context = {'trail_list': trail_list}
+    return render(request, 'MTB_Trails/trail_api.html', context)
+
 
 
 
