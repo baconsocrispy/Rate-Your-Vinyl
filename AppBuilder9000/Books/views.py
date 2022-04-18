@@ -59,7 +59,17 @@ def books_update(request, pk):
                    'form': form})
 
 
+"""Utilizing API from rapidAPI to find book reviews from 'BookShelves'. Very important to make variables into empty
+list first and then append variables from for loop into those same lists. Also consolidate all lists in zip variable
+and pass that into context, then use for loop with each list as the iterator in your template file."""
+
+
 def books_api(request):
+    title = []
+    author = []
+    rating = []
+    source = []
+
     url = "https://bookshelves.p.rapidapi.com/books"
 
     headers = {
@@ -71,19 +81,21 @@ def books_api(request):
     books_info = json.loads(response.text)
     for items in books_info['Books']:
         book_title = items['title']
+        title.append(book_title)
 
         book_author = items['author']
+        author.append(book_author)
 
         book_rating = items['review']
+        rating.append(book_rating)
 
         book_source = items['source']
+        source.append(book_source)
 
-        context = {
-            'book_title': book_title,
-            'book_author': book_author,
-            'book_rating': book_rating,
-            'book_source': book_source
+    zipped_list = zip(title, author, rating, source)
+
+    context = {
+            'zipped_list': zipped_list,
         }
     return render(request, 'Books/Books_API.html', context)
-    # I would like the title, imgUrl, review and description keys from this API and to render in a readable format in my template.
 

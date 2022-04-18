@@ -8,11 +8,29 @@
 
 
 {% block content %}
+<h1>Welcome to Book Reviews generated from an API!</h1>
+<table class="book-tables">
+    <thead>
+    <tr>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Rating</td>
+        <td>Source</td>
+    </tr>
 
-<p style="color:white;">
-    {{books_info}}
-</p>
+    </thead>
+    <tbody>
+    {% for title, author, rating, source in zipped_list %}
+    <tr>
+        <td>{{ title }}</td>
+        <td>{{ author }}</td>
+        <td>{{ rating }}</td>
+        <td>{{ source }}</td>
 
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 
 {% endblock %}
