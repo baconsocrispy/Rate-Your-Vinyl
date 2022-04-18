@@ -10,15 +10,15 @@ WeightClass_Dropdown = [
     ('Heavyweight', 'Heavyweight'),
 ]
 
-# weight class drop down
+# weight class dropdown
 # basic model for database
 class Fighter(models.Model):
     category = models.CharField(max_length=60, choices=WeightClass_Dropdown, default='Choose your weight class!')
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    country = models.CharField(max_length=60)
-    weight_in_lbs = models.CharField(max_length=20)
-    gym = models.CharField(max_length=60)
+    first_name = models.CharField(max_length=50, default="", blank=True, null=False)
+    last_name = models.CharField(max_length=50, default="", blank=True, null=False)
+    country = models.CharField(max_length=60, default="", blank=True, null=False)
+    weight_in_lbs = models.CharField(max_length=20, default="", blank=True, null=False)
+    gym = models.CharField(max_length=60, default="", blank=True, null=False)
 
     Fighter = models.Manager()
 
