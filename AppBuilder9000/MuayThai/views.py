@@ -11,7 +11,7 @@ def MuayThai_fighter_entry(request):
     form = FighterForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('DisplayFighters')
+        return redirect('MuayThai_display_fighters')
     else:
         print(form.errors)
         form = FighterForm()
