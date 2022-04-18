@@ -5,6 +5,22 @@ margin-top: 1%;
 text-shadow: 2px 2px 5px black;
 font-size: 3em;
 }
+.footer {
+    position: fixed;
+    color: white;
+    text-transform: uppercase;
+    left: 0;
+    bottom: 0;
+    text-size: 2em;
+    text-shadow: 2px 2px 5px black;
+    width: 250px;
+    height: 75px;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top : 10px;
+}
 
 *{margin: 0;}
 
@@ -84,7 +100,7 @@ html {
 }
 .book-tables tbody tr {
     border-bottom: 2px solid white;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.7);
     font-weight: bold;
 }
 .book-tables tbody tr:nth-of-type(odd) {
@@ -98,3 +114,4 @@ html {
     justify-content: center;
     align-items: center;
 }
+
