@@ -69,10 +69,21 @@ def books_api(request):
 
     response = requests.request("GET", url, headers=headers)
     books_info = json.loads(response.text)
-    print(books_info)
-    context = {
-        'books_info': books_info
-    }
+    for items in books_info['Books']:
+        book_title = items['title']
+
+        book_author = items['author']
+
+        book_rating = items['review']
+
+        book_source = items['source']
+
+        context = {
+            'book_title': book_title,
+            'book_author': book_author,
+            'book_rating': book_rating,
+            'book_source': book_source
+        }
     return render(request, 'Books/Books_API.html', context)
     # I would like the title, imgUrl, review and description keys from this API and to render in a readable format in my template.
 
