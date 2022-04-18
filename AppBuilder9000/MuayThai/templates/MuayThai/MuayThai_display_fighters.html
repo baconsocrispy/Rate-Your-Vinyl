@@ -19,9 +19,9 @@
                 {% for fighter in fighters %}
                 <tr class="text-dark font-weight-bolder">
                     <td><a href="../{{ fighter.pk }}/details/">{{ fighter.first_name }}</a></td>
-                    <td><a href="../{{ fighter.pk }}/details/">{{ fighter.last_name }}</a></td>
-                    <td><a href="../{{ fighter.pk }}/details/">{{ fighter.country }}</a></td>
-                    <td><a href="../{{ fighter.pk }}/details/">{{ fighter.gym }}</a></td>
+                    <td>{{ fighter.last_name }}</td>
+                    <td>{{ fighter.country }}</td>
+                    <td>{{ fighter.gym }}</td>
                 </tr>
                 {% endfor %}
         </table>
