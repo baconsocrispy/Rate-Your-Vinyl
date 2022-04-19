@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from quorum.mongodb import url
+
 from .forms import FighterForm
 from .models import Fighter
 import requests
+import json
 
 
 # calls the MuayThai_home home page when requested
@@ -54,7 +57,7 @@ def MuayThai_fighters_details(request, pk):
         return render(request, 'MuayThai/MuayThai_fighters_details.html', content)
 
 
-# call template to confirm we are deleting from the database
+# function to we are deleting from the database
 def MuayThai_delete_fighter(request, pk):
     pk = int(pk)
     fighter = get_object_or_404(Fighter, pk=pk)
@@ -69,6 +72,7 @@ def MuayThai_delete_fighter(request, pk):
 
 # function used to confirm the delete action
 def MuayThai_delete(request):
+    global positive_odds, negative_odds
     if request.method == 'POST':
         form = FighterForm(request.POST or None)
         if form.is_valid():
@@ -76,4 +80,30 @@ def MuayThai_delete(request):
             return redirect('MuayThai_display_fighters')
     else:
         return redirect('MuayThai_display_fighters')
+
+    ### API code section ###
+    # for 'positive odds' they're the underdogs, and as for negative odds they're the favoured fighter to win
+def MuayThai_bets_api():
+        positive_odds = []
+        negative_odds = []
+
+        url = "https://betsapi2.p.rapidapi.com/v3/bet365/prematch"
+
+    querystring = {"FI": "5"}
+
+    headers = {
+        "X-RapidAPI-Host": "betsapi2.p.rapidapi.com",
+        "X-RapidAPI-Key": "e62380c195msh635581688557802p1f24ebjsnf7d94c60773c"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    muaythai_bets = json.loads(response.text)
+    for odds in muaythai_bets['PreMatchOdds']:
+        positive_odds = odds[positive_odds]
+        odds.append(positive_odds)
+
+        negative_odds = odds[negative_odds]
+        odds.append(negative_odds)
+
+    print(response.text)
 

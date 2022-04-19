@@ -15,5 +15,5 @@ urlpatterns = [
     path('<int:pk>/details/', views.MuayThai_fighters_details, name='MuayThai_fighter_details'),  # link to detail of fighters
     path('<int:pk>/delete_fighter/', views.MuayThai_delete_fighter, name='MuayThai_delete'),
     path('confirm_delete/', views.MuayThai_delete, name='MuayThai_confirm_delete'),
-    path('MuayThai_api', views.MuayThai_corner, name="MuayThai_api"),
+    path('BetsApi', views.MuayThai_bets_api, name="MuayThai_bets_api"),
 ]
