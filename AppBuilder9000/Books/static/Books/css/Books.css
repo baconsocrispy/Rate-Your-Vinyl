@@ -1,25 +1,22 @@
-h1 {
-text-align: center;
-color: white;
-margin-top: 1%;
-text-shadow: 2px 2px 5px black;
-font-size: 3em;
-}
+
 .footer {
     position: fixed;
-    color: white;
     text-transform: uppercase;
     left: 0;
     bottom: 0;
     text-size: 2em;
     text-shadow: 2px 2px 5px black;
     width: 250px;
-    height: 75px;
+    height: 50px;
     background-color: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top : 10px;
+}
+
+.footer a {
+color: white;
 }
 
 *{margin: 0;}
@@ -46,6 +43,7 @@ html {
 .navbar ul li {
     list-style: none;
     display: inline-block;
+    padding-top: 10px;
 }
 .navbar ul li a {
     display: block;
@@ -57,10 +55,37 @@ html {
     font-weight: 600;
     padding: 20px;
     transition: all ease 0.5s;
+    position: relative;
+    letter-spacing: 2px;
+    z-index: 1;
 }
+
+.navbar ul:hover li a {
+    opacity: 0
+}
+
 .navbar ul li a:hover {
-    text-decoration: underline;
+    z-index: 1000;
+    opacity: 1
 }
+
+h1 {
+text-align: center;
+color: white;
+margin: 3% auto;
+text-shadow: 2px 2px 5px black;
+font-size: 3em;
+}
+
+span {
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+span.fade {
+    opacity:1;
+}
+
 .add-book-container { /* creating a container to hold my form*/
     width: 400px;
     height: 500px;
@@ -81,10 +106,10 @@ html {
 }
 .book-tables {  /*styling the table layout to render my form aesthetically */
     color: white;
-    margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
-    margin: auto;
+    max-width: 60vw;
+    margin: 2% auto;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
 }
