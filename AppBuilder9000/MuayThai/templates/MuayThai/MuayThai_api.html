@@ -1,0 +1,28 @@
+{% extends 'MuayThai/MuayThai_base.html' %}
+{% load static %}
+
+{% block title %}Muay Thai API{% endblock %}
+
+{% block content %}
+
+
+<div class = "MuayThaiContainer">
+    <div class="MuayThaiFighter">
+        <video width="320" height="240" controls>
+            <source src="MuayThai/static/videos/MuayThai.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<div class="MuayThaiStaff">
+    <form method="POST">
+        {% csrf_token %}
+
+        <input class="">
+    </form>
+</div>
+
+
+
+
+{% endblock %}

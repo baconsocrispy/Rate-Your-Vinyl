@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import FighterForm
 from .models import Fighter
+import requests
+
 
 # calls the MuayThai_home home page when requested
 def Muay_Thai_Home(request):
     return render(request, 'MuayThai/MuayThai_home.html')
+
 
 # calls template and accept the form inputs for adding to the db (the create part of it)
 def MuayThai_fighter_entry(request):
@@ -52,7 +55,7 @@ def MuayThai_fighters_details(request, pk):
 
 
 # call template to confirm we are deleting from the database
-def MuayThai_delete_fighter(request, pk, fighter=None):
+def MuayThai_delete_fighter(request, pk):
     pk = int(pk)
     fighter = get_object_or_404(Fighter, pk=pk)
     if request.method == 'POST':
