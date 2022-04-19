@@ -1,6 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from quorum.mongodb import url
-
 from .forms import FighterForm
 from .models import Fighter
 import requests
@@ -72,7 +70,6 @@ def MuayThai_delete_fighter(request, pk):
 
 # function used to confirm the delete action
 def MuayThai_delete(request):
-    global positive_odds, negative_odds
     if request.method == 'POST':
         form = FighterForm(request.POST or None)
         if form.is_valid():
@@ -80,6 +77,8 @@ def MuayThai_delete(request):
             return redirect('MuayThai_display_fighters')
     else:
         return redirect('MuayThai_display_fighters')
+
+
 
     ### API code section ###
     # for 'positive odds' they're the underdogs, and as for negative odds they're the favoured fighter to win
@@ -105,5 +104,6 @@ def MuayThai_bets_api():
         negative_odds = odds[negative_odds]
         odds.append(negative_odds)
 
-    print(response.text)
+    print(muaythai_bets)
+    return render(request, 'MuayThai/MuayThai.api.html')
 
