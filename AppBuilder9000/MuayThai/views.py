@@ -84,10 +84,10 @@ def MuayThai_delete(request):
     ### API code section ###
     # for 'positive odds' they're the underdogs, and as for negative odds they're the favoured fighter to win
 def MuayThai_bets_api():
-        positive_odds = []
-        negative_odds = []
+    positive_odds = []
+    negative_odds = []
 
-        url = "https://betsapi2.p.rapidapi.com/v3/bet365/prematch"
+    url = "https://betsapi2.p.rapidapi.com/v3/bet365/prematch"
 
     querystring = {"FI": "5"}
 
