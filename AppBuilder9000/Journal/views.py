@@ -3,11 +3,11 @@ from .models import Entry
 from .forms import EntryForm
 
 
-def home(request):
-    return render(request, 'MyJournal/home.html')
+def journal_home(request):
+    return render(request, 'Journal/journal_home.html')
 
 
-def create(request):
+def journal_create(request):
     #branch
     form = EntryForm(data=request.POST or None)
     if request.method == 'POST':
@@ -15,16 +15,16 @@ def create(request):
             form.save()
             return redirect('../read')
     content = {'form': form}
-    return render(request, 'MyJournal/create.html', content)
+    return render(request, 'Journal/journal_create.html', content)
 
 
-def read(request):
+def journal_read(request):
     entry = Entry.Entries.all()
     content = {'entry': entry}
-    return render(request, 'MyJournal/read.html', content)
+    return render(request, 'Journal/journal_read.html', content)
 
 
-def update(request, pk):
+def journal_update(request, pk):
     entry = get_object_or_404(Entry, pk=pk)
     form = EntryForm(data=request.POST or None, instance=entry)
     if request.method == 'POST':
@@ -32,13 +32,13 @@ def update(request, pk):
             form.save()
             return redirect('../../read')
     content = {'form': form, 'entry': entry}
-    return render(request, 'MyJournal/update.html', content)
+    return render(request, 'Journal/journal_update.html', content)
 
 
-def delete(request, pk):
+def journal_delete(request, pk):
     entry = get_object_or_404(Entry, pk=pk)
     if request.method == 'POST':
         entry.delete()
         return redirect('../../read')
     content = {'entry': entry}
-    return render(request, 'MyJournal/delete.html', content)
+    return render(request, 'Journal/journal_delete.html', content)

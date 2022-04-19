@@ -9,11 +9,11 @@
     </tr>
     {% for e in entry %}
     <tr>
-        <td><a href="{% url 'update' e.id %}">{{ e.title }}</a></td>
+        <td><a href="{% url 'journal_update' e.id %}">{{ e.title }}</a></td>
         <td>{{ e.date }}</td>
     </tr>
     {% endfor %}
 </table>
-<button><a href="{% url 'create' %}">Add Entry</a></button>
+<button><a href="{% url 'journal_create' %}">Add Entry</a></button>
 
 {% endblock %}
