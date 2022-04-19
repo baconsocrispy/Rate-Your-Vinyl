@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'MusicTaste',
     'Books',
     'MuayThai',
+    'StockMarket',
 ]
 
 MIDDLEWARE = [
