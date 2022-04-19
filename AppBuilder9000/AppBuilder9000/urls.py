@@ -41,6 +41,7 @@ urlpatterns = [
     path('MusicTaste/', include('MusicTaste.urls')),
     path('Books/', include('Books.urls')),
     path('MuayThai/', include('MuayThai.urls')),
+    path('vintage_cars', include('vintage_cars.urls'))
 
 ]
 
