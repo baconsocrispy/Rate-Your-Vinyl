@@ -12,6 +12,19 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
     <header>
-
+        <div>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="">Rentals</a>
+            <a href="">something else</a>
+        </div>
     </header>
+    <body>
+        <div class="body_content">
+           {% block content %}{% endblock %}
+        </div>
+        <section id="footer">
+            <p id="footer_right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
+            <p id="footer_left">&copy;2022 - Vintage Car Rentals</p>
+        </section>
+    </body>
 </html>
