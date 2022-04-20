@@ -1,0 +1,33 @@
+{% extends "Books/Books_Base.html" %}
+
+{% load static %}
+
+{% block title %} Favorites {% endblock %}
+
+{% block content %}
+
+
+<h1 class="fancy">Favorites</h1>
+<table class="book-tables">
+    <thead>
+    <tr>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Rating</td>
+        <td>Source</td>
+
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for items in Fav_Book %}
+    <tr>
+        <td>{{ items.title }}</td>
+        <td>{{ items.author }}</td>
+        <td>{{ items.rating }}</td>
+        <td>{{ items.source }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

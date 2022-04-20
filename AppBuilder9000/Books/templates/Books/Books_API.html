@@ -16,17 +16,19 @@
         <td>Author</td>
         <td>Rating</td>
         <td>Source</td>
+        <td>Add</td>
 
     </tr>
 
     </thead>
     <tbody>
-    {% for title, author, rating, source in zipped_list %}
+    {% for title, author, rating, source, id in zipped_list %}
     <tr>
         <td>{{ title }}</td>
         <td>{{ author }}</td>
         <td>{{ rating }}</td>
         <td>{{ source }}</td>
+        <td><a href="{% url 'books_fav' id %}"><i class="fa-solid fa-angles-right"></i></td>
 
 
     </tr>

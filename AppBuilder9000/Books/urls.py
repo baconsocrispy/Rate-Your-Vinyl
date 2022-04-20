@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/Delete/', views.books_delete, name='books_delete'),
     path('<int:pk>/Update/', views.books_update, name='books_update'),
     path('BookAPI/', views.books_api, name='books_api'),
+    path('Favorites', views.books_fav, name='books_fav')
 ]
