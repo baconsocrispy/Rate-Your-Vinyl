@@ -1,0 +1,27 @@
+{% extends "StockMarketBase.html" %}
+
+{% block StockTitle %} Your Account {% endblock %}
+
+
+
+{% block StockPageHeading %} Make a purchase {% endblock %}
+
+{% block Content %}
+			<div id="all-transactions-form">
+				<form>
+					<br>
+					<!-- Use value to add the Django populated details-->
+					<label>Account Holder:</label>
+					<input id="accountholder" type="text" name="accountHolder" value="{{ account }}" readonly>
+					<br><br>
+					<label>Current Balance:</label>
+					<input id="balance" type="text" name="currentBalance" value="{{ balance }}" readonly>
+					<!-- Add link to href to make this button work -->
+					<button type="button"><a href="{% url 'account' %}">Add Transaction+</a></button>
+				</form>
+				<br><br>
+			</div>
+
+
+
+{% endblock %}

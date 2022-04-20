@@ -1,10 +1,15 @@
 from django.db import models
+from phone_field import PhoneField
+
 
 
 class Account(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    initial_deposit = models.DecimalField(max_digits=15, decimal_places=2)
+    email_address = models.EmailField(max_length=50, default="")
+    phone_number = PhoneField(blank=True, help_text='Contact phone number')
+    initial_deposit = models.DecimalField(max_digits=15, decimal_places=2, default="0.00")
+
 
     Accounts = models.Manager()
 
@@ -13,3 +18,15 @@ class Account(models.Model):
     # as the owner's name not the primary key
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+TransactionTypes = [('Buy', 'Buy'), ('Sell', 'Sell')]
+
+
+class Transaction(models.Model):
+    date = models.DateField()
+    type = models.CharField(max_length=10, choices=TransactionTypes)
+    amount = models.DecimalField(max_digits=15, decimal_places=2)
+    description = models.CharField(max_length=100)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+
+    Transactions = models.Manager()
