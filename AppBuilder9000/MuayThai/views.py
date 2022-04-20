@@ -80,30 +80,38 @@ def MuayThai_delete(request):
 
 
 
-    ### API code section ###
-    # for 'positive odds' they're the underdogs, and as for negative odds they're the favoured fighter to win
-def MuayThai_bets_api():
-    positive_odds = []
-    negative_odds = []
+    ######## API code section
+def MuayThai_bets_api(request):
+    weight = []
+    fighter_rank = []
+    fighter_name = []
 
-    url = "https://betsapi2.p.rapidapi.com/v3/bet365/prematch"
-
-    querystring = {"FI": "5"}
+    ### Code snippet (python requests)
+    url = "https://current-ufc-rankings.p.rapidapi.com/"
 
     headers = {
-        "X-RapidAPI-Host": "betsapi2.p.rapidapi.com",
+        "X-RapidAPI-Host": "current-ufc-rankings.p.rapidapi.com",
         "X-RapidAPI-Key": "e62380c195msh635581688557802p1f24ebjsnf7d94c60773c"
     }
 
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    muaythai_bets = json.loads(response.text)
-    for odds in muaythai_bets['PreMatchOdds']:
-        positive_odds = odds[positive_odds]
-        odds.append(positive_odds)
+    response = requests.request("GET", url, headers=headers)
+    ### END Code snippet (python requests)
 
-        negative_odds = odds[negative_odds]
-        odds.append(negative_odds)
+    fight_rankings = json.loads(response.text)  # It returns a Python object.
+    for i in fight_rankings:  # 'i' is the variable in fight_rankings
+        weight_class = i['weightClass']
+        weight.append(weight_class)
+        fighters = i['fighters']
+        for j in fighters:  # 'j' is the variable in fighters
+            rankings = j['fighter_ranking']
+            fighter_rank.append(rankings)
+            names = j['fullName']
+            fighter_name.append(names)
 
-    print(muaythai_bets)
-    return render(request, 'MuayThai/MuayThai.api.html')
+    # prints out variables
+    print(weight)
+    print(fighter_rank)
+    print(fighter_name)
 
+
+    return render(request, 'MuayThai/MuayThai_bets_api.html')
