@@ -11,7 +11,7 @@ let timer = setInterval(onTick, 50);
 
 function onTick(){
     const span = text.querySelectorAll('span')[char];
-    span.classList.add('fade');
+    span.classList.add('fancier');
     char++
     if(char === splitText.length){
         complete()
