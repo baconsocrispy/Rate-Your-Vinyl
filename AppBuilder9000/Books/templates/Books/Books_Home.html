@@ -6,8 +6,27 @@
 
 {% block content %}
 
-<h1>
-    Do you love reading? Share your favorite book with us!
-</h1>
+<!-- Used javascript to create this welcome animation-->
 
+
+<!-- Creating a container to hold my book images on home page with hrefs to add book review page. -->
+<div class="outer-parent-book-div">
+    <div class="parent-book-div">
+        <div class="the-kid">
+            <a href="{% url 'books_reviews' %}">
+                <img src="../static/Books/images/Apollo.jpg" height="100%" width="100%">
+            </a>
+        </div>
+        <div class="the-kid">
+            <a href="{% url 'books_reviews' %}">
+        <img src="../static/Books/images/SpaceOdyssey.jpg" height="100%" width="100%">
+            </a>
+        </div>
+        <div class="the-kid">
+            <a href="{% url 'books_reviews' %}">
+        <img src="../static/Books/images/Jurassic.jpeg" height="100%" width="100%">
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}
