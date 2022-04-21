@@ -69,7 +69,6 @@ def books_api(request):
     author = []
     rating = []
     source = []
-    id = []
 
     url = "https://bookshelves.p.rapidapi.com/books"
 
@@ -93,17 +92,18 @@ def books_api(request):
         book_source = items['source']
         source.append(book_source)
 
-        book_id = items['id']
-        id.append(book_id)
-
-    zipped_list = zip(title, author, rating, source, id)
+    zipped_list = zip(title, author, rating, source)
 
     context = {
             'zipped_list': zipped_list,
         }
     return render(request, 'Books/Books_API.html', context)
 
-def books_fav(request, id):
-    Fav_Book = FavoriteBook.objects.all(id)
-    context = {'Fav_Book': Fav_Book}
-    return render(request, 'Books/Books_Fav.html', context)
+def books_fav(request):
+    return render(request, 'Books/Books_Fav.html')
+
+
+def save_api(request, title, author, rating, source):
+    save_review = FavoriteBook.Favorite_book.create(title, author, rating, source)
+    save_review.save()
+    return render(request, 'Books/Books_Fav.html')
