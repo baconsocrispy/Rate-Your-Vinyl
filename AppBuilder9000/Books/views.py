@@ -79,7 +79,7 @@ def books_api(request):
 
     response = requests.request("GET", url, headers=headers)
     books_info = json.loads(response.text)
-    for items in books_info['Books'][0:11]:
+    for items in books_info['Books'][0:10]:
         book_title = items['title']
         title.append(book_title)
 
@@ -100,10 +100,35 @@ def books_api(request):
     return render(request, 'Books/Books_API.html', context)
 
 def books_fav(request):
-    return render(request, 'Books/Books_Fav.html')
+    book_titles = []
+    url = "https://bookshelves.p.rapidapi.com/books"
 
+    headers = {
+        "X-RapidAPI-Host": "bookshelves.p.rapidapi.com",
+        "X-RapidAPI-Key": "1aed881129msh0e4e702933d3b57p1d0a71jsnaba2c0d6b2f8"
+    }
 
-def save_api(request, title, author, rating, source):
-    save_review = FavoriteBook.Favorite_book.create(title, author, rating, source)
-    save_review.save()
-    return render(request, 'Books/Books_Fav.html')
+    response = requests.request("GET", url, headers=headers)
+    books_info = json.loads(response.text)
+    book_information = books_info['Books']
+    for i in book_information:
+        book_name = i['title']
+        book_titles.append(book_name)
+    if request.method == 'POST':
+        value = request.POST['value']
+        for fields in book_information:
+            the_titles = fields['title']
+            if value == the_titles:
+                new_books = FavoriteBook.Favorite_Book.create(Title=fields['title'],
+                                             Author=fields['author'],
+                                             Rating=fields['review'],
+                                             )
+                new_books.save()
+        return redirect('view_fav_books')
+    else:
+        return render(request, 'Books/Books_Fav.html', {'book_titles': book_titles})
+
+def view_fav_books(request):
+    added_favorites = FavoriteBook.Favorite_Book.all()
+    context = {'added_favorites': added_favorites}
+    return render(request, 'Books/Books_ViewFav.html', context)

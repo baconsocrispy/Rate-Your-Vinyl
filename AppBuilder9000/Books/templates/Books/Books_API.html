@@ -16,7 +16,6 @@
         <td>Author</td>
         <td>Rating</td>
         <td>Source</td>
-        <td>Add</td>
 
     </tr>
 
@@ -28,9 +27,6 @@
         <td>{{ author }}</td>
         <td>{{ rating }}</td>
         <td>{{ source }}</td>
-        <td><a href="{% url 'books_fav' title author rating source %}"><i class="fa-solid fa-angles-right"></i></td>
-
-
     </tr>
     {% endfor %}
     </tbody>

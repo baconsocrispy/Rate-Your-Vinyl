@@ -39,12 +39,19 @@ html {
     min-height: 100%;
     overflow-y: scroll;
 }
+
+.logo{
+width: 50px;
+height: 50px;
+
+}
 .navbar { /*styling the navbar*/
     width: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(48,100,231,0.0);
 }
 .navbar ul {
     text-align: center;
+    margin-right: 250px;
 }
 .navbar ul li {
     list-style: none;
@@ -76,7 +83,6 @@ html {
     z-index: 1000;
     opacity: 1
 }
-
 h1 {
 text-align: center;
 color: white;
@@ -107,44 +113,20 @@ span.fancier {
 /* Styling for home page books parent-book-div is the container and the-kid is each individual book image */
 
 .outer-parent-book-div {
-    width: 65vw;
-    height: 27vw;
+    width: 50vw;
+    height: 25vw;
     background:rgba(48,100,231,0.2);
     display:flex;
-    margin: 5% auto;
-    border: 2px solid gray;
-}
-.parent-book-div {
-    width: 60vw;
-    height: 50vh;
-    background: rgba(0,0,0,0.0);
-    margin: 2.75% auto;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.the-kid {
-    width: 100%;
-    margin: 0;
-    padding-right: 10px;
-    padding-left: 10px;
-    transition: all 0.7s ease-in;
-
-}
-.the-kid:hover {
-    opacity: 1;
-    transform: scale(1.2);
-    z-index: 1000;
-    display: flex;
+    margin: 4% auto;
+    border: 2px solid white;
     justify-content: center;
-    align-items: center;
 }
+
 
 .add-book-container { /* creating a container to hold my form*/
     width: 400px;
     height: 500px;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(48,100,231,0.2);
     display:flex;
     justify-content: center;
     align-items: center;
