@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'MuayThai',
     'StockMarket',
     'Journal',
+    'vintage_cars',
 ]
 
 MIDDLEWARE = [
