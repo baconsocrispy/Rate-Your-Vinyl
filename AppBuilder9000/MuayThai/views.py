@@ -81,7 +81,7 @@ def MuayThai_delete(request):
 
 
     ######## API code section
-def MuayThai_bets_api(request):
+def MuayThai_fighters_api(request):
     weight = []
     fighter_rank = []
     fighter_name = []
@@ -100,13 +100,17 @@ def MuayThai_bets_api(request):
     fight_rankings = json.loads(response.text)  # It returns a Python object.
     for i in fight_rankings:  # 'i' is the variable in fight_rankings
         weight_class = i['weightClass']
-        weight.append(weight_class)
+        weight.append(weight_class)  # The append() method takes a single item as an input parameter and adds that to the end of the list
         fighters = i['fighters']
         for j in fighters:  # 'j' is the variable in fighters
             rankings = j['fighter_ranking']
             fighter_rank.append(rankings)
             names = j['fullName']
             fighter_name.append(names)
+        rankings = zip(  # create a zip to consolidate the data that can be displayed more easily
+            weight_class,
+            fighter_rank,
+        )
 
     # prints out variables
     print(weight)
@@ -114,4 +118,13 @@ def MuayThai_bets_api(request):
     print(fighter_name)
 
 
-    return render(request, 'MuayThai/MuayThai_bets_api.html')
+    return render(request, 'MuayThai/MuayThai_fighters_api.html')
+
+
+# call the template to display API call
+def MuayThai_rankings(request):
+    rankings = MuayThai_rankings()
+    content = {
+        'rankings': rankings
+    }
+    return render(request, "MuayThai/MuayThai_fighters_api.html", content)
