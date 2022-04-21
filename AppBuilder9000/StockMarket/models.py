@@ -1,5 +1,4 @@
 from django.db import models
-from phone_field import PhoneField
 
 
 
@@ -7,7 +6,6 @@ class Account(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email_address = models.EmailField(max_length=50, default="")
-    phone_number = PhoneField(blank=True, help_text='Contact phone number')
     initial_deposit = models.DecimalField(max_digits=15, decimal_places=2, default="0.00")
 
 
