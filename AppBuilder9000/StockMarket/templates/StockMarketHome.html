@@ -1,0 +1,37 @@
+{% extends "StockMarketBase.html" %}
+
+{% block StockTitle %} Stock Market News {% endblock %}
+
+
+
+
+{% block StockPageHeading %} Information on S&P 500 {% endblock %}
+
+
+
+
+
+{% block Content %} Stay up to date on all of your stocks!
+
+    <hr>
+    <div class="text-center">
+        <h5>Manage your existing account!</h5>
+        <form method="POST">
+            <!-- Replace the <input> with a Django form including a dropdown list of accounts <input type="text" name="Account">-->
+            <label id="index-label">Choose Account:</label><br>
+            {% csrf_token %}
+            {{ form.account }}
+            <button type="submit">Go to Account</button>
+        </form>
+    </div>
+    <hr>
+
+
+
+
+
+{% endblock %}
+
+
+
+

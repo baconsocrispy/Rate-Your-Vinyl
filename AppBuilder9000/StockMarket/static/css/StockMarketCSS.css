@@ -1,0 +1,117 @@
+body {
+    background-image: url("../images/StockCharts.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    background-size: cover;
+    background-position: left;
+}
+
+h2{
+	color: Black;
+	font-size: 26px;
+	text-align: center;
+}
+
+.JavaScriptDropdown{
+	position: relative;
+	margin-top: 0;
+}
+
+/* Footer styling */
+#block-footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    background-color: skyblue;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+}
+#block-footer a, #block-footer p {
+    flex: 1;
+    color: white;
+    padding: 15px 15px;
+	font-size: 15px;
+    line-height: 10px;
+	font-family:'PT Sans', Arial, Helvetica, sans-serif;
+}
+#footer-left {
+    width: 40%;
+    text-align: right;
+}
+#block-footer{
+	float:left;
+	clear:both;
+	width:100%;
+}
+#block-footer a {
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+	outline: medium none;
+}
+#block-footer a:hover {
+    color: steelblue;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* General Form Field Styling */
+label {
+	width: 125px;
+	margin-left: 50px;
+	font-weight: bold;
+	opacity: initial;
+}
+
+#index-label {
+    margin-left: -75px;
+    margin-bottom: 15px;
+}
+
+input, select{
+	width: 500px;
+	border-radius: 5px;
+	box-shadow: 4px 2px darkslateblue;
+}
+
+/* All Transactions Form and Table Styling */
+#all-transactions-form {
+	position: relative;
+}
+
+#all-transactions-form button{
+	background-color: darkgray;
+	position: relative;
+	right: 40px;
+	float: right;
+}
+
+#all-transactions-form button:hover {
+	background-color: lightgray;
+}
+
+#accountholder {
+	width: 575px;
+}
+
+#balance{
+	width: 250px;
+}
+
+#transactions-table {
+	background-color:white;
+	width: 90%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: 2px solid gray;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: auto;
+	float: center;
+	position: relative;
+}

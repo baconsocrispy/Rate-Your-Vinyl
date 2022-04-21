@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'MusicTaste',
     'Books',
     'MuayThai',
+    'StockMarket',
+    'Journal',
     'vintage_cars',
 ]
 
