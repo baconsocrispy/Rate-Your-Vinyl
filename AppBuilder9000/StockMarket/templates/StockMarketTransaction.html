@@ -1,0 +1,22 @@
+{% extends "StockMarketBase.html" %}
+
+{% block StockTitle %} Your Account {% endblock %}
+
+
+
+{% block StockPageHeading %} Check your balance and review your investments {% endblock %}
+
+{% block Content %}
+
+
+			<div class="new-transaction-form">
+				<form method="POST"> <!-- Replace this with the Django Form -->
+					{% csrf_token %}
+					{{form.as_p}}
+					<button id="new-transaction-button" type="submit" name="Save_Transaction">Add Transaction</button>
+				</form>
+				<br>
+			</div>
+
+
+{% endblock %}
