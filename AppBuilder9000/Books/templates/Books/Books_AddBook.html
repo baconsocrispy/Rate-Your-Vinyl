@@ -8,13 +8,13 @@
 
 
 {% block content %}
-<h1>Create Review</h1>
+<h1 class="fancy">Create a Review</h1>
 <div class="add-book-container">
     <form method="POST" class="add-book-form">
         {% csrf_token %}
         {{ form|crispy }}
         <br>
-        <button type="submit" name="Save_Review">Create Review</button>
+        <button class="btn btn-success" type="submit" name="Save_Review">Submit</button>
     </form>
 </div>
 

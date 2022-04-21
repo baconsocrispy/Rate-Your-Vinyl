@@ -1,0 +1,59 @@
+body {
+    background-image: url("../images/StockCharts.jpg");
+    object-fit: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    background-size: cover;
+    background-position: left;
+}
+
+h2{
+	color: Black;
+	font-size: 26px;
+	text-align: center;
+}
+
+.JavaScriptDropdown{
+	position: relative;
+	margin-top: 0;
+}
+
+/* Footer styling */
+#block-footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    background-color: skyblue;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+}
+#block-footer a, #block-footer p {
+    flex: 1;
+    color: white;
+    padding: 15px 15px;
+	font-size: 15px;
+    line-height: 10px;
+	font-family:'PT Sans', Arial, Helvetica, sans-serif;
+}
+#footer-left {
+    width: 40%;
+    text-align: right;
+}
+#block-footer{
+	float:left;
+	clear:both;
+	width:100%;
+}
+#block-footer a {
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+	outline: medium none;
+}
+#block-footer a:hover {
+    color: steelblue;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}

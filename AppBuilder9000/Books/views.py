@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AddBookForm
 from .models import AddBook
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+import requests
+import json
 from django.contrib import messages
 
 
@@ -53,3 +57,45 @@ def books_update(request, pk):
     return render(request, 'Books/Books_Update.html',
                   {'update_books': update_books,
                    'form': form})
+
+
+"""Utilizing API from rapidAPI to find book reviews from 'BookShelves'. Very important to make variables into empty
+list first and then append variables from for loop into those same lists. Also consolidate all lists in zip variable
+and pass that into context, then use for loop with each list as the iterator in your template file."""
+
+
+def books_api(request):
+    title = []
+    author = []
+    rating = []
+    source = []
+
+    url = "https://bookshelves.p.rapidapi.com/books"
+
+    headers = {
+        "X-RapidAPI-Host": "bookshelves.p.rapidapi.com",
+        "X-RapidAPI-Key": "1aed881129msh0e4e702933d3b57p1d0a71jsnaba2c0d6b2f8"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    books_info = json.loads(response.text)
+    for items in books_info['Books']:
+        book_title = items['title']
+        title.append(book_title)
+
+        book_author = items['author']
+        author.append(book_author)
+
+        book_rating = items['review']
+        rating.append(book_rating)
+
+        book_source = items['source']
+        source.append(book_source)
+
+    zipped_list = zip(title, author, rating, source)
+
+    context = {
+            'zipped_list': zipped_list,
+        }
+    return render(request, 'Books/Books_API.html', context)
+
