@@ -12,6 +12,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <title>{% block title%}{% endblock %}</title>
 
     </head>
     <body>
@@ -21,17 +22,22 @@
 		    <div class="dropdown-menu"><!-- Add in links based on your registered URLs -->
 				<a href="{% url 'StockMarketHome' %}" class="dropdown-item">Home</a>
 				<a href="{% url 'create' %}" class="dropdown-item">Create New Account</a>
+                <a href="{% url 'transaction' %}" class="dropdown-item">Transactions</a>
+                <a href="{% url 'display' %}" class="dropdown-item">Account Information</a>
+
 
 			</div>
 	</div>
 </div>
 
 
-    <h2> {% block StockPageHeading %} {% endblock %} </h2>
+    <h1> {% block StockPageHeading %} {% endblock %} </h1>
 
 
 
-<p>{% block Content %}  {% endblock %}</p>
+{% block Content %}
+
+    {% endblock %}
 
 
     </body>
