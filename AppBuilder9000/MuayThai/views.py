@@ -3,6 +3,8 @@ from .forms import FighterForm
 from .models import Fighter
 import requests
 import json
+from bs4 import BeautifulSoup
+
 
 
 # calls the MuayThai_home home page when requested
@@ -126,3 +128,24 @@ def MuayThai_fighters_api(request,):
 
     return render(request, 'MuayThai/MuayThai_fighters_api.html', context)
 
+
+
+    ### BEAUTIFUL SOUP ###
+def MuayThai_soup(request):
+    muays = []  # Top Muays name list
+
+    page = requests.get("https://fightersvault.com/best-muay-thai-fighters/#:~:text=Samart%20Payakaroon&text=He%20is%20arguably%20the%20best,successful%20in%20his%20early%20career.")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    rankings = soup.find_all('strong')
+
+    for i in rankings:
+        rank = i.text.strip()
+        muays.append(rank)
+    l = muays[6], muays[7]  # Grabs the elements that need to be joined.
+    fix = ' '.join(l)  # Joins the two elements and places them in a variable
+    muays.insert(6, fix)  # Inserts joined elements into array at appropriate index
+    del muays[8]  # Removes unnecessary element
+    del muays[7]  # Removes unnecessary element
+
+    context = {'muays': muays}
+    return render(request, 'MuayThai/MuayThai_beautifulSoup.html', context)
