@@ -46,9 +46,9 @@ def transaction(request):
     return render(request, 'StockMarketTransaction.html', content)
 
 
-def all_objects(request):
-    all_entries = Transaction.Transactions.all()
+def display(request):
+    all_entries = Account.Accounts.all()
     content = {'all_entries': all_entries}
-    return render(request, 'StockMarketHome.html', content)
+    return render(request, 'StockMarketDisplay.html', content)
 
 
