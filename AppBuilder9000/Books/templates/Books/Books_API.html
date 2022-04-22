@@ -15,18 +15,18 @@
         <td>Title</td>
         <td>Author</td>
         <td>Rating</td>
-        <td>Source</td>
+        <td>Description</td>
 
     </tr>
 
     </thead>
     <tbody>
-    {% for title, author, rating, source in zipped_list %}
+    {% for title, author, rating, description in zipped_list %}
     <tr>
-        <td>{{ title }}</td>
-        <td>{{ author }}</td>
-        <td>{{ rating }}</td>
-        <td>{{ source }}</td>
+        <td style='font-size:70%'>{{ title }}</td>
+        <td style='font-size:70%'>{{ author }}</td>
+        <td style='font-size:70%'>{{ rating }}</td>
+        <td style='font-size:70%'>{{ description }}</td>
     </tr>
     {% endfor %}
     </tbody>

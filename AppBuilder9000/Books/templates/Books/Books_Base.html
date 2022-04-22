@@ -23,20 +23,22 @@
         <li><a href="{% url 'books_add_book' %}">Add Book</a></li>
         <li><a href="{% url 'books_reviews' %}">Reviews</a></li>
         <li><a href="{% url 'books_api' %}">API</a></li>
+              <li>
+                  <div class="dropdown show">
+                  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Favorites
+                  </a>
 
-            <div class="dropdown show">
-                      <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Favorites
-                      </a>
-
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="{% url 'books_fav' %}">Add Favorites from API List</a>
-                        <a class="dropdown-item" href="{% url 'view_fav_books' %}">View Favorites</a>
-                     </div>
-             </div>
-
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'books_fav' %}">Add Book From API List</a>
+                    <a class="dropdown-item" href="{% url 'view_fav_books' %}">Book Entries</a>
+                </div>
+              </li>
+         </div>
     </ul>
 </div>
+
+
 
 
 {% block content%}
