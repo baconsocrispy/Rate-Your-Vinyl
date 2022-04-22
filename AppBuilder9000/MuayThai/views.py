@@ -80,8 +80,10 @@ def MuayThai_delete(request):
 
 
 
-    ######## API code section
-def MuayThai_fighters_api(request):
+    ######## API code section. Renders into terminal
+
+
+def MuayThai_fighters_api(request,):
     weight = []
     fighter_rank = []
     fighter_name = []
@@ -103,28 +105,28 @@ def MuayThai_fighters_api(request):
         weight.append(weight_class)  # The append() method takes a single item as an input parameter and adds that to the end of the list
         fighters = i['fighters']
         for j in fighters:  # 'j' is the variable in fighters
+
             rankings = j['fighter_ranking']
             fighter_rank.append(rankings)
             names = j['fullName']
             fighter_name.append(names)
-        rankings = zip(  # create a zip to consolidate the data that can be displayed more easily
-            weight_class,
-            fighter_rank,
-        )
 
     # prints out variables
     print(weight)
     print(fighter_rank)
     print(fighter_name)
 
+    # Get Fighters, weight and rankings
+    weight_list = fight_rankings(7)
+    weight = weight_list.text
+    weight_list.append(weight)
 
-    return render(request, 'MuayThai/MuayThai_fighters_api.html')
-
-
-# call the template to display API call
-def MuayThai_rankings(request):
-    rankings = MuayThai_rankings()
-    content = {
-        'rankings': rankings
+    # Zip lists together to easily display all data
+    zipped_list = zip(pound_for_pound, Flyweight, Bantamweight, Featherweight, Lightweight, Welterweight, Middleweight)
+    context = {
+        'zipped_list': zipped_list
     }
-    return render(request, "MuayThai/MuayThai_fighters_api.html", content)
+
+
+    return render(request, 'MuayThai/MuayThai_fighters_api.html', context)
+
