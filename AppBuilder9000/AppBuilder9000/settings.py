@@ -35,16 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'phone_field',
     'rest_framework',
     'bootstrap4',
     'crispy_forms',
-    'GameStats',
-    'WorkoutEquipment',
-    'StarWatch',
-    'StockTracker',
-    'GrandmasRecipes',
-    'Traveling',
     'HousingCosts',
     'HikingTrails',
     'RecordCollection',
@@ -59,6 +52,7 @@ INSTALLED_APPS = [
     'MuayThai',
     'StockMarket',
     'Journal',
+    'vintage_cars',
 ]
 
 MIDDLEWARE = [
