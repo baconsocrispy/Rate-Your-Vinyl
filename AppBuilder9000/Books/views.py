@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AddBookForm
-from .models import AddBook
+from .models import AddBook, FavoriteBook
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import requests
@@ -59,7 +59,7 @@ def books_update(request, pk):
                    'form': form})
 
 
-"""Utilizing API from rapidAPI to find book reviews from 'BookShelves'. Very important to make variables into empty
+"""Utilizing API from rapidAPI to find book reviews from 'BookShelves API'. Very important to make variables into empty
 list first and then append variables from for loop into those same lists. Also consolidate all lists in zip variable
 and pass that into context, then use for loop with each list as the iterator in your template file."""
 
@@ -68,7 +68,7 @@ def books_api(request):
     title = []
     author = []
     rating = []
-    source = []
+    description = []
 
     url = "https://bookshelves.p.rapidapi.com/books"
 
@@ -89,13 +89,56 @@ def books_api(request):
         book_rating = items['review']
         rating.append(book_rating)
 
-        book_source = items['source']
-        source.append(book_source)
+        book_description = items['description']
+        description.append(book_description)
 
-    zipped_list = zip(title, author, rating, source)
+
+    zipped_list = zip(title, author, rating, description)
 
     context = {
             'zipped_list': zipped_list,
         }
     return render(request, 'Books/Books_API.html', context)
 
+
+""" This function will pull from the same API as above but will show only the titles of each book inside of a list, allowing the
+    user to select from an individual book and then giving the user an option to add it to the database."""
+
+
+def books_fav(request):
+    book_titles = []
+    url = "https://bookshelves.p.rapidapi.com/books"
+
+    headers = {
+        "X-RapidAPI-Host": "bookshelves.p.rapidapi.com",
+        "X-RapidAPI-Key": "1aed881129msh0e4e702933d3b57p1d0a71jsnaba2c0d6b2f8"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    books_info = json.loads(response.text)
+    book_information = books_info['Books']
+    for i in book_information:
+        book_name = i['title']
+        book_titles.append(book_name)
+    if request.method == 'POST':
+        value = request.POST['value']
+        for fields in book_information:
+            the_titles = fields['title']
+            if value == the_titles:
+                new_books = FavoriteBook.Favorite_Book.create(Title=fields['title'],
+                                             Author=fields['author'],
+                                             Rating=fields['review'],
+                                             )
+                new_books.save()
+        return redirect('view_fav_books')
+    else:
+        return render(request, 'Books/Books_Fav.html', {'book_titles': book_titles})
+
+
+"""Function to view books added to the database from the API data"""
+
+
+def view_fav_books(request):
+    added_favorites = FavoriteBook.Favorite_Book.all()
+    context = {'added_favorites': added_favorites}
+    return render(request, 'Books/Books_ViewFav.html', context)
