@@ -2,7 +2,6 @@
 
 {% block content %}
 <h1>Beautiful Soup</h1>
-<p>This app manages journal entries. It was created to demonstrate CRUD fundamentals.</p>
-<button type="submit"><a href="{% url 'journal_create' %}">Create</a></button>
-<button type="submit"><a href="{% url 'journal_read' %}">Read</a></button>
+<h3>Scraped from <a target="_blank" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">"https://www.crummy.com/software/BeautifulSoup/bs4/doc/":</a></h3>
+<p>{{ info }}</p>
 {% endblock %}

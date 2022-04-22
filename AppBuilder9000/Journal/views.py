@@ -67,6 +67,6 @@ def journal_api(request):
 def journal_bs(request):
     page = requests.get("https://www.crummy.com/software/BeautifulSoup/bs4/doc/")
     soup = BeautifulSoup(page.content, 'html.parser')
-    print(soup)
-    content = {"soup": soup}
+    info = soup.find_all('p')[0].get_text()
+    content = {"info": info}
     return render(request, 'Journal/journal_bs.html', content)
