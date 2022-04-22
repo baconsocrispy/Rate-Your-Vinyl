@@ -5,7 +5,7 @@
 
 {% block content %}
 
-
+<h1>THE RANK CHAMPIONS</h1>
 <div class="container">
     <table class="table table-hover table-striped text-center">
         <thead class="thead-dark text-light">
@@ -15,19 +15,15 @@
             <th>Rankings:</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="bg-light">
          <!-- use a for loop for the lists in the zip function -->
-         {% P4P, Flyweight, Bantamweight, Featherweight, Lightweight, Welterweight, Middleweight in zipped_list %}
-            <tr>
-                <td>{{ P4P }}</td>
-                <td>{{ Flyweight }}</td>
-                <td>{{ Bantamweight }}</td>
-                <td>{{ Featherweight }}</td>
-                <td>{{ Lightweight }}</td>
-                <td>{{ Welterweight }}</td>
-                <td>{{ Middleweight }}</td>
+            {% for weight, fighter_rank, fighter_name in zipped_list %}
+            <tr class="text-dark font-weight-bolder">
+                <td>{{ fighter_name }}</td>
+                <td>{{ weight }}</td>
+                <td>{{ fighter_rank }}</td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
 </div>

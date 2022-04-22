@@ -116,13 +116,9 @@ def MuayThai_fighters_api(request,):
     print(fighter_rank)
     print(fighter_name)
 
-    # Get Fighters, weight and rankings
-    weight_list = fight_rankings(7)
-    weight = weight_list.text
-    weight_list.append(weight)
 
     # Zip lists together to easily display all data
-    zipped_list = zip(pound_for_pound, Flyweight, Bantamweight, Featherweight, Lightweight, Welterweight, Middleweight)
+    zipped_list = zip(weight, fighter_rank, fighter_name)
     context = {
         'zipped_list': zipped_list
     }
