@@ -17,14 +17,17 @@ class Account(models.Model):
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
+
 TransactionTypes = [('Buy', 'Buy'), ('Sell', 'Sell')]
+TransactionStocks = [('Facebook', 'Facebook'), ('Apple', 'Apple'), ('Amazon', 'Amazon'),
+                     ('Netflix', 'Netflix'), ('Alphabet', 'Alphabet')]
 
 
 class Transaction(models.Model):
     date = models.DateField()
     type = models.CharField(max_length=10, choices=TransactionTypes)
     amount = models.DecimalField(max_digits=15, decimal_places=2)
-    description = models.CharField(max_length=100)
+    stock = models.CharField(max_length=100, choices=TransactionStocks)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
 
     Transactions = models.Manager()

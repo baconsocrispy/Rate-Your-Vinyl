@@ -30,7 +30,7 @@ def balance(request, pk):
             current_total -= t.amount
             table_contents.update({t: current_total})
     content = {'account': account, 'table_contents': table_contents, 'balance': current_total}
-    return render(request, 'StockMarketAccount.html', content)
+    return render(request, 'StockMarketTransaction.html', content)
 
 
 
@@ -43,8 +43,12 @@ def transaction(request):
             form.save()
             return balance(request, pk)
     content = {'form': form}
-    return render(request, 'StockMarketAccount.html', content)
+    return render(request, 'StockMarketTransaction.html', content)
 
 
+def display(request):
+    all_entries = Account.Accounts.all()
+    content = {'all_entries': all_entries}
+    return render(request, 'StockMarketDisplay.html', content)
 
 
