@@ -7,5 +7,6 @@ urlpatterns = [
     path('<int:pk>/balance/', views.balance, name='balance'),
     path('transaction/', views.transaction, name='transaction'),
     path('display/', views.display, name='display'),
+    path('<int:pk>/details/', views.details, name='details'),
 
 ]

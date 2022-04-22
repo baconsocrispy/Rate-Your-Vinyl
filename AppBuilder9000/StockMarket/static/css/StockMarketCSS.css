@@ -68,6 +68,11 @@ tr td{
 	text-align: center;
 }
 
+#headerRows {
+	color: #4285F4;
+	text-align: center;
+}
+
 .center {
 	text-align: center;
 	width: 15%;
@@ -150,6 +155,22 @@ tr td{
 }
 
 #transactions-table {
+	background-color: #555555;
+	width: 90%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: 5px #4285F4;
+	border-collapse: collapse;
+	border-radius: 8px;
+	table-layout: auto;
+	float: center;
+	position: relative;
+}
+
+
+#transactions-table2 {
 	background-color: #555555;
 	width: 90%;
 	height: auto;
