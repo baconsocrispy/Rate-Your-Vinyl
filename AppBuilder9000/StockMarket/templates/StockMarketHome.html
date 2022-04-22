@@ -3,28 +3,57 @@
 {% block StockTitle %} Stock Market News {% endblock %}
 
 
-
-
-{% block StockPageHeading %} Information on S&P 500 {% endblock %}
-
+{% block StockPageHeading %} Your Stock Corner for Facebook, Apple, Amazon, Netflix, and Google! {% endblock %}
 
 
 
+{% block Content %}
+Stay up to date on all of your FAANG stocks!
+<br><br><br>
 
-{% block Content %} Stay up to date on all of your stocks!
 
-    <hr>
-    <div class="text-center">
-        <h5>Manage your existing account!</h5>
-        <form method="POST">
-            <!-- Replace the <input> with a Django form including a dropdown list of accounts <input type="text" name="Account">-->
-            <label id="index-label">Choose Account:</label><br>
-            {% csrf_token %}
-            {{ form.account }}
-            <button type="submit">Go to Account</button>
-        </form>
+
+	<div class="transactions-form">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button id="new-transaction-button" type="submit" name="Save_Transaction">Transactions</button>
+		</form>
+		<br>
+	</div>
+
+	<div id="all-transactions-form">
+
+
+        <br><br>
     </div>
-    <hr>
+
+	<h2>RECENT TRANSACTIONS</h2>
+
+	<table class="table table-responsive" id ="transactions-table">
+		<!-- Replace this with the Django populated transactions -->
+		<tr id="headerRow">
+			<th>Name</th>
+			<th>Date</th>
+			<th>Type</th>
+			<th>Stock</th>
+			<th>Amount</th>
+			<th>Balance</th>
+		</tr>
+		{% for entry in all_entries %}
+		<tr>
+			<td class="left">{{ entry.account }}</td>
+			<td class="center">{{ entry.date }}</td>
+			<td class="center">{{ entry.type }}</td>
+			<td class="center">{{ entry.stock }}</td>
+			<td class="right">{{ entry.amount }}</td>
+
+		</tr>
+		{% endfor %}
+
+	</table>
+
+	<br><br>
 
 
 
