@@ -52,3 +52,7 @@ def display(request):
     return render(request, 'StockMarketDisplay.html', content)
 
 
+def details(request, pk):
+    selected = get_object_or_404(Account, pk=pk)
+    content = {'selected': selected}
+    return render(request, "StockMarketDetails.html", content)
