@@ -56,3 +56,27 @@ def details(request, pk):
     selected = get_object_or_404(Account, pk=pk)
     content = {'selected': selected}
     return render(request, "StockMarketDetails.html", content)
+
+
+def edit(request, pk):
+    account = get_object_or_404(Account, pk=pk)
+    form = AccountForm(data=request.POST or None, instance=account)
+    if request.method == "POST":
+        if form.is_valid():
+            account = form.save(commit=False)
+            account.save()
+            return redirect('details', pk=pk)
+    else:
+        form = AccountForm(instance=account)
+    content = {'form': form, 'account': account}
+    return render(request, 'StockMarketEdit.html', content)
+
+
+def delete(request, pk):
+    account = get_object_or_404(Account, pk=pk)
+    form = AccountForm(data=request.POST or None, instance=account)
+    if request.method == "POST":
+        account.delete()
+        return redirect('display')
+    content = {'form': form, 'account': account}
+    return render(request, "StockMarketDelete.html", content)

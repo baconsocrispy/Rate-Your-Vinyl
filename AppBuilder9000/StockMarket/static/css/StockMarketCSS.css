@@ -30,6 +30,10 @@ h2{
 	text-align: center;
 	text-shadow: #F4B400;
 }
+h4{
+    color: #DB4437;
+	text-shadow: #F4B400;
+}
 
 /* General Form Field Styling */
 label {
@@ -156,6 +160,17 @@ tr td{
 
 #transactions-table {
 	background-color: #555555;
+	width: 40%;
+	height: auto;
+	padding: 10px;
+	border: 5px #4285F4;
+	border-radius: 8px;
+	position: relative;
+}
+
+
+#transactions-table2 {
+	background-color: #555555;
 	width: 90%;
 	height: auto;
 	margin-right: auto;
@@ -169,8 +184,7 @@ tr td{
 	position: relative;
 }
 
-
-#transactions-table2 {
+#transactions-table3 {
 	background-color: #555555;
 	width: 90%;
 	height: auto;
