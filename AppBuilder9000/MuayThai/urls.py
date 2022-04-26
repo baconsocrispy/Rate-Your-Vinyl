@@ -16,4 +16,5 @@ urlpatterns = [
     path('<int:pk>/delete_fighter/', views.MuayThai_delete_fighter, name='MuayThai_delete'),
     path('confirm_delete/', views.MuayThai_delete, name='MuayThai_confirm_delete'),
     path('BetsApi', views.MuayThai_fighters_api, name="MuayThai_fighters_api"),
+    path('MuayThai_beautifulSoup', views.MuayThai_soup, name="MuayThai_beautifulSoup"),
 ]
