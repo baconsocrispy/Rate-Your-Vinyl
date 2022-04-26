@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'StockMarket',
     'Journal',
     'vintage_cars',
+    'Basketball',
 ]
 
 MIDDLEWARE = [
