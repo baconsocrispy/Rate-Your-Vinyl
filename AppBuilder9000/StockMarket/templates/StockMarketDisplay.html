@@ -24,12 +24,14 @@
 			<th>Email</th>
 			<th>Deposit</th>
 
+
 		</tr>
 		{% for account in all_entries %}
 		<tr>
 			<td><a href="{% url 'details' account.id %}">{{ account }} </a></td>
 			<td>{{ account.email_address }}</td>
 			<td>{{ account.initial_deposit }}</td>
+
 		</tr>
 		{% endfor %}
 
