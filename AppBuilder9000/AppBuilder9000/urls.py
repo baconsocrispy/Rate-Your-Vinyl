@@ -38,8 +38,8 @@ urlpatterns = [
     path('StockMarket/', include('StockMarket.urls')),
     path('Journal/', include('Journal.urls')),
     path('vintage_cars/', include('vintage_cars.urls')),
-    path('Basketball/', include('Basketball.urls'))
-
+    path('Basketball/', include('Basketball.urls')),
+    path('Dallas/', include('Dallas.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
