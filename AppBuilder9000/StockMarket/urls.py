@@ -10,5 +10,5 @@ urlpatterns = [
     path('<int:pk>/details/', views.details, name='details'),
     path('<int:pk>/edit/', views.edit, name='edit'),
     path('<int:pk>/delete/', views.delete, name='delete'),
-
+    path('API/', views.API, name='API'),
 ]

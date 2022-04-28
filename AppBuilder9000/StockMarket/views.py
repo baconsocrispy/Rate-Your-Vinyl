@@ -1,6 +1,9 @@
+import requests
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AccountForm, TransactionForm
 from .models import Account, Transaction
+
 
 
 def StockMarketHome(request):
@@ -80,3 +83,12 @@ def delete(request, pk):
         return redirect('display')
     content = {'form': form, 'account': account}
     return render(request, "StockMarketDelete.html", content)
+
+
+def API(request):
+    url='https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY' \
+      '&symbol=FB&interval=5min&apikey=MN7JD0AABQ8ZPR4F'
+    r = requests.get(url)
+    data = json.loads(r.text)
+    print(data)
+    return render(request, 'StockMarketAPI.html', data)
