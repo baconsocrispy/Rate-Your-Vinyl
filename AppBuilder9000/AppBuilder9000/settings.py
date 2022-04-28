@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'Journal',
     'vintage_cars',
     'Basketball',
+    'Seattle',
     'Dallas',
 ]
 

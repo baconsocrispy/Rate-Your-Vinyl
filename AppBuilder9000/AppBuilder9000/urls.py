@@ -39,6 +39,8 @@ urlpatterns = [
     path('Journal/', include('Journal.urls')),
     path('vintage_cars/', include('vintage_cars.urls')),
     path('Basketball/', include('Basketball.urls')),
+    path('Seattle/', include('Seattle.urls')),
+    path('Basketball/', include('Basketball.urls')),
     path('Dallas/', include('Dallas.urls')),
 ]
 
