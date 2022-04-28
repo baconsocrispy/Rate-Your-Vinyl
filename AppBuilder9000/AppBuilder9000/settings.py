@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'vintage_cars',
     'Basketball',
     'Seattle',
+    'Dallas',
 ]
 
 MIDDLEWARE = [
