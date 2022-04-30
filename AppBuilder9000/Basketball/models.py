@@ -12,10 +12,12 @@ position_choices = (
 
 class Pickup(models.Model):
     position = models.CharField(max_length=30, choices=position_choices, default='Point Guard')
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
     points = models.PositiveIntegerField()
     assists = models.PositiveIntegerField()
     rebounds = models.PositiveIntegerField()
     steals = models.PositiveIntegerField()
     blocks = models.PositiveIntegerField()
     turnovers = models.PositiveIntegerField()
+
+    games = models.Manager()

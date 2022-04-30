@@ -2,8 +2,24 @@
 
 {% block content %}
 
-<div>
-    <p>Testing link</p>
-</div>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" name="Save_Pickup">Save PickupGame</button>
+</form>
+<table>
+{% for i in posts %}
+    <tr>
+    <th><p>Position:<p>{{ i.position}}</th>
+    <th><p>Date:</p>{{ i.date}}</th>
+    <th><p>Points:</p>{{ i.points}}</th>
+    <th><p>Assists:</p>{{ i.assists}}</th>
+    <th><p>Rebounds:</p>{{ i.rebounds}}</th>
+    <th><p>Steals:</p>{{ i.steals}}</th>
+    <th><p>Blocks:</p>{{ i.blocks}}</th>
+   <th><p>Turnovers:</p>{{ i.turnovers}}</th>
+    </tr>
+{% endfor %}
+    </table>
 
 {% endblock %}
