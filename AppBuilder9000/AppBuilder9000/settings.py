@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'Basketball',
     'Seattle',
     'Dallas',
+    'All_Inclusive_Resorts',
+
 ]
 
 MIDDLEWARE = [
