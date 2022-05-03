@@ -11,6 +11,12 @@ def basketballHome(request):
     return render(request, 'Basketball/Basketball_home.html')
 
 
+def pickupGameGet(request):
+    posts = Pickup.games.all()
+    content = {'posts': posts}
+    return render(request, 'Basketball/Basketball_Get.html', content)
+
+
 def basketballPickup(request):
     # displays page and Pickup model
     form = PickupForm(data=request.POST or None)
@@ -29,15 +35,20 @@ def basketballPickup(request):
 
 
 def searchPickup(request):
-    #if request.method == 'POST':
-     #   searched = request.POST['searched']
-      #  posts = Pickup.games.filter(name__contains=searched)
-       # content = {'searched': searched, 'posts': posts}
-        #return render(request, 'Basketball/Basketball_Search.html', content)
-    #else:
-        #return render(request, 'Basketball/Basketball_Home.html')
+    # if request.method == 'POST':
+    #   searched = request.POST['searched']
+    #  posts = Pickup.games.filter(name__contains=searched)
+    # content = {'searched': searched, 'posts': posts}
+    # return render(request, 'Basketball/Basketball_Search.html', content)
+    # else:
+    # return render(request, 'Basketball/Basketball_Home.html')
     searched = request.POST['searched']
     posts = Pickup.games.filter(name__contains=searched)
     content = {'posts': posts}
     return render(request, 'Basketball/Basketball_Search.html', content)
 
+
+def basketballDetail(request, pk):
+    obj = get_object_or_404(Pickup, id=pk)
+    content = {'obj': obj}
+    return render(request, 'Basketball/Basketball_Details.html', content)
