@@ -9,13 +9,7 @@
 
 /*===BACKGROUND IMAGE===*/
 body {
-    background-image: url(../images/oregon.jpg);
+    background-image: url("../oregon.jpg");
     background-size: 1920px,1080px;
     background-repeat: no-repeat;
-    background-color: dark blue;
-    background-attachment: fixed;
-    background-position: center;
-    color: rgb(160, 21, 11);
-    text-align: center;
-    padding: 1% 0;
 }
