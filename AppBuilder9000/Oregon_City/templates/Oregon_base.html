@@ -1,28 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static '/css/oregon_layout.css' %}">
-    <title>Welcome to Oregon City!</title>
-    <style>
-    body {
-      background-image: url('oregon.jpg');
-    }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static '/css/oregon_layout.css' %}">
+        <title>Welcome to Oregon City!</title>
+    </head>
 
-<div class="topnav">
-    <a href="{% url 'oregon_home' %}">Home</a>
-    <a href="{% url 'oregon_activities' %}">Activities</a>
-    <a href="{% url 'oregon_about' %}">About</a>
-</div>
-<body id="body">
-<div class="content-container-container">
-	<div class="content-container">
-		{% block content %}
-		{% end block %}
-	</div>
-</div>
+    <div class="topnav">
+        <a href="{% url 'oregon_home' %}">Home</a>
+        <a href="">Activities</a>
+        <a href="">About</a>
+    </div>
+    <body id="body">
+    <div class="content-container-container">
+        <div class="content-container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 
 
 </body>
