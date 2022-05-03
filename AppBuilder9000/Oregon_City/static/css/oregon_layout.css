@@ -1,0 +1,16 @@
+/*======================
+    GENERAL STYLING
+=======================*/
+
+
+
+/*===BACKGROUND IMAGE===*/
+body {
+    background-image: url("../images/oregon.jpg");
+    background-color: dark blue;
+    background-attachment: fixed;
+    background-position: center;
+    color: rgb(192, 31, 13);
+    text-align: center;
+    padding: 1% 0;
+}
