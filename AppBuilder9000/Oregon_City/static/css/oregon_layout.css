@@ -1,0 +1,15 @@
+/*======================
+    GENERAL STYLING
+=======================*/
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+/*===BACKGROUND IMAGE===*/
+body {
+    background-image: url("../oregon.jpg");
+    background-size: 1920px,1080px;
+    background-repeat: no-repeat;
+}
