@@ -8,5 +8,5 @@
 			<button type="submit">Save Changes</button>
 		</form>
 		<button type="submit"><a href="{% url 'journal_delete' entry.id %}">Delete</a></button>
-<button type="submit"><a href="{% url 'journal_read' %}">Return</a></button>
+<button type="submit"><a href="{% url 'journal_details' entry.id %}">Return</a></button>
 {% endblock %}
