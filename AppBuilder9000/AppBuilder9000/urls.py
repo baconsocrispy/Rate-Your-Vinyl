@@ -42,6 +42,7 @@ urlpatterns = [
     path('Seattle/', include('Seattle.urls')),
     path('Basketball/', include('Basketball.urls')),
     path('Dallas/', include('Dallas.urls')),
+    path('EmpireBuilder/', include('EmpireBuilder.urls'))
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
