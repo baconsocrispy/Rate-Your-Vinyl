@@ -8,6 +8,3 @@ def home(request):
 
 def index(request):
     return render(request, 'Acu_Insurance/Acu_Insurance_base.html')
-
-
-
