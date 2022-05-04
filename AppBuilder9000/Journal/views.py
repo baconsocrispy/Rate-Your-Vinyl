@@ -6,9 +6,13 @@ import json
 from bs4 import BeautifulSoup
 
 
+# Story #1: Build the basic app ----------------------------------------------------------------------------------------
+
 def journal_home(request):
     return render(request, 'Journal/journal_home.html')
 
+
+# Story #2: Create your model ------------------------------------------------------------------------------------------
 
 def journal_create(request):
     form = EntryForm(data=request.POST or None)
@@ -20,11 +24,23 @@ def journal_create(request):
     return render(request, 'Journal/journal_create.html', content)
 
 
+# Story #3: Display all items from database ----------------------------------------------------------------------------
+
 def journal_read(request):
     entry = Entry.Entries.all()
     content = {'entry': entry}
     return render(request, 'Journal/journal_read.html', content)
 
+
+# Story #4: Details page -----------------------------------------------------------------------------------------------
+
+def journal_details(request, pk):
+    entry = get_object_or_404(Entry, pk=pk)
+    content = {'entry': entry}
+    return render(request, 'Journal/journal_details.html', content)
+
+
+# Story #5: Edit and Delete Functions ----------------------------------------------------------------------------------
 
 def journal_update(request, pk):
     entry = get_object_or_404(Entry, pk=pk)
@@ -46,6 +62,9 @@ def journal_delete(request, pk):
     return render(request, 'Journal/journal_delete.html', content)
 
 
+# Story #6-(API Pt 1): Connect to API-----------------------------------------------------------------------------------
+# Story #7-(API Pt 2): Parse through JSON
+
 def journal_api(request):
     url = "https://yahoo-weather5.p.rapidapi.com/weather"
 
@@ -63,6 +82,9 @@ def journal_api(request):
     content = {"current_temperature": current_temperature}
     return render(request, 'Journal/journal_api.html', content)
 
+
+# Story #6-(BS Pt 1): Setup Beautiful Soup------------------------------------------------------------------------------
+# Story #7-(BS Pt 2): Parse through html
 
 def journal_bs(request):
     page = requests.get("https://www.crummy.com/software/BeautifulSoup/bs4/doc/")
