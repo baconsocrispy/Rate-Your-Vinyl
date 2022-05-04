@@ -11,7 +11,7 @@
 		<title>{% block title%} Dallas, Texas {% endblock %}</title>
 	</head>
 
-    <-- NAVBAR -->
+    <!-- NAVBAR -->
 	<body id="body">
 		<header>
 			<div class="Dropdown-list">
@@ -19,21 +19,20 @@
 					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">Menu</button>
 					<div class="dropdown-menu">
 						<a href="{% url 'home' %}" class="dropdown-item">HOME</a>
-						<a href="" class="dropdown-item">THINGS TO DO</a>
+						<a href="{% url 'Dallas_raffle' %}" class="dropdown-item">RAFFLE CONTEST</a>
 						<a href="" class="dropdown-item">SPORTS</a>
 						<a href="" class="dropdown-item">FOOD</a>
 					</div>
 				</div>
 			</div>
 		</header>
-	</body>
-    <-- END NAVBAR -->
+    <!-- END NAVBAR -->
 
-        <-- FOOTER -->
+        <!-- FOOTER -->
 		<section id="block-footer">
 			<p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
 			<p id="footer-left">&copy;2022 - Visit Dallas. All Rights Reserved.</p>
 		</section>
-        <-- END FOOTER -->
+        <!-- END FOOTER -->
 	</body>
 </html>
