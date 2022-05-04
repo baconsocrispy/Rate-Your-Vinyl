@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'Seattle',
     'Dallas',
     'Oregon_City',
+    'EmpireBuilder',
 ]
 
 MIDDLEWARE = [
