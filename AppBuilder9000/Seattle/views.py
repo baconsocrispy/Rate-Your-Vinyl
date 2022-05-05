@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PlacesForm
+from .models import Places
 
 
 def seattle_home(request):
@@ -15,3 +16,9 @@ def seattle_create(request):
             return redirect('seattle_home')
     content = {'form': form}
     return render(request, 'Seattle/seattle_create.html', content)
+
+
+def seattle_view(request):
+    place = Places.PlacesManager.all()
+    content = {'place': place}
+    return render(request, 'Seattle/seattle_view.html', content)

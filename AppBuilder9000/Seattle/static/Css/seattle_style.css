@@ -52,3 +52,12 @@ body {
 .create form {
     padding-bottom: 10px;
 }
+
+.views {
+    background: white;
+    border: 1px solid;
+    padding-left: 10px;
+    width: 600px;
+    height: 300px;
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+{% extends "StreetLeagueSkateboarding_base.html" %}
+
+{% block content %}
+<h1>Roster</h1>
+<table>
+    <tr>
+        <th>First Name</a></th>
+        <th>Last Name</a></th>
+        <th>Age</a></th>
+        <th>Hometown</a></th>
+    </tr>
+</table>
+<button><a href="{% url 'StreetLeagueSkateboarding_create' %}">Add Skater</a></button>
+{% endblock %}
