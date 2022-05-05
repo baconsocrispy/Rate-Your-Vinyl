@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 
@@ -7,6 +8,3 @@ def home(request):
 
 def index(request):
     return render(request, 'Acu_Insurance/Acu_Insurance_base.html')
-
-
-

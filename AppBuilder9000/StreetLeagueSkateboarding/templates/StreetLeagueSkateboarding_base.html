@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Street League Skateboarding</title>
+        <link rel="stylesheet" type="text/css" href="{% static '/css/StreetLeagueSkateboarding.css' %}">
+    </head>
+    <body>
+        <!--Navigation Start-->
+        <div class="navbar">
+            <a href="{% url 'StreetLeagueSkateboarding_home' %}">Home</a>
+            <a href="{% url 'StreetLeagueSkateboarding_create' %}">Create Skater</a>
+            <a href="{% url 'StreetLeagueSkateboarding_read' %}">View Roster</a>
+        </div>
+        <!--Navigation End-->
+        <!--Content Start-->
+        <div class="create-container">
+            {% block content %}{% endblock %}
+            <br><br>
+        </div>
+        <!--Content End-->
+        <!--Footer Start-->
+        <footer>
+            <p>
+                JLBLiveProjects | 2022
+            </p>
+        </footer>
+        <!--Footer End-->
+    </body>
+</html>

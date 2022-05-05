@@ -1,0 +1,96 @@
+/*==================================
+Navigation Section
+===================================*/
+.navbar {
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100vw; /*length of navbar. i used px here (vs. vw) due to monitor resolutions.*/
+    z-index: 2;
+    -webkit-animation: moveNav 2s;
+    animation: moveNav 2s;
+}
+
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+.navbar a {
+    float: left; /*puts sections side by side.*/
+    display: block;
+    color: white;
+    padding: 14px 16px; /*navbar size.*/
+    text-decoration: none; /*removed underlines, etc.*/
+    font-family: Avant Garde, Helvetica;
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    -webkit-animation: moveNavText 3s;
+    animation: moveNavText 3s;
+}
+
+@keyframes moveNavText {
+    from {left: -100vw;}
+    to {left: 0vw}
+}
+
+@media screen and (max-width: 576px) {
+    .navbar a{
+        width: 25%;
+        font-size: 12px;
+    }
+}
+
+.navbar a:hover {
+    color: grey;
+    cursor: pointer;
+    transition: 0.25s ease-in;
+}
+
+/*==================================
+Body Section
+===================================*/
+body {
+    background-image:url("../images/background_image.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    color: grey;
+    padding-top: 30px;
+    padding-left: 10px;
+}
+
+/*==================================
+Container Section
+===================================*/
+.create-container{
+	opacity: 0.97;
+	position: relative;
+	width: 600px;
+	height: auto;
+	border-radius: 8px;
+	border: 2px solid gray;
+	box-shadow: 4px 3px white;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	background-color: black;
+	text-align: center;
+}
+
+/*==================================
+Footer Section
+===================================*/
+footer {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: white;
+    padding-left: 880px;
+    position: fixed;
+    bottom: 0;
+}
