@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect,  get_object_or_404
-from .models import Entry
-from .forms import EntryForm
+from .models import Entry, WeatherMoment
+from .forms import EntryForm, WeatherMomentForm
 import requests
 import json
 from bs4 import BeautifulSoup
+import datetime
 
 
 # Story #1: Build the basic app ----------------------------------------------------------------------------------------
@@ -62,7 +63,7 @@ def journal_delete(request, pk):
     return render(request, 'Journal/journal_delete.html', content)
 
 
-# Story #6-(API Pt 1): Connect to API-----------------------------------------------------------------------------------
+# Story #6-(API Pt 1): Connect to API ----------------------------------------------------------------------------------
 # Story #7-(API Pt 2): Parse through JSON
 
 def journal_api(request):
@@ -78,12 +79,13 @@ def journal_api(request):
     response = requests.request("GET", url, headers=headers, params=querystring)
 
     api_info = json.loads(response.text)
+    temp_int = api_info["current_observation"]["condition"]["temperature"]
     current_temperature = str(api_info["current_observation"]["condition"]["temperature"]) + ' \N{DEGREE SIGN}F'
-    content = {"current_temperature": current_temperature}
+    content = {"current_temperature": current_temperature, "temp_int": temp_int}
     return render(request, 'Journal/journal_api.html', content)
 
 
-# Story #6-(BS Pt 1): Setup Beautiful Soup------------------------------------------------------------------------------
+# Story #6-(BS Pt 1): Setup Beautiful Soup -----------------------------------------------------------------------------
 # Story #7-(BS Pt 2): Parse through html
 
 def journal_bs(request):
@@ -94,7 +96,14 @@ def journal_bs(request):
     return render(request, 'Journal/journal_bs.html', content)
 
 
-# Story #9: Save API or scraped results---------------------------------------------------------------------------------
+# Story #9: Save API or scraped results --------------------------------------------------------------------------------
 
-def journal_save_api(request):
+def journal_save_api(request, m=1000):
+    if m != 1000:
+        moment = WeatherMoment(
+            temperature=m
+        )
+        moment.save()
+    moment = WeatherMoment.WeatherMoments.all()
+    content = {"moment": moment}
     return render(request, 'Journal/journal_save_api.html', content)

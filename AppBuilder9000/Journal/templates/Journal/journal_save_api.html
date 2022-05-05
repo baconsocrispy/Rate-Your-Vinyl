@@ -1,16 +1,16 @@
 {% extends "journal_base.html" %}
 
 {% block content %}
-<h1>Read</h1>
+<h1>Saved API Weather</h1>
 <table>
     <tr>
-        <th>Title</a></th>
-        <th>Creation Date</a></th>
+        <th>Temperature</a></th>
+        <th>Date</a></th>
     </tr>
-    {% for e in entry %}
+    {% for m in moment %}
     <tr>
-        <td><a href="{% url 'journal_details' e.id %}">{{ e.title }}</a></td>
-        <td>{{ e.date }}</td>
+        <td>{{ m.temperature }}<span>&#176;</span>F</a></td>
+        <td>{{ m.date }}</td>
     </tr>
     {% endfor %}
 </table>
