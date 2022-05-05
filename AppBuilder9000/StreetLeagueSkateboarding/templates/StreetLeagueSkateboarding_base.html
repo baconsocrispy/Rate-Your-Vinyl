@@ -10,14 +10,15 @@
     <body>
         <!--Navigation Start-->
         <div class="navbar">
-            <a class="active" href="#home">Home</a>
-            <a href="#one">TabOne</a>
+            <a href="{% url 'StreetLeagueSkateboarding_home' %}">Home</a>
+            <a href="{% url 'StreetLeagueSkateboarding_create' %}">Create Skater</a>
+            <a href="{% url 'StreetLeagueSkateboarding_read' %}">View Roster</a>
         </div>
         <!--Navigation End-->
         <!--Content Start-->
-        <div id="one">
-            {% block content %}
-		    {% endblock %}
+        <div class="create-container">
+            {% block content %}{% endblock %}
+            <br><br>
         </div>
         <!--Content End-->
         <!--Footer Start-->
@@ -26,5 +27,6 @@
                 JLBLiveProjects | 2022
             </p>
         </footer>
+        <!--Footer End-->
     </body>
 </html>

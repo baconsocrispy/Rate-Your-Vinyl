@@ -1,0 +1,12 @@
+{% extends "StreetLeagueSkateboarding_base.html" %}
+
+{% block content %}
+<h1>Create New Skater</h1>
+<div id="SLS_create">                                       <!--added this div in-->
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
