@@ -1,0 +1,77 @@
+/*==================================
+Navigation Section
+===================================*/
+.navbar {
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 618px; /*length of navbar. i used px here (vs. vw) due to monitor resolutions.*/
+    border-radius: 0px 0px 15px 0px; /*rounds bottom-right edge of navbar.*/
+    z-index: 2;
+    -webkit-animation: moveNav 2s;
+    animation: moveNav 2s;
+}
+
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+.navbar a {
+    float: left; /*puts sections side by side.*/
+    display: block;
+    color: white;
+    padding: 14px 16px; /*navbar size.*/
+    text-decoration: none; /*removed underlines, etc.*/
+    font-family: Avant Garde, Helvetica;
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    -webkit-animation: moveNavText 3s;
+    animation: moveNavText 3s;
+}
+
+@keyframes moveNavText {
+    from {left: -100vw;}
+    to {left: 0vw}
+}
+
+@media screen and (max-width: 576px) {
+    .navbar a{
+        width: 25%;
+        font-size: 12px;
+    }
+}
+
+.navbar a:hover {
+    color: red;
+    cursor: pointer;
+    transition: 0.25s ease-in;
+}
+
+/*==================================
+About Section
+===================================*/
+body {
+    background: rgb(30, 29, 29); /*background color of whole page.*/
+}
+
+/*==================================
+Footer Section
+===================================*/
+footer {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    padding: 12px;
+    color: white;
+}
+
+hr {
+    height: 2px; /*in this instance, height determins the thickness of the hardrule.*/
+    width: 210px;
+    margin: auto; /*using margin, we set the hardrule center and adjust it's length with width.*/
+    background-color: black; /*sets color of the hardrule.*/
+    border: none; /*border has to be set to none if you want to change the color of the hardrule.*/
+}
