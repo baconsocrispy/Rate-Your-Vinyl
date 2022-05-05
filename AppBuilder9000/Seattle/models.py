@@ -13,7 +13,7 @@ class Places(models.Model):
     Place = models.CharField(max_length=20, default='', blank=True, null=False)
     Description = models.CharField(max_length=500, default='', blank=True, null=False)
 
-    Places = models.Manager
+    PlacesManager = models.Manager()
 
     def __str__(self):
         return self.place
