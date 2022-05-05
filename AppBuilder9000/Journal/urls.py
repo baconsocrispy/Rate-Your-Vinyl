@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/delete/', views.journal_delete, name='journal_delete'),
     path('api/', views.journal_api, name='journal_api'),
     path('bs/', views.journal_bs, name='journal_bs'),
+    path('save_api/', views.journal_save_api, name='journal_save_api'),
 ]

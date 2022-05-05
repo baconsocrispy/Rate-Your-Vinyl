@@ -92,3 +92,9 @@ def journal_bs(request):
     info = soup.find_all('p')[0].get_text()
     content = {"info": info}
     return render(request, 'Journal/journal_bs.html', content)
+
+
+# Story #9: Save API or scraped results---------------------------------------------------------------------------------
+
+def journal_save_api(request):
+    return render(request, 'Journal/journal_save_api.html', content)
