@@ -16,7 +16,7 @@ def SLS_create(request):
     content = {'form': form}
     return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_create.html', content)
 
-def SLS_read(request):
+def SLS_view(request):
     entry = Skater.Entry.all()
     content = {'entry': entry}
-    return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_read.html', content)
+    return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_view.html', content)
