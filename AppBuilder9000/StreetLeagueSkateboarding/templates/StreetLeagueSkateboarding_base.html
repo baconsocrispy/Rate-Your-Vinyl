@@ -4,7 +4,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Street League Skateboarding</title>
+        <title>Skateboarding</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"> <!--Needs Work-->
         <link rel="stylesheet" type="text/css" href="{% static '/css/StreetLeagueSkateboarding.css' %}">
     </head>
     <body>
@@ -12,19 +13,25 @@
         <div class="navbar">
             <a href="{% url 'StreetLeagueSkateboarding_home' %}">Home</a>
             <a href="{% url 'StreetLeagueSkateboarding_create' %}">Create Skater</a>
-            <a href="{% url 'StreetLeagueSkateboarding_view' %}">View Roster</a>
+            <a href="{% url 'StreetLeagueSkateboarding_view' %}">Roster</a>
         </div>
         <!--Navigation End-->
+        <!--Skateboarding Title Logo Start-->
+        <div class="skateboarding_logo"></div>
+        <!--Skateboarding Title Logo End-->
         <!--Content Start-->
         <div class="create-container">
             {% block content %}{% endblock %}
             <br><br>
         </div>
         <!--Content End-->
+        <!--Skater Animation Start-->
+        <div class="skater_animation"></div>
+        <!--Skater Animation End-->
         <!--Footer Start-->
         <footer>
             <p>
-                J.Bowersock | 2022
+                J. Bowersock | 2022
             </p>
         </footer>
         <!--Footer End-->

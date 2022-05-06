@@ -6,8 +6,16 @@ Navigation Section
     background-color: black;
     position: fixed;
     top: 0;
-    width: 100vw; /*length of navbar.*/
+    width: 320px;
+    border-radius: 0px 0px 15px 0px;
     z-index: 2;
+    -webkit-animation: moveNav 1s;
+    animation: moveNav 1s;
+}
+
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
 }
 
 .navbar a {
@@ -20,6 +28,13 @@ Navigation Section
     font-size: 18px;
     text-align: center;
     position: relative;
+    -webkit-animation: moveNavText 1s;
+    animation: moveNavText 1s;
+}
+
+@keyframes moveNavText {
+    from {left: -100vw;}
+    to {left: 0vw}
 }
 
 @media screen and (max-width: 576px) {
@@ -30,7 +45,7 @@ Navigation Section
 }
 
 .navbar a:hover {
-    color: grey;
+    color: tan;
     cursor: pointer;
     transition: 0.25s ease-in;
 }
@@ -39,21 +54,32 @@ Navigation Section
 Body Section
 ===================================*/
 body {
-    background-image:url("../images/background_image.jpg");
+    background-image:url("../images/skateboarding_background.jpg");
     min-height: 500px;
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
+    background-size: cover; /*adjusts background image when window size adjusted.*/
     z-index: 0;
-    color: grey;
+    color: tan;
     padding-top: 30px;
+    overflow: hidden; /*allows animation to play without scrollbar appearing*/
+}
+
+/*==================================
+Skaterboarding Title Image
+===================================*/
+div.skateboarding_logo::before {
+    content: url("../images/skatetitleimage.png");
+    position: absolute;
+    padding-left: 40.5vw;
+    top: -50px;
 }
 
 /*==================================
 Container
 ===================================*/
 .create-container {
-	opacity: 0.97;
+	opacity: 0.88;
 	position: relative;
 	width: 600px;
 	height: auto;
@@ -62,10 +88,15 @@ Container
 	box-shadow: 4px 3px white;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 30px;
+	margin-top: 160px;
 	background-color: black;
 	text-align: center;
 }
+
+/*==================================
+Create Container Section
+===================================*/
+
 
 /*==================================
 View Container Section
@@ -75,16 +106,32 @@ table {
 }
 
 table tr th { /*label field*/
-    padding-left: 35px; /*moves labels to the right*/
+    padding-left: 38px; /*moves labels to the right*/
     text-align: left;
     text-decoration: underline;
 }
 
 table tr td { /*data field*/
     padding-top: 6px; /*adds space above & between data*/
-    padding-left: 35px; /*moves data to the right*/
+    padding-left: 38px; /*moves data to the right*/
     text-align: left;
     color: white;
+}
+
+/*==================================
+Skater Animation Section
+===================================*/
+div.skater_animation::before {
+    content: url("../images/skater_silhouette.png");
+    position: absolute;
+    bottom: 0;
+    animation: move1 4s;
+    transform: translate(-420px, 43px);
+}
+
+@keyframes move1 {
+    from {transform: translate(100vw, 43px)}
+    to {transform: translate(-420px, 43px)}
 }
 
 /*==================================
@@ -92,9 +139,9 @@ Footer Section
 ===================================*/
 footer {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-size: 18px;
     color: white;
-    padding-left: 880px;
     position: fixed;
     bottom: 0;
+    padding-left: 46vw;
 }
