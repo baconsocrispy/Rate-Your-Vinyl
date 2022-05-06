@@ -11,7 +11,7 @@
     {% for p in place %}
     <tr>
         <td>{{ p.Category }}</td>
-        <td>{{ p.Place }}</td>
+        <td><a href="{% url 'seattle_details' p.id %}">{{ p.Place }}</a></td>
         <td>{{ p.Description }}</td>
     </tr>
     {% endfor %}
