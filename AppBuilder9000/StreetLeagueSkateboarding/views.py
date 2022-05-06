@@ -1,5 +1,5 @@
 # Imports;
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Skater
 from .forms import EntryForm
 
@@ -20,3 +20,8 @@ def SLS_view(request):
     entry = Skater.Entry.all()
     content = {'entry': entry}
     return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_view.html', content)
+
+def SLS_details(request, pk):
+    entry = get_object_or_404(Skater, pk=pk)
+    content = {'entry': entry}
+    return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_details.html', content)

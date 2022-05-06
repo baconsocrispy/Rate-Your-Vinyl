@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>View Roster</h1>
+<h1>Roster</h1>
 <table>
     <tr>
         <th>First Name</a></th>
@@ -12,7 +12,8 @@
     </tr>
     {% for e in entry %}
     <tr>
-        <td>{{ e.first_name }}</td>
+        <td><a href="{% url 'StreetLeagueSkateboarding_details' e.id %}">{{ e.first_name }}</a></td>
+        <!--e is for 'e in entry', id is for primary key-->
         <td>{{ e.last_name }}</td>
         <td>{{ e.age }}</td>
         <td>{{ e.hometown }}</td>
