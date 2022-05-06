@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'Oregon_City',
     'EmpireBuilder',
     'StreetLeagueSkateboarding',
+    'All_Inclusive_Resorts',
+    'Jobs',
 ]
 
 MIDDLEWARE = [

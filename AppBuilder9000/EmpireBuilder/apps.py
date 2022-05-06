@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class EmpirebuilderConfig(AppConfig):
+class EmpireBuilderConfig(AppConfig):
     name = 'EmpireBuilder'

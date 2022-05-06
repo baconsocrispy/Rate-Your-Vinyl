@@ -6,16 +6,8 @@ Navigation Section
     background-color: black;
     position: fixed;
     top: 0;
-    width: 618px; /*length of navbar. i used px here (vs. vw) due to monitor resolutions.*/
-    border-radius: 0px 0px 15px 0px; /*rounds bottom-right edge of navbar.*/
+    width: 100vw; /*length of navbar.*/
     z-index: 2;
-    -webkit-animation: moveNav 2s;
-    animation: moveNav 2s;
-}
-
-@keyframes moveNav {
-    from {left: -100vw;}
-    to {left: 0vw;}
 }
 
 .navbar a {
@@ -28,13 +20,6 @@ Navigation Section
     font-size: 18px;
     text-align: center;
     position: relative;
-    -webkit-animation: moveNavText 3s;
-    animation: moveNavText 3s;
-}
-
-@keyframes moveNavText {
-    from {left: -100vw;}
-    to {left: 0vw}
 }
 
 @media screen and (max-width: 576px) {
@@ -45,33 +30,71 @@ Navigation Section
 }
 
 .navbar a:hover {
-    color: red;
+    color: grey;
     cursor: pointer;
     transition: 0.25s ease-in;
 }
 
 /*==================================
-About Section
+Body Section
 ===================================*/
 body {
-    background: rgb(30, 29, 29); /*background color of whole page.*/
+    background-image:url("../images/background_image.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    color: grey;
+    padding-top: 30px;
+}
+
+/*==================================
+Container
+===================================*/
+.create-container {
+	opacity: 0.97;
+	position: relative;
+	width: 600px;
+	height: auto;
+	border-radius: 8px;
+	border: 2px solid gray;
+	box-shadow: 4px 3px white;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	background-color: black;
+	text-align: center;
+}
+
+/*==================================
+View Container Section
+===================================*/
+table {
+    padding-left: 52px; /*moves whole table to the right*/
+}
+
+table tr th { /*label field*/
+    padding-left: 35px; /*moves labels to the right*/
+    text-align: left;
+    text-decoration: underline;
+}
+
+table tr td { /*data field*/
+    padding-top: 6px; /*adds space above & between data*/
+    padding-left: 35px; /*moves data to the right*/
+    text-align: left;
+    color: white;
 }
 
 /*==================================
 Footer Section
 ===================================*/
 footer {
-    text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
-    padding: 12px;
     color: white;
-}
-
-hr {
-    height: 2px; /*in this instance, height determins the thickness of the hardrule.*/
-    width: 210px;
-    margin: auto; /*using margin, we set the hardrule center and adjust it's length with width.*/
-    background-color: black; /*sets color of the hardrule.*/
-    border: none; /*border has to be set to none if you want to change the color of the hardrule.*/
+    padding-left: 880px;
+    position: fixed;
+    bottom: 0;
 }

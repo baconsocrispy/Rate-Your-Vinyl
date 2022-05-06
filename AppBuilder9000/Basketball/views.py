@@ -52,3 +52,23 @@ def basketballDetail(request, pk):
     obj = get_object_or_404(Pickup, id=pk)
     content = {'obj': obj}
     return render(request, 'Basketball/Basketball_Details.html', content)
+
+
+def basketballEdit(request, pk):
+    obj = get_object_or_404(Pickup, id=pk)
+    form = PickupForm(request.POST or None, instance=obj)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            game = form.save(commit=False)
+            game.save()
+
+    content = {'form': form}
+    return render(request, 'Basketball/Basketball_EditAndDelete.html', content)
+
+
+def basketballDelete(request, pk):
+    obj = get_object_or_404(Pickup, id=pk)
+    obj.delete()
+
+    return render(request, 'Basketball/Basketball_home.html')

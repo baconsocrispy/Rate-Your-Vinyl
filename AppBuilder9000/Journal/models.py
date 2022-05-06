@@ -12,3 +12,12 @@ class Entry(models.Model):
     def __str__(self):
         return self.title
 
+
+class WeatherMoment(models.Model):
+    temperature = models.IntegerField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    WeatherMoments = models.Manager()
+
+    def __str__(self):
+        return self.date
