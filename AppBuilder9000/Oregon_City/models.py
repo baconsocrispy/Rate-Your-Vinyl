@@ -8,9 +8,7 @@ class Activities(models.Model):
     activity_description = models.CharField(max_length=100)
     distance = models.DecimalField(max_digits=5, decimal_places=0, default="")
 
-    Activities = models.Manager()
+    ActivitiesManager = models.Manager()
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(args, kwargs)
-        self.is_valid = Activities
-        self.title = None
+    def __str__(self):
+        return self.activity_name
