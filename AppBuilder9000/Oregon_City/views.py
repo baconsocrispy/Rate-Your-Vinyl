@@ -11,6 +11,7 @@ def oregon_create(request):
     form = ActivitiesForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
+            form.save()
             return redirect('oregon_display')
     content = {'form': form}
     return render(request, 'Oregon_City/Oregon_create.html', content)
