@@ -1,0 +1,23 @@
+{% extends "Oregon_base.html" %}
+
+{% block content %}
+
+<h1>View Activities</h1>
+<table class="views">
+    <tr>
+        <th>Activity Name</th>
+        <th>Activity Snacks</th>
+        <th>Description</th>
+        <th>Distance</th>
+    </tr>
+    {% for d in details %}
+    <tr>
+        <td>{{ d.activities_name }}</td>
+        <td>{{ d.activities_snacks }}</td>
+        <td>{{ d.description }}</td>
+        <td>{{ distance }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
