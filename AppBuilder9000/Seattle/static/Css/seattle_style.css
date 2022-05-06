@@ -61,3 +61,15 @@ body {
     height: 300px;
     text-align: center;
 }
+
+.views a {
+    text-decoration: none;
+}
+
+.detail {
+    width: 100%;
+    text-align: center;
+    background: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
