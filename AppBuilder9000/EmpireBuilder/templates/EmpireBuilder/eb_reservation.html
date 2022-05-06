@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="admin_panel">
-        <form method="POST" action="{% url 'reserve' %}">
+        <form method="POST">
             <div class="frmObject_container">
                 {% csrf_token %}
                 {{ form.non_field_errors }}

@@ -6,8 +6,8 @@ from .forms import BookingForm
 
 
 # Create your views here.
-def home(request):
-    return render(request, 'eb_home.html')
+def eb_home(request):
+    return render(request, 'EmpireBuilder/eb_home.html')
 
 def admin_console(request):
     EmpireBuilder = Booking.objects.all()
@@ -35,7 +35,7 @@ def cancel(request, pk):
     context = {'item': item}
     return render(request, 'eb_home', context)
 
-def reserve(request):
+def eb_reserve(request):
     form = BookingForm(request.POST or None)
     if form.is_valid():
         form.save()
