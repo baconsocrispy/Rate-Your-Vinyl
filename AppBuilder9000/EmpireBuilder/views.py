@@ -21,7 +21,7 @@ def details(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('admin_console')
+            return redirect('eb_home')
         else:
             print(form.errors)
 
@@ -31,16 +31,16 @@ def cancel(request, pk):
     item = get_object_or_404(Booking, pk=pk)
     if request.method == 'POST':
         item.cancel()
-        return redirect('admin_console')
+        return redirect('eb_home')
     context = {'item': item}
-    return render(request, 'admin_console', context)
+    return render(request, 'eb_home', context)
 
 def reserve(request):
     form = BookingForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('admin_console')
+        return redirect('eb_home')
     else:
         print(form.errors)
     context = {'form': form}
-    return render(request, 'EmpireBuilder/reserve.html', context)
+    return render(request, 'EmpireBuilder/eb_reservation.html', context)
