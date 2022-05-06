@@ -20,7 +20,7 @@
         <tbody>
         {% for Dallas in Dallas_list %}
             <tr>
-                <td>{{Dallas.first_name}}</td>
+                <td><a href="{% url 'Dallas_details' Dallas.id %}">{{Dallas.first_name}}</a></td>
                 <td>{{Dallas.last_name}}</td>
                 <td>{{Dallas.fav_sports_team}}</td>
                 <td>{{Dallas.fav_activity}}</td>
@@ -30,7 +30,6 @@
     </table>
     <div>
         <a href="{% url 'Dallas_raffle' %}" role="button">Enter the Raffle!</a>
-        <a href="{% url 'Dallas_details' %}" role="button">Details</a>
     </div>
 </div>
 

@@ -16,7 +16,7 @@ def raffle(request):
 
 def DisplayRaffle(request):
     raffle_list = Dallas.Dallas.all()
-    context = {'raffle_list': raffle_list}
+    context = {'Dallas': raffle_list}
     return render(request, 'Dallas/Dallas_list.html', context)
 
 def RaffleDetails(request, pk):
