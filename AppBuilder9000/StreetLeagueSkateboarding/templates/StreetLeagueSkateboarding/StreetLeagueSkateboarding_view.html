@@ -1,7 +1,8 @@
 {% extends "StreetLeagueSkateboarding_base.html" %}
 
 {% block content %}
-<h1>Roster</h1>
+
+<h1>View Roster</h1>
 <table>
     <tr>
         <th>First Name</a></th>
@@ -9,6 +10,15 @@
         <th>Age</a></th>
         <th>Hometown</a></th>
     </tr>
-</table>
+    {% for e in entry %}
+    <tr>
+        <td>{{ e.first_name }}</td>
+        <td>{{ e.last_name }}</td>
+        <td>{{ e.age }}</td>
+        <td>{{ e.hometown }}</td>
+    </tr>
+    {% endfor %}
+</table><br>
 <button><a href="{% url 'StreetLeagueSkateboarding_create' %}">Add Skater</a></button>
+
 {% endblock %}
