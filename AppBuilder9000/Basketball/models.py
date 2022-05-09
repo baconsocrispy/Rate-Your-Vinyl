@@ -11,7 +11,7 @@ position_choices = (
 
 
 class Pickup(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, null=True)
     position = models.CharField(max_length=30, choices=position_choices, default='Point Guard')
     date = models.DateField(auto_now=True)
     points = models.PositiveIntegerField()

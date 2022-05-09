@@ -3,14 +3,14 @@ from django import forms
 
 # Create your models here.
 Genre_Choices = (
-    ('comedy','Comedy'),
+    ('comedy', 'Comedy'),
     ('anime', 'Anime'),
-    ('horror','Horror'),
+    ('horror', 'Horror'),
     ('sitcom', 'Sitcom'),
     ('musical', 'Musical'),
     ('kids', 'Kids'),
-    ('slice of life','Slice of LIfe'),
-    ('early animation','Early Animation'),
+    ('slice of life', 'Slice of LIfe'),
+    ('early animation', 'Early Animation'),
 )
 
 class Cartoon(models.Model):
