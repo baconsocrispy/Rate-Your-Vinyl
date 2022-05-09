@@ -1,0 +1,36 @@
+
+{% extends 'eb_base.html' %}
+
+{% block title %}A Scenic Route{% endblock %}
+
+{% block header %}Created Reservations{% endblock %}
+
+{% block content %}
+
+<style>
+    table, th, td {
+    font-family: courier, sans-serif; border: 2px solid black; padding: 5px}
+    th, tr, td {
+    border: 1px solid black, text-align: center;}
+</style>
+
+<table class="table table-responsive" id ="reservations-table">
+
+				<tr id="headerRow">
+					<th>Date</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Accommodation</th>
+				</tr>
+				{% for key in booking %}
+				<tr>
+					<td class="center">{{ key.travelDate }}</td>
+					<td class="center">{{ key.first_name }}</td>
+					<td class="left">{{ key.last_name }}</td>
+					<td class="right">{{ key.accommodation }}</td>
+
+                </tr>
+				{% endfor %}
+			</table>
+
+{% endblock %}

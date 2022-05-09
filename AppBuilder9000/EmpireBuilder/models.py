@@ -9,6 +9,23 @@ ACCOMMODATION_CHOICE = (
     ('Accessible Bedroom', 'Accessible Bedroom'),
 )
 
+EB_STATES = (
+    ('Illinois', 'Illinois'),
+    ('Washington', 'Washington'),
+    ('Oregon', 'Oregon'),
+)
+
+EB_LONG = (
+    ('Chicago', 'Chicago'),
+    ('Seattle', 'Seattle'),
+    ('Portland', 'Portland'),
+)
+
+EB_SHORT = (
+    ('Glenview', 'Glenview'),
+    ('Everett', 'Everett'),
+    ('none', 'none'),
+)
 
 # Create your models here.
 class Booking(models.Model):
@@ -25,3 +42,4 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.phone
+
