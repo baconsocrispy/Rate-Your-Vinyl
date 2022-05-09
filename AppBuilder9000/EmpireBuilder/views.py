@@ -44,3 +44,17 @@ def eb_reserve(request):
         print(form.errors)
     context = {'form': form}
     return render(request, 'EmpireBuilder/eb_reservation.html', context)
+
+def eb_stations(request):
+    return render(request, 'EmpireBuilder/eb_stations.html')
+
+def eb_accommodations(request):
+    return render(request, 'EmpireBuilder/eb_accommodations.html')
+
+def eb_gallery(request):
+    return render(request, 'EmpireBuilder/eb_gallery.html')
+
+def eb_created(request):
+    booking = Booking.objects.all()
+    context ={'booking': booking}
+    return render(request, 'EmpireBuilder/eb_created.html', context)

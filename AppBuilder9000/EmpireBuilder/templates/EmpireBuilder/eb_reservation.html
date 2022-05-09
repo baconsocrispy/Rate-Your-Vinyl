@@ -21,4 +21,15 @@
     </div>
 
 
+    <h2>View created reservations <a href="{% url 'eb_created' %}"><button type='button' class="btn" value="Click">Click Here</button></a></h2>
+
+{{ eb_created }}
+
+
+    <h2>Type in an accommodation type for more information:<br></h2>
+    <form method="POST">
+    <input class="form-control" type="search">
+    <a href="{% url 'eb_accommodations' %}"><button type='button' class="btn" value="submit">Search</button></a>
+    </form>
+
 {% endblock %}

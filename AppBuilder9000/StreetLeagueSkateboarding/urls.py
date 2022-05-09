@@ -8,4 +8,6 @@ urlpatterns = [
     path('StreetLeagueSkateboarding_create/', views.SLS_create, name='StreetLeagueSkateboarding_create'),
     path('StreetLeagueSkateboarding_view/', views.SLS_view, name='StreetLeagueSkateboarding_view'),
     path('<int:pk>/StreetLeagueSkateboarding_details/', views.SLS_details, name='StreetLeagueSkateboarding_details'),
+    path('<int:pk>/update/', views.SLS_update, name='StreetLeagueSkateboarding_update'),
+    path('<int:pk>/delete/', views.SLS_delete, name='StreetLeagueSkateboarding_delete'),
 ]
