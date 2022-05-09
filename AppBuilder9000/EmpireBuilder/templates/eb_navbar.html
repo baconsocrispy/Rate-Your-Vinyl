@@ -1,6 +1,15 @@
 
-<ul class="topnav">
-    <li><a href="{% url 'eb_home' %}">A Scenic Route</a></li>
-    <li><a href="#">Stations</a></li>
-    <li><a href="#">Gallery</a></li>
-</ul>
+
+<nav class="navbar navbar-expand-lg navbar-secondary bg-secondary">
+ <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" href="{% url 'eb_home' %}">Home <span class="sr-only"></span></a>
+      <a class="nav-link" href="{% url 'eb_stations' %}">Stations </a>
+      <a class="nav-link" href="{% url 'eb_gallery' %}">Gallery </a>
+      <a class="nav-link" href="{% url 'eb_reservation' %}">Reservation </a>
+      <a class="nav-link" href="{% url 'eb_accommodations' %}">Accommodation </a>
+    </div>
+  </div>
+</nav>
