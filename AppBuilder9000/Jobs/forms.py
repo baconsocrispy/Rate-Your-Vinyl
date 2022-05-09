@@ -1,13 +1,13 @@
 from django.forms import ModelForm
-from .models import Account, Transaction
+from .models import account, singupChild
 
 
-class AccountForm(ModelForm):
+class accountForm(ModelForm):
     class Meta:
-        model = Account
+        model = account
         fields = '__all__'
 
-class TransactionForm(ModelForm):
+class childForm(ModelForm):
     class Meta:
-        model = Transaction
+        model = singupChild
         fields = '__all__'
