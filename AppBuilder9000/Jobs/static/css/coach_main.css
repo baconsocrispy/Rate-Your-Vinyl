@@ -56,6 +56,15 @@ footer {
 	margin-left: 25px;
 	margin-top: 15px;
 
+.coach-container h2{
+	font-size: 2rem;
+	text-decoration: underline;
+	text-align: center;\
+	font-weight: bold;
+	margin-left: 25px;
+	margin-top: 15px;
+
+
 .account-form {
 	position: relative;
 	padding-top: 200px;
@@ -65,3 +74,21 @@ footer {
 	width: 700px;
 	text-align: center
 }
+
+.center {
+	text-align: center;
+	width: 15%;
+	color: white;
+}
+
+.left{
+	padding-left: 10px;
+	width: 30%;
+	word-wrap: normal;
+	color: white;
+}
+
+.right {
+	padding-right: 5px;
+	width: 20%;
+	text-align: right;
