@@ -54,3 +54,14 @@ def childDetails(request, pk):
         details = get_object_or_404(Child, pk=pk)
         content = {'details': details}
         return render(request, 'Jobs/coachChildDetails.html', content)
+
+def updateChild(request, pk):
+    details = Child.Children.get(pk=pk)
+    form = childForm(request.POST or None, instance=details)
+
+    if form.is_valid():
+        form.save()
+        return redirect('coachChildRoster')
+
+    content = {'details': details, 'form': form}
+    return render(request, 'Jobs/coachUpdateChild', content)
