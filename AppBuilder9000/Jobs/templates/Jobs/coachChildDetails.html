@@ -15,20 +15,18 @@
 					<th>Notes</th>
 					<th>Coach</th>
 				</tr>
-				{% for child in details %}
 				<tr>
 					<!--This displays all info from 'details' as defined in 'def childDetails'-->
-					<td class="center">{{ child.Last_Name }}</td>
-					<td class="center">{{ child.First_Name }}</td>
-					<td class="center">{{ child.Child_Grade }}</td>
-					<td class="center">{{ child.Jersey_Number }}</td>
-					<td class="center">{{ child.Parent_Name }}</td>
-					<td class="center">{{ child.Parent_Phone }}</td>
-					<td class="center">{{ child.Parent_Email }}</td>
-					<td class="center">{{ child.Notes_or_Allergies }}</td>
+					<td class="center">{{ details.Last_Name }}</td>
+					<td class="center">{{ details.First_Name }}</td>
+					<td class="center">{{ details.Child_Grade }}</td>
+					<td class="center">{{ details.Jersey_Number }}</td>
+					<td class="center">{{ details.Parent_Name }}</td>
+					<td class="center">{{ details.Parent_Phone }}</td>
+					<td class="center">{{ details.Parent_Email }}</td>
+					<td class="center">{{ details.Notes_or_Allergies }}</td>
 					<!--<td class="right">{{ key.Coach_Name }}</td>-->
 				</tr>
-				{% endfor %}
 			</table>
 
 			<br><br>
