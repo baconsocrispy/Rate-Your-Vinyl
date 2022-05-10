@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import ResortListings, ResortTraveler
+
 
 # Create your views here.
 def resorts_home(request):
