@@ -76,9 +76,17 @@ footer {
 }
 
 /* General Table Styling */
+/*
 #headerRow {
 	color: darkslateblue;
 	text-align: center;
+*/
+tr td{
+	height: auto;
+	word-wrap: normal;
+
+	width: auto;
+}
 
 .center {
 	text-align: center;
