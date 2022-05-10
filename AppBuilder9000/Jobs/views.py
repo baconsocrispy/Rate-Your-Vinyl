@@ -50,5 +50,7 @@ def childRoster(request):
     #results=cursor.fetchall()
     #return render(request,'childRoster.html',{'singupChild':results})
 
-def childDetails(request):
-    return render(request, 'Jobs/coachChildDetails.html')
+def childDetails(request, pk):
+        details = get_object_or_404(Child, pk=pk)
+        content = {'details': details}
+        return render(request, 'Jobs/coachChildDetails.html', content)
