@@ -15,11 +15,17 @@
 					<th>Notes</th>
 					<th>Coach</th>
 				</tr>
-				{% for child in rosterList %}
+				{% for child in details %}
 				<tr>
+					<!--This displays all info from 'details' as defined in 'def childDetails'-->
 					<td class="center">{{ child.Last_Name }}</td>
+					<td class="center">{{ child.First_Name }}</td>
 					<td class="center">{{ child.Child_Grade }}</td>
 					<td class="center">{{ child.Jersey_Number }}</td>
+					<td class="center">{{ child.Parent_Name }}</td>
+					<td class="center">{{ child.Parent_Phone }}</td>
+					<td class="center">{{ child.Parent_Email }}</td>
+					<td class="center">{{ child.Notes_or_Allergies }}</td>
 					<!--<td class="right">{{ key.Coach_Name }}</td>-->
 				</tr>
 				{% endfor %}
