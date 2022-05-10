@@ -47,6 +47,7 @@ urlpatterns = [
     path('StreetLeagueSkateboarding/', include('StreetLeagueSkateboarding.urls')),
     path('All_Inclusive_Resorts/', include ('All_Inclusive_Resorts.urls')),
     path('Jobs/', include('Jobs.urls')),
+    path('TexMex/', include('TexMex.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
