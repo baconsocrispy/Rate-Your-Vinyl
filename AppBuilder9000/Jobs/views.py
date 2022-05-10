@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db import connection
+from itertools import chain
 from .forms import coachForm, childForm
 from .models import Coach, Child
 
@@ -31,6 +32,11 @@ def childCreate(request):
     content = {'form': form}
     return render(request, 'Jobs/coachChildCreate.html', content)
 
+def childRoster(request):
+    rosterList = Child.Children.all().order_by('Child_Grade')
+    content = {'rosterList': rosterList}
+    return render(request, 'Jobs/coachChildSignups.html', content)
+
 #def childRoster(request, pk):
     #coach = account.accounts.filter(coach_Grade=pk)
     #child = singupChild.signupChilds.filter(Grade=pk)
@@ -38,8 +44,10 @@ def childCreate(request):
     #content = {'coach': coach, 'table_contents': table_contents, 'child': child}
     #return render(request, 'Jobs/coachChildSignups.html', content)
 
-def childRoster(request):
-    cursor=connection.cursor()
-    cursor.execute("select singupChild.grade,singupChild.child_Name,account.name from singupChild join account on singupChild.grade=account.coach_Grade")
-    results=cursor.fetchall()
-    return render(request,'childRoster.html',{'singupChild':results})
+#def childRoster(request):
+    #cursor=connection.cursor()
+    #cursor.execute("select singupChild.grade,singupChild.child_Name,account.name from singupChild join account on singupChild.grade=account.coach_Grade")
+    #results=cursor.fetchall()
+    #return render(request,'childRoster.html',{'singupChild':results})
+
+
