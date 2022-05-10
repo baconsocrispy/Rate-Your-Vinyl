@@ -5,6 +5,8 @@ urlpatterns = [
     path('', views.coachHome, name='coachHome'),
     path('create/', views.coachCreate, name='coachCreate'),
     path('signups/', views.childCreate, name='coachChildSignups'),
+    path('fullroster/', views.childRoster, name='coachChildRoster'),
+    path('childdetails/<int:pk>', views.childDetails, name='coachChildDetails'),
 
 
 ]
