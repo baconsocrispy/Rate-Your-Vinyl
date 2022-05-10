@@ -35,7 +35,7 @@ def childCreate(request):
 def childRoster(request):
     rosterList = Child.Children.all().order_by('Child_Grade')
     content = {'rosterList': rosterList}
-    return render(request, 'Jobs/coachChildSignups.html', content)
+    return render(request, 'Jobs/childRoster.html', content)
 
 #def childRoster(request, pk):
     #coach = account.accounts.filter(coach_Grade=pk)
@@ -50,4 +50,5 @@ def childRoster(request):
     #results=cursor.fetchall()
     #return render(request,'childRoster.html',{'singupChild':results})
 
-
+def childDetails(request):
+    return render(request, 'Jobs/coachChildDetails.html')
