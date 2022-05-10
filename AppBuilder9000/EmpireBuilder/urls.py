@@ -1,5 +1,6 @@
 
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 from . import views
 
@@ -12,3 +13,5 @@ urlpatterns =[
     path('gallery/', views.eb_gallery, name='eb_gallery'),
     path('created/', views.eb_created, name='eb_created')
 ]
+
+urlpatterns += staticfiles_urlpatterns()

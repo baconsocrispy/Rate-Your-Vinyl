@@ -7,6 +7,29 @@
 
 {% block content %}
 
+<!-- INFORMATIONAL VIDEO -->
+<div>
+    <h1>About Empire Builder</h1>
 
+    <iframe width="560" height="315" src="https://youtu.be/dv-PdIU3oAk"></iframe>
+</div>
+<!-- END INFORMATIONAL VIDEO -->
+
+<section>
+    <div>
+        <div class="column">
+            <img src="{% static 'images/scene1.jpg' %}" style="width: 100%" onclick="openModal (); currentSlide(1)" alt="">
+        </div>
+    </div>
+
+
+
+    <div>
+        <div class="column">
+            <img src="{% static 'images/scene14.jpg' %}" style="width: 100%" onclick="openModal (); currentSlide(14)" alt="">
+        </div>
+    </div>
+
+</section>
 
 {% endblock %}
