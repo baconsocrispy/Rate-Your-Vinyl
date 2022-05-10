@@ -1,0 +1,26 @@
+{% extends 'coachBase.html' %}
+{% block title %}Child Roster{% endblock %}
+{% block content %}
+			<h2>Child Roster</h2>
+
+			<table class="table table-responsive" id ="roster-table">
+				<tr id="headerRow">
+					<th>Child Name</th>
+					<th>Grade</th>
+					<th>Jersey #</th>
+					<th>Emergency Number</th>
+					<th>Coach</th>
+				</tr>
+				{% for key, total in table_contents.items %}
+				<tr>
+					<td class="center">{{ key.child_Name }}</td>
+					<td class="center">{{ key.grade }}</td>
+					<td class="left">{{ key.jersey_Number }}</td>
+					<td class="right">{{ key.Parent_Phone }}</td>
+					<td class="right">{{ coach }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+
+			<br><br>
+{% endblock %}

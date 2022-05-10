@@ -1,13 +1,13 @@
 from django.forms import ModelForm
-from .models import account, singupChild
+from .models import Child, Coach
 
 
-class accountForm(ModelForm):
+class coachForm(ModelForm):
     class Meta:
-        model = account
+        model = Coach
         fields = '__all__'
 
 class childForm(ModelForm):
     class Meta:
-        model = singupChild
+        model = Child
         fields = '__all__'
