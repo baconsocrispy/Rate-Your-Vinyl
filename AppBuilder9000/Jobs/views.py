@@ -35,7 +35,7 @@ def childCreate(request):
 def childRoster(request):
     rosterList = Child.Children.all().order_by('Child_Grade')
     content = {'rosterList': rosterList}
-    return render(request, 'Jobs/childRoster.html', content)
+    return render(request, 'Jobs/coachChildRoster.html', content)
 
 #def childRoster(request, pk):
     #coach = account.accounts.filter(coach_Grade=pk)
