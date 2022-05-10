@@ -3,20 +3,21 @@
 {% block content %}
 
 <h1>View Activities</h1>
-<table class="views">
+<table class="Activities">
     <tr>
-        <th>Activity Name</th>
-        <th>Activity Snacks</th>
-        <th>Description</th>
-        <th>Distance</th>
+        <th>Activity Name:</th>
+        <th>Activity Snacks:</th>
+        <th>Description:</th>
+        <th>Distance:</th>
     </tr>
-    {% for d in details %}
+    {%  for Activity in Activities %}
     <tr>
-        <td>{{ d.activities_name }}</td>
-        <td>{{ d.activities_snacks }}</td>
-        <td>{{ d.description }}</td>
-        <td>{{ distance }}</td>
+        <td class="center"><a href="{% url 'Oregon_details' Activity.id %}">{{ Activity.Name }}</a></td>
+        <td class="center">{{ Activity.Snacks }}</td>
+        <td class="center">{{ Activity.Description }}</td>
+        <td class="center">{{ Activity.Distance }}</td>
     </tr>
+
     {% endfor %}
 </table>
 
