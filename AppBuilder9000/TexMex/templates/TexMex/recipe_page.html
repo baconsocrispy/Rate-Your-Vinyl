@@ -2,7 +2,7 @@
 
 {% block title %}Tex-Mex{% endblock %}
 
-{% block header %}Welcome to Tex-Mex Rocks!{% endblock %}
+{% block header %}Add/Change Recipes{% endblock %}
 
 {% block content %}
 
@@ -18,7 +18,7 @@
             </select>
             <div class="frmBtn_container"></div>
             <a href="{% url 'createRecord' %}"><button type="button" class="btn">Add Recipe</button></a>
-            <a href="{% url 'home' %}"><button type="button" class="btn">Logout</button></a>
+            <a href="{% url 'view_recipes' %}"><button type="button" class="btn">Cancel</button></a>
         </div>
     </form>
 

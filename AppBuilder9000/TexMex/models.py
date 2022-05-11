@@ -12,7 +12,7 @@ TYPE_CHOICES = {
 
 class Food(models.Model):
     type = models.CharField(max_length=12, choices=TYPE_CHOICES)
-    name = models.CharField(max_length=60, default="", blank=True, null=False)
+    name = models.CharField(max_length=60, default="", blank=False, null=False)
     servings = models.IntegerField(default=0)
     recipe = models.TextField(max_length=1000, default="", blank=True)
     dateSubmitted = models.DateTimeField(auto_now_add=True)
