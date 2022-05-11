@@ -15,6 +15,6 @@ def resorts_create(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('')
+            return redirect('../read')
     content = {'form': form}
-    return render(request, 'All-Inclusive_Resorts/resorts_create.html', content)
+    return render(request, 'All_Inclusive_Resorts/resorts_create.html', content)
