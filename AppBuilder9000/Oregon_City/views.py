@@ -39,3 +39,4 @@ def oregon_view(request):
     activity = Activity.Entries.all()
     content = {'Activity': activity}
     return render(request, 'Oregon_City/Oregon_view.html', content)
+
