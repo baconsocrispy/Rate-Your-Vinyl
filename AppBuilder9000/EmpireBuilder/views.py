@@ -56,5 +56,16 @@ def eb_gallery(request):
 
 def eb_created(request):
     booking = Booking.objects.all()
-    context ={'booking': booking}
-    return render(request, 'EmpireBuilder/eb_created.html', context)
+    content = {'booking': booking}
+    return render(request, 'EmpireBuilder/eb_created.html', content)
+
+
+def eb_details(request, first_name):
+    rider = get_object_or_404(Booking, pk=first_name)
+    content = {'rider': rider}
+    return render(request, 'EmpireBuilder/eb_details.html', content)
+
+def eb_clear(request):
+    package = Booking.objects.all()
+    package.delete()
+    return render(request, 'EmpireBuilder/eb_reservation.html')

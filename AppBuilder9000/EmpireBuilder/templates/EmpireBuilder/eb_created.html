@@ -6,7 +6,7 @@
 {% block header %}Created Reservations{% endblock %}
 
 {% block content %}
-
+<!-- When reservations are made, they are displayed on this page -->
 <style>
     table, th, td {
     font-family: courier, sans-serif; border: 2px solid black; padding: 5px}
@@ -22,15 +22,20 @@
 					<th>Last Name</th>
 					<th>Accommodation</th>
 				</tr>
-				{% for key in booking %}
+				{% for rider in booking %}
 				<tr>
-					<td class="center">{{ key.travelDate }}</td>
-					<td class="center">{{ key.first_name }}</td>
-					<td class="left">{{ key.last_name }}</td>
-					<td class="right">{{ key.accommodation }}</td>
+					<td class="center">{{ rider.travelDate }}</td>
+					<td class="center">{{ rider.first_name }}</td>
+					<td class="left">{{ rider.last_name }}</td>
+					<td class="right">{{ rider.accommodation }}</td>
 
                 </tr>
 				{% endfor %}
-			</table>
 
+				</table>
+<button><a href="{% url 'eb_reservation' %}">Another Reservation</a></button>
+<!-- create individual delete, also the clearall does not work yet -->
+<a href="{% url 'eb_created' %}"><button type='button' class="btn" value="delete">Clear All</button></a>
 {% endblock %}
+
+<!-- <a href="{% url 'eb_details' rider.id %}"></a> -->
