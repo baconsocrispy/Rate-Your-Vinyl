@@ -1,8 +1,8 @@
--{% extends 'coachBase.html' %}
+{% extends 'coachBase.html' %}
 {% block title %}Create New Account{% endblock %}
 {% block content %}
 	<h3>Add A Child Participant</h3>
-	<div id="account-form">
+	<div id="account">
 		<form method="POST">
 			{% csrf_token %}
 			{{form.as_p}}

@@ -8,26 +8,30 @@ TYPE_GRADE = {
     ('6th-7th','6th-7th'),
 }
 
-class account(models.Model):
-    name = models.CharField(max_length=60)
-    email = models.CharField(max_length=30)
-    coach_Grade = models.CharField(max_length=10, choices=TYPE_GRADE, default='please choose')
+class Coach(models.Model):
+    Coach_Name = models.CharField(max_length=60)
+    Coach_Email = models.CharField(max_length=30)
+    Coach_Grade = models.CharField(max_length=10, choices=TYPE_GRADE)
 
 
 
-    accounts = models.Manager()
+    Coaches = models.Manager()
 
     def __str__(self):
-        return self.name
+        return self.Coach_Name
 
-class singupChild(models.Model):
-    child_Name = models.CharField(max_length=60)
-    grade = models.CharField(max_length=10, choices=TYPE_GRADE)
+class Child(models.Model):
+    First_Name = models.CharField(max_length=60)
+    Last_Name = models.CharField(max_length=60)
+    Child_Grade = models.CharField(max_length=10, choices=TYPE_GRADE)
+    Jersey_Number = models.IntegerField( default='0')
     Parent_Name = models.CharField(max_length=60)
     Parent_Phone = models.CharField(max_length=60)
     Parent_Email = models.CharField(max_length=60)
+    Notes_or_Allergies = models.TextField(max_length=300)
 
-    singupChild = models.Manager()
+
+    Children = models.Manager()
 
     def __str__(self):
-        return self.child_Name
+        return self.Child_Name

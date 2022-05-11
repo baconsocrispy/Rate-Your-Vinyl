@@ -2,7 +2,7 @@
 {% block title %}Create New Account{% endblock %}
 {% block content %}
 	<h3>Create New Coach Account</h3>
-	<div id="account-form">
+	<div id="account">
 		<form method="POST">
 			{% csrf_token %}
 			{{form.as_p}}
