@@ -7,6 +7,9 @@
         <title>Skateboarding</title>
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"> <!--Needs Work-->
         <link rel="stylesheet" type="text/css" href="{% static '/css/StreetLeagueSkateboarding.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
     </head>
     <body>
         <!--Navigation Start-->
@@ -14,11 +17,9 @@
             <a href="{% url 'StreetLeagueSkateboarding_home' %}">Home</a>
             <a href="{% url 'StreetLeagueSkateboarding_create' %}">Create Skater</a>
             <a href="{% url 'StreetLeagueSkateboarding_view' %}">Roster</a>
+            <a href="{% url 'StreetLeagueSkateboarding_api' %}">API</a>
         </div>
         <!--Navigation End-->
-        <!--Skateboarding Title Logo Start-->
-        <div class="skateboarding_logo"></div>
-        <!--Skateboarding Title Logo End-->
         <!--Content Start-->
         <div class="create-container">
             {% block content %}{% endblock %}

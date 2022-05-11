@@ -1,35 +1,42 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ActivitiesForm
-from .models import Activities
+from .models import Activity, WeatherMoment
+from .forms import ActivityForm, WeatherMomentForm
 
+
+# Story #1: Build the basic app ---
 
 def oregon_home(request):
     return render(request, 'Oregon_City/Oregon_home.html')
 
+# Story #2: Create your model ----
+
 
 def oregon_create(request):
-    form = ActivitiesForm(data=request.POST or None)
+    form = ActivityForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('oregon_display')
+            return redirect('../display')
     content = {'form': form}
     return render(request, 'Oregon_City/Oregon_create.html', content)
 
+# Story #3: Display all items from database ----
+
 
 def oregon_display(request):
-    oregon_details = Activities.activity_name
-    content = {'details': oregon_details}
+    activity = Activity.Entries.all()
+    content = {'activity': activity}
     return render(request, 'Oregon_City/Oregon_display.html', content)
 
 
 def oregon_details(request, pk):
-    details = get_object_or_404(Activities, pk=pk)
+    details = get_object_or_404(Activity, pk=pk)
     content = {'details': details}
     return render(request, 'Oregon_City/Oregon_details.html', content)
 
 
 def oregon_view(request):
-    activity = Activities.ActivitiesManager.all()
+    activity = Activity.Entries.all()
     content = {'Activity': activity}
     return render(request, 'Oregon_City/Oregon_view.html', content)
+

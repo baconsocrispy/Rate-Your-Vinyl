@@ -9,19 +9,21 @@
         <div id="form-container" class="table-responsive w-50 mx-auto">
 			<table id="table" class="table table-light table-bordered table-hover text-container">
 				<tr id="headerRow">
-					<th>Activity Name</th>
-					<th>Activity Snacks</th>
-					<th>Description</th>
-                    <th>Distance</th>
+					<th>Activity Name:</th>
+					<th>Activity Snacks:</th>
+					<th>Description:</th>
+                    <th>Distance:</th>
 				</tr>
 				<tr>
 					<td class="center">{{ details.activity_name }}</td>
 					<td class="center">{{ details.activity_snacks }}</td>
-					<td class="left">{{ details.description }}</td>
+					<td class="left">{{ details.activity_description }}</td>
                     <td class="center">{{ details.distance }}</td>
 				</tr>
+
 
 
 			</table>
         </div>
 
+{% endblock %}

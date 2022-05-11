@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'StreetLeagueSkateboarding',
     'All_Inclusive_Resorts',
     'Jobs',
+    'TexMex',
+    'CustomPcs',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,13 @@
+{% extends 'coachBase.html' %}
+{% block title %}Create New Account{% endblock %}
+{% block content %}
+	<h3>Create New Coach Account</h3>
+	<div id="account">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button id="new-account-button" type="submit" name="Save_Account">Create Account</button>
+		</form>
+		<br>
+	</div>
+{% endblock %}
