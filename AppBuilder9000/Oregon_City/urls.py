@@ -8,3 +8,4 @@ urlpatterns = [
     path('<int:pk>/details/', views.oregon_details, name='oregon_details'),
     path('Oregon_view/', views.oregon_view, name='oregon_view'),
 ]
+
