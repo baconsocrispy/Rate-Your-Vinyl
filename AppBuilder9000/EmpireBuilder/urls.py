@@ -11,7 +11,7 @@ urlpatterns =[
     path('accommodations/', views.eb_accommodations, name='eb_accommodations'),
     path('gallery/', views.eb_gallery, name='eb_gallery'),
     path('created/', views.eb_created, name='eb_created'),
-    path('details/', views.eb_details, name='eb_details'),
+    path('<int:pk>/details/', views.eb_details, name='eb_details'),
     path('clear/', views.eb_clear, name='eb_clear')
 ]
 

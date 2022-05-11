@@ -60,8 +60,8 @@ def eb_created(request):
     return render(request, 'EmpireBuilder/eb_created.html', content)
 
 
-def eb_details(request, first_name):
-    rider = get_object_or_404(Booking, pk=first_name)
+def eb_details(request, pk):
+    rider = get_object_or_404(Booking, pk=pk)
     content = {'rider': rider}
     return render(request, 'EmpireBuilder/eb_details.html', content)
 

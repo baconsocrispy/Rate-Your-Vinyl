@@ -25,7 +25,7 @@
 				{% for rider in booking %}
 				<tr>
 					<td class="center">{{ rider.travelDate }}</td>
-					<td class="center">{{ rider.first_name }}</td>
+					<td class="center"><a href="{% url 'eb_details' rider.id %}">{{ rider.first_name }}</a></td>
 					<td class="left">{{ rider.last_name }}</td>
 					<td class="right">{{ rider.accommodation }}</td>
 
@@ -37,5 +37,3 @@
 <!-- create individual delete, also the clearall does not work yet -->
 <a href="{% url 'eb_created' %}"><button type='button' class="btn" value="delete">Clear All</button></a>
 {% endblock %}
-
-<!-- <a href="{% url 'eb_details' rider.id %}"></a> -->
