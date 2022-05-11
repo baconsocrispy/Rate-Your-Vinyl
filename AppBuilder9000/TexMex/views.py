@@ -10,10 +10,13 @@ def texmex_home(request):
     return render(request, 'TexMex/texmex_home.html')
 # Create your views here.
 
-
-def edit_recipe(request):
+def recipe_page(request):
     foods = Food.objects.all()
     return render(request, 'TexMex/recipe_page.html', {'foods': foods})
+
+def view_recipes(request):
+    foods = Food.objects.all()
+    return render(request, 'TexMex/texmex_display.html', {'foods': foods})
 
 
 def details(request, pk):
@@ -24,7 +27,7 @@ def details(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('edit_recipe')
+            return redirect('view_recipes')
         else:
             print(form.errors)
     else:
@@ -35,7 +38,7 @@ def delete(request, pk):
     item = get_object_or_404(Food, pk=pk)
     if request.method == 'POST':
         item.delete()
-        return redirect('edit_recipe')
+        return redirect('view_recipes')
     context = {"item": item,}
     return render(request,"TexMex/confirmDelete.html", context)
 
@@ -45,15 +48,15 @@ def confirmed(request):
         form = FoodForm(request.POST or None)
         if form.is_valid():
             form.delete()
-            return redirect('edit_recipe')
+            return redirect('view_recipes')
     else:
-        return redirect('edit_recipe')
+        return redirect('view_recipes')
 
 def createRecord(request):
     form = FoodForm(data=request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('edit_recipe')
+        return redirect('view_recipes')
     else:
         print(form.errors)
         form = FoodForm()
