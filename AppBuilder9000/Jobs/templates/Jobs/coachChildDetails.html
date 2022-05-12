@@ -1,35 +1,43 @@
 {% extends 'coachBase.html' %}
 {% block title %}Child Roster{% endblock %}
 {% block content %}
-			<h2>Child Details</h2>
-
-			<table class="table table-responsive" id ="roster-table">
-				<tr id="headerRow">
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Grade</th>
-					<th>Jersey #</th>
-					<th>Parent Name</th>
-					<th>Parent Phone</th>
-					<th>Parent Email</th>
-					<th>Notes</th>
-					<th>Coach</th>
-				</tr>
-				{% for child in details %}
-				<tr>
-					<!--This displays all info from 'details' as defined in 'def childDetails'-->
-					<td class="center">{{ child.Last_Name }}</td>
-					<td class="center">{{ child.First_Name }}</td>
-					<td class="center">{{ child.Child_Grade }}</td>
-					<td class="center">{{ child.Jersey_Number }}</td>
-					<td class="center">{{ child.Parent_Name }}</td>
-					<td class="center">{{ child.Parent_Phone }}</td>
-					<td class="center">{{ child.Parent_Email }}</td>
-					<td class="center">{{ child.Notes_or_Allergies }}</td>
-					<!--<td class="right">{{ key.Coach_Name }}</td>-->
-				</tr>
-				{% endfor %}
+		<h2>Child Details</h2>
+		<div class="table-responsive">
+			<table class="table table-hover " >
+				<thead>
+					<tr id="headerRow">
+						<th scope="col">First Name</th>
+						<th scope="col">Last Name</th>
+						<th scope="col">Grade</th>
+						<th scope="col">Jersey #</th>
+						<th scope="col">Parent Name</th>
+						<th scope="col">Parent Phone</th>
+						<th scope="col">Parent Email</th>
+						<th scope="col">Notes</th>
+						<th scope="col">Coach</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<!--This displays all info from 'details' as defined in 'def childDetails'-->
+						<td class="center">{{ details.Last_Name }}</td>
+						<td class="center">{{ details.First_Name }}</td>
+						<td class="center">{{ details.Child_Grade }}</td>
+						<td class="center">{{ details.Jersey_Number }}</td>
+						<td class="center">{{ details.Parent_Name }}</td>
+						<td class="center">{{ details.Parent_Phone }}</td>
+						<td class="center">{{ details.Parent_Email }}</td>
+						<td class="center">{{ details.Notes_or_Allergies }}</td>
+						<!--<td class="right">{{ key.Coach_Name }}</td>-->
+					</tr>
+				</tbody>
 			</table>
+		</div>
+		<br><br>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			<a href="{% url 'coachChildRoster' %}" class="btn btn-primary" role="button">Roster</a>
+			<a href="#" class="btn btn-primary" role="button">Edit</a>
+			<a href="#" class="btn btn-primary" role="button">Delete</a>
+		</div>
 
-			<br><br>
 {% endblock %}

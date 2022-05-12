@@ -48,6 +48,14 @@ footer {
     width: 50%;
 	}
 
+.coach-container h2{
+	font-size: 2rem;
+	text-decoration: underline;
+	text-align: center;\
+	font-weight: bold;
+	margin-left: 25px;
+	margin-top: 15px;
+
 .coach-container h3{
 	font-size: 2rem;
 	text-decoration: underline;
@@ -55,6 +63,7 @@ footer {
 	font-weight: bold;
 	margin-left: 25px;
 	margin-top: 15px;
+
 
 .account-form {
 	position: relative;
@@ -66,15 +75,30 @@ footer {
 	text-align: center
 }
 
+/* General Table Styling */
+/*
+#headerRow {
+	color: darkslateblue;
+	text-align: center;
+*/
+tr td{
+	height: auto;
+	word-wrap: normal;
+
+	width: auto;
+}
+
 .center {
 	text-align: center;
 	width: 15%;
+	color: white;
 }
 
 .left{
 	padding-left: 10px;
 	width: 30%;
 	word-wrap: normal;
+	color: white;
 }
 
 .right {
