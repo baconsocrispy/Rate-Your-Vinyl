@@ -55,7 +55,7 @@ def childDetails(request, pk):
         content = {'details': details}
         return render(request, 'Jobs/coachChildDetails.html', content)
 
-def updateChild(request, pk):
+def childUpdate(request, pk):
     details = Child.Children.get(pk=pk)
     form = childForm(request.POST or None, instance=details)
 
