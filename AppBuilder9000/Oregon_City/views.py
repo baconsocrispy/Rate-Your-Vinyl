@@ -30,7 +30,7 @@ def oregon_display(request):
 
 
 def oregon_details(request, pk):
-    details = get_object_or_404(ActivityForm, pk=pk)
+    details = get_object_or_404(Activity, pk=pk)
     content = {'details': details}
     return render(request, 'Oregon_City/Oregon_details.html', content)
 

@@ -1,0 +1,23 @@
+
+{% extends 'eb_base.html' %}
+
+{% block title %}A Scenic Route{% endblock %}
+
+{% block header %}Rider details:{% endblock %}
+
+{% block content %}
+
+    <p>
+        First_name: {{ rider.first_name }}<br>
+        Last_name: {{ rider.last_name }}<br>
+        Date: {{ rider.travelDate }}<br>
+        Accommodation: {{ rider.accommodation }}<br>
+        Email: {{ rider.email }}<br>
+        Phone: {{ rider.phone }}<br>
+        Guests: {{ rider.guests }}<br>
+    </p>
+
+<a href="{% url 'eb_created' %}"><button type='button' class="btn" value="Cancel">Go Back</button></a>
+
+{{ rider.as_p }}
+{% endblock %}
