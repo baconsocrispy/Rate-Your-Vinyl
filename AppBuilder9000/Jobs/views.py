@@ -65,3 +65,14 @@ def childUpdate(request, pk):
 
     content = {'details': details, 'form': form}
     return render(request, 'Jobs/coachUpdateChild', content)
+
+def DeleteItem(request, pk):
+    content = {}
+    item = get_object_or_404(Child, pk=pk)
+
+    if request.method == "POST":
+        item.delete()
+        return redirect('coachChildRoster')
+
+    return render(request, 'Jobs/coachChildDelete', content)
+
