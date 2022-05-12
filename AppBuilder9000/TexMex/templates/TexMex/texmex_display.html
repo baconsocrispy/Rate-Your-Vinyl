@@ -18,7 +18,7 @@
 				{%  for food in foods %}
 				<tr>
                     <td>{{ food.type }}</td>
-					<td>{{ food.name }}</td>
+					<td><a href="./{{ food.pk}}/details/">{{ food.name }}</a></td>
 					<td>{{ food.servings }}</td>
 					<td>{{ food.dateSubmitted }}</td>
 				</tr>

@@ -22,6 +22,11 @@ def view_recipes(request):
 def details(request, pk):
     pk = int(pk)
     item = get_object_or_404(Food, pk=pk)
+    return render(request, 'TexMex/present_food.html', {'item': item})
+
+def edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Food, pk=pk)
     form = FoodForm(data=request.POST or None, instance=item)
     if request.method == 'POST':
         if form.is_valid():
@@ -31,7 +36,7 @@ def details(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, 'TexMex/present_food.html', {'form':form})
+        return render(request, 'TexMex/texmex_edit.html', {'form': form})
 
 def delete(request, pk):
     pk = int(pk)
