@@ -6,7 +6,7 @@ Navigation Section
     background-color: black;
     position: fixed;
     top: 0;
-    width: 375px;
+    width: 490px;
     border-radius: 0px 0px 15px 0px;
     z-index: 2;
     -webkit-animation: moveNav 1s;
