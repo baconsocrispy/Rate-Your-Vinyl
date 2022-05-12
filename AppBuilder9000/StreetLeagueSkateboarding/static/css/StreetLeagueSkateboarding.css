@@ -6,7 +6,7 @@ Navigation Section
     background-color: black;
     position: fixed;
     top: 0;
-    width: 375px;
+    width: 637px;
     border-radius: 0px 0px 15px 0px;
     z-index: 2;
     -webkit-animation: moveNav 1s;
@@ -54,32 +54,37 @@ Navigation Section
 Body Section
 ===================================*/
 body {
-    background-image:url("../images/skateboarding_background.jpg");
-    min-height: 500px;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover; /*adjusts background image when window size adjusted.*/
+    margin: 0; /*This is here to override the browser setting it to 3.*/
     z-index: 0;
-    color: tan;
-    padding-top: 30px;
     overflow: hidden; /*allows animation to play without scrollbar appearing*/
+    color: tan;
+}
+
+.background_video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 /*==================================
-Skaterboarding Title Image
+Logo
 ===================================*/
-div.skateboarding_logo::before {
-    content: url("../images/skatetitleimage.png");
-    position: absolute;
-    padding-left: 40.5vw;
-    top: -50px;
+.logo {
+    position: relative;
+    padding-left: 36vw;
+    margin-top: 10px;
 }
 
 /*==================================
 Container
 ===================================*/
 .create-container {
-	opacity: 0.88;
+	opacity: 0.80;
 	position: relative;
 	width: 600px;
 	height: auto;
@@ -88,15 +93,11 @@ Container
 	box-shadow: 4px 3px white;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 160px;
+	margin-top: 10px;
 	background-color: black;
 	text-align: center;
+	z-index: 1;
 }
-
-/*==================================
-Create Container Section
-===================================*/
-
 
 /*==================================
 View Container Section
@@ -122,26 +123,37 @@ table tr td { /*data field*/
 Skater Animation Section
 ===================================*/
 div.skater_animation::before {
-    content: url("../images/skater_silhouette.png");
+    content: url("../images/skate_silhouette.png");
     position: absolute;
     bottom: 0;
+    z-index: 3;
     animation: move1 4s;
-    transform: translate(-420px, 43px);
+    transform: translate(-420px, 53px);
 }
 
 @keyframes move1 {
-    from {transform: translate(100vw, 43px)}
-    to {transform: translate(-420px, 43px)}
+    from {transform: translate(100vw, 53px)}
+    to {transform: translate(-420px, 53px)}
 }
 
 /*==================================
 Footer Section
 ===================================*/
-footer {
+.footer {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     color: white;
     position: fixed;
     bottom: 0;
     padding-left: 46vw;
+}
+
+.video_attribution {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: grey;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 12px;
 }

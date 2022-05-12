@@ -1,9 +1,11 @@
 # Imports;
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Skater
-from .forms import EntryForm
+from .models import Skater, WeatherMoment
+from .forms import EntryForm, WeatherMomentForm
 import requests
 import json
+from bs4 import BeautifulSoup
+import datetime
 
 # Functions;
 def SLS_home(request):
@@ -65,3 +67,20 @@ def SLS_api(request):
     current_temperature = str(api_info["current_observation"]["condition"]["temperature"]) + ' \N{DEGREE SIGN}F'
     content = {"current_temperature": current_temperature, "temp_int": temp_int}
     return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_api.html', content)
+
+def SLS_save_api(request, m=1000):
+    if m != 1000:
+        moment = WeatherMoment(
+            temperature=m
+        )
+        moment.save()
+    moment = WeatherMoment.WeatherMoments.all()
+    content = {"moment": moment}
+    return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_save_api.html', content)
+
+def SLS_bs(request):
+    page = requests.get("https://www.skatedeluxe.com/blog/en/wiki/skateboarding/history-of-skateboarding/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    info = soup.find_all('p')[0].get_text()
+    content = {"info": info}
+    return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_bs.html', content)
