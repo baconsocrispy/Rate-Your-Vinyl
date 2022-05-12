@@ -37,7 +37,7 @@
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 			<a href="{% url 'coachChildRoster' %}" class="btn btn-primary" role="button">Roster</a>
 			<a href="#" class="btn btn-primary" role="button">Edit</a>
-			<a href="#" class="btn btn-primary" role="button">Delete</a>
+			<a href="{% url 'coachChildDelete' child.id %}" class="btn btn-primary" role="button">Delete</a>
 		</div>
 
 {% endblock %}
