@@ -6,7 +6,7 @@ from .forms import BuildForm
 # Creating the views
 
 def CustomPcs_home(request):
-    return render(request, 'CustomPcs/CustomPcs_home.html')
+    return render(request, 'CustomPCs/CustomPcs_home.html')
 
 
 def CreateEntry(request):
@@ -14,7 +14,7 @@ def CreateEntry(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('CustomPcs_home')
+            return redirect('..')
     else:
         print(form.errors)
         content = {'form': form}
