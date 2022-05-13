@@ -4,6 +4,7 @@ from .models import Skater, WeatherMoment
 from .forms import EntryForm, WeatherMomentForm
 import requests
 import json
+from bs4 import BeautifulSoup
 import datetime
 
 # Functions;
@@ -76,3 +77,10 @@ def SLS_save_api(request, m=1000):
     moment = WeatherMoment.WeatherMoments.all()
     content = {"moment": moment}
     return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_save_api.html', content)
+
+def SLS_bs(request):
+    page = requests.get("https://www.skatedeluxe.com/blog/en/wiki/skateboarding/history-of-skateboarding/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    info = soup.find_all('p')[0].get_text()
+    content = {"info": info}
+    return render(request, 'StreetLeagueSkateboarding/StreetLeagueSkateboarding_bs.html', content)

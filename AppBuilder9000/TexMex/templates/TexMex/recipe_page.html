@@ -13,7 +13,7 @@
             <label for="menu_id">Select a recipe from the list to edit:</label>
             <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
             {% for food in foods %}
-                <option value="../{{ food.pk}}/details/">{{ food.name }}</option>
+                <option value="./{{ food.pk}}/edit">{{ food.name }}</option>
             {% endfor %}
             </select>
             <div class="frmBtn_container"></div>
