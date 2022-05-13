@@ -9,16 +9,16 @@
 
 
 <p>
-	You can update the number of guests on this page. To change any other<br>
-	information, please delete the reservation and do a fresh search to<br>
-	verify availability.
+	You can update your reservation on this page.
 </p>
 
 <h1>Update</h1>
 <form method="POST">
         {% csrf_token %}
+{{ form.as_p }}
 
-<h5>Add Guests:</h5><input type="number" min="0" max="10" value="1">
-<button type="submit"><a href="{% url 'eb_created' %}">Edit Reservation</a></button>
+<button type="submit">Edit Reservation</button>
 <button><a href="{% url 'eb_reservation' %}">Delete Reservation</a></button>
+</form>
+
 {% endblock %}
