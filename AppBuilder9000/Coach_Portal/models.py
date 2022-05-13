@@ -8,6 +8,7 @@ TYPE_GRADE = {
     ('6th-7th','6th-7th'),
 }
 
+#This is for coaches to create an account
 class Coach(models.Model):
     Coach_Name = models.CharField(max_length=60)
     Coach_Email = models.CharField(max_length=30)
@@ -20,6 +21,7 @@ class Coach(models.Model):
     def __str__(self):
         return self.Coach_Name
 
+#This is to add children into the database
 class Child(models.Model):
     First_Name = models.CharField(max_length=60)
     Last_Name = models.CharField(max_length=60)
