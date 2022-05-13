@@ -1,44 +1,24 @@
 {% extends "resorts_base.html" %}
 
-{%block content%}
+{% block content %}
 <table>
     <tr>
-    <th>
-        Name
-    </th>
-    <th>
-        Type
-    </th>
-    <th>
-        Country
-    </th>
-       <th>
-           Rating
-       </th>
-    <th>
-        Description
-    </th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Country</th>
+        <th>Rating</th>
+        <th>Description</th>
+
     </tr>
     {% for r in resort %}
     <tr>
-        <td>
-          {{r.name}}
-        </td>
-        <td>
-            {{r.type}}
-        </td>
-        <td>
-            {{r.country}}
-        </td>
-        <td>
-           {{r.rating}}
-        </td>
-        <td>
-          {{r.description}}
-        </td>
-
+        <td>{{ r.resort_name }}</td>
+        <td>{{ r.resort_type }}</td>
+        <td>{{ r.resort_country }}</td>
+        <td>{{ r.resort_rating }}</td>
+        <td>{{ r.resort_description }}</td>
     </tr>
     {% endfor %}
 </table>
 
-{%endblock%}
+{% endblock %}
