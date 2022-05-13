@@ -3,35 +3,25 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Booking
 from .forms import BookingForm
+import requests
+from bs4 import BeautifulSoup
 
 
 # Create your views here.
 def eb_home(request):
     return render(request, 'EmpireBuilder/eb_home.html')
 
-def admin_console(request):
+def eb_admin_console(request):
     EmpireBuilder = Booking.objects.all()
     return render(request, 'EmpireBuilder/eb_reservation.html', {'EmpireBuilder': EmpireBuilder})
 
-def details(request, pk):
-    pk = int(pk)
-    item = get_object_or_404(Booking, pk=pk)
-    form = BookingForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('eb_home')
-        else:
-            print(form.errors)
 
-
-def cancel(request, pk):
+def eb_cancel(request, pk):
     pk = int(pk)
     item = get_object_or_404(Booking, pk=pk)
     if request.method == 'POST':
         item.cancel()
-        return redirect('eb_home')
+        return redirect('eb_reservation')
     context = {'item': item}
     return render(request, 'eb_home', context)
 
@@ -39,7 +29,7 @@ def eb_reserve(request):
     form = BookingForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('eb_home')
+        return redirect('eb_created')
     else:
         print(form.errors)
     context = {'form': form}
@@ -69,3 +59,22 @@ def eb_clear(request):
     package = Booking.objects.all()
     package.delete()
     return render(request, 'EmpireBuilder/eb_reservation.html')
+
+def eb_edit(request, pk):
+    rider = get_object_or_404(Booking, pk=pk)
+    form = BookingForm(data=request.POST or None, instance=rider)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('EmpireBuilder/eb_created.html')
+    content = {'form': form, 'rider': rider}
+    return render(request, 'EmpireBuilder/eb_edit.html', content)
+
+def eb_delete(request, pk):
+    rider = get_object_or_404(Booking, pk=pk)
+    if request.method == 'POST':
+        rider.delete()
+        return redirect('EmpireBuilder/eb_created.html')
+    content = {'rider': rider}
+    return render(request, 'EmpireBuilder/eb_created.html', content)
+

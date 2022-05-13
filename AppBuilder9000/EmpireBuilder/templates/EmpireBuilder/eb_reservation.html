@@ -14,23 +14,22 @@
                 {{ form.as_p }}
             </div>
             <div class="frmBtn_container">
-                <input type="submit" class="btn" value="Submit" name="Submit"></a>
-                <a href="{% url 'eb_home' %}"><button type='button' class="btn" value="Cancel">Cancel</button></a>
+                <button><input type="submit" class="btn" value="Submit" name="Submit"></a></button>
+                <button><a href="{% url 'eb_home' %}">Cancel</a></button>
             </div>
         </form>
     </div>
 
 
-    <h2>View created reservations <a href="{% url 'eb_created' %}">
-        <button type='button' class="btn" value="Click">Click Here</button></a></h2>
+<h5>View created reservations</h5>
+<button><a href="{% url 'eb_created' %}">Click Here</a></button>
 
 {{ eb_created }}
-
 
     <h2>Type in an accommodation type for more information:<br></h2>
     <form method="POST">
     <input class="form-control" type="search">
-    <a href="{% url 'eb_accommodations' %}"><button type='button' class="btn" value="submit">Search</button></a>
+    <button><a href="{% url 'eb_accommodations' %}">Accommodation Descriptions</a></button>
     </form>
 
 {% endblock %}

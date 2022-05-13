@@ -1,0 +1,18 @@
+
+{% extends 'eb_base.html' %}
+
+{% block title %}A Scenic Route{% endblock %}
+
+{% block header %}Edit number of Guests{% endblock %}
+
+{% block content %}
+<p>
+	You can update the number of guests on this page. To change any other<br>
+	information, please delete the reservation and do a fresh search to<br>
+	verify availability.
+</p>
+
+<h5>Add Guests:</h5><input type="number" min="0" max="10" value="1">
+<button><a href="{% url 'eb_created' %}"><input type="submit" class="btn" value="Submit" name="Submit"></a></button>
+<button><a href="{% url 'eb_reservation' %}">Delete Reservation</a></button>
+{% endblock %}

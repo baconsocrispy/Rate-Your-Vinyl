@@ -1,7 +1,7 @@
 
 body {
     background: white
-url('../images/byTrainBg.jpg') no-repeat; height: 100%;
+url('../images/byTrainBg.jpg') no-repeat; fixed;
 }
 
 img {
