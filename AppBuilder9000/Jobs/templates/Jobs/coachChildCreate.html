@@ -2,8 +2,9 @@
 {% block title %}Create New Account{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
+
 	<div class="lighten-20 rounded jumbotron jumbotron-fluid bg-primary text-light text-center">
-		<h3 class=" text-center font-weight-bold">Add A Child Participant</h3>
+		<h2 class=" text-center font-weight-bold">Add A Child Participant</h2>
 	</div>
 	<form>
 		<div class= " w-90">
@@ -36,6 +37,9 @@
 					</div>
 				</div>
 				<div class="row text-truncate">
+					<div class="form-group">
+        				{{ form.Notes_or_Allergies|as_crispy_field }}
+					</div>
 				</div>
 				<br>
 

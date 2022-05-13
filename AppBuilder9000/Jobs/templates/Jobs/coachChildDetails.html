@@ -1,8 +1,10 @@
 {% extends 'coachBase.html' %}
 {% block title %}Child Roster{% endblock %}
 {% block content %}
-	<h2>Child Details</h2>
 
+	<div class="lighten-20 rounded jumbotron jumbotron-fluid bg-primary text-light text-center">
+		<h2 class=" text-center">{{ details.First_Name }}'s Information</h2>
+	</div>
 	<div class="table-responsive">
 		<table class="table table-hover text-truncate" >
 			<thead>
@@ -49,7 +51,7 @@
 		</table>
 	</div>
 	<br>
-	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+	<div class="d-grid gap-2 d-md-flex justify-content-md-start">
 		<a href="{% url 'coachChildRoster' %}" class="btn btn-primary" role="button">Roster</a>
 		<a href="{% url 'coachChildUpdate' details.id %}" class="btn btn-primary" role="button">Edit</a>
 		<a href="{% url 'coachChildDelete' details.id %}" class="btn btn-primary" role="button">Delete</a>
