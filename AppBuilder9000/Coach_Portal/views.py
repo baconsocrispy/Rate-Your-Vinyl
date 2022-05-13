@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db import connection
-from itertools import chain
+from bs4 import BeautifulSoup
 from .forms import coachForm, childForm
 from .models import Coach, Child
-
+import requests
 
 #this is the home function
 def coachHome(request):
@@ -81,4 +80,26 @@ notesOrAllergies = ['Bob@gmail.com', 'Pchenka@gmail.com', 'Phil@gmail.com', 'Lau
 def addChildren(request, *args, **kwargs):
     for i in range(len(cFName)):
         Child.children.create(First_Name=cFName[i], Last_Name=cLName[i], Child_Grade=cGrade[i])
+
+
+# Beautiful soup used to pull field availability
+def fieldSoup(request):
+    dates = []  # Dates =
+
+    page = requests.get("https://apm.activecommunities.com/clarkcountyparks/Facility_Search?IsCalendar=true&facility_id=61&year=2022&month=5&startyear=2022&endyear=2027")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    free = soup.find_all('td class')
+    booked = soup.find_all('strong')
+
+    for i in dates:
+        dateList = i.text.strip()
+        dates.append(dateList)
+    #l = chars[6], chars[7]  # Grabs the elements that need to be joined.
+    #fix = ' '.join(l)  # Joins the two elements and places them in a variable
+    #chars.insert(6, fix)  # Inserts joined elements into array at appropriate index
+    #del chars[8]  # Removes unnecessary element
+    #del chars[7]  # Removes unnecessary element
+
+    content = {'dates': dates}
+    return render(request, '', content)
 
