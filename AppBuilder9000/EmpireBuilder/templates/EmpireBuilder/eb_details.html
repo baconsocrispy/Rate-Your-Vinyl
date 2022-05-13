@@ -19,7 +19,7 @@
 
 <button><a href="{% url 'eb_created' %}">Go Back</a></button>
 <button><a href="{% url 'eb_edit' rider.id %}">Edit Reservation</a></button>
-<button><a href="{% url 'eb_created' rider.id %}">Delete Reservation</a></button>
+<button><a href="{% url 'eb_delete' rider.id %}">Delete Reservation</a></button>
 
 {{ rider.as_p }}
 

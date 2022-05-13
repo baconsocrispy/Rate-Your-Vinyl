@@ -14,8 +14,6 @@ def eb_home(request):
 def eb_admin_console(request):
     EmpireBuilder = Booking.objects.all()
     return render(request, 'EmpireBuilder/eb_reservation.html', {'EmpireBuilder': EmpireBuilder})
-
-
 def eb_cancel(request, pk):
     pk = int(pk)
     item = get_object_or_404(Booking, pk=pk)
@@ -66,7 +64,7 @@ def eb_edit(request, pk):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('EmpireBuilder/eb_created.html')
+            return redirect('../../created')
     content = {'form': form, 'rider': rider}
     return render(request, 'EmpireBuilder/eb_edit.html', content)
 
@@ -74,7 +72,7 @@ def eb_delete(request, pk):
     rider = get_object_or_404(Booking, pk=pk)
     if request.method == 'POST':
         rider.delete()
-        return redirect('EmpireBuilder/eb_created.html')
+        return redirect('../../created')
     content = {'rider': rider}
-    return render(request, 'EmpireBuilder/eb_created.html', content)
+    return render(request, 'EmpireBuilder/eb_delete.html', content)
 

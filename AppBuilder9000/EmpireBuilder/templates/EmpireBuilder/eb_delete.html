@@ -10,7 +10,7 @@
 <h1>Delete</h1>
 <form method="POST">
         {% csrf_token %}
-        <h3>This will delete the reservation "{{ rider.first_name }}"</h3>
+        <h3>This will delete the reservation for "{{ rider.first_name }}". Would you like to proceed?</h3>
         <br>
         <button type="submit">Delete</button>
     </form>
