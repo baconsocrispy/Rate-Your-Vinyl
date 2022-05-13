@@ -6,14 +6,14 @@
 {% block content %}
 
 
-<h3>Welcome to the Chelsea Coach Portal.</h3>
+    <h3>Welcome to the Chelsea Coach Portal.</h3>
     <hr>
     <div class="text-center">
         <h5>Log-in to view your assigned players.</h5>
         <form method="POST">
            <label id="index_label">Choose Account</label>
            {% csrf_token %}
-           {{ form.account }}
+           {{ form.Coach_Name }}
            <button type="submit">Go to Account</button>
         </form>
     </div>

@@ -9,8 +9,7 @@ from .models import Coach, Child
 def coachHome(request):
     form = coachForm(data=request.POST or None)
     if request.method == 'POST':
-        pk = request.POST['account']
-        return coachCreate(request, pk)
+        return coachCreate(request)
     content = {'form': form}
     return render(request, 'Jobs/coachHome.html', content)
 
@@ -52,7 +51,7 @@ def childUpdate(request, pk):
         return redirect('coachChildRoster')
 
     content = {'details': details, 'form': form}
-    return render(request, 'Jobs/coachUpdateChild.html')
+    return render(request, 'Jobs/coachUpdateChild.html',content)
 
 def childDelete(request, pk):
     childForDelete = get_object_or_404(Child, pk=pk)
