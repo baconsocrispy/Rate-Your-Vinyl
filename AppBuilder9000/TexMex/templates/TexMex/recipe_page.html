@@ -10,8 +10,9 @@
     <form name="FoodForm" method="POST" action="">
         <div class="formObject">
             {% csrf_token %}
-            <label for="menu_id">Select a recipe from the list to edit:</label>
+            <label for="menu_id">Select a recipe from the list to edit/delete:</label>
             <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                <option value="" selected>-------------</option>
             {% for food in foods %}
                 <option value="./{{ food.pk}}/edit">{{ food.name }}</option>
             {% endfor %}

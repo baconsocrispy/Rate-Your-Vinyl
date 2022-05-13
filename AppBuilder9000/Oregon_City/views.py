@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Activity, WeatherMoment
-from .forms import ActivityForm, WeatherMomentForm
+from .models import Activity
+from .forms import ActivityForm
 
 
 # Story #1: Build the basic app ---
@@ -28,15 +28,34 @@ def oregon_display(request):
     content = {'activity': activity}
     return render(request, 'Oregon_City/Oregon_display.html', content)
 
+# Story #4: Details page -----
+
 
 def oregon_details(request, pk):
-    details = get_object_or_404(Activity, pk=pk)
-    content = {'details': details}
+    activity = get_object_or_404(Activity, pk=pk)
+    content = {'activity': activity}
     return render(request, 'Oregon_City/Oregon_details.html', content)
 
+# Story #5: Edit and Delete Functions -----
 
-def oregon_view(request):
-    activity = Activity.Entries.all()
-    content = {'Activity': activity}
-    return render(request, 'Oregon_City/Oregon_view.html', content)
+
+def oregon_update(request, pk):
+    activity = get_object_or_404(Activity, pk=pk)
+    form = ActivityForm(data=request.POST or None, instance=activity)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('../../display')
+    content = {'form': form, 'activity': activity}
+    return render(request, 'Oregon_City/Oregon_update.html', content)
+
+
+def oregon_delete(request, pk):
+    activity = get_object_or_404(Activity, pk=pk)
+    if request.method == 'POST':
+        activity.delete()
+        return redirect('../../display')
+    content = {'activity': activity}
+    return render(request, 'Oregon_City/Oregon_delete.html', content)
+
 
