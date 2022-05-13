@@ -36,7 +36,7 @@ def edit(request, pk):
         else:
             print(form.errors)
     else:
-        return render(request, 'TexMex/texmex_edit.html', {'form': form})
+        return render(request, 'TexMex/texmex_edit.html', {'form': form, 'item': item})
 
 def delete(request, pk):
     pk = int(pk)
@@ -44,8 +44,8 @@ def delete(request, pk):
     if request.method == 'POST':
         item.delete()
         return redirect('recipe_page')
-    context = {"item": item,}
-    return render(request,"TexMex/confirmDelete.html", context)
+    content = {"item": item}
+    return render(request, "TexMex/confirmDelete.html", content)
 
 def confirmed(request):
     if request.method == 'POST':
