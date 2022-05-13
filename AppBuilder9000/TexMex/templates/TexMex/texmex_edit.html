@@ -7,7 +7,7 @@
 {% block content %}
 
 <div class="admin_panel">
-    <form name="foodForm" method="POST" action="/{{ form.pk }}/details/">
+    <form name="foodForm" method="POST" action="./">
         <table>
             {% csrf_token %}
             {{ form.non_field_errors }}
@@ -17,7 +17,7 @@
             <input type="submit">
             <div class="frmBtn_container">
                 <button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button>
-                <button class="btn"><a href="{% url 'view_recipes' %}">CANCEL</a></button>
+                <button class="btn"><a href="{% url 'recipe_page' %}">CANCEL</a></button>
             </div>
         </div>
     </form>

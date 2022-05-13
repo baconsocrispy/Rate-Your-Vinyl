@@ -32,7 +32,7 @@ def edit(request, pk):
         if form.is_valid():
             form2 = form.save(commit=False)
             form2.save()
-            return redirect('view_recipes')
+            return redirect('recipe_page')
         else:
             print(form.errors)
     else:
@@ -43,7 +43,7 @@ def delete(request, pk):
     item = get_object_or_404(Food, pk=pk)
     if request.method == 'POST':
         item.delete()
-        return redirect('view_recipes')
+        return redirect('recipe_page')
     context = {"item": item,}
     return render(request,"TexMex/confirmDelete.html", context)
 
@@ -53,9 +53,9 @@ def confirmed(request):
         form = FoodForm(request.POST or None)
         if form.is_valid():
             form.delete()
-            return redirect('view_recipes')
+            return redirect('recipe_page')
     else:
-        return redirect('view_recipes')
+        return redirect('recipe_page')
 
 def createRecord(request):
     form = FoodForm(data=request.POST or None)
