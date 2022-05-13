@@ -24,7 +24,7 @@ class ResortListings(models.Model):
     resort_rating = models.CharField(max_length=20, choices=Resort_Rating)
     resort_description = models.CharField(max_length=500, null=False)
 
-    objects = models.Manager()
+    Resorts = models.Manager()
 
     def __str__(self):
         return self.resort_name
