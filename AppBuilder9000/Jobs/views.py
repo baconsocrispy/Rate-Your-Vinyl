@@ -74,16 +74,6 @@ notesOrAllergies = ['Bob@gmail.com', 'Pchenka@gmail.com', 'Phil@gmail.com', 'Lau
 
 
 def addChildren(request, *args, **kwargs):
-    # Iterate through all the data items
     for i in range(len(cFName)):
-        # Insert in the database
         Child.children.create(First_Name=cFName[i], Last_Name=cLName[i], Child_Grade=cGrade[i])
 
-    # Getting all the stuff from database
-    query_results = Student.objects.all();
-
-    # Creating a dictionary to pass as an argument
-    content = {'query_results': query_results}
-
-    # Returning the rendered html
-    return render(request, "home.html", content)
