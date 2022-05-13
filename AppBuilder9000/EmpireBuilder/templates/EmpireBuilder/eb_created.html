@@ -21,6 +21,7 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Accommodation</th>
+					<th>Guests</th>
 				</tr>
 				{% for rider in booking %}
 				<tr>
@@ -28,12 +29,15 @@
 					<td class="center"><a href="{% url 'eb_details' rider.id %}">{{ rider.first_name }}</a></td>
 					<td class="left">{{ rider.last_name }}</td>
 					<td class="right">{{ rider.accommodation }}</td>
+					<td class="right">{{ rider.guests }}</td>
 
                 </tr>
 				{% endfor %}
 
 				</table>
 <button><a href="{% url 'eb_reservation' %}">Another Reservation</a></button>
-<!-- create individual delete, also the clearall does not work yet -->
-<a href="{% url 'eb_created' %}"><button type='button' class="btn" value="delete">Clear All</button></a>
+<button><a href="#">Checkout</a></button>
+
+<h4>To make changes, please click on the first name of the record you would like to edit.</h4>
+
 {% endblock %}
