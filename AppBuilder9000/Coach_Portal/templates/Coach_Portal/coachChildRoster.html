@@ -14,7 +14,7 @@
 		</tr>
 		{% for child in rosterList %}
 		<tr>
-			<td><a href="{% url 'coachChildDetails' child.id %}" class="center">{{ child.Last_Name }}</a></td>
+			<td><a href=" {% url 'coachChildDetails' child.id %}" class=" text-light center">{{ child.Last_Name }}</a></td>
 			<td class="left">{{ child.Child_Grade }}</td>
 			<td class="left">{{ child.Jersey_Number }}</td>
 			<!--<td class="right">{{ key.Coach_Name }}</td>-->
