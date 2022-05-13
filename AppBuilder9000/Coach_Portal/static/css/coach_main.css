@@ -30,13 +30,13 @@ body {
 }
 
 
-footer {
+/* footer {
     text-align: center;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 2.5rem;
-}
+} */
 
 
 .coach-container{
@@ -51,12 +51,8 @@ footer {
 	}
 
 
-/* General Table Styling */
-/*
-#headerRow {
-	color: darkslateblue;
-	text-align: center;
-*/
+/* General Table Styling: Gives the ability to easily justify text left, right, or center. */
+
 
 .center {
 	text-align: center;

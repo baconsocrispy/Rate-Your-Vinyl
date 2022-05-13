@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'EmpireBuilder',
     'StreetLeagueSkateboarding',
     'All_Inclusive_Resorts',
-    'Jobs',
+    'Coach_Portal',
     'TexMex',
     'CustomPcs',
 ]

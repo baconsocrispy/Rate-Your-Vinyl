@@ -5,7 +5,7 @@ from .forms import coachForm, childForm
 from .models import Coach, Child
 
 
-# Create your views here.
+#this is the home function
 def coachHome(request):
     form = coachForm(data=request.POST or None)
     if request.method == 'POST':
@@ -13,6 +13,7 @@ def coachHome(request):
     content = {'form': form}
     return render(request, 'Jobs/coachHome.html', content)
 
+#this is the coach create-account function with the form attached
 def coachCreate(request):
     form = coachForm(data=request.POST or None)
     if request.method == 'POST':
@@ -22,6 +23,7 @@ def coachCreate(request):
     content = {'form': form}
     return render(request, 'Jobs/coachCreate.html', content)
 
+#this is the child create-account function with the form attached
 def childCreate(request):
     form = childForm(data=request.POST or None)
     if request.method == 'POST':
@@ -31,17 +33,19 @@ def childCreate(request):
     content = {'form': form}
     return render(request, 'Jobs/coachChildCreate.html', content)
 
+#this is the simple child roster sorted by grade
 def childRoster(request):
     rosterList = Child.Children.all().order_by('Child_Grade')
     content = {'rosterList': rosterList}
     return render(request, 'Jobs/coachChildRoster.html', content)
 
-
+#this is the child details function where more information can be seen of each child in the database
 def childDetails(request, pk):
     details = get_object_or_404(Child, pk=pk)
     content = {'details': details}
     return render(request, 'Jobs/coachChildDetails.html', content)
 
+#this is the child-update function, where each line of information is turned into a form and can be reposted back into the database
 def childUpdate(request, pk):
     details = Child.Children.get(pk=pk)
     form = childForm(request.POST or None, instance=details)
@@ -53,6 +57,7 @@ def childUpdate(request, pk):
     content = {'details': details, 'form': form}
     return render(request, 'Jobs/coachUpdateChild.html',content)
 
+#this is the child delete-account function
 def childDelete(request, pk):
     childForDelete = get_object_or_404(Child, pk=pk)
 
@@ -62,7 +67,7 @@ def childDelete(request, pk):
     content = {'childForDelete': childForDelete}
     return render(request, 'Jobs/coachChildDelete.html', content)
 
-#This code adds some kids to the roster of the roster is empty. Helpful for demo function!
+#These variables and the subsequent 'addChildren' function add some kids to the roster IF the roster is empty. Helpful to view demo functionality!
 cFName = ['Aman', 'Vijay', 'Casey', 'Katelyn', 'Jessica', 'Chris', 'Lacy', 'Luis']
 cLName = ['Jones', 'Vitali', 'Adams', 'Flaherty', 'Jones', 'Cringle', 'Lewis', 'Lopez']
 cGrade = ['K-1st', 'K-1st', '2nd-3rd', '2nd-3rd', '4th-5th', '4th-5th', '6th-7th', '6th-7th']
