@@ -5,8 +5,8 @@ import requests
 import json
 
 
-
 # Story #1: Build the basic app ---
+
 
 def oregon_home(request):
     return render(request, 'Oregon_City/Oregon_home.html')
@@ -51,6 +51,8 @@ def oregon_update(request, pk):
             return redirect('../../display')
     content = {'form': form, 'activity': activity}
     return render(request, 'Oregon_City/Oregon_update.html', content)
+
+# Story #6-(API Pt 1): Connect to API -----
 
 
 def oregon_delete(request, pk):
