@@ -3,7 +3,7 @@ from .models import ResortListings
 from django import forms
 
 
-class ResortListings(ModelForm):
+class ResortListingsForm(ModelForm):
     class Meta:
         model = ResortListings
         fields = '__all__'

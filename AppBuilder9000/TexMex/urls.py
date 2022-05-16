@@ -9,10 +9,11 @@ urlpatterns = [
     path('', views.texmex_home, name='texmex_home'),
     path('view_recipes', views.view_recipes, name="view_recipes"),
     path('<int:pk>/details/', views.details, name="details"),
-    path('<int,pk>/edit/', views.edit, name="edit"),
+    path('<int:pk>/edit/', views.edit, name="edit"),
     path('<int:pk>/delete/', views.delete, name="delete"),
     path('confirmdelete', views.confirmed, name="confirmed"),
     path('createRecord', views.createRecord, name="createRecord"),
-    path('recipe_page', views.recipe_page, name="recipe_page")
+    path('recipe_page', views.recipe_page, name="recipe_page"),
+    path('api/', views.texmex_api, name='texmex_api'),
 
 ]
