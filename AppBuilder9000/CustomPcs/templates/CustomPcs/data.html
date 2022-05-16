@@ -11,7 +11,6 @@
     }
 </style>
 <h3>All Build Entries</h3>
-{% if i % %}
 
 <div id="User-Entries">
     <table class="table table-responsive" id="memory-table">
@@ -21,7 +20,7 @@
             <th>Case Size:</th>
             <th>Specifications:</th>
         </tr>
-        {% for i in display %}
+        {% for i in all_entries %}
         <tr>
             <td class="center">{{ i.first_name }}</td>
             <td class="center">{{ i.last_name }}</td>
@@ -32,4 +31,5 @@
     </table>
 </div>
 {% endblock %}
+
 

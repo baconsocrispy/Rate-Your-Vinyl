@@ -21,7 +21,7 @@ def CreateEntry(request):
 
 
 def Entries(request):
-    all_entries = Entries.objects.all()
+    all_entries = Builds.Builds.all()
     return render(request, 'CustomPcs/data.html',
     {'all_entries': all_entries})
 
