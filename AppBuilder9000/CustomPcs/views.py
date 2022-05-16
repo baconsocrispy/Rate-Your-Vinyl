@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Builds
 from .forms import BuildForm
 
-
 # Creating the views
 
 def CustomPcs_home(request):
@@ -19,3 +18,12 @@ def CreateEntry(request):
         print(form.errors)
         content = {'form': form}
         return render(request, 'CustomPcs/BuildForm.html', content)
+
+
+def Entries(request):
+    all_entries = Entries.objects.all()
+    return render(request, 'CustomPcs/data.html',
+    {'all_entries': all_entries})
+
+
+
