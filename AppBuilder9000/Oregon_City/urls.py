@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/details/', views.oregon_details, name='oregon_details'),
     path('<int:pk>/update/', views.oregon_update, name='oregon_update'),
     path('<int:pk>/delete/', views.oregon_delete, name='oregon_delete'),
+    path('api/', views.oregon_api, name='oregon_api'),
 ]
