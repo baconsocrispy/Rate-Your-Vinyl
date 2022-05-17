@@ -10,8 +10,8 @@ class Account(models.Model):
     Accounts = models.Manager()
 
 
-Stock = ['IP', 'GPKG', 'NVDA', 'KO', 'DEL', 'F', 'TSLA', 'X', 'BRYN', 'SHEL', 'AMD', 'DIS', 'XOM', 'BAC', 'GM', 'WMT']
-AppreciationDocs = ['BalanceSheet', 'Chart', 'PriceRating']
+Stock = [('IP', 'IP'), ('GPKG', 'GPKG'), ('NVDA', 'NVDA'), ('KO', 'KO')]
+AppreciationDocs = [('BalanceSheet', 'BalanceSheet'), ('Chart', 'Chart'), ('PriceRating', 'PriceRating')]
 
 
 class Evaluation(models.Model):

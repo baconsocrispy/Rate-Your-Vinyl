@@ -1,0 +1,8 @@
+{% extends "fe_Base.html" %}
+
+{% block content %}
+<h2>The Financial Evaluator</h2>
+<p>This app uses user input for stocks, investing flavor and current market conditions provide all the necessary tools one would need to make an investment decision.</p>
+<button type="submit"><a href="{% url 'journal_create' %}">Start</a></button>
+<button type="submit"><a href="{% url 'journal_read' %}">Change</a></button>
+{% endblock %}
