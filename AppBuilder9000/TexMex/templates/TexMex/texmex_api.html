@@ -5,6 +5,17 @@
 {% block header %}Current Recipes on Tasty:{% endblock %}
 
 {% block content %}
-<h2>RECIPE API</h2>
-<p>{{ current_recipes }}</p>
+<div>>
+			<center>
+			<table>
+				{% for i in recipe_site %}
+				<tr>
+					<td><a href="https://tasty.co/recipe/{{i}}" target="_blank">{{i}}</a></td>
+				</tr>
+				{% endfor %}
+
+			</table>
+			</center>
+        </div>
+
 {% endblock %}
