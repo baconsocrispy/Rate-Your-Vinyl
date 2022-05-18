@@ -22,12 +22,12 @@
         </tr>
         {% for i in all_entries %}
         <tr>
-            <td class="center">{{ i.first_name }}</td>
+            <td><a href="{% url 'Details' i.id %}">{{i.first_name}}</a></td>
             <td class="center">{{ i.last_name }}</td>
             <td class="center">{{ i.case_size }}</td>
             <td class="center">{{ i.Specifications }}</td>
+            {% endfor %}
         </tr>
-        {% endfor %}
     </table>
 </div>
 {% endblock %}
