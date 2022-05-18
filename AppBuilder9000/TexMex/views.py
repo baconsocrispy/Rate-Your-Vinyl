@@ -100,18 +100,11 @@ def texmex_api(request):
     response = requests.request("GET", url, headers=headers, params=querystring)
     api_info = json.loads(response.text)
 
-    recipe_site = []
     recipe_list = []
 
-    for i in range(15):
-        recipe = api_info["results"][i]["slug"]
-        recipe_site.append(recipe)
-
-    for i in range(15):
-        recipe_name = api_info["results"][i]["name"]
-        recipe_list.append(recipe_name)
-
-    content = {"recipe_site": recipe_site, "recipe_list": recipe_list}
+    for x in range(15):
+        recipe_list.append([api_info["results"][x]["slug"], api_info["results"][x]["name"]])
+    content = {"recipe_list": recipe_list}
     return render(request, 'TexMex/texmex_api.html', content)
 
 

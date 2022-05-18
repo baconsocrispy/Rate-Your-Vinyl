@@ -8,9 +8,9 @@
 <div>>
 			<center>
 			<table>
-				{% for i in recipe_site %}
+				{% for x in recipe_list %}
 				<tr>
-					<td><a href="https://tasty.co/recipe/{{i}}" target="_blank">{{i}}</a></td>
+					<td><a href="https://tasty.co/recipe/{{x.0}}" target="_blank">{{x.1}}</a></td>
 				</tr>
 				{% endfor %}
 
