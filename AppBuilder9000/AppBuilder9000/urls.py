@@ -49,6 +49,8 @@ urlpatterns = [
     path('Coach/', include('Coach_Portal.urls')),
     path('TexMex/', include('TexMex.urls')),
     path('CustomPCs/', include('CustomPcs.urls')),
+    path('Nutrition/', include('Nutrition.urls')),
+    path('Cinematography/', include('Cinematography.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
