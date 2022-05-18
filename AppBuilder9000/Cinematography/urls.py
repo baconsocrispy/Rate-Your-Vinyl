@@ -1,9 +1,10 @@
-from django.urls import path
-from django.contrib import admin
+from django.urls import path, include
 from . import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.camIndex, name="camIndex"),
+    path('', views.camIndex, name="Camera_home"),
+    path('', views.navbar, name="navbar"),
+    path('content/colors', views.colors, name="colors"),
+    path('content/comp', views.comp, name="comp"),
 ]

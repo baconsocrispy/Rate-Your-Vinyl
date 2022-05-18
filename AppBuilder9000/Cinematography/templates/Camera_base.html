@@ -2,10 +2,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Whoa!  A title!</title>
+    {% include "Camera_head.html" %}
+    <title>Cameras?  How do work?</title>
 </head>
 <body>
-    <h1>Whoa!  Some text!</h1>
+    <div class="page_container">
+        {% include "content/navbar.html" %}
+        <header>
+            <h1>Whoa!  Some text!</h1>
+        </header>
+        <div class="video-container">
+            <video autoplay loop muted>
+                <source src="{% static 'videos/CamLoop.webm' %}" type="video/webm">
+                Your browser does not support videos.
+            </video>
+        </div>
+    </div>
+
 </body>
 </html>
