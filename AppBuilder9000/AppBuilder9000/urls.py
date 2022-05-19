@@ -50,6 +50,7 @@ urlpatterns = [
     path('TexMex/', include('TexMex.urls')),
     path('CustomPCs/', include('CustomPcs.urls')),
     path('Nutrition/', include('Nutrition.urls')),
+    path('Cinematography/', include('Cinematography.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
