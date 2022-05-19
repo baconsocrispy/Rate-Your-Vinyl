@@ -11,7 +11,7 @@
         <!-- Adding a universal Navbar for each page that needs one -->
         {% include "content/navbar.html" %}
         <header>
-            <h1>Whoa!  Some text!</h1>
+            <h1 align="center">{% block title %}{% endblock %}</h1>
         </header>
         <!-- WebM format with VP9 codec to allow for smaller file size and easier load/playback -->
         <div class="video-container">
@@ -19,6 +19,13 @@
                 <source src="{% static 'videos/CamLoop.webm' %}" type="video/webm">
                 Your browser does not support videos.
             </video>
+        </div>
+        <div class="form_container">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Add Camera</button>
+            </form>
         </div>
     </div>
 

@@ -19,3 +19,9 @@ FOCAL_LENGTH = {
 class FieldOfView(models.Model):
     sensorSize = models.CharField(max_length=10, choices=TYPE_SENSOR)
     lensFocal = models.CharField(max_length=5, choices=FOCAL_LENGTH)
+    manufacturer = models.CharField(max_length=15, default='')
+
+    Camera = models.Manager()
+
+    def __str__(self):
+        return self.manufacturer
