@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UserForm
+from .models import User
 
 def Nutrition_Home(request):
     return render(request, "Nutrition/Nutrition_Home.html")
@@ -52,3 +53,13 @@ def registerform(request):
             return redirect('Nutrition_Home')
     context = {'form':form}
     return render(request, 'Nutrition/Nutrition_create.html', context)
+
+def userdetails(request, pk):
+    details = get_object_or_404(User, pk=pk)
+    context = {'details': details}
+    return render(request, 'Nutrition/Nutrition_details.html', context)
+
+def displayusers(request):
+    display = User.Users.all()
+    context = {'display': display}
+    return render(request, 'Nutrition/Nutrition_display.html', context)
