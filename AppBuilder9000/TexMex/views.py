@@ -3,6 +3,7 @@ from .forms import FoodForm
 from .models import Food
 import requests
 import json
+from bs4 import BeautifulSoup
 
 
 # Story #1: Build the basic app ----------------------------------------------------------------------------------------
@@ -106,6 +107,23 @@ def texmex_api(request):
         recipe_list.append([api_info["results"][x]["slug"], api_info["results"][x]["name"]])
     content = {"recipe_list": recipe_list}
     return render(request, 'TexMex/texmex_api.html', content)
+
+def texmex_bs(request):
+    menu = []
+    page = requests.get("https://www.allrecipes.com/recipes/17502/us-recipes/tex-mex/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    pork = soup.find(title="Tex-Mex Pork")
+    menu.append(["Tex-Mex Pork", pork.get('href')])
+    fajitas = soup.find(title="Sizzling Steak Fajitas")
+    menu.append(["Sizzling Steak Fajitas", fajitas.get('href')])
+    salad = soup.find(title="Spicy Tex-Mex Salad")
+    menu.append(["Spicy Tex-Mex Salad", salad.get('href')])
+    casserole = soup.find(title="King Ranch Chicken Casserole III")
+    menu.append(["King Ranch Chicken Casserole III", casserole.get('href')])
+    tacos = soup.find(title="Grilled Tex-Mex Fish Tacos")
+    menu.append(["Grilled Tex-Mex Fish Tacos", tacos.get('href')])
+    content = {"menu": menu}
+    return render(request, 'TexMex/texmex_bs.html', content)
 
 
 

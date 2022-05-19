@@ -26,4 +26,10 @@ def Entries(request):
     {'all_entries': all_entries})
 
 
+def Details(request, pk):
+    items = get_object_or_404(Builds, pk=pk)
+    context = {'items': items}
+    return render(request, 'CustomPcs/details.html', context)
+
+
 

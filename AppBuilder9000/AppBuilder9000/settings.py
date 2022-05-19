@@ -64,6 +64,8 @@ INSTALLED_APPS = [
     'TexMex',
     'CustomPcs',
     'Nutrition',
+    'Cinematography',
+    'FinancialEvaluator',
 ]
 
 MIDDLEWARE = [
