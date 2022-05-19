@@ -1,0 +1,23 @@
+{% extends "Nutrition_Base.html" %}
+
+{% block title %}View All Accounts{% endblock %}
+
+{% block header %} Select Your Account {% endblock %}
+
+{% block content %}
+
+<h3>All User Accounts</h3>
+
+<div id="User-account">
+    <table class = "table table-responsive" id = "memory-table">
+        <tr id="headerRow">
+            <th>Username</th>
+        </tr>
+        {% for i in display %}
+        <tr>
+            <td class="center"><a href = "{% url 'Nutrition_User_Details' i.id%}">{{ i.Username }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

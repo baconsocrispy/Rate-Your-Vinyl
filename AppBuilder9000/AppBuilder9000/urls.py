@@ -29,6 +29,7 @@ urlpatterns = [
     path('Prowrestlers/', include('Prowrestlers.urls')),
     path('Cartoons/', include('Cartoons.urls')),
     path('FictionalCharacters/', include('FictionalCharacters.urls')),
+    path('FinancialEvaluator/', include('FinancialEvaluator.urls')),
     path('HeroAbility/', include('HeroAbility.urls')),
     path('MTB_Trails/', include('MTB_Trails.urls')),
     path('Formula1/', include('Formula1.urls')),
@@ -49,6 +50,7 @@ urlpatterns = [
     path('Coach/', include('Coach_Portal.urls')),
     path('TexMex/', include('TexMex.urls')),
     path('CustomPCs/', include('CustomPcs.urls')),
+    path('Nutrition/', include('Nutrition.urls')),
     path('Cinematography/', include('Cinematography.urls')),
 ]
 

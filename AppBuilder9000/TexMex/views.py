@@ -3,6 +3,7 @@ from .forms import FoodForm
 from .models import Food
 import requests
 import json
+from bs4 import BeautifulSoup
 
 
 # Story #1: Build the basic app ----------------------------------------------------------------------------------------
@@ -90,7 +91,7 @@ def confirmed(request):
 def texmex_api(request):
     url = "https://tasty.p.rapidapi.com/recipes/list"
 
-    querystring = {"from": "0", "size": "20", "tags": "mexican"}
+    querystring = {"from": "0", "size": "15", "tags": "mexican"}
 
     headers = {
         "X-RapidAPI-Host": "tasty.p.rapidapi.com",
@@ -99,9 +100,30 @@ def texmex_api(request):
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     api_info = json.loads(response.text)
-    current_recipes = str(api_info)
-    content = {"current_recipes": current_recipes}
+
+    recipe_list = []
+
+    for x in range(15):
+        recipe_list.append([api_info["results"][x]["slug"], api_info["results"][x]["name"]])
+    content = {"recipe_list": recipe_list}
     return render(request, 'TexMex/texmex_api.html', content)
+
+def texmex_bs(request):
+    menu = []
+    page = requests.get("https://www.allrecipes.com/recipes/17502/us-recipes/tex-mex/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    pork = soup.find(title="Tex-Mex Pork")
+    menu.append(["Tex-Mex Pork", pork.get('href')])
+    fajitas = soup.find(title="Sizzling Steak Fajitas")
+    menu.append(["Sizzling Steak Fajitas", fajitas.get('href')])
+    salad = soup.find(title="Spicy Tex-Mex Salad")
+    menu.append(["Spicy Tex-Mex Salad", salad.get('href')])
+    casserole = soup.find(title="King Ranch Chicken Casserole III")
+    menu.append(["King Ranch Chicken Casserole III", casserole.get('href')])
+    tacos = soup.find(title="Grilled Tex-Mex Fish Tacos")
+    menu.append(["Grilled Tex-Mex Fish Tacos", tacos.get('href')])
+    content = {"menu": menu}
+    return render(request, 'TexMex/texmex_bs.html', content)
 
 
 

@@ -63,7 +63,9 @@ INSTALLED_APPS = [
     'Coach_Portal',
     'TexMex',
     'CustomPcs',
+    'Nutrition',
     'Cinematography',
+    'FinancialEvaluator',
 ]
 
 MIDDLEWARE = [
