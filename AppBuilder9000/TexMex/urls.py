@@ -15,5 +15,5 @@ urlpatterns = [
     path('createRecord', views.createRecord, name="createRecord"),
     path('recipe_page', views.recipe_page, name="recipe_page"),
     path('api/', views.texmex_api, name='texmex_api'),
-
+    path('bs/', views.texmex_bs, name='texmex_bs'),
 ]
