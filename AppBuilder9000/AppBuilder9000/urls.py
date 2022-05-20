@@ -23,17 +23,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('HousingCosts/', include('HousingCosts.urls')),
-    path('HikingTrails/', include('HikingTrails.urls')),
-    path('RecordCollection/', include('RecordCollection.urls')),
-    path('Prowrestlers/', include('Prowrestlers.urls')),
-    path('Cartoons/', include('Cartoons.urls')),
-    path('FictionalCharacters/', include('FictionalCharacters.urls')),
-    path('FinancialEvaluator/', include('FinancialEvaluator.urls')),
-    path('HeroAbility/', include('HeroAbility.urls')),
-    path('MTB_Trails/', include('MTB_Trails.urls')),
-    path('Formula1/', include('Formula1.urls')),
-    path('MusicTaste/', include('MusicTaste.urls')),
     path('Books/', include('Books.urls')),
     path('MuayThai/', include('MuayThai.urls')),
     path('StockMarket/', include('StockMarket.urls')),
@@ -52,6 +41,7 @@ urlpatterns = [
     path('CustomPCs/', include('CustomPcs.urls')),
     path('Nutrition/', include('Nutrition.urls')),
     path('Cinematography/', include('Cinematography.urls')),
+    path('FinancialEvaluator/', include('FinancialEvaluator.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
