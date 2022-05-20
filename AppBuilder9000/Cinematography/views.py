@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from .forms import cameraForm
-from django.shortcuts import render, redirect
+from .models import FieldOfView
+from django.shortcuts import render, redirect, get_object_or_404
 
 
 def camIndex(request):
@@ -18,6 +19,12 @@ def addCamera(request):
             form.save()
             return redirect('Camera_home')
     content = {'form': form}
+    return render(request, "Camera_home.html", content)
+
+
+def camList(request, pk):
+    pullCam = get_object_or_404(FieldOfView, pk=pk)
+    content = {'pullCam': pullCam}
     return render(request, "Camera_home.html", content)
 
 
