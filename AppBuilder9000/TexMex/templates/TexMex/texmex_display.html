@@ -5,27 +5,24 @@
 {% block header %}Current Recipe Listing{% endblock %}
 
 {% block content %}
-
-        <div>>
-			<center>
+<center>
+	<div class="scrollable">
 			<table>
 				<tr>
-					<th>Type</th>
 					<th>Name</th>
+					<th>Type</th>
 					<th>Servings</th>
 					<th>Submitted On</th>
 				</tr>
 				{%  for food in foods %}
 				<tr>
-                    <td>{{ food.type }}</td>
 					<td><a href="./{{ food.pk}}/details/">{{ food.name }}</a></td>
+                    <td>{{ food.type }}</td>
 					<td>{{ food.servings }}</td>
 					<td>{{ food.dateSubmitted }}</td>
 				</tr>
 				{% endfor %}
-
 			</table>
-			</center>
         </div>
-
+</center>
 {% endblock %}

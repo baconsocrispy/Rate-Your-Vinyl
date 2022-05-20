@@ -6,16 +6,20 @@ html {
     background-color: lightblue;
 }
 
-body {
-	position: relative;
-	overflow: hidden;
-
-}
 html, body {
     height: 100%;
     margin: 0;
 	padding: 0;
 }
+
+a {
+    color: rgb(102,44,12);
+}
+
+a:hover {
+    color: rgb(204,88,24);
+}
+
 p {
 	padding: 2px 16px;
 	font-size: 15px;
@@ -35,10 +39,13 @@ h1 {
 }
 
 h2 {
-    color: #0404B4;
-    font-weight: 900;
+    color: #000000;
     font-family: 'Roboto', sans-serif;
-    text-align: center;
+    font-weight: 900;
+    display: inline-flex;
+    background-color: rgba(250,240,230, .8);
+    margin:0 auto;
+
 }
 h2 span {
     font-variant: small-caps;
@@ -66,14 +73,26 @@ h2 span {
     width: 70%;
 }
 
+.divScroll {
+overflow-y:scroll;
+height:100px;
+}
+.scrollable{
+    overflow:auto;}
+
 .table, th, td {
   border: 1px solid;
   text-align: center;
-  background-color:	#FAF0E6;
+  background-color:	rgba(250, 240, 230, .8);
   font-family: Lato;
   font-size: 20px;
   color: rgb(102,44,12);
   padding: 5px 15px;
+}
+
+textarea {
+    min-width: 400px;
+    height: 100px;
 }
 
 ul.topnav {
@@ -81,7 +100,7 @@ ul.topnav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #213e4a;
+    background-color: rgba(35,18,5);
 }
 /* Float the list items side by side */
 ul.topnav li {
@@ -103,7 +122,7 @@ ul.topnav li a {
 ul.topnav li a:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
-    background-color: #355664;
+    background-color: #46240A;
 }
 /* Hide the list item that contains the link that should
    open and close the topnav on small screens */
@@ -114,15 +133,6 @@ ul.topnav li.icon {
 	padding: 2px 16px;
 	text-align: center;
 }
-.price {
-	padding: 0px 0px;
-	display: flex;
-	justify-content: flex-start;
-	color: darkgreen;
-}
-.price span {
-	align-self: flex-end;
-}
 /* This is the entire page wrapper */
 .site-container {
     max-width: 100%;
@@ -130,11 +140,12 @@ ul.topnav li.icon {
     background-color: lightblue;
     margin-left: auto;
     margin-right: auto;
+
 }
 /* This controls the form size and contents */
 .admin_panel {
     margin: 0 auto;
-    display: flex;
+    display: inline-flex;
     max-width: 50%;
     height: 80%;
     background-color: #FAF0E6;
@@ -187,13 +198,14 @@ ul.topnav li.icon {
     width: 100%;
 }
 .btn {
+    background-color: rgba(35,18,5,.8);
 	flex-grow: 2;
     justify-content: center;
     text-align: center;
     display: inline-block;
     width: 150px; /* button size */
     margin: 2% 2% 2% 2%;
-    color: black;
+    color: white;
     padding: 10px 0px;
     text-decoration: none;
     font-size: 14px;
@@ -204,20 +216,21 @@ ul.topnav li.icon {
     border-radius: 5px;
 }
 .btn:hover {
-    background-color: #355664;
-    color: white;
+    background-color: rgba(70,36,10,.8);
+    color: #FF4500;
     border: 2px solid #b3b3b3;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
 }
 input[type="submit"] {
+    background-color: rgba(35,18,5,.8);
     flex-grow: 1;
     width: 10%;
     justify-content: center;
     text-align: center;
     display: inline-block;
     margin: 2% 2% 2% 2%;
-    color: black;
+    color: white;
     padding: 9px 0px 9px 0px;
     text-decoration: none;
     font-size: 14px;
@@ -228,8 +241,8 @@ input[type="submit"] {
     border-radius: 5px;
 }
 input[type="submit"]:hover {
-    background-color: #355664;
-    color: white;
+    background-color: rgba(70,36,10,.8);
+    color: #FF4500;
     border: 2px solid #b3b3b3;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
@@ -245,6 +258,7 @@ select {
 }
 input, textarea {
     width: 100%;
+    min-width
     margin: 1% 0 0 0;
     padding: 1% 0 2% 1%;
     line-height: 18px;
@@ -265,12 +279,15 @@ label {
     clear: both;
     display: flex;
     width: 100%;
+    float:left;
 	-moz-box-sizing: border-box;
     margin: 0 auto;
-    background-color: #213e4a;
-    position: absolute;
+    background-color: rgba(35,18,5);
+    position: -webkit-sticky;
+    position: fixed;
     bottom: 0;
     height: 40px;
+    z-index: 1;
 }
 #block-footer a, #block-footer p {
     flex: 1;
@@ -284,13 +301,8 @@ label {
     width: 40%;
     text-align: right;
 }
-#block-footer{
-	float:left;
-	clear:both;
-	width:100%;
-}
+
 #block-footer a {
-	color: white;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	text-decoration: none;
 	outline: medium none;
@@ -305,9 +317,31 @@ label {
     background-size: cover;
     background-attachment:fixed;
     background-position: center;
-    position: relative;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
 }
+
+#taco{
+    transform: scale(.5);
+    animation-name: race;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(2.5,.2,.3,2);
+    }
+
+@keyframes race {
+    0%, 100%{
+        transform: translateX(-330px);
+        background-image: url("../images/icons/smileyface1.png")
+    }
+    50% {
+        transform: translateX(330px);
+    }
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;}

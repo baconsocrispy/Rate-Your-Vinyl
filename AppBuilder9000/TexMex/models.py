@@ -9,7 +9,6 @@ TYPE_CHOICES = {
     ('beverages', 'beverages'),
 }
 
-
 class Food(models.Model):
     type = models.CharField(max_length=12, choices=TYPE_CHOICES)
     name = models.CharField(max_length=60, default="", blank=True, null=False)
