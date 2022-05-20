@@ -91,7 +91,7 @@ def confirmed(request):
 def texmex_api(request):
     url = "https://tasty.p.rapidapi.com/recipes/list"
 
-    querystring = {"from": "0", "size": "15", "tags": "mexican"}
+    querystring = {"from": "0", "size": "20", "tags": "mexican"}
 
     headers = {
         "X-RapidAPI-Host": "tasty.p.rapidapi.com",
@@ -103,7 +103,7 @@ def texmex_api(request):
 
     recipe_list = []
 
-    for x in range(15):
+    for x in range(20):
         recipe_list.append([api_info["results"][x]["slug"], api_info["results"][x]["name"]])
     content = {"recipe_list": recipe_list}
     return render(request, 'TexMex/texmex_api.html', content)
