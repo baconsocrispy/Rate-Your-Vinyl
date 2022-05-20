@@ -25,7 +25,7 @@ def addCamera(request):
 def camList(request, pk):
     pullCam = get_object_or_404(FieldOfView, pk=pk)
     content = {'pullCam': pullCam}
-    return render(request, "Camera_home.html", content)
+    return render(request, "Camera_database.html", content)
 
 
 def navbar(request):

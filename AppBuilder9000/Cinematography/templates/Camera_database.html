@@ -1,5 +1,7 @@
 <ul>
     {% for camera in pullCam %}
         <li>{{ camera.manufacturer }}</li>
+    <!-- {% empty %}
+        <li>Whoops!  No cameras have been added yet.</li> -->
     {% endfor %}
 </ul>
