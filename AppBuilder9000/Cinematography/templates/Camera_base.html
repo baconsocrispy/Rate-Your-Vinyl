@@ -25,10 +25,8 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Add Camera</button>
+                <input type="button" onclick="location.href='Camera_database.html';" value="View Cameras" />
             </form>
-        </div>
-        <div class="list_container">
-            {% include "Camera_database.html" %}
         </div>
     </div>
 

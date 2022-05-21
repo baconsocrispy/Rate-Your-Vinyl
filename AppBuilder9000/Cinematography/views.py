@@ -8,7 +8,8 @@ def camIndex(request):
     form = cameraForm(data=request.POST or None)
     if request.method == 'POST':
         return addCamera(request)
-    content = {'form': form}
+    pullCam = FieldOfView.Camera.all()
+    content = {'form': form, 'pullCam': pullCam}
     return render(request, "Camera_home.html", content)
 
 
@@ -22,19 +23,19 @@ def addCamera(request):
     return render(request, "Camera_home.html", content)
 
 
-def camList(request, pk):
-    pullCam = get_object_or_404(FieldOfView, pk=pk)
+def camList(request):
+    pullCam = FieldOfView.Camera.all()
     content = {'pullCam': pullCam}
     return render(request, "Camera_database.html", content)
 
 
 def navbar(request):
-    return render(request, "content/navbar.html")
+    return render(request, "Cinematography/navbar.html")
 
 
 def colors(request):
-    return render(request, "content/colors.html")
+    return render(request, "Cinematography/colors.html")
 
 
 def comp(request):
-    return render(request, "content/comp.html")
+    return render(request, "Cinematography/comp.html")
