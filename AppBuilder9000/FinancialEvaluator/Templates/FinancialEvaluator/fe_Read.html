@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{% static '/FinancialEvaluator/css/fe_layout.css' %}">
+        <title>Financial Evaluations</title>
+    </head>
+
+    <div class="nav">
+        <a href="fe_Home">HOME</a> |
+        <a href="fe_Account">SIGN IN</a> |
+        <a href="">CONTACT</a> |
+        <a href="">CHART</a>
+    </div>
+
+
+
+
+<div>
+    <h1>Inputs</h1>
+    <form method="GET" action="fe_details">
+        <table class="inputForm">
+            {% csrf_token %}
+            {{form.non_field_errors }}
+            {{ form.as_table }}
+            {% for e in entry %}
+            <tr>
+                <td>{{ e.symbol }}</td>
+                <td>{{ e.style }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</div>
+
+<button><a href="{% url 'fe_Evaluation' %}">Add Entry</a></button>
+
+
+</html>
