@@ -8,7 +8,7 @@
 
 <center>
     <div class="admin_panel">
-        <form name="UserForm">
+        <form name="UserForm" method="POST" action="./">
             <table>
                 {% csrf_token %}
                 {{ form.non_field_errors }}

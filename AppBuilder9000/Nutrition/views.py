@@ -85,4 +85,13 @@ def delete(request, pk):
         item.delete()
         return redirect('Nutrition_display')
     content = {"item":item}
-    return render(request, "Nutrition/Nutrition_edit.html", content)
+    return render(request, "Nutrition/Nutrition_delete.html", content)
+
+def confirmDelete(request):
+    if request.method == "POST":
+        form = UserForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('Nutrition_display')
+    else:
+        return redirect('Nutrition_display')

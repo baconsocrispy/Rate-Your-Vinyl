@@ -1,3 +1,6 @@
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls import include
+from django.contrib import admin
 from django.urls import path
 from . import views
 
@@ -8,4 +11,5 @@ urlpatterns = [
     path('<int:pk>/edit/', views.edit, name = 'Nutrition_edit'),
     path('<int:pk>/delete.', views.delete, name = 'Nutrition_delete'),
     path('Nutrition_Display/', views.displayusers, name = 'Nutrition_display'),
+    path('confirmdelete', views.confirmDelete, name="confirmDelete"),
 ]
