@@ -1,7 +1,11 @@
 .page_container {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 75px;
+}
+
+header {
+    color: white;
 }
 
 .navbar {
@@ -46,9 +50,18 @@
     color: #fff;
 }
 
-.form-container {
+.form_container {
+    display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 250px;
+    background-color: #37559680;
+    padding: 10px;
+    padding-bottom: 15px;
+}
+
+.form_container form {
+    color: white;
 }
 
 .list_container {
