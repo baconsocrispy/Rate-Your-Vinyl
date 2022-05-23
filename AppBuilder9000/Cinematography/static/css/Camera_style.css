@@ -51,6 +51,19 @@
     margin-right: auto;
 }
 
+.list_container {
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.list_container li {
+    list-style-type: none;
+}
+
 /* Video size = 1920x1080.  Using vw and vh to allow proper scaling of the video */
 .video-container {
   position: absolute;

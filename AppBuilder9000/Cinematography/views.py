@@ -8,8 +8,7 @@ def camIndex(request):
     form = cameraForm(data=request.POST or None)
     if request.method == 'POST':
         return addCamera(request)
-    pullCam = FieldOfView.Camera.all()
-    content = {'form': form, 'pullCam': pullCam}
+    content = {'form': form}
     return render(request, "Camera_home.html", content)
 
 
