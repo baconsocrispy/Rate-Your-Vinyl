@@ -9,7 +9,7 @@
 <body>
     <div class="page_container">
         <!-- Adding a universal Navbar for each page that needs one -->
-        {% include "content/navbar.html" %}
+        {% include "Cinematography/navbar.html" %}
         <header>
             <h1 align="center">{% block title %}{% endblock %}</h1>
         </header>
@@ -25,6 +25,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit">Add Camera</button>
+                <input type="button" onclick="location.href='Camera_database.html';" value="View Cameras" style="float: right;"/>
             </form>
         </div>
     </div>
