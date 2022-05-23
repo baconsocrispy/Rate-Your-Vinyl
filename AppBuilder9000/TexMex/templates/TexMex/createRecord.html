@@ -5,7 +5,7 @@
 {% block header %}Create A New Recipe:{% endblock %}
 
 {% block content %}
-
+<center>
 <div class="admin_panel">
     <form method="POST" action="{% url 'createRecord' %}">
         <div class="frmObject_container">
@@ -19,5 +19,5 @@
         </div>
     </form>
 </div>
-
+</center>
 {% endblock %}

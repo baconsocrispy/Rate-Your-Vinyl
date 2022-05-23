@@ -45,8 +45,8 @@ def display_account_details(request, pk):
 
     # above : query dB for all data on that particular account
 
-    return render(request, 'Nutrition/Nutrition_details.html', {'item': item})
-    # this else says we will be rendering the Nutrition_details.html page for the user (STEP 1):
+    return render(request, 'Nutrition/Nutrition_display.html', {'item': item})
+    # this else says we will be rendering the Nutrition_display.html page for the user (STEP 1):
     # on this page, user will have a chance to make edits to the item he selected from dropdown
 
 
@@ -55,8 +55,8 @@ def display_nutrition_details(request, pk):
 
     # above : query dB for all data on that particular account
 
-    return render(request, 'Nutrition/Nutrition_details.html', {'nutrition_item': nutrition_item})
-    # this else says we will be rendering the Nutrition_details.html page for the user (STEP 1):
+    return render(request, 'Nutrition/Nutrition_display.html', {'nutrition_item': nutrition_item})
+    # this else says we will be rendering the Nutrition_display.html page for the user (STEP 1):
     # on this page, user will have a chance to make edits to the item he selected from dropdown
 
 def delete_account(request, pk):

@@ -12,12 +12,15 @@
 </head>
 <body>
     <div class="page_container">
+        <div class="sticky">
         {% include "texmex_navbar.html" %}
         <header class="header-title">
             <h1>{% block header %}{% endblock %}</h1>
         </header>
-        {% block content %}{% endblock %}
+        </div>
+        <div>{% block content %}{% endblock %}</div>
     </div>
-    {% include "texmex_footer.html" %}
+
 </body>
+    {% include "texmex_footer.html" %}
 </html>
