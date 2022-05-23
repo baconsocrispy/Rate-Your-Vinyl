@@ -1,0 +1,10 @@
+{% extends "fe_Base.html" %}
+
+
+{% block content %}
+<h1>Details</h1>
+<h3>{{ entry.symbol }}</h3>
+<p>{{ entry.style }}</p>
+<button><a href="{% url 'fe_Update' entry.id %}">Update Entry</a></button>
+
+{% endblock %}
