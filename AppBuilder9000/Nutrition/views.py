@@ -63,3 +63,35 @@ def displayusers(request):
     display = User.Users.all()
     context = {'display': display}
     return render(request, 'Nutrition/Nutrition_display.html', context)
+
+def edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(User, pk=pk)
+    form = UserForm(data = request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('Nutrition_display')
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'Nutrition/Nutrition_edit.html', {'form':form, 'item':item})
+
+def delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(User, pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('Nutrition_display')
+    content = {"item":item}
+    return render(request, "Nutrition/Nutrition_delete.html", content)
+
+def confirmDelete(request):
+    if request.method == "POST":
+        form = UserForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('Nutrition_display')
+    else:
+        return redirect('Nutrition_display')
