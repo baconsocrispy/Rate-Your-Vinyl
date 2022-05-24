@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'Nutrition',
     'Cinematography',
     'FinancialEvaluator',
+    'Portfolio',
 ]
 
 MIDDLEWARE = [

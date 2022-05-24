@@ -1,0 +1,174 @@
+html {
+    height: 100%;
+    font-family: Garamond, serif;
+}
+
+* {
+    margin: none;
+    padding: none;
+}
+
+body {
+    background: gray;
+}
+
+
+:root {
+    --menusvg: rgba(170,23,50,1);
+}
+
+
+
+.navbar {
+    width: 100%;
+    background-color: rgba(0,0,0,.25);
+    height: 60px;
+    display: flex; /*figure out why this needs to be flex to center content horizontally*/
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform:translateY(-60px);
+    box-shadow: -10px 0px 12px 4px rgba(170,23,50,.25);
+}
+
+
+.menu {
+    position: fixed;
+    z-index: 101;
+    cursor: pointer;
+    margin-top: -95px;
+
+}
+
+.svg path {
+    stroke: var(--menusvg);
+    stroke-opacity: .7
+}
+
+.svg path:hover {
+    stroke: var(--menusvg);
+    stroke-opacity: 1;
+}
+
+.navbar li {
+    height: 100%;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.navbar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    height: 100%;
+    color: white;
+    padding: 0 20px;
+    border-radius: 5px;
+}
+
+.active, .navbar a:hover{
+    background-color: rgba(170,23,50,.75);
+    
+}
+
+
+.container {
+    height: calc(100vh - 250px);
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 8px;
+    text-align: center;
+
+}
+
+.controller {
+    display: flex;
+    align-content: middle;
+    justify-content: center;
+    padding: 6vh;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+.anim {
+    animation-name: slidein;
+    animation-duration: 1s linear;
+    -webkit-animation-name: slidein;
+    animation-duration: 1s;
+}
+
+@keyframes slidein {
+    from {
+        transform: translatex(-100%);
+        opacity: .25;
+    }
+
+    to {
+        transform: translatex(0%);
+        opacity: 1;
+    }
+}
+
+
+
+.homecontent {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    position: absolute;
+}
+
+
+
+@media screen and (min-width: 1920px) {
+    body {
+
+        background-size: 100% auto !important
+    }
+} 
+
+@media screen and (max-width: 600px) {
+    
+    html {
+        transform: translateX(.25px);
+        overflow: hidden;
+    }
+    body {
+        background-size: stretch;
+        color: black;
+        z-index: -1
+    }
+    #homesection {
+        margin: 20%;
+        
+    }
+    
+    .navbar {
+        display: block;
+        height: 100%;
+        right: 0;
+        position: absolute;
+        width: 101%;
+        margin-top: 60px;
+        
+    }
+    .navbar li {
+        height: 20%;
+    }
+    .navbar a { 
+        display: flex;
+        justify-content: center;
+        align-items: middle;
+        width: 90%;
+        height: 100%;
+        background-color: rgba(0,0,0,.85);
+        font-size: 25px;
+        transform: translateX(100%)
+        
+    }
