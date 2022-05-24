@@ -55,10 +55,10 @@ var contactme = document.getElementById("formpopup")
 function formdisplay() {
   if (formbox.style.transform == "translateY(100vh)") {
     formbox.style.transform = "translateY(0vh)";
-    formbox.style.transition = "1s ease-in"
+    formbox.style.transition = ".5s ease-in"
   } else {
     formbox.style.transform = "translateY(100vh)"
-    formbox.style.transition = "1s ease-out"
+    formbox.style.transition = ".5s ease-out"
   }
 
 }

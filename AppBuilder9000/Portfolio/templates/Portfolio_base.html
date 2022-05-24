@@ -1,18 +1,19 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     {% include "Portfolio_head.html" %}
     <meta charset="UTF-8">
     <title>Shiv Patel</title>
 </head>
+
 <body>
         {% include "Portfolio/navbar.html" %}
-        <div class="container anim" id="container">
+        <div class="container anim">
                 <div class="controller" >
                     <div class="homecontent" id="home">
                         <div id="homesection">
                             <h1>Welcome to my corner of the internet</h1>
+
                             <p></p>
                         </div>
                     </div>
@@ -20,6 +21,29 @@
             </div>
         </div>
 
+        <div class="container anim">
+            <div class="con2 aboutmecontent">
+                <div class="">
+                    <h1 class="">Portfolio</h1>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container anim">
+            <div class="con2 aboutmecontent">
+                <div class="aboutmesection">
+                    <h1 class="aboutheader">About Me</h1>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        {% include "Portfolio/contactform.html" %}
+
 
 </body>
+
 </html>
