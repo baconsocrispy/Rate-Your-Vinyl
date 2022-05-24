@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     {% include "Portfolio_head.html" %}
@@ -22,7 +21,7 @@
         <tbody class="bg-light">
             {% for ContactForm in inquries %}
             <tr class="">
-                <td><a>{{ ContactForm.Name }}</a></td>
+                <td><a href="./{{ ContactForm.pk }}/portfolio_details">{{ ContactForm.Name }}</a></td>
                 <td>{{ ContactForm.Topic }}</td>
                 <td>{{ ContactForm.Email }}</td>
                 <td>{{ ContactForm.Message }}</td>
@@ -31,8 +30,6 @@
     </table>
         </div>
     </div>
-
-    {% include "Portfolio/contactform.html" %}
 
 </body>
 </html>
