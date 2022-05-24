@@ -199,6 +199,11 @@ body {
     border-radius: 5px;
 }
 
+.dbdisplay {
+    color: white;
+    display: block;
+}
+
 
 @media screen and (min-width: 1920px) {
     body {
