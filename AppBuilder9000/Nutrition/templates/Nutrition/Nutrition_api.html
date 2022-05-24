@@ -2,13 +2,13 @@
 
 {% block title %}Recipes{% endblock %}
 
-{% block header %}Current Recipes on Tasty:{% endblock %}
+{% block header %}Click Below to See Healthy Recipes!{% endblock %}
 
 {% block content %}
     <center>
         <div class="scrollable">
             <table>
-                {% for x in recipe_list %}
+                {% for x in recipes %}
                 <tr>
                     <td><a href="https://tasty.co/recipe/{{ x.0 }}" target = "_blank">{{ x.1 }}</a></td>
                 </tr>
