@@ -8,18 +8,27 @@
 
 <body>
         {% include "Portfolio/navbar.html" %}
-        <div class="container anim" id="container">
+        <div class="container anim">
                 <div class="controller" >
                     <div class="homecontent" id="home">
                         <div id="homesection">
                             <h1>Welcome to my corner of the internet</h1>
-                            {{ form }}
+
                             <p></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="container anim">
+            <div class="con2 aboutmecontent">
+                <div class="">
+                    <h1 class="">Portfolio</h1>
+                </div>
+            </div>
+        </div>
+
 
         <div class="container anim">
             <div class="con2 aboutmecontent">
@@ -30,29 +39,9 @@
             </div>
         </div>
 
-        <div class="container anim">
-            <div class="con2 aboutmecontent">
-                <div class="contacthistory">
-                    <h1 class="contactheader">Past Inquries</h1>
-
-                </div>
-            </div>
-        </div>
 
 
-        <div id="contact">
-            <button type="button" class="formpopup formopen">Contact Me!</button>
-            <div class="formcontainer" id="formcontainer">
-                <form method="POST" class="contactform">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn">Submit</button>
-                    <button type="button" class="btn formopen" >Close</button>
-                    <button type="button" class="btn" onclick="location.href='Portfolio_data.html';">View Previous Inquiries</button>
-                </form>
-            </div>
-        </div>
+        {% include "Portfolio/contactform.html" %}
 
 
 </body>

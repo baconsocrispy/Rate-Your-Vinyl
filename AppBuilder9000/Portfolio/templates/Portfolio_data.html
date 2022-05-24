@@ -7,29 +7,6 @@
     <title>Shiv Patel</title>
 </head>
 <body>
-        {% include "Portfolio/navbar.html" %}
-        <div class="container anim">
-            <div class="con2 aboutmecontent">
-                <div class="contacthistory">
-                    <h1 class="contactheader">Past Inquries</h1>
-
-                </div>
-            </div>
-        </div>
-
-        <div id="contact">
-            <button type="button" class="formpopup formopen">Contact Me!</button>
-            <div class="formcontainer" id="formcontainer">
-                <form method="POST" class="contactform">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn">Submit</button>
-                    <button type="button" class="btn formopen" >Close</button>
-                    <button type="button" class="btn" onclick="location.href='Portfolio_data.html';">View Previous Inquiries</button>
-                </form>
-            </div>
-        </div>
 
 
 </body>
