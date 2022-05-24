@@ -16,7 +16,7 @@
     <div class="list_container">
         <ul>
             {% for cam in pullCam %}
-                <li>{{ cam.manufacturer }}</li>
+                <li><a href="./{{ cam.pk }}/Camera_details/">{{ cam.manufacturer }}</a></li>
             {% empty %}
                 <li>Whoops!  No cameras have been added yet.</li>
             {% endfor %}

@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.template import loader
 from .forms import cameraForm
 from .models import FieldOfView
 from django.shortcuts import render, redirect, get_object_or_404
@@ -26,6 +27,12 @@ def camList(request):
     pullCam = FieldOfView.Camera.all()
     content = {'pullCam': pullCam}
     return render(request, "Camera_database.html", content)
+
+
+def camDeets(request, pk):
+    theDeets = get_object_or_404(FieldOfView, pk=pk)
+    content = {'theDeets': theDeets}
+    return render(request, 'Camera_details.html', content)
 
 
 def navbar(request):
