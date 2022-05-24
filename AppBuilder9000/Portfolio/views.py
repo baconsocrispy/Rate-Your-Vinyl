@@ -27,3 +27,11 @@ def addInquiry(request):
             print(form.errors)
     return context
 
+def inqurieslist(request):
+    inquries = ContactForm.ContactForm.all()
+    context = addInquiry(request)
+    context.update({
+        'inquries': inquries,
+    })
+
+    return render(request, "Portfolio_data.html", context)
