@@ -1,6 +1,8 @@
+import requests
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import UserForm
 from .models import User
+import json
 
 def Nutrition_Home(request):
     return render(request, "Nutrition/Nutrition_Home.html")
@@ -95,3 +97,23 @@ def confirmDelete(request):
             return redirect('Nutrition_display')
     else:
         return redirect('Nutrition_display')
+
+def Nutrition_api(request):
+    url = "https://tasty.p.rapidapi.com/recipes/list"
+    querystring = {"from": "0", "size": "40", "tags": "healthy"}
+    headers = {
+        "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+        "X-RapidAPI-Key": "0347a84cf9msh7ff41b3b63df922p167093jsn9e1eb49471e1"
+    }
+    response = requests.request("GET", url, headers = headers, params = querystring)
+    entries = json.loads(response.text)
+    recipes = []
+    for x in range(40):
+        recipes.append([entries["results"][x]["slug"], entries["results"][x]["name"]])
+    recipes.sort()
+    content = {"recipes": recipes}
+    return render(request, 'Nutrition/Nutrition_api.html', content)
+
+
+
+
