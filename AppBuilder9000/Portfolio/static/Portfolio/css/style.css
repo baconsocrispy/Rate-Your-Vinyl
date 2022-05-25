@@ -199,6 +199,7 @@ body {
     border-radius: 5px;
 }
 
+/* database object view styling */
 .dbdisplay {
     color: white;
     display: block;
@@ -216,6 +217,48 @@ body {
     border-radius: 10px;
 
 }
+
+/* end database object view */
+
+/* Database list table styling */
+
+.con3 {
+    padding: 6vh;
+    width: 100%;
+
+
+    height: calc(100vh - 250px);
+}
+.tablestyle {
+    border-top: 1px solid black;
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    overflow:auto;
+}
+.tableheader {
+    border-bottom: 1px solid black;
+}
+
+.tabledata {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.tabledata2 {
+    border-bottom: 1px solid black;
+}
+
+.tabledata, .tabledata2 {
+    background-color: rgba(0,0,0,.25);
+    text-decoration: none;
+    font-size: 2vh;
+    color: white;
+    padding: 12px;
+
+
+}
+
 
 
 @media screen and (min-width: 1920px) {
