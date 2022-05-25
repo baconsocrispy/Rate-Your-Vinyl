@@ -30,7 +30,11 @@
                 <td class="column">Bot2</td>
                 <td class="column">Bot3</td>
             </tr>
+            <tr>
+                <td><a href="{% url 'Camera_modify' theDeets.pk %}"><input type="button" value="Edit Camera"/></a></td>
+                <td><input type="button" onclick="location.href='../../Camera_database.html';" value="Back to List"/></td>
+                <td><a href="{% url 'Camera_delete' theDeets.pk %}"><input type="button" onclick="delConfirm()" value="Delete Camera"/></a></td>
+            </tr>
         </table>
-        <input type="button" onclick="location.href='../../Camera_database.html';" value="Back to List"/>
     </div>
 </body>
