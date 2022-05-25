@@ -199,6 +199,24 @@ body {
     border-radius: 5px;
 }
 
+.dbdisplay {
+    color: white;
+    display: block;
+    padding: 10px;
+}
+
+.dbdisplaycontainer {
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+    border: 4px solid var(--menusvg);
+    background: black;
+    z-index: 21;
+    transform: translatey(100vh);
+    border-radius: 10px;
+
+}
+
 
 @media screen and (min-width: 1920px) {
     body {

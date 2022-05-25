@@ -35,3 +35,12 @@ def inqurieslist(request):
     })
 
     return render(request, "Portfolio_data.html", context)
+
+def inquiry(request, pk):
+    pk = int(pk)
+    inquries = get_object_or_404(ContactForm, pk=pk)
+    content = {
+        'inquries': inquries,
+    }
+    return render(request, 'portfolio_display.html', content)
+
