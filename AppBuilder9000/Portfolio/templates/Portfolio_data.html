@@ -8,24 +8,24 @@
 <body>
     {% include "Portfolio/navbar.html" %}
     <div class="container anim">
-        <div class="con2 aboutmecontent">
-            <table class="">
-        <thead class="">
-            <tr>
-                <th>Name:</th>
-                <th>Topic:</th>
-                <th>Message:</th>
-            </tr>
-        </thead>
-        <tbody class="bg-light">
-            {% for ContactForm in inquries %}
-            <tr class="">
-                <td><a href="{% url 'inquiry_display' ContactForm.id %}">{{ ContactForm.Name }}</a></td>
-                <td>{{ ContactForm.Topic }}</td>
-                <td>{{ ContactForm.Message }}</td>
-            </tr>
-            {% endfor %}
-    </table>
+        <div class="con3 aboutmecontent">
+            <table class="tablestyle">
+                <thead >
+                    <tr class="tablerow">
+                        <th class="tableheader">Name:</th>
+                        <th class="tableheader">Topic:</th>
+                        <th class="tableheader">Message:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ContactForm in inquries %}
+                    <tr class="tablerow">
+                        <td class="tabledata"><a href="{% url 'inquiry_display' ContactForm.id %}">{{ ContactForm.Name }}</a></td>
+                        <td class="tabledata">{{ ContactForm.Topic }}</td>
+                        <td class="tabledata2">{{ ContactForm.Message }}</td>
+                    </tr>
+                    {% endfor %}
+            </table>
         </div>
     </div>
 

@@ -44,3 +44,27 @@ def inquiry(request, pk):
     }
     return render(request, 'portfolio_display.html', content)
 
+def inquriesdetails(request, pk):
+    pk = int(pk)
+    inquiry = get_object_or_404(ContactForm, pk=pk)
+    form = ConForm(data=request.POST or None, instance=inquiry)
+    if request.method == 'POST':
+        if form.is_valid():
+            formsave = form.save(commit=False)
+            formsave.save()
+            return redirect('Portfolio_data')
+    else:
+        content = {
+            'form': form,
+            'inquiry': inquiry
+        }
+        return render(request, 'portfolio_details.html', content)
+
+def inquirydelete(request, pk):
+    inquiry = get_object_or_404(ContactForm, pk=pk)
+    if request.method == 'POST':
+        inquiry.delete()
+        # removing primary key value from url
+        return redirect('../../Portfolio_data.html')
+    content = {'inquiry': inquiry}
+    return render(request, 'portfolio_delete.html', content)
