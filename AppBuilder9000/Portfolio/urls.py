@@ -7,5 +7,5 @@ urlpatterns = [
     path('Portfolio/navbar.html', views.navbar, name="navbar"),
     path('Portfolio_data.html', views.inqurieslist, name="Portfolio_data"),
     path('<int:pk>/Portfolio_display.html', views.inquiry, name="inquiry_display"),
-    path('<int:pk>/portfolio_details', views.inquriesdetails, name="inquiry_details")
+
 ]

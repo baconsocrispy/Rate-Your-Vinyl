@@ -37,27 +37,10 @@ def inqurieslist(request):
     return render(request, "Portfolio_data.html", context)
 
 def inquiry(request, pk):
+    pk = int(pk)
     inquries = get_object_or_404(ContactForm, pk=pk)
     content = {
         'inquries': inquries,
     }
     return render(request, 'portfolio_display.html', content)
-
-def inquriesdetails(request, pk):
-    pk = int(pk)
-    inquiry = get_object_or_404(ContactForm, pk=pk)
-    form = ConForm(data=request.POST or None, instance=inquiry)
-    if request.method == 'POST':
-        if form.is_valid():
-            formsave = form.save(commit=False)
-            formsave.save()
-            return redirect('Portfolio_data')
-    else:
-        content = {
-            'form': form,
-            'inquiry': inquiry
-        }
-        return render(request, 'portfolio_details.html', content)
-
-
 
