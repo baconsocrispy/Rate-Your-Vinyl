@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import UserForm
 from .models import User
 import json
+from bs4 import BeautifulSoup
 
 def Nutrition_Home(request):
     return render(request, "Nutrition/Nutrition_Home.html")
@@ -100,7 +101,7 @@ def confirmDelete(request):
 
 def Nutrition_api(request):
     url = "https://tasty.p.rapidapi.com/recipes/list"
-    querystring = {"from": "0", "size": "40", "tags": "healthy"}
+    querystring = {"from": "0", "size": "8", "tags": "nynm_protein"}
     headers = {
         "X-RapidAPI-Host": "tasty.p.rapidapi.com",
         "X-RapidAPI-Key": "0347a84cf9msh7ff41b3b63df922p167093jsn9e1eb49471e1"
@@ -108,11 +109,31 @@ def Nutrition_api(request):
     response = requests.request("GET", url, headers = headers, params = querystring)
     entries = json.loads(response.text)
     recipes = []
-    for x in range(40):
+    for x in range(8):
         recipes.append([entries["results"][x]["slug"], entries["results"][x]["name"]])
     recipes.sort()
-    content = {"recipes": recipes}
-    return render(request, 'Nutrition/Nutrition_api.html', content)
+    items = {"recipes": recipes}
+    return render(request, 'Nutrition/Nutrition_api.html', items)
+
+def Nutrition_beautifulSoup(request):
+    moreRecipes = []
+    webPage = requests.get("https://www.allrecipes.com/search/results/?search=protein")
+    search = BeautifulSoup(webPage.content, 'html.parser')
+    cookies = search.find(title = "Easy Protein Cookies")
+    moreRecipes.append(["Easy Protein Cookies", cookies.get('href')])
+    bread = search.find(title = "High Protein Bread")
+    moreRecipes.append(["High Protein Bread", bread.get('href')])
+    waffles = search.find(title = "Protein Waffles")
+    moreRecipes.append(["Protein Waffles", waffles.get('href')])
+    pancakes = search.find(title = "Gluten Free Protein Pancakes")
+    moreRecipes.append(["Gluten Free Protein Pancakes", pancakes.get('href')])
+    muffins = search.find(title = "Chocolate Protein Muffins")
+    moreRecipes.append(["Chocolate Protein Muffins", muffins.get('href')])
+    moreRecipes.sort()
+    items = {"moreRecipes": moreRecipes}
+    return render(request, 'Nutrition/Nutrition_beautifulSoup.html', items)
+
+
 
 
 

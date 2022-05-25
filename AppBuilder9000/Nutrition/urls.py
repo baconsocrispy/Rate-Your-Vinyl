@@ -13,4 +13,5 @@ urlpatterns = [
     path('Nutrition_Display/', views.displayusers, name = 'Nutrition_display'),
     path('confirmdelete', views.confirmDelete, name="confirmDelete"),
     path('api/', views.Nutrition_api, name = "Nutrition_api"),
+    path('beautifulSoup/', views.Nutrition_beautifulSoup, name = 'Nutrition_beautifulSoup'),
 ]
