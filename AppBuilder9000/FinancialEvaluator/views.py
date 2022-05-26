@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EvaluationForm
-from .models import Evaluation, Approach, Account
+from .models import Evaluation
+import requests
 
 
 
@@ -18,7 +19,7 @@ def fe_Evaluation(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('fe_Read')
+            return redirect('fe_Home')
         else:
             print(form.errors)
     content = {'form': form}
@@ -41,5 +42,7 @@ def fe_Delete(request):
 def fe_Update(request):
     return render(request, 'FinancialEvaluator/fe_Update.html')
 
-def fe_Details(request):
-    return render(request, 'FinancialEvaluator/fe_Details.html')
+def fe_Details(request, pk):
+    entry = get_object_or_404(Evaluation, pk=pk)
+    content = {'entry': entry}
+    return render(request, 'FinancialEvaluator/fe_Details.html', content)

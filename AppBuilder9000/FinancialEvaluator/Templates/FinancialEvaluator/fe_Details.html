@@ -3,8 +3,16 @@
 
 {% block content %}
 <h1>Details</h1>
+{{ entry.as_p }}
 <h3>{{ entry.symbol }}</h3>
 <p>{{ entry.style }}</p>
-<button><a href="{% url 'fe_Update' entry.id %}">Update Entry</a></button>
+    <table class="detailsTbl">
+            <tr>
+                <th>{{ entry.documents_set_1 }}</a></th>
+                <th>{{ entry.documents_set_2 }}</a></th>
+                <th>{{ entry.documents_set_3 }}</a></th>
+            </tr>
+    </table>
+<button><a href="{% url 'fe_Update' %}">Update Entry</a></button>
 
 {% endblock %}
