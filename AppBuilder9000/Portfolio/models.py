@@ -20,3 +20,14 @@ class ContactForm(models.Model):
 
     def __str__(self):
         return self.Name
+
+class WeatherInfo(models.Model):
+    Temperature = models.CharField(max_length=15)
+    Condition = models.CharField(max_length=30)
+    Time = models.DateTimeField(auto_now_add=True)
+    City = models.CharField(max_length=30)
+
+    WeatherInfo = models.Manager()
+
+    def __str__(self):
+        return self.date
