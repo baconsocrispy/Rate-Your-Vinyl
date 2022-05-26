@@ -3,6 +3,7 @@ from .models import ContactForm
 from .forms import ConForm
 import requests
 import json
+from bs4 import BeautifulSoup
 
 
 def navbar(request):
@@ -101,3 +102,14 @@ def weather_api(request):
         "geo": geo["name"],
     }
     return render(request, 'portfolio_weather.html', context)
+
+
+
+def beautifulsoup(request):
+    page = requests.get("https://en.wikipedia.org/wiki/Falcon_9")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    section = soup.find('div', {'class': 'mw-parser-output'})
+    para = section.find_all('p')[1].get_text()
+
+    content = {"para": para}
+    return render(request, "portfolio_about.html", content)
