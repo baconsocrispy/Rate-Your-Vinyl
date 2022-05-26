@@ -28,6 +28,36 @@ def camList(request):
     return render(request, "Camera_database.html", content)
 
 
+def camDeets(request, pk):
+    theDeets = get_object_or_404(FieldOfView, pk=pk)
+    content = {'theDeets': theDeets}
+    return render(request, 'Camera_details.html', content)
+
+
+def camEdit(request, pk):
+    theDeets = get_object_or_404(FieldOfView, pk=pk)
+    form = cameraForm(data=request.POST or None, instance=theDeets)
+    if request.method == 'POST':
+        if form.is_valid():
+            formB = form.save(commit=False)
+            formB.save()
+            return redirect('Camera_database')
+        else:
+            print(form.errors)
+    else:
+        content = {'theDeets': theDeets, 'form': form}
+        return render(request, 'Camera_modify.html', content)
+
+
+def camDelete(request, pk):
+    theDeets = get_object_or_404(FieldOfView, pk=pk)
+    if request.method == 'POST':
+        theDeets.delete()
+        return redirect('Camera_database')
+    content = {'theDeets': theDeets}
+    return render(request, 'Camera_delete.html', content)
+
+
 def navbar(request):
     return render(request, "Cinematography/navbar.html")
 

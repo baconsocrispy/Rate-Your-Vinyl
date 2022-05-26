@@ -8,20 +8,10 @@ html {
     padding: none;
 }
 
-body {
-    background: gray;
-}
-
-
-:root {
-    --menusvg: rgba(170,23,50,1);
-}
-
 
 
 .navbar {
     width: 100%;
-    background-color: rgba(0,0,0,.25);
     height: 60px;
     display: flex; /*figure out why this needs to be flex to center content horizontally*/
     justify-content: center;
@@ -30,8 +20,6 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
-    transform:translateY(-60px);
-    box-shadow: -10px 0px 12px 4px rgba(170,23,50,.25);
 }
 
 
@@ -39,24 +27,21 @@ body {
     position: fixed;
     z-index: 101;
     cursor: pointer;
-    margin-top: -95px;
+    margin-top: -100px;
 
 }
 
 .svg path {
-    stroke: var(--menusvg);
-    stroke-opacity: .7
+
 }
 
 .svg path:hover {
-    stroke: var(--menusvg);
-    stroke-opacity: 1;
+
 }
 
 .navbar li {
     height: 100%;
     list-style: none;
-    border-radius: 5px;
 }
 
 .navbar a {
@@ -65,13 +50,10 @@ body {
     text-decoration: none;
     text-align: center;
     height: 100%;
-    color: white;
     padding: 0 20px;
-    border-radius: 5px;
 }
 
 .active, .navbar a:hover{
-    background-color: rgba(170,23,50,.75);
     
 }
 
@@ -124,6 +106,120 @@ body {
     position: absolute;
 }
 
+.con2 {
+    padding: 6vh;
+    width: 100%;
+    height: calc(100vh - 250px);
+}
+
+.formcontainer {
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+    z-index: 21;
+    transform: translatey(100vh);
+
+}
+
+.contactform {
+    max-width: 25vw;
+    padding: 1vw;
+    margin: 0;
+}
+
+.inputbox {
+    display: inline-flex;
+    justify-content: center;
+    width: 95%;
+    height: 1.5vh;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    font-size: .75vw;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+
+}
+
+
+.btn {
+    font-size: .75vw;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+    height: 1.5vw;
+    margin-bottom: 1.5vh;
+    margin-left: 25%;
+    margin-top: 10px;
+}
+
+.btn1 {
+    margin-top: 20px;
+}
+
+.contactform label {
+}
+
+.formpopup:hover, .btn:hover {
+
+}
+
+.formpopup {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 5vw;
+    cursor: pointer;
+    height: 3vw;
+}
+
+/* database object view styling */
+.dbdisplay {
+    display: block;
+    padding: 10px;
+}
+
+.dbdisplaycontainer {
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+    z-index: 21;
+    transform: translatey(100vh);
+}
+
+/* end database object view */
+
+/* Database list table styling */
+
+.con3 {
+    padding: 6vh;
+    width: 100%;
+    height: calc(100vh - 250px);
+}
+.tablestyle {
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    overflow:auto;
+}
+
+.tableheader {
+
+}
+
+.tabledata {
+
+}
+
+.tabledata2 {
+}
+
+.tabledata, .tabledata2 {
+    text-decoration: none;
+    font-size: 2vh;
+    padding: 12px;
+}
+
 
 
 @media screen and (min-width: 1920px) {
@@ -131,7 +227,7 @@ body {
 
         background-size: 100% auto !important
     }
-} 
+}
 
 @media screen and (max-width: 600px) {
     

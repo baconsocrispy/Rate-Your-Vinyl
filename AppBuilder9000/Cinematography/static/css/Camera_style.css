@@ -77,6 +77,25 @@ header {
     list-style-type: none;
 }
 
+.details_container table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.details_container input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column {
+    text-align: center;
+    width: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid black;
+}
+
 /* Video size = 1920x1080.  Using vw and vh to allow proper scaling of the video */
 .video-container {
   position: absolute;
@@ -89,7 +108,7 @@ header {
 
 .video-container > video {
   display: block;
-  position: absolute;
+  position: fixed;
   /* Using left and top in concurrence with negative transforms keeps
      the video in a centered position regardless of viewport size */
   left: 50%;
