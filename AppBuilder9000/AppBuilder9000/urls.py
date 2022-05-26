@@ -43,6 +43,7 @@ urlpatterns = [
     path('Cinematography/', include('Cinematography.urls')),
     path('FinancialEvaluator/', include('FinancialEvaluator.urls')),
     path('Portfolio/', include('Portfolio.urls')),
+    path('FitnessLog/', include('FitnessLog.urls')),
     path('Anime/', include('Anime.urls')),
 ]
 

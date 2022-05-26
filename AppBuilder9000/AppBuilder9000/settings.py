@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'Cinematography',
     'FinancialEvaluator',
     'Portfolio',
+    'FitnessLog',
     'Anime',
 ]
 
