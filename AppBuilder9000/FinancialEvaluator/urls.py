@@ -3,7 +3,7 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('fe_Home', views.fe_Home, name='fe_Home'),
+    path('', views.fe_Home, name='fe_Home'),
     path('fe_Evaluation', views.fe_Evaluation, name='fe_Evaluation'),
     path('fe_Account', views.fe_Account, name='fe_Account'),
     path('fe_Approach', views.fe_Approach, name='fe_Approach'),
