@@ -8,7 +8,7 @@
     </head>
 
     <div class="nav">
-        <a href="fe_Home">HOME</a> |
+        <a href="{% url 'fe_Home' %}">HOME</a> |
         <a href="fe_Account">SIGN IN</a> |
         <a href="">CONTACT</a> |
         <a href="">CHART</a>
@@ -22,11 +22,14 @@
     <form method="GET" action="fe_details">
         <table class="inputForm">
             {% csrf_token %}
-            {{form.non_field_errors }}
-            {{ form.as_table }}
+
+            <tr>
+                <th>Symbol</a></th>
+                <th>Evaluation Type</a></th>
+            </tr>
             {% for e in entry %}
             <tr>
-                <td>{{ e.symbol }}</td>
+                <td><a href="{% url 'fe_Details' e.id %}">{{ e.symbol }}</td>
                 <td>{{ e.style }}</td>
             </tr>
             {% endfor %}
