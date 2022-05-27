@@ -5,7 +5,7 @@
 <h1>Delete</h1>
 <form method="POST">
         {% csrf_token %}
-        <h3>Permanently delete entry: "{{ entry.title }}"?</h3>
+        <h3>Permanently delete entry: {{ entry.id }} - {{ entry.symbol }}?</h3>
         <br>
         <button type="submit">Delete</button>
     </form>

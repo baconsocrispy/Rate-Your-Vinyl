@@ -19,22 +19,24 @@
 
 <div>
     <h1>Inputs</h1>
-    <form method="GET" action="fe_details">
+
         <table class="inputForm">
             {% csrf_token %}
 
             <tr>
+                <th>Entry ID</a></th>
                 <th>Symbol</a></th>
                 <th>Evaluation Type</a></th>
             </tr>
             {% for e in entry %}
             <tr>
-                <td><a href="{% url 'fe_Details' e.id %}">{{ e.symbol }}</td>
+                <td>{{ e.id }}</td>
+                <td><a href="{% url 'fe_Details' e.id %}">{{ e.symbol }}</a></td>
                 <td>{{ e.style }}</td>
             </tr>
             {% endfor %}
         </table>
-    </form>
+
 </div>
 
 <button><a href="{% url 'fe_Evaluation' %}">Add Entry</a></button>
