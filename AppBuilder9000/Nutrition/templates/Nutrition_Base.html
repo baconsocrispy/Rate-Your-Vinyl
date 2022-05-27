@@ -8,6 +8,7 @@
         <link href = "https://fonts.googleapis.com/css?family=Roboto" rel = "stylesheet">
         <link href = "//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel = "stylesheet" type = "text/css">
         <link href = "{% static  'css/Nutrition.css'%}" rel = "stylesheet">
+        <script src = "{% static 'JavaScript/Nutrition.js' %}" defer></script>
     </head>
     <body>
         <div class="page_container"></div>
@@ -22,5 +23,10 @@
                 <h1>{% block header %}{% endblock %}</h1>
             </header>
             {% block content %}{% endblock %}
+         <div id = "cf2" class = "shadow" onclick = "swole()">
+            <img id = "bottom" src = "{% static 'images/strong.png' %}" />
+            <img id = "top" src = "{% static 'images/weak.png' %}" />
+        </div>
+            <p id = "cf_onclick">Click to get swole.</p>
     </body>
 </html>
