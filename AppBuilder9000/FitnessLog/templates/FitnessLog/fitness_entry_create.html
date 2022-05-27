@@ -1,0 +1,13 @@
+{% extends "fitness_base.html" %}
+
+
+{% block content %}
+<h3>New Entry</h3>
+<div id="entry-form">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button id="entry-form-button" type="submit" name="Save_Entry">Create Entry</button>
+    </form>
+</div>
+{% endblock %}
