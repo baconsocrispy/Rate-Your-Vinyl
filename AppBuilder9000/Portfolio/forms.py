@@ -1,5 +1,5 @@
 from django.forms import ModelForm, forms
-from .models import ContactForm
+from .models import ContactForm, WeatherInfo
 
 
 class ConForm(ModelForm):
@@ -27,3 +27,7 @@ class ConForm(ModelForm):
                 'class': 'inputbox'
         })
 
+class WeatherTemp(ModelForm):
+    class Meta:
+        model = WeatherInfo
+        fields = "__all__"

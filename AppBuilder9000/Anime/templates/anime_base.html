@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel= "stylesheet" href="{% static '/anime/css/anime_layout.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+        <body>
+            <div class="site-container">
+                {% include "Anime/anime_navbar.html" %}
+                <header class="header-title">
+                    <h1>{% block header %}{% endblock %}</h1>
+                </header>
+                {% block content %}{% endblock %}
+            </div>
+
+
+            {% include "Anime/anime_footer.html" %}
+        </body>
+</html>
