@@ -26,6 +26,9 @@ class Evaluation(models.Model):
 
     Evaluations = models.Manager()
 
+    def __str__(self):
+        return self.symbol
+
 class Approach(models.Model):
     security = models.CharField(max_length=7, choices=Stock, default="", blank=False, null=False)
     documents = models.CharField(max_length=30, choices=Docs, blank=False, null=False)
