@@ -7,15 +7,18 @@
 {% block content %}
 
 <h3>Create an Account</h3>
-<div id = "account-form">
-    <form method = "POST">
-        {% csrf_token %}
+    <center>
+        <div id = "account-form">
+            <form method = "POST">
+                {% csrf_token %}
 
-        <table class = "edit">
-            {{ form.as_table }}
-        </table>
-        <button id = "new-account-button" type = "submit" name = "Save_Account", class="btn">Submit</button>
-    </form>
-</div>
+                <table class = "edit">
+                    {{ form.as_table }}
+                </table>
+                <button id = "new-account-button" type = "submit" name = "Save_Account", class="btn">Submit</button>
+            </form>
+        </div>
+    </center>
+
 
 {% endblock %}
