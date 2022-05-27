@@ -62,4 +62,4 @@ def Add(request):
 
     context = {'form' : form}
 
-    return render(request, 'fitness_create.html', context)
+    return render(request, 'new_entry.html', context)

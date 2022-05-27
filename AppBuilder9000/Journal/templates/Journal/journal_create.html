@@ -2,12 +2,10 @@
 
 {% block content %}
 <h1>Create</h1>
-<div id="entry-form">
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit">Submit</button>
     </form>
-</div>
 <button><a href="{% url 'journal_read' %}">View Entries</a></button>
 {% endblock %}
