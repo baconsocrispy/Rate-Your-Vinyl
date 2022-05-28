@@ -88,6 +88,11 @@ header {
     margin-right: auto;
 }
 
+.API_container h2 {
+    text-align: center;
+    color: white;
+}
+
 .column {
     text-align: center;
     width: 150px;
