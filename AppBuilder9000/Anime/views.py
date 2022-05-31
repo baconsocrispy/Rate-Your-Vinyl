@@ -18,6 +18,14 @@ def create_anime(request):
     return render(request, 'anime/create_anime.html', context)
 
 
+# Story #3: Display all items from database --------------------------------------------
+def anime_archive(request):
+    anime = Ani.animes.all()
+    content = {'anime': anime}
+    return render(request, 'Anime/anime_archive.html', content)
+
+
+
 
 
 

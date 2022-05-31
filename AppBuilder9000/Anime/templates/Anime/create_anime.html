@@ -1,0 +1,22 @@
+{% extends "anime_base.html" %}
+
+{% block title %}Anime-maniac's{% endblock %}
+
+{% block header %}Add Anime{% endblock %}
+
+{% block content %}
+
+<div class="admin_panel">
+    <form method="POST">
+        <div class="formObject_container">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}
+        </div>
+        <div class="formBtn_container">
+            <button type="submit" class="btn" value="Add" name="Save_Item">Submit</button>
+         <button type="button" class="btn" value="Cancel"><a href="{% url 'anime_archive' %}">View Archive</a></button>
+        </div>
+    </form>
+</div>
+{% endblock %}
