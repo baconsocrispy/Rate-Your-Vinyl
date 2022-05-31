@@ -14,7 +14,6 @@ def create_anime(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('../anime_archive')
     context = {'form': form}
     return render(request, 'anime/create_anime.html', context)
 
