@@ -18,7 +18,7 @@
                 </tr>
                 {% for a in anime %}
                 <tr>
-                    <td>{{ a.title }}</td>
+                    <td><a href="{% url 'anime_details' a.id %}">{{ a.title }}</a></td>
                     <td>"{{ a.type }}</td>
                     <td>{{ a.genre }}</td>
                     <td>{{ a.rating }}</td>

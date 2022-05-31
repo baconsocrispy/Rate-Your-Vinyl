@@ -25,6 +25,14 @@ def anime_archive(request):
     return render(request, 'Anime/anime_archive.html', content)
 
 
+# Story #4: Details page ----------------------------------------------------------
+def anime_details(request, pk):
+    anime = get_object_or_404(Ani, pk=pk)
+    content = {'anime': anime}
+    return render(request, 'Anime/anime_details.html', content)
+
+
+
 
 
 
