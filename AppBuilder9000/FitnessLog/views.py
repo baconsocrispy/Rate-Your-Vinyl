@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EntryForm
 from django.http import HttpResponse
 from .models import Entry
@@ -25,3 +25,10 @@ def fitness_read(request):
     entry = Entry.Entries.all()
     content = {'entry': entry}
     return render(request, 'FitnessLog/fitness_read.html', content)
+
+
+# user story 4: Display the details
+def fitness_details(request, pk):
+    entry = get_object_or_404(Entry, pk=pk)
+    content = {'entry': entry}
+    return render(request, 'FitnessLog/fitness_details.html', content)
