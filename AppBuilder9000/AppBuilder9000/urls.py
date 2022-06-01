@@ -32,6 +32,7 @@ urlpatterns = [
     path('Seattle/', include('Seattle.urls')),
     path('Basketball/', include('Basketball.urls')),
     path('Dallas/', include('Dallas.urls')),
+    path('Dogs/', include('Dogs.urls')),
     path('Oregon_City/', include('Oregon_City.urls')),
     path('EmpireBuilder/', include('EmpireBuilder.urls')),
     path('StreetLeagueSkateboarding/', include('StreetLeagueSkateboarding.urls')),
