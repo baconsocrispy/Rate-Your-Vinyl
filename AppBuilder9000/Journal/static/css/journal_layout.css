@@ -17,7 +17,7 @@ textarea {
     font-family: 'Nanum Myeongjo', serif;
 }
 
-.page-container {
+.content-container-container {
     display: flex;
     justify-content: center;
     align-items: center;
