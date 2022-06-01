@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <div class="page_container">
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Breeds</a></li>
+                <li><a href="#">Volunteer</a></li>
+            </ul>
+        </div>
+        <!-- End Navbar -->
+
+        <!-- content loaded from other pages -->
+        {% block content %}
+        {% endblock %}
+        <!-- end content -->
+
+        <!-- Footer -->
+        <footer class="block_footer">
+            <p id="footer-right">Terms|Privacy</p>
+    <p id="footer-left">&copy;2022 - Doggo's</p>
+        </footer>
+    </div>
+</body>
+</html>
