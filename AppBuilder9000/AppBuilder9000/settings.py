@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Basketball',
     'Seattle',
     'Dallas',
+    'Dogs',
     'Oregon_City',
     'EmpireBuilder',
     'StreetLeagueSkateboarding',

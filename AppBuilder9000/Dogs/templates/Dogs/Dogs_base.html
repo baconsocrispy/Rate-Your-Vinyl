@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'Dogs/css/Dogs.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <div class="page_container">
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Breeds</a></li>
+                <li><a href="#">Volunteer</a></li>
+            </ul>
+        </div>
+        <!-- End Navbar -->
+
+        <!-- content loaded from other pages -->
+        {% block content %}
+        {% endblock %}
+        <!-- end content -->
+
+        <!-- Footer -->
+        <footer class="block_footer">
+            <p id="footer-right">Terms|Privacy &nbsp;&nbsp;&copy;2022 - Doggo's&reg;</p>
+        </footer>
+    </div>
+</body>
+</html>
