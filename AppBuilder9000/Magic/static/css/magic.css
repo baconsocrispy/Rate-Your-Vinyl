@@ -1,0 +1,13 @@
+html {
+    background: grey;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+  color: black;
+  text-align: center;
+}
