@@ -2,7 +2,9 @@
 
 {% block content %}
 <h1>Details</h1>
+<h2>{{ entry.name }} </h2>
 <h3>{{ entry.title }} - {{ entry.date }}</h3>
 <p>{{ entry.description }}</p>
+<p> {{ entry.calories }}</p>
 {{ entry.as_p }}
 {% endblock %}
