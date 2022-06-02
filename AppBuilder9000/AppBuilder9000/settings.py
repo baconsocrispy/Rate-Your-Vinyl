@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'Portfolio',
     'FitnessLog',
     'Anime',
+    'Magic',
 ]
 
 MIDDLEWARE = [
