@@ -3,7 +3,7 @@
 }
 
 html {
-    background-color: #7fffd4;
+    background-color: #556B2F;
 }
 
 .navbar { /*styling the navbar*/
@@ -36,16 +36,53 @@ html {
 
 .navbar ul li a:hover {
     color: white;
-    background: rgba(238, 130, 238, 0.7);
+    background: rgba(139,69,19, 0.7);
+}
+
+h1 {
+    text-align: center;
+    margin: 3% auto;
+    text-shadow: 2px 2px 5px black;
 }
 
 h3 {
-text-align: center;
-color: hotpink;
-margin: 3% auto;
-text-shadow: 2px 2px 5px black;
-font-size: 2em;
+    text-align: center;
+    color: CornflowerBlue;
+    margin: 3% auto;
+    text-shadow: 2px 2px 5px black;
+    font-size: 2em;
 }
+
+form {
+    margin: 10px;
+}
+
+button {
+    margin: 10px;
+    font-size: 16px;
+}
+
+.form-container {
+    width: 60%;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0px auto;
+    background-color: rgba(227, 222, 222, .4);
+}
+
+form {
+    font-size: 15px;
+    outline: none;
+    font-weight: 600;
+    padding: 12px 12px;
+    width: 80%;
+    border: 1px solid #808080;
+    margin: 2% auto;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, .6);
+    box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, .3);
+}
+
 .container {
     background-image: url('../images/dog_background.jpg');
     background-repeat: no-repeat;
@@ -59,8 +96,13 @@ p {
     text-shadow: 2px 2px 5px black;
 }
 
+.P-container{
+    background-color: rgba(169,169,169,.6);
+    padding: 10px;
+}
+
 footer {
-    background-color: hotpink;
+    background-color: SaddleBrown;
     display: inline-block;
     position: fixed;
     bottom: 0;
