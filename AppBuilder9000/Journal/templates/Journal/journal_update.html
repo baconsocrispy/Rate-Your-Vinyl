@@ -1,7 +1,7 @@
 {% extends "journal_base.html" %}
-<h1>Update</h1>
-{% block content %}
 
+{% block content %}
+<h1>Update</h1>
 <form method="POST">
 			{% csrf_token %}
 			{{ form.as_p }}
