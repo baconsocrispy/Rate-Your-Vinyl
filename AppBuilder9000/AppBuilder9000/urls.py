@@ -14,8 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 #from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-#from django.conf import settings    #FOR PILLOW LIBRARY
-#from django.conf.urls.static import static     #FOR PILLOW LIBRARY
+from django.conf import settings    #FOR PILLOW LIBRARY
+from django.conf.urls.static import static     #FOR PILLOW LIBRARY
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -51,5 +51,5 @@ urlpatterns = [
 
 #urlpatterns +=staticfiles_urlpatterns()
 
-#if settings.DEBUG:  # FOR PILLOW LIBRARY
-#    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:  # FOR PILLOW LIBRARY
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

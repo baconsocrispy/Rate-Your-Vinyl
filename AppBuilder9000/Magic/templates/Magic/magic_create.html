@@ -1,0 +1,11 @@
+{% extends "magic_base.html" %}
+
+{% block content %}
+<h1>Create a Commander Deck</h1>
+    <form class='myForm' method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+<button><a href="{% url 'magic_browse' %}">View Decks</a></button>
+{% endblock %}

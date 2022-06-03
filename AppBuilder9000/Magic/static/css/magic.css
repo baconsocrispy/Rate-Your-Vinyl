@@ -11,3 +11,18 @@ p {
   color: black;
   text-align: center;
 }
+
+.myForm {
+    text-align: left;
+    margin: 10px;
+}
+
+input[type=button] {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+input[type=button].hover {
+    color: grey;
+ }
