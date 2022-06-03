@@ -9,7 +9,7 @@
 <div class="admin_panel">
         <div class="frmObject">
             <p>Select a title:</p>
-            <table>
+            <table id="aniDB">
                 <tr>
                     <th>Title</th>
                     <th>Type</th>
@@ -25,9 +25,9 @@
                 </tr>
                 {% endfor %}
             </table>
-            <div class="frmBtn_container">
-                <button type="button" class="btn"><a href="{% url 'create_anime' %}">Add an Anime</a></button>
-            </div>
+        </div>
+        <div class="frmBtn_container">
+            <button type="button" class="btn"><a href="{% url 'create_anime' %}">Add an Anime</a></button>
         </div>
 </div>
 
