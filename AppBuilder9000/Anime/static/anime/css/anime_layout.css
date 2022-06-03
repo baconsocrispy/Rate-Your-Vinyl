@@ -93,7 +93,7 @@ ul.topnav li.icon {
 .frmObject_container {
 	display: block;
     width: 80%;
-    margin: 0 auto;
+    margin: auto;
     padding: 10;
     text-align: center;
 }
@@ -111,7 +111,7 @@ ul.topnav li.icon {
     margin: 0 auto;
     width: 50%;
     height: 80%;
-    background-color: #477a6f;
+    background-color: #2e4d44;
 	border: 1px solid #2e3c36;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 	transition: all 0.3s ease-in-out;
@@ -139,6 +139,31 @@ ul.topnav li.icon {
 .card:hover {
 	box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 	transition: opacity 0.3s ease-in-out;
+}
+
+#aniDB {
+  display: block;
+  margin: auto;
+  justify-content: space-evenly;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+#aniDB td, #aniDB th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#aniDB tr:nth-child(even){background-color: #f2f2f2;}
+
+#aniDB tr:hover {background-color: #ddd;}
+
+#aniDB th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #96be25;
+  color: black;
 }
 
 /* form button container */
@@ -170,6 +195,7 @@ ul.topnav li.icon {
 
 .btn:hover {
     background-color: #737d81;
+    text-decoration: none;
     color: white;
     border: 2px solid #b3b3b3;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -214,7 +240,8 @@ select {
 }
 
 input, textarea {
-    width: 100%;
+    width: 80%;
+    align
     margin: 1% 0 0 0;
     padding: 1% 0 2% 1%;
     line-height: 18px;
