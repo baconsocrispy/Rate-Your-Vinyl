@@ -8,7 +8,7 @@ class Deck(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=500)
     key_pieces = models.TextField(max_length=1000)
-    image = models.ImageField(blank=True)
+    image = models.CharField(max_length=1000)
 
     Deck = models.Manager()
 
