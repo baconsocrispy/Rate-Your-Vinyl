@@ -1,6 +1,9 @@
+#importing render and redirect to help render the webpages and redirect when necessary
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+#import the dogs form form the forms.py
 from .forms import DogsForm
+#import the class dogs from the models.py
 from .models import Dogs
 
 
