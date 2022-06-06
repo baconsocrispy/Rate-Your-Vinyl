@@ -7,3 +7,4 @@ class DeckForm(ModelForm):
     class Meta:
         model = Deck
         fields = '__all__'
+

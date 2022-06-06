@@ -2,10 +2,16 @@
 
 {% block content %}
 <h1>Create a Commander Deck</h1>
-    <form class='myForm' method="POST">
+    <div class='myForm'>
+        <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Submit</button>
-    </form>
-<button><a href="{% url 'magic_browse' %}">View Decks</a></button>
+        </form>
+    </div>
+    <div class='center'>
+        <button class= 'btnSub' type="submit">Submit</button>
+    </div>
+    <div class= 'right'>
+        <a href="{% url 'magic_browse' %}"><button class= 'btnView'>View Decks</button></a>
+    </div>
 {% endblock %}
