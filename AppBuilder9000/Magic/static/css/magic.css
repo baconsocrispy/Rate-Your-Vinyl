@@ -141,3 +141,12 @@ th {
 td {
     padding: 10px;
 }
+
+table a {
+    text-decoration: none;
+    color: white;
+}
+
+.description a {
+    color: black;
+}
