@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import JobsForm
 from .models import Jobs
 
@@ -30,3 +30,9 @@ def inputJob(request):
         'form': form,
     }
     return render(request, 'JobScraping/JobScraping_input.html', context)
+
+def JobScraping_details(request, pk):
+    pk - int(pk)
+    jobs = get_object_or_404(Jobs, pk=pk)
+    context = {'job': jobs}
+    return render(request, 'JobScraping/JobScraping_details.html', context)
