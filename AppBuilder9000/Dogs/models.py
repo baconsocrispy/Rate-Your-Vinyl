@@ -16,7 +16,7 @@ class Dogs(models.Model):
     coat = models.CharField(max_length=30)
     size = models.CharField(max_length=20, choices=DOG_SIZES)
 
-    objects = models.Manager()
+    Dog = models.Manager()
 
     def __str__(self):
         return self.name
