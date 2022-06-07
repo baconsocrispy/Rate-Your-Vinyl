@@ -6,5 +6,20 @@
 
 {% block content %}
 
+        {% for deck in deck %}
+    <table class="deckTable">
+        <tr>
+            <th colspan="2">{{ deck.commander }}<div class="title">{{ deck.title }}</div></th>
+        </tr>
+        <tr>
+            <td rowspan="2"><img src="{{deck.image}}" alt="Commander Image"></td>
+            <td>{{ deck.description }}</td>
+        </tr>
+        <tr>
+            <td>{{ deck.key_pieces|escape|linebreaks  }}</td>
+        </tr>
+    </table>
+        {% endfor %}
+
 
 {% endblock %}
