@@ -16,7 +16,7 @@ yesNo = {
 
 
 class Jobs(models.Model):
-    title = models.CharField(max_length=60, default="", blank=True)
+    title = models.CharField(max_length=60, default="")
     company = models.CharField(max_length=30, default="")
     stack = models.CharField(max_length=15, choices=stackChoices)
     startup = models.CharField(max_length=3, choices=yesNo)
