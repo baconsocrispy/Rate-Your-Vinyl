@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.JobScraping_home, name='JobScraping_home'),
     path('input', views.JobScraping_input, name='JobScraping_input'),
-    path('inputJob', views.inputJob, name="inputJob"),
+    path('inputJob', views.inputJob, name='inputJob'),
+    path('savedJobs', views.JobScraping_history, name='JobScraping_history'),
 ]
