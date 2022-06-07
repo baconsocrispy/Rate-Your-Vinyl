@@ -5,6 +5,9 @@ html {
 h1 {
     color: white;
     text-align: center;
+    text-shadow: 2px 2px 4px black;
+    font-weight: bolder;
+    margin-top: 5px;
 }
 
 .myForm {
@@ -13,27 +16,29 @@ h1 {
     margin-right: auto;
     padding: 5px;
     width: 40%;
+    background-color: teal;
+    border: solid black 3px;
 }
 
-
 label {
-    color: black;
-    margin: auto;
+    color: white;
+    margin: 3px;
     display: block;
     float: left;
     width: 150px;
     text-transform: uppercase;
+    text-shadow: 2px 2px 4px black;
 }
-
-
 
 input {
     width: 350px;
     height: 30px;
+    border: solid black 1px;
 }
 
 textarea {
     width: 350px;
+    border: solid black 1px;
 }
 
 .btnSub {
@@ -42,6 +47,7 @@ textarea {
     cursor: pointer;
     text-align: center;
     text-transform: uppercase;
+    margin: 3px;
 }
 
 .btnSub:hover {
@@ -99,4 +105,39 @@ li a {
 
 li a:hover {
   background-color: black;
+}
+
+img {
+    display: block;
+    width: 200px;
+    height: 280px;
+    margin: 5px;
+}
+
+table {
+    border: solid black 2px;
+    border-collapse: collapse;
+    background-color: white;
+    width: 65%;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: teal;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px black;
+    Text-align: left;
+    height: 45px;
+    padding: 10px;
+}
+
+.title {
+    Text-align: right;
+}
+
+td {
+    padding: 10px;
 }
