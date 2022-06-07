@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'Anime',
     'Magic',
     'JobScraping',
+    'Veggie',
 ]
 
 MIDDLEWARE = [
