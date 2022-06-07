@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'FitnessLog',
     'Anime',
     'Magic',
+    'Veggie',
 ]
 
 MIDDLEWARE = [
