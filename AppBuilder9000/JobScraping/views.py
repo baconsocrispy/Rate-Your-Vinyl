@@ -32,7 +32,14 @@ def inputJob(request):
     return render(request, 'JobScraping/JobScraping_input.html', context)
 
 def JobScraping_details(request, pk):
-    pk - int(pk)
+    pk = int(pk)
     jobs = get_object_or_404(Jobs, pk=pk)
     context = {'job': jobs}
     return render(request, 'JobScraping/JobScraping_details.html', context)
+
+def JobScraping_editJob(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Jobs, pk=pk)
+    form = JobsForm(data=request.POST or None, instance=item)
+
+    return render(request, 'JobScraping/JobScraping_editJob.html', {'form': form})

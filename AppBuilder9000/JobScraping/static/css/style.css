@@ -20,3 +20,8 @@ h1 {
 th {
     text-align: center;
 }
+
+form table {
+    margin-left: auto;
+    margin-right: auto;
+}

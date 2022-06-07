@@ -1,0 +1,21 @@
+{% extends "JobScraping_base.html" %}
+
+{% block title %}Job Input{% endblock %}
+
+{% block header %}What would you like to change?{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form name="editForm" method="POST" action="#">
+        <table class="center">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          {{ form.as_table }}
+        </table>
+        <input type="submit" value="Save Changes">
+        <div>
+          <a href="#"><button>Delete</button></a>
+        </div>
+    </form>
+</div>
+{% endblock %}
