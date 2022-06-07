@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.magic_home, name='magic_home'),
     path('create/', views.magic_create, name='magic_create'),
     path('browse/', views.magic_browse, name='magic_browse'),
+    path('<int:pk>/details/', views.magic_details, name='magic_details'),
 ]

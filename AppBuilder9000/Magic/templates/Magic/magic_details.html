@@ -1,0 +1,32 @@
+{% extends "magic_base.html" %}
+
+{% block title %}Magic: The Gathering Deck Lists{% endblock %}
+
+{% block header %} {{ deck.commander }} {% endblock %}
+
+{% block content %}
+    <table>
+        <div class="center">
+            <tr>
+                <th colspan="2">{{ deck.title }}</th>
+            </tr>
+            <tr>
+                <td rowspan="2"><img src="{{deck.image}}" alt="Commander Image"></td>
+                <td>DESCRIPTION<br>{{ deck.description }}</td>
+            </tr>
+            <tr>
+                <td>KEY PIECES<br>{{ deck.key_pieces|escape|linebreaks }}</td>
+            </tr>
+        </div>
+
+    </table>
+    <div class='myForm'>
+        <h1>Add a Comment</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class= 'btnSub' type="submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
