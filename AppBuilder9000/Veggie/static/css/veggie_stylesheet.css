@@ -9,6 +9,8 @@ body {
 	font-family: Lucida Sans Unicode;
 	text-align: center;
 	background-image: url('../../static/images/veggie_background.jpg');
+	background-repeat: no-repeat;
+	background-size: auto;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -16,3 +18,5 @@ body {
 	overflow: scroll;
 	background-repeat: no-repeat;
 }
+
+

@@ -1,0 +1,36 @@
+{% extends "Veggie_base.html" %}
+
+{% block content %}
+
+<style>
+.limit{
+    width:400px;
+    list-style-type: none;
+    list-style-position: inside;
+    padding-left:750px;
+    word-wrap: break-word;
+    }
+</style>
+
+<h1>Veggie Recipes</h1>
+
+
+{% csrf_token %}
+{% for recipe in all_recipe %}
+    <strong>{{ recipe.title_name }}</strong>
+    <ul class="limit">
+    <li>Author: {{ recipe.author_name }}</li>
+    <li>Number of ingredients: {{ recipe.number_of_ingredients }}</li>
+    <li>Total time (mins): {{ recipe.making_time }}</li>
+    <li>{{ recipe.description}}</li>
+    </ul>
+
+
+{% endfor %}
+
+
+{% endblock %}
+
+
+
+
