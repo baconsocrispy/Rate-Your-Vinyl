@@ -15,7 +15,11 @@
             <header class="header-title">
                 <h1>{% block header %}{% endblock %}</h1>
 		    </header>
-            {% block content %}{% endblock %}
+            <div class = "container">
+            {% block content %}
+
+            {% endblock %}
+            </div>
         </div>
             {% include "Veggie/veggie_footer.html" %}
 
