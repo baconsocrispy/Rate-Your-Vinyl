@@ -6,8 +6,11 @@ import requests
 # This view takes the user to the home page
 def JobScraping_home(request):
     response = requests.get('https://zenquotes.io/api/random/')
-    quote = response.json()[0]
-    return render(request, 'jobScraping/JobScraping_home.html', quote)
+    data = response.json()
+    quote = data[0]
+    context = {'quote': quote}
+    print(quote)
+    return render(request, 'jobScraping/JobScraping_home.html', context)
 
 # This view takes the user to the JobScraping_input.html page where they can input job data into a form
 def JobScraping_input(request):
@@ -85,6 +88,7 @@ def JobScraping_details(request, pk):
     jobs = get_object_or_404(Jobs, pk=pk)
     # Creates an object with the data that can be sent to the html file
     context = {'job': jobs}
+    print(context)
     # Renders the html file and sends the data to it in the variable 'context'
     return render(request, 'JobScraping/JobScraping_details.html', context)
 
