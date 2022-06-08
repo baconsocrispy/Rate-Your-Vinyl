@@ -7,8 +7,8 @@
 {% block content %}
 
 <div class="admin_panel">
-    <div class="frmObject">
-        <table>
+    <div class="formObject_container">
+        <table id="aniDB">
             <tr>
                 <th>Title</th>
                 <th>Type</th>
@@ -28,8 +28,8 @@
         </table>
     </div>
     <div class="formBtn_container">
-        <button class="btn">Update</a></button>
-        <button class="btn">Delete</a></button>
+        <button class="btn"><a href="{% url 'anime_update' anime.id %}">Update</a></button>
+        <button class="btn"><a href="{% url 'anime_delete' anime.id %}">Delete</a></button>
         <button class="btn"><a href="{% url 'anime_archive' %}">Back to Archive</a></button>
     </div>
 </div>

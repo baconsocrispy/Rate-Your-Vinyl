@@ -1,0 +1,22 @@
+.container {
+    background-color: rgb(82, 87, 81);
+    color: white;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: [footer-height]
+}
+
+th {
+    text-align: center;
+}

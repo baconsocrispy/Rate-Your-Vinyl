@@ -7,14 +7,14 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-    <div class="page_container">
+    <div class="img">
 
         <!-- Navbar -->
         <div class="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Breeds</a></li>
-                <li><a href="#">Volunteer</a></li>
+                <li><a href="{% url 'Dogs_home' %}">Home</a></li>
+                <li><a href="{% url 'create' %}">Add Dog</a></li>
+                <li><a href="{% url 'lists' %}">Dogs</a></li>
             </ul>
         </div>
         <!-- End Navbar -->
