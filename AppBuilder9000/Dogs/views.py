@@ -24,7 +24,7 @@ def Dogs_create(request):
     content = {'form': form}
     return render(request, 'Dogs/Dogs_create.html', content)
 
-# Displaly the dog's in the Database
+# Display the dog's in the Database
 def display_dogs(request):
     all_Dogs = Dogs.Dog.all()
     content = {
@@ -36,14 +36,18 @@ def display_dogs(request):
 # Calling the details template
 def details_dogs(request, pk):
     pk = int(pk)
-    all_Dogs = get_object_or_404(Dogs, pk=pk)
-    form = DogsForm(data=request.POST or None)
+    doggo = get_object_or_404(Dogs, pk=pk)
+    form = DogsForm(data=request.POST or None, instance=doggo)
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
+            form2 = form.save(commit=False)
+            form2.save()
             return redirect('../details')
-    content = {
-        'all_Dogs': all_Dogs,
-        'form': form,
-    }
-    return render(request, "Dogs/Dogs_details.html", content)
+        else:
+            print(form.errors)
+    else:
+        content = {
+            'doggo': doggo,
+            'form': form,
+        }
+        return render(request, "Dogs/Dogs_details.html", content)
