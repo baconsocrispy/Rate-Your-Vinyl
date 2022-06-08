@@ -9,7 +9,8 @@ def JobScraping_home(request):
     data = response.json()
     quote = data[0]
     context = {'quote': quote}
-    print(quote)
+    # printing the response to the API request
+    print(data)
     return render(request, 'jobScraping/JobScraping_home.html', context)
 
 # This view takes the user to the JobScraping_input.html page where they can input job data into a form
