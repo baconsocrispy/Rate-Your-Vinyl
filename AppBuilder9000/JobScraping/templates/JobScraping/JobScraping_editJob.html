@@ -16,9 +16,10 @@
         <input type="submit" value="Save Changes">
         <br>
         <br>
-        <div>
-          <a href="#"><button>Delete</button></a>
-        </div>
+    </form>
+    <form name="startDelete" method="GET", action="/JobScraping/{{ jobs.pk }}/delete/">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
     </form>
 </div>
 {% endblock %}

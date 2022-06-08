@@ -21,11 +21,11 @@ th {
     text-align: center;
 }
 
-.container form table {
+.central {
     display: flex;
 }
 
-form table {
+.central table {
     justify-content: center;
 }
 
