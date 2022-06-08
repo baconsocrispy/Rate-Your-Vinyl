@@ -15,20 +15,12 @@ class Deck(models.Model):
     def __str__(self):
         return self.commander
 
-#Comments Section
-
-
 class Comment(models.Model):
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
+    deck = models.ForeignKey(Deck, related_name='comments', on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
     body = models.TextField(max_length=1000)
-    created_on = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
-
-    Comments = models.Manager()
-
-    class Meta:
-        ordering = ['created_on']
+    date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
+
