@@ -31,6 +31,21 @@ def inputJob(request):
     }
     return render(request, 'JobScraping/JobScraping_input.html', context)
 
+def saveEdit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Jobs, pk=pk)
+    form = JobsForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            jobs = Jobs.objects.all()
+            form2 = form.save(commit=False)
+            form2.save()
+            return render(request, 'JobScraping/JobScraping_history.html', {'jobs': jobs})
+        else:
+            print(form.errors)
+    else:
+        return render(request, 'JobScraping/JobScraping_history.html')
+
 def JobScraping_details(request, pk):
     pk = int(pk)
     jobs = get_object_or_404(Jobs, pk=pk)
@@ -40,6 +55,10 @@ def JobScraping_details(request, pk):
 def JobScraping_editJob(request, pk):
     pk = int(pk)
     item = get_object_or_404(Jobs, pk=pk)
+    jobs = get_object_or_404(Jobs, pk=pk)
     form = JobsForm(data=request.POST or None, instance=item)
-
-    return render(request, 'JobScraping/JobScraping_editJob.html', {'form': form})
+    context = {
+        'form': form,
+        'jobs': jobs,
+    }
+    return render(request, 'JobScraping/JobScraping_editJob.html', context)

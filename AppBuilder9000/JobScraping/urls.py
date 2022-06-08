@@ -8,4 +8,5 @@ urlpatterns = [
     path('savedJobs', views.JobScraping_history, name='JobScraping_history'),
     path('<int:pk>/details/', views.JobScraping_details, name='JobScraping_details'),
     path('<int:pk>/editJob/', views.JobScraping_editJob, name='JobScraping_editJob'),
+    path('<int:pk>/saveEdit/', views.saveEdit, name='saveEdit'),
 ]

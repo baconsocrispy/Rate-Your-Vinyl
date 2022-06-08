@@ -6,13 +6,16 @@
 
 {% block content %}
 <div class="container">
-    <form name="editForm" method="POST" action="#">
+    <form name="editForm" method="POST" action="/JobScraping/{{ jobs.pk }}/saveEdit/">
         <table class="center">
           {% csrf_token %}
           {{ form.non_field_errors }}
           {{ form.as_table }}
         </table>
+        <br>
         <input type="submit" value="Save Changes">
+        <br>
+        <br>
         <div>
           <a href="#"><button>Delete</button></a>
         </div>
