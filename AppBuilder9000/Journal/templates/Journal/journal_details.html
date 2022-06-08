@@ -5,5 +5,4 @@
 <h3>{{ entry.title }} - {{ entry.date }}</h3>
 <p>{{ entry.body }}</p>
 <button><a href="{% url 'journal_update' entry.id %}">Update Entry</a></button>
-{{ entry.as_p }}
 {% endblock %}
