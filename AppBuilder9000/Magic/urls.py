@@ -7,4 +7,6 @@ urlpatterns = [
     path('create/', views.magic_create, name='magic_create'),
     path('browse/', views.magic_browse, name='magic_browse'),
     path('<int:pk>/details/', views.magic_details, name='magic_details'),
+    path('<int:pk>/edit/', views.magic_edit, name='magic_edit'),
+    path('<int:pk>/delete/', views.magic_delete, name='magic_delete'),
 ]

@@ -23,7 +23,7 @@
     <div class="commentSection">
 
         {% if not deck.comments.all %}
-            No Comments Yet..
+            <h3>No Comments Yet..</h3>
         {% else %}
             <div class="commentContainer">
                 <h2>Comments...</h2>
@@ -36,6 +36,7 @@
         {% endif %}
          <br>
         <button class="btnView" type="button" onclick="openForm()">Add Comment</button>
+        <button class="btnView"><a href="{% url 'magic_edit' deck.id %}">Update Deck Details</a></button>
     </div>
 
     <div id="overlay">

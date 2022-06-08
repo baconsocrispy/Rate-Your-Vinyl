@@ -62,10 +62,21 @@ textarea {
     cursor: pointer;
     text-transform: uppercase;
 }
+
+.btnView a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
 .btnView:hover {
     background-color: black;
     color: white;
     cursor: pointer;
+}
+
+.btnView a:hover {
+    background-color: black;
+    color: white;
 }
 
 .center {
@@ -178,6 +189,12 @@ h2 {
     margin-left: auto;
     width: 40%;
     z-index: 1;
+
+}
+
+h3 {
+    color: white;
+    text-shadow: 2px 2px 4px black;
 }
 
 /* The Modal (background) */

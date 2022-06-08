@@ -47,3 +47,25 @@ def magic_details(request, pk):
         'form': form,
     }
     return render(request, 'Magic/magic_details.html', content)
+
+#Story 5 Edit and Delete
+
+
+def magic_edit(request, pk):
+    deck = get_object_or_404(Deck, pk=pk)
+    form = DeckForm(data=request.POST or None, instance=deck)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('../../browse')
+    content = {'form': form, 'deck': deck}
+    return render(request, 'Magic/magic_edit.html', content)
+
+
+def magic_delete(request, pk):
+    deck = get_object_or_404(Deck, pk=pk)
+    if request.method == 'POST':
+        deck.delete()
+        return redirect('../../browse')
+    content = {'deck': deck}
+    return render(request, 'Magic/magic_delete.html', content)
