@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/details/', views.magic_details, name='magic_details'),
     path('<int:pk>/edit/', views.magic_edit, name='magic_edit'),
     path('<int:pk>/delete/', views.magic_delete, name='magic_delete'),
+    path('<int:pk>/details/delete_c/', views.magic_delete_c, name='magic_delete_c'),
 ]

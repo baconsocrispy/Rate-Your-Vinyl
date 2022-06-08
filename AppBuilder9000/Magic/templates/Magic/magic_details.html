@@ -28,8 +28,9 @@
             <div class="commentContainer">
                 <h2>Comments...</h2>
                 {% for comment in deck.comments.all %}
-                    <h4>{{ comment.name }} - {{comment.date_added}}</h4>
+                    <h4>{{comment.id}} {{ comment.name }} - {{comment.date_added}}</h4>
                     <p>{{ comment.body }}</p>
+                    <button class="btnView"><a href="{% url 'magic_delete_c' comment.id %}">Delete</a></button>
                     <hr>
                 {% endfor %}
             </div>

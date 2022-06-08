@@ -69,3 +69,9 @@ def magic_delete(request, pk):
         return redirect('../../browse')
     content = {'deck': deck}
     return render(request, 'Magic/magic_delete.html', content)
+
+def magic_delete_c(request, id):
+    comment = Comment.body.get(id=id)
+    if request.method == 'POST':
+        comment.delete()
+    return redirect('../../details')
