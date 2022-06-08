@@ -1,5 +1,5 @@
 #importing render and redirect to help render the webpages and redirect when necessary
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.http import HttpResponse
 #import the dogs form form the forms.py
 from .forms import DogsForm
@@ -24,7 +24,7 @@ def Dogs_create(request):
     content = {'form': form}
     return render(request, 'Dogs/Dogs_create.html', content)
 
-# Displaly the dog's in the Database
+# Display the dog's in the Database
 def display_dogs(request):
     all_Dogs = Dogs.Dog.all()
     content = {
@@ -32,3 +32,22 @@ def display_dogs(request):
     }
     return render(request, 'Dogs/Dogs_lists.html', content)
 
+
+# Calling the details template
+def details_dogs(request, pk):
+    pk = int(pk)
+    doggo = get_object_or_404(Dogs, pk=pk)
+    form = DogsForm(data=request.POST or None, instance=doggo)
+    if request.method == 'POST':
+        if form.is_valid():
+            form2 = form.save(commit=False)
+            form2.save()
+            return redirect('../details')
+        else:
+            print(form.errors)
+    else:
+        content = {
+            'doggo': doggo,
+            'form': form,
+        }
+        return render(request, "Dogs/Dogs_details.html", content)
