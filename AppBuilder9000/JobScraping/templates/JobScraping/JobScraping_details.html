@@ -5,7 +5,7 @@
 {% block header %}Job Details{% endblock %}
 
 {% block content %}
-        <table class="table table-dark table-striped">
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <th scope="col">Title</th>
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
                 <tr>
-                    <td><a href="/JobScraping/{{ job.pk }}/details">{{ job.title }}</a></td>
+                    <td>{{ job.title }}</td>
                     <td>{{ job.company }}</td>
                     <td>{{ job.stack }}</td>
                     <td>{{ job.startup }}</td>
@@ -29,4 +29,5 @@
                 </tr>
         </tbody>
     </table>
+    <a href="/JobScraping/{{ job.pk }}/editJob"><button>Edit/Delete</button></a>
 {% endblock %}
