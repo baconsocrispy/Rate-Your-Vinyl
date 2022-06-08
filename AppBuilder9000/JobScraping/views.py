@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import JobsForm
 from .models import Jobs
+import requests
 
 # This view takes the user to the home page
 def JobScraping_home(request):
-    return render(request, 'jobScraping/JobScraping_home.html')
+    response = requests.get('https://zenquotes.io/api/random/')
+    quote = response.json()[0]
+    return render(request, 'jobScraping/JobScraping_home.html', quote)
 
 # This view takes the user to the JobScraping_input.html page where they can input job data into a form
 def JobScraping_input(request):
