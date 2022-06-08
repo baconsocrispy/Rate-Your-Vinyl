@@ -6,7 +6,7 @@ class Recipe(models.Model):
     author_name = models.CharField(max_length=50)
     number_of_ingredients = models.IntegerField()
     making_time = models.IntegerField()
-    description = models.TextField(max_length=300)
+    description = models.TextField(max_length=1000)
 
     def __str__(self):
         return self.title_name

@@ -4,12 +4,20 @@
 
 <style>
 .limit{
-    width:400px;
+    width:1100px;
+    text-align: center;
     list-style-type: none;
     list-style-position: inside;
-    padding-left:750px;
+    padding-left:160px;
     word-wrap: break-word;
     }
+.text-recipe{
+    white-space: pre-line;
+	background-repeat: repeat;
+	background-size: 100vw 100hw;
+	list-style-type: none;
+}
+
 </style>
 
 <h1>Veggie Recipes</h1>
@@ -18,16 +26,14 @@
 {% csrf_token %}
 {% for recipe in all_recipe %}
     <strong>{{ recipe.title_name }}</strong>
-    <ul class="limit">
-    <li>Author: {{ recipe.author_name }}</li>
-    <li>Number of ingredients: {{ recipe.number_of_ingredients }}</li>
-    <li>Total time (mins): {{ recipe.making_time }}</li>
-    <li>{{ recipe.description}}</li>
+    <ul>
+    <li class="limit"><strong>Author: {{ recipe.author_name }}</strong></li>
+    <li class="limit"><strong>Number of ingredients: {{ recipe.number_of_ingredients }}</strong></li>
+    <li class="limit"><strong>Total time (mins): {{ recipe.making_time }}</strong></li>
+    <li class="text-recipe">{{ recipe.description}}</li>
     </ul>
 
-
 {% endfor %}
-
 
 {% endblock %}
 
