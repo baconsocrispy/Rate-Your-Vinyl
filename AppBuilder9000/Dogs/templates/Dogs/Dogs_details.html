@@ -1,0 +1,17 @@
+{% extends 'Dogs/Dogs_base.html' %}
+
+{% block title %}Details{% endblock %}
+
+{% block content %}
+
+    <h1>Details</h1>
+        <div class="form-container">
+            <form class="form" method="POST" action="../details/">
+                <div>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+            </form>
+        </div>
+
+{% endblock %}
