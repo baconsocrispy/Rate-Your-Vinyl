@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/editJob/', views.JobScraping_editJob, name='JobScraping_editJob'),
     path('<int:pk>/saveEdit/', views.saveEdit, name='saveEdit'),
     path('<int:pk>/delete/', views.delete, name='delete'),
+    path('searchAPI', views.searchAPI, name='searchAPI'),
 ]
