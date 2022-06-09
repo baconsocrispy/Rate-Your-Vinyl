@@ -21,22 +21,25 @@
 </style>
 
 <h1>Veggie Recipes</h1>
-
+<hr>
 
 {% csrf_token %}
+<form method="POST">
 {% for recipe in all_recipe %}
-    <strong>{{ recipe.title_name }}</strong>
+    <h2>{{ recipe.title_name }}</h2>
     <ul>
     <li class="limit"><strong>Author: {{ recipe.author_name }}</strong></li>
     <li class="limit"><strong>Number of ingredients: {{ recipe.number_of_ingredients }}</strong></li>
     <li class="limit"><strong>Total time (mins): {{ recipe.making_time }}</strong></li>
-    <li class="text-recipe">{{ recipe.description}}</li>
+    <li class="text-recipe"><button><a href="{% url 'veggie_details' recipe.id %}">View Recipe</a></button></li>
     </ul>
+    <hr>
 
 {% endfor %}
 
-{% endblock %}
+</form>
 
+{% endblock %}
 
 
 
