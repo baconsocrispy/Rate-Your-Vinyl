@@ -59,4 +59,13 @@ def delete_dog(request, pk):
         doggo.delete()
         return redirect('lists')
     context = {"doggo": doggo,}
-    return render(request, "Dogs/confirm_Delete.html", context)
+    return render(request, "Dogs/Dogs_confirm_Delete.html", context)
+
+def confirm_delete(request):
+    if request.method == 'POST':
+        form =  DogsForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('Dogs_home')
+    else:
+        return redirect('Dogs_home')

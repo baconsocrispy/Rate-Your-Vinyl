@@ -13,8 +13,9 @@
                 </div>
                 <div class="frmBtn_container">
                     <ul>
-                        <li><a href="../{{ form.pk }}delete/">DELETE</a></li>
-                        <li><a href="{% url 'Dogs_home' %}">CANCEL</a></li>
+                        <li><input class="btn" type="submit" value="Update Dog" name="save_item" /></li>
+                        <li><button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button></li>
+                        <li><button class="btn"><a href="{% url 'Dogs_home' %}">CANCEL</a></button></li>
                     </ul>
                 </div>
             </form>
