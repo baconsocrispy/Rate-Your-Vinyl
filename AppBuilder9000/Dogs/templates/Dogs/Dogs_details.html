@@ -11,6 +11,12 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                 </div>
+                <div class="frmBtn_container">
+                    <ul>
+                        <li><a href="../{{ form.pk }}delete/">DELETE</a></li>
+                        <li><a href="{% url 'Dogs_home' %}">CANCEL</a></li>
+                    </ul>
+                </div>
             </form>
         </div>
 

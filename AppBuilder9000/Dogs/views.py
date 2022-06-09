@@ -51,3 +51,12 @@ def details_dogs(request, pk):
             'form': form,
         }
         return render(request, "Dogs/Dogs_details.html", content)
+
+def delete_dog(request, pk):
+    pk = int(pk)
+    doggo = get_object_or_404(Dogs, pk=pk)
+    if request.method == 'POST':
+        doggo.delete()
+        return redirect('lists')
+    context = {"doggo": doggo,}
+    return render(request, "Dogs/confirm_Delete.html", context)
