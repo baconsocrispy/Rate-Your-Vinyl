@@ -2,16 +2,23 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import JobsForm
 from .models import Jobs
 import requests
+import json
 
 # This view takes the user to the home page
 def JobScraping_home(request):
-    response = requests.get('https://zenquotes.io/api/random/')
-    data = response.json()
-    quote = data[0]
-    context = {'quote': quote}
-    # printing the response to the API request
-    print(data)
-    return render(request, 'jobScraping/JobScraping_home.html', context)
+        return render(request, 'jobScraping/JobScraping_home.html')
+
+# This view takes the user to the API job search page
+def searchAPI(request):
+    # Queries an API for page one of a basic job search
+    response = requests.get('https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416')
+    # pulls the json data from the API response
+    json_data = response.json()
+    # converts the dictionary received from response.json() to a string (json.dumps) and then prints it in a formatted
+    # readable way to the terminal. I will be pulling job data relevant to the fields that are included in my model.
+    # Along with additional search options in the next story.
+    print(json.dumps(json_data, indent=2))
+    return render(request, 'JobScraping/APIJobSearch.html')
 
 # This view takes the user to the JobScraping_input.html page where they can input job data into a form
 def JobScraping_input(request):
