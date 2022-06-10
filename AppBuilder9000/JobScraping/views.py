@@ -8,9 +8,11 @@ import json
 def JobScraping_home(request):
         return render(request, 'jobScraping/JobScraping_home.html')
 
+
 # This view takes the user to the API job search page
 def searchAPI(request):
     return render(request, 'JobScraping/APIJobSearch.html')
+
 
 # This view sends the data input by the user an initiates the API request and returns APIJobSearch.html with the
 # returned values from the API response
@@ -24,24 +26,32 @@ def searchResults(request):
     # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
     formattedLocation = (location.replace(" ", "%20")).replace(",", "%2C")
 
+    # creates an array that will be sent to the page as context so that the search bars will maintain their data when
+    # the page is re-loaded
+    search = [description, location]
+
     # Queries an API for 50 results based on the location and description received above
-    response = requests.get('https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=5&what={}&where={}&sort_by=date'.format(description, location))
+    response = requests.get('https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=20&what={}&where={}&sort_by=date'.format(description, location))
 
     # pulls the json data from the API response
     json_data = response.json()
+    # json_data is a dictionary with a single key which contains an array of the job objects. This sets the variable
+    # results to that array.
     results = json_data['results']
 
     jobs = []
     for job in results:
-        jobs.append([job['title'], job['company']['display_name'], job['created']])
+        jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url']])
 
-    return render(request, 'JobScraping/APIJobSearch.html', {'jobs': jobs})
+    return render(request, 'JobScraping/APIJobSearch.html', {'jobs': jobs, 'search': search})
+
 
 # This view takes the user to the JobScraping_input.html page where they can input job data into a form
 def JobScraping_input(request):
     form = JobsForm(request.POST or None)
     context = {'form': form}
     return render(request, 'JobScraping/JobScraping_input.html', context)
+
 
 # This view is activated from JobScraping_input.html, and saves any data that was in the form to the database.
 def inputJob(request):
@@ -60,6 +70,7 @@ def inputJob(request):
         'form': form,
     }
     return render(request, 'JobScraping/JobScraping_input.html', context)
+
 
 # This view requests all the information in the database and sends it as context to JobScraping_history.html and then
 # renders that html page.
@@ -91,6 +102,7 @@ def saveEdit(request, pk):
     else:
         return render(request, 'JobScraping/JobScraping_history.html')
 
+
 # This view is a two-part view. If the request sent to this view is in POST it will delete the db item with the
 # respective pk. If the request sent to this view is in GET it will send the user to a page that will ask them to
 # confirm the choice to delete. When they confirm the request is sent back to this view again this time as POST.
@@ -105,6 +117,7 @@ def delete(request, pk):
     context = {'item': item,}
     return render(request, 'JobScraping/JobScraping_confirmDelete.html', context)
 
+
 # This view loads the JobScraping_details.html which shows the data for a single job
 def JobScraping_details(request, pk):
     # Changes pk from string to int
@@ -116,6 +129,7 @@ def JobScraping_details(request, pk):
     print(context)
     # Renders the html file and sends the data to it in the variable 'context'
     return render(request, 'JobScraping/JobScraping_details.html', context)
+
 
 # This view loads the editJob.html and passes it information so that it can display a form with the current data
 # (which uses {'form': form},) and also save that form to the database with (which uses {'jobs': jobs},)

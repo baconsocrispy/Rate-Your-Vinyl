@@ -10,11 +10,11 @@
             {% csrf_token %}
             <div class="mb-3">
                 <label for="what" class="form-label">Search Terms (e.g. Software Developer)</label>
-                <input class="form-control" id="what" name="what" aria-describedby="emailHelp">
+                <input class="form-control" id="what" name="what" value="{{ search.0 }}" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="location" class="form-label">Location(e.g. Portland, OR)</label>
-                <input class="form-control" id="location" name="location">
+                <input class="form-control" id="location" name="location" value="{{ search.1 }}">
             </div>
             <input type="submit" class="btn btn-primary">
         </form>
@@ -31,7 +31,7 @@
                 {% for each in jobs %}
 
                     <tr>
-                        <td>{{ each.0 }}</td>
+                        <td><a href="{{ each.3 }}">{{ each.0 }}</a></td>
                         <td>{{ each.1 }}</td>
                         <td>{{ each.2 }}</td>
                     </tr>
