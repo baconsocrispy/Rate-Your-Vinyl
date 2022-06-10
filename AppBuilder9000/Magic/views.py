@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect,  get_object_or_404
 from .models import Deck, Comment
 from .forms import DeckForm, CommentForm
+import requests
+import json
 
 #Story 1: Build the basic app
 
@@ -40,6 +42,8 @@ def magic_details(request, pk):
     form = CommentForm(data=request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
+            comment_instance = form.save(commit=False)
+            comment_instance.deck_id = pk
             form.save()
             return redirect('../details')
     content = {
@@ -70,8 +74,31 @@ def magic_delete(request, pk):
     content = {'deck': deck}
     return render(request, 'Magic/magic_delete.html', content)
 
-def magic_delete_c(request, id):
-    comment = Comment.body.get(id=id)
-    if request.method == 'POST':
-        comment.delete()
-    return redirect('../../details')
+#Delete comments
+
+
+def delete_c(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    path = '../../../' + str(comment.deck_id) + '/details'
+    return redirect(path)
+
+#Story 6 Connect to API
+'''I am connecting to the Scryfall API. I am pulling the information for the card named 'Shock'. I am using 'fuzzy'
+in my call because it allows for the api to find the card with the closest spelling instead of needing
+ to spell the card name exactly right'''
+
+def magic_api(request):
+
+    card_name = "shock"
+
+    url = "https://api.scryfall.com/cards/named?fuzzy=" + card_name
+
+    response = requests.request("GET", url)
+    card_info = json.loads(response.text)
+    content = {
+        'card_info': card_info
+    }
+    print(content)
+    return render(request, 'Magic/magic_api.html', content)
+
