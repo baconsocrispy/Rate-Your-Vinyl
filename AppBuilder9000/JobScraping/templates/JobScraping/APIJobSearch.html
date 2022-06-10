@@ -2,24 +2,29 @@
 
 {% block title %}Job Search{% endblock %}
 
-{% block header %}Find some jobs here!{% endblock %}
-
 {% block content %}
-    <div class=".container">
-        <form action="/JobScraping/searchResults/" method="POST">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="what" class="form-label">Search Terms (e.g. Software Developer)</label>
-                <input class="form-control" id="what" name="what" value="{{ search.0 }}" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="location" class="form-label">Location(e.g. Portland, OR)</label>
-                <input class="form-control" id="location" name="location" value="{{ search.1 }}">
-            </div>
-            <input type="submit" class="btn btn-primary">
-        </form>
+    <div class="stretch">
+        <h1 class="display-4">Find a job here!</h1>
+        <p class="lead">Enter your search terms to see a list of job postings</p>
+        <!-- FORM -->
+        <div class="content">
+            <form action="/JobScraping/searchResults/" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="what" class="form-label">Search Terms (e.g. Software Developer)</label>
+                    <input class="form-control" id="what" name="what" value="{{ search.0 }}" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location (e.g. Portland, OR)</label>
+                    <input class="form-control" id="location" name="location" value="{{ search.1 }}">
+                </div>
+                <input type="submit" class="btn btn-dark button-input">
+            </form>
+        </div>
+        <!-- END FORM -->
 
-        <table class="table table-dark table-striped sortable">
+        <!-- DISPLAY TABLE -->
+        <table class="table table-dark table-striped sortable search-table">
             <thead>
                 <tr>
                     <th scope="col">Title</th>

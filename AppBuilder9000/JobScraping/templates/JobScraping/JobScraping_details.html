@@ -5,6 +5,8 @@
 {% block header %}Job Details{% endblock %}
 
 {% block content %}
+<div class="container">
+    <h1 class="display-4">Details</h1>
     <table class="table table-dark table-striped">
         <thead>
             <tr>
@@ -29,5 +31,6 @@
                 </tr>
         </tbody>
     </table>
-    <a href="/JobScraping/{{ job.pk }}/editJob"><button>Edit/Delete</button></a>
+    <a href="/JobScraping/{{ job.pk }}/editJob"><button class="btn btn-dark">Edit/Delete</button></a>
+</div>
 {% endblock %}
