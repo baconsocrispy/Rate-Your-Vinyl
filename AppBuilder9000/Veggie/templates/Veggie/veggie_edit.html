@@ -1,0 +1,24 @@
+{% extends "Veggie_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block header %}Edit page:{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    <table>
+        {% csrf_token %}
+        {{ form.as_p }}
+    </table>
+    <button class="" type="submit">Save Changes</button>
+    <button class=""><a href="{% url 'veggie_details' recipe.id %}">Cancel</a></button>
+</form>
+
+
+{% endblock %}
+
+
+
+
+
