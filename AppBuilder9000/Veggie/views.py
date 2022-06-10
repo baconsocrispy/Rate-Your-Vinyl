@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.shortcuts import render
 from .forms import RecipeForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Recipe
-
+from django.http import JsonResponse
+import requests
 
 # Create the home page
 def veggie_home(request):
@@ -51,5 +51,13 @@ def recipe_delete(request, pk):
         return redirect('veggie_recipe')
     return render(request, 'Veggie/veggie_delete.html', {'recipe': recipe})
 
+# API Food REST API v1.0
+
+def recipe_api(request):
+    url = "http://api.icndb.com/jokes/random"
+    response = requests.get(url).json()
+    print(response) # print a JSON response in the terminal when the API page loads
+    joke = response['value']['joke']
+    return render(request, 'Veggie/veggie_api.html', context={'text': joke })
 
 
