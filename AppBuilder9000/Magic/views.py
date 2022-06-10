@@ -84,9 +84,10 @@ def delete_c(request, pk):
     return redirect(path)
 
 #Story 6 Connect to API
-'''I am connecting to the Scryfall API. I am pulling the information for the card named 'Shock'. I am using 'fuzzy'
-in my call because it allows for the api to find the card with the closest spelling instead of needing
- to spell the card name exactly right'''
+'''I am connecting to the Scryfall API. I am pulling the information for the card named 'Shock'. 
+Then I am getting the value for the name key.
+ I am using 'fuzzy' in my call because it allows for the api to find the card with the closest 
+ spelling instead of needing to spell the card name exactly right'''
 
 def magic_api(request):
 
@@ -96,8 +97,9 @@ def magic_api(request):
 
     response = requests.request("GET", url)
     card_info = json.loads(response.text)
+    name = card_info['name']
     content = {
-        'card_info': card_info
+        'name': name
     }
     print(content)
     return render(request, 'Magic/magic_api.html', content)
