@@ -51,3 +51,21 @@ def details_dogs(request, pk):
             'form': form,
         }
         return render(request, "Dogs/Dogs_details.html", content)
+
+def delete_dog(request, pk):
+    pk = int(pk)
+    doggo = get_object_or_404(Dogs, pk=pk)
+    if request.method == 'POST':
+        doggo.delete()
+        return redirect('lists')
+    context = {"doggo": doggo,}
+    return render(request, "Dogs/Dogs_confirm_Delete.html", context)
+
+def confirm_delete(request):
+    if request.method == 'POST':
+        form =  DogsForm(request.POST or None)
+        if form.is_valid():
+            form.delete()
+            return redirect('Dogs_home')
+    else:
+        return redirect('Dogs_home')

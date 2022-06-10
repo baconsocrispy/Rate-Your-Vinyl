@@ -1,6 +1,6 @@
 from django.db import models
 
-
+# Creates the model for the recipe
 class Recipe(models.Model):
     title_name = models.CharField(max_length=50)
     author_name = models.CharField(max_length=50)
