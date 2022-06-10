@@ -2,15 +2,19 @@
 
 {% block title %}Job Input{% endblock %}
 
-{% block header %}Nice find! <br> Input Your Job Here:{% endblock %}
+{% block header %}Nice find!{% endblock %}
 
 {% block content %}
-  <div class="">
-    <form method="POST" action="{% url 'inputJob' %}">
+<div class="container">
+  <h1 class="display-4">Save a Job</h1>
+  <p class="lead">Input your job info here:</p>
+    <div class="content">
+      <form method="POST" action="{% url 'inputJob' %}">
       {% csrf_token %}
       {{ form.non_field_errors }}
       {{ form.as_p }}
-      <input type="submit" value="Save Job">
+      <input class="btn btn-dark" type="submit" value="Save Job">
     </form>
   </div>
+</div>
 {% endblock %}
