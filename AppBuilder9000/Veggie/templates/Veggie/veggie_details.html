@@ -29,6 +29,8 @@
         <li class="limit"><strong>Number of ingredients: {{ recipe.number_of_ingredients }}</strong></li>
         <li class="limit"><strong>Total time (mins): {{ recipe.making_time }}</strong></li>
         <li class="text-recipe"> {{ recipe.description }}</li>
+        <li class="text-recipe"><button><a href="{% url 'veggie_edit' recipe.id %}">Edit Recipe</a></button></li>
+        <li class="text-recipe"><button><a href="{% url 'veggie_delete' recipe.id %}">Delete Recipe</a></button></li>
     </ul>
 </form>
 
