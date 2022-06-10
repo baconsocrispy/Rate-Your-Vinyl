@@ -1,12 +1,27 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import JobsForm
 from .models import Jobs
+from bs4 import BeautifulSoup
 import requests
 import json
 
 # This view takes the user to the home page
 def JobScraping_home(request):
-        return render(request, 'jobScraping/JobScraping_home.html')
+
+    # Gets the request of the data from the website.
+    page = requests.get('https://forecast.weather.gov/MapClick.php?lat=45.5118&lon=-122.6756#.YqN-yXbMIuU')
+    soup = BeautifulSoup(page.content, 'html.parser')
+    today = soup.select('li.forecast-tombstone:first-child')
+    print(today[0].prettify())
+
+    # We will be extracting the current day's weather only.
+    current = today[0].find(class_='period-name').get_text()
+    description = today[0].find(class_='short-desc').get_text()
+    temp = today[0].find(class_='temp-high').get_text()
+
+    data = [current, description, temp]
+    context = {'data': data}
+    return render(request, 'jobScraping/JobScraping_home.html', context)
 
 
 # This view takes the user to the API job search page
