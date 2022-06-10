@@ -10,15 +10,32 @@ def JobScraping_home(request):
 
 # This view takes the user to the API job search page
 def searchAPI(request):
-    # Queries an API for page one of a basic job search
-    response = requests.get('https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416')
+    return render(request, 'JobScraping/APIJobSearch.html')
+
+# This view sends the data input by the user an initiates the API request and returns APIJobSearch.html with the
+# returned values from the API response
+def searchResults(request):
+    # This gets the location information submitted with the form on APIJobSearch.html
+    description = request.POST['what']
+    # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
+    formattedLocation = (description.replace(" ", "%20")).replace(",", "%2C")
+    # This gets the location information submitted with the form on APIJobSearch.html
+    location = request.POST['location']
+    # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
+    formattedLocation = (location.replace(" ", "%20")).replace(",", "%2C")
+
+    # Queries an API for 50 results based on the location and description received above
+    response = requests.get('https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=5&what={}&where={}&sort_by=date'.format(description, location))
+
     # pulls the json data from the API response
     json_data = response.json()
-    # converts the dictionary received from response.json() to a string (json.dumps) and then prints it in a formatted
-    # readable way to the terminal. I will be pulling job data relevant to the fields that are included in my model.
-    # Along with additional search options in the next story.
-    print(json.dumps(json_data, indent=2))
-    return render(request, 'JobScraping/APIJobSearch.html')
+    results = json_data['results']
+
+    jobs = []
+    for job in results:
+        jobs.append([job['title'], job['company']['display_name'], job['created']])
+
+    return render(request, 'JobScraping/APIJobSearch.html', {'jobs': jobs})
 
 # This view takes the user to the JobScraping_input.html page where they can input job data into a form
 def JobScraping_input(request):
