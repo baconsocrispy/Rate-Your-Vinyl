@@ -1,9 +1,83 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import JobsForm
-from .models import Jobs
+from .models import Jobs, Temp
 from bs4 import BeautifulSoup
 import requests
 import json
+
+# This view takes the user to the API job search page
+def testPage(request):
+    return render(request, 'JobScraping/test.html')
+
+def test(request):
+    # This gets the location information submitted with the form on APIJobSearch.html
+    description = request.POST['what']
+    # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
+    formattedDescription = (description.replace(" ", "%20")).replace(",", "%2C")
+    # This gets the location information submitted with the form on APIJobSearch.html
+    location = request.POST['location']
+    # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
+    formattedLocation = (location.replace(" ", "%20")).replace(",", "%2C")
+
+    # creates an array that will be sent to the page as context so that the search bars will maintain their data when
+    # the page is re-loaded
+    search = [description, location]
+
+    # Queries an API for 20 results based on the location and description received above
+    response = requests.get(
+        'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=1&what={}&where={}&sort_by=date'.format(
+            formattedDescription, formattedLocation))
+
+    # pulls the json data from the API response
+    json_data = response.json()
+    # json_data is a dictionary with a single key which contains an array of the job objects. This sets the variable
+    # results to that array.
+    results = json_data['results']
+
+    # TEST ==========================
+
+
+    for i in results:
+        try:
+            jobData = Temp(
+                minimum_pay=i['salary_min'],
+                maximum_pay=i['salary_max'],
+                title=i['title'],
+                company=i['company']['display_name'],
+                job_url=i['redirect_url'],
+                date_added=i['created'],
+
+            )
+        except:
+            jobData = Temp(
+                minimum_pay='',
+                maximum_pay='',
+                title=i['title'],
+                company=i['company']['display_name'],
+                job_url=i['redirect_url'],
+                date_added=(i['created'])[0:9],
+            )
+    jobData.save()
+
+    cake = Temp.objects.all()
+
+    print('################')
+    print(cake)
+    print('################')
+
+    # TEST ==========================
+
+    jobs = []
+    for job in results:
+        try:
+            jobs.append(
+                [job['title'], job['company']['display_name'], job['created'], job['redirect_url'], job['salary_min'],
+                 job['salary_max']])
+        except:
+            jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], '', ''])
+
+    return render(request, 'JobScraping/test.html', {'jobs': jobs, 'search': search})
+
 
 # This view takes the user to the home page
 def JobScraping_home(request):
@@ -86,7 +160,7 @@ def inputJob(request):
     # This check if the data in the form are valid, and if they are it saves them and returns the user to the homepage
     if form.is_valid():
         form.save()
-        return redirect('JobScraping_home')
+        return redirect('JobScraping_history')
     else:
         # If the form data are not valid the respective errors are printed
         print(form.errors)

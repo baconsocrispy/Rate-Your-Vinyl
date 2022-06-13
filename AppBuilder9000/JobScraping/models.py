@@ -9,9 +9,10 @@ stackChoices = {
     ('Unknown','Unknown'),
 }
 
-yesNo = {
+isStartup = {
     ('yes', 'yes'),
     ('no', 'no'),
+    ('unknown', 'unknown'),
 }
 
 
@@ -19,10 +20,26 @@ class Jobs(models.Model):
     title = models.CharField(max_length=60, default="")
     company = models.CharField(max_length=30, default="")
     stack = models.CharField(max_length=15, choices=stackChoices)
-    startup = models.CharField(max_length=3, choices=yesNo)
+    startup = models.CharField(max_length=3, choices=isStartup)
     location = models.CharField(max_length=30)
     exp_required = models.CharField(max_length=30)
-    pay = models.CharField(max_length=30)
+    minimum_pay = models.CharField(max_length=30)
+    maximum_pay = models.CharField(max_length=30)
+    date_added = models.DateField()
+    job_url = models.CharField(max_length=200, default="")
+
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.title
+
+class Temp(models.Model):
+    title = models.CharField(max_length=60, default="")
+    company = models.CharField(max_length=30, default="")
+    minimum_pay = models.CharField(max_length=30)
+    maximum_pay = models.CharField(max_length=30)
+    date_added = models.DateField()
+    job_url = models.CharField(max_length=200, default="")
 
     objects = models.Manager()
 

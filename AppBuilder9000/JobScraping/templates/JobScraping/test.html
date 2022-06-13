@@ -14,7 +14,7 @@
         <p class="lead">Enter your search terms to see a list of job postings</p>
         <!-- FORM -->
         <div class="content">
-            <form action="/JobScraping/searchResults/" method="POST">
+            <form action="/JobScraping/test/" method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="what" class="form-label">Search Terms (e.g. Software Developer)</label>
@@ -38,19 +38,16 @@
                     <th scope="col">Posting<br>Date</th>
                     <th scope="col">Minimum<br>Salary</th>
                     <th scope="col">Maximum<br>Salary</th>
-
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 {% for each in jobs %}
-
-                    <tr>
-                        <td><a href="{{ each.3 }}">{{ each.0 }}</a></td>
-                        <td>{{ each.1 }}</td>
-                        <td>{{ each.2 }}</td>
-                        <td>{{ each.4 }}</td>
-                        <td>{{ each.5 }}</td>
-                    </tr>
+                    <form action="#" method="POST">
+                        {{ csrf_token }}
+                        {{ form.non_field_errors }}
+                        {{ form.as_table }}
+                    </form>
 
                 {% endfor %}
             </tbody>

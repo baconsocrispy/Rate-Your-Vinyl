@@ -16,7 +16,11 @@
                 <th scope="col">Startup</th>
                 <th scope="col">Location</th>
                 <th scope="col">Experience<br>Required</th>
-                <th scope="col">Salary</th>
+                <th scope="col">Minimum Pay</th>
+                <th scope="col">Maximum Pay</th>
+                <th scope="col">Date Added</th>
+                <th scope="col">source link</th>
+
             </tr>
         </thead>
         <tbody>
@@ -27,7 +31,10 @@
                     <td>{{ job.startup }}</td>
                     <td>{{ job.location }}</td>
                     <td>{{ job.exp_required }}</td>
-                    <td>{{ job.pay }}</td>
+                    <td>{{ job.minimum_pay }}</td>
+                    <td>{{ job.maximum_pay }}</td>
+                    <td>{{ job.date_added }}</td>
+                    <td><a href="{{ job.job_url }}">link</a></td>
                 </tr>
         </tbody>
     </table>

@@ -12,4 +12,6 @@ urlpatterns = [
     path('<int:pk>/delete/', views.delete, name='delete'),
     path('searchAPI', views.searchAPI, name='searchAPI'),
     path('searchResults/', views.searchResults, name='searchResults'),
+    path('testPage/', views.testPage, name='testPage'),
+    path('test/', views.test, name='test'),
 ]
