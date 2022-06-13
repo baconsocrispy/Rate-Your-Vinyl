@@ -3,6 +3,12 @@
 {% block title %}Job Search{% endblock %}
 
 {% block content %}
+
+
+
+
+
+
     <div class="stretch">
         <h1 class="display-4">Find a job here!</h1>
         <p class="lead">Enter your search terms to see a list of job postings</p>
@@ -30,6 +36,8 @@
                     <th scope="col">Title</th>
                     <th scope="col">Company</th>
                     <th scope="col">Posting<br>Date</th>
+                    <th scope="col">Minimum<br>Salary</th>
+                    <th scope="col">Maximum<br>Salary</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +47,8 @@
                         <td><a href="{{ each.3 }}">{{ each.0 }}</a></td>
                         <td>{{ each.1 }}</td>
                         <td>{{ each.2 }}</td>
+                        <td>{{ each.4 }}</td>
+                        <td>{{ each.5 }}</td>
                     </tr>
 
                 {% endfor %}

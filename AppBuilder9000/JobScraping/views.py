@@ -12,7 +12,6 @@ def JobScraping_home(request):
     page = requests.get('https://forecast.weather.gov/MapClick.php?lat=45.5118&lon=-122.6756#.YqN-yXbMIuU')
     soup = BeautifulSoup(page.content, 'html.parser')
     today = soup.select('li.forecast-tombstone:first-child')
-    print(today[0].prettify())
 
     # We will be extracting the current day's weather only.
     current = today[0].find(class_='period-name').get_text()
@@ -35,7 +34,7 @@ def searchResults(request):
     # This gets the location information submitted with the form on APIJobSearch.html
     description = request.POST['what']
     # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
-    formattedLocation = (description.replace(" ", "%20")).replace(",", "%2C")
+    formattedDescription = (description.replace(" ", "%20")).replace(",", "%2C")
     # This gets the location information submitted with the form on APIJobSearch.html
     location = request.POST['location']
     # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
@@ -45,8 +44,8 @@ def searchResults(request):
     # the page is re-loaded
     search = [description, location]
 
-    # Queries an API for 50 results based on the location and description received above
-    response = requests.get('https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=20&what={}&where={}&sort_by=date'.format(description, location))
+    # Queries an API for 20 results based on the location and description received above
+    response = requests.get('https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=20&what={}&where={}&sort_by=date'.format(formattedDescription, formattedLocation))
 
     # pulls the json data from the API response
     json_data = response.json()
@@ -56,7 +55,19 @@ def searchResults(request):
 
     jobs = []
     for job in results:
-        jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url']])
+        try:
+            jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], job['salary_min'], job['salary_max']])
+        except:
+            jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], '', ''])
+
+
+    # TEST ==========================
+
+    print('################')
+    print('')
+    print('################')
+
+    # TEST ==========================
 
     return render(request, 'JobScraping/APIJobSearch.html', {'jobs': jobs, 'search': search})
 
