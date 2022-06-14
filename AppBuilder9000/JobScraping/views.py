@@ -13,6 +13,9 @@ def saveSearch(request):
     Month = ''
     Date = ''
     Year = ''
+    # This block of code pulls the Month, Date, and Year data received from the API search to a format that can be
+    # converted to a datetime
+    # This can be refactored to be much smaller with the use of sub-routines.
     if 'January' in initDate:
         Month = 'January'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
@@ -98,13 +101,17 @@ def saveSearch(request):
         else:
             Date = initDate[(len(Month) + 1):(len(Month) + 3)]
 
+    # This puts the data from the block above in the format necessary to convert it to a datetime with strptime()
     if len(Date) < 2:
         adjustedDate = ('{}-{}-0{}'.format(Year, Month, Date))
     else:
         adjustedDate = ('{}-{}-{}'.format(Year, Month, Date))
 
+    # This converts the formatted data to a datetime
     formattedDate = datetime.strptime(adjustedDate, '%Y-%B-%d')
 
+    # This saves all the data that are selected from the form in search results (which is populated from the temp table)
+    # to the actual permanent Jobs table
     savedJob = Jobs(
         title=(request.POST['title']),
         company=(request.POST['company']),
@@ -119,6 +126,7 @@ def saveSearch(request):
     )
     savedJob.save()
 
+    # This gives the context to print all the Jobs table data into the JobScraping_history page.
     jobs = Jobs.objects.all()
     context = {
         'jobs': jobs,
