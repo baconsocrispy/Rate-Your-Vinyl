@@ -14,4 +14,5 @@ urlpatterns = [
     path('searchResults/', views.searchResults, name='searchResults'),
     path('testPage/', views.testPage, name='testPage'),
     path('test/', views.test, name='test'),
+    path('saveSearch/', views.saveSearch, name='saveSearch'),
 ]

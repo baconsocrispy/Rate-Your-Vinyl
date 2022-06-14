@@ -44,13 +44,13 @@
             <tbody>
                 {% for each in jobs %}
                     <tr>
-                        <form action="#" method="POST">
+                        <form action="/JobScraping/saveSearch/" method="POST">
                             {% csrf_token %}
-                            <td><input readonly value="{{ each.title }}"></td>
-                            <td><input readonly value="{{ each.company }}"></td>
-                            <td><input readonly value="{{ each.date_added }}"></td>
-                            <td><input readonly value="{{ each.minimum_pay }}"></td>
-                            <td><input readonly value="{{ each.maximum_pay }}"></td>
+                            <td><input name="title" readonly value="{{ each.title }}"></td>
+                            <td><input name="company" readonly value="{{ each.company }}"></td>
+                            <td><input name="date_added" readonly value="{{ each.date_added }}"></td>
+                            <td><input name="minimum_pay" readonly value="{{ each.minimum_pay }}"></td>
+                            <td><input name="maximum_pay" readonly value="{{ each.maximum_pay }}"></td>
                             <td><input type="submit" value="Save Job"></td>
                         </form>
                     </tr>

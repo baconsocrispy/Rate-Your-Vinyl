@@ -3,6 +3,7 @@ from .forms import JobsForm
 from .models import Jobs, Temp
 from bs4 import BeautifulSoup
 import requests
+from datetime import datetime
 import json
 
 # This view takes the user to the API job search page
@@ -37,8 +38,6 @@ def test(request):
     # results to that array.
     results = json_data['results']
 
-    # TEST ==========================
-
     # This takes the results and formats them into the appropriate order for the temp database
     for i in results:
         try:
@@ -66,26 +65,127 @@ def test(request):
     # This collects all data currently stored on the Temp table
     jobs = Temp.objects.all()
 
-    print('################')
-    for each in results:
-        print(each['title'])
-
-    print('################')
-
-    # TEST ==========================
-
-    # This code is what was used to send the context to print the data to the table in the original version
-    #jobs = []
-    #for job in results:
-    #    try:
-    #        jobs.append(
-    #            [job['title'], job['company']['display_name'], job['created'], job['redirect_url'], job['salary_min'],
-    #             job['salary_max']])
-    #    except:
-    #        jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], '', ''])
-
     return render(request, 'JobScraping/test.html', {'jobs': jobs, 'search': search})
 
+def saveSearch(request):
+
+    initDate = (request.POST['date_added'])
+
+    Month = ''
+    Date = ''
+    Year = ''
+    if 'January' in initDate:
+        Month = 'January'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'February' in initDate:
+        Month = 'February'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'March' in initDate:
+        Month = 'March'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'April' in initDate:
+        Month = 'April'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'May' in initDate:
+        Month = 'May'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'June' in initDate:
+        Month = 'June'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'July' in initDate:
+        Month = 'July'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'August' in initDate:
+        Month = 'August'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'September' in initDate:
+        Month = 'September'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'October' in initDate:
+        Month = 'October'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'November' in initDate:
+        Month = 'November'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'December' in initDate:
+        Month = 'December'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+
+    if len(Date) < 2:
+        adjustedDate = ('{}-{}-0{}'.format(Year, Month, Date))
+    else:
+        adjustedDate = ('{}-{}-{}'.format(Year, Month, Date))
+
+    formattedDate = datetime.strptime(adjustedDate, '%Y-%B-%d')
+
+    savedJob = Jobs(
+        title=(request.POST['title']),
+        company=(request.POST['company']),
+        stack='unknown',
+        startup='unknown',
+        location='',
+        exp_required='',
+        minimum_pay=(request.POST['minimum_pay']),
+        maximum_pay=(request.POST['maximum_pay']),
+        date_added=formattedDate,
+        job_url='',
+    )
+    savedJob.save()
+
+    jobs = Jobs.objects.all()
+    context = {
+        'jobs': jobs,
+    }
+
+    return render(request, 'JobScraping/JobScraping_history.html', context)
 
 # This view takes the user to the home page
 def JobScraping_home(request):
