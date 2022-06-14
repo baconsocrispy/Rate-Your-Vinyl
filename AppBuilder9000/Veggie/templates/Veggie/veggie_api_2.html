@@ -1,0 +1,29 @@
+{% extends "Veggie_base.html" %}
+
+{% block title %}API Wine{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <br>
+  <h3>Wine Description (API)</h3>
+    <br>
+<h4>Get a description of one of these wines by selecting one</h4>
+    <br>
+    <form class="container" method="POST">
+        {% csrf_token %}
+      <button type="submit"><a href="{% url 'veggie_api_2' 1 %}">Malbec</a></button>
+      <button type="submit"><a href="{% url 'veggie_api_2' 2 %}">Riesling</a></button>
+      <button type="submit"><a href="{% url 'veggie_api_2' 3 %}">Merlot</a></button>
+    </form>
+    <br>
+{% for key, value in api_wine.items %}
+    <h3> {{ Value }} : {{ value }} </h3>
+{% endfor %}
+
+ <br><br><br>
+
+</div>
+
+{% endblock %}
+

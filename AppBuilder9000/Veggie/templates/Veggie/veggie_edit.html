@@ -1,18 +1,18 @@
 {% extends "Veggie_base.html" %}
 
-{% block title %}{% endblock %}
+{% block title %}Edit recipe page{% endblock %}
 
-{% block header %}Edit page:{% endblock %}
+{% block header %}Edit recipe:{% endblock %}
 
 {% block content %}
 
-<form method="POST">
+<form class="container" method="POST">
     <table>
         {% csrf_token %}
         {{ form.as_p }}
     </table>
-    <button class="" type="submit">Save Changes</button>
-    <button class=""><a href="{% url 'veggie_details' recipe.id %}">Cancel</a></button>
+    <button type="submit">Save Changes</button>
+    <button ><a href="{% url 'veggie_details' recipe.id %}">Cancel</a></button>
 </form>
 
 

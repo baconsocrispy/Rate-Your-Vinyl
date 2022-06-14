@@ -1,11 +1,13 @@
 {% extends "Veggie_base.html" %}
 
+{% block title %}Add Recipe page{% endblock %}
+
 {% block content %}
 
 
 <h1>Recipe Form</h1>
 
-<form method="POST">
+<form class="container" method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Save Changes</button>
