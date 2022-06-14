@@ -95,7 +95,7 @@ def recipe_bs(request):
 # Add comments to note which portions of the data you're trying to extract:
 # The opening paragraph of the website:
 # The Simple Veganista shares approachable vegan recipes that are deliciously .......... love!
-    info = soup.find('p', class_='has-text-align-center')
+    info = soup.find('p', class_='has-text-align-center').get_text()
     content = {"info": info}
     print(info)
     return render(request, 'Veggie/veggie_bs.html', content)
