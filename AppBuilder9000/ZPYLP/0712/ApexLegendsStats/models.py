@@ -4,7 +4,7 @@ LEGEND_CHOICES = (
     ('Bangalore', 'Bangalore'),
     ('Bloodhound', 'Bloodhound'),
     ('Caustic', 'Caustic'),
-    ('Crypto', 'Crypto'),
+    ('Crypto1', 'Crypto1'),
     ('Fuse', 'Fuse'),
     ('Gibraltar', 'Gibraltar'),
     ('Horizon', 'Horizon'),
