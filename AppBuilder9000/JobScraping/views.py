@@ -10,6 +10,9 @@ def testPage(request):
     return render(request, 'JobScraping/test.html')
 
 def test(request):
+    # This line clears the temp table for the next search
+    Temp.objects.all().delete()
+
     # This gets the location information submitted with the form on APIJobSearch.html
     description = request.POST['what']
     # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
@@ -25,7 +28,7 @@ def test(request):
 
     # Queries an API for 20 results based on the location and description received above
     response = requests.get(
-        'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=1&what={}&where={}&sort_by=date'.format(
+        'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=5&what={}&where={}&sort_by=date'.format(
             formattedDescription, formattedLocation))
 
     # pulls the json data from the API response
@@ -36,7 +39,7 @@ def test(request):
 
     # TEST ==========================
 
-
+    # This takes the results and formats them into the appropriate order for the temp database
     for i in results:
         try:
             jobData = Temp(
@@ -46,7 +49,6 @@ def test(request):
                 company=i['company']['display_name'],
                 job_url=i['redirect_url'],
                 date_added=i['created'],
-
             )
         except:
             jobData = Temp(
@@ -57,24 +59,30 @@ def test(request):
                 job_url=i['redirect_url'],
                 date_added=(i['created'])[0:9],
             )
-    jobData.save()
+        # This saves the data that I gather with the code above to the Temp database table
+        jobData.save()
 
-    cake = Temp.objects.all()
+
+    # This collects all data currently stored on the Temp table
+    jobs = Temp.objects.all()
 
     print('################')
-    print(cake)
+    for each in results:
+        print(each['title'])
+
     print('################')
 
     # TEST ==========================
 
-    jobs = []
-    for job in results:
-        try:
-            jobs.append(
-                [job['title'], job['company']['display_name'], job['created'], job['redirect_url'], job['salary_min'],
-                 job['salary_max']])
-        except:
-            jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], '', ''])
+    # This code is what was used to send the context to print the data to the table in the original version
+    #jobs = []
+    #for job in results:
+    #    try:
+    #        jobs.append(
+    #            [job['title'], job['company']['display_name'], job['created'], job['redirect_url'], job['salary_min'],
+    #             job['salary_max']])
+    #    except:
+    #        jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], '', ''])
 
     return render(request, 'JobScraping/test.html', {'jobs': jobs, 'search': search})
 

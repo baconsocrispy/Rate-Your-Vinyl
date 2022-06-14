@@ -43,12 +43,17 @@
             </thead>
             <tbody>
                 {% for each in jobs %}
-                    <form action="#" method="POST">
-                        {{ csrf_token }}
-                        {{ form.non_field_errors }}
-                        {{ form.as_table }}
-                    </form>
-
+                    <tr>
+                        <form action="#" method="POST">
+                            {% csrf_token %}
+                            <td><input readonly value="{{ each.title }}"></td>
+                            <td><input readonly value="{{ each.company }}"></td>
+                            <td><input readonly value="{{ each.date_added }}"></td>
+                            <td><input readonly value="{{ each.minimum_pay }}"></td>
+                            <td><input readonly value="{{ each.maximum_pay }}"></td>
+                            <td><input type="submit" value="Save Job"></td>
+                        </form>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
