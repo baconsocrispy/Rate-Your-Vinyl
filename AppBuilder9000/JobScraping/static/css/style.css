@@ -22,6 +22,22 @@ h1 {
     justify-content: center;
 }
 
+.flex-container {
+    display: flex;
+}
+
+.job-title {
+    width: 25%;
+}
+
+.job-company {
+    width: 15%;
+}
+
+.job-else {
+    width: 10%;
+}
+
 /*================
     End Tables
 -----------------*/

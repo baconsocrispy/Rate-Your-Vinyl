@@ -61,6 +61,10 @@ def test(request):
         # This saves the data that I gather with the code above to the Temp database table
         jobData.save()
 
+    print('############')
+    for each in results:
+        print(each)
+    print('############')
 
     # This collects all data currently stored on the Temp table
     jobs = Temp.objects.all()
