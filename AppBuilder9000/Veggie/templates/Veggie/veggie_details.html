@@ -2,27 +2,9 @@
 
 {% block content %}
 
-<style>
-.limit{
-    width:1100px;
-    text-align: center;
-    list-style-type: none;
-    list-style-position: inside;
-    padding-left:160px;
-    word-wrap: break-word;
-    }
-.text-recipe{
-    white-space: pre-line;
-	background-repeat: repeat;
-	background-size: 100vw 100hw;
-	list-style-type: none;
-}
-
-</style>
-
 <h1>Recipe</h1>
 {% csrf_token %}
-<form method="POST">
+<form class="container" method="POST">
     <h1><strong>{{ recipe.title_name }}</strong></h1>
     <ul>
         <li class="limit"><strong>Author: {{ recipe.author_name }}</strong></li>
