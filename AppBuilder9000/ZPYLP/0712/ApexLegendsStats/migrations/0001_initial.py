@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(blank=True, default='', max_length=60)),
-                ('legend', models.CharField(choices=[('Mirage', 'Mirage'), ('Wattson', 'Wattson'), ('Octane', 'Octane'), ('Wraith', 'Wraith'), ('Horizon', 'Horizon'), ('Bloodhound', 'Bloodhound'), ('Revenant', 'Revenant'), ('Valkyrie', 'Valkyrie'), ('Fuse', 'Fuse'), ('Pathfinder', 'Pathfinder'), ('Rampart', 'Rampart'), ('Loba', 'Loba'), ('Crypto', 'Crypto'), ('Gibraltar', 'Gibraltar'), ('Bangalore', 'Bangalore'), ('Caustic', 'Caustic'), ('Lifeline', 'Lifeline')], max_length=60)),
+                ('legend', models.CharField(choices=[('Mirage', 'Mirage'), ('Wattson', 'Wattson'), ('Octane', 'Octane'), ('Wraith', 'Wraith'), ('Horizon', 'Horizon'), ('Bloodhound', 'Bloodhound'), ('Revenant', 'Revenant'), ('Valkyrie', 'Valkyrie'), ('Fuse', 'Fuse'), ('Pathfinder', 'Pathfinder'), ('Rampart', 'Rampart'), ('Loba', 'Loba'), ('Crypto1', 'Crypto1'), ('Gibraltar', 'Gibraltar'), ('Bangalore', 'Bangalore'), ('Caustic', 'Caustic'), ('Lifeline', 'Lifeline')], max_length=60)),
                 ('gp', models.PositiveIntegerField(default=0)),
                 ('kills', models.PositiveIntegerField(default=0)),
                 ('tpt3', models.PositiveIntegerField(default=0)),
