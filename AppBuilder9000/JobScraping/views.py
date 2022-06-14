@@ -202,9 +202,9 @@ def JobScraping_home(request):
     # We will be extracting the current day's weather only.
     current = today[0].find(class_='period-name').get_text()
     description = today[0].find(class_='short-desc').get_text()
-    temp = today[0].find(class_='temp-high').get_text()
+    # temp = today[0].find(class_='temp-high').get_text()
 
-    data = [current, description, temp]
+    data = [current, description, "TEST - ALTER LATER"]
     context = {'data': data}
     return render(request, 'jobScraping/JobScraping_home.html', context)
 
@@ -217,6 +217,9 @@ def searchAPI(request):
 # This view sends the data input by the user an initiates the API request and returns APIJobSearch.html with the
 # returned values from the API response
 def searchResults(request):
+    # This line clears the temp table for the next search
+    Temp.objects.all().delete()
+
     # This gets the location information submitted with the form on APIJobSearch.html
     description = request.POST['what']
     # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
@@ -231,7 +234,9 @@ def searchResults(request):
     search = [description, location]
 
     # Queries an API for 20 results based on the location and description received above
-    response = requests.get('https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=20&what={}&where={}&sort_by=date'.format(formattedDescription, formattedLocation))
+    response = requests.get(
+        'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=5&what={}&where={}&sort_by=date'.format(
+            formattedDescription, formattedLocation))
 
     # pulls the json data from the API response
     json_data = response.json()
@@ -239,21 +244,36 @@ def searchResults(request):
     # results to that array.
     results = json_data['results']
 
-    jobs = []
-    for job in results:
+    # This takes the results and formats them into the appropriate order for the temp database
+    for i in results:
         try:
-            jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], job['salary_min'], job['salary_max']])
+            jobData = Temp(
+                minimum_pay=i['salary_min'],
+                maximum_pay=i['salary_max'],
+                title=i['title'],
+                company=i['company']['display_name'],
+                job_url=i['redirect_url'],
+                date_added=i['created'],
+            )
         except:
-            jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url'], '', ''])
+            jobData = Temp(
+                minimum_pay='',
+                maximum_pay='',
+                title=i['title'],
+                company=i['company']['display_name'],
+                job_url=i['redirect_url'],
+                date_added=(i['created'])[0:9],
+            )
+        # This saves the data that I gather with the code above to the Temp database table
+        jobData.save()
 
+    print('############')
+    for each in results:
+        print(each)
+    print('############')
 
-    # TEST ==========================
-
-    print('################')
-    print('')
-    print('################')
-
-    # TEST ==========================
+    # This collects all data currently stored on the Temp table
+    jobs = Temp.objects.all()
 
     return render(request, 'JobScraping/APIJobSearch.html', {'jobs': jobs, 'search': search})
 
