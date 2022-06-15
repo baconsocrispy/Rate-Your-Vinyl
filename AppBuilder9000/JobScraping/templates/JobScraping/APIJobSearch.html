@@ -47,8 +47,9 @@
                             <td class="job-else"><input class="form-control" name="date_added" readonly value="{{ each.date_added }}"></td>
                             <td class="job-else"><input class="form-control" name="minimum_pay" readonly value="{{ each.minimum_pay }}"></td>
                             <td class="job-else"><input class="form-control" name="maximum_pay" readonly value="{{ each.maximum_pay }}"></td>
-                            <td class="job-else"><a href="#"><button class="btn btn-dark btn-outline-light">See Full Post</button></a></td>
+                            <td class="job-else"><a href="{{ each.job_url }}"><button class="btn btn-dark btn-outline-light" type="button">See Full Post</button></a></td>
                             <td class="job-else"><input class="form-control btn btn-dark btn-outline-light" type="submit" value="Save Job"></td>
+                            <td class="invisible"><input class="invisible" name="job_url" value="{{ each.job_url }}"></td>
                         </form>
                     </tr>
                 {% endfor %}

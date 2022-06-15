@@ -10,10 +10,6 @@ def saveSearch(request):
     # gets the date that the job was posted from the model
     initDate = (request.POST['date_added'])
 
-
-    Month = ''
-    Date = ''
-    Year = ''
     # This block of code pulls the Month, Date, and Year data received from the API search to a format that can be
     # converted to a datetime
     # below is the function that adjusts where the day of the month is pulled from based on the length
@@ -97,7 +93,7 @@ def saveSearch(request):
         minimum_pay=(request.POST['minimum_pay']),
         maximum_pay=(request.POST['maximum_pay']),
         date_added=formattedDate,
-        job_url='',
+        job_url=(request.POST['job_url']),
     )
     savedJob.save()
 
@@ -106,6 +102,8 @@ def saveSearch(request):
     context = {
         'jobs': jobs,
     }
+
+
 
     return render(request, 'JobScraping/JobScraping_history.html', context)
 
@@ -162,7 +160,7 @@ def searchResults(request):
     # results to that array.
     results = json_data['results']
 
-    # This takes the results and formats them into the appropriate order for the temp database
+    # This takes the results and puts them in a form to add them to the Temp database
     for i in results:
         try:
             jobData = Temp(

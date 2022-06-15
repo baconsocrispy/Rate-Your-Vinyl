@@ -42,6 +42,10 @@ h1 {
     End Tables
 -----------------*/
 
+.invisible {
+    display: none;
+}
+
 html, body { height: 100% }
 body > footer {
     position: sticky;
