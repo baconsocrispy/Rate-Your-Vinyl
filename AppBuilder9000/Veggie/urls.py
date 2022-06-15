@@ -12,6 +12,9 @@ urlpatterns = [
     path('<int:pk>/veggie_edit/', views.veggie_edit, name='veggie_edit'),                # edit one recipe
     path('<int:pk>/veggie_delete/', views.recipe_delete, name="veggie_delete"),          # deet one recipe
     path('veggie_api/', views.recipe_api, name='veggie_api'),
+    path('veggie_api_2/', views.recipe_api_2, name='veggie_api_2'),
+    path('veggie_api_2/<wine>/', views.recipe_api_2, name='veggie_api_2'),
+    path('veggie_bs/', views.recipe_bs, name='veggie_bs'),
 ]
 
 

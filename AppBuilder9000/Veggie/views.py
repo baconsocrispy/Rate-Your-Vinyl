@@ -5,6 +5,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Recipe
 from django.http import JsonResponse
 import requests
+import json
+from bs4 import BeautifulSoup
+
 
 # Create the home page
 def veggie_home(request):
@@ -51,7 +54,7 @@ def recipe_delete(request, pk):
         return redirect('veggie_recipe')
     return render(request, 'Veggie/veggie_delete.html', {'recipe': recipe})
 
-# API Food REST API v1.0
+# Get an element from the API response, and send it  to the template
 
 def recipe_api(request):
     url = "http://api.icndb.com/jokes/random"
@@ -59,5 +62,44 @@ def recipe_api(request):
     print(response) # print a JSON response in the terminal when the API page loads
     joke = response['value']['joke']
     return render(request, 'Veggie/veggie_api.html', context={'text': joke })
+
+def recipe_api_2(request, wine='1'):
+    wine_number = wine
+    if( wine_number == '1'):
+        wine_name = 'Malbec'
+    elif ( wine_number == '2'):
+        wine_name = 'Riesling'
+    elif ( wine_number == '3'):
+        wine_name = 'Merlot'
+    else:
+        print("Value Error")
+
+    url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/description"
+
+    querystring = {"wine": wine_name}
+
+    headers = {
+        "X-RapidAPI-Key": "97df4ba39emsh613258c0b605a1ep1b6693jsnecb70a6ce8af",
+        "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    api_wine = json.loads(response.text)
+    content = {"api_wine": api_wine}
+    return render(request, 'Veggie/veggie_api_2.html', content)
+
+# Beautifulsoup scraping site and find the relevant information.
+
+def recipe_bs(request):
+    page = requests.get("https://simple-veganista.com/")
+    soup = BeautifulSoup(page.content, 'html.parser')
+# Add comments to note which portions of the data you're trying to extract:
+# The opening paragraph of the website:
+# The Simple Veganista shares approachable vegan recipes that are deliciously .......... love!
+    info = soup.find('p', class_='has-text-align-center').get_text()
+    content = {"info": info}
+    print(info)
+    return render(request, 'Veggie/veggie_bs.html', content)
+
+
 
 

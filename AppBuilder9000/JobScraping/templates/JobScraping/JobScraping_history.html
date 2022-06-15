@@ -16,7 +16,10 @@
             <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Company</th>
-                <th scope="col">Salary</th>
+                <th scope="col">Minimum Pay</th>
+                <th scope="col">Maximum Pay</th>
+                <th scope="col">Date Added</th>
+
             </tr>
         </thead>
         <tbody>
@@ -24,7 +27,9 @@
                 <tr>
                     <td><a href="/JobScraping/{{ job.pk }}/details">{{ job.title }}</a></td>
                     <td>{{ job.company }}</td>
-                    <td>{{ job.pay }}</td>
+                    <td>{{ job.minimum_pay }}</td>
+                    <td>{{ job.maximum_pay }}</td>
+                    <td>{{ job.date_added }}</td>
                 </tr>
             {% endfor %}
         </tbody>

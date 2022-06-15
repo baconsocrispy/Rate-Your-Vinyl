@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'Magic',
     'JobScraping',
     'Veggie',
+    'Crypto',
 ]
 
 MIDDLEWARE = [

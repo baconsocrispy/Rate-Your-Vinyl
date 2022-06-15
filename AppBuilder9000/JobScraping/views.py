@@ -1,9 +1,138 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import JobsForm
-from .models import Jobs
+from .models import Jobs, Temp
 from bs4 import BeautifulSoup
 import requests
+from datetime import datetime
 import json
+
+def saveSearch(request):
+
+    initDate = (request.POST['date_added'])
+
+    Month = ''
+    Date = ''
+    Year = ''
+    # This block of code pulls the Month, Date, and Year data received from the API search to a format that can be
+    # converted to a datetime
+    # This can be refactored to be much smaller with the use of sub-routines.
+    if 'January' in initDate:
+        Month = 'January'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'February' in initDate:
+        Month = 'February'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'March' in initDate:
+        Month = 'March'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'April' in initDate:
+        Month = 'April'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'May' in initDate:
+        Month = 'May'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'June' in initDate:
+        Month = 'June'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'July' in initDate:
+        Month = 'July'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'August' in initDate:
+        Month = 'August'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'September' in initDate:
+        Month = 'September'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'October' in initDate:
+        Month = 'October'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'November' in initDate:
+        Month = 'November'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+    elif 'December' in initDate:
+        Month = 'December'
+        Year = initDate[(len(initDate) - 4):(len(initDate))]
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+
+    # This puts the data from the block above in the format necessary to convert it to a datetime with strptime()
+    if len(Date) < 2:
+        adjustedDate = ('{}-{}-0{}'.format(Year, Month, Date))
+    else:
+        adjustedDate = ('{}-{}-{}'.format(Year, Month, Date))
+
+    # This converts the formatted data to a datetime
+    formattedDate = datetime.strptime(adjustedDate, '%Y-%B-%d')
+
+    # This saves all the data that are selected from the form in search results (which is populated from the temp table)
+    # to the actual permanent Jobs table
+    savedJob = Jobs(
+        title=(request.POST['title']),
+        company=(request.POST['company']),
+        stack='unknown',
+        startup='unknown',
+        location='',
+        exp_required='',
+        minimum_pay=(request.POST['minimum_pay']),
+        maximum_pay=(request.POST['maximum_pay']),
+        date_added=formattedDate,
+        job_url='',
+    )
+    savedJob.save()
+
+    # This gives the context to print all the Jobs table data into the JobScraping_history page.
+    jobs = Jobs.objects.all()
+    context = {
+        'jobs': jobs,
+    }
+
+    return render(request, 'JobScraping/JobScraping_history.html', context)
 
 # This view takes the user to the home page
 def JobScraping_home(request):
@@ -12,14 +141,13 @@ def JobScraping_home(request):
     page = requests.get('https://forecast.weather.gov/MapClick.php?lat=45.5118&lon=-122.6756#.YqN-yXbMIuU')
     soup = BeautifulSoup(page.content, 'html.parser')
     today = soup.select('li.forecast-tombstone:first-child')
-    print(today[0].prettify())
 
     # We will be extracting the current day's weather only.
     current = today[0].find(class_='period-name').get_text()
     description = today[0].find(class_='short-desc').get_text()
-    temp = today[0].find(class_='temp-high').get_text()
+    # temp = today[0].find(class_='temp-high').get_text()
 
-    data = [current, description, temp]
+    data = [current, description, "TEST - ALTER LATER"]
     context = {'data': data}
     return render(request, 'jobScraping/JobScraping_home.html', context)
 
@@ -32,10 +160,13 @@ def searchAPI(request):
 # This view sends the data input by the user an initiates the API request and returns APIJobSearch.html with the
 # returned values from the API response
 def searchResults(request):
+    # This line clears the temp table for the next search
+    Temp.objects.all().delete()
+
     # This gets the location information submitted with the form on APIJobSearch.html
     description = request.POST['what']
     # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
-    formattedLocation = (description.replace(" ", "%20")).replace(",", "%2C")
+    formattedDescription = (description.replace(" ", "%20")).replace(",", "%2C")
     # This gets the location information submitted with the form on APIJobSearch.html
     location = request.POST['location']
     # This changes the string received from the form to a syntax that the url can recognize (e.g. exchange " " for %20)
@@ -45,8 +176,10 @@ def searchResults(request):
     # the page is re-loaded
     search = [description, location]
 
-    # Queries an API for 50 results based on the location and description received above
-    response = requests.get('https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=20&what={}&where={}&sort_by=date'.format(description, location))
+    # Queries an API for 20 results based on the location and description received above
+    response = requests.get(
+        'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=5&what={}&where={}&sort_by=date'.format(
+            formattedDescription, formattedLocation))
 
     # pulls the json data from the API response
     json_data = response.json()
@@ -54,9 +187,36 @@ def searchResults(request):
     # results to that array.
     results = json_data['results']
 
-    jobs = []
-    for job in results:
-        jobs.append([job['title'], job['company']['display_name'], job['created'], job['redirect_url']])
+    # This takes the results and formats them into the appropriate order for the temp database
+    for i in results:
+        try:
+            jobData = Temp(
+                minimum_pay=i['salary_min'],
+                maximum_pay=i['salary_max'],
+                title=i['title'],
+                company=i['company']['display_name'],
+                job_url=i['redirect_url'],
+                date_added=i['created'],
+            )
+        except:
+            jobData = Temp(
+                minimum_pay='',
+                maximum_pay='',
+                title=i['title'],
+                company=i['company']['display_name'],
+                job_url=i['redirect_url'],
+                date_added=(i['created'])[0:9],
+            )
+        # This saves the data that I gather with the code above to the Temp database table
+        jobData.save()
+
+    print('############')
+    for each in results:
+        print(each)
+    print('############')
+
+    # This collects all data currently stored on the Temp table
+    jobs = Temp.objects.all()
 
     return render(request, 'JobScraping/APIJobSearch.html', {'jobs': jobs, 'search': search})
 
@@ -75,7 +235,7 @@ def inputJob(request):
     # This check if the data in the form are valid, and if they are it saves them and returns the user to the homepage
     if form.is_valid():
         form.save()
-        return redirect('JobScraping_home')
+        return redirect('JobScraping_history')
     else:
         # If the form data are not valid the respective errors are printed
         print(form.errors)
