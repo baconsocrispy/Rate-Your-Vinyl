@@ -154,6 +154,14 @@ def searchResults(request):
         'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=5&what={}&where={}&sort_by=date'.format(
             formattedDescription, formattedLocation))
 
+
+    print(response.status_code)
+
+    # Sends up to the error page if the request does not work.
+    if not response.status_code == 200:
+        return render(request, 'JobScraping/error.html')
+
+
     # pulls the json data from the API response
     json_data = response.json()
     # json_data is a dictionary with a single key which contains an array of the job objects. This sets the variable
