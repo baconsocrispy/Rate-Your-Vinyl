@@ -39,7 +39,8 @@ urlpatterns = [
     path('Magic/', include('Magic.urls')),
     path('JobScraping/', include('JobScraping.urls')),
     path('Veggie/', include('Veggie.urls')),
-    path('Crypto/', include('Crypto.urls'))
+    path('Crypto/', include('Crypto.urls')),
+    path('CFB/', include('CFB.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
