@@ -120,9 +120,9 @@ def JobScraping_home(request):
     # We will be extracting the current day's weather only.
     current = today[0].find(class_='period-name').get_text()
     description = today[0].find(class_='short-desc').get_text()
-    # temp = today[0].find(class_='temp-high').get_text()
+    temp = today[0].find(class_='temp-high').get_text()
 
-    data = [current, description, "TEST - ALTER LATER"]
+    data = [current, description, temp]
     context = {'data': data}
     return render(request, 'jobScraping/JobScraping_home.html', context)
 
