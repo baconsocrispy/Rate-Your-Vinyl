@@ -38,6 +38,9 @@ h1 {
     width: 10%;
 }
 
+.search-footer {
+    color: white;
+}
 /*================
     End Tables
 -----------------*/
@@ -77,17 +80,6 @@ body > footer {
     padding: 30px;
     border-radius: 10%;
 }
-
-/*
-.footer {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    height: [footer-height];
-    margin-left: auto;
-    margin-right: auto;
-}
-*/
 
 th {
     text-align: center;
