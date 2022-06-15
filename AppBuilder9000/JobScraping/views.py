@@ -7,99 +7,70 @@ from datetime import datetime
 import json
 
 def saveSearch(request):
-
+    # gets the date that the job was posted from the model
     initDate = (request.POST['date_added'])
 
-    Month = ''
-    Date = ''
-    Year = ''
     # This block of code pulls the Month, Date, and Year data received from the API search to a format that can be
     # converted to a datetime
-    # This can be refactored to be much smaller with the use of sub-routines.
+    # below is the function that adjusts where the day of the month is pulled from based on the length
+    # of the Month's name
+    def stripDateData():
+        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
+            Date = initDate[(len(Month) + 1)]
+        else:
+            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        return Date
+
+    # This block of code pulls the Month, Year, and Date data from a string based on which month name is found
+    # in the string
     if 'January' in initDate:
         Month = 'January'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'February' in initDate:
         Month = 'February'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'March' in initDate:
         Month = 'March'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'April' in initDate:
         Month = 'April'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'May' in initDate:
         Month = 'May'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'June' in initDate:
         Month = 'June'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'July' in initDate:
         Month = 'July'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'August' in initDate:
         Month = 'August'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'September' in initDate:
         Month = 'September'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'October' in initDate:
         Month = 'October'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'November' in initDate:
         Month = 'November'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
     elif 'December' in initDate:
         Month = 'December'
         Year = initDate[(len(initDate) - 4):(len(initDate))]
-        if ',' in (initDate[(len(Month)):(len(Month) + 3)]):
-            Date = initDate[(len(Month) + 1)]
-        else:
-            Date = initDate[(len(Month) + 1):(len(Month) + 3)]
+        Date = stripDateData()
 
     # This puts the data from the block above in the format necessary to convert it to a datetime with strptime()
     if len(Date) < 2:
@@ -107,7 +78,7 @@ def saveSearch(request):
     else:
         adjustedDate = ('{}-{}-{}'.format(Year, Month, Date))
 
-    # This converts the formatted data to a datetime
+    # This converts the formatted data from above to a datetime
     formattedDate = datetime.strptime(adjustedDate, '%Y-%B-%d')
 
     # This saves all the data that are selected from the form in search results (which is populated from the temp table)
@@ -122,7 +93,7 @@ def saveSearch(request):
         minimum_pay=(request.POST['minimum_pay']),
         maximum_pay=(request.POST['maximum_pay']),
         date_added=formattedDate,
-        job_url='',
+        job_url=(request.POST['job_url']),
     )
     savedJob.save()
 
@@ -131,6 +102,8 @@ def saveSearch(request):
     context = {
         'jobs': jobs,
     }
+
+
 
     return render(request, 'JobScraping/JobScraping_history.html', context)
 
@@ -145,9 +118,9 @@ def JobScraping_home(request):
     # We will be extracting the current day's weather only.
     current = today[0].find(class_='period-name').get_text()
     description = today[0].find(class_='short-desc').get_text()
-    # temp = today[0].find(class_='temp-high').get_text()
+    temp = today[0].find(class_='temp-high').get_text()
 
-    data = [current, description, "TEST - ALTER LATER"]
+    data = [current, description, temp]
     context = {'data': data}
     return render(request, 'jobScraping/JobScraping_home.html', context)
 
@@ -181,13 +154,21 @@ def searchResults(request):
         'https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=41b593cb&app_key=58bb774dace8a185a8cc32fbdff00416&results_per_page=5&what={}&where={}&sort_by=date'.format(
             formattedDescription, formattedLocation))
 
+
+    print(response.status_code)
+
+    # Sends up to the error page if the request does not work.
+    if not response.status_code == 200:
+        return render(request, 'JobScraping/error.html')
+
+
     # pulls the json data from the API response
     json_data = response.json()
     # json_data is a dictionary with a single key which contains an array of the job objects. This sets the variable
     # results to that array.
     results = json_data['results']
 
-    # This takes the results and formats them into the appropriate order for the temp database
+    # This takes the results and puts them in a form to add them to the Temp database
     for i in results:
         try:
             jobData = Temp(
@@ -196,7 +177,7 @@ def searchResults(request):
                 title=i['title'],
                 company=i['company']['display_name'],
                 job_url=i['redirect_url'],
-                date_added=i['created'],
+                date_added=(i['created'])[0:10],
             )
         except:
             jobData = Temp(
@@ -205,15 +186,10 @@ def searchResults(request):
                 title=i['title'],
                 company=i['company']['display_name'],
                 job_url=i['redirect_url'],
-                date_added=(i['created'])[0:9],
+                date_added=(i['created'])[0:10],
             )
         # This saves the data that I gather with the code above to the Temp database table
         jobData.save()
-
-    print('############')
-    for each in results:
-        print(each)
-    print('############')
 
     # This collects all data currently stored on the Temp table
     jobs = Temp.objects.all()

@@ -10,9 +10,9 @@ stackChoices = {
 }
 
 isStartup = {
-    ('yes', 'yes'),
-    ('no', 'no'),
-    ('unknown', 'unknown'),
+    ('Yes', 'Yes'),
+    ('No', 'No'),
+    ('Unknown', 'Unknown'),
 }
 
 
@@ -20,7 +20,7 @@ class Jobs(models.Model):
     title = models.CharField(max_length=60, default="")
     company = models.CharField(max_length=30, default="")
     stack = models.CharField(max_length=15, choices=stackChoices)
-    startup = models.CharField(max_length=3, choices=isStartup)
+    startup = models.CharField(max_length=8, choices=isStartup)
     location = models.CharField(max_length=30)
     exp_required = models.CharField(max_length=30)
     minimum_pay = models.CharField(max_length=30)
