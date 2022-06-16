@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'Veggie',
     'Crypto',
     'CFB',
+    'MusicReviews',
 ]
 
 MIDDLEWARE = [
