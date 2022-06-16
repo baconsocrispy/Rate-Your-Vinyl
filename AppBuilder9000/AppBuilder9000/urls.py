@@ -40,6 +40,8 @@ urlpatterns = [
     path('JobScraping/', include('JobScraping.urls')),
     path('Veggie/', include('Veggie.urls')),
     path('Crypto/', include('Crypto.urls')),
+    path('CFB/', include('CFB.urls')),
+    path('Crypto/', include('Crypto.urls')),
     path('MusicReviews/', include('MusicReviews.urls')),
 ]
 

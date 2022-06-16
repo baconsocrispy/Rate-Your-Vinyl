@@ -13,4 +13,5 @@ urlpatterns = [
     path('searchAPI', views.searchAPI, name='searchAPI'),
     path('searchResults/', views.searchResults, name='searchResults'),
     path('saveSearch/', views.saveSearch, name='saveSearch'),
+
 ]
