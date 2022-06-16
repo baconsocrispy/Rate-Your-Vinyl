@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import AddCryptoForm
-
+from .models import AddCrypto
 # Create your views here.
 def crypto_home(request):
     return render(request, 'Crypto/Crypto_Home.html')
@@ -14,3 +14,9 @@ def crypto_addcrypto(request):
             return redirect('..')
     content = {'form': form}
     return render(request, 'Crypto/Crypto_AddCrypto.html', content)
+
+# function to fetch all objects created from form and render
+def crypto_ratings(request):
+    crypto_entries = AddCrypto.objects.all()
+    content = {'crypto_entries': crypto_entries}
+    return render(request, 'Crypto/Crypto_Ratings.html', content)

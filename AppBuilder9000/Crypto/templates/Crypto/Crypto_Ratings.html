@@ -1,0 +1,32 @@
+{% extends "Crypto/Crypto_Base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+
+{% block title %} Crypto Ratings {% endblock %}
+
+{% block content %}
+
+<h1 class="fancy">Crypto Ratings</h1>
+
+    <table class="Crypto-tables">
+        <thead>
+            <tr>
+                <th>Coin</th>
+                <th>Ticker</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for item in crypto_entries %}
+                <td>{{ item.crypto_coin }}</td>
+                <td>{{ item.crypto_ticker }}</td>
+                <td>{{ item.crypto_rating }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
