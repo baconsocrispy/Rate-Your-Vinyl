@@ -11,6 +11,6 @@ def crypto_addcrypto(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('crypto_reviews')
+            return redirect('..')
     content = {'form': form}
     return render(request, 'Crypto/Crypto_AddCrypto.html', content)
