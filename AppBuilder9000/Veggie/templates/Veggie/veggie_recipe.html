@@ -3,22 +3,26 @@
 {% block title %}Recipes page{% endblock %}
 
 {% block content %}
-
+<br><br><br>
 <h1>Veggie Recipes</h1>
-<hr>
+<br><br><br>
 
 {% csrf_token %}
 <form class="container" method="POST">
 
 {% for recipe in all_recipe %}
+<div class="text-center bg-light" style="margin-bottom:0">
     <h2>{{ recipe.title_name }}</h2>
-    <ul>
-    <li class="limit"><strong>Author: {{ recipe.author_name }}</strong></li>
-    <li class="limit"><strong>Number of ingredients: {{ recipe.number_of_ingredients }}</strong></li>
-    <li class="limit"><strong>Total time (mins): {{ recipe.making_time }}</strong></li>
-    <li class="text-recipe"><button><a href="{% url 'veggie_details' recipe.id %}">View Recipe</a></button></li>
+</div>
+
+    <ul class="list-group">
+    <li class="list-group"><strong>Author: {{ recipe.author_name }}</strong></li>
+    <li class="list-group"><strong>Number of ingredients: {{ recipe.number_of_ingredients }}</strong></li>
+    <li class="list-group"><strong>Total time (mins): {{ recipe.making_time }}</strong></li>
+    <li class="list-group"><button><a href="{% url 'veggie_details' recipe.id %}">View Recipe</a></button></li>
     </ul>
-    <hr>
+    <br><br><br>
+
 
 {% endfor %}
 

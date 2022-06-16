@@ -9,11 +9,12 @@ import json
 from bs4 import BeautifulSoup
 
 
-# Create the home page
+# Render the home page
 def veggie_home(request):
     return render(request, "Veggie_home.html")
 
-# Adding a new recipe
+
+# Render the form page for adding a new recipe
 def create_recipe(request):
     form = RecipeForm(data=request.POST or None)
     if request.method == 'POST':
@@ -23,18 +24,20 @@ def create_recipe(request):
     context = {'form': form}
     return render(request, "Veggie/veggie_form.html", context)
 
-# Displays all the recipes one after the other
+
+# Render the page that displays all the recipes one by one
 def display_veggie(request):
     all_recipe = Recipe.objects.all()
     return render(request, "Veggie/veggie_recipe.html", {'all_recipe': all_recipe})
 
 
-# Display one recipe on a new page
+# Render the page that display one recipe
 def single_recipe(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
     return render(request, 'Veggie/veggie_details.html',  {'recipe': recipe})
 
-# A Functioning edit page for any item in the database
+
+# Render the page that allows you to edit / update the recipe
 def veggie_edit(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
     form = RecipeForm(data=request.POST or None, instance=recipe)
@@ -46,7 +49,7 @@ def veggie_edit(request, pk):
     return render(request, 'Veggie/veggie_edit.html', content)
 
 
-# Delete a recipe from the database
+# Deleting a recipe from the database
 def recipe_delete(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
     if request.method == 'POST':
@@ -54,8 +57,8 @@ def recipe_delete(request, pk):
         return redirect('veggie_recipe')
     return render(request, 'Veggie/veggie_delete.html', {'recipe': recipe})
 
-# Get an element from the API response, and send it  to the template
 
+# Receives an element from the API response, and sends it to the template
 def recipe_api(request):
     url = "http://api.icndb.com/jokes/random"
     response = requests.get(url).json()
@@ -63,6 +66,7 @@ def recipe_api(request):
     joke = response['value']['joke']
     return render(request, 'Veggie/veggie_api.html', context={'text': joke })
 
+# Use the API from rapidAPI to find a wine description. Users can select the type of wine to be described.
 def recipe_api_2(request, wine='1'):
     wine_number = wine
     if( wine_number == '1'):
@@ -73,11 +77,8 @@ def recipe_api_2(request, wine='1'):
         wine_name = 'Merlot'
     else:
         print("Value Error")
-
     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/wine/description"
-
     querystring = {"wine": wine_name}
-
     headers = {
         "X-RapidAPI-Key": "97df4ba39emsh613258c0b605a1ep1b6693jsnecb70a6ce8af",
         "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
@@ -87,14 +88,11 @@ def recipe_api_2(request, wine='1'):
     content = {"api_wine": api_wine}
     return render(request, 'Veggie/veggie_api_2.html', content)
 
-# Beautifulsoup scraping site and find the relevant information.
 
+# Website scraping with Beautifulsoup, finding the highlights of the site.
 def recipe_bs(request):
     page = requests.get("https://simple-veganista.com/")
     soup = BeautifulSoup(page.content, 'html.parser')
-# Add comments to note which portions of the data you're trying to extract:
-# The opening paragraph of the website:
-# The Simple Veganista shares approachable vegan recipes that are deliciously .......... love!
     info = soup.find('p', class_='has-text-align-center').get_text()
     content = {"info": info}
     print(info)
