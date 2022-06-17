@@ -22,8 +22,8 @@
         <tbody>
             <tr>
             {% for item in crypto_entries %}
-                <td>{{ item.crypto_coin }}</td>
-                <td>{{ item.crypto_ticker }}</td>
+                <td>{{ item.crypto_name }}</td>
+                <td>{{ item.ticker_symbol }}</td>
                 <td>{{ item.crypto_rating }}</td>
             </tr>
             {% endfor %}
