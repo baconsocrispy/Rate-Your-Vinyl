@@ -39,12 +39,46 @@ html {
     background: rgba(139,69,19, 0.7);
 }
 
+h1 {
+    text-align: center;
+    margin: 3% auto;
+    text-shadow: 2px 2px 5px black;
+}
+
 h3 {
     text-align: center;
     color: CornflowerBlue;
     margin: 3% auto;
     text-shadow: 2px 2px 5px black;
     font-size: 2em;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-color: saddlebrown;
+}
+
+th, td {
+    padding: 10px;
+    background-color: rgba(169,169,169,.6);
+}
+
+th {
+    text-align: center;
+}
+
+tr:hover {
+    background-color: saddlebrown;
+    cursor: pointer;
+}
+p {
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.P-container{
+    background-color: rgba(169,169,169,.6);
+    padding: 10px;
 }
 
 footer {
