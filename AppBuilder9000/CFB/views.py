@@ -13,3 +13,9 @@ def CFB_AddFan(request):
             return redirect('..')
     content = {'form': form}
     return render(request, 'CFB/CFB_CreateFan.html', content)
+
+def CFB_FanList(request):
+    fan_list = AddFan.objects.all()
+    content = {'fan_list': fan_list}
+    return render(request, 'CFB/CFB_DisplayFans.html', content)
+
