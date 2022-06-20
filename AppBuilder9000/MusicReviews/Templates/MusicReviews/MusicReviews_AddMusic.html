@@ -1,3 +1,13 @@
+{% extends "MusicReviews/MusicReviews_base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %} Add Music{% endblock %}
+
+
+{% block content %}
 <div class="add-music-container">
     <form method="POST" class="add-music-form">
         {% csrf_token %}
