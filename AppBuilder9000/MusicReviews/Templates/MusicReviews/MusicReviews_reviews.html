@@ -24,7 +24,7 @@
             {% for item in music_entries %}
                 <td>{{ item.music_composer }}</td>
                 <td>{{ item.music_title }}</td>
-                <td><a href="{% url 'music_details' item.id %}"><i class="fa-solid fa-angles-right"></i></a></td>
+                <td><a href="{% url 'MusicReviews_details' item.id %}"><i class="fa-solid fa-angles-right"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>
