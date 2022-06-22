@@ -32,7 +32,7 @@ def MusicReviews_reviews(request):
 
 
 # function to get all attributes of object and render on details page
-def music_details(request, pk):
+def MusicReviews_details(request, pk):
     details = get_object_or_404(AddMusic, pk=pk)
     context = {'details': details}
     return render(request, 'MusicReviews/music_details.html', context)
