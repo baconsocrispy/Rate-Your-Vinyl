@@ -15,6 +15,8 @@
                 <th>Coin</th>
                 <th>Ticker</th>
                 <th>Rating</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +24,8 @@
                 <td>{{ details.crypto_name }}</td>
                 <td>{{ details.ticker_symbol }}</td>
                 <td>{{ details.crypto_rating }}</td>
+                <td><a href="{% url 'crypto_update' details.id %}">Edit</a></td>
+                <td><a href="{% url 'crypto_delete' details.id %}"><i class="fa-solid fa-trash-can">?</i></a></td>
             </tr>
         </tbody>
     </table>

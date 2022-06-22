@@ -26,3 +26,22 @@ def crypto_details(request, pk):
     details = get_object_or_404(AddCrypto, pk=pk)
     context = {'details': details}
     return render(request, 'Crypto/Crypto_Details.html', context)
+
+# function to update AddCrypto form, instance argument fills fields with selected element.
+def crypto_update(request, pk):
+    update_rating = AddCrypto.objects.get(pk=pk)
+    form = AddCryptoForm(request.POST or None, instance=update_rating)
+    if form.is_valid():
+        form.save()
+        return redirect('crypto_ratings')
+    return render(request, 'Crypto/Crypto_Update.html',
+                  {'update_rating': update_rating,
+                   'form': form})
+
+# function to delete AddCrypto object
+def crypto_delete(request, pk):
+    delete_rating = AddCrypto.objects.get(pk=pk)
+    if request.method == 'POST':
+        delete_rating.delete()
+        return redirect('crypto_ratings')
+    return render(request, 'Crypto/Crypto_Delete.html')
