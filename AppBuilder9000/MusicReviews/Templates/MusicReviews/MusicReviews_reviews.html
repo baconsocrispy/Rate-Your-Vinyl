@@ -16,6 +16,8 @@
             <tr>
                 <th>Composer</th>
                 <th>Title</th>
+                <th>Description</th>
+                <th>Ratings</th>
                 <th>Details</th>
             </tr>
         </thead>
@@ -25,8 +27,8 @@
                 <td>{{ item.music_Composer }}</td>
                 <td>{{ item.music_title }}</td>
                 <td>{{ item.music_description }}</td>
-
-                <td><a href=""><i class="fa-solid fa-angles-right"></i></a></td>
+                <td>{{ item.Music_RATING }}</td>
+                <td><a href="{% url 'music_details' item.id %}"><i class="fa-solid fa-angles-right">{{ item.music_Composer }}</i></a></td>
             </tr>
             {% endfor %}
         </tbody>

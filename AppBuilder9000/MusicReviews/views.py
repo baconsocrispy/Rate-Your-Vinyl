@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import AddMusicForm
 from .models import AddMusic
 #from .models import AddMusic Favorite_Music
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
+#from rest_framework.response import Response
+#from rest_framework.decorators import api_view
 import requests
 from django.contrib import messages
 
@@ -35,7 +35,7 @@ def MusicReviews_reviews(request):
 def MusicReviews_details(request, pk):
     details = get_object_or_404(AddMusic, pk=pk)
     context = {'details': details}
-    return render(request, 'MusicReviews/MusicReviews_details.html', context)
+    return render(request, 'MusicReviews/music_details.html', context)
 
 
 # function to delete AddMusic object
