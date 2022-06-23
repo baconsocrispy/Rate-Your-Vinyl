@@ -39,21 +39,21 @@ def MusicReviews_details(request, pk):
 
 
 # function to delete AddMusic object
-def MusicReviews_delete(request, pk):
+def music_delete(request, pk):
     delete_music = AddMusic.objects.get(pk=pk)
     if request.method == 'POST':
         delete_music.delete()
-        return redirect('music_reviews')
+        return redirect('MusicReviews_reviews')
     return render(request, 'MusicReviews/MusicReviews_delete.html')
 
 
 # function to update AddMusic form, instance argument fills fields with selected element.
-def MusicReviews_update(request, pk):
+def music_update(request, pk):
     update_music = AddMusic.objects.get(pk=pk)
     form = AddMusicForm(request.POST or None, instance=update_music)
     if form.is_valid():
         form.save()
-        return redirect('music_reviews')
+        return redirect('MusicReviews_reviews')
     return render(request, 'MusicReviews/MusicReviews_update.html',
                   {'update_music': update_music,
                    'form': form})
