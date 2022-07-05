@@ -5,6 +5,19 @@ color: yellow;
 text-align: center;
 }
 
+
+.form-container{
+    display: inline-block;
+    border: double silver;
+    border-radius: 5px;
+    background-color: #3D2D0C;
+    padding: 10px;
+}
+
+form{
+    text-align: left;
+}
+
 /* Pushes footer to bottom of the page */
 footer{
     position: absolute;
