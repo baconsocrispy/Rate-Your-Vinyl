@@ -1,0 +1,12 @@
+body{
+background: black;
+font-family: monospace, sans-serif;
+color: yellow;
+text-align: center;
+}
+
+/* Pushes footer to bottom of the page */
+footer{
+    position: absolute;
+    bottom: 0;
+}

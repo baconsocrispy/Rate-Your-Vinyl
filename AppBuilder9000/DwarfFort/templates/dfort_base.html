@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static '/css/dfort_layout.css' %}">
+    <title>{% block title%}Title{% endblock%}</title>
+</head>
+
+    <!-- Nav Bar -->
+    <div>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Create</a>
+        <a href="#">View</a>
+    </div>
+
+<body>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+<footer>
+    Created by Wesley Morford  2022
+</footer>
+
+</html>
