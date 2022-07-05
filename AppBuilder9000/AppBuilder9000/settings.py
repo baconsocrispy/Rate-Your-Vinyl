@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'MusicReviews',
     'Sneakers',
     'DwarfFort',
+    'Inventory',
 ]
 
 MIDDLEWARE = [
