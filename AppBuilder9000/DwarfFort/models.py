@@ -34,5 +34,7 @@ class Fbeast(models.Model):
     species = models.CharField(max_length=60, choices=BEAST_CHOICES)
     power = models.CharField(max_length=60, choices=POWER_CHOICES)
 
+    Fbeasts = models.Manager()
+
     def __str__(self):
         return self.name
