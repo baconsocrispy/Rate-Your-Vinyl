@@ -1,0 +1,12 @@
+.bg_img {
+    background-color: lightyellow;
+    background-image: url('static/images/wine_pairing.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
