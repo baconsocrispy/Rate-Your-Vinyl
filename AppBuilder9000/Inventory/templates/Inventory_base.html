@@ -11,7 +11,8 @@
         <div class="navbar">
             <a class="active" href="{% url 'inventory_home' %}">Home</a>
             <a href="{% url 'inventory_create' %}">Add Material</a>
-            <a href="">Access Inventory</a>
+            <a href="{% url 'inventory_read' %}">Access Inventory</a>
+            <input type="text" placeholder="Search for a chemical">
         </div>
         <!-- End Navbar -->
 <body id="body">
