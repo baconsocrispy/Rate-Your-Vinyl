@@ -48,3 +48,23 @@ ul.topnav li a{
     height: 40px;
 }
 
+#sneaker-form{
+    border-radius: 25px;
+    border: 2px solid #326ba8;
+    padding: 20px;
+    width: 400px;
+    height: 250px;
+    background-color: darkgray;
+    position: relative;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sneaker-header{
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+}
+

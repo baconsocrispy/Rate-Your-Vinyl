@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'CFB',
     'MusicReviews',
     'Sneakers',
+    'DwarfFort',
+    'Inventory',
+    'Expense_Tracker',
     'wine',
 ]
 

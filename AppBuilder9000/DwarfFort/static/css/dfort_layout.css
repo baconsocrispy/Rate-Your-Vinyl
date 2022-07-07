@@ -1,0 +1,59 @@
+body{
+background: black;
+font-family: monospace, sans-serif;
+color: yellow;
+text-align: center;
+}
+
+table{
+    display: inline-block;
+    color: cyan;
+    margin: 5px;
+    text-align: center;
+}
+
+th{
+    font-size: 20px;
+    text-decoration: underline;
+    padding: 10px;
+    cursor: pointer;
+}
+
+td{
+    color: darkmagenta;
+    padding: 10px;
+}
+
+.list-container{
+    display: inline-block;
+    border: double silver;
+    border-radius: 5px;
+    background-color: #0E0D0B;
+    padding: 10px;
+}
+
+.form-container{
+    display: inline-block;
+    border: double silver;
+    border-radius: 5px;
+    background-color: #3D2D0C;
+    padding: 10px;
+}
+
+.container{
+    display: center;
+}
+
+.page{
+    font-size: 20px;
+}
+
+form{
+    text-align: left;
+}
+
+/* Pushes footer to bottom of the page */
+footer{
+    position: absolute;
+    bottom: 0;
+}
