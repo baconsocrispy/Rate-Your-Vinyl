@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'DwarfFort',
     'Inventory',
     'Expense_Tracker',
+    'wine',
 ]
 
 MIDDLEWARE = [
