@@ -56,7 +56,6 @@ def dfort_details(request, pk):
     # Builds a different dictionary to display different species types
     match item.species:
 
-
 #        case : TEMPLATE
 
 #            beast_body = {'top1': '#######',
