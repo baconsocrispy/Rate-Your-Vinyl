@@ -17,6 +17,7 @@ HAZARD_CHOICES = [
     ('Corrosive', 'Corrosive'),
     ('Reactive', 'Reactive'),
     ('Flammable', 'Flammable'),
+    ('None', 'None'),
 ]
 
 class Material(models.Model):
