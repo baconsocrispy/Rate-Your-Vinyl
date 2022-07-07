@@ -1,8 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import sneakerForm
-
+from .models import Sneaker
 def Sneakers_home(request):
     return render(request, "Sneakers/Sneakers_home.html")
+
+def current_sneakers(request):
+	currSneak = Sneaker.sneaker.all()
+	return render(request, "Sneakers/Sneakers_currentSnkrs.html", {'currSneak': currSneak})
 
 
 def create_sneaker(request):
