@@ -11,19 +11,19 @@ SKIN_CHOICES = {
 
 BEAST_CHOICES = {
     ('unknown','unknown'),
-    ('dog','canine'),
-    ('cat','feline'),
-    ('reptile','reptilian'),
-    ('bird','avian'),
-    ('frog','amphibian'),
+    ('canine','canine'),
+    ('feline','feline'),
+    ('reptilian','reptilian'),
+    ('avian','avian'),
+    ('amphibian','amphibian'),
 }
 
 POWER_CHOICES = {
-    ('presence','ominous presence'),
-    ('dust','deadly dust'),
-    ('spikes','menacing spikes'),
-    ('fire','firey breath'),
-    ('webs','sticky webs'),
+    ('ominous presence','ominous presence'),
+    ('deadly dust','deadly dust'),
+    ('menacing spikes','menacing spikes'),
+    ('firey breath','firey breath'),
+    ('sticky webs','sticky webs'),
 }
 
 # Create your models here.
