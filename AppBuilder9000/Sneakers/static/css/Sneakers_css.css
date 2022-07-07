@@ -68,3 +68,22 @@ ul.topnav li a{
     font-family: Verdana, sans-serif;
 }
 
+.cards{
+    margin: 0 auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card{
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card img{
+    width: 100%;
+    display: block;
+}
+
