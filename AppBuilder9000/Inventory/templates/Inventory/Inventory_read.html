@@ -1,0 +1,21 @@
+{% extends "Inventory_base.html" %}
+
+{% block content %}
+<h1>Access Inventory</h1>
+<table>
+    <tr>
+        <th>Name</a></th>
+        <th>Category</th>
+        <th>Location</a></th>
+    </tr>
+    {% for m in material %}
+    <tr>
+        <td>{{ m.material_name }}</td>
+        <td>{{ m.chemical_category }}</td>
+        <td>{{ m.location }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<button><a href="{% url 'inventory_create' %}">Add New Material</a></button>
+
+{% endblock %}
