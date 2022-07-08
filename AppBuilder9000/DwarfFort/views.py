@@ -54,7 +54,6 @@ def dfort_details(request, pk):
 
     # Dictionary for visualizer
     # Builds a different dictionary to display different species types
-    match item.species:
 
 #        case : TEMPLATE
 
@@ -64,32 +63,32 @@ def dfort_details(request, pk):
 #                          'bot1': '#######',
 #                          'bot2': '#######'}
 
-        case 'reptilian':
+    if item.species == 'reptilian':
 
-                    beast_body = {'top1': ' {(")} ',
-                                  'top2': '_--+--_',
-                                  'mid': ' / |   | \ ',
-                                  'bot1': '[  |__|  ]',
-                                  'bot2': ' _/  \_ '}
+                beast_body = {'top1': ' {(")} ',
+                              'top2': '_--+--_',
+                              'mid': ' / |   | \ ',
+                              'bot1': '[  |__|  ]',
+                              'bot2': ' _/  \_ '}
 
-        case 'avian':
+    elif item.species == 'avian':
 
-            beast_body = {'top1': '  }B>  ',
-                          'top2': ' o-^-o ',
-                          'mid': '[|   |]',
-                          'bot1': '[ \_/ ]',
-                          'bot2': '  | |  '}
+        beast_body = {'top1': '  }B>  ',
+                      'top2': ' o-^-o ',
+                      'mid': '[|   |]',
+                      'bot1': '[ \_/ ]',
+                      'bot2': '  | |  '}
 
 
-        case _:
-            # debug to check case being met
-            print('none')
+    else:
+        # debug to check case being met
+        print('none')
 
-            beast_body = {'top1': '  ___  ',
-                          'top2': ' ( ~ ) ',
-                          'mid': '(  0  )',
-                          'bot1': '(_____)',
-                          'bot2': ' |   | '}
+        beast_body = {'top1': '  ___  ',
+                      'top2': ' ( ~ ) ',
+                      'mid': '(  0  )',
+                      'bot1': '(_____)',
+                      'bot2': ' |   | '}
 
     context = {'form': form, 'item': item, 'beast_body': beast_body, 'beast' : beast}
 
