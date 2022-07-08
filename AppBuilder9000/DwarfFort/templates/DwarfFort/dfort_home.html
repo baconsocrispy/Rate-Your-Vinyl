@@ -7,6 +7,33 @@
     <br>
     <h1>Track Forgotten Beasts</h1>
     <p> Keep records of the vicious beasts you encounter</p>
+
+    <div class="form-container">
+        {% csrf_token %}
+        <label for="select_menu">Select the form of your Destroyer</label>
+        <br>
+        <select onChange="top.location.href=this.options[this.selectedIndex].value;">
+            <option value="none"></option>
+            {% for b in beast %}
+                <option value="../DwarfFort/{{ b.pk }}/details/">{{ b.name }}, the {{b.title}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="container">
+        <form action="{% url 'dfort_search' %}" method="POST" class="form-container">
+            {% csrf_token %}
+            <input type="search" name="usr_query" placeholder="Search by Name">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <br>
+    <br>
+
     <a href="{% url 'dfort_create' %}"><button>NEW</button></a>
     <a href="{% url 'dfort_display' %}"><button>View All</button></a>
 {% endblock %}

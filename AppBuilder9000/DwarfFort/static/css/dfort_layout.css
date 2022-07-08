@@ -5,6 +5,7 @@ color: yellow;
 text-align: center;
 }
 
+/* Tables */
 table{
     display: inline-block;
     color: cyan;
@@ -16,7 +17,6 @@ th{
     font-size: 20px;
     text-decoration: underline;
     padding: 10px;
-    cursor: pointer;
 }
 
 td{
@@ -24,12 +24,37 @@ td{
     padding: 10px;
 }
 
+.name{
+    cursor: pointer;
+}
+
+/* Visualizer */
+.b-body{
+    white-space: pre;
+    font-size: 40px;
+    color: white;
+}
+
+.beware{
+    font-size: 50px;
+    color: red;
+}
+
+.b-description{
+    color: cyan;
+}
+
+/* Boxes */
 .list-container{
     display: inline-block;
     border: double silver;
     border-radius: 5px;
     background-color: #0E0D0B;
     padding: 10px;
+}
+
+.detail-container {
+    color: cyan;
 }
 
 .form-container{
@@ -44,6 +69,7 @@ td{
     display: center;
 }
 
+/* For Paginator */
 .page{
     font-size: 20px;
 }

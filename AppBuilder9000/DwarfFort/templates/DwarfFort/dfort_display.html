@@ -12,7 +12,7 @@
         <!-- paginator limiting results -->
         {% for b in beastpage %}
     <tr class="listitem-container">
-        <td>{{b.name}}</td>
+        <td class="name"><a href="../{{ b.pk }}/details/">{{b.name}}</a></td>
         <td>{{b.title}}</td>
         <td>{{b.species|upper}}</td>
         <td>{{b.skin|upper}}</td>
@@ -33,7 +33,7 @@
             Page {{ beastpage.number }} of {{ beastpage.paginator.num_pages }}.
         </span>
 
-        <!-- >> displayed if not flast page -->
+        <!-- >> displayed if not last page -->
         {% if beastpage.has_next %}
             <a href="?page={{ beastpage.next_page_number }}">&raquo;</a>
             <a href="?page={{ beastpage.paginator.num_pages }}">Last</a>
