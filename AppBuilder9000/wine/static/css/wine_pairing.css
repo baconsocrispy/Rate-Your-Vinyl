@@ -1,5 +1,32 @@
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DCDCDC;
+}
+
+/* Float the list items side by side */
+ul.topnav li {
+    float: left;
+}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #2F4F4F;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
 .bg_img {
-    background-color: lightyellow;
+    background-color: #800000;
     background-image: url('static/images/wine_pairing.jpg');
     background-size: cover;
     background-attachment:fixed;
