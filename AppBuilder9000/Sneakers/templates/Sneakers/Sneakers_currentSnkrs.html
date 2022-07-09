@@ -5,8 +5,9 @@
     <h3 class="sneaker-header">OUR CURRENT SNEAKERS</h3>
 
 
-    {% for sneak in currSneak %}
+
   <div class="cards">
+    {% for sneak in currSneak %}
   <div class="card">
     <img src="{{ sneak.image }}" alt="{{ sneak.name }}" style="width:100%">
     <h1>{{ sneak }}</h1>
@@ -18,9 +19,10 @@
         </ul>
       </p>
       <p class="price">{{ sneak.price }}</p>
-      <p><button>See More</button></p>
-  </div>
+      <p><button> <a href="{% url 'Details' sneak.id %}">See More</a></button></p>
   </div>
     {% endfor %}
+  </div>
+
 
 {% endblock %}
