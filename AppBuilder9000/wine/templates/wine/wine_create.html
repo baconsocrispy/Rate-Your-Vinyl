@@ -1,10 +1,11 @@
 {% extends "wine_base.html" %}
 
 {% block content %}
-<h1>Pair your Wine</h1>
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Submit</button>
+        <button><a href="{% url 'wine_log' %}">Submit</a></button>
     </form>
+        <button><a href="{% url 'wine_log' %}">View Entries</a></button>
+
 {% endblock %}

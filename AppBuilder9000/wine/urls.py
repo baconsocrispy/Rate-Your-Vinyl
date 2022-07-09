@@ -9,6 +9,7 @@ from . import views
 urlpatterns = [
     path('', views.wine_home, name='wine_home'),
     path('Wines/', views.wine_create, name='wine_create'),
-    path('pair/', views.wine_pair, name='wine_pair'),
+    path('Log/', views.wine_log, name='wine_log'),
+    path('<int:pk>/details/', views.wine_details, name='wine_details'),
 
 ]

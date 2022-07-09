@@ -9,9 +9,6 @@ import requests
 def wine_home(request):
     return render(request, "wine/wine_home.html")
 
-def wine_type(request):
-    return render(request, "wine/wine_type.html")
-
 
 # Story #2: Create your model
 def wine_create(request):
@@ -23,10 +20,19 @@ def wine_create(request):
     content = {'form': form}
     return render(request, "wine/wine_create.html", content)
 
+
 # Story #3: Display all items from database
-def wine_pair(request):
+def wine_log(request):
     entry = Wines.objects.all()
     content = {'entry': entry}
-    return render(request, 'wine/wine_pair.html', content)
+    return render(request, 'wine/wine_log.html', content)
+
+
+# Story #4: Details page -----------------------------------------------------------------------------------------------
+
+def wine_details(request, pk):
+    entry = get_object_or_404(Wines, pk=pk)
+    content = {'entry': entry}
+    return render(request, 'wine/wine_details.html', content)
 
 
