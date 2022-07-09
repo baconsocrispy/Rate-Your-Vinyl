@@ -4,7 +4,7 @@
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}
-        <button><a href="{% url 'wine_log' %}">Submit</a></button>
+        <button type="submit">Submit</button>
     </form>
         <button><a href="{% url 'wine_log' %}">View Entries</a></button>
 
