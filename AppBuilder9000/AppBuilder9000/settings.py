@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'Inventory',
     'Expense_Tracker',
     'wine',
+    'Marvel',
 ]
 
 MIDDLEWARE = [
