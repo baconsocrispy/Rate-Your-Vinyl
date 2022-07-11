@@ -2,21 +2,50 @@
 
 {% block content %}
 
+<br>
+<br>
+<br>
+
+<div class="search-container">
+    <div class="inner-search">
+        {% csrf_token %}
+        <select id="select_menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+            <option value="">Choose a Beast</option>
+            {% for b in beast %}
+                <option value="../../{{ b.pk }}/details/">{{ b.name }}, the {{b.title}}</option>
+            {% endfor %}
+        </select>
+
+        <form action="{% url 'dfort_search' %}" method="POST" style="display: inline;">
+            {% csrf_token %}
+            <input type="search" name="usr_query" placeholder="Search by Name">
+            <input type="submit" value="Search">
+        </form>
+
+    </div>
+</div>
+
 <h1 class="beware">!BEWARE!</h1>
+
+<h3 class="divider">=================================================</h3>
 
 <!-- Visual printed out from beast_body dictionary. Changes based on species type selected-->
 <div>
     <p class="b-body">{{ beast_body.top1 }}<br>{{ beast_body.top2 }}<br>{{ beast_body.mid }}<br>{{ beast_body.bot1 }}<br>{{ beast_body.bot2 }}
 </div>
 
-<h2>{{ item.name }} the {{ item.title }}</h2>
+<h1>{{ item.name }},</h1>
+<h2>The {{ item.title }} approaches...</h2>
 
 <div class="b-description">
-    <p>{{ item.name|title }} the {{ item.title|title }} approaches.<p>
     <p>The {{ item.species|title }} beast with {{ item.skin|title }} flesh.</p>
     <p>Now you know why you fear the night.</p>
-    <p style="color: purple">Fear it's {{ item.power|title }}!</p>
+    <p class="b-intense">Fear it's {{ item.power|title }}!</p>
 </div>
+
+<h3 class="divider">=================================================</h3>
+
+<!--
 
 <table class="list-container" id="displayTable">
     <tr>
@@ -34,26 +63,15 @@
     </tr>
 </table>
 
+-->
+
+<a href="../{{ form.pk }}edit/" class="hover-text">Alter this beast?</a>
+
+<br>
+<br>
+<br>
+<br>
 <br>
 
-<div class="form-container">
-    {% csrf_token %}
-    <label for="select_menu">Select the form of your Destroyer</label>
-    <br>
-    <select id="select_menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
-        <option value="none">{{ b.name }}</option>
-        {% for b in beast %}
-            <option value="../../{{ b.pk }}/details/">{{ b.name }}, the {{b.title}}</option>
-        {% endfor %}
-    </select>
-</div>
-
-<div class="container">
-    <form action="{% url 'dfort_search' %}" method="POST" class="form-container">
-        {% csrf_token %}
-        <input type="search" name="usr_query" placeholder="Search by Name">
-        <input type="submit" value="Search">
-    </form>
-</div>
 
 {% endblock %}

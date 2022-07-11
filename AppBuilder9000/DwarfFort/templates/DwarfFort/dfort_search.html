@@ -12,7 +12,7 @@
     </tr>
     {% for b in beast %}
     <tr class="listitem-container">
-        <td>{{b.name}}</td>
+        <td class="name"><a href="../{{ b.pk }}/details/">{{b.name}}</a></td>
         <td>{{b.title}}</td>
         <td>{{b.species|upper}}</td>
         <td>{{b.skin|upper}}</td>
