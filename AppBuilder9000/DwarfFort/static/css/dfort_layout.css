@@ -1,8 +1,92 @@
+
+
+
 body{
-background: black;
-font-family: monospace, sans-serif;
-color: yellow;
-text-align: center;
+    background: black;
+    font-family: monospace, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.hover-text:hover {
+    cursor: pointer;
+    font-size: 18px;
+    color: blue;
+}
+
+
+/* Edges and separators */
+.edge-top{
+    position: fixed;
+    top: 0;
+    background-color: #34e5eb;
+    padding: 15px;
+    width: 100%;
+    border-bottom: ridge 5px #069696;
+}
+
+.edge-bottom{
+    position: fixed;
+    bottom: 0;
+    background-color: #34e5eb;
+    padding: 15px;
+    width: 100%;
+    border-top: ridge 5px #069696;
+    z-index: 1;
+}
+
+.divider{
+    color: white;
+}
+
+/* Modal */
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 50;
+}
+
+.modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+      color: black;
+}
+
+.close {
+    float: left;
+}
+
+.close:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* NavBar */
+
+nav{
+    z-index: 3;
+}
+
+.nav-button {
+    font-family: monospace, sans-serif;
+    font-size: 20px;
+    border: ridge 5px #069696;
+    margin 10px;
+    padding: 5px;
+    z-index: 3;
+}
+
+.nav-button:hover {
+
+    border: ridge 5px white;
+    color: white;
 }
 
 /* Tables */
@@ -44,13 +128,19 @@ td{
     color: cyan;
 }
 
+p.b-intense{
+    color: red;
+    font-weight: 700;
+}
+
 /* Boxes */
 .list-container{
     display: inline-block;
     border: double silver;
     border-radius: 5px;
-    background-color: #0E0D0B;
+    background-color: #0d1112;
     padding: 10px;
+    color: yellow;
 }
 
 .detail-container {
@@ -59,14 +149,30 @@ td{
 
 .form-container{
     display: inline-block;
-    border: double silver;
+    border: ridge 5px #069696;
     border-radius: 5px;
-    background-color: #3D2D0C;
+    background-color: #43bac4;
     padding: 10px;
 }
 
 .container{
     display: center;
+}
+
+.search-container{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.inner-search{
+    display: inline-block;
+    border-top: ridge 5px #069696;
+    border-left: ridge 5px #069696;
+    border-radius: 5px;
+    background-color: #34e5eb;
+    padding: 4px;
 }
 
 /* For Paginator */
@@ -80,6 +186,10 @@ form{
 
 /* Pushes footer to bottom of the page */
 footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
+    padding: 10px;
+    z-index: 2;
+    color: black;
+    font-weight: 700;
 }

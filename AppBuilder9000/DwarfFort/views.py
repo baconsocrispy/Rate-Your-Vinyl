@@ -9,6 +9,7 @@ def dfort_home(request):
     context = {'beast' : beast}
     return  render(request, 'DwarfFort/dfort_home.html', context)
 
+
 # Story 2 - Build Model
 def dfort_create(request):
     form = FbeastForm(data=request.POST or None)
@@ -30,7 +31,7 @@ def dfort_display(request):
     beastpage = paginator.get_page(page)
 
 
-    context = {'beastpage' : beastpage}
+    context = {'beastpage' : beastpage, 'beast' : beast}
 
     return render(request, 'DwarfFort/dfort_display.html', context)
 
@@ -43,6 +44,34 @@ def dfort_search(request):
         context = { 'name' : name, 'beast' : beast}
 
         return render(request, 'DwarfFort/dfort_search.html', context)
+
+# Story 5 - Edit/Delete
+
+def dfort_edit(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Fbeast, pk=pk)
+    form = FbeastForm(data=request.POST or None, instance=item)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('dfort_home')
+
+    context = {'form': form, 'item': item}
+
+    return render(request, 'DwarfFort/dfort_edit.html', context)
+
+
+def dfort_delete(request, pk):
+    pk = int(pk)
+    item = get_object_or_404(Fbeast, pk=pk)
+    context = {"item": item, }
+    item.delete()
+
+    return render(request, "DwarfFort/dfort_delete.html", context)
+
+'''
+def dfort_confirm():
+'''
 
 # Story 4 - Details Page
 
@@ -93,19 +122,3 @@ def dfort_details(request, pk):
     context = {'form': form, 'item': item, 'beast_body': beast_body, 'beast' : beast}
 
     return render(request, 'DwarfFort/dfort_details.html', context)
-
-''' For CRUD use later
-def dfort_details(request, pk):
-    pk = int(pk)
-    item = get_object_or_404(Fbeast, pk=pk)
-    form = FbeastForm(data=request.POST or None, instance=item)
-    if request.method == 'POST':
-        if form.is_valid():
-            form2 = form.save(commit=False)
-            form2.save()
-            return redirect('DwarfFort/dfort_home.html')
-        else:
-            print(form.errors)
-    else:
-        return render(request, 'DwarfFort/dfort_details.html', {'form': form})
-'''
