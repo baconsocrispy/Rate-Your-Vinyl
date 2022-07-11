@@ -14,6 +14,19 @@ body{
     color: blue;
 }
 
+button{
+    color: black;
+    background-color: #1f9cb5;
+    border: ridge 5px #069696;
+    padding: 5px;
+}
+
+button:hover {
+    color: white;
+    border: ridge 5px white;
+    text-decoration: none;
+}
+
 
 /* Edges and separators */
 .edge-top{
@@ -42,28 +55,30 @@ body{
 /* Modal */
 
 .modal {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 1;
-    right: 0;
-    top: 50;
+    right: auto;
+    top: auto;
 }
 
 .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto; /* 15% from the top and centered */
+      background-color: #34e5eb;
       padding: 20px;
-      border: 1px solid #888;
-      width: 80%; /* Could be more or less, depending on screen size */
+      border: ridge 5px #069696;
       color: black;
 }
 
 .close {
     float: left;
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 1px;
 }
 
 .close:hover {
-  color: black;
+  color: white;
+  border: double 1px white;
   text-decoration: none;
   cursor: pointer;
 }

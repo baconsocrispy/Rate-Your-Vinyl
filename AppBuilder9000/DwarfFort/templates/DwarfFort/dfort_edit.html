@@ -19,8 +19,8 @@
         <!-- Modal, hidden by default -->
     <div id="delete-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p> Are you sure you want to delete {{ form.name }}?</p>
+            <span id="modal-close" class="close">&times;</span>
+            <p> Are you sure you want to delete {{ item.name }}?</p>
             <form method="POST" action="">
                 <button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button>
             </form>
