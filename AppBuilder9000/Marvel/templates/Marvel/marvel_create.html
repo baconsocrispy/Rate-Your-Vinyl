@@ -1,0 +1,11 @@
+{% extends "marvel_base.html" %}
+
+{% block content %}
+<h1>Add to The Roster!</h1>
+    <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}

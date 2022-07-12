@@ -1,0 +1,113 @@
+html{
+    background-image: url("../images/marvelcharacters.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+	background-position: bottom;
+}
+body{
+    margin: 0;
+    font-family: 'Fakt Soft Pro', sans-serif;
+}
+
+
+h1 {
+    color: blue;
+    text-align: center;
+    text-shadow: 2px 2px 8px white;
+    font-weight: bold;
+    margin-top: 5px;
+
+}
+.navbar {
+  background-color: White;
+  overflow: hidden;
+  margin: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  float: left;
+  color: Red;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 30px;
+}
+.navbar a:hover {
+  color: blue;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow; hidden;
+}
+#block-footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+}
+#block-footer a, #block-footer p {
+    flex: 1;
+    color: white;
+    padding: 3px 15px;
+	font-size: 14px;
+    line-height: 10px;
+    background:black;
+}
+#footer-left {
+    width: 40%;
+    text-align: right;
+}
+#block-footer{
+	float:left;
+	clear:both;
+	width:100%;
+}
+#block-footer a {
+	color: white;
+	text-decoration: none;
+	outline: medium none;
+}
+#block-footer a:hover {
+    color: blue;
+}
+
+button {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 150px; /* button size */
+    margin: 2% 2% 2% 50%;
+    color: black;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: black;
+    color: blue;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+p {
+	text-align:center;
+	color: white;
+	font-size:xxx-large;
+	background:red
+}
