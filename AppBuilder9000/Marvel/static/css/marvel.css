@@ -111,3 +111,24 @@ p {
 	font-size:xxx-large;
 	background:red
 }
+
+
+
+table {
+	background:black;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:30px;
+	border: 5px solid blue;
+}
+td {
+	padding:30px;
+
+
+}
+
+th,tr,td {
+	color:white;
+	text-align:center;
+}

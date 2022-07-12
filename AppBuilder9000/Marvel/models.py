@@ -14,7 +14,7 @@ class Character(models.Model):
     description = models.TextField(max_length=300, default="", blank=True)
     image = models.CharField(max_length=255, default='', blank=True)
 
-    object = models.Manager()
+    Characters = models.Manager()
 
     def __str__(self):
         return self.name
