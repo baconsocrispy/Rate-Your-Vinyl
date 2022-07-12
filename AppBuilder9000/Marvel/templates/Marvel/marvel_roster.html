@@ -1,0 +1,20 @@
+{% extends "marvel_base.html" %}
+
+{% block content %}
+<h1>Characters</h1>
+<table>
+    <tr>
+        <th>Character</th>
+        <th>Description</th>
+    </tr>
+    {% for c in character %}
+    <tr>
+        <td>{{ c.name }}<td>
+        <td>{{ c.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<button><a href="{% url 'marvel_create' %}">Add Character</a></button>
+
+
+{% endblock %}
