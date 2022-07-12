@@ -1,0 +1,47 @@
+body{
+    background: grey;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+
+h1 {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5px;
+
+}
+.navbar {
+  background-color: White;
+  overflow: hidden;
+  margin: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  float: left;
+  color: Black;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 30px;
+}
+.navbar a:hover {
+  color: grey;
+}
+
+ul {
+    list-style-type: none;
+    margin 0;
+    padding: 0;
+    overflow; hidden;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}

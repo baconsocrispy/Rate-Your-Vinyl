@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'Expense_Tracker',
     'wine',
     'Marvel',
+    'Cryptocurrency',
 ]
 
 MIDDLEWARE = [
