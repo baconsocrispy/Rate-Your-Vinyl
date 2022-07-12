@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .models import Fbeast
 from .forms import FbeastForm
+import requests
+import json
+from bs4 import BeautifulSoup
 
 # Story 1 - Build Basic App
 def dfort_home(request):
@@ -69,9 +72,23 @@ def dfort_delete(request, pk):
 
     return render(request, "DwarfFort/dfort_delete.html", context)
 
-'''
-def dfort_confirm():
-'''
+# Story 6 - Beautiful-Soup/Api
+
+def dfort_news(request):
+    # A status_code of 200 means that the page downloaded successfully.
+    # function will scrape data from dwarf fortress website grabbing latest news
+    news = requests.get("http://www.bay12games.com/dwarves/") # Website
+    soup = BeautifulSoup(news.content, 'html.parser')
+    # all news posts are list items and the first is the latest so an easy grab
+    # get text returns text instead of html elements
+    # find stops after 1 result, find all keeps searching beyond first result
+    last_news = soup.find_all('li')[0].get_text()
+    # print the latest news to the console
+    print(last_news)
+
+    context = {'last_news': last_news}
+
+    return render(request, "DwarfFort/dfort_news.html", context)
 
 # Story 4 - Details Page
 
