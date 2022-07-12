@@ -1,0 +1,49 @@
+body{
+    background: darkred;
+    margin: 0;
+    font-family: 'Fakt Soft Pro', sans-serif;
+}
+
+
+h1 {
+    color: blue;
+    text-align: center;
+    text-shadow: 2px 2px 8px white;
+    font-weight: bold;
+    margin-top: 5px;
+
+}
+.navbar {
+  background-color: White;
+  overflow: hidden;
+  margin: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar a {
+  float: left;
+  color: Red;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-size: 30px;
+}
+.navbar a:hover {
+  color: blue;
+}
+
+ul {
+    list-style-type: none;
+    margin 0;
+    padding: 0;
+    overflow; hidden;
+}
+
+footer{
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+   width: 40%;
+}

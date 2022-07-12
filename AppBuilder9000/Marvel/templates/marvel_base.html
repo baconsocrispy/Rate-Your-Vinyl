@@ -1,0 +1,21 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static '/marvel.css' %}">
+        <title>{% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+
+    </div>
+            {% include "Marvel/marvel_navbar.html" %}
+            <header>
+                <h1>{% block header %}{% endblock %}</h1>
+            </header>
+            {% block content %}{% endblock %}
+            {% include "Marvel/marvel_footer.html" %}
+    </body>
+</html>
