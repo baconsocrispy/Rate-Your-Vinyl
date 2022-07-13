@@ -45,3 +45,23 @@ ul {
   width: 100%;
   height: 2.5rem;            /* Footer height */
 }
+
+table {
+	background:grey;
+	text-align:center;
+    margin: auto;
+	width: 50%;
+    border-radius:10px;
+	border: 3px solid black;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+th {
+    text-align: center
+}
+
+.add-crypto-container {
+    margin: auto;
+	width: 50%;
+}

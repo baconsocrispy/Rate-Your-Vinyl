@@ -20,3 +20,9 @@ def cryptocurrency_addreview(request):
     content = {'form': form}
     return render(request, 'Cryptocurrency/Cryptocurrency_AddReview.html', content)
 
+#Story 3 Add in a function that gets all the items from the database and sends them to the template
+
+def cryptocurrency_reviews(request):
+    cryptocurrecy_reviews = Review.objects.all()
+    content = {'cryptocurrency_reviews': cryptocurrecy_reviews}
+    return render(request, 'Cryptocurrency/Cryptocurrency_Reviews.html', content)
