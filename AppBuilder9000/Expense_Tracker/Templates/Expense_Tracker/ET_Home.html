@@ -1,7 +1,17 @@
 {% extends "ET_base.html" %}
 
 {% block content %}
-<h2>Expense Tracker</h2>
-<p>This app uses user input for Monthly Expense Tracking purposes to provide all the necessary tools one would need to track their expenses for the month.</p>
-<button type="submit"><a href="ET_Account">Sign In</a></button>
+
+<div class="container" >
+
+    <div class="noproject-wrapper center">
+        <h3 class="grey-text">Sorry, you don't have any projects yet.</h3>
+        <a href="http://127.0.0.1:8000/ExpenseTracker/add" class="btn-large grey">
+            <i class="material-icons white-text left">add_circle</i>
+            <span class="bold">Add Projects</span>
+        </a>
+    </div>
+
+</div>
+
 {% endblock %}
