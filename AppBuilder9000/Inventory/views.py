@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,  get_object_or_404
 from django.views.generic import ListView
 from .models import Material
 from .forms import MaterialForm
@@ -23,4 +23,9 @@ def inventory_read(request):
 class SearchResultsView(ListView):
     model = Material
     template_name = 'Inventory/Inventory_search.html'
+
+def Inventory_details(request, pk):
+    material = get_object_or_404(Material, pk=pk)
+    content = {'material': material}
+    return render(request, 'Inventory/Inventory_details.html', content)
 
