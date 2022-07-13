@@ -1,16 +1,16 @@
 {% extends "Inventory_base.html" %}
 
 {% block content %}
-<h1>Access Inventory</h1>
+<h1>Full Inventory</h1>
 <table>
     <tr>
-        <th>Name</a></th>
+        <th>Name</th>
         <th>Category</th>
-        <th>Location</a></th>
+        <th>Location</th>
     </tr>
     {% for m in material %}
     <tr>
-        <td>{{ m.material_name }}</td>
+        <td><a href="{% url 'inventory_details' m.id %}">{{ m.material_name }}</a></td>
         <td>{{ m.chemical_category }}</td>
         <td>{{ m.location }}</td>
     </tr>

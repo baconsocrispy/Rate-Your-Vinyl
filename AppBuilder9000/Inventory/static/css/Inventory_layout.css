@@ -80,3 +80,37 @@ h1 {
 p {
     color: #AC3B61;
 }
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #EDC7B7;}
+
+tr:hover {background-color: #ddd;}
+
+.details {
+    tr:nth-child(even){background-color: #BAB2B5;}
+    tr:nth-child(odd){background-color: #EDC7B7;}
+    tr:hover {background-color: #ddd;}
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #123C69;
+    color: white;
+}
+
+input, button {
+    font-family: "Helvetica", sans-serif;
+    font-size: 17px;
+    margin-top: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: #00001a;
+}
