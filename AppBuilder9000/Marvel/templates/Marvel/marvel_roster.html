@@ -4,12 +4,12 @@
 <h1>Characters</h1>
 <table>
     <tr>
-        <th>Character</th>
-        <th>Description</th>
+        <th colspan="1"> Character</th>
+        <th colspan="2"> Description</th>
     </tr>
     {% for c in character %}
     <tr>
-        <td><a href="{% url 'marvel_details' c.id %}">{{ c.name }}</a><td>
+        <td ><a href="{% url 'marvel_details' c.id %}">{{ c.name }}</a><td>
         <td>{{ c.description }}</td>
     </tr>
     {% endfor %}
