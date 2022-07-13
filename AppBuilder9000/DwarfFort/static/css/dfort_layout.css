@@ -19,16 +19,13 @@ button{
     background-color: #1f9cb5;
     border: ridge 5px #069696;
     padding: 5px;
+    margin: 5px;
 }
 
 button:hover {
     color: white;
     border: ridge 5px white;
     text-decoration: none;
-}
-
-.news-box {
- margin: auto;
 }
 
 
@@ -85,6 +82,20 @@ button:hover {
   border: double 1px white;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* News Page*/
+
+#latest-news {
+    display: inline-block;
+}
+
+#mid-news {
+    display: none;
+}
+
+#last-news {
+    display: none;
 }
 
 /* NavBar */
@@ -174,8 +185,24 @@ p.b-intense{
     padding: 10px;
 }
 
+.news-container{
+    display: inline-block;
+    border: ridge 5px #069696;
+    border-radius: 5px;
+    background-color: #43bac4;
+    padding: 10px;
+    color: #092d2e;
+    font-weight: 600;
+    text-align: left;
+}
+
 .container{
-    display: center;
+    width: 50%;
+    height: 25%;
+    display: inline-block;
+}
+
+.container-holder{
 }
 
 .search-container{

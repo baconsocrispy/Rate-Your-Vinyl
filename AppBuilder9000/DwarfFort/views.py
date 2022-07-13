@@ -28,8 +28,8 @@ def dfort_create(request):
 def dfort_display(request):
     beast = Fbeast.Fbeasts.all().order_by("title")
 
-    # builds collection of models from beast and limits display to 5 at a time
-    paginator = Paginator(beast, 5)
+    # builds collection of models from beast and limits display to 3 at a time
+    paginator = Paginator(beast, 3)
     page = request.GET.get('page')
     beastpage = paginator.get_page(page)
 
@@ -79,14 +79,24 @@ def dfort_news(request):
     # function will scrape data from dwarf fortress website grabbing latest news
     news = requests.get("http://www.bay12games.com/dwarves/") # Website
     soup = BeautifulSoup(news.content, 'html.parser')
+
     # all news posts are list items and the first is the latest so an easy grab
     # get text returns text instead of html elements
     # find stops after 1 result, find all keeps searching beyond first result
-    last_news = soup.find_all('li')[0].get_text()
-    # print the latest news to the console
-    print(last_news)
+    all_dates = {
+        'date1' : soup.find_all(class_='date')[0].get_text(),
+        'date2': soup.find_all(class_='date')[1].get_text(),
+        'date3': soup.find_all(class_='date')[2].get_text(),
+    }
 
-    context = {'last_news': last_news}
+    all_news = {
+        'news1' : soup.find_all('li')[0].get_text(),
+        'news2' : soup.find_all('li')[1].get_text(),
+        'news3' : soup.find_all('li')[2].get_text(),
+        }
+
+
+    context = {'all_news' : all_news, 'all_dates' : all_dates}
 
     return render(request, "DwarfFort/dfort_news.html", context)
 
