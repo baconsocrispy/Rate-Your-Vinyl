@@ -28,6 +28,7 @@
         <td> {{ material.chemical_description }}</td>
     </tr>
 </table>
+<button><a href="{% url 'inventory_update' material.id %}">Update Material</a></button>
 
 
 {% endblock %}

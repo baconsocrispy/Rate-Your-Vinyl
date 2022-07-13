@@ -24,8 +24,27 @@ class SearchResultsView(ListView):
     model = Material
     template_name = 'Inventory/Inventory_search.html'
 
-def Inventory_details(request, pk):
+def inventory_details(request, pk):
     material = get_object_or_404(Material, pk=pk)
     content = {'material': material}
     return render(request, 'Inventory/Inventory_details.html', content)
+
+def inventory_update(request, pk):
+    material = get_object_or_404(Material, pk=pk)
+    form = MaterialForm(data=request.POST or None, instance=material)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('../../read')
+    content = {'form': form, 'material': material}
+    return render(request, 'Inventory/inventory_update.html', content)
+
+
+def inventory_delete(request, pk):
+    material = get_object_or_404(Material, pk=pk)
+    if request.method == 'POST':
+        material.delete()
+        return redirect('../../read')
+    content = {'material': material}
+    return render(request, 'Inventory/inventory_delete.html', content)
 
