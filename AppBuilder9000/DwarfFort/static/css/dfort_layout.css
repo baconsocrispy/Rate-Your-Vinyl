@@ -84,6 +84,12 @@ button:hover {
   cursor: pointer;
 }
 
+/* API */
+.api {
+    white-space: pre;
+    text-align: left;
+}
+
 /* News Page*/
 
 #latest-news {
@@ -166,11 +172,12 @@ p.b-intense{
 /* Boxes */
 .list-container{
     display: inline-block;
-    border: double silver;
+    border: ridge 5px #069696;
     border-radius: 5px;
-    background-color: #0d1112;
+    background-color: #43bac4;
     padding: 10px;
-    color: yellow;
+    color: #075463;
+    font-weight: 600;
 }
 
 .detail-container {
@@ -209,7 +216,7 @@ p.b-intense{
     position: fixed;
     right: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 3;
 }
 
 .inner-search{
