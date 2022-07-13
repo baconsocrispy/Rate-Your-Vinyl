@@ -79,7 +79,6 @@ def marvel_api(request):
     response = requests.request("GET", url, headers=headers,)
 
     api_info = json.loads(response.text)
-
-    quote = str(api_info)
-    content = {'quote': quote,}
+    quote = api_info
+    content = {'quote': quote}
     return render(request, 'marvel/marvel_api.html', content)
