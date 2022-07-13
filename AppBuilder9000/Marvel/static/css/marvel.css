@@ -11,11 +11,31 @@ body{
 
 
 h1 {
-    color: blue;
+    color: white;
     text-align: center;
-    text-shadow: 2px 2px 8px white;
+    text-shadow: 2px 2px 8px black;
     font-weight: bold;
     margin-top: 5px;
+
+}
+
+h2 {
+    color: Blue;
+    text-align: center;
+    text-shadow 2px 2px 8px black;
+    font-weight:bold;
+    font-size:xxx-large;
+    background:white;
+
+
+}
+
+h3 {
+    text-align:center;
+	color: white;
+	font-size:xxx-large;
+	background:red;
+	font-weight:bold;
 
 }
 .navbar {
@@ -24,6 +44,9 @@ h1 {
   margin: none;
   display: flex;
   justify-content: center;
+  position:fixed;
+  top:0;
+  width:100%
 }
 
 .navbar a {
@@ -51,7 +74,7 @@ ul {
 	-moz-box-sizing: border-box;
     margin: 0 auto;
     background-color: black;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 40px;
 }
@@ -108,11 +131,17 @@ button:hover {
 p {
 	text-align:center;
 	color: white;
-	font-size:xxx-large;
-	background:red
+	font-size:large;
+	background:blue;
 }
 
+a {
+    color:Red;
+}
 
+a:hover{
+    color:white;
+}
 
 table {
 	background:black;
@@ -121,14 +150,24 @@ table {
 	margin-right:auto;
 	border-radius:30px;
 	border: 5px solid blue;
+	display:block;
 }
+
+th,
+tr,
 td {
-	padding:30px;
-
-
-}
-
-th,tr,td {
 	color:white;
 	text-align:center;
+	padding:30;
+}
+
+form {
+    margin: 5%;
+}
+
+.container {
+	border:2px solid black;
+	background:blue;
+	margin:300;
+
 }

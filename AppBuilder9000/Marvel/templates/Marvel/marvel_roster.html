@@ -9,7 +9,7 @@
     </tr>
     {% for c in character %}
     <tr>
-        <td>{{ c.name }}<td>
+        <td><a href="{% url 'marvel_details' c.id %}">{{ c.name }}</a><td>
         <td>{{ c.description }}</td>
     </tr>
     {% endfor %}
