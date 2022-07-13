@@ -6,4 +6,6 @@
 <h3>{{ character.name }}</h3>
 <p>{{ character.description }}</p>
 <p>{{ character.image }}</p>
+<button><a href="{% url 'marvel_update' character.id %}">Update Character Info</a></button>
+<button><a href="{% url 'marvel_roster' %}">View Roster</a></button>
 {% endblock %}

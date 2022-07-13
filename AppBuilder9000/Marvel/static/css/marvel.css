@@ -105,20 +105,18 @@ ul {
 }
 
 button {
-	flex-grow: 2;
-    justify-content: center;
-    text-align: center;
-    display: inline-block;
     width: 150px; /* button size */
-    margin: 2% 2% 2% 50%;
     color: black;
     padding: 10px 0px;
-    text-decoration: none;
     font-size: 14px;
-    transition-duration: 0.4s;
     cursor: pointer;
-    border: 2px solid silver;
+    border: 2px solid black;
     border-radius: 5px;
+	background:white;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	margin: 1% 1% 1% 45%;
 }
 button:hover {
     background-color: black;
@@ -149,8 +147,7 @@ table {
 	margin-left:auto;
 	margin-right:auto;
 	border-radius:30px;
-	border: 5px solid blue;
-	display:block;
+	border: 5px solid silver;
 }
 
 th,
@@ -161,13 +158,11 @@ td {
 	padding:30;
 }
 
-form {
-    margin: 5%;
-}
-
 .container {
 	border:2px solid black;
 	background:blue;
 	margin:300;
-
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
 }

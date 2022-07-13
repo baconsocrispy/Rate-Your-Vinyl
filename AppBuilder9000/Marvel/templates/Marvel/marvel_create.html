@@ -5,7 +5,8 @@
     <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <button type="submit"><a>Submit</a></button>
+        <button type="submit"><a href="{% url 'marvel_roster' %}">View Roster</a></button>
     </form>
 
 {% endblock %}

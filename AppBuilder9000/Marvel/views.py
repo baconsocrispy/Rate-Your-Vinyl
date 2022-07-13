@@ -37,3 +37,25 @@ def marvel_details(request, pk):
     character = get_object_or_404(Character, pk=pk)
     content = {'character': character}
     return render(request, 'Marvel/marvel_details.html', content)
+
+
+# Story #5: Edit and Delete Functions
+
+def marvel_update(request, pk):
+    character = get_object_or_404(Character, pk=pk)
+    form = CharacterForm(data=request.POST or None, instance=character)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('marvel_roster')
+    content = {'form': form, 'character': character}
+    return render(request, 'Marvel/marvel_update.html', content)
+
+
+def marvel_delete(request, pk):
+    character = get_object_or_404(Character, pk=pk)
+    if request.method == 'POST':
+        character.delete()
+        return redirect('marvel_roster')
+    content = {'character': character}
+    return render(request, 'Marvel/marvel_delete.html', content)
