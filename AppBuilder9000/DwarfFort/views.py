@@ -72,8 +72,9 @@ def dfort_delete(request, pk):
 
     return render(request, "DwarfFort/dfort_delete.html", context)
 
-# Story 6 - Beautiful-Soup/Api
+# Story 6/7 - Beautiful-Soup/Api
 
+# Beautiful Soup
 def dfort_news(request):
     # A status_code of 200 means that the page downloaded successfully.
     # function will scrape data from dwarf fortress website grabbing latest news
@@ -83,12 +84,15 @@ def dfort_news(request):
     # all news posts are list items and the first is the latest so an easy grab
     # get text returns text instead of html elements
     # find stops after 1 result, find all keeps searching beyond first result
+
+    # Dates of news posts
     all_dates = {
         'date1' : soup.find_all(class_='date')[0].get_text(),
         'date2': soup.find_all(class_='date')[1].get_text(),
         'date3': soup.find_all(class_='date')[2].get_text(),
     }
 
+    # text of news posts
     all_news = {
         'news1' : soup.find_all('li')[0].get_text(),
         'news2' : soup.find_all('li')[1].get_text(),
@@ -99,6 +103,29 @@ def dfort_news(request):
     context = {'all_news' : all_news, 'all_dates' : all_dates}
 
     return render(request, "DwarfFort/dfort_news.html", context)
+
+# Open5E API
+def dfort_api(request):
+    # fetches monster info from api - Various criteria can be used
+    # hobgoblin is used currently as 1 result is easier for debugging
+    response = requests.get("https://api.open5e.com/monsters/?search=hobgoblin")
+
+    # plan to implement a search bar to let users input their own query
+    # and print specific info such as name, size and hitpoints neatly
+    #to the page.
+
+    # Formats json into a cleaner string
+    def textprint(obj):
+        text = (json.dumps(obj, indent=4))
+        print(text)
+        return text
+
+    # grabs new string to print to api page
+    info = textprint(response.json())
+
+    context = {'info' : info, 'response' : response}
+
+    return render(request, "DwarfFort/dfort_api.html", context)
 
 # Story 4 - Details Page
 
