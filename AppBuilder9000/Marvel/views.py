@@ -1,6 +1,11 @@
+import json
+
+from django.conf.locale import gl
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CharacterForm
 from .models import Character
+import requests
+import json
 
 
 # Create your views here.
@@ -59,3 +64,21 @@ def marvel_delete(request, pk):
         return redirect('marvel_roster')
     content = {'character': character}
     return render(request, 'Marvel/marvel_delete.html', content)
+
+
+# Story 6: API
+
+def marvel_api(request):
+    url = "https://marvel-quote-api.p.rapidapi.com/"
+
+    headers = {
+        "X-RapidAPI-Host": "marvel-quote-api.p.rapidapi.com",
+        "X-RapidAPI-Key": "bca2057807mshfe7effe0d91b0fap1b9154jsnceb9849a546b"
+    }
+
+    response = requests.request("GET", url, headers=headers,)
+
+    api_info = json.loads(response.text)
+    quote = api_info
+    content = {'quote': quote}
+    return render(request, 'marvel/marvel_api.html', content)
