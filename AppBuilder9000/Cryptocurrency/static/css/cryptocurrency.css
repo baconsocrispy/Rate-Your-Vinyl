@@ -61,7 +61,7 @@ th {
     text-align: center
 }
 
-.add-crypto-container {
+.add-crypto-container, .details {
     margin: auto;
 	width: 50%;
 }
