@@ -4,9 +4,11 @@ html{
     background-repeat: no-repeat;
 	background-position: bottom;
 }
+
 body{
     margin: 0;
     font-family: 'Fakt Soft Pro', sans-serif;
+    max-height:100%;
 }
 
 
