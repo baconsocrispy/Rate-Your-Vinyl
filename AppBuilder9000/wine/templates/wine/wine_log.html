@@ -11,6 +11,7 @@
     <tr>
         <td><a href="{% url 'wine_details' e.id %}">{{ e.type }}</a></td>
         <td>{{ e.varietal }}</td>
+        <td>{{ e.region }}</td>
     </tr>
     {% endfor %}
 </table>
