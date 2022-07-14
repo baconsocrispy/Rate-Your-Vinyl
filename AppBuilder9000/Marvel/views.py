@@ -83,7 +83,7 @@ def marvel_api(request):
     return render(request, 'marvel/marvel_api.html', content)
 
 
-# Story 6: Setup Beautiful Soup
+# Story 6/7: Setup Beautiful Soup
 
 def marvel_bs(request):
     page = requests.get("https://www.qualitycomix.com/learn/marvel-characters-list")
