@@ -1,6 +1,4 @@
-import json
-
-from django.conf.locale import gl
+from bs4 import BeautifulSoup
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CharacterForm
 from .models import Character
@@ -76,9 +74,19 @@ def marvel_api(request):
         "X-RapidAPI-Key": "bca2057807mshfe7effe0d91b0fap1b9154jsnceb9849a546b"
     }
 
-    response = requests.request("GET", url, headers=headers,)
+    response = requests.request("GET", url, headers=headers, )
 
     api_info = json.loads(response.text)
     quote = api_info
     content = {'quote': quote}
     return render(request, 'marvel/marvel_api.html', content)
+
+
+# Story 6: Setup Beautiful Soup
+
+def marvel_bs(request):
+    page = requests.get("https://www.qualitycomix.com/learn/marvel-characters-list")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    info = soup.find_all('p')[2].get_text()
+    content = {"info": info}
+    return render(request, 'Marvel/marvel_bs.html', content)
