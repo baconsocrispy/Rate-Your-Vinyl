@@ -33,3 +33,26 @@ def cryptocurrency_details(request, pk):
     details = get_object_or_404(Review, pk=pk)
     content = {'details': details}
     return render(request, 'Cryptocurrency/Cryptocurrency_Details.html', content)
+
+#Story 5 Edit Function
+
+def cryptocurrency_edit(request, pk):
+    details = get_object_or_404(Review, pk=pk)
+    form = ReviewForm(data=request.POST or None, instance=details)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('Cryptocurrency_Reviews')
+    content = {'form': form, 'details': details}
+    return render(request, 'Cryptocurrency/Cryptocurrency_Edit.html', content)
+
+#Story 5 Delete Function
+
+def cryptocurrency_delete(request, pk):
+    details = get_object_or_404(Review, pk=pk)
+    if request.method == 'POST':
+        details.delete()
+        return redirect('Cryptocurrency_Reviews')
+    content = {'details': details}
+    return render(request, 'Cryptocurrency/Cryptocurrency_delete.html', content)
+
