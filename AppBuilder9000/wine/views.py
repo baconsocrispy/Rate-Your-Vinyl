@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import WinesForm
 from .models import Wines
-from django.http import HttpResponse
 import requests
+import json
+
 
 # Story#1: Create the app
 # Render the home page
@@ -28,7 +29,7 @@ def wine_log(request):
     return render(request, 'wine/wine_log.html', content)
 
 
-# Story #4: Details page -----------------------------------------------------------------------------------------------
+# Story #4: Details page
 
 def wine_details(request, pk):
     entry = get_object_or_404(Wines, pk=pk)
@@ -36,3 +37,23 @@ def wine_details(request, pk):
     return render(request, 'wine/wine_details.html', content)
 
 
+# Story #5: Edit and Delete Functions
+
+def wine_update(request, pk):
+    entry = get_object_or_404(Wines, pk=pk)
+    form = WinesForm(data=request.POST or None, instance=entry)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('../../log')
+    content = {'form': form, 'entry': entry}
+    return render(request, 'wine/wine_update.html', content)
+
+
+def wine_delete(request, pk):
+    entry = get_object_or_404(Wines, pk=pk)
+    if request.method == 'POST':
+        entry.delete()
+        return redirect('../../log')
+    content = {'entry': entry}
+    return render(request, 'wine/wine_delete.html', content)
