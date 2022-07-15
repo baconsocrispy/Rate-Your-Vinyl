@@ -86,9 +86,34 @@ button:hover {
 
 /* API */
 .api {
-    white-space: pre;
     text-align: left;
+    border: ridge 5px #069696;
+    border-radius: 5px;
+    background-color: #43bac4;
+    padding: 7px;
+    margin: 10px;
+    color: #092d2e;
+    font-weight: 600;
 }
+
+.api-name {
+    color: red;
+    font-weight: 700;
+}
+
+.result-num {
+    color: white;
+    font-weight: 700;
+}
+
+.api-type {
+    color: darkmagenta;
+}
+
+.health {
+    color: #f5cf16;
+}
+
 
 /* News Page*/
 

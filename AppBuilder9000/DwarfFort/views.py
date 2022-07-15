@@ -106,26 +106,106 @@ def dfort_news(request):
 
 # Open5E API
 def dfort_api(request):
-    # fetches monster info from api - Various criteria can be used
-    # hobgoblin is used currently as 1 result is easier for debugging
-    response = requests.get("https://api.open5e.com/monsters/?search=hobgoblin")
 
-    # plan to implement a search bar to let users input their own query
-    # and print specific info such as name, size and hitpoints neatly
-    #to the page.
+    if request.method == 'POST':
+        name = request.POST.get('usr_query')
+        temp = "https://api.open5e.com/monsters/?search="
+        search = str(temp) + str(name)
+        # fetches monster info from api - Various criteria can be used
+        response = requests.get(search)
 
-    # Formats json into a cleaner string
-    def textprint(obj):
-        text = (json.dumps(obj, indent=4))
-        print(text)
-        return text
+        # Formats json into a cleaner string
+        def textprint(obj):
+            text = (json.dumps(obj, indent=4))
+            return text
 
-    # grabs new string to print to api page
-    info = textprint(response.json())
+        result1 = {}
+        result2 = {}
+        result3 = {}
+        result4 = {}
+        result5 = {}
 
-    context = {'info' : info, 'response' : response}
+        display1 = False
+        display2 = False
+        display3 = False
+        display4 = False
+        display5 = False
 
-    return render(request, "DwarfFort/dfort_api.html", context)
+
+        # Debug printing full json to console
+        info = textprint(response.json())
+        print(info)
+
+
+        # Pulls only needed fields and checks that there are results
+        if len(response.json()['results']) > 0:
+            result1 = {"slug": response.json()['results'][0]['slug'],
+                    "type": response.json()['results'][0]['type'],
+                    "size": response.json()['results'][0]['size'],
+                    "HP": response.json()['results'][0]['hit_points'],
+                    }
+            display1= True
+
+        if len(response.json()['results']) > 1:
+            result2 = {"slug": response.json()['results'][1]['slug'],
+                    "type": response.json()['results'][1]['type'],
+                    "size": response.json()['results'][1]['size'],
+                    "HP": response.json()['results'][1]['hit_points'],
+                    }
+            display2 = True
+
+        if len(response.json()['results']) > 2:
+            result3 = {"slug": response.json()['results'][2]['slug'],
+                    "type": response.json()['results'][2]['type'],
+                    "size": response.json()['results'][2]['size'],
+                    "HP": response.json()['results'][2]['hit_points'],
+                    }
+            display3 = True
+
+        if len(response.json()['results']) > 3:
+            result4 = {"slug": response.json()['results'][3]['slug'],
+                    "type": response.json()['results'][3]['type'],
+                    "size": response.json()['results'][3]['size'],
+                    "HP": response.json()['results'][3]['hit_points'],
+                    }
+            display4 = True
+
+        if len(response.json()['results']) > 4:
+            result5 = {"slug": response.json()['results'][3]['slug'],
+                      "type": response.json()['results'][3]['type'],
+                      "size": response.json()['results'][3]['size'],
+                      "HP": response.json()['results'][3]['hit_points'],
+                      }
+            display5 = True
+
+        # Dictionary containing first 5 results
+        results = {
+            'result1' : result1,
+            'result2' : result2,
+            'result3' : result3,
+            'result4' : result4,
+            'result5' : result5,
+        }
+
+        # Dictionary to check results have values
+        displays = {
+            'display1' : display1,
+            'display2' : display2,
+            'display3' : display3,
+            'display4' : display4,
+            'display5' : display5,
+        }
+
+
+
+        context = {'response': response, 'name' : name, 'results' : results, 'displays' : displays}
+
+        return render(request, "DwarfFort/dfort_api.html", context)
+
+
+
+    return render(request, "DwarfFort/dfort_api.html")
+
 
 # Story 4 - Details Page
 

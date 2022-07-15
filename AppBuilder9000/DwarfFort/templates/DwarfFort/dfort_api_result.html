@@ -1,0 +1,25 @@
+{% extends "dfort_base.html" %}
+
+{% block content %}
+
+
+<br>
+<br>
+<br>
+<br>
+
+<h1>Search for a Monster from Open5E</h1>
+<div class="api">
+    <p>{{ test.slug|title }}</p>
+    <p>{{ test.type|title }}</p>
+    <p>{{ test.size|title }}</p>
+    <p>{{ test.HP|title }}</p>
+</div>
+<form action="" method="POST" style="display: inline;">
+    {% csrf_token %}
+    <input type="search" name="usr_query" placeholder="Search by Name">
+    <input type="submit" value="Search">
+</form>
+
+
+{% endblock %}
