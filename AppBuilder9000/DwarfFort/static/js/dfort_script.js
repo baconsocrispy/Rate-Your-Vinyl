@@ -7,11 +7,15 @@ var close = document.getElementById("modal-close");
 
 
 // listener for click on button to open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
+if (document.getElementById("button-modal") !== null) {
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
 }
 
 // listener for click on close button
-close.onclick = function() {
-    modal.style.display = "none";
+if (document.getElementById("modal-close") !== null) {
+    close.onclick = function() {
+        modal.style.display = "none";
+    }
 }
