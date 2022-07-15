@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/update/', views.marvel_update, name='marvel_update'),
     path('<int:pk>/delete/', views.marvel_delete, name='marvel_delete'),
     path('api/',views.marvel_api,name='marvel_api'),
+    path('bs/',views.marvel_bs,name='marvel_bs'),
 ]

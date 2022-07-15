@@ -1,0 +1,13 @@
+{% extends "Cryptocurrency_base.html" %}
+
+{% block content %}
+<div class="details">
+    <h2>Cryptocurrency Review Details</h2>
+    <h3>Name:  {{ details.user }}</h3>
+    <h3>Cryptocurrency:  {{ details.crypto }}</h3>
+    <p>Ticker Symbol: {{ details.ticker }}</p>
+    <p>Price Paid($):  {{ details.price }}</p>
+    <p>Review: {{ details.body }}</p>
+    <p>Sentiment:  {{ details.rating }}</p>
+</div>
+{% endblock %}
