@@ -206,6 +206,9 @@ def dfort_api(request):
 
     return render(request, "DwarfFort/dfort_api.html")
 
+def dfort_about(request):
+    return  render(request, 'DwarfFort/dfort_about.html')
+
 
 # Story 4 - Details Page
 
@@ -226,13 +229,32 @@ def dfort_details(request, pk):
 #                          'bot1': '#######',
 #                          'bot2': '#######'}
 
+    # Material Visual
+
+    if item.skin == 'meat':
+        material = 'meat'
+
+    elif item.skin == 'metal':
+        material = 'metal'
+
+    elif item.skin == 'fungus':
+        material = 'fungus'
+
+    elif item.skin == 'scale':
+        material = 'scale'
+
+    elif item.skin == 'gem':
+        material = 'gem'
+
+    # Species Visual
+
     if item.species == 'reptilian':
 
-                beast_body = {'top1': ' {(")} ',
-                              'top2': '_--+--_',
-                              'mid': ' / |   | \ ',
-                              'bot1': '[  |__|  ]',
-                              'bot2': ' _/  \_ '}
+        beast_body = {'top1': ' {(")} ',
+                      'top2': '_--+--_',
+                      'mid': ' / |   | \ ',
+                      'bot1': '[  |__|  ]',
+                      'bot2': ' _/  \_ '}
 
     elif item.species == 'avian':
 
@@ -242,6 +264,21 @@ def dfort_details(request, pk):
                       'bot1': '[ \_/ ]',
                       'bot2': '  | |  '}
 
+    elif item.species == 'canine':
+
+        beast_body = {'top1': '  [:P  ',
+                      'top2': ' <-|-> ',
+                      'mid': '|| # ||',
+                      'bot1': 'V \#/ V',
+                      'bot2': ' _| |_ '}
+
+    elif item.species == 'amphibian':
+
+        beast_body = {'top1': '  ,_,  ',
+                      'top2': ' (00) ',
+                      'mid': 'T( ~ )T',
+                      'bot1': '" \_/ "',
+                      'bot2': '  ( )  '}
 
     else:
         # debug to check case being met
@@ -253,6 +290,6 @@ def dfort_details(request, pk):
                       'bot1': '(_____)',
                       'bot2': ' |   | '}
 
-    context = {'form': form, 'item': item, 'beast_body': beast_body, 'beast' : beast}
+    context = {'form': form, 'item': item, 'beast_body': beast_body, 'beast' : beast, 'material' : material}
 
     return render(request, 'DwarfFort/dfort_details.html', context)

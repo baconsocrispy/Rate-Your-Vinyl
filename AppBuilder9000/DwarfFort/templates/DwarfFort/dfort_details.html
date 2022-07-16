@@ -31,14 +31,15 @@
 
 <!-- Visual printed out from beast_body dictionary. Changes based on species type selected-->
 <div>
-    <p class="b-body">{{ beast_body.top1 }}<br>{{ beast_body.top2 }}<br>{{ beast_body.mid }}<br>{{ beast_body.bot1 }}<br>{{ beast_body.bot2 }}
+    <h6 id="skin">{{ material }}</h6>
+    <p id="beast-visual" class="b-body">{{ beast_body.top1 }}<br>{{ beast_body.top2 }}<br>{{ beast_body.mid }}<br>{{ beast_body.bot1 }}<br>{{ beast_body.bot2 }}
 </div>
 
 <h1>{{ item.name }},</h1>
 <h2>The {{ item.title }} approaches...</h2>
 
 <div class="b-description">
-    <p>The {{ item.species|title }} beast with {{ item.skin|title }} flesh.</p>
+    <p>The {{ item.species|title }} beast with <span id="skin-display">{{ item.skin|title }}</span> flesh.</p>
     <p>Now you know why you fear the night.</p>
     <p class="b-intense">Fear it's {{ item.power|title }}!</p>
 </div>
@@ -65,7 +66,7 @@
 
 -->
 
-<a href="../{{ form.pk }}edit/" class="hover-text">Alter this beast?</a>
+<button><a href="../{{ form.pk }}edit/" class="hover-text">Alter this beast?</a></button>
 
 <br>
 <br>

@@ -4,6 +4,11 @@
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+
 <h1>Alter Beast</h1>
 
 <div class="form-container">
@@ -17,20 +22,22 @@
 
     <!-- Modal, hidden by default -->
 <div id="delete-modal" class="modal">
-    <div class="modal-content">
-        <span id="modal-close" class="close">&times;</span>
-        <p> Are you sure you want to delete {{ item.name }}?</p>
-        <form method="POST" action="">
-            <button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button>
-        </form>
+    <div style="inline-block">
+        <div class="modal-content">
+            <span id="modal-close" class="close">&times;</span>
+            <p> Are you sure you want to delete {{ item.name }}?</p>
+            <form method="POST" action="">
+                <button class="btn"><a href="../{{ form.pk }}delete/">DELETE</a></button>
+            </form>
+        </div>
     </div>
 </div>
+
 
 <div>
-    <div>
-        <button id="button-modal" class="btn">DELETE</button>
-        <button class="btn"><a href="{% url 'dfort_home' %}">CANCEL</a></button>
-    </div>
+    <button id="button-modal" class="btn">DELETE</button>
+    <a href="{% url 'dfort_home' %}"><button class="btn">CANCEL</button></a>
 </div>
 
+</section>
 {% endblock %}
