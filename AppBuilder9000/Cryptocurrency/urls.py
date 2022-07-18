@@ -8,4 +8,5 @@ urlpatterns = [
     path('<int:pk>/Details/', views.cryptocurrency_details, name='Cryptocurrency_Details'),
     path('<int:pk>/Edit/', views.cryptocurrency_edit, name='Cryptocurrency_Edit'),
     path('<int:pk>/Delete/', views.cryptocurrency_delete, name='Cryptocurrency_Delete'),
+    path('API/', views.cryptocurrency_api, name='Cryptocurrency_API'),
 ]
