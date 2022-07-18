@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ReviewForm
 from .models import Review
+import requests
+import json
+
+
+
 
 
 # Create your views here.
@@ -55,4 +60,23 @@ def cryptocurrency_delete(request, pk):
         return redirect('Cryptocurrency_Reviews')
     content = {'details': details}
     return render(request, 'Cryptocurrency/Cryptocurrency_delete.html', content)
+
+#Story 6 API
+
+def cryptocurrency_api(request):
+    url = "https://binance46.p.rapidapi.com/ticker/price"
+
+    querystring = {"symbol": "BTCUSDT"}
+
+    headers = {
+        "X-RapidAPI-Host": "binance46.p.rapidapi.com",
+        "X-RapidAPI-Key": "9475a3c2femshf5feacffd670ac7p141cc0jsn51ca5a864d7c"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    api_pull = json.loads(response.text)
+    price = api_pull["price"]  #The element we will pull is the  price of Bitcoin(in USD)
+    content = {"price": price}
+    return render(request, 'Cryptocurrency/Cryptocurrency_API.html', content)
 
