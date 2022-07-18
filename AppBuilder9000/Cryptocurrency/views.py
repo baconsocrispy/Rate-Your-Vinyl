@@ -61,7 +61,7 @@ def cryptocurrency_delete(request, pk):
     content = {'details': details}
     return render(request, 'Cryptocurrency/Cryptocurrency_delete.html', content)
 
-#Story 6 API
+#Story 6 and Story 7 API
 
 def cryptocurrency_api(request):
     url = "https://binance46.p.rapidapi.com/ticker/price"
