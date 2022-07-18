@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CharacterForm
-from .models import Character
+from .forms import CharacterForm, CommentForm
+from .models import Character, Comment
 import requests
 import json
 
@@ -38,7 +38,14 @@ def marvel_roster(request):
 
 def marvel_details(request, pk):
     character = get_object_or_404(Character, pk=pk)
-    content = {'character': character}
+    form = CommentForm(data=request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.character_id = pk
+            form.save()
+            return redirect('../details')
+    content = {'character': character, 'form': form}
     return render(request, 'Marvel/marvel_details.html', content)
 
 
@@ -62,6 +69,13 @@ def marvel_delete(request, pk):
         return redirect('marvel_roster')
     content = {'character': character}
     return render(request, 'Marvel/marvel_delete.html', content)
+
+
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    path = '../../../' + str(comment.character_id) + '/details'
+    return redirect(path)
 
 
 # Story 6/7: API

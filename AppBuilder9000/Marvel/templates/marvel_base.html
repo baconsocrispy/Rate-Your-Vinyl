@@ -4,11 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{% static 'css/marvel.css' %}">
+        <link rel="icon" type="image/x-icon" href="{% static './images/faviconM.ico' %}">
+
+
         <title>{% block title %}{% endblock %}</title>
 
     </head>
 
-    </div>
             {% include "Marvel/marvel_navbar.html" %}
         <body>
         <div class="container">
@@ -17,4 +19,5 @@
         </div>
             {% include "Marvel/marvel_footer.html" %}
     </body>
+    <script src="{% static 'js/js.js' %}"></script>
 </html>
