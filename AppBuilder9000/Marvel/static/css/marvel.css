@@ -32,7 +32,7 @@ h4 {
 h2 {
     color: Blue;
     text-align: center;
-    text-shadow 2px 2px 8px black;
+    text-shadow: 2px 2px 8px black;
     font-weight:bold;
     font-size:xxx-large;
     background:white;
@@ -71,11 +71,25 @@ h3 {
   color: blue;
 }
 
+.navbar ul{
+	border:none;
+	background:none;
+	overflow:hidden;
+	padding:none;
+}
+
+.navbar li{
+	background:none;
+	border:none;
+	padding:none;
+}
+
 ul {
-    list-style-type: none;
+    color:white;
+    text-align: center;
+    list-style-type: decimal;
     margin: 0;
-    padding: 0;
-    overflow; hidden;
+    overflow: hidden;
 }
 #block-footer {
     clear: both;
@@ -177,4 +191,93 @@ td {
 	margin-right:auto;
 }
 
+li {
+	background-color:black;
+	border:2px solid red;
+	padding:10px
 
+}
+
+/* AFFECTS COMMENT SECTION */
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid white;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: black;
+}
+
+/* Full-width input fields */
+.form-container input[type=text]{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    color:white;
+    background: grey;
+}
+
+/* When the inputs is being used*/
+.form-container input[type=text]:focus{
+    background-color: red;
+    color:white;
+    outline: none;
+}
+
+/* Style for the submit button */
+.form-container .btn {
+    color: white;
+    cursor: pointer;
+    margin-bottom:10px;
+    opacity: 0.8
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+
+.comment_section{
+    margin-right: auto;
+    margin-left: auto;
+    width: 40%;
+    z-index: 1;
+
+}
+
+.comment_container{
+	margin:0;
+	display:block;
+}
+
+.comment_section h1{
+	color:black;
+	background:red;
+	border:2px solid black;
+}
+
+.comment_section p{
+	background:white;
+	color:black;
+	border:2px solid black;
+
+.btnA {
+    top: 750;
+    position:absolute;
+}
+
+/*END COMMENT SECTION
