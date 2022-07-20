@@ -9,6 +9,8 @@ urlpatterns = [
     path('<int:pk>/update/', views.marvel_update, name='marvel_update'),
     path('<int:pk>/delete/', views.marvel_delete, name='marvel_delete'),
     path('<int:pk>/delete_comments/details/', views.delete_comment, name='delete_comment'),
-    path('api/',views.marvel_api,name='marvel_api'),
-    path('bs/',views.marvel_bs,name='marvel_bs'),
+    path('api/', views.marvel_api, name='marvel_api'),
+    path('bs/', views.marvel_bs, name='marvel_bs'),
+    path('<combo>/saved/',views.marvel_api_saved, name='marvel_saved')
+
 ]

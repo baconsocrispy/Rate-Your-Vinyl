@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CharacterForm, CommentForm
-from .models import Character, Comment
+from .forms import CharacterForm, CommentForm, QuoteForm
+from .models import Character, Comment, Quote
 import requests
 import json
 
@@ -93,8 +93,9 @@ def marvel_api(request):
     api_info = json.loads(response.text)
     quote = api_info["Quote"]
     speaker = api_info["Speaker"]
-    content = {"quote": quote, "speaker": speaker}
-    return render(request, 'marvel/marvel_api.html', content)
+    combo = quote + '       :  ' + speaker
+    content = {"quote": quote, "speaker": speaker, "combo": combo}
+    return render(request, 'Marvel/marvel_api.html', content)
 
 
 # Story 6/7: Setup Beautiful Soup
@@ -105,3 +106,18 @@ def marvel_bs(request):
     info = soup.find_all('p')[2].get_text()
     content = {"info": info}
     return render(request, 'Marvel/marvel_bs.html', content)
+
+
+# Story 9: Save API or scraped results
+
+def marvel_api_saved(request, combo):
+    if combo != 'title':
+        savedapi = Quote(
+            quote=combo,
+        )
+        # adds api data to database
+        savedapi.save()
+    quote = Quote.Quotes.all()
+    content = {'quote': quote, }
+    return render(request, 'Marvel/marvel_save_api.html', content)
+

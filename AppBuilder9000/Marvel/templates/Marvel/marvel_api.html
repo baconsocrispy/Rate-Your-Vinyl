@@ -7,6 +7,7 @@
 <h2> {{ speaker }}</h2>
 <h1> {{ quote }} </h1>
 <br>
+<button><a href="{% url 'marvel_saved' combo %}">Save Quote</a></button>
 <p>Press the button for a new quote from a Marvel Character!</p>
 <button type="submit"><a href="{% url 'marvel_api' %}">New Quote!</a></button>
 
