@@ -1,0 +1,22 @@
+{% extends "marvel_base.html" %}
+
+{% block title %}Saved API{% endblock %}
+
+{% block content %}
+<h1>Quotes</h1>
+<table>
+    <tr>
+        <th colspan="1"> Speaker</th>
+        <th colspan="2"> Quote</th>
+    </tr>
+    {% for q in quote %}
+    <tr>
+        <td>{{ q.speaker }}<td>
+        <td>{{ q.quote }}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock %}
