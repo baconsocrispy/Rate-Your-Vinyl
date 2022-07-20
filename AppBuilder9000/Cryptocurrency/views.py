@@ -81,7 +81,7 @@ def cryptocurrency_api(request):
     content = {"price": price}
     return render(request, 'Cryptocurrency/Cryptocurrency_API.html', content)
 
-#Story #6 BS Pt 1
+#Stories 6 and 7 BS Pt 1-2
 
 
 def cryptocurrency_top(request):
