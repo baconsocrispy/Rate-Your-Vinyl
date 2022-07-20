@@ -50,6 +50,7 @@ urlpatterns = [
     path('wine/', include('wine.urls')),
     path('Marvel/',include('Marvel.urls')),
     path('Cryptocurrency/', include('Cryptocurrency.urls')),
+    path('BucketList/', include('BucketList.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()

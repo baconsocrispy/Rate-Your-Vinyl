@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'wine',
     'Marvel',
     'Cryptocurrency',
+    'BucketList',
 ]
 
 MIDDLEWARE = [
