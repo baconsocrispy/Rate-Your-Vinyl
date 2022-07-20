@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ReviewForm
 from .models import Review
+from bs4 import BeautifulSoup
 import requests
 import json
 
@@ -80,3 +81,17 @@ def cryptocurrency_api(request):
     content = {"price": price}
     return render(request, 'Cryptocurrency/Cryptocurrency_API.html', content)
 
+#Story #6 BS Pt 1
+
+
+def cryptocurrency_top(request):
+    page = requests.get("https://crypto.com/price") #Will want to parse coin name, price, and market cap of the top coin on the site.
+    soup = BeautifulSoup(page.content)
+    table = soup.find(class_="chakra-table css-1qpk7f7")
+    items = table.find_all(class_="css-1cxc880")
+    info = items[0]
+    name = info.find(class_="chakra-text css-o2rp9n").get_text()
+    price = info.find(class_="css-b1ilzc").get_text()
+    cap = info.find(class_="css-1nh9lk8").get_text()
+    content = {"name": name, "price": price, "cap": cap}
+    return render(request, 'Cryptocurrency/Cryptocurrency_Top.html', content)
