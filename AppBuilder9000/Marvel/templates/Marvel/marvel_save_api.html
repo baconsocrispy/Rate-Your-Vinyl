@@ -3,15 +3,14 @@
 {% block title %}Saved API{% endblock %}
 
 {% block content %}
+<button type="submit"><a href="{% url 'marvel_api' %}">New Quote!</a></button>
 <h1>Quotes</h1>
 <table>
     <tr>
-        <th colspan="1"> Speaker</th>
-        <th colspan="2"> Quote</th>
+        <th colspan="1"> Quote</th>
     </tr>
     {% for q in quote %}
     <tr>
-        <td>{{ q.speaker }}<td>
         <td>{{ q.quote }}</td>
     </tr>
 
@@ -19,4 +18,5 @@
 </table>
 
 
-{% endblock %}
+
+    {% endblock %}

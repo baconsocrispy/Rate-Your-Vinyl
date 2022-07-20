@@ -11,6 +11,6 @@ urlpatterns = [
     path('<int:pk>/delete_comments/details/', views.delete_comment, name='delete_comment'),
     path('api/', views.marvel_api, name='marvel_api'),
     path('bs/', views.marvel_bs, name='marvel_bs'),
-    path('saved/',views.marvel_api_saved, name='marvel_saved')
+    path('<combo>/saved/',views.marvel_api_saved, name='marvel_saved')
 
 ]

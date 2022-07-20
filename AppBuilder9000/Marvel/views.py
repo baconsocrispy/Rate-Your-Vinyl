@@ -93,13 +93,8 @@ def marvel_api(request):
     api_info = json.loads(response.text)
     quote = api_info["Quote"]
     speaker = api_info["Speaker"]
-    savedapi = Quote(
-        quote=api_info["Quote"],
-        speaker=api_info["Speaker"]
-    )
-    # adds api data to database
-    savedapi.save()
-    content = {"quote": quote, "speaker": speaker,}
+    combo = quote + '       :  ' + speaker
+    content = {"quote": quote, "speaker": speaker, "combo": combo}
     return render(request, 'Marvel/marvel_api.html', content)
 
 
@@ -115,7 +110,14 @@ def marvel_bs(request):
 
 # Story 9: Save API or scraped results
 
-def marvel_api_saved(request):
+def marvel_api_saved(request, combo):
+    if combo != 'title':
+        savedapi = Quote(
+            quote=combo,
+        )
+        # adds api data to database
+        savedapi.save()
     quote = Quote.Quotes.all()
-    content = {'quote': quote,}
+    content = {'quote': quote, }
     return render(request, 'Marvel/marvel_save_api.html', content)
+
