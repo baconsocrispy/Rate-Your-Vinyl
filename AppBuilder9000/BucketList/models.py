@@ -30,10 +30,6 @@ class bucketItem(models.Model):
     def __str__(self):
         return self.activity
 
-class bucketItemForm(ModelForm):
-    class Meta:
-        model = bucketItem
-        fields = ['month', 'activity', 'location', 'required_items']
 
 
 
