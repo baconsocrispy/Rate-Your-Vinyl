@@ -1,0 +1,16 @@
+{% extends "BucketList_Base.html" %}
+
+
+{% block content %}
+<h1>Bucket List 2022: </h1>
+<p>Lets make this the best year ever!</p>
+
+{% for instance in item_list %}
+<h3>{{instance.month}}</h3>
+<ul>
+    <li>{{ instance.activity }}</li>
+</ul>
+
+{% endfor %}
+
+{% endblock %}
