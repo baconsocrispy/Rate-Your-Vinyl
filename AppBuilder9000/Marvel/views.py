@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CharacterForm, CommentForm, QuoteForm
 from .models import Character, Comment, Quote
+from django.http import HttpResponseRedirect
 import requests
 import json
 
@@ -121,3 +122,13 @@ def marvel_api_saved(request, combo):
     content = {'quote': quote, }
     return render(request, 'Marvel/marvel_save_api.html', content)
 
+
+# Story 10: Final touches
+def search(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        characters = Character.Characters.filter(name__contains=searched)
+        quotes = Quote.Quotes.filter(quote__contains=searched)
+        return render(request, 'Marvel/search.html', {'searched': searched, 'characters': characters, 'quotes': quotes})
+    else:
+        return render(request, 'Marvel/search.html')
