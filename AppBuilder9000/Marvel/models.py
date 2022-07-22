@@ -37,5 +37,5 @@ class Quote(models.Model):
     Quotes = models.Manager()
 
     def __str__(self):
-        return 'Quote {} by {}'.format(self.quote, self.speaker)
+        return 'Quote {}' .format(self.quote)
 

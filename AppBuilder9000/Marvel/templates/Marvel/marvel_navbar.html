@@ -6,4 +6,13 @@
     <li><a href="{% url 'marvel_api' %}">API</a></li>
     <li><a href="{% url 'marvel_bs' %}">Beautiful Soup</a></li>
     <li><a href="{% url 'marvel_saved' 'title' %}">Saved API</a></li>
+
+
+    <form method="POST" action="{% url 'search' %}">
+        {% csrf_token %}
+        <br>
+        <input name="searched" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit">Search</button>
+    </form>
+
 </ul>
