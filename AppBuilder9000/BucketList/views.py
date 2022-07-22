@@ -18,3 +18,13 @@ def BucketList_create(request):
             return redirect('BucketList_home')
     content = {'form': form}
     return render(request, "BucketList/BucketList_create.html", content)
+
+def BucketList_list(request):
+    queryset = bucketItem.objects.all()  # list of bucketlist items
+    context = {
+        "item_list": queryset
+    }
+    return render(request, "BucketList/BucketList_list.html", context)
+
+
+
