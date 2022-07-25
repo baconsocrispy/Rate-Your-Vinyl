@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.BucketList_home, name='BucketList_home'),
     path('create', views.BucketList_create, name='BucketList_create'),
     path('list', views.BucketList_list, name='BucketList_list'),
+    path('<int:pk>/details/', views.BucketList_details, name='BucketList_details'),
 ]

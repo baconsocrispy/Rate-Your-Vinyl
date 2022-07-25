@@ -6,11 +6,10 @@
 <p>Lets make this the best year ever!</p>
 
 {% for instance in item_list %}
-<h3>{{instance.month}}</h3>
 <ul>
-    <li>{{ instance.activity }}</li>
+    <li><a href="{% url 'BucketList_details' instance.id %}">{{instance.activity}}</a></li>
 </ul>
-
 {% endfor %}
+
 
 {% endblock %}
