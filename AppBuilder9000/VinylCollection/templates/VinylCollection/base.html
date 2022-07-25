@@ -8,10 +8,13 @@
         <!-- add css and js links here using DTL -->
     </head>
     <body>
+        <!--    load navbar here    -->
         <div>
             <header>
                 <h1>{% block header %}{% endblock %}</h1>
             </header>
         </div>
+        {% block content %}{% endblock %}
+        <!--    load footer here    -->
     </body>
 </html>
