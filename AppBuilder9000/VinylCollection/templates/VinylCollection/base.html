@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- add css and js links here using DTL -->
+    </head>
+    <body>
+        <div>
+            <header>
+                <h1>{% block header %}{% endblock %}</h1>
+            </header>
+        </div>
+    </body>
+</html>
