@@ -7,10 +7,10 @@
 
 body {
     font-family: Heebo;
+    background-image: url('../img/background.jpg');
 }
 nav {
     display: flex;
-    border: 2px solid red;
 }
 
 nav > a {
@@ -40,5 +40,4 @@ footer {
     left: 25%;
     bottom: 15px;
     text-align: center;
-    border: 2px solid red;
 }
