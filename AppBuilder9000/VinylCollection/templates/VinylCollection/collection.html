@@ -1,0 +1,15 @@
+{% extends 'VinylCollection/base.html' %}
+
+{% block title %}Your Vinyl{% endblock %}
+
+{% block header %}Your Vinyl Collection{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for release in releases %}
+        <li><a href="#">{{ release }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
