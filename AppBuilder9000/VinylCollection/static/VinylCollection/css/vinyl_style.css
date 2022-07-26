@@ -1,0 +1,44 @@
+/* class to handle div centering */
+.center {
+    margin: auto;
+    width: 50%;
+}
+
+
+body {
+    font-family: Heebo;
+}
+nav {
+    display: flex;
+    border: 2px solid red;
+}
+
+nav > a {
+    display: inline-block;
+    border: 1px solid green;
+    width: 33.3333%;
+    text-align: center;
+    text-decoration: none;
+    color: seagreen;
+}
+
+nav > a:hover {
+    background: seagreen;
+    opacity: 75%;
+    color: white;
+}
+
+h1 {
+    margin: auto;
+    width: 50%;
+    color: seagreen;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    left: 25%;
+    bottom: 15px;
+    text-align: center;
+    border: 2px solid red;
+}
