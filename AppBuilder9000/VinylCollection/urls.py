@@ -1,7 +1,9 @@
 from django.urls import path
 from . import views
+from django.contrib import admin
 
 urlpatterns = [
-    path('', views.home, name='VinylCollection_home')
+    path('admin/', admin.site.urls),
+    path('', views.home, name='VinylCollection_home'),
+    path('createRelease', views.create_release, name='createRelease'),
 ]
-
