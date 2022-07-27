@@ -9,4 +9,6 @@
     <li>Where : {{item.location}}</li>
     <li>Whats needed : {{item.required_items}}</li>
 </ul>
+<br>
+<button><a href="{% url 'BucketList_update' item.id %}">Update</a></button>
 {% endblock %}
