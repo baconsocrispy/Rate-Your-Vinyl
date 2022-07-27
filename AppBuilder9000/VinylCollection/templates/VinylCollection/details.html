@@ -2,14 +2,17 @@
 
 {% block title %}{{ release }}{% endblock %}
 
-{% block header %}Details For {{ release }}{% endblock %}
+{% block header %}Details For: {{ release }}{% endblock %}
 
 {% block content %}
 <div>
     <ul>
-        <li>{{ release.release_date | date:"Y" }}</li>
-        <li>{{ release.genre }}</li>
-        <li>{{ release.label }}</li>
+        <li>Release Year: {{ release.release_date | date:"Y" }}</li>
+        <li>Genre: {{ release.genre }}</li>
+        <li>Style: {{ release.style }}</li>
+        <li>Country: {{ release.country }}</li>
+        <li>Label: {{ release.label }}</li>
+        <li>Format: {{ release.format }}</li>
     </ul>
 </div>
 {% endblock %}
