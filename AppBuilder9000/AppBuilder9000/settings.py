@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'Cryptocurrency',
     'BucketList',
     'VinylCollection',
+    'BookList',
 ]
 
 MIDDLEWARE = [
