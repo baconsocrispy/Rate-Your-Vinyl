@@ -1,13 +1,15 @@
-/* class to handle div centering */
-.center {
-    margin: auto;
-    width: 50%;
-}
 
 body {
     font-family: Heebo;
     background-image: url('../img/background.jpg');
 }
+
+.center {
+    margin: auto;
+    width: 50%;
+}
+
+
 nav {
     display: flex;
 }
@@ -41,3 +43,16 @@ footer {
     text-align: center;
 }
 
+
+
+.release-container  {
+    display: block;
+    float: left;
+    width: 10%;
+    border: 1px solid black;
+}
+
+.release-header {
+    text-decoration: none;
+    color: seagreen;
+}

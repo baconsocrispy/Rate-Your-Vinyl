@@ -1,5 +1,7 @@
 {% extends 'VinylCollection/base.html' %}
 
+{% load static %}
+
 {% block title %}Your Vinyl{% endblock %}
 
 {% block header %}Your Vinyl Collection{% endblock %}
@@ -8,7 +10,17 @@
 
 <ul>
     {% for release in releases %}
-        <li><a href="#">{{ release }}</a></li>
+        <li>
+            <div class="release-container">
+                <h1 class="release-header">
+                    <a href="#">{{ release }}</a>
+                </h1>
+                <ul>
+                    <li>Release Date: {{ release.release_date }}</li>
+                    <li>Label: {{ release.label }}</li>
+                </ul>
+            </div>
+        </li>
     {% endfor %}
 </ul>
 
