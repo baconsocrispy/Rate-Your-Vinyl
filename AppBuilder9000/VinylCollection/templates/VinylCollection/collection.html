@@ -9,7 +9,7 @@
 <div>
     {% for release in releases %}
         <div class="rls-container">
-            <a href="#" class="rls-link">{{ release }}</a><br>
+            <a href="../{{ release.pk }}/details/" class="rls-link">{{ release }}</a><br>
             <label>Release Date: </label><span>{{ release.release_date | date:"Y" }}</span><br>
             <label>Genre: </label><span>{{ release.genre}}</span><br>
             <label>Label: </label><span>{{ release.label}}</span><br>
