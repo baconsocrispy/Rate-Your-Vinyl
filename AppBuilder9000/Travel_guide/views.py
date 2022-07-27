@@ -3,7 +3,6 @@ from .models import Destination
 from .forms import DestinationForm
 import requests
 
-
 def travel_home(request):
     return render(request, 'Travel/Travel_home.html')
 
