@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ReleaseForm, ArtistForm
 from .models import Release, Artist
 
@@ -24,3 +24,11 @@ def collection(request):
         'releases': releases,
     }
     return render(request, 'VinylCollection/collection.html', context)
+
+def details(request, pk):
+    pk = int(pk)
+    release = get_object_or_404(Release, pk=pk)
+    context = {
+        'release': release
+    }
+    return render(request, 'VinylCollection/details.html', context)
