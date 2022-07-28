@@ -21,12 +21,11 @@ class ReleaseDeleteView(DeleteView):
 def home(request):
     return render(request, 'VinylCollection/home.html')
 
-# Album catalog number entry form
+# release catalog number entry form
 def add_album(request):
     return render(request, 'VinylCollection/add_album.html')
 
-
-# displays album info from discogs to ensure it's correct
+# displays release info from discogs to ensure it's correct
 def confirm_add(request):
     cat_number = request.POST['cat_number']
     release = get_release(cat_number)
@@ -39,7 +38,7 @@ def confirm_add(request):
     print(release)
     return render(request, 'VinylCollection/confirm_add.html', context)
 
-#auto-populates release form with data pulled from discogs
+# auto-populates release form with data pulled from discogs api
 def populate_form(release, blank_form):
     form = blank_form
     form.fields['title'].initial = release['title']
@@ -49,7 +48,6 @@ def populate_form(release, blank_form):
     form.fields['style'].initial = " ".join(release['style'])
     form.fields['label'].initial = release['label'][0]
     return form
-
 
 # pulls release from discogs api based on catalog number
 # and returns dictionary from parsed json
