@@ -45,4 +45,4 @@ def player_edit(request, pk):
             form.save()
             return redirect("blazerstats_players")
     content = {'form': form}
-    return render(request, 'BlazerStats/edit.html', content)
+    return render(request, 'BlazerStats/release_form.html', content)

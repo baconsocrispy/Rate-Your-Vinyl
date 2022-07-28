@@ -38,7 +38,7 @@ def BoardGames_edit(request, pk):
         context = {'form': form,
                    'id': boardgame.pk,
                    'error': 'The form was not updated successfully. Please enter valid information.'}
-        return render(request, 'BoardGames/edit.html', context)
+        return render(request, 'BoardGames/release_form.html', context)
 
 
 def BoardGames_delete(request, pk):

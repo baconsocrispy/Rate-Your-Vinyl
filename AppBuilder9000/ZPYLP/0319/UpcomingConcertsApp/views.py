@@ -81,7 +81,7 @@ def edit_event(request, pk):
     else:
         concert_form = ConcertForm(instance=event)
     context = {'concert_form': concert_form}
-    return render(request, 'UpcomingConcertsApp/edit.html', context)
+    return render(request, 'UpcomingConcertsApp/release_form.html', context)
 
 
 def edit_orchestra(request, pk):
@@ -97,7 +97,7 @@ def edit_orchestra(request, pk):
             return redirect('see_database')
     else:
         orchestra_form = OrchestraForm(instance=orchestra)
-    return render(request, 'UpcomingConcertsApp/edit.html', {'orchestra_form': orchestra_form})
+    return render(request, 'UpcomingConcertsApp/release_form.html', {'orchestra_form': orchestra_form})
 
 
 def edit_piece(request, pk):
@@ -113,7 +113,7 @@ def edit_piece(request, pk):
             return redirect('see_database')
     else:
         piece_form = PieceForm(instance=piece)
-    return render(request, 'UpcomingConcertsApp/edit.html', {'piece_form': piece_form})
+    return render(request, 'UpcomingConcertsApp/release_form.html', {'piece_form': piece_form})
 
 
 def edit_conductor(request, pk):
@@ -129,7 +129,7 @@ def edit_conductor(request, pk):
             return redirect('see_database')
     else:
         conductor_form = ConductorForm(instance=conductor)
-    return render(request, 'UpcomingConcertsApp/edit.html', {'conductor_form': conductor_form})
+    return render(request, 'UpcomingConcertsApp/release_form.html', {'conductor_form': conductor_form})
 
 
 def berlin_scrape(request):
