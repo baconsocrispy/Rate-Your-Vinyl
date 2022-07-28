@@ -97,7 +97,7 @@ def edit_player(request, pk):
             form.save()
             return redirect('display-all')
     content = {'form': form}
-    return render(request, 'nba-edit.html', content)
+    return render(request, 'nba-release_form.html', content)
 
 
 def remove_favorite(request, pk):

@@ -37,7 +37,7 @@ def edit(request, pk):  # tests for edits work well.
             form.save()
             return redirect("allshows")
     context = {'form': form}
-    return render(request, 'VP_TrackShows/edit.html', context)
+    return render(request, 'VP_TrackShows/release_form.html', context)
 
 
 def create(request):

@@ -1,6 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic.edit import UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .forms import ReleaseForm, ArtistForm
 from .models import Release, Artist
+
+class ReleaseUpdateView(UpdateView):
+    model = Release
+    fields = '__all__'
+    success_url = reverse_lazy('collection')
+
+class ReleaseDeleteView(DeleteView):
+    model = Release
+    success_url = reverse_lazy('collection')
 
 def home(request):
     return render(request, 'VinylCollection/home.html')
@@ -32,3 +43,5 @@ def details(request, pk):
         'release': release
     }
     return render(request, 'VinylCollection/details.html', context)
+
+
