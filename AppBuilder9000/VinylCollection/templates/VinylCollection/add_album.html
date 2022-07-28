@@ -1,0 +1,16 @@
+{% extends 'VinylCollection/base.html' %}
+
+{% block title %}Create Release{% endblock %}
+
+{% block header %}Add A Record To Your Collection Below{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'confirm_add' %}" method="POST">
+    {% csrf_token %}
+    <label for="cat_number">Enter your album's catalog number:</label>
+    <input type="text" name="cat_number">
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
