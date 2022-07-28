@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:pk>/details/', views.BucketList_details, name='BucketList_details'),
     path('<int:pk>/update/', views.BucketList_update, name='BucketList_update'),
     path('<int:pk>/delete/', views.BucketList_delete, name='BucketList_delete'),
+    path('api/', views.BucketList_api, name='BucketList_api'),
 ]
 
