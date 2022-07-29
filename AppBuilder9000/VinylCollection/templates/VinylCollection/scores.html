@@ -6,15 +6,15 @@
 
 {% block content %}
 
-<div>
+<ul>
     {% for release in releases %}
-        <div class="#">
-            <a href="../{{ release.pk }}/details/" class="rls-link">{{ release }}</a><br>
-            <label>Release Date: </label><span>{{ release.release_date | date:"Y" }}</span><br>
-            <label>Genre: </label><span>{{ release.genre}}</span><br>
-            <label>Label: </label><span>{{ release.label}}</span><br>
-        </div>
+        <li class="#">
+            <label>Title: </label><span>{{ release.title }}</span><br>
+            <label>Pitchfork Score: </label><span>{{ release.pf_rating }}</span>
+        </li>
     {% endfor %}
-</div>
+</ul>
+
+<h1>AVERAGE SCORE: {{ average_score.pf_rating__avg }}</h1>
 
 {% endblock %}
