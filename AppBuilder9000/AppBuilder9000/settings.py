@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'BucketList',
     'VinylCollection',
     'BookList',
+    'Travel_guide',
 ]
 
 MIDDLEWARE = [

@@ -53,6 +53,7 @@ urlpatterns = [
     path('BucketList/', include('BucketList.urls')),
     path('VinylCollection/', include('VinylCollection.urls')),
     path('BookList/', include('BookList.urls')),
+    path('Travel_guide', include('Travel_guide.urls')),
 ]
 
 #urlpatterns +=staticfiles_urlpatterns()
