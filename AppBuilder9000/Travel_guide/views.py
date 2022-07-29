@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Destination
 from .forms import DestinationForm
 import requests
@@ -13,6 +13,6 @@ def travel_create(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('../read')
+
     content = {'form': form}
     return render(request, 'Travel_create.html', content)
