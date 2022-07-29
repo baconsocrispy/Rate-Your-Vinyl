@@ -51,6 +51,7 @@ def populate_form(release, blank_form):
     form.fields['country'].initial = release['country']
     form.fields['style'].initial = " ".join(release['style'])
     form.fields['label'].initial = release['label'][0]
+    form.fields['pf_rating'].initial = get_score(release)
     return form
 
 # pulls release from discogs api based on catalog number
@@ -90,3 +91,36 @@ def details(request, pk):
     }
     return render(request, 'VinylCollection/details.html', context)
 
+def get_score(release):
+    page = get_pitchfork_review_page(release)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    p = soup.find('p') # score sometimes in the first 'p' element
+    span = soup.find('span', {'class': 'score'}) # score sometimes in span element named 'score'
+    score = test_elements_for_score(p, span)
+    return score
+
+def test_elements_for_score(p, span):
+    if span:
+        try:
+            return float(span.text)
+        except:
+            print('span is not a valid score')
+    try:
+        return float(p.text)
+    except:
+        print('p is not a valid score')
+
+def get_pitchfork_review_page(release):
+    release_text = clean_string(release['title'])
+    url = "https://pitchfork.com/reviews/albums/" + release_text
+    return requests.get(url)
+
+def clean_string(string):
+    word_list = string.split()
+    new_list = []
+    for word in word_list:
+        clean_word = "".join(filter(str.isalnum, word))
+        if clean_word:
+            new_list += [clean_word]
+    clean_str = "-".join(new_list)
+    return clean_str.lower()
