@@ -1,5 +1,4 @@
 import requests
-<<<<<<< HEAD
 from bs4 import BeautifulSoup
 # import discogs_client
 
