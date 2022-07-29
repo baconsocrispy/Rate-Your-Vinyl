@@ -91,5 +91,17 @@ def details(request, pk):
     return render(request, 'VinylCollection/details.html', context)
 
 def get_score(release):
-    search_text = release['title']
-    page = requests.get()
+    release_text = clean_string(release['title'])
+    url = "https://pitchfork.com/reviews/albums/" + release_text
+    page = requests.get(url)
+    print(page)
+
+def clean_string(string):
+    word_list = string.split()
+    new_list = []
+    for word in word_list:
+        clean_word = "".join(filter(str.isalnum, word))
+        if clean_word:
+            new_list += [clean_word]
+    clean_str = "-".join(new_list)
+    return clean_str.lower()
