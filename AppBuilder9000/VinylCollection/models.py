@@ -10,7 +10,7 @@ class Release(models.Model):
     country = models.CharField(max_length=50)
     style = models.CharField(max_length=50)
     label = models.CharField(max_length=50)
-    pf_rating = models.FloatField(null=True)
+    pf_rating = models.FloatField(null=True, blank=True)
 
     class Meta:
         ordering = ['title']

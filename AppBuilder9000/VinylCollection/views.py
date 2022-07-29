@@ -91,14 +91,23 @@ def details(request, pk):
     }
     return render(request, 'VinylCollection/details.html', context)
 
+# ------ PITCHFORK SCRAPING LOGIC BELOW --------
+
+# gets the review page, soupifies the response,
+# extracts elements that contain the score,
+# returns the score if one is found
 def get_score(release):
     page = get_pitchfork_review_page(release)
     soup = BeautifulSoup(page.content, 'html.parser')
     p = soup.find('p') # score sometimes in the first 'p' element
     span = soup.find('span', {'class': 'score'}) # score sometimes in span element named 'score'
     score = test_elements_for_score(p, span)
+    print(p) # included for Story 6 criteria
+    print(span) # included for Story 6 criteria
     return score
 
+# checks if the scrape actually pulled a score and,
+# if so, returns it.
 def test_elements_for_score(p, span):
     if span:
         try:
@@ -110,11 +119,13 @@ def test_elements_for_score(p, span):
     except:
         print('p is not a valid score')
 
+# compiles the elements of a pitchfork review url
 def get_pitchfork_review_page(release):
     release_text = clean_string(release['title'])
     url = "https://pitchfork.com/reviews/albums/" + release_text
     return requests.get(url)
 
+# formats title string for pitchfork review url
 def clean_string(string):
     word_list = string.split()
     new_list = []
