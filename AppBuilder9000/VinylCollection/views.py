@@ -47,9 +47,9 @@ def populate_form(release, blank_form):
     form = blank_form
     form.fields['title'].initial = release['title']
     form.fields['format'].initial = 'Vinyl'
-    form.fields['genre'].initial = " ".join(release['genre'])
+    form.fields['genre'].initial = ", ".join(release['genre'])
     form.fields['country'].initial = release['country']
-    form.fields['style'].initial = " ".join(release['style'])
+    form.fields['style'].initial = ", ".join(release['style'])
     form.fields['label'].initial = release['label'][0]
     form.fields['pf_rating'].initial = get_score(release)
     return form
