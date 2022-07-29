@@ -3,8 +3,10 @@ from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import ReleaseForm, ArtistForm
 from .models import Release, Artist
-import discogs_client
+from bs4 import BeautifulSoup
 import requests
+import pandas
+
 
 # my user token to access discogs API
 DISCOGS_TOKEN = "DBiUmQgyHHBGmXsybviPrgmVVSJmMDdhpxBAGwle"
@@ -31,9 +33,11 @@ def confirm_add(request):
     release = get_release(cat_number)
     blank_form = ReleaseForm()
     release_form = populate_form(release, blank_form)
+    score = get_score(release)
     context = {
         'release': release,
         'form': release_form,
+        'score': score,
     }
     print(release)
     return render(request, 'VinylCollection/confirm_add.html', context)
@@ -86,4 +90,6 @@ def details(request, pk):
     }
     return render(request, 'VinylCollection/details.html', context)
 
-
+def get_score(release):
+    search_text = release['title']
+    page = requests.get()
