@@ -48,23 +48,28 @@ print(release['country']) #string
 album = release['title']
 
 def get_score(release):
-    release_text = clean_string(release['title'])
-    url = "https://pitchfork.com/reviews/albums/" + release_text
-    page = requests.get(url)
+    page = get_pitchfork_review_page(release)
     soup = BeautifulSoup(page.content, 'html.parser')
-    p = soup.find('p')
-    span = soup.find('span', {'class': 'score'})
+    p = soup.find('p') # score sometimes in the first 'p' element
+    span = soup.find('span', {'class': 'score'}) # score sometimes in span element named 'score'
+    score = test_elements_for_score(p, span)
+    print(score)
+
+def test_elements_for_score(p, span):
     if span:
         try:
-            print(span.text)
             return float(span.text)
         except:
             print('span is not a valid score')
     try:
-        print(float(p.text))
         return float(p.text)
     except:
-        'p is not a valid score'
+        print('p is not a valid score')
+
+def get_pitchfork_review_page(release):
+    release_text = clean_string(release['title'])
+    url = "https://pitchfork.com/reviews/albums/" + release_text
+    return requests.get(url)
 
 def clean_string(string):
     word_list = string.split()
