@@ -3,8 +3,9 @@ from .models import Destination
 from .forms import DestinationForm
 import requests
 
+
 def travel_home(request):
-    return render(request, 'Travel/Travel_home.html')
+    return render(request, 'Travel_home.html')
 
 
 def travel_create(request):
@@ -14,4 +15,4 @@ def travel_create(request):
             form.save()
             return redirect('../read')
     content = {'form': form}
-    return render(request, 'Travel/Travel_create.html', content)
+    return render(request, 'Travel_create.html', content)

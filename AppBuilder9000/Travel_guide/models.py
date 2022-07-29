@@ -2,7 +2,7 @@
 from django.db import models
 
 # Models;
-class Destination(models.model):
+class Destination(models.Model):
     Country = models.CharField(max_length=35)
     Region = models.CharField(max_length=35)
     Description = models.CharField(max_length=50)
