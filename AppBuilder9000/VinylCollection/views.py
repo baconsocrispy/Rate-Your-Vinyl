@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import UpdateView, DeleteView
+from django.db.models import Avg
 from django.urls import reverse_lazy
 from .forms import ReleaseForm, ArtistForm
 from .models import Release, Artist
 from bs4 import BeautifulSoup
 import requests
-# import pandas
 
 
 # my user token to access discogs API
@@ -23,11 +23,11 @@ class ReleaseDeleteView(DeleteView):
 def home(request):
     return render(request, 'VinylCollection/home.html')
 
-# release catalog number entry form
+# gathers vinyl catalog number from user
 def add_album(request):
     return render(request, 'VinylCollection/add_album.html')
 
-# displays release info from discogs to ensure it's correct
+# displays release info from discogs/pitchfork to ensure it's correct
 def confirm_add(request):
     cat_number = request.POST['cat_number']
     release = get_release(cat_number)
@@ -42,7 +42,7 @@ def confirm_add(request):
     print(release)
     return render(request, 'VinylCollection/confirm_add.html', context)
 
-# auto-populates release form with data pulled from discogs api
+# auto-populates release form with data pulled from discogs api/pitchfork
 def populate_form(release, blank_form):
     form = blank_form
     form.fields['title'].initial = release['title']
@@ -82,6 +82,15 @@ def collection(request):
     }
     return render(request, 'VinylCollection/collection.html', context)
 
+def display_scores(request):
+    releases_with_scores = Release.objects.filter(pf_rating__gt=0).order_by('-pf_rating')
+    average_score = releases_with_scores.aggregate(Avg('pf_rating'))
+    context = {
+        'releases': releases_with_scores,
+        'average_score': average_score,
+    }
+    return render(request, 'VinylCollection/scores.html', context)
+
 # displays individual release information
 def details(request, pk):
     pk = int(pk)
@@ -91,7 +100,7 @@ def details(request, pk):
     }
     return render(request, 'VinylCollection/details.html', context)
 
-# ------ PITCHFORK SCRAPING LOGIC BELOW --------
+# ---v--- PITCHFORK SCRAPING LOGIC BELOW ---v---
 
 # gets the review page, soupifies the response,
 # extracts elements that contain the score,
