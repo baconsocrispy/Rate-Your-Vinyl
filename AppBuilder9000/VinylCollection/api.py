@@ -1,4 +1,5 @@
 import requests
+<<<<<<< HEAD
 from bs4 import BeautifulSoup
 # import discogs_client
 
@@ -91,3 +92,9 @@ get_score(release)
 
 
 
+=======
+
+response = requests.get("https://api.open-notify.org/this-api-doesnt-exist")
+
+print(response.status_code)
+>>>>>>> master
