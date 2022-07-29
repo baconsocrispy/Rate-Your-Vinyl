@@ -65,6 +65,8 @@ INSTALLED_APPS = [
     'Marvel',
     'Cryptocurrency',
     'BucketList',
+    'VinylCollection',
+    'BookList',
     'Travel_guide',
 ]
 

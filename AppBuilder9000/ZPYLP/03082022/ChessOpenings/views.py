@@ -52,9 +52,9 @@ def game_edit(request, pk):
         context = {'form': form,
                    'game': details}
 
-        return render(request, "ChessOpenings/edit.html", context)
+        return render(request, "ChessOpenings/release_form.html", context)
 
-    return render(request, "ChessOpenings/edit.html", context)
+    return render(request, "ChessOpenings/release_form.html", context)
 
 
 def delete(pk):

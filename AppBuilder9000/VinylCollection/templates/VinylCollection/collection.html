@@ -1,0 +1,20 @@
+{% extends 'VinylCollection/base.html' %}
+
+{% block title %}Your Vinyl{% endblock %}
+
+{% block header %}Your Vinyl Collection{% endblock %}
+
+{% block content %}
+
+<div>
+    {% for release in releases %}
+        <div class="rls-container">
+            <a href="../{{ release.pk }}/details/" class="rls-link">{{ release }}</a><br>
+            <label>Release Date: </label><span>{{ release.release_date | date:"Y" }}</span><br>
+            <label>Genre: </label><span>{{ release.genre}}</span><br>
+            <label>Label: </label><span>{{ release.label}}</span><br>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

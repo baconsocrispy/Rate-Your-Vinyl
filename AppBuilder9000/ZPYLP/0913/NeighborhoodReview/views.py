@@ -91,7 +91,7 @@ def edit_neighborhood(request, pk):
             form.save()
             return redirect('../neighborhood_item_details')
     content = {'form': form}
-    return render(request, 'NeighborhoodReview/edit.html', content)
+    return render(request, 'NeighborhoodReview/release_form.html', content)
 
 
 # deletes neighborhood, then sends you to confirmation page where neighborhood can be perminately deleted.

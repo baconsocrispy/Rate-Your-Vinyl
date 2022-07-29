@@ -3,7 +3,7 @@
 <html lang="en" class="bg_img">
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'BucketList/css/BucketList.css' %}">
-        <title> Summer Bucket List </title>
+        <title> 2022 Bucket List </title>
     </head>
     <body>
         <div class="page_container">
@@ -11,9 +11,10 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="{% url 'BucketList_create' %}" >Create</a></li>
                 <li><a href="{% url 'BucketList_list' %}">List</a></li>
+                <li><a href="{% url 'BucketList_api' %}">API</a></li>
             </ul>
             <header class="header_title">
-                Summer Bucket List
+                2022 Bucket List
             </header>
         </div>
 
@@ -23,7 +24,7 @@
 
         <section id="block-footer">
             <p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
-            <p id="footer-left">&copy;2022 - Summer Bucket List</p>
+            <p id="footer-left">&copy;2022 - Bucket List</p>
         </section>
     </body>
 

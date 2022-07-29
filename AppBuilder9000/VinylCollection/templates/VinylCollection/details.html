@@ -1,0 +1,20 @@
+{% extends 'VinylCollection/base.html' %}
+
+{% block title %}{{ release }}{% endblock %}
+
+{% block header %}Details For: {{ release }}{% endblock %}
+
+{% block content %}
+<div>
+    <ul>
+        <li>Release Year: {{ release.release_date | date:"Y" }}</li>
+        <li>Genre: {{ release.genre }}</li>
+        <li>Style: {{ release.style }}</li>
+        <li>Country: {{ release.country }}</li>
+        <li>Label: {{ release.label }}</li>
+        <li>Format: {{ release.format }}</li>
+    </ul>
+    <button><a href="../edit/">Edit</a></button>
+    <button><a href="../delete/">Delete</a></button>
+</div>
+{% endblock %}
