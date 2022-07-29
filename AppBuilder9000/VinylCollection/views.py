@@ -23,10 +23,6 @@ class ReleaseDeleteView(DeleteView):
 def home(request):
     return render(request, 'VinylCollection/home.html')
 
-# gathers vinyl catalog number from user
-def add_album(request):
-    return render(request, 'VinylCollection/add_album.html')
-
 # displays release info from discogs/pitchfork to ensure it's correct
 def confirm_add(request):
     cat_number = request.POST['cat_number']
