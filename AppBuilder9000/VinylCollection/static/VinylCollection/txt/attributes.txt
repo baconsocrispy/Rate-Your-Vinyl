@@ -1,5 +1,4 @@
 Issues to fix:
-Add album art
 Fix release date issue
 Duplicate entry issue
 How to pull older pitchfork reviews (number prefix in url)
@@ -11,4 +10,16 @@ add sort by artist, date, genre, title, score features
 add search
 Style the scores page
 Add tiered 'taste' levels
+Use Javascript for confirm delete instead of separate page
+Add tracklists to details page
+Add get random album/song features
+
+AJAX/JAVASCRIPT - Use to submit form from homepage without refresh
+
+PITCHFORK - Use search term query to get review link: <a> class="review__link", need to pull href. solves
+    for older reviews.
+    Check that album name is in url
+    Match artist from review page for validation?
+
+
 

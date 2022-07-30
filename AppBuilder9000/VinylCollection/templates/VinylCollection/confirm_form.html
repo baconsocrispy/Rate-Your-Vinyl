@@ -1,14 +1,7 @@
-{% extends 'VinylCollection/base.html' %}
-
-{% block title %}Create Release{% endblock %}
-
-{% block header %}Add A Record To Your Collection Below{% endblock %}
-
-{% block content %}
-
-<div class="form-wrapper">
+<div id="confirm-release-form">
+    <img src="{{ release.cover_image }}" id="confirm-cover-image">
     <form method="POST" action="{% url 'createRelease' %}" id="release-form">
-        <div>
+        <div id="confirm-form">
             {% csrf_token %}
             {{ form.non_field_errors }}
             {{ form.as_p }}
@@ -19,5 +12,3 @@
         </div>
     </form>
 </div>
-
-{% endblock %}

@@ -45,7 +45,16 @@ nav > a:hover {
     opacity: 75%;
     color: white;
 }
+#confirm-form {
+    display: none;
+}
 
+#confirm-release-form {
+    position: relative;
+    width: 33%;
+    border: 1px solid black;
+    padding: 20px;
+}
 
 #page-container {
     position: relative; /* allows child content to be set absolutely */
@@ -78,20 +87,63 @@ nav > a:hover {
     width: 50%;
 }
 
+.confirm-release-widget {
+    position: relative;
+    width: 33%;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#confirm-cover-image {
+    width: 25vw;
+}
+
+.collection-container {
+    position: absolute;
+    left: 7.5%;
+}
 /* album collection display containers */
 .rls-container  {
+    position: relative;
     display: block;
     float: left;
     width: 10%;
-    border: 1px solid black;
     margin: 20px;
     width: 10rem;
     height: 10rem;
     overflow-wrap: break-word;
+    transition: transform .5s; /* w/transform - creates smooth scaling animation */
+    transform: origin 50% 50%;
+    background-size: 10rem; /* sets background image to same size as container */
 }
 
-.rls-link {
-    text-decoration: none;
-    color: seagreen;
-    font-size: 1rem;
+.rls-container:hover {
+    transform: scale(1.1);
 }
+
+.rls-text-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity .5s;
+    color: white;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+.rls-text-overlay:hover {
+    background: black;
+    opacity: .6;
+}
+.rls-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+

@@ -6,18 +6,6 @@
 
 {% block content %}
 
-<div class="form-wrapper">
-    <form method="POST" action="{% url 'createRelease' %}" id="release-form">
-        <div>
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            {{ form.as_p }}
-        </div>
-        <div>
-            <input type="submit" value="Add Release" name="save_item">
-            <a href="{% url 'VinylCollection_home' %}"><button type="button" value="cancel">Cancel</button></a>
-        </div>
-    </form>
-</div>
+    {% include './confirm_form.html' %}
 
 {% endblock %}
