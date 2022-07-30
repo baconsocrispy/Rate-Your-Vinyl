@@ -12,7 +12,7 @@ def travel_create(request):
     form = DestinationForm(data=request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('Travelguide_base.html')
+        return redirect('Travel_read')
     else:
         print(form.errors)
         form = DestinationForm()
@@ -25,3 +25,9 @@ def travel_create(request):
 def travel_read(request):
     d = Destination.objects.all()
     return render(request, 'Travel_read.html', {'Destination': d})
+
+
+def travel_details(request, pk):
+    entry = get_object_or_404(Destination, pk=pk)
+    content = {'Destination': entry}
+    return render(request, 'Travel_details.html', content)
