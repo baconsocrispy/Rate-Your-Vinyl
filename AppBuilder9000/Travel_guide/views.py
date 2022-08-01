@@ -10,9 +10,18 @@ def travel_home(request):
 
 def travel_create(request):
     form = DestinationForm(data=request.POST or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
+    if form.is_valid():
+        form.save()
+        return redirect('Travelguide_base.html')
+    else:
+        print(form.errors)
+        form = DestinationForm()
+    context = {
+        'form': form,
+    }
+    return render(request, "Travel_create.html", context)
 
-    content = {'form': form}
-    return render(request, 'Travel_create.html', content)
+
+def travel_read(request):
+    d = Destination.objects.all()
+    return render(request, 'Travel_read.html', {'Destination': d})

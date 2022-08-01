@@ -3,5 +3,6 @@ from .import views
 
 urlpatterns = [
     path('', views.travel_home, name='Travel_home'),
-    path('create/', views.travel_create, name='Travel_create')
+    path('create/', views.travel_create, name='Travel_create'),
+    path('read/', views.travel_read, name='Travel_read'),
 ]
