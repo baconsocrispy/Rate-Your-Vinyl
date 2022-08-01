@@ -15,7 +15,7 @@
                 </tr>
                  {% for D in Destination %}
                 <tr>
-                    <td><a href="#">{{ D.Country }}</a></td>
+                    <td><a href="{% url 'Travel_details' D.id %}">{{ D.Country }}</a></td>
                     <td>{{ D.Region }}</td>
                     <td>{{ D.Description }}</td>
                 </tr>
