@@ -11,6 +11,7 @@ class Release(models.Model):
     style = models.CharField(max_length=50)
     label = models.CharField(max_length=50)
     pf_rating = models.FloatField(null=True, blank=True)
+    cover_image = models.URLField(max_length=200)
 
     class Meta:
         ordering = ['title']

@@ -6,15 +6,16 @@
 
 {% block content %}
 
-<ul>
+<ul class="scores-wrap">
     {% for release in releases %}
-        <li class="#">
-            <label>Title: </label><span>{{ release.title }}</span><br>
+        <li class="score-container">
+            <img src="{{ release.cover_image }}" class="score-image">
+            <span>{{ release.title }}</span><br>
             <label>Pitchfork Score: </label><span>{{ release.pf_rating }}</span>
         </li>
     {% endfor %}
 </ul>
 
-<h1>AVERAGE SCORE: {{ average_score.pf_rating__avg }}</h1>
+<h1>AVERAGE SCORE: {{ average_score }}</h1>
 
 {% endblock %}

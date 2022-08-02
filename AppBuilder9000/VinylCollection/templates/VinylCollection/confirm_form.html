@@ -1,0 +1,16 @@
+<div id="confirm-release-form">
+    <img src="{{ release.cover_image }}" id="confirm-cover-image">
+    <form method="POST" action="{% url 'createRelease' %}" id="release-form">
+        <div id="confirm-form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {{ form.as_p }}
+        </div>
+        <div>
+            <input type="submit" value="Add Release" name="save_item" class="site-btn">
+            <button type="button" value="cancel" class="site-btn">
+                <a href="{% url 'VinylCollection_home' %}">Cancel</a>
+            </button>
+        </div>
+    </form>
+</div>
