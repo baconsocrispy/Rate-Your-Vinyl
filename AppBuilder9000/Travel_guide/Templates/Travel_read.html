@@ -1,19 +1,25 @@
-{% extends "journal_base.html" %}
+{% extends "Travelguide_base.html" %}
+
+{% block title %}Travel_guide{% endblock %}
+
+{% block header %}Current Destination Listing{% endblock %}
 
 {% block content %}
-<h1>Read</h1>
-<table>
-    <tr>
-        <th>Country</a></th>
-        <th>Description</a></th>
-    </tr>
-    {% for e in entry %}
-    <tr>
-        <td><a href="{% url 'journal_details' e.id %}">{{ e.title }}</a></td>
-        <td>{{ e.date }}</td>
-    </tr>
-    {% endfor %}
-</table>
-<button><a href="{% url 'journal_create' %}">Add Entry</a></button>
 
+
+            <table>
+                 <tr>
+                    <th>Country</th>
+                    <th>Region</th>
+                    <th>Description</th>
+                </tr>
+                 {% for D in Destination %}
+                <tr>
+                    <td><a href="{% url 'Travel_details' D.id %}">{{ D.Country }}</a></td>
+                    <td>{{ D.Region }}</td>
+                    <td>{{ D.Description }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+<button><a href="{% url 'Travel_create' %}">Add Destination</a></button>
 {% endblock %}
