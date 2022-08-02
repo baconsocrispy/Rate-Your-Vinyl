@@ -13,4 +13,6 @@ urlpatterns = [
     path('<int:pk>/delete/', ReleaseDeleteView.as_view(), name='delete'),
     path('confirm_add', views.confirm_add, name='confirm_add'),
     path('scores/', views.scores, name='scores'),
+    path('confirm_release', views.confirm_release, name='confirm_release'),
+    path('test/', views.get_discogs_and_pitchfork_data, name='test'),
 ]

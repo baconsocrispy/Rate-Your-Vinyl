@@ -13,8 +13,6 @@ def get_score(release):
     p = soup.find('p') # score sometimes in the first 'p' element
     span = soup.find('span', {'class': 'score'}) # score sometimes in span element named 'score'
     score = test_elements_for_score(p, span)
-    print(p) # included for Story 6 criteria
-    print(span) # included for Story 6 criteria
     return score
 
 # ------------- HELPER METHODS -------------
@@ -47,5 +45,5 @@ def test_elements_for_score(p, span):
     try:
         return float(p.text)
     except:
-        print('p is not a valid score')
+        print('No Pitchfork score found')
 

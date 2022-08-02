@@ -45,6 +45,42 @@ nav > a:hover {
     opacity: 75%;
     color: white;
 }
+
+/* styling for all buttons across the site */
+.site-btn {
+    margin: 20px;
+    width: 100px;
+    display: block;
+    float: left;
+    background: seagreen;
+    opacity: .75;
+    color: white;
+}
+
+.site-btn:hover {
+    background: white;
+    opacity: .75;
+    color: seagreen;
+    cursor: pointer;
+}
+
+.site-btn> a:hover {
+    color: seagreen;
+}
+
+#add-album-btn {
+    position: absolute;
+    left: 50%;
+}
+
+.site-btn > a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin: 0;
+}
+
+/* */
 #confirm-form {
     display: none;
 }
@@ -52,8 +88,12 @@ nav > a:hover {
 #confirm-release-form {
     position: relative;
     width: 33%;
-    border: 1px solid black;
-    padding: 20px;
+    left: 33%;
+}
+
+#confirm-cover-image {
+    display: block;
+    width: 100%;
 }
 
 #page-container {
@@ -102,6 +142,23 @@ nav > a:hover {
     position: absolute;
     left: 7.5%;
 }
+
+/* details view styling */
+.details-wrap {
+    position: relative;
+    border: 1px solid black;
+    width: 33%;
+    left: 33%;
+}
+
+.details-image {
+    width: 100%;
+}
+
+.detail {
+    display: block;
+}
+
 /* album collection display containers */
 .rls-container  {
     position: relative;
@@ -145,5 +202,20 @@ nav > a:hover {
     height: 100%;
 }
 
+.scores-wrap {
+    position: relative;
+    border: 1px solid black;
+    width: 50%;
+    left: 25%;
+    height: 60vh;
+    overflow: scroll;
 
+}
+.score-container {
+    display: block;
+}
 
+.score-image {
+    display: block;
+    height: 10vh;
+}

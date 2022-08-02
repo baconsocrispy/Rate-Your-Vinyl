@@ -7,8 +7,10 @@
             {{ form.as_p }}
         </div>
         <div>
-            <input type="submit" value="Add Release" name="save_item">
-            <a href="{% url 'VinylCollection_home' %}"><button type="button" value="cancel">Cancel</button></a>
+            <input type="submit" value="Add Release" name="save_item" class="site-btn">
+            <button type="button" value="cancel" class="site-btn">
+                <a href="{% url 'VinylCollection_home' %}">Cancel</a>
+            </button>
         </div>
     </form>
 </div>

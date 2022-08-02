@@ -10,8 +10,8 @@
     {% csrf_token %}
     {{ form.as_p }}
     <p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm">
-    <button><a href="{% url 'collection' %}">Cancel</a></button>
+    <input type="submit" value="Confirm" class="site-btn">
+    <button class="site-btn"><a href="{% url 'collection' %}">Cancel</a></button>
 </form>
 
 {% endblock %}

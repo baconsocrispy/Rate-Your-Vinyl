@@ -13,8 +13,10 @@ Add tiered 'taste' levels
 Use Javascript for confirm delete instead of separate page
 Add tracklists to details page
 Add get random album/song features
+Handle for when invalid catalog number is entered
 
-AJAX/JAVASCRIPT - Use to submit form from homepage without refresh
+
+AJAX/JAVASCRIPT - Use to submit form from homepage without refresh/ render view inside jquery modal 
 
 PITCHFORK - Use search term query to get review link: <a> class="review__link", need to pull href. solves
     for older reviews.
