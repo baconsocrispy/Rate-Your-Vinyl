@@ -29,5 +29,25 @@ def travel_read(request):
 
 def travel_details(request, pk):
     entry = get_object_or_404(Destination, pk=pk)
-    content = {'Destination': entry}
+    content = {'entry': entry}
     return render(request, 'Travel_details.html', content)
+
+
+def travel_edit(request, pk):
+    entry = get_object_or_404(Destination, pk=pk)
+    form = DestinationForm(data=request.POST or None, instance=entry)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('Travel_details')
+    content = {'form': form, 'entry': entry}
+    return render(request, 'Travel_edit.html', content)
+
+
+def travel_delete(request, pk):
+    entry = get_object_or_404(Destination, pk=pk)
+    if request.method == 'POST':
+        entry.delete()
+        return redirect('Travel_details')
+    content = {'entry': entry}
+    return render(request, 'Travel_delete.html', content)
