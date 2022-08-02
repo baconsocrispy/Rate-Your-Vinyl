@@ -19,3 +19,11 @@ def Book_Entry(request):
             return redirect('BookList_Home')
     content = {'form': form}
     return render(request, 'BookList/BookList_Create.html', content)
+
+
+# Story #3: Display all items from database ----------------------------------------------------------------------------
+
+def BookList_Display(request):
+    entry = BookEntry.BookEntrys.all()
+    content = {'entry': entry}
+    return render(request, 'BookList/BookList_Display.html', content)
