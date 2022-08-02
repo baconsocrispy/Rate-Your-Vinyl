@@ -1,0 +1,10 @@
+{% extends "BookList_Base.html" %}
+
+{% block content %}
+<h1>Full Details</h1>
+{% for e in entry %}
+<h2>{{ e.title }} -- {{ e.author }}</h2>
+<p>{{ e.review }} -- {{ e.date }}</p>
+{% endfor %}
+<button><a href="{% url 'BookList_Create' %}">Add New Book</a></button>
+{% endblock %}

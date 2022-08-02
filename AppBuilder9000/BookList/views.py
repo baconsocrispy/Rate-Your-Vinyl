@@ -27,3 +27,11 @@ def BookList_Display(request):
     entry = BookEntry.BookEntrys.all()
     content = {'entry': entry}
     return render(request, 'BookList/BookList_Display.html', content)
+
+# Story #4: Details page -----------------------------------------------------------------------------------------------
+
+def BookList_Details(request):
+    entry = BookEntry.BookEntrys.all()
+    content = {'entry': entry}
+    return render(request, 'BookList/BookList_Details.html', content)
+
