@@ -27,3 +27,31 @@ def BookList_Display(request):
     entry = BookEntry.BookEntrys.all()
     content = {'entry': entry}
     return render(request, 'BookList/BookList_Display.html', content)
+
+# Story #4: Details page -----------------------------------------------------------------------------------------------
+
+def BookList_Details(request, pk):
+    entry = get_object_or_404(BookEntry, pk=pk)
+    content = {'entry': entry}
+    return render(request, 'BookList/BookList_Details.html', content)
+
+
+# Story #5: Edit and Delete Functions ----------------------------------------------------------------------------------
+
+def BookList_Update(request, pk):
+    entry = get_object_or_404(BookEntry, pk=pk)
+    form = EntryForm(data=request.POST or None, instance=entry)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('../../read')
+    content = {'form': form, 'entry': entry}
+    return render(request, 'BookList/BookList_Update.html', content)
+
+def BookList_Delete(request, pk):
+    entry = get_object_or_404(BookEntry, pk=pk)
+    if request.method == 'POST':
+        entry.delete()
+        return redirect('../../read')
+    content = {'entry': entry}
+    return render(request, 'BookList/BookList_Delete.html', content)
