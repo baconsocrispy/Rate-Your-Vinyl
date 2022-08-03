@@ -1,0 +1,27 @@
+Issues to fix:
+Fix release date issue
+Duplicate entry issue
+How to pull older pitchfork reviews (number prefix in url)
+Add statistics widget to homepage
+Have confirm release info appear on homepage rather than separate page
+Make confirm info uneditable (Should look like album info on collection page)
+Add artist logic
+add sort by artist, date, genre, title, score features
+add search
+Style the scores page
+Add tiered 'taste' levels
+Use Javascript for confirm delete instead of separate page
+Add tracklists to details page
+Add get random album/song features
+Handle for when invalid catalog number is entered
+
+
+AJAX/JAVASCRIPT - Use to submit form from homepage without refresh/ render view inside jquery modal 
+
+PITCHFORK - Use search term query to get review link: <a> class="review__link", need to pull href. solves
+    for older reviews.
+    Check that album name is in url
+    Match artist from review page for validation?
+
+
+
