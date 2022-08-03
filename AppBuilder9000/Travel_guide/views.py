@@ -39,7 +39,7 @@ def travel_edit(request, pk):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('Travel_details')
+            return redirect('Travel_read')
     content = {'form': form, 'entry': entry}
     return render(request, 'Travel_edit.html', content)
 
@@ -48,6 +48,6 @@ def travel_delete(request, pk):
     entry = get_object_or_404(Destination, pk=pk)
     if request.method == 'POST':
         entry.delete()
-        return redirect('Travel_details')
+        return redirect('Travel_read')
     content = {'entry': entry}
     return render(request, 'Travel_delete.html', content)
