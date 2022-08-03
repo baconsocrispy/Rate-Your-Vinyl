@@ -11,7 +11,14 @@ import datetime
 
 # renders homepage
 def home(request):
-    return render(request, 'VinylCollection/home.html')
+    if request.method == 'POST':
+        form = ReleaseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('collection')
+    else:
+        form = ReleaseForm()
+    return render(request, 'VinylCollection/home.html', {'form': form})
 
 # renders collection page
 def collection(request):
@@ -107,22 +114,12 @@ def populate_form(release, blank_form):
     form.fields['cover_image'].initial = release['cover_image']
     return form
 
-def confirm_release(request):
-    if request.is_ajax and request.method == 'POST':
-        form = ReleaseForm(request.POST)
-        if form.is_valid():
-            ser_form = serializers.serialize('json', [ form, ])
-            return JsonResponse({'form': form}, status=200)
-        else:
-            return JsonResponse({'error': form.errors}, status=400)
-    return JsonResponse({'error': ''}, status=400)
-
 # gets discogs info as json
 # scrapes pitchfork score from website
 # adds score to discogs json
 # returns json
 def get_discogs_and_pitchfork_data(request):
-    cat_number = request.POST['cat_number']
+    cat_number = request.GET['cat_number']
     release_json = get_discogs_data(cat_number)
     pitchfork_score = get_score(release_json)
     release_json['pitchfork_score'] = pitchfork_score
@@ -142,7 +139,7 @@ def discogs_request(cat_number):
     url = discogs_url(cat_number, DISCOGS_TOKEN)
     return requests.get(url)
 
-# assembles url for discogs request using the
+# assembles and returns url for discogs request using the
 # catalog number and user token
 def discogs_url(cat_number, token):
     url = "https://api.discogs.com/database/search?q=" \

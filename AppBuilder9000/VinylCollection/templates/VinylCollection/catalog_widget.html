@@ -1,5 +1,5 @@
 <div id="widget-wrap">
-    <form method="POST" id="catalog-widget" action="{% url 'confirm_add' %}">
+    <form method="GET" id="catalog-widget" action="{% url 'get_album' %}">
         {% csrf_token %}
         <label for="cat_number">Catalog Number:</label>
         <input type="text" name="cat_number" id="cat_number">
