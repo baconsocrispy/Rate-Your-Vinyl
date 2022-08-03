@@ -5,12 +5,12 @@ $(document).ready(function() {
     // AJAX method to get discogs/pitchfork data as json
     // without page refresh
     $('#catalog-widget').submit(function(event) {
-        event.preventDefault();
-        $.ajax({
+        event.preventDefault(); // this prevents page-refresh
+        $.ajax({ // jquery ajax function
             url: this.action,
             type: this.method,
-            data: {cat_number: $('#cat_number').val()},
-            dataType: 'json',
+            data: {cat_number: $('#cat_number').val()}, // data sent with request
+            dataType: 'json', // type of data structure expected from server
         }).done(function(json) {
             console.log(json);
             populateForm(json);
@@ -20,8 +20,11 @@ $(document).ready(function() {
 });
 
 function populateForm(json) {
+   // Django auto-sets form ids to 'id_[field name]'
+   // jquery syntax ($('#elementId').value wasn't working here
+   // need to figure out release_date issues
    document.getElementById('id_title').value = json['title']
-   document.getElementById('id_format').value = json['format']
+   document.getElementById('id_format').value = json['format'][0]
    document.getElementById('id_genre').value = json['genre']
    document.getElementById('id_country').value = json['country']
    document.getElementById('id_style').value = json['style']
