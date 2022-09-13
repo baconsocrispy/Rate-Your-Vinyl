@@ -1,5 +1,0 @@
-from django.apps import AppConfig
-
-
-class RockConfig(AppConfig):
-    name = 'Rock'

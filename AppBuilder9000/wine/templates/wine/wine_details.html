@@ -1,8 +1,0 @@
-{% extends "wine_base.html" %}
-
-{% block content %}
-<h3>{{ entry.type }} - {{ entry.varietal }}</h3>
-<p>{{ entry.region }}</p>
-<button><a href="{% url 'wine_update' entry.id %}">Update Entry</a></button>
-
-{% endblock %}
